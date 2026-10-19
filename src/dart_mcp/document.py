@@ -49,11 +49,15 @@ _ENTITY_MAP = {
 _ENTITY_RE = re.compile("|".join(re.escape(k) for k in _ENTITY_MAP))
 
 BLOCK_TAGS = {
-    "DOCUMENT", "DOCUMENT-NAME", "COMPANY-NAME", "FORMULA-VERSION", "BODY",
-    "SECTION", "LIBRARY", "COVER", "COVER-TITLE", "P", "DIV", "LI", "UL", "OL",
-    "IMAGE", "SUMMARY", "CORRECTION", "DATE",
+    "DOCUMENT", "COMPANY-NAME", "BODY", "SECTION", "LIBRARY", "COVER",
+    "P", "DIV", "LI", "UL", "OL", "IMAGE", "IMG-CAPTION", "CORRECTION", "DATE", "TABLE-GROUP",
 }
-CELL_TAGS = {"TD", "TE", "TH"}
+# 문서 메타데이터: 본문 텍스트가 아니므로 출력하지 않음
+SKIP_TAGS = {"FORMULA-VERSION", "SUMMARY", "EXTRACTION"}
+# 문서 제목급 → "# " 헤딩
+H1_TAGS = {"DOCUMENT-NAME", "COVER-TITLE"}
+# TD: 일반 셀, TH: 머리글 셀, TE: 코드(ACODE) 값 셀, TU: 단위/코드 값 셀(AUNITVALUE)
+CELL_TAGS = {"TD", "TE", "TH", "TU"}
 ROW_TAGS = {"TR"}
 
 
@@ -160,10 +164,18 @@ class _Renderer:
                 self.buf.append(el.tail)
             return
 
-        if tag == "TITLE":
+        if tag in SKIP_TAGS:
+            pass
+        elif tag in H1_TAGS:
+            title = _norm_inline(self._text_of(el))
+            if title:
+                self.buf.append(f"\n\n# {title}\n\n")
+        elif tag == "TITLE":
             title = _norm_inline(self._text_of(el))
             if title:
                 self.buf.append(f"\n\n## {title}\n\n")
+        elif tag == "IMG":
+            self.buf.append("\n[이미지]\n")
         elif tag == "TABLE":
             self.buf.append("\n\n" + self._render_table(el) + "\n\n")
         elif tag in ("BR", "PGBRK"):
@@ -195,22 +207,45 @@ class _Renderer:
                         yield tr
             # COLGROUP/COL/CAPTION 등은 무시 (태그 이름만 seen_tags에 기록)
 
+    @staticmethod
+    def _span(cell: etree._Element, name: str) -> int:
+        try:
+            return max(int(cell.get(name) or cell.get(name.lower()) or 1), 1)
+        except ValueError:
+            return 1
+
     def _render_table(self, table: etree._Element) -> str:
+        """격자 방식으로 배치: ROWSPAN이 차지한 칸은 다음 행에서 빈 셀로 건너뛴다."""
         rows: list[list[str]] = []
+        # 열 인덱스 → 앞 행의 ROWSPAN 때문에 아직 점유 중인 남은 행 수
+        occupied: dict[int, int] = {}
         for tr in self._iter_rows(table):
             cells: list[str] = []
+            col = 0
+
+            def skip_occupied() -> None:
+                nonlocal col
+                while occupied.get(col, 0) > 0:
+                    occupied[col] -= 1
+                    cells.append("")
+                    col += 1
+
             for cell in tr:
                 ctag = self._tag(cell)
                 if ctag not in CELL_TAGS:
                     continue
+                skip_occupied()
                 text = _norm_inline(self._text_of(cell)).replace("|", "\\|")
+                colspan = self._span(cell, "COLSPAN")
+                rowspan = self._span(cell, "ROWSPAN")
                 cells.append(text)
-                try:
-                    span = int(cell.get("COLSPAN") or cell.get("colspan") or 1)
-                except ValueError:
-                    span = 1
-                cells.extend([""] * max(span - 1, 0))
-            if cells:
+                cells.extend([""] * (colspan - 1))
+                if rowspan > 1:
+                    for c in range(col, col + colspan):
+                        occupied[c] = rowspan - 1
+                col += colspan
+            skip_occupied()  # 행 끝에 남은 점유 칸 소진
+            if any(cells):
                 rows.append(cells)
 
         if not rows:

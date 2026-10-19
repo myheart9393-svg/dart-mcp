@@ -66,3 +66,28 @@ def test_encoding_declaration_is_respected_with_cp949_fallback():
     # 선언이 거짓(utf-8이라 적혀 있지만 실제 cp949)인 경우 -> 폴백
     lying = '<?xml version="1.0" encoding="utf-8"?><DOCUMENT><P>한글</P></DOCUMENT>'.encode("cp949")
     assert "한글" in parse_dart_xml(lying)
+
+
+ROWSPAN_SAMPLE = """<?xml version="1.0" encoding="utf-8"?>
+<DOCUMENT>
+<DOCUMENT-NAME ACODE="11011">사업보고서</DOCUMENT-NAME>
+<FORMULA-VERSION ADATE="20241231">6.0</FORMULA-VERSION>
+<SUMMARY><EXTRACTION ACODE="LINK_FLAG">C</EXTRACTION></SUMMARY>
+<BODY>
+<TABLE>
+<TR><TD ROWSPAN="2">사업연도</TD><TU AUNIT="PERIODFROM" AUNITVALUE="20240101">2024년 01월 01일</TU><TD>부터</TD></TR>
+<TR><TU AUNIT="PERIODTO" AUNITVALUE="20241231">2024년 12월 31일</TU><TD>까지</TD></TR>
+<TR><TD>비고</TD><TD COLSPAN="2">-</TD></TR>
+</TABLE>
+</BODY>
+</DOCUMENT>
+"""
+
+
+def test_rowspan_and_tu_cells_and_metadata_skipped():
+    md = parse_dart_xml(ROWSPAN_SAMPLE.encode("utf-8"))
+    assert "# 사업보고서" in md.splitlines()
+    assert "6.0" not in md and "LINK_FLAG" not in md and "\nC\n" not in md  # 메타데이터 제외
+    assert "| 사업연도 | 2024년 01월 01일 | 부터 |" in md  # TU가 셀로 인식됨
+    assert "| | 2024년 12월 31일 | 까지 |" in md  # ROWSPAN 칸은 빈 셀로 유지되어 열이 밀리지 않음
+    assert "| 비고 | - | |" in md
