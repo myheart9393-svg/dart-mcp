@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+import datetime as dt
 import functools
 import logging
 import re
@@ -24,13 +25,16 @@ from .financials import (
     FS_DIVS,
     KEY_ACCOUNTS,
     NO_DATA_STATUS,
+    INTERIM_PERIOD_TYPES,
     REPRT_CODES,
     STATEMENTS,
     group_statements,
     load_statements,
     period_years,
+    summarize_interim_financials,
     summarize_key_financials,
 )
+from .periodic import classify_periodic_reports
 
 load_dotenv()
 logging.basicConfig(
@@ -412,32 +416,93 @@ def _base_args(base: dict) -> tuple[str, str, str, str]:
 
 @mcp.tool()
 @_safe
-def get_key_financials(corp_code: str, bsns_year: str, fs_div: str = "CFS") -> dict:
-    """사업보고서 기준 핵심 재무지표 3개년(당기·전기·전전기)과 계산 비율을 돌려준다.
+def get_key_financials(
+    corp_code: str,
+    bsns_year: str,
+    fs_div: str = "CFS",
+    reprt_code: str = "11011",
+    period_type: str | None = None,
+) -> dict:
+    """핵심 재무지표 10계정과 계산 비율을 돌려준다. 사업보고서는 3개년, 반기·분기보고서는 당기 vs 전년 동기.
 
     언제: 기업분석·비교 보고서의 재무 표를 만들 때 가장 먼저 쓴다. 원문 재무 섹션을 읽을 필요가 없다.
       여러 연도를 보려면 bsns_year만 바꿔 재호출한다 (예: 2024 → 2024·2023·2022, 2021 → 2021·2020·2019).
-    결과:
-      - accounts{key: {label, values{연도: 원}, matched}}: revenue 매출액, operating_income 영업이익,
-        net_income 당기순이익(비지배지분 포함 연결 총액), total_assets 자산총계, total_liabilities 부채총계,
-        total_equity 자본총계, operating_cf 영업활동현금흐름, investing_cf 투자활동현금흐름,
-        capex 유형자산취득(CAPEX 대용, 현금흐름표 금액 그대로·부호는 회사 표기를 따름), cash 현금및현금성자산.
-        matched는 어떤 계정으로 잡았는지(account_id 우선, 없으면 계정명 일치)를 보여준다.
-      - ratios{key: {label, values{연도: %}}}: 영업이익률, 순이익률, 부채비율, 자기자본비율, ROE, ROA.
-        모두 해당 연도 기말 잔액 기준 단순 계산(평균잔액 아님). 보고서에는 "계산"으로 표기한다.
-      - missing: 찾지 못한 계정 key 목록 (값은 null). 단위는 모두 원(KRW).
-    출처 표기: 보고서에는 (rcept_no, "재무API") 형태로 적는다.
+      최근 분기 동향은 get_latest_reports가 준 반기·분기보고서의 bsns_year·reprt_code로 호출한다.
+    인자:
+      - reprt_code: 11011=사업보고서(기본), 11012=반기, 11013=1분기, 11014=3분기
+      - period_type: 사업보고서는 "annual"만 가능(생략 시 annual). 반기·분기는 "cumulative"(당기누적, 기본)
+        또는 "quarter"(해당 3개월). 현금흐름표는 누적만 공시되므로 quarter면 CF 계정은 null.
+    결과 (period_type="annual"):
+      - years [당기, 전기, 전전기], accounts{key: {label, values{연도: 원}, matched}}, ratios{key: {label, values{연도: %}}}
+        ratios: 영업이익률, 순이익률, 부채비율, 자기자본비율, ROE, ROA (기말 잔액 기준 단순 계산, 보고서에 "계산" 표기).
+    결과 (cumulative/quarter):
+      - columns ["current", "prior"], column_labels로 각 열이 어떤 기간인지 설명.
+        손익 계정의 prior는 **전년 동기**, 재무상태표 계정의 prior는 **전기말(직전 사업연도말)**이다.
+        accounts[key].basis가 계정별 기준을 적는다. ratios는 영업이익률·순이익률·부채비율·자기자본비율만(ROE·ROA 없음).
+      - 분기 수치를 연간 수치와 한 표에 섞지 않는다. 전년 동기와만 비교한다.
+    공통: accounts 키 revenue 매출액, operating_income 영업이익, net_income 당기순이익(비지배 포함),
+      total_assets, total_liabilities, total_equity, operating_cf, investing_cf, capex(유형자산취득), cash.
+      missing: 찾지 못한 계정 key (값 null). 단위는 모두 원(KRW).
+    출처 표기: 보고서에는 (rcept_no, 재무API) 형태로 적는다.
     """
-    corp_code, bsns_year, reprt_code, fs_div = _check_fin_args(corp_code, bsns_year, "11011", fs_div)
+    corp_code, bsns_year, reprt_code, fs_div = _check_fin_args(corp_code, bsns_year, reprt_code, fs_div)
+    annual = reprt_code == "11011"
+    if period_type is None:
+        period_type = "annual" if annual else "cumulative"
+    if annual and period_type != "annual":
+        return {"error": "사업보고서(11011)는 period_type='annual'만 가능합니다"}
+    if not annual and period_type not in INTERIM_PERIOD_TYPES:
+        return {"error": f"반기·분기보고서는 period_type이 {list(INTERIM_PERIOD_TYPES)} 중 하나여야 합니다: {period_type!r}"}
     data = load_statements(_get_client, corp_code, bsns_year, reprt_code, fs_div)
     base = {
         "corp_code": corp_code, "bsns_year": bsns_year, "reprt_code": reprt_code,
+        "reprt_nm": REPRT_CODES[reprt_code], "period_type": period_type,
         "fs_div": fs_div, "fs_nm": FS_DIVS[fs_div], "unit": "원(KRW)",
     }
     if data["status"] == NO_DATA_STATUS:
-        return {**base, "rcept_no": None, "years": period_years(bsns_year), "accounts": {}, "ratios": {},
+        return {**base, "rcept_no": None, "accounts": {}, "ratios": {},
                 "missing": [a.key for a in KEY_ACCOUNTS], "message": _no_data_message(*_base_args(base))}
-    return {**base, "rcept_no": data.get("rcept_no"), **summarize_key_financials(data["list"], bsns_year)}
+    if annual:
+        return {**base, "rcept_no": data.get("rcept_no"), **summarize_key_financials(data["list"], bsns_year)}
+    prev = str(int(bsns_year) - 1)
+    span = "누적" if period_type == "cumulative" else "3개월"
+    labels = {
+        "current": f"{bsns_year} {REPRT_CODES[reprt_code]} 기간 ({span}) / BS는 당기말",
+        "prior": f"{prev} 동기 ({span}) / BS는 {prev} 사업연도말",
+    }
+    return {**base, "rcept_no": data.get("rcept_no"), "column_labels": labels,
+            **summarize_interim_financials(data["list"], reprt_code, period_type)}
+
+
+@mcp.tool()
+@_safe
+def get_latest_reports(corp_code: str) -> dict:
+    """가장 최근 사업보고서와 그 이후 제출된 반기·분기보고서를 찾아준다 (정정본 우선).
+
+    언제: 사용자가 사업연도를 말하지 않았을 때, find_company 다음에 호출해 분석 대상 보고서를 정한다.
+      최근 2년 정기공시(pblntf_ty=A)를 조회해 report_nm으로 사업/반기/분기보고서를 분류한다.
+    결과:
+      - latest_annual: {rcept_no, bsns_year, period("2025.12"), rcept_dt, report_nm, reprt_code "11011",
+        is_correction, supersedes[]} — get_key_financials(corp_code, bsns_year)와 outline에 그대로 쓴다.
+      - interim_after_annual[]: 사업보고서 이후의 반기·분기보고서(기간순), 각각 reprt_code
+        (11013=1분기, 11012=반기, 11014=3분기)와 bsns_year 포함 → get_key_financials(corp_code, bsns_year,
+        reprt_code=...)로 최근 누적 실적을 받는다.
+      - superseded[]: 정정본에 밀린 원본(superseded_by). 분석에 쓰지 않는다.
+      같은 기간에 [기재정정] 등이 여러 번 나오면 가장 늦게 접수된 것을 쓴다.
+    """
+    corp_code = corp_code.strip()
+    if not re.fullmatch(r"\d{8}", corp_code):
+        raise ValueError(f"corp_code는 8자리 숫자여야 합니다(find_company로 확인): {corp_code!r}")
+    today = dt.date.today()
+    bgn = today - dt.timedelta(days=731)
+    found = search_disclosures(corp_code, bgn.strftime("%Y%m%d"), today.strftime("%Y%m%d"), "A", 200)
+    if "error" in found:
+        return found
+    result = classify_periodic_reports(found["results"])
+    if result["latest_annual"] is None:
+        return {"corp_code": corp_code, "error": "최근 2년 안에 사업보고서가 없습니다. search_disclosures로 기간을 넓혀 확인하세요.",
+                "searched": [bgn.isoformat(), today.isoformat()], "periodic_count": found["returned"]}
+    return {"corp_code": corp_code, "searched": [bgn.isoformat(), today.isoformat()], **result}
 
 
 def main() -> None:

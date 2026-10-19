@@ -196,6 +196,77 @@ def summarize_key_financials(items: list[dict], bsns_year: str) -> dict:
     return {"years": years, "accounts": accounts, "ratios": ratios, "missing": missing}
 
 
+# --------------------------------------------------------------------------- 반기·분기
+# 분기·반기 보고서 fnlttSinglAcntAll 필드 (2026 반기 실제 응답으로 확인):
+#   IS/CIS: thstrm_amount=당분기(3개월), thstrm_add_amount=당기누적, frmtrm_q_amount=전년 동분기(3개월),
+#           frmtrm_add_amount=전년 동기누적
+#   CF:     thstrm_amount=당기누적, frmtrm_q_amount=전년 동기누적 (3개월 값은 없음)
+#   BS:     thstrm_amount=당분기말, frmtrm_amount=전기말(직전 사업연도말 — 전년 동기말이 아님)
+INTERIM_PERIOD_TYPES = ("cumulative", "quarter")
+_INTERIM_FIELDS = {
+    ("flow", "cumulative"): ("thstrm_add_amount", "frmtrm_add_amount"),
+    ("flow", "quarter"): ("thstrm_amount", "frmtrm_q_amount"),
+    ("cf", "cumulative"): ("thstrm_amount", "frmtrm_q_amount"),
+    ("cf", "quarter"): (None, None),
+    ("bs", "cumulative"): ("thstrm_amount", "frmtrm_amount"),
+    ("bs", "quarter"): ("thstrm_amount", "frmtrm_amount"),
+}
+_INTERIM_RATIOS = ("operating_margin", "net_margin", "debt_ratio", "equity_ratio")  # ROE·ROA는 연환산 문제로 제외
+
+
+def _statement_kind(sj_div: str | None) -> str:
+    return {"BS": "bs", "CF": "cf"}.get(sj_div or "", "flow")
+
+
+def summarize_interim_financials(items: list[dict], reprt_code: str, period_type: str) -> dict:
+    """분기·반기 원본 list → 핵심 계정의 {current, prior} 두 값.
+
+    flow(손익) 계정의 prior는 전년 동기(누적 또는 동분기), BS 계정의 prior는 전기말이다.
+    CF는 누적만 공시되므로 period_type="quarter"면 값이 None이다.
+    1분기보고서는 누적=당분기이므로 thstrm_add_amount가 비어 있으면 thstrm_amount로 채운다.
+    """
+    if period_type not in INTERIM_PERIOD_TYPES:
+        raise ValueError(f"분기·반기 period_type은 {INTERIM_PERIOD_TYPES} 중 하나: {period_type!r}")
+    accounts: dict[str, dict] = {}
+    missing: list[str] = []
+    for spec in KEY_ACCOUNTS:
+        row, how = match_account(items, spec)
+        if row is None:
+            accounts[spec.key] = {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
+                                  "matched": None}
+            missing.append(spec.key)
+            continue
+        kind = _statement_kind(row.get("sj_div"))
+        cur_f, prior_f = _INTERIM_FIELDS[(kind, period_type)]
+        cur = parse_amount(row.get(cur_f)) if cur_f else None
+        prior = parse_amount(row.get(prior_f)) if prior_f else None
+        if kind == "flow" and period_type == "cumulative" and reprt_code == "11013":
+            cur = cur if cur is not None else parse_amount(row.get("thstrm_amount"))
+            prior = prior if prior is not None else parse_amount(row.get("frmtrm_q_amount"))
+        basis = {"bs": "balance(당기말 vs 전기말)", "cf": "cumulative(누적만 공시)"}.get(
+            kind, f"{period_type}(전년 동기 비교)")
+        if kind == "cf" and period_type == "quarter":
+            basis = "n/a(현금흐름표는 누적만 공시)"
+        accounts[spec.key] = {
+            "label": spec.label,
+            "basis": basis,
+            "values": {"current": cur, "prior": prior},
+            "fields": {"current": cur_f, "prior": prior_f},
+            "matched": {"by": how, "sj_div": row.get("sj_div"), "account_id": row.get("account_id"),
+                        "account_nm": row.get("account_nm"), "thstrm_nm": row.get("thstrm_nm")},
+        }
+
+    def v(key: str, col: str) -> int | None:
+        return accounts[key]["values"][col]
+
+    ratios = {
+        rkey: {"label": label, "values": {c: _ratio(v(num, c), v(den, c)) for c in ("current", "prior")},
+               "formula": f"{num}/{den}"}
+        for rkey, label, num, den in RATIOS if rkey in _INTERIM_RATIOS
+    }
+    return {"columns": ["current", "prior"], "accounts": accounts, "ratios": ratios, "missing": missing}
+
+
 # --------------------------------------------------------------------------- 캐시
 def fin_cache_path(corp_code: str, bsns_year: str, reprt_code: str, fs_div: str, data_dir: Path | None = None) -> Path:
     base = Path(data_dir) if data_dir else default_data_dir()

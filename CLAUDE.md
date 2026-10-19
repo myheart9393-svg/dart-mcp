@@ -1,7 +1,7 @@
 # dart-mcp
 
 OpenDART 공시 원문을 섹션 단위로 읽는 MCP 서버(`dart`)와, 그 위에서 돌아가는 기업분석 슬래시 커맨드 프로젝트.
-코드는 `src/dart_mcp/` (client / document / cache / financials / server / cli), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`.
+코드는 `src/dart_mcp/` (client / document / cache / financials / periodic / report_lint / server / cli), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`.
 
 ```bash
 uv run pytest -q                      # 단위테스트
@@ -9,13 +9,13 @@ uv run python -m dart_mcp.cli fetch <rcept_no>   # 원문 ZIP→XML→MD 저장 
 ```
 
 서버 코드(`server.py`, `document.py`, `cache.py`)를 바꾸면 MCP 서버 프로세스를 다시 시작해야 반영된다
-(새 세션을 열거나 `/mcp`에서 재연결). 로그는 stderr 전용이며 stdout에 print 하면 프로토콜이 깨진다.
+(`financials.py`, `periodic.py`도 마찬가지. 새 세션을 열거나 `/mcp`에서 재연결). 로그는 stderr 전용이며 stdout에 print 하면 프로토콜이 깨진다.
 
 ## dart MCP 툴 사용 원칙
 
 사업보고서 한 건은 변환하면 150만 자가 넘는다. **원문 전체를 받는 툴은 없고, 만들지도 않는다.**
 
-1. **큰 문서는 반드시 outline부터.** `find_company` → `search_disclosures` → `get_disclosure_outline` → 섹션 읽기 순서를 지킨다.
+1. **큰 문서는 반드시 outline부터.** `find_company` → `search_disclosures`(연도 미지정이면 `get_latest_reports`) → `get_disclosure_outline` → 섹션 읽기 순서를 지킨다.
    섹션 id는 회사마다 다를 수 있으니 **제목으로 대조**해서 고른다.
 2. **섹션을 읽기 전에 char_count를 본다.** 30,000자 이하면 `get_disclosure_section`으로 통째로 읽는다.
 3. **30,000자를 넘으면 `search_in_disclosure`를 우선** 써서 키워드 위치(section_id, offset)를 찍고,
@@ -31,6 +31,8 @@ uv run python -m dart_mcp.cli fetch <rcept_no>   # 원문 ZIP→XML→MD 저장 
    `get_financial_statements`(BS/IS/CIS/CF 전체 계정, 원 단위)로 받는다. 원문 III장 요약재무정보·본표는 읽지 않는다.
    캐시는 `data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json`. 출처는 `(rcept_no, 재무API)`.
    원문에서 숫자를 옮길 때는 표의 단위 행을 확인해 함께 적고, "USD 3,653억원"처럼 통화·단위를 섞지 않는다.
+   **분기·반기**: `get_key_financials(..., reprt_code="11012"|"11013"|"11014", period_type="cumulative"|"quarter")`.
+   결과는 current vs prior(손익=전년 동기, 재무상태표=직전 사업연도말)이고, 연간 수치와 한 표에 섞지 않는다.
 9. 숫자·사실을 보고서에 쓸 때는 `(rcept_no, section_id)` 출처를 붙이고, 원문에 없는 해석은 "추정:"으로 표시한다.
 
 ### 공시유형 코드 (search_disclosures의 pblntf_ty)
@@ -46,6 +48,8 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
 | `/dart-risk <회사명> [사업연도]` | 리스크 전용. 위험관리·우발부채·소송·제재·감사의견(강조사항·KAM)을 심각도/발생가능성 표로 |
 | `/dart-compare <회사1> <회사2> [<회사3>] [사업연도]` | 2~3사 비교. 3개년 핵심 지표(API) 같은 행 비교 + 규모·성장·수익성·안정성 + 경영진 전망 |
 | `/dart-event <rcept_no>` | 수시공시 한 건. 결정 내용·규모·주주 영향·직전 1년 유사 공시 비교를 3단 요약으로 |
+| `/dart-review <보고서.md>` | 독립 서브에이전트 리뷰(출처·API 재대조·원문 샘플 5개·표현 오류·추정 표기) → `<보고서>.review.md` |
 
 공통 규칙: 보고서는 `reports/<회사명>_<종류>_<날짜>.md`로 저장, 마지막에 "참조한 섹션 목록" 부록,
-원문 장문 복사 금지(표는 핵심 행만), 끝나면 MCP 툴 호출 횟수와 읽은 총 글자 수를 보고.
+원문 장문 복사 금지(표는 핵심 행만), 범위는 `4–5배`(en dash — `~` 두 개는 Markdown 취소선이 됨),
+끝나면 `/dart-review` 1회 → FAIL 반영 → "리뷰 반영 내역", MCP 툴 호출 횟수와 읽은 총 글자 수를 작성/리뷰로 나눠 보고.
