@@ -26,6 +26,12 @@ if TYPE_CHECKING:
 log = logging.getLogger(__name__)
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
+# 섹션 구조화 규칙이 바뀌면 올린다. 버전이 다른 캐시는 저장된 ZIP으로부터 다시 만든다(API 호출 없음).
+CACHE_VERSION = 2
+
+
+class _StaleCache(Exception):
+    """outline.json의 version이 현재 CACHE_VERSION과 다름."""
 
 
 def default_data_dir() -> Path:
@@ -101,6 +107,11 @@ class DisclosureCache:
                 self._mem[rcept_no] = disc
                 log.info("cache hit (disk): %s", rcept_no)
                 return disc
+            except _StaleCache:
+                zip_path = self._dir(rcept_no) / f"{rcept_no}.zip"
+                if zip_path.exists():
+                    log.info("cache for %s is from an older version; rebuilding from stored zip", rcept_no)
+                    return self.store(rcept_no, zip_path.read_bytes())
             except (OSError, ValueError, KeyError) as exc:
                 log.warning("cache for %s unreadable (%s); re-fetching", rcept_no, exc)
         if client is None:
@@ -136,6 +147,7 @@ class DisclosureCache:
     # ---------------------------------------------------------------- disk I/O
     def _save(self, disc: CachedDisclosure) -> None:
         outline = {
+            "version": CACHE_VERSION,
             "rcept_no": disc.rcept_no,
             "files": [
                 {
@@ -158,6 +170,8 @@ class DisclosureCache:
 
     def _load(self, rcept_no: str) -> CachedDisclosure:
         outline = json.loads(self._outline_path(rcept_no).read_text(encoding="utf-8"))
+        if outline.get("version") != CACHE_VERSION:
+            raise _StaleCache(rcept_no)
         disc = CachedDisclosure(rcept_no)
         for f in outline["files"]:
             raw = json.loads(self._sections_path(rcept_no, f["file_id"]).read_text(encoding="utf-8"))

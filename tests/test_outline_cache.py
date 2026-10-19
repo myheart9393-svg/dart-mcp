@@ -99,3 +99,48 @@ def test_cache_hit_skips_api(tmp_path):
 def test_file_id_of():
     assert file_id_of("20250311001085.xml", "20250311001085") == "main"
     assert file_id_of("20250311001085_00760.xml", "20250311001085") == "00760"
+
+
+NOTES_SAMPLE = """<?xml version="1.0" encoding="utf-8"?>
+<DOCUMENT><BODY>
+<SECTION-1><TITLE>III. 재무에 관한 사항</TITLE>
+<SECTION-2><TITLE>3. 연결재무제표 주석</TITLE>
+<TITLE>1. 일반적 사항</TITLE><P>회사 개요 본문</P>
+<TITLE>2. 중요한 회계처리방침</TITLE><P>회계정책 본문</P>
+<TABLE><TR><TD>항목</TD><TD>금액</TD></TR></TABLE>
+<TITLE>3. 우발부채와 약정사항</TITLE><P>소송 본문</P>
+</SECTION-2>
+<SECTION-2><TITLE>4. 재무제표</TITLE><P>본표 하나만</P></SECTION-2>
+</SECTION-1>
+</BODY></DOCUMENT>
+"""
+
+
+def test_title_subsections_are_added_with_t_ids():
+    secs = build_outline(NOTES_SAMPLE.encode("utf-8"))
+    by_id = {s.id: s for s in secs}
+    assert [s.id for s in secs] == ["0", "1", "1.1", "1.1.t1", "1.1.t2", "1.1.t3", "1.2"]
+    assert by_id["1.1.t1"].title == "1. 일반적 사항"
+    assert by_id["1.1.t2"].title == "2. 중요한 회계처리방침"
+    assert by_id["1.1.t3"].title == "3. 우발부채와 약정사항"
+    assert all(by_id[f"1.1.t{n}"].kind == "title" and by_id[f"1.1.t{n}"].level == 3 for n in (1, 2, 3))
+    assert by_id["1.1"].kind == "section"
+    # 구간 텍스트: 자기 소제목 헤딩으로 시작하고 다음 소제목 내용은 포함하지 않음
+    t2 = by_id["1.1.t2"].text
+    assert t2.startswith("## 2. 중요한 회계처리방침") and "| 항목 | 금액 |" in t2
+    assert "회사 개요 본문" not in t2 and "소송 본문" not in t2
+    assert by_id["1.1.t2"].char_count == len(t2)
+
+
+def test_no_title_subsections_when_single_title_or_only_child_sections():
+    secs = build_outline(NOTES_SAMPLE.encode("utf-8"))
+    ids = [s.id for s in secs]
+    # "4. 재무제표"는 TITLE이 1개뿐 → 소제목 없음
+    assert not any(i.startswith("1.2.t") for i in ids)
+    # SECTION-1은 자체 TITLE 1개 + 자식 SECTION 제목들 → 자식 제목을 소제목으로 오인하지 않음
+    assert not any(i.startswith("1.t") for i in ids)
+    # 소제목 텍스트를 다 합치면 부모 섹션 본문과 내용이 같다(제목 중복 외 누락 없음)
+    by_id = {s.id: s for s in secs}
+    joined = "".join(by_id[f"1.1.t{n}"].text for n in (1, 2, 3))
+    for phrase in ("회사 개요 본문", "회계정책 본문", "소송 본문", "| 항목 | 금액 |"):
+        assert phrase in joined and phrase in by_id["1.1"].text

@@ -309,17 +309,40 @@ def parse_dart_xml(raw: bytes | str, *, seen_tags: set[str] | None = None) -> st
 # --------------------------------------------------------------------------- 섹션 구조화
 @dataclass
 class Section:
-    id: str          # "1", "1.2", "1.2.3" 같은 계층 번호. "0"은 섹션 밖 본문(표지 등)
-    level: int       # SECTION-1 → 1, SECTION-2 → 2, ... ("0" 섹션은 0)
+    id: str          # "1", "1.2", "1.2.3" 같은 계층 번호. "0"은 섹션 밖 본문(표지 등). TITLE 기반 소제목은 "4.3.t12"
+    level: int       # SECTION-1 → 1, SECTION-2 → 2, ... ("0" 섹션은 0). 소제목은 부모 level + 1
     title: str
     char_count: int
     text: str        # 하위 섹션을 포함한 전체 Markdown
+    kind: str = "section"  # "section" (SECTION 태그) | "title" (섹션 안 TITLE 소제목 구간)
 
     def to_outline_dict(self) -> dict:
         """text를 뺀 목차용 dict."""
         d = asdict(self)
         d.pop("text")
         return d
+
+
+_HEADING_RE = re.compile(r"^## (.+)$", re.M)
+
+
+def split_by_titles(own_text: str, section_title: str) -> list[tuple[str, str]]:
+    """섹션 자체 텍스트(하위 SECTION 제외)를 '## ' 소제목 단위로 나눈다 → [(소제목, 구간 텍스트)].
+
+    섹션 제목과 같은 첫 소제목이 본문 없이 홀로 있으면 버린다. 소제목이 2개 미만이면 빈 리스트.
+    """
+    heads = list(_HEADING_RE.finditer(own_text))
+    if len(heads) < 2:
+        return []
+    parts: list[tuple[str, str]] = []
+    for i, m in enumerate(heads):
+        end = heads[i + 1].start() if i + 1 < len(heads) else len(own_text)
+        title = m.group(1).strip()
+        body = own_text[m.end():end].strip()
+        if i == 0 and title == section_title and not body:
+            continue
+        parts.append((title, _finalize(own_text[m.start():end])))
+    return parts if len(parts) >= 2 else []
 
 
 def _section_title(el: etree._Element) -> str:
@@ -355,7 +378,13 @@ def build_outline(raw: bytes | str, *, root_title: str = "(표지 및 섹션 외
         for deeper in [k for k in counters if k > level]:
             del counters[deeper]
         sec_id = ".".join(str(counters.get(lv, 0)) for lv in range(1, level + 1))
+        title = _section_title(el)
         text = _finalize(_Renderer().render(el))
-        sections.append(Section(sec_id, level, _section_title(el), len(text), text))
+        sections.append(Section(sec_id, level, title, len(text), text))
+
+        # 섹션 자체 본문(하위 SECTION 제외)에 TITLE 소제목이 2개 이상이면 "<id>.tN" 하위 항목 추가
+        own_text = _finalize(_Renderer(skip_sections=True).render(el))
+        for n, (sub_title, sub_text) in enumerate(split_by_titles(own_text, title), start=1):
+            sections.append(Section(f"{sec_id}.t{n}", level + 1, sub_title, len(sub_text), sub_text, kind="title"))
 
     return sections

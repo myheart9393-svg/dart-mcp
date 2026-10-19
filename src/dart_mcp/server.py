@@ -65,6 +65,11 @@ def _load(rcept_no: str):
     return _cache.get(rcept_no, client)
 
 
+def _sort_key(section_id: str) -> tuple[int, ...]:
+    """'4.3.t12' → (4, 3, 12): 소제목(tN)도 문서 순서대로 정렬되게 한다."""
+    return tuple(int(p[1:]) if p.startswith("t") else int(p) for p in section_id.split("."))
+
+
 # --------------------------------------------------------------------------- tools
 @mcp.tool()
 @_safe
@@ -140,7 +145,7 @@ def search_disclosures(
 
 @mcp.tool()
 @_safe
-def get_disclosure_outline(rcept_no: str, file_id: str | None = None) -> dict:
+def get_disclosure_outline(rcept_no: str, file_id: str | None = None, depth: int = 2) -> dict:
     """공시 원문의 파일 목록과 섹션 목차를 돌려준다. 본문을 읽기 전에 반드시 먼저 호출한다.
 
     언제: search_disclosures에서 rcept_no를 얻은 직후. 사업보고서는 변환 시 수십만 자가 넘으므로
@@ -151,8 +156,14 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None) -> dict:
       - sections[]: {id, level, title, char_count}. id는 "1", "1.2", "1.2.3" 같은 계층 번호.
         level 1이 대분류(예: "I. 회사의 개요", "II. 사업의 내용"), level 2·3이 소분류.
         상위 섹션의 char_count는 하위 섹션을 모두 포함한 크기다. id "0"은 표지 등 섹션 밖 본문.
-    인자: file_id를 주면 그 파일의 목차만 돌려준다 (생략 시 전체 파일).
+    인자:
+      - file_id: 주면 그 파일의 목차만 돌려준다 (생략 시 전체 파일).
+      - depth: 보여줄 최대 level (기본 2 = 대분류·소분류). depth=3이면 level 3 SECTION과
+        TITLE 기반 소제목(id가 "4.3.t12"처럼 ".tN"으로 끝남, kind="title")까지 나온다.
+        재무제표 주석처럼 섹션 하나가 10만 자를 넘을 때 depth=3으로 다시 호출해 주석 번호 단위로 읽는다.
+        (목차 JSON이 커지므로 큰 섹션의 하위만 필요하면 file_id와 함께 쓰거나 search_in_disclosure를 쓴다.)
     다음: 읽을 섹션을 고른 뒤 get_disclosure_section(rcept_no, section_id, file_id)를 호출한다.
+      section_id에는 ".tN" 소제목 id도 그대로 쓸 수 있다.
       char_count가 큰 섹션은 하위(level 2~3) id로 쪼개 읽거나 max_chars/offset으로 나눠 읽는다.
       특정 키워드 위치만 알고 싶으면 search_in_disclosure를 쓴다.
     """
@@ -165,8 +176,10 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None) -> dict:
                 "error": f"file_id {file_id!r} 없음. 사용 가능: {[x.file_id for x in disc.files]}"
             }
         files = [f]
+    depth = max(0, depth)
     return {
         "rcept_no": disc.rcept_no,
+        "depth": depth,
         "total_chars": sum(f.total_chars for f in files),
         "files": [
             {
@@ -174,7 +187,8 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None) -> dict:
                 "filename": f.filename,
                 "total_chars": f.total_chars,
                 "section_count": len(f.sections),
-                "sections": f.outline(),
+                "shown": sum(1 for s in f.sections if s.level <= depth),
+                "sections": [s.to_outline_dict() for s in f.sections if s.level <= depth],
             }
             for f in files
         ],
@@ -194,7 +208,7 @@ def get_disclosure_section(
 
     언제: get_disclosure_outline에서 읽을 섹션 id를 고른 뒤.
     인자:
-      - section_id: 목차의 id ("2", "2.1", "0" 등). 상위 id를 주면 하위 섹션 전체가 포함된다.
+      - section_id: 목차의 id ("2", "2.1", "0", 소제목 "4.3.t12" 등). 상위 id를 주면 하위 섹션 전체가 포함된다.
       - file_id: "main"(본문) 또는 첨부 id("00760" 등). 목차의 files[].file_id 참고.
       - max_chars / offset: 긴 섹션은 잘라서 받는다. 응답의 has_more가 true면
         next_offset을 offset으로 넣어 같은 호출을 반복한다.
@@ -277,7 +291,7 @@ def search_in_disclosure(
                 clusters[-1].append(sp)
             else:
                 clusters.append([sp])
-        sort_key = tuple(int(p) for p in sec.id.split("."))
+        sort_key = _sort_key(sec.id)
         for cl in clusters:
             s0 = max(0, cl[0][0] - context_chars)
             s1 = min(len(sec.text), cl[-1][1] + context_chars)
