@@ -6,10 +6,12 @@
 
 from __future__ import annotations
 
+import calendar
 import json
 import logging
 import re
 import time
+from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -30,11 +32,13 @@ NO_DATA_STATUS = "013"
 
 
 def parse_amount(value: str | None) -> int | None:
-    """'1,234' / '-5678' / '' / '-' → int 또는 None."""
+    """'1,234' / '-5678' → int. '-'는 공시 관행상 0(해당 금액 없음), ''·None은 값 없음(None)."""
     if value is None:
         return None
     s = str(value).replace(",", "").strip()
-    if s in ("", "-"):
+    if s == "-":
+        return 0
+    if s == "":
         return None
     try:
         return int(s)
@@ -79,6 +83,7 @@ class KeyAccount:
     ids: tuple[str, ...]
     names: tuple[str, ...]  # 정규화 후 완전일치 → 부분일치 순으로 쓴다
     exclude: tuple[str, ...] = field(default=())  # 부분일치 때 이 말이 들어가면 제외
+    exclude_ids: tuple[str, ...] = field(default=())  # 이름 매칭 때 이 account_id인 행은 제외
 
 
 _PL = ("IS", "CIS")
@@ -102,7 +107,15 @@ KEY_ACCOUNTS: tuple[KeyAccount, ...] = (
                ("유형자산의취득", "유형자산취득"), ("처분", "무형")),
     KeyAccount("cash", "현금및현금성자산", ("BS",), ("ifrs-full_CashAndCashEquivalents",),
                ("현금및현금성자산",), ("기초", "기말", "증가", "감소", "환율", "외화")),
+    # 지배주주 기준 ROE용. 종속회사가 없는 회사(별도만 공시)는 없는 게 정상이라 missing이 아닌 optional로 둔다.
+    KeyAccount("net_income_parent", "당기순이익(지배주주)", _PL, ("ifrs-full_ProfitLossAttributableToOwnersOfParent",),
+               ("지배기업소유주지분", "지배기업의소유주지분", "지배주주순이익", "지배기업소유주귀속당기순이익"),
+               ("비지배", "주당", "포괄"), ("ifrs-full_ComprehensiveIncomeAttributableToOwnersOfParent",)),
+    KeyAccount("equity_parent", "자본(지배주주)", ("BS",), ("ifrs-full_EquityAttributableToOwnersOfParent",),
+               ("지배기업소유주지분", "지배기업의소유주지분", "지배기업의소유주에게귀속되는자본", "지배주주지분"),
+               ("비지배",)),
 )
+OPTIONAL_ACCOUNTS = ("net_income_parent", "equity_parent")
 # BS에 현금및현금성자산 행이 없는 회사(은행: "현금 및 예치금")는 현금흐름표의 기말 현금으로 대체한다.
 CASH_CF_FALLBACK = KeyAccount("cash", "현금및현금성자산", ("CF",), ("ifrs-full_CashAndCashEquivalents",),
                               ("기말현금및현금성자산", "기말의현금및현금성자산"))
@@ -207,21 +220,26 @@ def match_account(items: list[dict], spec: KeyAccount) -> tuple[dict | None, str
     targets = {normalize_name(n) for n in spec.names}
     for sj in spec.sj_divs:
         for it in ordered(sj):
+            if it.get("account_id") in spec.exclude_ids:
+                continue
             n = normalize_name(it.get("account_nm"))
             if n in targets or _strip_paren(n) in targets:
                 return it, "name_exact"
     for sj in spec.sj_divs:
         for it in ordered(sj):
             n = normalize_name(it.get("account_nm"))
-            if any(e in n for e in spec.exclude):
+            if it.get("account_id") in spec.exclude_ids or any(e in n for e in spec.exclude):
                 continue
             if any(t in n for t in targets):
                 return it, "name_partial"
     return None, None
 
 
-def _ratio(num: int | None, den: int | None) -> float | None:
+def _ratio(num: float | None, den: float | None, equity_den: bool = False) -> float | None:
+    """num/den×100. equity_den=True(분모가 자본)이면 분모가 음수(자본잠식)일 때 None — 부호가 뒤집혀 오해를 부른다."""
     if num is None or not den:
+        return None
+    if equity_den and den < 0:
         return None
     return round(num / den * 100, 2)
 
@@ -234,6 +252,10 @@ RATIOS = (
     ("roe", "ROE(%)", "net_income", "total_equity"),
     ("roa", "ROA(%)", "net_income", "total_assets"),
 )
+# 자본(total_equity)이 분자·분모에 들어가는 비율: 자본잠식(자본 음수)이면 None
+EQUITY_RATIOS = ("debt_ratio", "equity_ratio", "roe")
+CAPITAL_IMPAIRMENT = "capital_impairment"
+_PERIOD_LABEL_FIELDS = ("thstrm_nm", "thstrm_dt", "frmtrm_nm", "frmtrm_dt", "bfefrmtrm_nm", "bfefrmtrm_dt")
 
 
 def _annual_entry(row: dict, how: str, label: str, years: list[str]) -> dict:
@@ -245,12 +267,85 @@ def _annual_entry(row: dict, how: str, label: str, years: list[str]) -> dict:
             "sj_div": row.get("sj_div"),
             "account_id": row.get("account_id"),
             "account_nm": row.get("account_nm"),
+            **{f: row.get(f) for f in _PERIOD_LABEL_FIELDS},
         },
     }
 
 
-def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "general") -> dict:
+def _average_balance(values: dict, years: list[str], i: int) -> tuple[float | None, str, bool]:
+    """(평균잔액, 기준, 음수포함). 기초 = 같은 응답의 직전 연도 기말. 전전기(마지막 열)는 기초가 없어 기말 기준."""
+    end = values.get(years[i])
+    begin = values.get(years[i + 1]) if i + 1 < len(years) else None
+    if end is None:
+        return None, "n/a", False
+    if begin is None:
+        return float(end), "ending", end < 0
+    return (begin + end) / 2, "average", end < 0 or begin < 0
+
+
+def _return_ratio(accounts: dict, years: list[str], num_key: str, den_key: str,
+                  equity_den: bool) -> tuple[dict, dict]:
+    """ROE·ROA: 분자 / (기초+기말)/2. equity_den이면 기초·기말 중 하나라도 음수(자본잠식)일 때 None."""
+    values, basis = {}, {}
+    for i, y in enumerate(years):
+        den, how, negative = _average_balance(accounts[den_key]["values"], years, i)
+        basis[y] = how
+        values[y] = None if (equity_den and negative) else _ratio(accounts[num_key]["values"][y], den, equity_den)
+    return values, basis
+
+
+def _months_between(start: str, end: str) -> int | None:
+    try:
+        sy, sm, _ = (int(x) for x in start.split("."))
+        ey, em, _ = (int(x) for x in end.split("."))
+    except ValueError:
+        return None
+    return (ey - sy) * 12 + (em - sm) + 1
+
+
+def period_labels(items: list[dict], years: list[str], acc_mt: str | None) -> tuple[list[dict], list[str]]:
+    """결산기 라벨 [{year, name, range, range_source}]과 경고 note 목록.
+
+    fnlttSinglAcntAll은 thstrm_nm("제 56 기")만 주고 *_dt 필드는 없는 게 보통이다(2024·2025 응답 확인).
+    *_dt가 있으면 그걸 쓰고(12개월이 아니면 note), 없으면 기업개황 acc_mt(결산월)로 12개월 기간을 추정한다.
+    """
+    sample = next((it for it in items if it.get("sj_div") in ("IS", "CIS", "CF") and it.get("thstrm_nm")), None)
+    sample = sample or next((it for it in items if it.get("thstrm_nm")), {})
+    mt = (acc_mt or "").strip()
+    mm = int(mt) if mt.isdigit() and 1 <= int(mt) <= 12 else None
+    periods, notes = [], []
+    for (amount_field, _), y in zip(PERIODS, years):
+        prefix = amount_field.removesuffix("_amount")
+        name = re.sub(r"\s+", "", sample.get(f"{prefix}_nm") or "") or None
+        dt = (sample.get(f"{prefix}_dt") or "").strip()
+        entry = {"year": y, "name": name, "range": None, "range_source": None}
+        if "~" in dt:
+            entry.update(range=dt.replace(" ", ""), range_source="api(*_dt)")
+            months = _months_between(*(d.strip() for d in dt.split("~", 1)))
+            if months is not None and months != 12:
+                notes.append(f"{y}({name}) 회계기간이 {months}개월이다({dt}). 연간 비교 시 주의.")
+        elif mm is not None:
+            end_y = int(y)
+            start_y, start_m = (end_y, 1) if mm == 12 else (end_y - 1, mm + 1)
+            last = calendar.monthrange(end_y, mm)[1]
+            entry.update(range=f"{start_y}.{start_m:02d}.01~{end_y}.{mm:02d}.{last:02d}",
+                         range_source="acc_mt(결산월로 추정, 12개월 여부는 API로 확인 불가)")
+        periods.append(entry)
+    if mm is not None and mm != 12:
+        notes.append(f"{mm}월 결산 회사다(periods.range 참조). 12월 결산 회사와 같은 연도로 나란히 비교하면 "
+                     "기간이 어긋난다.")
+    return periods, notes
+
+
+def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "general",
+                             fs_div: str = "CFS", acc_mt: str | None = None) -> dict:
     """원본 list → 핵심 계정 3개년 + 비율. 못 찾은 계정은 값 None, missing 목록에 key.
+
+    - net_income_parent·equity_parent는 optional(없어도 missing 아님, optional_missing에 적음).
+      둘 다 있으면 ROE·ROA 분자는 지배주주 순이익·ROE 분모는 지배주주 자본, 아니면 총액 기준.
+      분모는 (기초+기말)/2, 전전기는 기초가 없어 기말 기준.
+    - 자본총계가 음수인 연도가 있으면 flags에 "capital_impairment"와 note. 자본이 들어가는 비율은 None.
+    - periods: 결산기 라벨(제N기, 기간). 12월 결산이 아니거나 12개월이 아니면 note에 적는다.
 
     sector="financial"이면 revenue는 not_applicable(missing에 넣지 않음), 영업이익률·순이익률은 None,
     financial_accounts에 금융업 계정(순이자이익 등)과 financial_missing을 더한다.
@@ -269,18 +364,48 @@ def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "g
         row, how = _match_key(items, spec)
         if row is None:
             accounts[spec.key] = {"label": spec.label, "values": {y: None for y in years}, "matched": None}
-            missing.append(spec.key)
+            if spec.key not in OPTIONAL_ACCOUNTS:
+                missing.append(spec.key)
             continue
         accounts[spec.key] = _annual_entry(row, how, spec.label, years)
 
     def v(key: str, y: str) -> int | None:
         return accounts[key]["values"][y]
 
-    ratios = {
-        rkey: {"label": label, "values": {y: _ratio(v(num, y), v(den, y)) for y in years}, "formula": f"{num}/{den}"}
-        for rkey, label, num, den in RATIOS
-    }
-    out = {"years": years, "accounts": accounts, "ratios": ratios, "missing": missing}
+    impaired = [y for y in years if (v("total_equity", y) or 0) < 0]
+    ratios: dict[str, dict] = {}
+    for rkey, label, num, den in RATIOS:
+        if rkey in ("roe", "roa"):
+            continue
+        vals = {y: (None if rkey in EQUITY_RATIOS and y in impaired
+                    else _ratio(v(num, y), v(den, y), den == "total_equity")) for y in years}
+        ratios[rkey] = {"label": label, "values": vals, "formula": f"{num}/{den}"}
+
+    parent = all(accounts[k]["matched"] is not None for k in OPTIONAL_ACCOUNTS)
+    ni, eq = ("net_income_parent", "equity_parent") if parent else ("net_income", "total_equity")
+    scope = "지배주주 기준" if parent else ("연결 총액 기준" if fs_div == "CFS" else "별도 재무제표 기준")
+    avg_note = f"평균잔액((기초+기말)/2, 기초=전기말), 전전기({years[-1]})는 기말 기준"
+    for rkey, label, den in (("roe", "ROE(%)", eq), ("roa", "ROA(%)", "total_assets")):
+        vals, basis = _return_ratio(accounts, years, ni, den, den in ("total_equity", "equity_parent"))
+        ratios[rkey] = {"label": label, "values": vals, "denominator_basis": basis, "basis": scope,
+                        "formula": f"{ni} / avg({den}) — {scope}, {avg_note}"}
+    ratios = {rkey: ratios[rkey] for rkey, *_ in RATIOS}  # 원래 순서
+
+    periods, notes = period_labels(items, years, acc_mt)
+    impaired_parent = [y for y in years if parent and (v("equity_parent", y) or 0) < 0 and y not in impaired]
+    flags: list[str] = []
+    if impaired or impaired_parent:
+        flags.append(CAPITAL_IMPAIRMENT)
+        msg = (f"자본잠식(자본총계 음수): {', '.join(impaired)}. " if impaired else "") + (
+            f"지배주주 자본 음수: {', '.join(impaired_parent)}. " if impaired_parent else "")
+        notes.insert(0, msg + "자본이 음수인 연도(ROE는 기초 포함)의 부채비율·자기자본비율·ROE는 부호가 뒤집혀 "
+                     "의미가 없어 계산하지 않음(None).")
+    out = {"years": years, "periods": periods, "accounts": accounts, "ratios": ratios, "missing": missing,
+           "optional": list(OPTIONAL_ACCOUNTS),
+           "optional_missing": [k for k in OPTIONAL_ACCOUNTS if accounts[k]["matched"] is None],
+           "flags": flags}
+    if notes:
+        out["note"] = " ".join(notes)
     if financial:
         _mark_financial_ratios(ratios)
         fin: dict[str, dict] = {}
@@ -339,19 +464,26 @@ def summarize_interim_financials(items: list[dict], reprt_code: str, period_type
         if row is None:
             accounts[spec.key] = {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
                                   "matched": None}
-            missing.append(spec.key)
+            if spec.key not in OPTIONAL_ACCOUNTS:
+                missing.append(spec.key)
             continue
         accounts[spec.key] = _interim_entry(row, how, spec.label, reprt_code, period_type)
 
     def v(key: str, col: str) -> int | None:
         return accounts[key]["values"][col]
 
+    cols = ("current", "prior")
+    impaired = [c for c in cols if (v("total_equity", c) or 0) < 0]
     ratios = {
-        rkey: {"label": label, "values": {c: _ratio(v(num, c), v(den, c)) for c in ("current", "prior")},
-               "formula": f"{num}/{den}"}
+        rkey: {"label": label, "formula": f"{num}/{den}",
+               "values": {c: (None if rkey in EQUITY_RATIOS and c in impaired
+                              else _ratio(v(num, c), v(den, c), den == "total_equity")) for c in cols}}
         for rkey, label, num, den in RATIOS if rkey in _INTERIM_RATIOS
     }
-    out = {"columns": ["current", "prior"], "accounts": accounts, "ratios": ratios, "missing": missing}
+    out = {"columns": list(cols), "accounts": accounts, "ratios": ratios, "missing": missing,
+           "flags": [CAPITAL_IMPAIRMENT] if impaired else []}
+    if impaired:
+        out["note"] = f"자본잠식(자본총계 음수): {', '.join(impaired)}. 부채비율·자기자본비율은 계산하지 않음(None)."
     if financial:
         _mark_financial_ratios(ratios)
         fin: dict[str, dict] = {}
@@ -399,26 +531,55 @@ def fin_cache_path(corp_code: str, bsns_year: str, reprt_code: str, fs_div: str,
     return base / "fin" / f"{corp_code}_{bsns_year}_{reprt_code}_{fs_div}.json"
 
 
+FIN_MAX_AGE_DAYS = 90
+
+
+def count_changed_accounts(old: list[dict], new: list[dict]) -> int:
+    """두 응답에서 금액이 달라졌거나 새로 생기거나 없어진 계정 수 (sj_div·account_id·계정명·ord 기준)."""
+    def table(items: list[dict]) -> dict:
+        out: dict[tuple, Counter] = {}
+        for it in items:
+            key = (it.get("sj_div"), it.get("account_id"), normalize_name(it.get("account_nm")), it.get("ord"))
+            out.setdefault(key, Counter())[tuple(parse_amount(it.get(f)) for f, _ in PERIODS)] += 1
+        return out
+    a, b = table(old), table(new)
+    return sum(1 for k in a.keys() | b.keys() if a.get(k) != b.get(k))
+
+
 def load_statements(
-    client_factory, corp_code: str, bsns_year: str, reprt_code: str, fs_div: str, data_dir: Path | None = None
+    client_factory, corp_code: str, bsns_year: str, reprt_code: str, fs_div: str, data_dir: Path | None = None,
+    refresh: bool = False,
 ) -> dict:
-    """캐시 → 없으면 client.get_financial_statements로 받아 저장.
+    """캐시 → 없거나 90일 지났거나 refresh=True면 client.get_financial_statements로 받아 저장.
 
     반환: {"status", "message", "rcept_no", "list", "cached"}. status "013"(데이터 없음)은 캐시하지 않는다
     (아직 제출 전인 보고서가 나중에 생길 수 있으므로).
-    client_factory는 캐시 미스일 때만 부른다(키 없는 환경에서도 캐시로 동작하게).
+    client_factory는 캐시를 못 쓸 때만 부른다(키 없는 환경에서도 캐시로 동작하게). 만료로 재조회하다
+    실패하면(키 없음·네트워크) 옛 캐시를 stale=True로 돌려준다. refresh=True의 실패는 그대로 올린다.
+    재조회 결과가 캐시와 다르면 바뀐 계정 수를 stderr 로그로 남기고 changed_accounts에 적는다.
     """
     path = fin_cache_path(corp_code, bsns_year, reprt_code, fs_div, data_dir)
+    old: dict | None = None
     if path.exists():
         try:
-            payload = json.loads(path.read_text(encoding="utf-8"))
-            log.info("fin cache hit: %s", path.name)
-            return {**payload, "cached": True}
+            old = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError) as exc:
             log.warning("fin cache %s unreadable (%s); re-fetching", path.name, exc)
+    if old is not None:
+        age_days = (time.time() - float(old.get("fetched_at") or 0)) / 86400
+        if not refresh and age_days < FIN_MAX_AGE_DAYS:
+            log.info("fin cache hit: %s", path.name)
+            return {**old, "cached": True}
+        log.info("fin cache %s: %s", path.name, "refresh=True" if refresh else f"{age_days:.0f}일 경과, 재조회")
 
-    client: DartClient = client_factory()
-    data = client.get_financial_statements(corp_code, bsns_year, reprt_code, fs_div)
+    try:
+        client: DartClient = client_factory()
+        data = client.get_financial_statements(corp_code, bsns_year, reprt_code, fs_div)
+    except Exception as exc:  # noqa: BLE001 — 만료 재조회 실패가 캐시 사용을 막지 않게
+        if old is None or refresh:
+            raise
+        log.warning("fin re-fetch %s failed (%s); using stale cache", path.name, exc)
+        return {**old, "cached": True, "stale": True}
     items = data.get("list") or []
     payload = {
         "status": str(data.get("status")),
@@ -431,6 +592,12 @@ def load_statements(
         "fetched_at": time.time(),
         "list": items,
     }
+    if old is not None:
+        changed = count_changed_accounts(old.get("list") or [], items)
+        if changed:
+            log.warning("fin cache %s: 재조회 결과 %d개 계정이 캐시와 다름 (rcept_no %s → %s)",
+                        path.name, changed, old.get("rcept_no"), payload["rcept_no"])
+        payload["changed_accounts"] = changed
     if payload["status"] != NO_DATA_STATUS:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")

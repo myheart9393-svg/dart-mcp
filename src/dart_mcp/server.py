@@ -27,6 +27,7 @@ from .financials import (
     KEY_ACCOUNTS,
     NO_DATA_STATUS,
     INTERIM_PERIOD_TYPES,
+    OPTIONAL_ACCOUNTS,
     REPRT_CODES,
     STATEMENTS,
     detect_sector,
@@ -377,6 +378,7 @@ def get_financial_statements(
     reprt_code: str = "11011",
     fs_div: str = "CFS",
     sj_div: str | None = None,
+    refresh: bool = False,
 ) -> dict:
     """정기보고서의 재무제표 전체 계정을 구조화 데이터로 돌려준다 (OpenDART fnlttSinglAcntAll).
 
@@ -393,7 +395,8 @@ def get_financial_statements(
       frmtrm_amount(전기), bfefrmtrm_amount(전전기) 원문 문자열과 amount_krw{연도: 정수(원)}.
       years는 [당기, 전기, 전전기] 연도. 분기·반기 보고서는 전전기 열이 없을 수 있다.
       조회 데이터가 없으면(status 013) error가 아니라 빈 statements와 message.
-    캐시: data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json. 한 번 받으면 재호출해도 API를 쓰지 않는다.
+    캐시: data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json. 90일 안에는 재호출해도 API를 쓰지 않고,
+      90일이 지나면 다시 받는다. 재무제표 정정(정정공시)이 의심되면 refresh=True로 캐시를 무시하고 재조회한다.
     """
     corp_code, bsns_year, reprt_code, fs_div = _check_fin_args(corp_code, bsns_year, reprt_code, fs_div)
     wanted = STATEMENTS
@@ -402,7 +405,7 @@ def get_financial_statements(
         bad = [s for s in wanted if s not in STATEMENTS]
         if bad:
             return {"error": f"sj_div {bad} 없음. 사용 가능: {list(STATEMENTS)}"}
-    data = load_statements(_get_client, corp_code, bsns_year, reprt_code, fs_div)
+    data = load_statements(_get_client, corp_code, bsns_year, reprt_code, fs_div, refresh=refresh)
     base = {
         "corp_code": corp_code, "bsns_year": bsns_year,
         "reprt_code": reprt_code, "reprt_nm": REPRT_CODES[reprt_code],
@@ -433,6 +436,7 @@ def get_key_financials(
     fs_div: str = "CFS",
     reprt_code: str = "11011",
     period_type: str | None = None,
+    refresh: bool = False,
 ) -> dict:
     """핵심 재무지표 10계정과 계산 비율을 돌려준다. 사업보고서는 3개년, 반기·분기보고서는 당기 vs 전년 동기.
 
@@ -443,17 +447,26 @@ def get_key_financials(
       - reprt_code: 11011=사업보고서(기본), 11012=반기, 11013=1분기, 11014=3분기
       - period_type: 사업보고서는 "annual"만 가능(생략 시 annual). 반기·분기는 "cumulative"(당기누적, 기본)
         또는 "quarter"(해당 3개월). 현금흐름표는 누적만 공시되므로 quarter면 CF 계정은 null.
+      - refresh: 재무제표 정정이 의심되면 refresh=True (캐시 무시하고 재조회). 캐시는 90일이 지나면 자동 재조회.
     결과 (period_type="annual"):
-      - years [당기, 전기, 전전기], accounts{key: {label, values{연도: 원}, matched}}, ratios{key: {label, values{연도: %}}}
-        ratios: 영업이익률, 순이익률, 부채비율, 자기자본비율, ROE, ROA (기말 잔액 기준 단순 계산, 보고서에 "계산" 표기).
+      - years [당기, 전기, 전전기], periods [{year, name("제56기"), range, range_source}] 결산기 라벨.
+        API에는 기간 날짜가 없어 range는 기업개황 결산월(acc_mt)로 추정한 값일 수 있다(range_source 참고).
+      - accounts{key: {label, values{연도: 원}, matched}}, ratios{key: {label, values{연도: %}, formula}}
+        ratios: 영업이익률, 순이익률, 부채비율, 자기자본비율(기말 잔액), ROE, ROA(평균잔액 (기초+기말)/2,
+        전전기는 기초가 없어 기말 기준 — denominator_basis). ROE·ROA는 지배주주 계정(net_income_parent,
+        equity_parent)이 둘 다 있으면 "지배주주 기준", 없으면 총액 기준이다(ratios.roe.basis). 보고서에 "계산" 표기.
+      - flags: ["capital_impairment"]면 자본총계가 음수인 연도가 있다. 그 연도의 부채비율·자기자본비율·ROE는 null,
+        설명은 note. 보고서 재무 표 아래에 "자본잠식(자본총계 음수)"을 밝힌다. 12월 결산이 아닌 회사도 note에 적는다.
     결과 (cumulative/quarter):
       - columns ["current", "prior"], column_labels로 각 열이 어떤 기간인지 설명.
         손익 계정의 prior는 **전년 동기**, 재무상태표 계정의 prior는 **전기말(직전 사업연도말)**이다.
         accounts[key].basis가 계정별 기준을 적는다. ratios는 영업이익률·순이익률·부채비율·자기자본비율만(ROE·ROA 없음).
       - 분기 수치를 연간 수치와 한 표에 섞지 않는다. 전년 동기와만 비교한다.
     공통: accounts 키 revenue 매출액, operating_income 영업이익, net_income 당기순이익(비지배 포함),
-      total_assets, total_liabilities, total_equity, operating_cf, investing_cf, capex(유형자산취득), cash.
-      missing: 찾지 못한 계정 key (값 null). 단위는 모두 원(KRW).
+      total_assets, total_liabilities, total_equity, operating_cf, investing_cf, capex(유형자산취득), cash,
+      그리고 optional인 net_income_parent(지배주주 순이익), equity_parent(지배주주 자본).
+      missing: 찾지 못한 필수 계정 key (값 null). optional_missing: 없는 optional 계정(종속회사 없는 회사는 정상).
+      단위는 모두 원(KRW).
       sector: {sector, induty_code, reason}. 업종은 기업개황 induty_code(KSIC)로 판단한다.
     금융업(sector="financial": 은행·보험·증권·금융지주)이면 warning이 붙는다. 이때 revenue와 영업이익률·순이익률은
       not_applicable/None이고, financial_accounts에 순이자이익·순수수료이익·보험수익·신용손실충당금전입이 온다
@@ -468,7 +481,7 @@ def get_key_financials(
         return {"error": "사업보고서(11011)는 period_type='annual'만 가능합니다"}
     if not annual and period_type not in INTERIM_PERIOD_TYPES:
         return {"error": f"반기·분기보고서는 period_type이 {list(INTERIM_PERIOD_TYPES)} 중 하나여야 합니다: {period_type!r}"}
-    data = load_statements(_get_client, corp_code, bsns_year, reprt_code, fs_div)
+    data = load_statements(_get_client, corp_code, bsns_year, reprt_code, fs_div, refresh=refresh)
     base = {
         "corp_code": corp_code, "bsns_year": bsns_year, "reprt_code": reprt_code,
         "reprt_nm": REPRT_CODES[reprt_code], "period_type": period_type,
@@ -476,7 +489,7 @@ def get_key_financials(
     }
     if data["status"] == NO_DATA_STATUS:
         return {**base, "rcept_no": None, "accounts": {}, "ratios": {},
-                "missing": [a.key for a in KEY_ACCOUNTS], "message": _no_data_message(*_base_args(base))}
+                "missing": [a.key for a in KEY_ACCOUNTS if a.key not in OPTIONAL_ACCOUNTS], "message": _no_data_message(*_base_args(base))}
     company = load_company(_get_client, corp_code)
     sector = detect_sector((company or {}).get("induty_code"), data["list"])
     extra: dict[str, Any] = {"sector": sector}
@@ -484,7 +497,8 @@ def get_key_financials(
         extra["warning"] = FINANCIAL_WARNING.format(reason=sector["reason"])
     if annual:
         return {**base, "rcept_no": data.get("rcept_no"), **extra,
-                **summarize_key_financials(data["list"], bsns_year, sector["sector"])}
+                **summarize_key_financials(data["list"], bsns_year, sector["sector"], fs_div,
+                                           (company or {}).get("acc_mt"))}
     prev = str(int(bsns_year) - 1)
     span = "누적" if period_type == "cumulative" else "3개월"
     labels = {

@@ -82,7 +82,7 @@ data/<rcept_no>/<rcept_no>.zip                공시 원본 ZIP (불변, 만료 
 data/<rcept_no>/*.xml, *.md                   추출 XML·변환 Markdown
 data/<rcept_no>/outline.json                  목차(본문 제외)
 data/<rcept_no>/sections_<file_id>.json       섹션 본문
-data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json   재무 API 원본 응답
+data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json   재무 API 원본 응답, 90일 캐시(정정 의심 시 refresh=True)
 data/company/<corp_code>.json                 기업개황(company.json: 시장구분 corp_cls, 업종 induty_code), 30일 캐시
 ```
 

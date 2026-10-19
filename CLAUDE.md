@@ -35,7 +35,8 @@ uv run python -m dart_mcp.cli fetch <rcept_no>   # 원문 ZIP→XML→MD 저장 
 7. **에러는 `{"error": ...}`로 온다.** 없는 section_id면 available_ids가 함께 오니 그걸 보고 고친다. 재시도 전에 인자를 확인한다.
 8. **숫자는 API, 서술은 원문.** 재무 숫자는 `get_key_financials`(핵심 10계정 + 비율, 3개년)나
    `get_financial_statements`(BS/IS/CIS/CF 전체 계정, 원 단위)로 받는다. 원문 III장 요약재무정보·본표는 읽지 않는다.
-   캐시는 `data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json`. 출처는 `(rcept_no, 재무API)`.
+   캐시는 `data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json`(90일, 재무제표 정정이 의심되면 `refresh=True`). 출처는 `(rcept_no, 재무API)`.
+   ROE·ROA는 평균잔액 기준이고 지배주주 계정이 있으면 지배주주 기준(`ratios.roe.basis`). `flags`에 `capital_impairment`가 있으면 자본잠식을 표 아래 명시.
    원문에서 숫자를 옮길 때는 표의 단위 행을 확인해 함께 적고, "USD 3,653억원"처럼 통화·단위를 섞지 않는다.
    **분기·반기**: `get_key_financials(..., reprt_code="11012"|"11013"|"11014", period_type="cumulative"|"quarter")`.
    결과는 current vs prior(손익=전년 동기, 재무상태표=직전 사업연도말)이고, 연간 수치와 한 표에 섞지 않는다.
