@@ -173,6 +173,24 @@ class DartClient:
             raise DartApiError(str(data.get("status")), str(data.get("message", "")))
         return data
 
+    def get_financial_statements(
+        self, corp_code: str, bsns_year: str, reprt_code: str = "11011", fs_div: str = "CFS"
+    ) -> dict:
+        """단일회사 전체 재무제표 (fnlttSinglAcntAll.json).
+
+        reprt_code: 11011=사업보고서, 11012=반기, 11013=1분기, 11014=3분기. fs_div: CFS=연결, OFS=별도.
+        status "013"(조회된 데이터 없음)은 예외 대신 그대로 돌려준다. 그 밖의 비정상 status는 DartApiError.
+        """
+        resp = self._get(
+            "fnlttSinglAcntAll.json",
+            {"corp_code": corp_code, "bsns_year": bsns_year, "reprt_code": reprt_code, "fs_div": fs_div},
+        )
+        data = resp.json()
+        status = str(data.get("status"))
+        if status not in ("000", "013"):
+            raise DartApiError(status, str(data.get("message", "")))
+        return data
+
     # ---------------------------------------------------------------- 기업코드
     def get_corp_codes(
         self,

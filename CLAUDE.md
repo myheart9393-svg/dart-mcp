@@ -1,7 +1,7 @@
 # dart-mcp
 
 OpenDART 공시 원문을 섹션 단위로 읽는 MCP 서버(`dart`)와, 그 위에서 돌아가는 기업분석 슬래시 커맨드 프로젝트.
-코드는 `src/dart_mcp/` (client / document / cache / server / cli), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`.
+코드는 `src/dart_mcp/` (client / document / cache / financials / server / cli), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`.
 
 ```bash
 uv run pytest -q                      # 단위테스트
@@ -27,7 +27,11 @@ uv run python -m dart_mcp.cli fetch <rcept_no>   # 원문 ZIP→XML→MD 저장 
 6. **첨부 파일도 목차가 있다.** 감사보고서는 file_id "00760"(별도)/"00761"(연결) 같은 첨부에 있고,
    `get_disclosure_outline(rcept_no, file_id="00761")`로 그 파일만 볼 수 있다.
 7. **에러는 `{"error": ...}`로 온다.** 없는 section_id면 available_ids가 함께 오니 그걸 보고 고친다. 재시도 전에 인자를 확인한다.
-8. 숫자·사실을 보고서에 쓸 때는 `(rcept_no, section_id)` 출처를 붙이고, 원문에 없는 해석은 "추정:"으로 표시한다.
+8. **숫자는 API, 서술은 원문.** 재무 숫자는 `get_key_financials`(핵심 10계정 + 비율, 3개년)나
+   `get_financial_statements`(BS/IS/CIS/CF 전체 계정, 원 단위)로 받는다. 원문 III장 요약재무정보·본표는 읽지 않는다.
+   캐시는 `data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json`. 출처는 `(rcept_no, 재무API)`.
+   원문에서 숫자를 옮길 때는 표의 단위 행을 확인해 함께 적고, "USD 3,653억원"처럼 통화·단위를 섞지 않는다.
+9. 숫자·사실을 보고서에 쓸 때는 `(rcept_no, section_id)` 출처를 붙이고, 원문에 없는 해석은 "추정:"으로 표시한다.
 
 ### 공시유형 코드 (search_disclosures의 pblntf_ty)
 A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 기타공시 · F 외부감사관련 · G 펀드공시 · H 자산유동화 · I 거래소공시 · J 공정위공시
@@ -40,6 +44,7 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
 | `/dart-analyze <회사명> [사업연도]` | 종합 기업분석. 사업 구조·3개년 재무 추이·경영진 관점·리스크·지배구조·종합 의견 |
 | `/dart-financial <회사명> [사업연도]` | 재무 심층. 수익성·안정성·현금흐름 표 + 주석에서 차입금·충당부채·우발·특수관계자만 발췌 |
 | `/dart-risk <회사명> [사업연도]` | 리스크 전용. 위험관리·우발부채·소송·제재·감사의견(강조사항·KAM)을 심각도/발생가능성 표로 |
+| `/dart-compare <회사1> <회사2> [<회사3>] [사업연도]` | 2~3사 비교. 3개년 핵심 지표(API) 같은 행 비교 + 규모·성장·수익성·안정성 + 경영진 전망 |
 | `/dart-event <rcept_no>` | 수시공시 한 건. 결정 내용·규모·주주 영향·직전 1년 유사 공시 비교를 3단 요약으로 |
 
 공통 규칙: 보고서는 `reports/<회사명>_<종류>_<날짜>.md`로 저장, 마지막에 "참조한 섹션 목록" 부록,

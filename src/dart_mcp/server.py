@@ -20,6 +20,17 @@ except ImportError:  # mcp 1.x
 
 from .cache import DisclosureCache
 from .client import DartClient
+from .financials import (
+    FS_DIVS,
+    KEY_ACCOUNTS,
+    NO_DATA_STATUS,
+    REPRT_CODES,
+    STATEMENTS,
+    group_statements,
+    load_statements,
+    period_years,
+    summarize_key_financials,
+)
 
 load_dotenv()
 logging.basicConfig(
@@ -319,6 +330,114 @@ def search_in_disclosure(
         "returned": min(len(matches), max_results),
         "matches": [m[2] for m in matches[:max_results]],
     }
+
+
+def _check_fin_args(corp_code: str, bsns_year: str, reprt_code: str, fs_div: str) -> tuple[str, str, str, str]:
+    corp_code, bsns_year = corp_code.strip(), str(bsns_year).strip()
+    reprt_code, fs_div = str(reprt_code).strip(), fs_div.strip().upper()
+    if not re.fullmatch(r"\d{8}", corp_code):
+        raise ValueError(f"corp_code는 8자리 숫자여야 합니다(find_company로 확인): {corp_code!r}")
+    if not re.fullmatch(r"\d{4}", bsns_year):
+        raise ValueError(f"bsns_year는 4자리 연도여야 합니다: {bsns_year!r}")
+    if reprt_code not in REPRT_CODES:
+        raise ValueError(f"reprt_code는 {list(REPRT_CODES)} 중 하나: {reprt_code!r}")
+    if fs_div not in FS_DIVS:
+        raise ValueError(f"fs_div는 CFS(연결) 또는 OFS(별도): {fs_div!r}")
+    return corp_code, bsns_year, reprt_code, fs_div
+
+
+def _no_data_message(corp_code: str, bsns_year: str, reprt_code: str, fs_div: str) -> str:
+    hint = " 연결 대상 종속회사가 없는 회사면 fs_div='OFS'로 다시 호출한다." if fs_div == "CFS" else ""
+    return (
+        f"조회 데이터 없음(status 013): {corp_code} {bsns_year} {REPRT_CODES[reprt_code]} {FS_DIVS[fs_div]}."
+        f" 해당 보고서가 아직 제출 전이거나 2015년 이전 연도일 수 있다.{hint}"
+    )
+
+
+@mcp.tool()
+@_safe
+def get_financial_statements(
+    corp_code: str,
+    bsns_year: str,
+    reprt_code: str = "11011",
+    fs_div: str = "CFS",
+    sj_div: str | None = None,
+) -> dict:
+    """정기보고서의 재무제표 전체 계정을 구조화 데이터로 돌려준다 (OpenDART fnlttSinglAcntAll).
+
+    언제: 재무 숫자가 필요할 때 원문 III장(요약재무정보·재무제표 본표) 대신 이것을 쓴다.
+      원문 표를 옮겨 적는 것보다 정확하고(단위가 항상 원), 한 번에 당기·전기·전전기 3개년이 온다.
+      핵심 지표만 필요하면 get_key_financials가 더 짧다.
+    인자:
+      - corp_code: find_company로 얻은 8자리. bsns_year: 사업연도 "YYYY" (2015년 이후).
+      - reprt_code: 11011=사업보고서, 11012=반기보고서, 11013=1분기보고서, 11014=3분기보고서
+      - fs_div: CFS=연결재무제표, OFS=재무제표(별도)
+      - sj_div: 쉼표로 고를 재무제표. BS=재무상태표, IS=손익계산서, CIS=포괄손익계산서, CF=현금흐름표
+        (생략 시 네 개 전부. 손익계산서를 포괄손익계산서 하나로 내는 회사는 IS 없이 CIS만 있다.)
+    결과: statements{sj_div: {sj_nm, rows[]}}. 각 row는 account_nm, account_id, thstrm_amount(당기),
+      frmtrm_amount(전기), bfefrmtrm_amount(전전기) 원문 문자열과 amount_krw{연도: 정수(원)}.
+      years는 [당기, 전기, 전전기] 연도. 분기·반기 보고서는 전전기 열이 없을 수 있다.
+      조회 데이터가 없으면(status 013) error가 아니라 빈 statements와 message.
+    캐시: data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json. 한 번 받으면 재호출해도 API를 쓰지 않는다.
+    """
+    corp_code, bsns_year, reprt_code, fs_div = _check_fin_args(corp_code, bsns_year, reprt_code, fs_div)
+    wanted = STATEMENTS
+    if sj_div:
+        wanted = tuple(s.strip().upper() for s in sj_div.split(",") if s.strip())
+        bad = [s for s in wanted if s not in STATEMENTS]
+        if bad:
+            return {"error": f"sj_div {bad} 없음. 사용 가능: {list(STATEMENTS)}"}
+    data = load_statements(_get_client, corp_code, bsns_year, reprt_code, fs_div)
+    base = {
+        "corp_code": corp_code, "bsns_year": bsns_year,
+        "reprt_code": reprt_code, "reprt_nm": REPRT_CODES[reprt_code],
+        "fs_div": fs_div, "fs_nm": FS_DIVS[fs_div],
+        "unit": "원(KRW)", "years": period_years(bsns_year),
+    }
+    if data["status"] == NO_DATA_STATUS:
+        return {**base, "rcept_no": None, "statements": {}, "message": _no_data_message(*_base_args(base))}
+    statements = group_statements(data["list"], bsns_year, wanted)
+    return {
+        **base,
+        "rcept_no": data.get("rcept_no"),
+        "currency": (data["list"][0].get("currency") if data["list"] else None),
+        "row_counts": {k: len(v["rows"]) for k, v in statements.items()},
+        "statements": statements,
+    }
+
+
+def _base_args(base: dict) -> tuple[str, str, str, str]:
+    return base["corp_code"], base["bsns_year"], base["reprt_code"], base["fs_div"]
+
+
+@mcp.tool()
+@_safe
+def get_key_financials(corp_code: str, bsns_year: str, fs_div: str = "CFS") -> dict:
+    """사업보고서 기준 핵심 재무지표 3개년(당기·전기·전전기)과 계산 비율을 돌려준다.
+
+    언제: 기업분석·비교 보고서의 재무 표를 만들 때 가장 먼저 쓴다. 원문 재무 섹션을 읽을 필요가 없다.
+      여러 연도를 보려면 bsns_year만 바꿔 재호출한다 (예: 2024 → 2024·2023·2022, 2021 → 2021·2020·2019).
+    결과:
+      - accounts{key: {label, values{연도: 원}, matched}}: revenue 매출액, operating_income 영업이익,
+        net_income 당기순이익(비지배지분 포함 연결 총액), total_assets 자산총계, total_liabilities 부채총계,
+        total_equity 자본총계, operating_cf 영업활동현금흐름, investing_cf 투자활동현금흐름,
+        capex 유형자산취득(CAPEX 대용, 현금흐름표 금액 그대로·부호는 회사 표기를 따름), cash 현금및현금성자산.
+        matched는 어떤 계정으로 잡았는지(account_id 우선, 없으면 계정명 일치)를 보여준다.
+      - ratios{key: {label, values{연도: %}}}: 영업이익률, 순이익률, 부채비율, 자기자본비율, ROE, ROA.
+        모두 해당 연도 기말 잔액 기준 단순 계산(평균잔액 아님). 보고서에는 "계산"으로 표기한다.
+      - missing: 찾지 못한 계정 key 목록 (값은 null). 단위는 모두 원(KRW).
+    출처 표기: 보고서에는 (rcept_no, "재무API") 형태로 적는다.
+    """
+    corp_code, bsns_year, reprt_code, fs_div = _check_fin_args(corp_code, bsns_year, "11011", fs_div)
+    data = load_statements(_get_client, corp_code, bsns_year, reprt_code, fs_div)
+    base = {
+        "corp_code": corp_code, "bsns_year": bsns_year, "reprt_code": reprt_code,
+        "fs_div": fs_div, "fs_nm": FS_DIVS[fs_div], "unit": "원(KRW)",
+    }
+    if data["status"] == NO_DATA_STATUS:
+        return {**base, "rcept_no": None, "years": period_years(bsns_year), "accounts": {}, "ratios": {},
+                "missing": [a.key for a in KEY_ACCOUNTS], "message": _no_data_message(*_base_args(base))}
+    return {**base, "rcept_no": data.get("rcept_no"), **summarize_key_financials(data["list"], bsns_year)}
 
 
 def main() -> None:
