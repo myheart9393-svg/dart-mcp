@@ -91,3 +91,34 @@ def test_rowspan_and_tu_cells_and_metadata_skipped():
     assert "| 사업연도 | 2024년 01월 01일 | 부터 |" in md  # TU가 셀로 인식됨
     assert "| | 2024년 12월 31일 | 까지 |" in md  # ROWSPAN 칸은 빈 셀로 유지되어 열이 밀리지 않음
     assert "| 비고 | - | |" in md
+
+
+# 2012년 사업보고서(20120330000791) 실측 구조: 선언은 utf-8인데 실제 바이트는 cp949,
+# 그리고 편집기 템플릿 태그(INSERTION/COMMENT/LIBRARYLIST, FILENAME, WARNING, APPENDIX)가 본문 사이에 있다.
+LEGACY_2012 = """<?xml version="1.0" encoding="utf-8"?>
+<DOCUMENT>
+<DOCUMENT-HEADER AEXT-CLASS="Y"><DOCUMENT-NAME ACODE="11011">사업보고서</DOCUMENT-NAME>
+<FORMULA-VERSION SUBVER="1" ADATE="20120102">1.7</FORMULA-VERSION></DOCUMENT-HEADER>
+<BODY>
+<INSERTION ABASISNUMBER="SE1"><COMMENT>◆click◆ 정정문서 작성시 『정오표』 삽입</COMMENT>
+<LIBRARYLIST>정정신고(보고)-대표이사등의확인.LCommon</LIBRARYLIST></INSERTION>
+<SECTION-1><TITLE ATOC="Y">I. 회사의 개요</TITLE>
+<FILENAME ATYPE="dsl">4_주식의총수현황</FILENAME>
+<P>당사는 검사용 프로브를 만듭니다.</P>
+<WARNING>※ 주권상장법인은 XBRL 재무제표를 삽입하여야 합니다.</WARNING>
+<APPENDIX ATYPE="IMAGE"><COMMENT>◆click◆ 『확인서』 그림파일 삽입</COMMENT></APPENDIX>
+<P>꼬리 문단</P>
+</SECTION-1>
+</BODY>
+</DOCUMENT>
+""".encode("cp949")
+
+
+def test_legacy_2012_lying_declaration_and_editor_tags_skipped():
+    assert detect_declared_encoding(LEGACY_2012) == "utf-8"
+    text, used = decode_dart_xml(LEGACY_2012)
+    assert used == "cp949" and "�" not in text
+    md = parse_dart_xml(LEGACY_2012)
+    assert "당사는 검사용 프로브를 만듭니다." in md and "꼬리 문단" in md
+    for junk in ("◆click◆", ".LCommon", "4_주식의총수현황", "XBRL 재무제표를 삽입"):
+        assert junk not in md

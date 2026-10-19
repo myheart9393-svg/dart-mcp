@@ -144,3 +144,30 @@ def test_no_title_subsections_when_single_title_or_only_child_sections():
     joined = "".join(by_id[f"1.1.t{n}"].text for n in (1, 2, 3))
     for phrase in ("회사 개요 본문", "회계정책 본문", "소송 본문", "| 항목 | 금액 |"):
         assert phrase in joined and phrase in by_id["1.1"].text
+
+
+SEARCH_SAMPLE = """<?xml version="1.0" encoding="utf-8"?>
+<DOCUMENT><BODY>
+<SECTION-1><TITLE>II. 사업의 내용</TITLE>
+<SECTION-2><TITLE>6. 연구개발</TITLE><P>경쟁력 확보로 시작하는 문단. 중간 설명이 충분히 길게 이어진다. 중간 설명이 충분히 길게 이어진다. 마지막 문장은 시장의 경쟁력 확보</P></SECTION-2>
+<SECTION-2><TITLE>7. 기타 참고사항</TITLE><P>상표 설명이 이어진다. 상표 설명이 이어진다. 상표 설명이 이어진다.</P></SECTION-2>
+</SECTION-1>
+</BODY></DOCUMENT>
+"""
+
+
+def test_search_reports_subsection_edge_matches_once(tmp_path, monkeypatch):
+    """하위 섹션 첫머리·끝머리 매치가 상위(level 1) 섹션에서 다시 보고되지 않는다 (리노공업 2025 '경쟁' 실측 회귀)."""
+    from dart_mcp import server
+
+    rcept_no = "20250101000009"
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as zf:
+        zf.writestr(f"{rcept_no}.xml", SEARCH_SAMPLE.encode("utf-8"))
+    cache = DisclosureCache(tmp_path)
+    cache.get(rcept_no, _FakeClient(buf.getvalue()))
+    monkeypatch.setattr(server, "_cache", cache)
+
+    r = server.search_in_disclosure(rcept_no, "경쟁력", context_chars=10)
+    assert r["total_matches"] == 2
+    assert {m["section_id"] for m in r["matches"]} == {"1.1"}

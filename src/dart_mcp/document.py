@@ -55,7 +55,10 @@ BLOCK_TAGS = {
     "P", "DIV", "LI", "UL", "OL", "IMAGE", "IMG-CAPTION", "CORRECTION", "DATE", "TABLE-GROUP",
 }
 # 문서 메타데이터: 본문 텍스트가 아니므로 출력하지 않음
-SKIP_TAGS = {"FORMULA-VERSION", "SUMMARY", "EXTRACTION"}
+# COMMENT·LIBRARYLIST·FILENAME·WARNING은 공시 작성기(편집기) 템플릿 잔재다. 2012년 문서 실측:
+# "◆click◆ 정정문서 작성시 『정오표』 삽입", "정정신고(보고)-대표이사등의확인.LCommon", "4_주식의총수현황",
+# "※ 주권상장법인은 XBRL 재무제표를 삽입하여야 합니다" 같은 작성 안내가 본문에 섞였다(최근 문서에는 없음).
+SKIP_TAGS = {"FORMULA-VERSION", "SUMMARY", "EXTRACTION", "COMMENT", "LIBRARYLIST", "FILENAME", "WARNING"}
 # 문서 제목급 → "# " 헤딩
 H1_TAGS = {"DOCUMENT-NAME", "COVER-TITLE"}
 # TD: 일반 셀, TH: 머리글 셀, TE: 코드(ACODE) 값 셀, TU: 단위/코드 값 셀(AUNITVALUE)

@@ -103,6 +103,78 @@ KEY_ACCOUNTS: tuple[KeyAccount, ...] = (
     KeyAccount("cash", "현금및현금성자산", ("BS",), ("ifrs-full_CashAndCashEquivalents",),
                ("현금및현금성자산",), ("기초", "기말", "증가", "감소", "환율", "외화")),
 )
+# BS에 현금및현금성자산 행이 없는 회사(은행: "현금 및 예치금")는 현금흐름표의 기말 현금으로 대체한다.
+CASH_CF_FALLBACK = KeyAccount("cash", "현금및현금성자산", ("CF",), ("ifrs-full_CashAndCashEquivalents",),
+                              ("기말현금및현금성자산", "기말의현금및현금성자산"))
+
+# --------------------------------------------------------------------------- 금융업
+# 금융업(은행·보험·증권·금융지주)은 "매출액"이 없고 영업이익률·순이익률·부채비율이 제조업과 뜻이 다르다.
+# 업종은 기업개황(company.json)의 induty_code(KSIC)로 1차 판단한다: 64 금융업, 65 보험·연금, 66 금융 서비스.
+# 단 64992(지주회사)는 SK·LG 같은 비금융 지주도 같은 코드이므로 손익계산서에 금융 계정이 있는지로 확인한다.
+FINANCIAL_KSIC_PREFIXES = ("64", "65", "66")
+HOLDING_KSIC = "64992"
+_FIN_MARKER_IDS = ("ifrs-full_InterestRevenueExpense", "ifrs-full_InsuranceRevenue",
+                   "ifrs-full_FeeAndCommissionIncomeExpense")
+FINANCIAL_ACCOUNTS: tuple[KeyAccount, ...] = (
+    KeyAccount("net_interest_income", "순이자이익", _PL, ("ifrs-full_InterestRevenueExpense",),
+               ("순이자손익", "순이자이익", "이자손익"), ("보험", "외")),
+    KeyAccount("net_fee_income", "순수수료이익", _PL, ("ifrs-full_FeeAndCommissionIncomeExpense",),
+               ("순수수료손익", "순수수료이익", "수수료손익"), ("보험",)),
+    KeyAccount("insurance_revenue", "보험수익", _PL, ("ifrs-full_InsuranceRevenue",), ("보험수익",), ("재보험", "금융")),
+    KeyAccount("credit_loss_provision", "신용손실충당금전입", _PL,
+               ("ifrs-full_ImpairmentLossImpairmentGainAndReversalOfImpairmentLossDeterminedInAccordanceWithIFRS9",),
+               ("신용손실충당금전입액", "신용손실충당금(전)환입액", "대손충당금전입액"), ("반영전",)),
+)
+FINANCIAL_NOT_APPLICABLE = ("revenue",)  # 금융업에서 개념이 없는 핵심 계정
+FINANCIAL_SKIP_RATIOS = ("operating_margin", "net_margin")
+FINANCIAL_WARNING = (
+    "금융업 회사로 판단했다({reason}). 매출액 개념이 없어 revenue는 계산하지 않고(not_applicable), "
+    "영업이익률·순이익률도 비운다. 대신 financial_accounts에 순이자이익·순수수료이익·보험수익·신용손실충당금전입을 준다. "
+    "부채비율은 예수부채·보험계약부채가 포함돼 제조업과 비교할 수 없고, 유형자산취득(capex)은 규모가 작아 의미가 약하다. "
+    "보고서에는 '금융업 기준'임을 밝히고 일반 기업과 같은 표에서 비교하지 않는다."
+)
+
+
+def detect_sector(induty_code: str | None, items: list[dict]) -> dict:
+    """{"sector": "financial"|"general"|"unknown", "induty_code", "reason"}.
+
+    - induty_code가 64/65/66으로 시작하고 64992(지주회사)가 아니면 financial.
+    - 64992면 손익계산서에 금융 계정(순이자손익·보험수익·순수수료손익 account_id)이 있고
+      ifrs-full_Revenue(매출액)가 없을 때만 financial (비금융 지주회사와 구분).
+    - induty_code를 모르면(조회 실패) 재무제표 신호만으로 판단하고 reason에 적는다.
+    """
+    code = (induty_code or "").strip()
+    ids = {it.get("account_id") for it in items if it.get("sj_div") in _PL}
+    fin_signal = any(m in ids for m in _FIN_MARKER_IDS) and "ifrs-full_Revenue" not in ids
+    if code.startswith(FINANCIAL_KSIC_PREFIXES) and code != HOLDING_KSIC:
+        return {"sector": "financial", "induty_code": code, "reason": f"induty_code {code}, KSIC 64–66 금융·보험"}
+    if code == HOLDING_KSIC:
+        if fin_signal:
+            return {"sector": "financial", "induty_code": code,
+                    "reason": f"induty_code {code}(지주회사) + 손익계산서에 금융 계정 있고 매출액 계정 없음"}
+        return {"sector": "general", "induty_code": code, "reason": f"induty_code {code}(지주회사), 금융 계정 신호 없음"}
+    if not code:
+        if fin_signal:
+            return {"sector": "financial", "induty_code": None, "reason": "업종코드 미확인, 재무제표 금융 계정 신호"}
+        return {"sector": "unknown", "induty_code": None, "reason": "업종코드 미확인"}
+    return {"sector": "general", "induty_code": code, "reason": f"induty_code {code}"}
+
+
+def _match_key(items: list[dict], spec: KeyAccount) -> tuple[dict | None, str | None]:
+    """match_account + cash는 BS에 없을 때 CF 기말현금으로 대체."""
+    row, how = match_account(items, spec)
+    if row is None and spec.key == "cash":
+        row, how = match_account(items, CASH_CF_FALLBACK)
+        if row is not None:
+            how = f"{how}(CF 기말현금 대체)"
+    return row, how
+
+
+def _mark_financial_ratios(ratios: dict) -> None:
+    for rkey in FINANCIAL_SKIP_RATIOS:
+        if rkey in ratios:
+            ratios[rkey]["values"] = {k: None for k in ratios[rkey]["values"]}
+            ratios[rkey]["note"] = "금융업: 매출액 개념이 없어 계산하지 않음"
 
 
 def normalize_name(name: str | None) -> str:
@@ -164,27 +236,42 @@ RATIOS = (
 )
 
 
-def summarize_key_financials(items: list[dict], bsns_year: str) -> dict:
-    """원본 list → 핵심 계정 3개년 + 비율. 못 찾은 계정은 값 None, missing 목록에 key."""
+def _annual_entry(row: dict, how: str, label: str, years: list[str]) -> dict:
+    return {
+        "label": label,
+        "values": {years[i]: parse_amount(row.get(f)) for i, (f, _) in enumerate(PERIODS)},
+        "matched": {
+            "by": how,
+            "sj_div": row.get("sj_div"),
+            "account_id": row.get("account_id"),
+            "account_nm": row.get("account_nm"),
+        },
+    }
+
+
+def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "general") -> dict:
+    """원본 list → 핵심 계정 3개년 + 비율. 못 찾은 계정은 값 None, missing 목록에 key.
+
+    sector="financial"이면 revenue는 not_applicable(missing에 넣지 않음), 영업이익률·순이익률은 None,
+    financial_accounts에 금융업 계정(순이자이익 등)과 financial_missing을 더한다.
+    """
     years = period_years(bsns_year)
+    financial = sector == "financial"
     accounts: dict[str, dict] = {}
     missing: list[str] = []
+    not_applicable: list[str] = []
     for spec in KEY_ACCOUNTS:
-        row, how = match_account(items, spec)
+        if financial and spec.key in FINANCIAL_NOT_APPLICABLE:
+            accounts[spec.key] = {"label": spec.label, "values": {y: None for y in years}, "matched": None,
+                                  "note": "금융업: 해당 개념 없음"}
+            not_applicable.append(spec.key)
+            continue
+        row, how = _match_key(items, spec)
         if row is None:
             accounts[spec.key] = {"label": spec.label, "values": {y: None for y in years}, "matched": None}
             missing.append(spec.key)
             continue
-        accounts[spec.key] = {
-            "label": spec.label,
-            "values": {years[i]: parse_amount(row.get(f)) for i, (f, _) in enumerate(PERIODS)},
-            "matched": {
-                "by": how,
-                "sj_div": row.get("sj_div"),
-                "account_id": row.get("account_id"),
-                "account_nm": row.get("account_nm"),
-            },
-        }
+        accounts[spec.key] = _annual_entry(row, how, spec.label, years)
 
     def v(key: str, y: str) -> int | None:
         return accounts[key]["values"][y]
@@ -193,7 +280,17 @@ def summarize_key_financials(items: list[dict], bsns_year: str) -> dict:
         rkey: {"label": label, "values": {y: _ratio(v(num, y), v(den, y)) for y in years}, "formula": f"{num}/{den}"}
         for rkey, label, num, den in RATIOS
     }
-    return {"years": years, "accounts": accounts, "ratios": ratios, "missing": missing}
+    out = {"years": years, "accounts": accounts, "ratios": ratios, "missing": missing}
+    if financial:
+        _mark_financial_ratios(ratios)
+        fin: dict[str, dict] = {}
+        for spec in FINANCIAL_ACCOUNTS:
+            row, how = match_account(items, spec)
+            fin[spec.key] = (_annual_entry(row, how, spec.label, years) if row is not None
+                             else {"label": spec.label, "values": {y: None for y in years}, "matched": None})
+        out.update(financial_accounts=fin, not_applicable=not_applicable,
+                   financial_missing=[k for k, a in fin.items() if a["matched"] is None])
+    return out
 
 
 # --------------------------------------------------------------------------- 반기·분기
@@ -218,7 +315,8 @@ def _statement_kind(sj_div: str | None) -> str:
     return {"BS": "bs", "CF": "cf"}.get(sj_div or "", "flow")
 
 
-def summarize_interim_financials(items: list[dict], reprt_code: str, period_type: str) -> dict:
+def summarize_interim_financials(items: list[dict], reprt_code: str, period_type: str,
+                                 sector: str = "general") -> dict:
     """분기·반기 원본 list → 핵심 계정의 {current, prior} 두 값.
 
     flow(손익) 계정의 prior는 전년 동기(누적 또는 동분기), BS 계정의 prior는 전기말이다.
@@ -227,34 +325,23 @@ def summarize_interim_financials(items: list[dict], reprt_code: str, period_type
     """
     if period_type not in INTERIM_PERIOD_TYPES:
         raise ValueError(f"분기·반기 period_type은 {INTERIM_PERIOD_TYPES} 중 하나: {period_type!r}")
+    financial = sector == "financial"
     accounts: dict[str, dict] = {}
     missing: list[str] = []
+    not_applicable: list[str] = []
     for spec in KEY_ACCOUNTS:
-        row, how = match_account(items, spec)
+        if financial and spec.key in FINANCIAL_NOT_APPLICABLE:
+            accounts[spec.key] = {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
+                                  "matched": None, "note": "금융업: 해당 개념 없음"}
+            not_applicable.append(spec.key)
+            continue
+        row, how = _match_key(items, spec)
         if row is None:
             accounts[spec.key] = {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
                                   "matched": None}
             missing.append(spec.key)
             continue
-        kind = _statement_kind(row.get("sj_div"))
-        cur_f, prior_f = _INTERIM_FIELDS[(kind, period_type)]
-        cur = parse_amount(row.get(cur_f)) if cur_f else None
-        prior = parse_amount(row.get(prior_f)) if prior_f else None
-        if kind == "flow" and period_type == "cumulative" and reprt_code == "11013":
-            cur = cur if cur is not None else parse_amount(row.get("thstrm_amount"))
-            prior = prior if prior is not None else parse_amount(row.get("frmtrm_q_amount"))
-        basis = {"bs": "balance(당기말 vs 전기말)", "cf": "cumulative(누적만 공시)"}.get(
-            kind, f"{period_type}(전년 동기 비교)")
-        if kind == "cf" and period_type == "quarter":
-            basis = "n/a(현금흐름표는 누적만 공시)"
-        accounts[spec.key] = {
-            "label": spec.label,
-            "basis": basis,
-            "values": {"current": cur, "prior": prior},
-            "fields": {"current": cur_f, "prior": prior_f},
-            "matched": {"by": how, "sj_div": row.get("sj_div"), "account_id": row.get("account_id"),
-                        "account_nm": row.get("account_nm"), "thstrm_nm": row.get("thstrm_nm")},
-        }
+        accounts[spec.key] = _interim_entry(row, how, spec.label, reprt_code, period_type)
 
     def v(key: str, col: str) -> int | None:
         return accounts[key]["values"][col]
@@ -264,7 +351,46 @@ def summarize_interim_financials(items: list[dict], reprt_code: str, period_type
                "formula": f"{num}/{den}"}
         for rkey, label, num, den in RATIOS if rkey in _INTERIM_RATIOS
     }
-    return {"columns": ["current", "prior"], "accounts": accounts, "ratios": ratios, "missing": missing}
+    out = {"columns": ["current", "prior"], "accounts": accounts, "ratios": ratios, "missing": missing}
+    if financial:
+        _mark_financial_ratios(ratios)
+        fin: dict[str, dict] = {}
+        for spec in FINANCIAL_ACCOUNTS:
+            row, how = match_account(items, spec)
+            fin[spec.key] = (_interim_entry(row, how, spec.label, reprt_code, period_type) if row is not None
+                             else {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
+                                   "matched": None})
+        out.update(financial_accounts=fin, not_applicable=not_applicable,
+                   financial_missing=[k for k, a in fin.items() if a["matched"] is None])
+    return out
+
+
+def _interim_entry(row: dict, how: str | None, label: str, reprt_code: str, period_type: str) -> dict:
+    """분기·반기 행 하나 → {label, basis, values{current, prior}, fields, matched}."""
+    kind = _statement_kind(row.get("sj_div"))
+    cur_f, prior_f = _INTERIM_FIELDS[(kind, period_type)]
+    cur = parse_amount(row.get(cur_f)) if cur_f else None
+    prior = parse_amount(row.get(prior_f)) if prior_f else None
+    if kind == "flow" and period_type == "cumulative" and reprt_code == "11013":
+        cur = cur if cur is not None else parse_amount(row.get("thstrm_amount"))
+        prior = prior if prior is not None else parse_amount(row.get("frmtrm_q_amount"))
+    basis = {"bs": "balance(당기말 vs 전기말)", "cf": "cumulative(누적만 공시)"}.get(
+        kind, f"{period_type}(전년 동기 비교)")
+    if kind == "cf" and "CF 기말현금" in (how or ""):
+        # 현금흐름표의 기말 현금은 잔액: thstrm=당기말, frmtrm_q=전년 동기말 (BS 비교열인 전기말과 다르다)
+        cur_f, prior_f = "thstrm_amount", "frmtrm_q_amount"
+        cur, prior = parse_amount(row.get(cur_f)), parse_amount(row.get(prior_f))
+        basis = "balance(CF 기말현금: 당기말 vs 전년 동기말)"
+    elif kind == "cf" and period_type == "quarter":
+        basis = "n/a(현금흐름표는 누적만 공시)"
+    return {
+        "label": label,
+        "basis": basis,
+        "values": {"current": cur, "prior": prior},
+        "fields": {"current": cur_f, "prior": prior_f},
+        "matched": {"by": how, "sj_div": row.get("sj_div"), "account_id": row.get("account_id"),
+                    "account_nm": row.get("account_nm"), "thstrm_nm": row.get("thstrm_nm")},
+    }
 
 
 # --------------------------------------------------------------------------- 캐시
@@ -309,3 +435,27 @@ def load_statements(
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
     return {**payload, "cached": False}
+
+
+COMPANY_MAX_AGE_DAYS = 30
+
+
+def load_company(client_factory, corp_code: str, data_dir: Path | None = None) -> dict | None:
+    """기업개황(company.json) 캐시 → 없거나 30일 지났으면 재조회. 실패하면 None (업종 판단은 재무제표 신호로)."""
+    base = Path(data_dir) if data_dir else default_data_dir()
+    path = base / "company" / f"{corp_code}.json"
+    if path.exists():
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if time.time() - float(payload.get("fetched_at", 0)) < COMPANY_MAX_AGE_DAYS * 86400:
+                return payload["company"]
+        except (OSError, ValueError, KeyError):
+            pass
+    try:
+        company = client_factory().get_company(corp_code)
+    except Exception as exc:  # noqa: BLE001 — 업종 조회 실패가 재무 조회를 막지 않게
+        log.warning("company.json %s failed: %s", corp_code, exc)
+        return None
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"fetched_at": time.time(), "company": company}, ensure_ascii=False), encoding="utf-8")
+    return company

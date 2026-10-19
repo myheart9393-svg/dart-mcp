@@ -31,6 +31,7 @@ uv run python -m dart_mcp.cli fetch <rcept_no>   # 원문 ZIP→XML→MD 저장 
 5. **같은 섹션을 세션 중 두 번 읽지 않는다.** 이미 읽은 내용은 기억에서 쓴다.
 6. **첨부 파일도 목차가 있다.** 감사보고서는 file_id "00760"(별도)/"00761"(연결) 같은 첨부에 있고,
    `get_disclosure_outline(rcept_no, file_id="00761")`로 그 파일만 볼 수 있다.
+6-1. **감사보고서 첨부의 주석은 depth=3이어도 쪼개지지 않는다**(TITLE 태그 없음). 본문 "재무제표 주석" 섹션을 쓰거나 첨부는 search_in_disclosure로 찍어 offset으로 읽는다.
 7. **에러는 `{"error": ...}`로 온다.** 없는 section_id면 available_ids가 함께 오니 그걸 보고 고친다. 재시도 전에 인자를 확인한다.
 8. **숫자는 API, 서술은 원문.** 재무 숫자는 `get_key_financials`(핵심 10계정 + 비율, 3개년)나
    `get_financial_statements`(BS/IS/CIS/CF 전체 계정, 원 단위)로 받는다. 원문 III장 요약재무정보·본표는 읽지 않는다.
@@ -38,6 +39,8 @@ uv run python -m dart_mcp.cli fetch <rcept_no>   # 원문 ZIP→XML→MD 저장 
    원문에서 숫자를 옮길 때는 표의 단위 행을 확인해 함께 적고, "USD 3,653억원"처럼 통화·단위를 섞지 않는다.
    **분기·반기**: `get_key_financials(..., reprt_code="11012"|"11013"|"11014", period_type="cumulative"|"quarter")`.
    결과는 current vs prior(손익=전년 동기, 재무상태표=직전 사업연도말)이고, 연간 수치와 한 표에 섞지 않는다.
+   **금융업**: 응답에 `warning`이 있으면(sector="financial") 매출액·영업이익률 대신 `financial_accounts`(순이자이익 등)를 쓰고,
+   보고서에 "금융업 기준"을 밝힌다. 일반 기업과 같은 비교 표에 넣지 않는다. 연결 조회가 013이면 `fs_div="OFS"`(종속회사 없는 회사).
 9. 숫자·사실을 보고서에 쓸 때는 `(rcept_no, section_id)` 출처를 붙이고, 원문에 없는 해석은 "추정:"으로 표시한다.
 
 ### 공시유형 코드 (search_disclosures의 pblntf_ty)

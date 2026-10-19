@@ -22,13 +22,16 @@ except ImportError:  # mcp 1.x
 from .cache import DisclosureCache
 from .client import DartClient
 from .financials import (
+    FINANCIAL_WARNING,
     FS_DIVS,
     KEY_ACCOUNTS,
     NO_DATA_STATUS,
     INTERIM_PERIOD_TYPES,
     REPRT_CODES,
     STATEMENTS,
+    detect_sector,
     group_statements,
+    load_company,
     load_statements,
     period_years,
     summarize_interim_financials,
@@ -287,17 +290,25 @@ def search_in_disclosure(
         return {"error": f"file_id {file_id!r} 없음. 사용 가능: {[x.file_id for x in disc.files]}"}
 
     pattern = re.compile(re.escape(query.strip()), re.IGNORECASE)
-    seen: set[str] = set()
     matches: list[tuple[tuple[int, ...], int, dict]] = []
-    # 깊은 섹션부터 검색해, 상위 섹션에서 중복되는 매치는 문맥 키로 걸러낸다
-    for sec in sorted(f.sections, key=lambda s: -s.level):
+    # 매치는 그것을 담은 가장 깊은 섹션에서만 보고한다. 상위 섹션 text는 하위 섹션 text를 그대로 포함하므로,
+    # 하위 섹션 text가 상위 text 안에서 차지하는 구간에 든 매치는 건너뛴다.
+    # (예전의 "매치 뒤 80자" 문맥 키는 하위 섹션 끝머리 매치를 상위에서 다시 보고했다: 리노공업 2025 '경쟁' 실측)
+    for sec in f.sections:
+        found = list(pattern.finditer(sec.text))
+        if not found:
+            continue
+        covered: list[tuple[int, int]] = []
+        if sec.id != "0":
+            for sub in f.sections:
+                if sub.id.startswith(sec.id + ".") and sub.text:
+                    pos = sec.text.find(sub.text)
+                    if pos >= 0:
+                        covered.append((pos, pos + len(sub.text)))
         spans: list[tuple[int, int]] = []
-        for m in pattern.finditer(sec.text):
-            # 뒤쪽 문맥만으로 키를 만든다: 하위 섹션 첫머리의 매치는 앞 문맥이 짧아 상위와 키가 달라지기 때문
-            key = sec.text[m.start() : m.end() + 80]
-            if key in seen:
+        for m in found:
+            if any(a <= m.start() < b for a, b in covered):
                 continue
-            seen.add(key)
             spans.append((m.start(), m.end()))
         # 서로 context_chars 안에 있는 매치는 한 덩어리로 합친다
         clusters: list[list[tuple[int, int]]] = []
@@ -443,6 +454,10 @@ def get_key_financials(
     공통: accounts 키 revenue 매출액, operating_income 영업이익, net_income 당기순이익(비지배 포함),
       total_assets, total_liabilities, total_equity, operating_cf, investing_cf, capex(유형자산취득), cash.
       missing: 찾지 못한 계정 key (값 null). 단위는 모두 원(KRW).
+      sector: {sector, induty_code, reason}. 업종은 기업개황 induty_code(KSIC)로 판단한다.
+    금융업(sector="financial": 은행·보험·증권·금융지주)이면 warning이 붙는다. 이때 revenue와 영업이익률·순이익률은
+      not_applicable/None이고, financial_accounts에 순이자이익·순수수료이익·보험수익·신용손실충당금전입이 온다
+      (못 찾은 것은 financial_missing). 금융사를 일반 기업과 같은 표에서 비교하지 않는다.
     출처 표기: 보고서에는 (rcept_no, 재무API) 형태로 적는다.
     """
     corp_code, bsns_year, reprt_code, fs_div = _check_fin_args(corp_code, bsns_year, reprt_code, fs_div)
@@ -462,16 +477,22 @@ def get_key_financials(
     if data["status"] == NO_DATA_STATUS:
         return {**base, "rcept_no": None, "accounts": {}, "ratios": {},
                 "missing": [a.key for a in KEY_ACCOUNTS], "message": _no_data_message(*_base_args(base))}
+    company = load_company(_get_client, corp_code)
+    sector = detect_sector((company or {}).get("induty_code"), data["list"])
+    extra: dict[str, Any] = {"sector": sector}
+    if sector["sector"] == "financial":
+        extra["warning"] = FINANCIAL_WARNING.format(reason=sector["reason"])
     if annual:
-        return {**base, "rcept_no": data.get("rcept_no"), **summarize_key_financials(data["list"], bsns_year)}
+        return {**base, "rcept_no": data.get("rcept_no"), **extra,
+                **summarize_key_financials(data["list"], bsns_year, sector["sector"])}
     prev = str(int(bsns_year) - 1)
     span = "누적" if period_type == "cumulative" else "3개월"
     labels = {
         "current": f"{bsns_year} {REPRT_CODES[reprt_code]} 기간 ({span}) / BS는 당기말",
         "prior": f"{prev} 동기 ({span}) / BS는 {prev} 사업연도말",
     }
-    return {**base, "rcept_no": data.get("rcept_no"), "column_labels": labels,
-            **summarize_interim_financials(data["list"], reprt_code, period_type)}
+    return {**base, "rcept_no": data.get("rcept_no"), "column_labels": labels, **extra,
+            **summarize_interim_financials(data["list"], reprt_code, period_type, sector["sector"])}
 
 
 @mcp.tool()

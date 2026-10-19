@@ -27,7 +27,7 @@ log = logging.getLogger(__name__)
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
 # 섹션 구조화 규칙이 바뀌면 올린다. 버전이 다른 캐시는 저장된 ZIP으로부터 다시 만든다(API 호출 없음).
-CACHE_VERSION = 2
+CACHE_VERSION = 3  # 3: 편집기 템플릿 태그(COMMENT 등) 제외
 
 
 class _StaleCache(Exception):

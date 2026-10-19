@@ -54,6 +54,11 @@ def search_corp_codes(entries: list[dict], name: str, limit: int = 10) -> list[d
         if q in n:
             hits.append((0 if e["stock_code"] else 1, 0 if n == q else 1, len(n), e))
     hits.sort(key=lambda t: t[:3])
+    if not hits:
+        # DART 목록의 corp_name은 상장 약칭이다("KB금융", "신한지주"). 법인명 꼬리("지주", "주식회사" 등)를 떼고 한 번 더 찾는다.
+        short = re.sub(r"^(주식회사|\(주\)|㈜)|(주식회사|\(주\)|㈜|지주회사|지주)$", "", q)
+        if short and short != q:
+            return search_corp_codes(entries, short, limit)
     return [h[3] for h in hits[:limit]]
 
 
@@ -189,6 +194,13 @@ class DartClient:
         status = str(data.get("status"))
         if status not in ("000", "013"):
             raise DartApiError(status, str(data.get("message", "")))
+        return data
+
+    def get_company(self, corp_code: str) -> dict:
+        """기업개황 (company.json). corp_cls(Y 유가/K 코스닥/N 코넥스/E 기타), induty_code(KSIC), acc_mt 등."""
+        data = self._get("company.json", {"corp_code": corp_code}).json()
+        if str(data.get("status")) != "000":
+            raise DartApiError(str(data.get("status")), str(data.get("message", "")))
         return data
 
     # ---------------------------------------------------------------- 기업코드
