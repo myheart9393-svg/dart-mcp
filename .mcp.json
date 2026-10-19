@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "dart": {
-      "command": "uv",
+      "command": "C:/Users/윤성진/AppData/Roaming/Python/Python314/Scripts/uv.exe",
       "args": [
         "run",
         "--directory",
