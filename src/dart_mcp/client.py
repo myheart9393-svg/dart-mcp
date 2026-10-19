@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+import io
 import json
 import os
+import re
 import time
 import zipfile
-import io
+from pathlib import Path
 from typing import Any
 
 import httpx
@@ -16,6 +18,43 @@ from lxml import etree
 BASE_URL = "https://opendart.fss.or.kr/api"
 DEFAULT_TIMEOUT = 30.0
 MAX_RETRIES = 3
+CORP_CODES_MAX_AGE_DAYS = 7
+
+
+def parse_corp_code_zip(zip_bytes: bytes) -> list[dict]:
+    """corpCode.xml ZIP → [{corp_code, corp_name, stock_code, modify_date}, ...]"""
+    with zipfile.ZipFile(io.BytesIO(zip_bytes)) as zf:
+        xml_name = next((n for n in zf.namelist() if n.lower().endswith(".xml")), None)
+        if xml_name is None:
+            raise DartApiError("???", "corpCode ZIP 안에 XML이 없습니다")
+        data = zf.read(xml_name)
+
+    entries: list[dict] = []
+    for _event, el in etree.iterparse(io.BytesIO(data), tag="list", recover=True):
+        entries.append(
+            {
+                "corp_code": (el.findtext("corp_code") or "").strip(),
+                "corp_name": (el.findtext("corp_name") or "").strip(),
+                "stock_code": (el.findtext("stock_code") or "").strip(),
+                "modify_date": (el.findtext("modify_date") or "").strip(),
+            }
+        )
+        el.clear()
+    return entries
+
+
+def search_corp_codes(entries: list[dict], name: str, limit: int = 10) -> list[dict]:
+    """회사명 부분일치(대소문자·공백 무시). 상장사 우선 → 정확일치 → 이름 길이 순."""
+    q = re.sub(r"\s+", "", name).lower()
+    if not q:
+        return []
+    hits = []
+    for e in entries:
+        n = re.sub(r"\s+", "", e["corp_name"]).lower()
+        if q in n:
+            hits.append((0 if e["stock_code"] else 1, 0 if n == q else 1, len(n), e))
+    hits.sort(key=lambda t: t[:3])
+    return [h[3] for h in hits[:limit]]
 
 
 class DartApiError(Exception):
@@ -133,6 +172,50 @@ class DartClient:
         if data.get("status") != "000":
             raise DartApiError(str(data.get("status")), str(data.get("message", "")))
         return data
+
+    # ---------------------------------------------------------------- 기업코드
+    def get_corp_codes(
+        self,
+        cache_path: Path | None = None,
+        max_age_days: float = CORP_CODES_MAX_AGE_DAYS,
+    ) -> list[dict]:
+        """전체 기업코드 목록. data/corp_codes.json 캐시가 max_age_days 이내면 재다운로드하지 않는다.
+
+        각 항목: {"corp_code", "corp_name", "stock_code", "modify_date"}
+        """
+        if cache_path is None:
+            from .cache import default_data_dir
+
+            cache_path = default_data_dir() / "corp_codes.json"
+
+        if cache_path.exists():
+            try:
+                payload = json.loads(cache_path.read_text(encoding="utf-8"))
+                age = time.time() - float(payload.get("fetched_at", 0))
+                if age < max_age_days * 86400 and payload.get("list"):
+                    return payload["list"]
+            except (OSError, ValueError):
+                pass
+
+        resp = self._get("corpCode.xml", {})
+        body = resp.content
+        if body[:2] != b"PK":
+            parsed = _parse_error_payload(body)
+            if parsed:
+                raise DartApiError(*parsed)
+            raise DartApiError("???", "corpCode.xml 응답이 ZIP이 아닙니다")
+
+        entries = parse_corp_code_zip(body)
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        cache_path.write_text(
+            json.dumps({"fetched_at": time.time(), "count": len(entries), "list": entries}, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        return entries
+
+    def find_company(self, name: str, limit: int = 10) -> list[dict]:
+        """회사명 부분일치 검색. 상장사(stock_code 있음) 우선."""
+        return search_corp_codes(self.get_corp_codes(), name, limit)
 
     def close(self) -> None:
         self._http.close()
