@@ -57,10 +57,27 @@ uv run pytest -q
 - analyze/financial/risk/compare는 마지막에 `/dart-review`를 1회 돌리고 FAIL을 반영해 "리뷰 반영 내역"을 남긴다.
 - 표현 오류 정규식 점검은 단독으로도 쓸 수 있다: `uv run python -m dart_mcp.report_lint reports/<보고서>.md`
 
+## 예시 보고서 (`reports/examples/`)
+
+커맨드를 실제로 돌려 만든 산출물이다. `.review.md`는 같은 보고서에 대한 `/dart-review` 결과.
+
+| 보고서 | 커맨드 | 무엇을 보여주나 |
+|---|---|---|
+| [삼성전자 종합분석 (2025 사업보고서)](reports/examples/삼성전자_종합분석_2026-10-19.md) · [리뷰](reports/examples/삼성전자_종합분석_2026-10-19.review.md) | `/dart-analyze 삼성전자` | 연도 생략 → `get_latest_reports`로 최신 사업보고서 + 반기 동향 |
+| [삼성전자 종합분석 (2025, 초판)](reports/examples/삼성전자_종합분석_2025연도_2026-10-18.md) · [리뷰](reports/examples/삼성전자_종합분석_2025연도_2026-10-18.review.md) | `/dart-analyze 삼성전자` | 같은 공시의 이전 실행(`get_latest_reports` 도입 직후 첫 실행) |
+| [삼성전자 종합분석 (2024)](reports/examples/삼성전자_종합분석_2026-10-18.md) | `/dart-analyze 삼성전자 2024` | 재무 API 도입 전 버전(숫자를 원문에서 옮김) |
+| [삼성전자 재무 교차검증](reports/examples/삼성전자_재무교차검증_2026-10-18.md) | (수동) | 위 2024 보고서의 원문 숫자 vs 재무 API 대조 → "숫자는 API" 원칙의 근거 |
+| [리노공업 종합분석 (2025, 별도)](reports/examples/리노공업_종합분석_2026-10-19.md) · [리뷰](reports/examples/리노공업_종합분석_2026-10-19.review.md) | `/dart-analyze 리노공업` | 코스닥 소형주, 종속회사 없음 → CFS 013 → OFS, "원문 기재 없음" 처리 |
+| [삼성전자 vs SK하이닉스](reports/examples/비교_삼성전자_SK하이닉스_2026-10-18.md) · [리뷰](reports/examples/비교_삼성전자_SK하이닉스_2026-10-18.review.md) | `/dart-compare 삼성전자 SK하이닉스 2024` | 2사 3개년 지표 같은 행 비교 |
+| [삼성전자 자기주식 취득 결정](reports/examples/삼성전자_수시공시_20250708000011.md) | `/dart-event 20250708000011` | 수시공시 한 건 3단 요약 |
+
+리뷰어 성능 시험은 `reports/_test/`에 있다: 오류 7개를 심은 비교 보고서와 정답지, 리뷰 결과,
+[scorecard.md](reports/_test/scorecard.md)(검출 7/7, 오탐 0).
+
 ## 캐시 구조 (`data/`, git 제외)
 
 ```
-data/corp_codes.json                          기업코드 전체(7일 캐시)
+data/corp_codes.json                          기업코드 전체(7일 캐시, 아래 참고)
 data/<rcept_no>/<rcept_no>.zip                공시 원본 ZIP (불변, 만료 없음)
 data/<rcept_no>/*.xml, *.md                   추출 XML·변환 Markdown
 data/<rcept_no>/outline.json                  목차(본문 제외)
@@ -71,6 +88,14 @@ data/company/<corp_code>.json                 기업개황(company.json: 시장�
 
 섹션 규칙이 바뀌면 `cache.CACHE_VERSION`을 올린다. 버전이 다른 캐시는 저장된 ZIP으로 다시 만든다(API 재호출 없음).
 재무 API의 "데이터 없음"(status 013)은 캐시하지 않는다.
+
+**`data/corp_codes.json` 생성·갱신 규칙**
+- 생성: 처음 `find_company`를 부를 때 OpenDART `corpCode.xml`(전체 법인 ZIP, API 1건)을 받아 만든다. 약 13MB, 11만여 법인.
+  파일 안의 `fetched_at`(epoch 초)이 생성 시각이다. 저장소에 커밋하지 않으므로 클론 직후에는 없다.
+- 갱신: `fetched_at`이 **7일**(`client.CORP_CODES_MAX_AGE_DAYS`)을 넘으면 다음 `find_company` 호출 때 자동으로 다시 받는다.
+  그 전에는 API를 쓰지 않는다.
+- 수동 갱신: 신규 상장·사명 변경 직후 회사가 안 잡히면 `data/corp_codes.json`을 지우고 `find_company`를 다시 부른다.
+- 만료 후 재다운로드가 실패하면(키 오류·네트워크) 옛 파일로 대체하지 않고 `{"error": ...}`를 돌려준다.
 
 ## 알려진 한계
 
@@ -102,3 +127,52 @@ data/company/<corp_code>.json                 기업개황(company.json: 시장�
   TITLE 소제목(`8.t1`, `8.t2`)으로만 나뉜다. 템플릿 항목이 원문에 없으면 "원문 기재 없음(검색 0건)"으로 적고 다른 섹션으로 메우지 않는다.
 - 12월 결산이 아닌 회사는 `get_latest_reports`의 reprt_code·bsns_year를 결산월 기준으로 추정한다. 보고서명과 대조할 것.
 - 디버그: `uv run python -m dart_mcp.cli fetch <rcept_no>` (원문 ZIP→XML→MD 저장).
+
+## 운영
+
+### 세션 시작 체크리스트
+
+1. Claude Code에서 `/mcp` → `dart`가 **connected**인지 본다. failed면 `.mcp.json`의 uv.exe 절대경로와 `.env`의 `DART_API_KEY`를 확인한다.
+2. 툴이 **8개** 다 보이는지 본다: `find_company`, `search_disclosures`, `get_latest_reports`, `get_disclosure_outline`,
+   `get_disclosure_section`, `search_in_disclosure`, `get_financial_statements`, `get_key_financials`.
+   (ToolSearch `select:mcp__dart__get_latest_reports`처럼 이름으로 확인할 수 있다. `get_latest_reports`가 마지막에 추가된 툴이라 옛 서버면 이것부터 빠진다.)
+3. 안 보이거나 서버 코드를 고친 뒤라면 `/mcp`에서 **reconnect**(또는 새 세션). 재연결 뒤에도 툴 목록이 옛 것일 수 있으니 2를 다시 본다.
+
+### API 호출량 (하루 한도 20,000건 기준)
+
+OpenDART 인증키 하나당 하루 20,000건이다. 아래는 `/dart-analyze <회사>`(연도 생략)의 툴 호출 순서를
+임시 캐시 디렉터리에서 그대로 재현해 OpenDART HTTP 요청을 센 실측값이다(2026-10-19, 리뷰 단계의 `get_key_financials` 재조회 포함).
+
+| 경우 | 삼성전자 (연결) | 리노공업 (종속회사 없음 → OFS) |
+|---|---|---|
+| 캐시 미스 (첫 분석) | **6건**: corpCode 1 · list 1 · 재무 2(사업+반기) · company 1 · document 1 | **7건**: corpCode 1 · list 1 · 재무 3(CFS 013 + OFS 사업 + OFS 반기) · company 1 · document 1 |
+| 캐시 히트 (재분석) | **1건**: list 1 | **2건**: list 1 · 재무 1(CFS 013 재확인) |
+
+- 원문 섹션 읽기·검색(`get_disclosure_section`, `search_in_disclosure`)과 depth를 바꾼 outline은 저장된 ZIP으로 처리해 API를 쓰지 않는다.
+  섹션을 몇 번 읽든 공시 1건당 `document.xml` 1건이다.
+- `list.json`(공시 목록)은 캐시하지 않으므로 `get_latest_reports`·`search_disclosures`는 매번 1건(결과 100건마다 1건 추가).
+- status 013은 캐시하지 않으므로 OFS 회사는 CFS를 먼저 부를 때마다 1건씩 더 쓴다. OFS 회사임을 알면 처음부터 `fs_div="OFS"`.
+- corpCode는 7일에 1건, company는 회사당 30일에 1건.
+- 연도를 지정하면 `search_disclosures` 1건이 `get_latest_reports`를 대신하고 반기 조회가 빠져 미스 5건(OFS 6건)이다.
+  `/dart-compare` 3사는 대략 회사 수 × 위 값. 네트워크 오류·5xx 때의 재시도(요청당 최대 3회 시도)도 건수에 들어간다.
+- 결론: 한도에 걸릴 일은 사실상 없다(전부 캐시 미스여도 하루 약 2,800–3,300회 분석). 한도 초과 시 OpenDART는 status 020을 주고 툴은 `{"error": ...}`를 돌려준다.
+
+### 흔한 실패와 대처
+
+| 증상 | 원인 | 대처 |
+|---|---|---|
+| `get_key_financials`가 `rcept_no: null`, message에 "조회 데이터 없음(status 013)" | 연결 대상 종속회사가 없는 회사(CFS가 없음), 또는 그 연도·보고서 종류 데이터가 아직 없음 | `fs_div="OFS"`로 재호출하고 보고서에 "별도 기준" 명시. OFS도 013이면 연도(`bsns_year`)·`reprt_code`를 확인한다(2015년 이전은 재무 API 자체가 없음) |
+| `find_company`가 `count: 0` | DART 목록은 상장 약칭이다("KB금융", "신한지주"). 툴은 이미 법인명 꼬리("주식회사", "(주)", "지주회사", "지주")를 떼고 한 번 더 찾은 뒤의 결과 | 더 짧은 핵심 단어로 다시 검색("신한금융지주회사" → "신한"). 동명 회사가 많으면 `stock_code`가 있는 행을 고른다. 최근 상장·사명 변경이면 `data/corp_codes.json`을 지우고 재시도 |
+| 같은 기간 사업보고서가 여러 건(원본 + `[기재정정]` + `[첨부추가]` …) | 정정공시 | `get_latest_reports`는 같은 종류·같은 기간(report_nm의 "(2025.12)") 중 **접수일(rcept_dt)이 가장 늦은 것, 같으면 rcept_no가 큰 것**을 쓰고 나머지는 `superseded`로 돌린다. 연도를 지정해 `search_disclosures`로 직접 고를 때도 같은 규칙(가장 늦은 정정본)을 따른다 |
+| 툴이 없다 / 인자가 없다는 에러 | 옛 서버 프로세스 | 위 체크리스트 3 |
+| `{"error": "... DART_API_KEY가 없습니다"}` | `.env` 없음 | `.env.example`을 복사해 키 입력 후 재연결. 캐시된 공시는 키 없이도 읽힌다 |
+
+### 새 회사 분석 전 권장 순서
+
+1. `find_company("<회사>")` → stock_code가 있는 정확 일치 행의 corp_code.
+2. `get_latest_reports(corp_code)` → 최신 사업보고서 rcept_no·bsns_year, 이후 반기·분기, 정정본 선택 결과 확인.
+   12월 결산이 아니면 report_nm의 결산월과 bsns_year가 맞는지 본다.
+3. `get_disclosure_outline(rcept_no, depth=2)`로 구조를 한 번 본다: 장 제목이 표준(I~XII)인지, "연결재무제표" 섹션이 수십 자짜리 빈 섹션인지
+   (→ OFS 회사), 30,000자를 넘는 섹션이 어디인지, 하위 SECTION 없이 TITLE 소제목(`8.t1`)만 있는 장이 있는지.
+4. 그다음 `/dart-analyze`·`/dart-financial`·`/dart-risk` 등 커맨드를 실행한다. 1~3의 결과는 캐시에 남아 커맨드가 다시 부를 때 API를 쓰지 않는다
+   (`get_latest_reports`의 목록 조회 1건 제외).
