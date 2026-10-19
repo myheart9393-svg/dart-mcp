@@ -5,7 +5,7 @@
       "args": [
         "run",
         "--directory",
-        "C:\Users\윤성진\Desktop\윤성진\바이브코딩\Dart_api_MCP",
+        "C:/Users/윤성진/Desktop/윤성진/바이브코딩/Dart_api_MCP",
         "python",
         "-m",
         "dart_mcp.server"
