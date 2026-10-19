@@ -11,6 +11,11 @@ uv run python -m dart_mcp.cli fetch <rcept_no>   # 원문 ZIP→XML→MD 저장 
 서버 코드(`server.py`, `document.py`, `cache.py`)를 바꾸면 MCP 서버 프로세스를 다시 시작해야 반영된다
 (`financials.py`, `periodic.py`도 마찬가지. 새 세션을 열거나 `/mcp`에서 재연결). 로그는 stderr 전용이며 stdout에 print 하면 프로토콜이 깨진다.
 
+**재연결 규칙.** 재연결 뒤에도 세션의 툴 목록은 옛 것으로 남아 있을 수 있다. 서버를 고친 뒤 MCP 툴로 검증하기 전에
+① 새로 추가·변경한 툴/인자가 툴 스키마에 보이는지 먼저 확인하고(ToolSearch `select:mcp__dart__<툴>`),
+② 안 보이면 사용자에게 재연결(또는 새 세션)을 요청한다. 그 사이 꼭 필요하면 `uv run python -c "from dart_mcp import server; ..."`로
+서버 함수를 직접 호출하되, 보고서·응답에 "MCP 대신 직접 호출"이라고 적는다. 옛 서버의 응답을 새 코드의 결과로 보고하지 않는다.
+
 ## dart MCP 툴 사용 원칙
 
 사업보고서 한 건은 변환하면 150만 자가 넘는다. **원문 전체를 받는 툴은 없고, 만들지도 않는다.**
