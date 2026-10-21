@@ -102,20 +102,24 @@ _KOREAN_ALIASES = {
 
 
 def decode_dart_xml(raw: bytes) -> tuple[str, str]:
-    """바이트 → (문자열, 실제 사용한 인코딩). 선언 → cp949 → utf-8 순으로 시도."""
+    """바이트 → (문자열, 실제 사용한 인코딩). utf-8(엄격) → cp949 → 선언 인코딩 순으로 시도.
+
+    선언보다 utf-8을 먼저 보는 이유: utf-8은 자기검증이 된다. 한글이 든 cp949 바이트열이 우연히 올바른 utf-8일
+    가능성은 사실상 없어서, 엄격 디코딩이 성공하면 utf-8이 맞다. 반대로 cp949는 거의 모든 바이트 쌍을 어떤 글자로든
+    읽어 버리므로, 선언이 거짓(선언 cp949·실제 utf-8)이면 오류 없이 조용히 깨진 글자를 돌려준다. 그래서 cp949는
+    utf-8이 실패했을 때만 쓰고, 둘 다 실패하면(다른 인코딩) 마지막으로 선언을 따른다.
+    """
     if raw.startswith(b"\xef\xbb\xbf"):
         return raw[3:].decode("utf-8", errors="replace"), "utf-8-sig"
 
-    candidates: list[str] = []
+    candidates = ["utf-8", "cp949"]
     declared = detect_declared_encoding(raw)
     if declared:
         norm = declared.lower().replace("_", "-")
         if norm in _KOREAN_ALIASES:
             norm = "cp949"  # cp949 ⊃ euc-kr
-        candidates.append(norm)
-    for fb in ("cp949", "utf-8"):
-        if fb not in candidates:
-            candidates.append(fb)
+        if norm not in candidates:
+            candidates.append(norm)
 
     for enc in candidates:
         try:
@@ -215,15 +219,15 @@ class _Renderer:
 
     # --- tables
     def _iter_rows(self, table: etree._Element):
-        """TABLE 직속 또는 THEAD/TBODY/TFOOT 아래의 TR을 순서대로."""
+        """TABLE 직속 또는 THEAD/TBODY/TFOOT 아래의 TR을 순서대로 → (TR, THEAD 안인지)."""
         for child in table:
             tag = self._tag(child)
             if tag in ROW_TAGS:
-                yield child
+                yield child, False
             elif tag in ("THEAD", "TBODY", "TFOOT"):
                 for tr in child:
                     if self._tag(tr) in ROW_TAGS:
-                        yield tr
+                        yield tr, tag == "THEAD"
             # COLGROUP/COL/CAPTION 등은 무시 (태그 이름만 seen_tags에 기록)
 
     @staticmethod
@@ -234,18 +238,26 @@ class _Renderer:
             return 1
 
     def _render_table(self, table: etree._Element) -> str:
-        """격자 방식으로 배치: ROWSPAN이 차지한 칸은 다음 행에서 빈 셀로 건너뛴다."""
+        """격자 방식으로 배치: ROWSPAN이 차지한 칸은 다음 행에서 빈 셀로 건너뛴다.
+
+        머리글: 첫 행이 THEAD 안이거나 셀이 전부 TH일 때만 그 행을 Markdown 머리글로 쓴다. 아니면 빈 머리글 행을 넣어
+        첫 데이터 행(예: "매출액 | 300,000")이 열 제목처럼 읽히지 않게 한다.
+        """
         rows: list[list[str]] = []
+        first_is_header = False
         # 열 인덱스 → 앞 행의 ROWSPAN 때문에 아직 점유 중인 남은 행 수
         occupied: dict[int, int] = {}
-        for tr in self._iter_rows(table):
+        for tr, in_thead in self._iter_rows(table):
             cells: list[str] = []
+            tags: list[str] = []
             col = 0
+            touched: set[int] = set()  # 이번 행에서 소진했거나 새로 차지한 열
 
             def skip_occupied() -> None:
                 nonlocal col
-                while occupied.get(col, 0) > 0:
+                while occupied.get(col, 0) > 0 and col not in touched:
                     occupied[col] -= 1
+                    touched.add(col)
                     cells.append("")
                     col += 1
 
@@ -259,12 +271,21 @@ class _Renderer:
                 rowspan = self._span(cell, "ROWSPAN")
                 cells.append(text)
                 cells.extend([""] * (colspan - 1))
-                if rowspan > 1:
-                    for c in range(col, col + colspan):
+                tags.append(ctag)
+                for c in range(col, col + colspan):
+                    if rowspan > 1:
                         occupied[c] = rowspan - 1
+                    touched.add(c)
                 col += colspan
-            skip_occupied()  # 행 끝에 남은 점유 칸 소진
+            skip_occupied()
+            # 셀이 모자라 행이 일찍 끝나도, 이번 행에서 건드리지 않은 점유 열은 모두 한 행씩 소진한다
+            # (연속 열만 소진하면 떨어진 열의 ROWSPAN이 다음 행으로 새어 열이 밀린다)
+            for c, left in occupied.items():
+                if left > 0 and c not in touched:
+                    occupied[c] = left - 1
             if any(cells):
+                if not rows:
+                    first_is_header = in_thead or (bool(tags) and all(t == "TH" for t in tags))
                 rows.append(cells)
 
         if not rows:
@@ -276,8 +297,9 @@ class _Renderer:
         def fmt(r: list[str]) -> str:
             return "| " + " | ".join(r) + " |"
 
-        out = [fmt(rows[0]), "|" + "---|" * ncol]
-        out.extend(fmt(r) for r in rows[1:])
+        head, body = (rows[0], rows[1:]) if first_is_header else ([""] * ncol, rows)
+        out = [fmt(head), "|" + "---|" * ncol]
+        out.extend(fmt(r) for r in body)
         return "\n".join(out)
 
 
@@ -349,12 +371,15 @@ def split_by_titles(own_text: str, section_title: str) -> list[tuple[str, str]]:
 
 
 def _section_title(el: etree._Element) -> str:
-    """SECTION 태그의 제목: ATITLE/TITLE 속성 → 첫 TITLE 자손 → 빈 문자열."""
+    """SECTION 태그의 제목: ATITLE/TITLE 속성 → 직계 자식 중 첫 TITLE → 빈 문자열.
+
+    자손 전체를 뒤지면 제목 TITLE이 없는 섹션이 하위 SECTION의 TITLE을 제목으로 빌려 온다.
+    """
     for attr in ("ATITLE", "TITLE", "ATOC"):
         v = el.get(attr)
         if v and v.strip() and v.strip().upper() not in {"Y", "N"}:
             return _norm_inline(v)
-    for child in el.iter():
+    for child in el:
         if _tag_name(child) == "TITLE":
             return _norm_inline("".join(child.itertext()))
     return ""

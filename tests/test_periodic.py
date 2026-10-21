@@ -36,12 +36,48 @@ def test_correction_supersedes_original():
     r = classify_periodic_reports(items)
     a = r["latest_annual"]
     assert a["rcept_no"] == "20260402000123" and a["is_correction"] and a["supersedes"] == ["20260310002820"]
+    assert (a["prefix"], a["correction_kind"]) == ("[기재정정]", "기재정정")
     (h,) = r["interim_after_annual"]
     assert h["rcept_no"] == "20260901000555" and h["supersedes"] == ["20260814003699"]
+    # 첨부정정은 본문이 그대로이므로 is_correction=False (호환 필드는 기재정정만 True)
+    assert (h["prefix"], h["correction_kind"], h["is_correction"]) == ("[첨부정정]", "첨부정정", False)
     assert {s["rcept_no"]: s["superseded_by"] for s in r["superseded"]} == {
         "20260310002820": "20260402000123",
         "20260814003699": "20260901000555",
     }
+
+
+def test_correction_kind_variants():
+    from dart_mcp.periodic import correction_kind
+
+    assert correction_kind("[기재정정]") == "기재정정"
+    assert correction_kind("[첨부추가]") == "첨부추가"
+    assert correction_kind("[기재정정][첨부추가]") == "기재정정"  # 본문 영향이 큰 쪽
+    assert correction_kind("") is None and correction_kind("[발행조건확정]") is None
+    r = classify_periodic_reports([f("20260310002820", "[첨부추가]사업보고서 (2025.12)")])
+    a = r["latest_annual"]
+    assert (a["correction_kind"], a["is_correction"], a["prefix"]) == ("첨부추가", False, "[첨부추가]")
+    assert r["late_corrections"] == []
+
+
+def test_late_corrections_of_past_periods():
+    items = [
+        f("20250311001085", "사업보고서 (2024.12)"),
+        f("20251114002447", "분기보고서 (2025.09)"),
+        f("20260310002820", "사업보고서 (2025.12)"),
+        f("20260420000001", "[기재정정]사업보고서 (2024.12)"),   # 최신 사업보고서 이후 전기 정정 → 포함
+        f("20260421000002", "[첨부정정]분기보고서 (2025.09)"),   # 과거 분기 첨부정정 → 포함(종류 표시)
+        f("20251201000003", "[기재정정]분기보고서 (2025.09)"),   # 최신 사업보고서보다 먼저 접수 → 제외
+        f("20260515002181", "[기재정정]분기보고서 (2026.03)"),   # 사업보고서 이후 기간 → 제외
+    ]
+    r = classify_periodic_reports(items)
+    assert r["latest_annual"]["rcept_no"] == "20260310002820"
+    assert r["late_corrections"] == [
+        {"kind": "사업보고서", "period": "2024.12", "rcept_no": "20260420000001", "rcept_dt": "20260420",
+         "correction_kind": "기재정정"},
+        {"kind": "분기보고서", "period": "2025.09", "rcept_no": "20260421000002", "rcept_dt": "20260421",
+         "correction_kind": "첨부정정"},
+    ]
 
 
 def test_interim_cumulative_vs_quarter_fields():
@@ -61,3 +97,12 @@ def test_interim_cumulative_vs_quarter_fields():
     assert cum["operating_cf"]["values"] == {"current": 70, "prior": 33}
     assert q["operating_cf"]["values"] == {"current": None, "prior": None}
     assert cum["total_assets"]["values"] == q["total_assets"]["values"] == {"current": 900, "prior": 800}
+
+
+def test_null_reprt_code_gives_clear_error():
+    # get_latest_reports가 결산기 변경 등으로 reprt_code=None을 준 항목을 그대로 넘긴 경우 (API 호출 전에 막힌다)
+    from dart_mcp import server
+
+    for tool in (server.get_key_financials, server.get_financial_statements):
+        r = tool("00126380", "2026", reprt_code=None)
+        assert "reprt_code가 null" in r["error"] and "search_disclosures" in r["error"]

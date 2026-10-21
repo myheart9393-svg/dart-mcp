@@ -348,7 +348,13 @@ def search_in_disclosure(
     }
 
 
-def _check_fin_args(corp_code: str, bsns_year: str, reprt_code: str, fs_div: str) -> tuple[str, str, str, str]:
+def _check_fin_args(corp_code: str, bsns_year: str, reprt_code: str | None, fs_div: str) -> tuple[str, str, str, str]:
+    if reprt_code is None:
+        # get_latest_reports가 결산기 변경 등으로 기간을 판별하지 못한 항목(reprt_code=null)을 그대로 넘긴 경우
+        raise ValueError(
+            "reprt_code가 null입니다. get_latest_reports가 보고 기간을 판별하지 못한 반기·분기보고서"
+            "(결산기 변경 등)일 수 있으니 search_disclosures로 기간을 확인한 뒤 11011/11012/11013/11014 중 하나를 넘기세요"
+        )
     corp_code, bsns_year = corp_code.strip(), str(bsns_year).strip()
     reprt_code, fs_div = str(reprt_code).strip(), fs_div.strip().upper()
     if not re.fullmatch(r"\d{8}", corp_code):
@@ -375,7 +381,7 @@ def _no_data_message(corp_code: str, bsns_year: str, reprt_code: str, fs_div: st
 def get_financial_statements(
     corp_code: str,
     bsns_year: str,
-    reprt_code: str = "11011",
+    reprt_code: str | None = "11011",
     fs_div: str = "CFS",
     sj_div: str | None = None,
     refresh: bool = False,
@@ -434,7 +440,7 @@ def get_key_financials(
     corp_code: str,
     bsns_year: str,
     fs_div: str = "CFS",
-    reprt_code: str = "11011",
+    reprt_code: str | None = "11011",
     period_type: str | None = None,
     refresh: bool = False,
 ) -> dict:
@@ -518,11 +524,18 @@ def get_latest_reports(corp_code: str) -> dict:
       최근 2년 정기공시(pblntf_ty=A)를 조회해 report_nm으로 사업/반기/분기보고서를 분류한다.
     결과:
       - latest_annual: {rcept_no, bsns_year, period("2025.12"), rcept_dt, report_nm, reprt_code "11011",
-        is_correction, supersedes[]} — get_key_financials(corp_code, bsns_year)와 outline에 그대로 쓴다.
+        prefix(원문 꼬리표), correction_kind("기재정정"|"첨부정정"|"첨부추가"|None), is_correction(기재정정만 True),
+        supersedes[]} — get_key_financials(corp_code, bsns_year)와 outline에 그대로 쓴다.
+        correction_kind="기재정정"이면 보고서 머리에 "[기재정정본, 접수일 YYYY-MM-DD]"를 적고 정정 사유를 확인한다.
       - interim_after_annual[]: 사업보고서 이후의 반기·분기보고서(기간순), 각각 reprt_code
         (11013=1분기, 11012=반기, 11014=3분기)와 bsns_year 포함 → get_key_financials(corp_code, bsns_year,
         reprt_code=...)로 최근 누적 실적을 받는다.
       - superseded[]: 정정본에 밀린 원본(superseded_by). 분석에 쓰지 않는다.
+      - late_corrections[]: latest_annual 접수일보다 늦게 접수된, 그보다 앞선 기간(사업·반기·분기)의 정정본
+        [{kind, period, rcept_no, rcept_dt, correction_kind}]. **있으면 전기 재무제표 재작성 가능성을 보고서에 적어라**
+        (리스크 절 한 줄. 기재정정이면 특히). 첨부정정·첨부추가는 감사보고서 등 첨부만 바뀐 것이다.
+      - reprt_code가 null인 반기·분기 항목: 결산기 변경 등으로 경과 개월수가 3·6·9가 아닌 경우다.
+        get_key_financials에 넘기지 말고 search_disclosures로 기간을 확인한다.
       같은 기간에 [기재정정] 등이 여러 번 나오면 가장 늦게 접수된 것을 쓴다.
     """
     corp_code = corp_code.strip()

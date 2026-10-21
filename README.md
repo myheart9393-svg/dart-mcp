@@ -35,7 +35,7 @@ uv run pytest -q
 |---|---|
 | `find_company(name)` | 회사명 부분일치 → corp_code (상장사 우선) |
 | `search_disclosures(corp_code, bgn_de, end_de, pblntf_ty)` | 기간별 공시 목록 (A 정기, B 주요사항, … J 공정위) |
-| `get_latest_reports(corp_code)` | 최근 2년 정기공시에서 최신 사업보고서 + 그 이후 반기·분기보고서(reprt_code 포함). 정정본 우선, 원본은 superseded |
+| `get_latest_reports(corp_code)` | 최근 2년 정기공시에서 최신 사업보고서 + 그 이후 반기·분기보고서(reprt_code 포함). 정정본 우선(`correction_kind`), 원본은 superseded, 과거 기간 늦은 정정은 `late_corrections` |
 | `get_disclosure_outline(rcept_no, file_id, depth)` | 파일·섹션 목차와 섹션별 글자 수. depth=3이면 주석 소제목(`4.3.t12`)까지 |
 | `get_disclosure_section(rcept_no, section_id, file_id, max_chars, offset)` | 한 섹션의 Markdown 본문(나눠 읽기 가능) |
 | `search_in_disclosure(rcept_no, query, file_id)` | 원문 키워드 위치(section_id, offset)와 앞뒤 문맥 |
@@ -118,14 +118,23 @@ data/company/<corp_code>.json                 기업개황(company.json: 시장�
 - **감사보고서 첨부(00760/00761)의 주석은 소제목으로 쪼개지지 않는다.** 첨부 파일의 주석 번호는 TITLE 태그가 아니라 본문 문단
   (`<P>1. 회사의 개요리노공업…`)이라 제목과 본문이 붙어 있어 안전하게 자를 수 없다. 본문의 "재무제표 주석" 섹션(depth=3)을 쓰거나,
   첨부는 `search_in_disclosure(..., file_id="00760")`로 위치를 찍어 offset으로 읽는다. 2015년 이전 문서는 주석이 첨부에만 있다.
-- **구형 공시(2012년 사업보고서 실측)**: XML 선언은 `utf-8`인데 실제 바이트는 cp949였다. 선언 → cp949 → utf-8 순으로 시도해
-  대체문자 없이 읽힌다. 편집기 템플릿 태그(`COMMENT` "◆click◆ …", `LIBRARYLIST`, `FILENAME`, `WARNING`)가 본문에 섞여 있어 출력에서 뺀다(캐시 v3).
+- **구형 공시(2012년 사업보고서 실측)**: XML 선언은 `utf-8`인데 실제 바이트는 cp949였다. utf-8(엄격) → cp949 → 선언 순으로 시도해
+  대체문자 없이 읽힌다(utf-8은 자기검증이 되지만 cp949는 거의 모든 바이트를 읽어 버려 거짓 선언을 못 잡기 때문). 편집기 템플릿 태그(`COMMENT` "◆click◆ …", `LIBRARYLIST`, `FILENAME`, `WARNING`)가 본문에 섞여 있어 출력에서 뺀다(캐시 v3).
   재무 API(`fnlttSinglAcntAll`)는 2015년 이후만 있어 구형 공시의 숫자는 원문 표에서 단위 행을 확인해 옮겨야 한다.
+- **표 머리글**: 첫 행이 전부 TH이거나 THEAD 안일 때만 Markdown 머리글로 쓰고, 아니면 빈 머리글 행(`| | |`)을 넣는다(캐시 v4).
+  DART 원문은 머리글을 TD/TE로 쓰는 표가 많아 삼성전자 2025 사업보고서 본문 2,071개 표 중 787개가 빈 머리글이 되며,
+  그중 일부(약 100개)는 첫 데이터 행이 실제 열 제목("구분 | 결산배당 | …")이다. 첫 행을 열 제목으로 읽을지는 내용을 보고 판단한다.
 - **회사명 검색**: DART 목록은 상장 약칭이다("KB금융", "신한지주"). 결과가 없으면 법인명 꼬리("지주", "지주회사", "주식회사", "(주)")를
   떼고 한 번 더 찾는다. "신한금융지주회사"처럼 약칭이 전혀 다른 경우는 여전히 못 찾으니 짧은 이름으로 다시 검색한다.
 - **소형주 원문에는 없는 항목이 있다**: 리노공업 2025 사업보고서에는 시장점유율 기재가 없고, 주주 장(VII)에 하위 SECTION이 없어
   TITLE 소제목(`8.t1`, `8.t2`)으로만 나뉜다. 템플릿 항목이 원문에 없으면 "원문 기재 없음(검색 0건)"으로 적고 다른 섹션으로 메우지 않는다.
 - 12월 결산이 아닌 회사는 `get_latest_reports`의 reprt_code·bsns_year를 결산월 기준으로 추정한다. 보고서명과 대조할 것.
+- **결산기 변경 회사**: reprt_code는 최신 사업보고서의 결산월 기준 경과 개월수(3·6·9)로 정하므로, 결산기를 바꾼 회사는
+  변경 전 기간의 분기·반기보고서 reprt_code가 틀리거나 null일 수 있다. null을 `get_key_financials`에 넘기면
+  "reprt_code가 null입니다…" 에러가 나니 `search_disclosures`로 기간을 확인해 직접 넣는다.
+- **정정본 구분**: `get_latest_reports`는 `correction_kind`로 `[기재정정]`(본문·재무제표가 바뀌었을 수 있음)과
+  `[첨부정정]`·`[첨부추가]`(감사보고서 등 첨부만)를 나눈다. `is_correction`은 기재정정만 True.
+  최신 사업보고서 접수 뒤에 과거 기간 정정본이 나오면 `late_corrections`에 담긴다(전기 재무제표 재작성 신호일 수 있음).
 - 디버그: `uv run python -m dart_mcp.cli fetch <rcept_no>` (원문 ZIP→XML→MD 저장).
 
 ## 운영

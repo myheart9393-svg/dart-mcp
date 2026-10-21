@@ -22,6 +22,13 @@ dart MCP 툴로 사업보고서의 재무 파트를 읽고 **재무 심층분석
 - `interim_after_annual`이 비어 있지 않으면 **가장 마지막** 항목의 bsns_year·reprt_code로
   `get_key_financials(corp_code, <bsns_year>, reprt_code=<reprt_code>, period_type="cumulative")`를 호출해
   "최근 분기 동향" 소절에 쓴다(아래 고정 목차 참고).
+- **정정본 표시**: 선택된 사업보고서의 `correction_kind`가 `"기재정정"`이면(연도를 명시해 search_disclosures로 고른 경우는
+  report_nm에 "[기재정정]"이 있으면) 보고서 머리 출처 줄 앞에 `[기재정정본, 접수일 YYYY-MM-DD]`를 적는다. 그리고
+  `search_in_disclosure(rcept_no, "정정사유")`로 원문 첫 섹션(정정 사유 표)을 찾아 그 위치만 읽고 **한 줄로 요약**해 머리 아래에 둔다
+  (예: "정정 사유: 연결재무제표 주석 오기 정정 (<rcept_no>, <section_id>)"). 첨부정정·첨부추가는 머리 표시 없이 부록에만 적는다.
+- **늦은 정정(`late_corrections`)**: 비어 있지 않으면 "8. 종합 의견"(이 커맨드에는 리스크 절이 없다)에 한 줄:
+  "최신 사업보고서 접수 후 과거 기간 정정 공시 N건(<kind> <period> <correction_kind>, rcept_no …) — 전기 재무제표 재작성 가능성".
+  기재정정이 있으면 3개년 표의 전기·전전기 값이 정정 전 기준일 수 있음을 함께 적는다(재무 API는 `refresh=True`로 다시 받는다).
 사업연도를 명시했으면 기존 방식대로 그 연도 사업보고서를 쓰고, 최근 분기 동향 소절은 생략한다.
 
 1. `find_company` → (사업연도 생략 시) `get_latest_reports` / (명시 시) `search_disclosures(..., pblntf_ty="A")` → 사업보고서 rcept_no.
@@ -54,7 +61,7 @@ dart MCP 툴로 사업보고서의 재무 파트를 읽고 **재무 심층분석
 
 ```
 # <회사명> 재무 심층분석 (<사업연도> 사업보고서 기준)
-> 출처 공시: rcept_no <rcept_no>, 접수일 <rcept_dt> / 연결 기준 여부 명시 / 작성일 <오늘>
+> [기재정정본, 접수일 YYYY-MM-DD] (기재정정일 때만) 출처 공시: rcept_no <rcept_no>, 접수일 <rcept_dt> / 연결 기준 여부 명시 / 작성일 <오늘>
 
 ## 1. 요약
 (5줄 이내)
@@ -86,7 +93,7 @@ dart MCP 툴로 사업보고서의 재무 파트를 읽고 **재무 심층분석
 ## 6. 충당부채·우발부채·약정
 ## 7. 특수관계자 거래
 ## 8. 종합 의견
-(재무 건전성에 대한 판단 3~5줄. 투자 권유 문구 금지)
+(재무 건전성에 대한 판단 3~5줄. 투자 권유 문구 금지. late_corrections가 있으면 재작성 가능성 한 줄)
 
 ## 부록. 참조한 섹션 목록
 | section_id | 제목 | 글자 수 | 읽은 방식 |
