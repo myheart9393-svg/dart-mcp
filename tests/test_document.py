@@ -184,3 +184,34 @@ def test_section_title_from_direct_child_title_only():
     assert titles["1"] == ""  # 하위 SECTION의 제목을 빌려 오지 않는다
     assert titles["1.1"] == "1. 하위 섹션 제목"
     assert titles["2"] == "II. 사업의 내용" and titles["2.1"] == "1. 개요"
+
+
+def test_korean_angle_bracket_text_does_not_swallow_next_section():
+    from dart_mcp.document import build_outline
+
+    xml = """<?xml version="1.0" encoding="utf-8"?><DOCUMENT><BODY>
+<SECTION-1><TITLE>I. 회사의 개요</TITLE>
+<SECTION-2><TITLE>2. 회사의 연혁</TITLE><P><SPAN>- 2025.03 : 통신판매업 추가<연결기업의 연혁></SPAN></P><P>비율 <5% 미만</P></SECTION-2>
+<SECTION-2><TITLE>3. 자본금 변동사항</TITLE><P>자본금 변동 없음 &lt;참고&gt;</P></SECTION-2>
+</SECTION-1>
+</BODY></DOCUMENT>""".encode()
+    secs = {s.id: s for s in build_outline(xml)}
+    assert secs["1.2"].title == "3. 자본금 변동사항"
+    assert "<연결기업의 연혁>" in secs["1.1"].text and "<5%" in secs["1.1"].text
+    assert "자본금 변동" not in secs["1.1"].text  # 둘째 섹션이 첫째 아래로 흡수되지 않는다
+    assert secs["1.1"].char_count < 100 and secs["1.2"].char_count < 100
+    assert "<참고>" in secs["1.2"].text  # 이미 &lt;로 쓰인 곳은 그대로 디코딩
+
+
+def test_outline_warns_when_subsection_exceeds_half(caplog):
+    import logging
+
+    from dart_mcp.document import build_outline
+
+    xml = """<?xml version="1.0" encoding="utf-8"?><DOCUMENT><BODY>
+<SECTION-1><TITLE>I</TITLE><SECTION-2><TITLE>1</TITLE><P>{}</P></SECTION-2></SECTION-1>
+<SECTION-1><TITLE>II</TITLE><P>짧음</P></SECTION-1>
+</BODY></DOCUMENT>""".format("가" * 500).encode()
+    with caplog.at_level(logging.WARNING, logger="dart_mcp.document"):
+        build_outline(xml)
+    assert any("possible tree collapse" in r.message for r in caplog.records)

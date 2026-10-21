@@ -67,6 +67,7 @@ uv run pytest -q
 | [삼성전자 종합분석 (2025, 초판)](reports/examples/삼성전자_종합분석_2025연도_2026-10-18.md) · [리뷰](reports/examples/삼성전자_종합분석_2025연도_2026-10-18.review.md) | `/dart-analyze 삼성전자` | 같은 공시의 이전 실행(`get_latest_reports` 도입 직후 첫 실행) |
 | [삼성전자 종합분석 (2024)](reports/examples/삼성전자_종합분석_2026-10-18.md) | `/dart-analyze 삼성전자 2024` | 재무 API 도입 전 버전(숫자를 원문에서 옮김) |
 | [삼성전자 재무 교차검증](reports/examples/삼성전자_재무교차검증_2026-10-18.md) | (수동) | 위 2024 보고서의 원문 숫자 vs 재무 API 대조 → "숫자는 API" 원칙의 근거 |
+| [GS건설 종합분석 (2025, 기재정정본)](reports/examples/GS건설_종합분석_2026-10-21.md) · [리뷰](reports/examples/GS건설_종합분석_2026-10-21.review.md) | `/dart-analyze GS건설` | 정정본 사례: `[기재정정본]` 머리 표시, 정정신고 표에서 정정 사유, 같은 날 일괄 정정 8건(`late_corrections`) |
 | [리노공업 종합분석 (2025, 별도)](reports/examples/리노공업_종합분석_2026-10-19.md) · [리뷰](reports/examples/리노공업_종합분석_2026-10-19.review.md) | `/dart-analyze 리노공업` | 코스닥 소형주, 종속회사 없음 → CFS 013 → OFS, "원문 기재 없음" 처리 |
 | [삼성전자 vs SK하이닉스](reports/examples/비교_삼성전자_SK하이닉스_2026-10-18.md) · [리뷰](reports/examples/비교_삼성전자_SK하이닉스_2026-10-18.review.md) | `/dart-compare 삼성전자 SK하이닉스 2024` | 2사 3개년 지표 같은 행 비교 |
 | [삼성전자 자기주식 취득 결정](reports/examples/삼성전자_수시공시_20250708000011.md) | `/dart-event 20250708000011` | 수시공시 한 건 3단 요약 |
@@ -134,7 +135,12 @@ data/company/<corp_code>.json                 기업개황(company.json: 시장�
   "reprt_code가 null입니다…" 에러가 나니 `search_disclosures`로 기간을 확인해 직접 넣는다.
 - **정정본 구분**: `get_latest_reports`는 `correction_kind`로 `[기재정정]`(본문·재무제표가 바뀌었을 수 있음)과
   `[첨부정정]`·`[첨부추가]`(감사보고서 등 첨부만)를 나눈다. `is_correction`은 기재정정만 True.
-  최신 사업보고서 접수 뒤에 과거 기간 정정본이 나오면 `late_corrections`에 담긴다(전기 재무제표 재작성 신호일 수 있음).
+  최신 사업보고서의 **최초 제출일 이후(같은 날 포함)** 접수된 과거 기간 정정본은 `late_corrections`에 담긴다(전기 재무제표 재작성 신호일 수 있음).
+  기준이 정정본 접수일이 아닌 이유: GS건설은 2025 사업보고서 정정본과 과거 8개 기간 정정본을 같은 날 일괄 제출했고 과거 것의 rcept_no가 더 작았다.
+  일괄 정정은 사유가 "XBRL 작성오류"뿐인 경우도 있으니 정정신고 표(섹션 "0", `search_in_disclosure(rcept_no, "정정사유")`)로 사유를 확인한다.
+- **본문 꺾쇠**: 원문 텍스트의 `<연결기업의 연혁>`, `<삭제 2012.3.5>`, `<5%` 같은 꺾쇠를 lxml recover 모드가 닫히지 않은 태그로 읽으면
+  뒤따르는 섹션 전체가 그 아래로 흡수된다(GS건설 정정본: 3.2 "회사의 연혁"이 949,776자). 파싱 전에 태그 시작이 아닌 `<`를 `&lt;`로 바꾼다(캐시 v5).
+  하위 섹션(level ≥ 2) 하나가 문서의 50%를 넘으면 stderr에 "possible tree collapse" 경고를 남긴다.
 - 디버그: `uv run python -m dart_mcp.cli fetch <rcept_no>` (원문 ZIP→XML→MD 저장).
 
 ## 운영

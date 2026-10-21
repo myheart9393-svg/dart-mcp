@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import io
+import logging
 import re
 import zipfile
 from dataclasses import asdict, dataclass
 
 from lxml import etree
+
+log = logging.getLogger(__name__)
 
 # XML 선언: <?xml version="1.0" encoding="euc-kr"?>
 _XML_DECL_RE = re.compile(
@@ -49,6 +52,8 @@ _ENTITY_MAP = {
     "&darr;": "↓",
 }
 _ENTITY_RE = re.compile("|".join(re.escape(k) for k in _ENTITY_MAP))
+# 태그 시작(<영문자, </, <!, <?)이 아닌 "<"
+_STRAY_LT_RE = re.compile(r"<(?![A-Za-z/!?])")
 
 BLOCK_TAGS = {
     "DOCUMENT", "COMPANY-NAME", "BODY", "SECTION", "LIBRARY", "COVER",
@@ -314,8 +319,11 @@ def parse_root(raw: bytes | str) -> etree._Element | None:
     # lxml은 encoding 선언이 있는 str을 거부하므로 선언 제거 후 utf-8 bytes로 파싱
     text = _XML_DECL_ANY_RE.sub("", text, count=1)
     text = _ENTITY_RE.sub(lambda m: _ENTITY_MAP[m.group(0)], text)
+    # 본문의 "<연결기업의 연혁>", "<5%" 같은 꺾쇠는 태그가 아니다. recover 모드가 이를 닫히지 않은 요소로 읽으면
+    # 뒤따르는 섹션 전체가 그 아래로 흡수되므로(트리 붕괴) 파싱 전에 텍스트로 이스케이프한다
+    text = _STRAY_LT_RE.sub("&lt;", text)
 
-    parser = etree.XMLParser(recover=True, huge_tree=True, encoding="utf-8", resolve_entities=False)
+    parser =etree.XMLParser(recover=True, huge_tree=True, encoding="utf-8", resolve_entities=False)
     return etree.fromstring(text.encode("utf-8"), parser=parser)
 
 
@@ -415,4 +423,10 @@ def build_outline(raw: bytes | str, *, root_title: str = "(표지 및 섹션 외
         for n, (sub_title, sub_text) in enumerate(split_by_titles(own_text, title), start=1):
             sections.append(Section(f"{sec_id}.t{n}", level + 1, sub_title, len(sub_text), sub_text, kind="title"))
 
+    # 안전장치: 하위 섹션 하나가 문서의 절반을 넘으면 트리 붕괴(뒤 섹션 흡수)를 의심한다
+    total = sum(s.char_count for s in sections if s.level <= 1)
+    for s in sections:
+        if s.level >= 2 and total and s.char_count > total / 2:
+            log.warning("outline: section %s %r has %d of %d chars (>50%%) — possible tree collapse",
+                        s.id, s.title, s.char_count, total)
     return sections
