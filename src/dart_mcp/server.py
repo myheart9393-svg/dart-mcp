@@ -525,13 +525,13 @@ def get_latest_reports(corp_code: str) -> dict:
     결과:
       - latest_annual: {rcept_no, bsns_year, period("2025.12"), rcept_dt, report_nm, reprt_code "11011",
         prefix(원문 꼬리표), correction_kind("기재정정"|"첨부정정"|"첨부추가"|None), is_correction(기재정정만 True),
-        supersedes[]} — get_key_financials(corp_code, bsns_year)와 outline에 그대로 쓴다.
+        supersedes[], original_rcept_no·original_rcept_dt(최초 제출본, 정정 없으면 자기 자신)} — get_key_financials(corp_code, bsns_year)와 outline에 그대로 쓴다.
         correction_kind="기재정정"이면 보고서 머리에 "[기재정정본, 접수일 YYYY-MM-DD]"를 적고 정정 사유를 확인한다.
       - interim_after_annual[]: 사업보고서 이후의 반기·분기보고서(기간순), 각각 reprt_code
         (11013=1분기, 11012=반기, 11014=3분기)와 bsns_year 포함 → get_key_financials(corp_code, bsns_year,
         reprt_code=...)로 최근 누적 실적을 받는다.
       - superseded[]: 정정본에 밀린 원본(superseded_by). 분석에 쓰지 않는다.
-      - late_corrections[]: latest_annual 접수일보다 늦게 접수된, 그보다 앞선 기간(사업·반기·분기)의 정정본
+      - late_corrections[]: latest_annual 최초 제출일(original_rcept_dt) 이후(같은 날 포함) 접수된, 그보다 앞선 기간(사업·반기·분기)의 정정본
         [{kind, period, rcept_no, rcept_dt, correction_kind}]. **있으면 전기 재무제표 재작성 가능성을 보고서에 적어라**
         (리스크 절 한 줄. 기재정정이면 특히). 첨부정정·첨부추가는 감사보고서 등 첨부만 바뀐 것이다.
       - reprt_code가 null인 반기·분기 항목: 결산기 변경 등으로 경과 개월수가 3·6·9가 아닌 경우다.

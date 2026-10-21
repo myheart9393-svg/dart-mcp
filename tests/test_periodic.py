@@ -80,6 +80,35 @@ def test_late_corrections_of_past_periods():
     ]
 
 
+def test_late_corrections_same_day_bulk_correction():
+    # GS건설 패턴: 최신 사업보고서 정정본과 과거 기간 정정본을 같은 날 일괄 접수, 과거 것의 rcept_no가 더 작다
+    items = [
+        f("20260316001192", "사업보고서 (2025.12)"),
+        f("20260701000624", "[기재정정]사업보고서 (2025.12)"),
+        f("20260630000500", "[기재정정]사업보고서 (2023.12)"),
+        f("20260701000495", "[기재정정]반기보고서 (2024.06)"),
+        f("20260701000540", "[기재정정]사업보고서 (2024.12)"),
+        f("20260701000569", "[기재정정]반기보고서 (2025.06)"),
+        f("20250813000906", "[기재정정]사업보고서 (2024.12)"),  # 최초 제출일(2026-03-16) 이전 → 제외
+    ]
+    r = classify_periodic_reports(items)
+    a = r["latest_annual"]
+    assert a["rcept_no"] == "20260701000624"
+    assert (a["original_rcept_no"], a["original_rcept_dt"]) == ("20260316001192", "20260316")
+    assert [(x["period"], x["rcept_no"]) for x in r["late_corrections"]] == [
+        ("2023.12", "20260630000500"),
+        ("2024.06", "20260701000495"),
+        ("2024.12", "20260701000540"),
+        ("2025.06", "20260701000569"),
+    ]
+
+
+def test_original_fields_without_correction():
+    r = classify_periodic_reports([f("20260310002820", "사업보고서 (2025.12)")])
+    a = r["latest_annual"]
+    assert (a["original_rcept_no"], a["original_rcept_dt"]) == ("20260310002820", "20260310")
+
+
 def test_interim_cumulative_vs_quarter_fields():
     # 실제 반기 응답 모양: IS는 3개월/누적 분리, CF는 thstrm_amount가 누적, BS prior는 전기말
     items = [

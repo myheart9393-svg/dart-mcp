@@ -57,8 +57,8 @@ def classify_periodic_reports(items: list[dict]) -> dict:
     items: [{rcept_no, report_nm, rcept_dt}, ...] (순서 무관)
     반환: {"latest_annual", "interim_after_annual", "superseded", "late_corrections", "fy_end_month"}.
     각 보고서: {kind, period, bsns_year, reprt_code, rcept_no, rcept_dt, report_nm, prefix, correction_kind,
-    is_correction(기재정정일 때만 True), supersedes[]}.
-    late_corrections: 최신 사업보고서 접수일보다 늦게 접수된, 그보다 앞선 기간(사업·반기·분기)의 정정본
+    is_correction(기재정정일 때만 True), supersedes[], original_rcept_no, original_rcept_dt(최초 제출본, 정정 없으면 자기 자신)}.
+    late_corrections: 최신 사업보고서 최초 제출일 이후(같은 날 포함)에 접수된, 그보다 앞선 기간(사업·반기·분기)의 정정본
     [{kind, period, rcept_no, rcept_dt, correction_kind}] (접수일순). 전기 재무제표 재작성 신호일 수 있다.
     """
     groups: dict[tuple[str, str], list[dict]] = {}
@@ -74,6 +74,7 @@ def classify_periodic_reports(items: list[dict]) -> dict:
         # 늦게 접수된 것이 최신본. 같은 날이면 rcept_no가 큰 쪽
         filings.sort(key=lambda x: (x.get("rcept_dt", ""), x.get("rcept_no", "")), reverse=True)
         head, rest = filings[0], filings[1:]
+        original = filings[-1]  # 그룹에서 가장 먼저 접수된 것(최초 제출본). 정정이 없으면 head 자신
         chosen.append({
             "kind": kind,
             "period": period,
@@ -84,6 +85,8 @@ def classify_periodic_reports(items: list[dict]) -> dict:
             "correction_kind": correction_kind(head["prefix"]),
             "is_correction": correction_kind(head["prefix"]) == "기재정정",
             "supersedes": [r.get("rcept_no") for r in rest],
+            "original_rcept_no": original.get("rcept_no"),
+            "original_rcept_dt": original.get("rcept_dt"),
         })
         superseded += [
             {"rcept_no": r.get("rcept_no"), "report_nm": r.get("report_nm"), "rcept_dt": r.get("rcept_dt"),
@@ -104,6 +107,8 @@ def classify_periodic_reports(items: list[dict]) -> dict:
         (c for c in chosen if c["kind"] != "사업보고서" and c["period"] > latest["period"]),
         key=lambda c: c["period"],
     )
+    # 기준은 최신 사업보고서의 최초 제출일. 정정본과 같은 날 함께 낸 과거 기간 정정(일괄 정정)도 잡는다
+    baseline = latest.get("original_rcept_dt") or ""
     late = sorted(
         (
             {"kind": f["kind"], "period": f["period"], "rcept_no": f.get("rcept_no"), "rcept_dt": f.get("rcept_dt"),
@@ -111,7 +116,7 @@ def classify_periodic_reports(items: list[dict]) -> dict:
             for filings in groups.values()
             for f in filings
             if f["period"] < latest["period"] and correction_kind(f["prefix"])
-            and (f.get("rcept_dt") or "") > (latest.get("rcept_dt") or "")
+            and (f.get("rcept_dt") or "") >= baseline
         ),
         key=lambda x: (x["rcept_dt"] or "", x["rcept_no"] or ""),
     )
