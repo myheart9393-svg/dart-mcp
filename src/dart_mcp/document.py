@@ -69,6 +69,8 @@ H1_TAGS = {"DOCUMENT-NAME", "COVER-TITLE"}
 # TD: 일반 셀, TH: 머리글 셀, TE: 코드(ACODE) 값 셀, TU: 단위/코드 값 셀(AUNITVALUE)
 CELL_TAGS = {"TD", "TE", "TH", "TU"}
 ROW_TAGS = {"TR"}
+# 셀·TITLE 안에서 텍스트 사이에 구분자(줄바꿈 → _norm_inline이 공백으로)를 넣을 블록 경계
+CELL_BREAK_TAGS = {"P", "DIV", "LI", "BR", "PGBRK"}
 
 
 # --------------------------------------------------------------------------- ZIP
@@ -176,8 +178,33 @@ class _Renderer:
 
     @staticmethod
     def _text_of(el: etree._Element) -> str:
-        """하위 전체 텍스트 (중첩 TABLE 등은 평문으로 납작하게)."""
-        return "".join(el.itertext())
+        """하위 전체 텍스트 (중첩 TABLE 등은 평문으로 납작하게). 셀·TITLE·H1에 쓴다.
+
+        블록 태그(P·DIV·LI·BR·PGBRK) 경계에는 "\\n"을 넣어 _norm_inline이 공백으로 접게 한다. "".join(itertext())는
+        한 셀에 값을 <P>로 쌓으면 "402,396"+"75,912" → "402,39675,912"처럼 숫자를 붙인다(예방용: 2026-10 캐시 202개 XML에선 해당 0건.
+        HD현대마린엔진 2025 요약재무정보의 붙은 숫자는 원문 XML 셀 자체가 구분자 없이 "402,39675,912…"로 적혀 있다).
+        SPAN 같은 인라인 경계에는 아무것도 넣지 않는다(<SPAN>삼성</SPAN><SPAN>전자</SPAN> → "삼성전자").
+        주석·PI의 텍스트는 itertext처럼 건너뛰고 tail만 잇는다.
+        """
+        parts: list[str] = []
+
+        def walk(node: etree._Element) -> None:
+            tag = _tag_name(node)
+            block = tag in CELL_BREAK_TAGS
+            if block:
+                parts.append("\n")
+            if tag and node.text:
+                parts.append(node.text)
+            if tag:
+                for child in node:
+                    walk(child)
+                    if child.tail:
+                        parts.append(child.tail)
+            if block:
+                parts.append("\n")
+
+        walk(el)
+        return "".join(parts)
 
     def render(self, root: etree._Element) -> str:
         self._walk(root, is_root=True)
@@ -427,7 +454,7 @@ def _section_title(el: etree._Element) -> str:
             return _norm_inline(v)
     for child in el:
         if _tag_name(child) == "TITLE":
-            return _norm_inline("".join(child.itertext()))
+            return _norm_inline(_Renderer._text_of(child))
     return ""
 
 

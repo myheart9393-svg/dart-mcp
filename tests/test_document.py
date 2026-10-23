@@ -272,3 +272,18 @@ def test_truncation_warnings_when_tree_loses_trailing_sections():
     assert any(x.startswith("SECTION-1 3개 중 1개만") for x in w)
     assert any(x.startswith("TITLE ") for x in w)
     assert truncation_warnings(D._preprocess(_DOOSAN_XML), D.parse_root(_DOOSAN_XML)) == []
+
+
+def test_cell_block_boundaries_become_spaces_inline_do_not():
+    t = _table_md("<TABLE><TR><TD><P>402,396</P><P>75,912</P></TD><TD><SPAN>삼성</SPAN><SPAN>전자</SPAN></TD>"
+                  "<TD>매출<BR/>원가</TD><TD><DIV>가</DIV>나<!--주석-->다</TD></TR></TABLE>")
+    assert t[2] == "| 402,396 75,912 | 삼성전자 | 매출 원가 | 가 나다 |"
+
+
+def test_title_with_paragraphs_gets_space():
+    from dart_mcp.document import build_outline
+
+    xml = """<?xml version="1.0" encoding="utf-8"?><DOCUMENT><BODY>
+<SECTION-1><TITLE><P>III.</P><P>재무에 관한 사항</P></TITLE><P>본문</P></SECTION-1>
+</BODY></DOCUMENT>""".encode()
+    assert {s.id: s.title for s in build_outline(xml)}["1"] == "III. 재무에 관한 사항"
