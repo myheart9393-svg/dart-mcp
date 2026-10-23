@@ -8,6 +8,14 @@ uv run pytest -q                      # 단위테스트
 uv run python -m dart_mcp.cli fetch <rcept_no>   # 원문 ZIP→XML→MD 저장 (디버그용)
 ```
 
+```bash
+uv run python scripts/parser_regression.py            # data/ 모든 XML 재변환 → data/_baseline과 섹션 비교 (--update로 갱신)
+uv run python -m dart_mcp.healthcheck --sample 30 --seed 1   # 파서·재무 매칭 일괄 검사 → reports/healthcheck_<날짜>.md
+```
+
+**`document.py`를 고치면 커밋 전에 `scripts/parser_regression.py`를 돌려 변경 목록(바뀐 공시·섹션)을 커밋 메시지에 적는다.**
+의도한 변경만 있으면 `--update`로 baseline을 갱신한다. 의도하지 않은 변경이 있으면 커밋하지 않고 원인부터 본다.
+
 서버 코드(`server.py`, `document.py`, `cache.py`)를 바꾸면 MCP 서버 프로세스를 다시 시작해야 반영된다
 (`financials.py`, `periodic.py`도 마찬가지. 새 세션을 열거나 `/mcp`에서 재연결). 로그는 stderr 전용이며 stdout에 print 하면 프로토콜이 깨진다.
 

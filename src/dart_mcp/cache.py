@@ -27,7 +27,7 @@ log = logging.getLogger(__name__)
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
 # 섹션 구조화 규칙이 바뀌면 올린다. 버전이 다른 캐시는 저장된 ZIP으로부터 다시 만든다(API 호출 없음).
-CACHE_VERSION = 5  # 3: 편집기 템플릿 태그(COMMENT 등) 제외, 4: 표 머리글(TH/THEAD만)·ROWSPAN 소진·직계 TITLE 제목, 5: 본문 꺾쇠("<연혁>") 이스케이프
+CACHE_VERSION = 6  # 3: 편집기 템플릿 태그(COMMENT 등) 제외, 4: 표 머리글(TH/THEAD만)·ROWSPAN 소진·직계 TITLE 제목, 5: 본문 꺾쇠("<연혁>") 이스케이프, 6: 속성값 안 따옴표 이스케이프·parse_warnings
 
 
 class _StaleCache(Exception):
@@ -55,6 +55,7 @@ class CachedFile:
     encoding: str
     total_chars: int
     sections: list[Section]
+    parse_warnings: list[str] = field(default_factory=list)  # 뒷부분 누락 등 파서 경고(document.truncation_warnings)
 
     def outline(self) -> list[dict]:
         return [s.to_outline_dict() for s in self.sections]
@@ -134,9 +135,11 @@ class DisclosureCache:
             if not safe_name.lower().endswith((".xml", ".htm", ".html")):
                 continue
             _, enc = decode_dart_xml(data)
-            sections = build_outline(data)
+            file_id = file_id_of(safe_name, rcept_no)
+            warnings: list[str] = []
+            sections = build_outline(data, parse_warnings=warnings, main=file_id == "main")
             total = sum(s.char_count for s in sections)
-            disc.files.append(CachedFile(file_id_of(safe_name, rcept_no), safe_name, enc, total, sections))
+            disc.files.append(CachedFile(file_id, safe_name, enc, total, sections, warnings))
 
         # main 먼저, 첨부는 file_id 순
         disc.files.sort(key=lambda f: (f.file_id != "main", f.file_id))
@@ -155,6 +158,7 @@ class DisclosureCache:
                     "filename": f.filename,
                     "encoding": f.encoding,
                     "total_chars": f.total_chars,
+                    "parse_warnings": f.parse_warnings,
                     "sections": f.outline(),
                 }
                 for f in disc.files
@@ -176,5 +180,6 @@ class DisclosureCache:
         for f in outline["files"]:
             raw = json.loads(self._sections_path(rcept_no, f["file_id"]).read_text(encoding="utf-8"))
             sections = [Section(**s) for s in raw]
-            disc.files.append(CachedFile(f["file_id"], f["filename"], f["encoding"], f["total_chars"], sections))
+            disc.files.append(CachedFile(f["file_id"], f["filename"], f["encoding"], f["total_chars"], sections,
+                                         f.get("parse_warnings", [])))
         return disc

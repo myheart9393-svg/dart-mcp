@@ -309,22 +309,60 @@ class _Renderer:
 
 
 # --------------------------------------------------------------------------- 파싱
-def parse_root(raw: bytes | str) -> etree._Element | None:
-    """DART XML을 lxml recover 모드로 파싱해 루트 요소를 반환한다."""
-    if isinstance(raw, bytes):
-        text, _enc = decode_dart_xml(raw)
-    else:
-        text = raw
+# 닫는 따옴표 바로 뒤에 공백·">"·"/"가 아닌 글자가 오는 시작 태그 = 속성값 안에 이스케이프 안 된 따옴표가 있다.
+# 두산에너빌리티 2025 사업보고서 실측: ENG="Doosan Power Systems S.A. ("DPS S.A.") [member}". recover 모드가 이 TH를
+# 닫지 못하고 이후 닫는 태그마다 스택을 한 단계씩 올려 III장 끝에서 BODY·DOCUMENT까지 닫혀 IV–XII장이 통째로 사라졌다.
+_BAD_QUOTE_TAG_RE = re.compile(r'<[A-Za-z][^<>]*="[^"<>]*"[^\s>/][^<>]*>')
+# 속성값 = 다음 "<공백>속성명=\"" 또는 태그 끝 직전의 따옴표까지 (값 안의 따옴표는 &quot;로)
+_ATTR_RE = re.compile(r'(\s+[A-Za-z_:][\w:.-]*=)"(.*?)"(?=\s+[A-Za-z_:][\w:.-]*="|\s*/?>$)', re.S)
+_SECTION1_OPEN_RE = re.compile(r"<SECTION-1[\s>]")
+_TITLE_OPEN_RE = re.compile(r"<TITLE[\s>]")
 
+
+def _fix_attr_quotes(tag: str) -> str:
+    return _ATTR_RE.sub(lambda m: f'{m.group(1)}"{m.group(2).replace(chr(34), "&quot;")}"', tag)
+
+
+def _preprocess(text: str) -> str:
     # lxml은 encoding 선언이 있는 str을 거부하므로 선언 제거 후 utf-8 bytes로 파싱
     text = _XML_DECL_ANY_RE.sub("", text, count=1)
     text = _ENTITY_RE.sub(lambda m: _ENTITY_MAP[m.group(0)], text)
     # 본문의 "<연결기업의 연혁>", "<5%" 같은 꺾쇠는 태그가 아니다. recover 모드가 이를 닫히지 않은 요소로 읽으면
     # 뒤따르는 섹션 전체가 그 아래로 흡수되므로(트리 붕괴) 파싱 전에 텍스트로 이스케이프한다
     text = _STRAY_LT_RE.sub("&lt;", text)
+    return _BAD_QUOTE_TAG_RE.sub(lambda m: _fix_attr_quotes(m.group(0)), text)
 
+
+def truncation_warnings(text: str, root: etree._Element | None) -> list[str]:
+    """원문 텍스트의 <SECTION-1·<TITLE 개수와 파싱된 트리의 개수를 비교한다. 적게 파싱됐으면 경고 문장 목록.
+
+    recover 모드는 깨진 태그를 만나면 오류 없이 나머지를 버릴 수 있다(뒷부분 누락). 상위 섹션 크기 비교로는
+    level 1 절단을 못 잡으므로 태그 개수를 직접 센다. TITLE이 더 촘촘해 민감하다.
+    """
+    out: list[str] = []
+    for tag, pat, what in (("SECTION-1", _SECTION1_OPEN_RE, "SECTION-1"), ("TITLE", _TITLE_OPEN_RE, "TITLE")):
+        n = len(pat.findall(text))
+        m = 0 if root is None else sum(1 for _ in root.iter(tag))
+        if m < n:
+            out.append(f"{what} {n}개 중 {m}개만 파싱됨: 원문 뒷부분이 잘렸을 수 있음")
+    return out
+
+
+def parse_root(raw: bytes | str, *, warnings: list[str] | None = None) -> etree._Element | None:
+    """DART XML을 lxml recover 모드로 파싱해 루트 요소를 반환한다. warnings를 주면 뒷부분 누락 경고를 담는다."""
+    if isinstance(raw, bytes):
+        text, _enc = decode_dart_xml(raw)
+    else:
+        text = raw
+    text = _preprocess(text)
     parser =etree.XMLParser(recover=True, huge_tree=True, encoding="utf-8", resolve_entities=False)
-    return etree.fromstring(text.encode("utf-8"), parser=parser)
+    root = etree.fromstring(text.encode("utf-8"), parser=parser)
+    if warnings is not None:
+        found = truncation_warnings(text, root)
+        for w in found:
+            log.warning("parse: %s", w)
+        warnings.extend(found)
+    return root
 
 
 def parse_dart_xml(raw: bytes | str, *, seen_tags: set[str] | None = None) -> str:
@@ -393,9 +431,14 @@ def _section_title(el: etree._Element) -> str:
     return ""
 
 
-def build_outline(raw: bytes | str, *, root_title: str = "(표지 및 섹션 외 본문)") -> list[Section]:
-    """DART XML → 섹션 목록(문서 순서). 상위 섹션 text는 하위 섹션 내용을 포함한다."""
-    root = parse_root(raw)
+def build_outline(raw: bytes | str, *, root_title: str = "(표지 및 섹션 외 본문)",
+                  parse_warnings: list[str] | None = None, main: bool = True) -> list[Section]:
+    """DART XML → 섹션 목록(문서 순서). 상위 섹션 text는 하위 섹션 내용을 포함한다.
+
+    parse_warnings: 주면 뒷부분 누락 경고(truncation_warnings)를 담는다.
+    main: 본문 파일일 때만 "하위 섹션 50% 초과" 경고를 낸다(감사보고서 첨부는 주석이 대부분이라 정상).
+    """
+    root = parse_root(raw, warnings=parse_warnings)
     if root is None:
         return []
 
@@ -426,7 +469,7 @@ def build_outline(raw: bytes | str, *, root_title: str = "(표지 및 섹션 외
     # 안전장치: 하위 섹션 하나가 문서의 절반을 넘으면 트리 붕괴(뒤 섹션 흡수)를 의심한다
     total = sum(s.char_count for s in sections if s.level <= 1)
     for s in sections:
-        if s.level >= 2 and total and s.char_count > total / 2:
+        if main and s.level >= 2 and total and s.char_count > total / 2:
             log.warning("outline: section %s %r has %d of %d chars (>50%%) — possible tree collapse",
                         s.id, s.title, s.char_count, total)
     return sections
