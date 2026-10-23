@@ -104,7 +104,7 @@ KEY_ACCOUNTS: tuple[KeyAccount, ...] = (
     KeyAccount("capex", "유형자산취득(CAPEX 대용)", ("CF",),
                ("ifrs-full_PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
                 "ifrs-full_PurchaseOfPropertyPlantAndEquipment"),
-               ("유형자산의취득", "유형자산취득"), ("처분", "무형")),
+               ("유형자산의취득", "유형자산취득", "유형자산의증가", "설비자산의취득", "유형자산취득액"), ("처분", "무형")),
     KeyAccount("cash", "현금및현금성자산", ("BS",), ("ifrs-full_CashAndCashEquivalents",),
                ("현금및현금성자산",), ("기초", "기말", "증가", "감소", "환율", "외화")),
     # 지배주주 기준 ROE용. 종속회사가 없는 회사(별도만 공시)는 없는 게 정상이라 missing이 아닌 optional로 둔다.
@@ -116,6 +116,9 @@ KEY_ACCOUNTS: tuple[KeyAccount, ...] = (
                ("비지배",)),
 )
 OPTIONAL_ACCOUNTS = ("net_income_parent", "equity_parent")
+# 현금흐름표는 있는데 이 계정 행이 아예 없으면 "취득 없음"으로 보고 0을 넣는다(missing이 아니라 assumed_zero).
+# 소규모 회사는 해당 연도에 유형자산을 사지 않으면 행 자체를 안 둔다(미래아이앤지·얼라인드제네틱스 2025 실측: 원문에도 취득 0건).
+ASSUMED_ZERO_ACCOUNTS = {"capex": "현금흐름표에 유형자산 취득 계정 없음(취득 없음으로 간주)"}
 # BS에 현금및현금성자산 행이 없는 회사(은행: "현금 및 예치금")는 현금흐름표의 기말 현금으로 대체한다.
 CASH_CF_FALLBACK = KeyAccount("cash", "현금및현금성자산", ("CF",), ("ifrs-full_CashAndCashEquivalents",),
                               ("기말현금및현금성자산", "기말의현금및현금성자산"))
@@ -233,6 +236,10 @@ def match_account(items: list[dict], spec: KeyAccount) -> tuple[dict | None, str
             if any(t in n for t in targets):
                 return it, "name_partial"
     return None, None
+
+
+def _has_statement(items: list[dict], sj_divs: tuple[str, ...]) -> bool:
+    return any(it.get("sj_div") in sj_divs for it in items)
 
 
 def _ratio(num: float | None, den: float | None, equity_den: bool = False) -> float | None:
@@ -354,6 +361,7 @@ def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "g
     financial = sector == "financial"
     accounts: dict[str, dict] = {}
     missing: list[str] = []
+    assumed_zero: list[str] = []
     not_applicable: list[str] = []
     for spec in KEY_ACCOUNTS:
         if financial and spec.key in FINANCIAL_NOT_APPLICABLE:
@@ -362,6 +370,11 @@ def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "g
             not_applicable.append(spec.key)
             continue
         row, how = _match_key(items, spec)
+        if row is None and spec.key in ASSUMED_ZERO_ACCOUNTS and _has_statement(items, spec.sj_divs):
+            accounts[spec.key] = {"label": spec.label, "values": {y: 0 for y in years}, "matched": "assumed_zero",
+                                  "note": ASSUMED_ZERO_ACCOUNTS[spec.key]}
+            assumed_zero.append(spec.key)
+            continue
         if row is None:
             accounts[spec.key] = {"label": spec.label, "values": {y: None for y in years}, "matched": None}
             if spec.key not in OPTIONAL_ACCOUNTS:
@@ -401,7 +414,7 @@ def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "g
         notes.insert(0, msg + "자본이 음수인 연도(ROE는 기초 포함)의 부채비율·자기자본비율·ROE는 부호가 뒤집혀 "
                      "의미가 없어 계산하지 않음(None).")
     out = {"years": years, "periods": periods, "accounts": accounts, "ratios": ratios, "missing": missing,
-           "optional": list(OPTIONAL_ACCOUNTS),
+           "assumed_zero": assumed_zero, "optional": list(OPTIONAL_ACCOUNTS),
            "optional_missing": [k for k in OPTIONAL_ACCOUNTS if accounts[k]["matched"] is None],
            "flags": flags}
     if notes:
@@ -453,6 +466,7 @@ def summarize_interim_financials(items: list[dict], reprt_code: str, period_type
     financial = sector == "financial"
     accounts: dict[str, dict] = {}
     missing: list[str] = []
+    assumed_zero: list[str] = []
     not_applicable: list[str] = []
     for spec in KEY_ACCOUNTS:
         if financial and spec.key in FINANCIAL_NOT_APPLICABLE:
@@ -461,6 +475,12 @@ def summarize_interim_financials(items: list[dict], reprt_code: str, period_type
             not_applicable.append(spec.key)
             continue
         row, how = _match_key(items, spec)
+        if row is None and spec.key in ASSUMED_ZERO_ACCOUNTS and _has_statement(items, spec.sj_divs):
+            zero = None if period_type == "quarter" else 0  # CF는 누적만 공시: quarter면 다른 CF 계정처럼 None
+            accounts[spec.key] = {"label": spec.label, "basis": None, "values": {"current": zero, "prior": zero},
+                                  "matched": "assumed_zero", "note": ASSUMED_ZERO_ACCOUNTS[spec.key]}
+            assumed_zero.append(spec.key)
+            continue
         if row is None:
             accounts[spec.key] = {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
                                   "matched": None}
@@ -480,7 +500,7 @@ def summarize_interim_financials(items: list[dict], reprt_code: str, period_type
                               else _ratio(v(num, c), v(den, c), den == "total_equity")) for c in cols}}
         for rkey, label, num, den in RATIOS if rkey in _INTERIM_RATIOS
     }
-    out = {"columns": list(cols), "accounts": accounts, "ratios": ratios, "missing": missing,
+    out = {"columns": list(cols), "accounts": accounts, "ratios": ratios, "missing": missing, "assumed_zero": assumed_zero,
            "flags": [CAPITAL_IMPAIRMENT] if impaired else []}
     if impaired:
         out["note"] = f"자본잠식(자본총계 음수): {', '.join(impaired)}. 부채비율·자기자본비율은 계산하지 않음(None)."

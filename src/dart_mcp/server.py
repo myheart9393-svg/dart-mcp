@@ -499,6 +499,7 @@ def get_key_financials(
       total_assets, total_liabilities, total_equity, operating_cf, investing_cf, capex(유형자산취득), cash,
       그리고 optional인 net_income_parent(지배주주 순이익), equity_parent(지배주주 자본).
       missing: 찾지 못한 필수 계정 key (값 null). optional_missing: 없는 optional 계정(종속회사 없는 회사는 정상).
+      assumed_zero: 현금흐름표는 있는데 행이 없어 0으로 둔 계정(현재 capex. matched="assumed_zero", note에 사유). 표에 "0(취득 계정 없음)"으로 적는다.
       단위는 모두 원(KRW).
       sector: {sector, induty_code, reason}. 업종은 기업개황 induty_code(KSIC)로 판단한다.
     금융업(sector="financial": 은행·보험·증권·금융지주)이면 warning이 붙는다. 이때 revenue와 영업이익률·순이익률은

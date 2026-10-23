@@ -207,3 +207,22 @@ def test_parse_amount_dash_is_zero_but_empty_is_none():
     assert parse_amount(" - ") == 0
     assert parse_amount("") is None and parse_amount(None) is None
     assert parse_amount("-1,234") == -1234
+
+
+def test_capex_assumed_zero_when_cf_exists_without_purchase_row():
+    items = [
+        row("BS", "자산총계", "1,000", account_id="ifrs-full_Assets", frmtrm="900", bfefrmtrm="800"),
+        row("CF", "영업활동현금흐름", "100", account_id="ifrs-full_CashFlowsFromUsedInOperatingActivities"),
+        row("CF", "유형자산의 처분", "5", ord_=2),  # 처분만 있고 취득 행 없음
+    ]
+    out = summarize_key_financials(items, "2025")
+    assert "capex" not in out["missing"] and out["assumed_zero"] == ["capex"]
+    cap = out["accounts"]["capex"]
+    assert cap["values"] == {"2025": 0, "2024": 0, "2023": 0} and cap["matched"] == "assumed_zero"
+    assert "취득 없음" in cap["note"]
+
+
+def test_capex_new_name_variants_match():
+    for nm in ("유형자산의 증가", "설비자산의 취득", "유형자산취득액"):
+        out = summarize_key_financials([row("CF", nm, "-30")], "2025")
+        assert out["accounts"]["capex"]["values"]["2025"] == -30 and out["assumed_zero"] == []
