@@ -105,6 +105,15 @@ def rounded_match(text: str, won: int) -> str | None:
     return None
 
 
+def merged_digits(text: str, won: int) -> str | None:
+    """후보 표기가 더 긴 숫자열 속에만 있으면(원문 셀이 "402,39675,912…"처럼 붙은 경우) 그 숫자열 앞부분."""
+    for cand in amount_candidates(won):
+        for m in re.finditer(r"[\d,()\-△]{12,}", text):
+            if cand in m.group(0) and not bounded_in(m.group(0), cand):
+                return m.group(0)[:30]
+    return None
+
+
 def bounded_in(text: str, number: str) -> bool:
     """number가 더 긴 숫자의 일부가 아닌 채로 text에 있는가 ("1,234"가 "51,234"에 걸리지 않게)."""
     return re.search(r"(?<![\d,.])" + re.escape(number) + r"(?![\d]|,\d|\.\d)", text) is not None
@@ -122,7 +131,7 @@ def _check_numbers(rcept_no: str, main_sections: list, accounts: dict, year: str
     body = summary.text.split("\n", 1)[-1]
     if len(body.strip()) < 300 and _SUMMARY_NA_RE.search(body):
         return Check(NA, f"{summary.id} 요약재무정보 기재 생략/해당사항 없음")
-    notes, bad = [], []
+    notes, bad, merged = [], [], []
     for key, label in (("revenue", "매출액"), ("total_assets", "자산총계")):
         won = (accounts.get(key) or {}).get("values", {}).get(year)
         if won is None or abs(won) < F_MIN_WON:
@@ -137,12 +146,16 @@ def _check_numbers(rcept_no: str, main_sections: list, accounts: dict, year: str
                 break
         if hit is None and (rm := rounded_match(summary.text, won)):
             hit = f"'{rm}' 반올림 일치"
-        if hit is None:
+        if hit is None and (mg := merged_digits(summary.text, won)):
+            merged.append(f"{label} {won:,}원: 원문 셀에 숫자가 구분자 없이 붙어 있음 '{mg}'(원문 XML 자체 결함)")
+        elif hit is None:
             bad.append(f"{label} {won:,}원: {summary.id} 요약재무정보에 원·천원·백만원 표기 모두 없음")
         else:
             notes.append(f"{label} {hit} 확인")
     if bad:
-        return Check(FAIL, "; ".join(bad + notes))
+        return Check(FAIL, "; ".join(bad + merged + notes))
+    if merged:
+        return Check(WARN, "; ".join(merged + notes))
     if not any("확인" in n for n in notes):
         return Check(NA, "; ".join(notes))
     return Check(PASS, "; ".join(notes))

@@ -1,4 +1,11 @@
-from dart_mcp.healthcheck import _SUMMARY_NA_RE, amount_candidates, bounded_in, parse_corp_codes, rounded_match
+from dart_mcp.healthcheck import (
+    _SUMMARY_NA_RE,
+    amount_candidates,
+    bounded_in,
+    merged_digits,
+    parse_corp_codes,
+    rounded_match,
+)
 
 
 def test_amount_candidates_won_thousand_million_rounded():
@@ -34,3 +41,10 @@ def test_parse_corp_codes_inline_and_comments(tmp_path):
     p = tmp_path / "c.txt"
     p.write_text("00126380  # 삼성전자\n\n# 주석\n00164779\n", encoding="utf-8")
     assert parse_corp_codes(str(p)) == ["00126380", "00164779"]
+
+
+def test_merged_digits_in_source_cell():
+    # HD현대마린엔진 2025 요약재무정보: 원문 XML 셀 자체가 "402,39675,912165,102…"
+    cell = "| 매출액 영업이익 … | 402,39675,912165,102-165,102165,1024,8674,867 | 315,79433,194 |"
+    assert merged_digits(cell, 402_396_221_904).startswith("402,39675,912")
+    assert merged_digits("| 매출액 | 402,396 |", 402_396_221_904) is None

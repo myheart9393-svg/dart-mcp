@@ -140,7 +140,12 @@ data/company/<corp_code>.json                 기업개황(company.json: 시장�
   일괄 정정은 사유가 "XBRL 작성오류"뿐인 경우도 있으니 정정신고 표(섹션 "0", `search_in_disclosure(rcept_no, "정정사유")`)로 사유를 확인한다.
 - **본문 꺾쇠**: 원문 텍스트의 `<연결기업의 연혁>`, `<삭제 2012.3.5>`, `<5%` 같은 꺾쇠를 lxml recover 모드가 닫히지 않은 태그로 읽으면
   뒤따르는 섹션 전체가 그 아래로 흡수된다(GS건설 정정본: 3.2 "회사의 연혁"이 949,776자). 파싱 전에 태그 시작이 아닌 `<`를 `&lt;`로 바꾼다(캐시 v5).
-  하위 섹션(level ≥ 2) 하나가 문서의 50%를 넘으면 stderr에 "possible tree collapse" 경고를 남긴다.
+  하위 섹션(level ≥ 2) 하나가 본문 문서의 50%를 넘으면 stderr에 "possible tree collapse" 경고를 남긴다(감사보고서 첨부는 제외).
+- **속성값 안 따옴표·뒷부분 누락**: `ENG="Doosan Power Systems S.A. ("DPS S.A.") [member}"`처럼 속성값에 이스케이프 안 된 `"`가 있으면
+  recover 모드가 BODY·DOCUMENT까지 닫아 뒤 장이 통째로 사라진다(두산에너빌리티 2025: IV–XII 누락). 파싱 전에 값 안 따옴표를 `&quot;`로 바꾸고(캐시 v6),
+  원문의 `<SECTION-1`·`<TITLE` 수와 파싱된 수를 비교해 모자라면 outline에 `parse_warnings`를 싣는다.
+- **원문 셀 자체의 붙은 숫자**: HD현대마린엔진 2025 요약재무정보처럼 원문 XML 셀이 "402,39675,912…"로 구분자 없이 적힌 경우는 복원하지 않는다.
+  셀 안 `<P>`·`<BR>` 경계는 공백으로 구분된다(캐시 v7).
 - 디버그: `uv run python -m dart_mcp.cli fetch <rcept_no>` (원문 ZIP→XML→MD 저장).
 
 ## 운영
@@ -178,7 +183,10 @@ OpenDART 인증키 하나당 하루 20,000건이다. 아래는 `/dart-analyze <�
 |---|---|---|
 | `get_key_financials`가 `rcept_no: null`, message에 "조회 데이터 없음(status 013)" | 연결 대상 종속회사가 없는 회사(CFS가 없음), 또는 그 연도·보고서 종류 데이터가 아직 없음 | `fs_div="OFS"`로 재호출하고 보고서에 "별도 기준" 명시. OFS도 013이면 연도(`bsns_year`)·`reprt_code`를 확인한다(2015년 이전은 재무 API 자체가 없음) |
 | `find_company`가 `count: 0` | DART 목록은 상장 약칭이다("KB금융", "신한지주"). 툴은 이미 법인명 꼬리("주식회사", "(주)", "지주회사", "지주")를 떼고 한 번 더 찾은 뒤의 결과 | 더 짧은 핵심 단어로 다시 검색("신한금융지주회사" → "신한"). 동명 회사가 많으면 `stock_code`가 있는 행을 고른다. 최근 상장·사명 변경이면 `data/corp_codes.json`을 지우고 재시도 |
-| 같은 기간 사업보고서가 여러 건(원본 + `[기재정정]` + `[첨부추가]` …) | 정정공시 | `get_latest_reports`는 같은 종류·같은 기간(report_nm의 "(2025.12)") 중 **접수일(rcept_dt)이 가장 늦은 것, 같으면 rcept_no가 큰 것**을 쓰고 나머지는 `superseded`로 돌린다. 연도를 지정해 `search_disclosures`로 직접 고를 때도 같은 규칙(가장 늦은 정정본)을 따른다 |
+| 같은 기간 사업보고서가 여러 건(원본 + `[기재정정]` + `[첨부추가]` …) | 정정공시 | `get_latest_reports`는 같은 종류·같은 기간(report_nm의 "(2025.12)") 중 **접수일(rcept_dt)이 가장 늦은 것, 같으면 rcept_no가 큰 것**을 `rcept_no`로 쓰고 나머지는 `superseded`로 돌린다. 정정 ZIP에는 바뀐 부분만 있으므로 본문은 `body_rcept_no`(꼬리표 없음·`[기재정정]` 중 최신), 감사보고서는 `attachment_rcept_no`(꼬리표 없음·`[첨부정정]`/`[첨부추가]` 중 최신)로 읽는다 |
+| outline이 `{"error": "...본문(main)이 없고 첨부만...", "hint": ...}` | 첨부정정·첨부추가 공시 ZIP | hint의 접수번호(body_rcept_no)로 다시 연다 |
+| attachment_rcept_no 원문이 status 014 "파일이 존재하지 않습니다" | DART가 일부 첨부정정 ZIP을 내주지 않음(디엘이앤씨·메가스터디교육 2025 실측) | `original_rcept_no`의 첨부 감사보고서를 쓰고 보고서에 적는다 |
+| outline `parse_warnings`가 비어 있지 않음 | 원문 태그 깨짐으로 뒷부분 누락 가능 | 보고서 머리에 경고를 적고 빠진 장은 "확인 불가". 재현 XML로 document.py를 고친 뒤 parser_regression |
 | 툴이 없다 / 인자가 없다는 에러 | 옛 서버 프로세스 | 위 체크리스트 3 |
 | `{"error": "... DART_API_KEY가 없습니다"}` | `.env` 없음 | `.env.example`을 복사해 키 입력 후 재연결. 캐시된 공시는 키 없이도 읽힌다 |
 
@@ -187,7 +195,29 @@ OpenDART 인증키 하나당 하루 20,000건이다. 아래는 `/dart-analyze <�
 1. `find_company("<회사>")` → stock_code가 있는 정확 일치 행의 corp_code.
 2. `get_latest_reports(corp_code)` → 최신 사업보고서 rcept_no·bsns_year, 이후 반기·분기, 정정본 선택 결과 확인.
    12월 결산이 아니면 report_nm의 결산월과 bsns_year가 맞는지 본다.
-3. `get_disclosure_outline(rcept_no, depth=2)`로 구조를 한 번 본다: 장 제목이 표준(I~XII)인지, "연결재무제표" 섹션이 수십 자짜리 빈 섹션인지
+3. `get_disclosure_outline(body_rcept_no, depth=2)`로 구조를 한 번 본다(`parse_warnings`가 있으면 뒷부분 누락 의심): 장 제목이 표준(I~XII)인지, "연결재무제표" 섹션이 수십 자짜리 빈 섹션인지
    (→ OFS 회사), 30,000자를 넘는 섹션이 어디인지, 하위 SECTION 없이 TITLE 소제목(`8.t1`)만 있는 장이 있는지.
 4. 그다음 `/dart-analyze`·`/dart-financial`·`/dart-risk` 등 커맨드를 실행한다. 1~3의 결과는 캐시에 남아 커맨드가 다시 부를 때 API를 쓰지 않는다
    (`get_latest_reports`의 목록 조회 1건 제외).
+
+### 정기 점검 (healthcheck · parser_regression)
+
+LLM 없이 파서·재무 매칭 건전성을 대량으로 본다. 캐시를 쓰므로 두 번째 실행부터는 API를 거의 쓰지 않는다(첫 실행 30개사 ≈ 회사당 5건).
+
+- **월 1회 또는 `document.py`·`financials.py` 수정 후**: `uv run python -m dart_mcp.healthcheck --sample 30 --seed <YYYYMMDD>` 실행
+  → FAIL이 있으면 원인을 진단해 수정하고, 결과 `reports/healthcheck_*.md`를 커밋한다(검사 이력).
+  같은 회사로 비교하려면 `--corp-codes reports/healthcheck_2026-10-23_sample1.txt`(업종·시장 층화 30개, 코스닥 50%).
+- **`document.py` 수정 시**: 커밋 전에 `uv run python scripts/parser_regression.py`를 돌려 바뀐 공시·섹션 목록을 커밋 메시지에 적는다.
+  의도한 변경뿐이면 `--update`로 `data/_baseline/`을 갱신한다. 섹션 구조가 바뀌면 `cache.py`의 `CACHE_VERSION`도 올린다.
+
+healthcheck 검사 항목 (각 PASS/WARN/FAIL/N/A):
+
+| | 검사 | 판정 |
+|---|---|---|
+| a | 뒷부분 누락: 원문 `<SECTION-1`·`<TITLE` 수 vs 파싱된 수(`parse_warnings`) | 모자라면 FAIL |
+| b | 본문·첨부의 U+FFFD(깨진 글자) 수 | 1개 이상 FAIL |
+| c | level 1 섹션 수 | 5 미만·30 초과 WARN |
+| d | `get_key_financials`의 `missing`(필수 계정 못 찾음; `assumed_zero`는 제외) | 비어 있지 않으면 WARN |
+| e | 사업보고서 이후 반기·분기보고서의 `reprt_code`가 null(결산기 변경 등) | WARN |
+| f | 재무 API 매출액·자산총계가 원문 요약재무정보에 원·천원·백만원(한 단위 안 반올림·절사) 표기로 있는지 | 없으면 FAIL, 원문 셀 숫자가 붙어 있으면 WARN, 요약 생략·1,000백만원 미만은 N/A |
+| g | `attachment_rcept_no` ZIP에 감사보고서 첨부가 있는지(014면 같은 그룹 다른 접수본으로 대체) | 없거나 대체하면 WARN |
