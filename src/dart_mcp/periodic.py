@@ -5,6 +5,8 @@ report_nm 예: "사업보고서 (2025.12)", "[기재정정]반기보고서 (2026
 
 정정 종류(correction_kind)를 구분하는 이유: [기재정정]은 본문(재무제표 포함)이 바뀌었을 수 있지만
 [첨부정정]·[첨부추가]는 감사보고서 등 첨부만 바뀐 것이다. is_correction은 기재정정일 때만 True.
+정정 ZIP에는 바뀐 부분만 들어 있다(실측: 기재정정 ZIP은 본문만, 첨부정정 ZIP은 첨부 00760·00761만).
+그래서 본문을 읽을 접수번호(body_rcept_no)와 첨부를 읽을 접수번호(attachment_rcept_no)를 따로 고른다.
 """
 
 from __future__ import annotations
@@ -23,6 +25,24 @@ def correction_kind(prefix: str) -> str | None:
         if f"[{kind}]" in (prefix or "").replace(" ", ""):
             return kind
     return None
+
+
+def source_rcept_nos(filings: list[dict]) -> tuple[str | None, str | None]:
+    """같은 (종류, 기간) 공시들(prefix 포함) → (body_rcept_no, attachment_rcept_no).
+
+    body: 꼬리표 없음 또는 [기재정정] 중 가장 늦은 접수. attachment: 꼬리표 없음 또는 [첨부정정]/[첨부추가] 중 가장 늦은 접수.
+    후보가 없으면(모르는 꼬리표뿐) 가장 늦은 접수본. 둘이 같으면 정정이 없다.
+    """
+    order = sorted(filings, key=lambda x: (x.get("rcept_dt", ""), x.get("rcept_no", "")), reverse=True)
+
+    def latest(allowed: tuple[str, ...]) -> str | None:
+        for f in order:
+            prefix = f.get("prefix", "")
+            if not prefix or correction_kind(prefix) in allowed:
+                return f.get("rcept_no")
+        return order[0].get("rcept_no") if order else None
+
+    return latest(("기재정정",)), latest(("첨부정정", "첨부추가"))
 
 
 def parse_report_nm(report_nm: str) -> dict | None:
@@ -57,7 +77,8 @@ def classify_periodic_reports(items: list[dict]) -> dict:
     items: [{rcept_no, report_nm, rcept_dt}, ...] (순서 무관)
     반환: {"latest_annual", "interim_after_annual", "superseded", "late_corrections", "fy_end_month"}.
     각 보고서: {kind, period, bsns_year, reprt_code, rcept_no, rcept_dt, report_nm, prefix, correction_kind,
-    is_correction(기재정정일 때만 True), supersedes[], original_rcept_no, original_rcept_dt(최초 제출본, 정정 없으면 자기 자신)}.
+    is_correction(기재정정일 때만 True), supersedes[], original_rcept_no, original_rcept_dt(최초 제출본, 정정 없으면 자기 자신),
+    body_rcept_no(본문 outline용), attachment_rcept_no(감사보고서 00760/00761용)}.
     late_corrections: 최신 사업보고서 최초 제출일 이후(같은 날 포함)에 접수된, 그보다 앞선 기간(사업·반기·분기)의 정정본
     [{kind, period, rcept_no, rcept_dt, correction_kind}] (접수일순). 전기 재무제표 재작성 신호일 수 있다.
     """
@@ -75,6 +96,7 @@ def classify_periodic_reports(items: list[dict]) -> dict:
         filings.sort(key=lambda x: (x.get("rcept_dt", ""), x.get("rcept_no", "")), reverse=True)
         head, rest = filings[0], filings[1:]
         original = filings[-1]  # 그룹에서 가장 먼저 접수된 것(최초 제출본). 정정이 없으면 head 자신
+        body, attachment = source_rcept_nos(filings)
         chosen.append({
             "kind": kind,
             "period": period,
@@ -87,6 +109,8 @@ def classify_periodic_reports(items: list[dict]) -> dict:
             "supersedes": [r.get("rcept_no") for r in rest],
             "original_rcept_no": original.get("rcept_no"),
             "original_rcept_dt": original.get("rcept_dt"),
+            "body_rcept_no": body,
+            "attachment_rcept_no": attachment,
         })
         superseded += [
             {"rcept_no": r.get("rcept_no"), "report_nm": r.get("report_nm"), "rcept_dt": r.get("rcept_dt"),

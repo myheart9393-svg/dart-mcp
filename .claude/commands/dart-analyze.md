@@ -18,7 +18,8 @@ dart MCP 툴로 사업보고서를 읽고 **종합 기업분석 보고서**를 �
 ### 보고서 선택 (사업연도를 생략했을 때)
 
 사업연도 인자가 없으면 `find_company` 다음에 **`get_latest_reports(corp_code)`**를 호출한다.
-- `latest_annual`의 rcept_no·bsns_year를 분석 대상 사업보고서로 쓴다(정정본이 있으면 이미 정정본이 선택돼 있다. `superseded`는 쓰지 않는다).
+- `latest_annual`의 bsns_year를 사업연도로 쓰고, **본문 outline·섹션·검색은 `body_rcept_no`로, 감사보고서(첨부 00760/00761)는 `attachment_rcept_no`로** 읽는다. 정정 ZIP에는 바뀐 부분만 있다([첨부정정]·[첨부추가] ZIP엔 본문이 없고, [기재정정] ZIP엔 감사보고서가 없을 수 있다). 머리의 정정 표시는 `rcept_no`(최신본) 기준, 출처 `(rcept_no, section_id)`의 rcept_no는 실제로 읽은 접수번호(본문이면 body_rcept_no)다. `superseded`는 쓰지 않는다. 사업연도를 명시해 search_disclosures로 고를 때도 같은 규칙: 본문은 꼬리표 없음·[기재정정] 중 최신, 감사보고서는 꼬리표 없음·[첨부정정]/[첨부추가] 중 최신 접수본.
+- outline 응답의 `parse_warnings`가 비어 있지 않으면(예: "SECTION-1 14개 중 4개만 파싱됨") 원문 뒷부분이 빠졌을 수 있다. 보고서 머리에 그 경고를 그대로 적고, 목차에 없는 장은 "원문 파싱 누락으로 확인 불가"로 둔다.
   이 경우 search_disclosures로 사업보고서를 다시 찾지 않는다.
 - `interim_after_annual`이 비어 있지 않으면 **가장 마지막** 항목의 bsns_year·reprt_code로
   `get_key_financials(corp_code, <bsns_year>, reprt_code=<reprt_code>, period_type="cumulative")`를 호출해
@@ -34,12 +35,12 @@ dart MCP 툴로 사업보고서를 읽고 **종합 기업분석 보고서**를 �
 
 1. `find_company(회사명)` → stock_code가 있는 정확 일치 회사의 corp_code를 고른다. 애매하면 사용자에게 묻는다.
 2. (사업연도를 명시한 경우만) `search_disclosures(corp_code, "<사업연도+1>0101", "<사업연도+1>1231", pblntf_ty="A")`
-   → report_nm이 "사업보고서 (<사업연도>.12)"인 항목의 rcept_no. "[기재정정]"본이 있으면 정정본을 쓴다.
+   → report_nm이 "사업보고서 (<사업연도>.12)"인 항목. 본문은 꼬리표 없음·"[기재정정]" 중 최신 접수본의 rcept_no(=body_rcept_no)를 쓴다.
    (12월 결산이 아닌 회사는 report_nm의 결산월을 보고 기간을 넓혀 다시 검색한다.)
 3. `get_key_financials(corp_code, <사업연도>)` → 3개년 핵심 계정과 계산 비율 (연결 CFS 기본.
    message에 status 013 안내가 오면 `fs_div="OFS"`로 재호출하고 보고서에 별도 기준임을 적는다).
    missing에 든 계정은 표에 "-"로 두고, 꼭 필요하면 `get_financial_statements(..., sj_div="BS")`처럼 해당 표만 받아 계정명을 찾는다.
-4. `get_disclosure_outline(rcept_no)` (기본 depth=2) → 아래 섹션의 실제 id를 제목으로 대조해 확정한다.
+4. `get_disclosure_outline(body_rcept_no)` (기본 depth=2) → 아래 섹션의 실제 id를 제목으로 대조해 확정한다.
    id 번호는 회사마다 다를 수 있으므로 **제목 기준**으로 찾는다.
 5. 섹션을 아래 순서로 읽는다. 각 섹션은 **한 번만** 읽고, char_count가 30,000을 넘으면 통째로 읽지 말고
    `search_in_disclosure`로 필요한 부분만 찍어 읽는다.

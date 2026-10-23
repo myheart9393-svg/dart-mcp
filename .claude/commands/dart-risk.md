@@ -13,15 +13,16 @@ dart MCP 툴로 사업보고서의 리스크 관련 부분만 읽고 **리스크
 ### 보고서 선택 (사업연도를 생략했을 때)
 
 사업연도 인자가 없으면 `find_company` 다음에 **`get_latest_reports(corp_code)`**를 호출한다.
-- `latest_annual`의 rcept_no·bsns_year를 분석 대상 사업보고서로 쓴다(정정본이 있으면 이미 정정본이 선택돼 있다. `superseded`는 쓰지 않는다).
+- `latest_annual`의 bsns_year를 사업연도로 쓰고, **본문 outline·섹션·검색은 `body_rcept_no`로, 감사보고서(첨부 00760/00761)는 `attachment_rcept_no`로** 읽는다. 정정 ZIP에는 바뀐 부분만 있다([첨부정정]·[첨부추가] ZIP엔 본문이 없고, [기재정정] ZIP엔 감사보고서가 없을 수 있다). 머리의 정정 표시는 `rcept_no`(최신본) 기준, 출처 `(rcept_no, section_id)`의 rcept_no는 실제로 읽은 접수번호(본문이면 body_rcept_no)다. `superseded`는 쓰지 않는다. 사업연도를 명시해 search_disclosures로 고를 때도 같은 규칙: 본문은 꼬리표 없음·[기재정정] 중 최신, 감사보고서는 꼬리표 없음·[첨부정정]/[첨부추가] 중 최신 접수본.
+- outline 응답의 `parse_warnings`가 비어 있지 않으면(예: "SECTION-1 14개 중 4개만 파싱됨") 원문 뒷부분이 빠졌을 수 있다. 보고서 머리에 그 경고를 그대로 적고, 목차에 없는 장은 "원문 파싱 누락으로 확인 불가"로 둔다.
   이 경우 search_disclosures로 사업보고서를 다시 찾지 않는다.
 - `interim_after_annual`이 비어 있지 않으면 **가장 마지막** 항목의 bsns_year·reprt_code로
   `get_key_financials(corp_code, <bsns_year>, reprt_code=<reprt_code>, period_type="cumulative")`를 호출해
   "최근 분기 동향" 소절에 쓴다(아래 고정 목차 참고).
 사업연도를 명시했으면 기존 방식대로 그 연도 사업보고서를 쓰고, 최근 분기 동향 소절은 생략한다.
 
-1. `find_company` → (사업연도 생략 시) `get_latest_reports` / (명시 시) `search_disclosures(..., pblntf_ty="A")` → 사업보고서 rcept_no.
-2. `get_disclosure_outline(rcept_no)`로 아래 섹션 id를 제목 기준으로 확정한다.
+1. `find_company` → (사업연도 생략 시) `get_latest_reports` / (명시 시) `search_disclosures(..., pblntf_ty="A")` → 사업보고서 body_rcept_no(본문)·attachment_rcept_no(감사보고서).
+2. `get_disclosure_outline(body_rcept_no)`로 아래 섹션 id를 제목 기준으로 확정한다.
 3. 순서대로 읽는다 (각 1회):
 
 | 순서 | 섹션(제목 기준) | 보는 것 |
@@ -33,7 +34,7 @@ dart MCP 툴로 사업보고서의 리스크 관련 부분만 읽고 **리스크
 | 5 | V. 회계감사인의 감사의견 등 > 1. 외부감사에 관한 사항 | 감사의견 종류, **강조사항**, **핵심감사사항(KAM)** 유무와 내용, 감사인 변경 |
 | 6 | 주석(III > 3. 연결재무제표 주석) | `get_disclosure_outline(..., depth=3)`으로 소제목을 받아 "우발" / "약정" / "소송" / "충당부채" / "보고기간 후 사건" 제목의 `.tN` 항목만 읽는다. 없으면 `search_in_disclosure(rcept_no, "소송")`, `(..., "우발")`로 찾는다 |
 
-첨부 감사보고서(file_id "00760"/"00761" 등)가 있으면 `get_disclosure_outline(rcept_no, file_id="<첨부>")`로
+첨부 감사보고서(file_id "00760"/"00761" 등)는 `get_disclosure_outline(attachment_rcept_no, file_id="<첨부>")`로
 "독립된 감사인의 감사보고서" 섹션만 읽어 핵심감사사항 원문을 확인한다 (보통 5,000자 이내).
 
 ## (b) 보고서 고정 목차

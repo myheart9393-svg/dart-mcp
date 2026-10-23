@@ -135,3 +135,29 @@ def test_null_reprt_code_gives_clear_error():
     for tool in (server.get_key_financials, server.get_financial_statements):
         r = tool("00126380", "2026", reprt_code=None)
         assert "reprt_code가 null" in r["error"] and "search_disclosures" in r["error"]
+
+
+def test_body_and_attachment_sources_by_correction_kind():
+    items = [
+        f("20260310000001", "사업보고서 (2025.12)"),
+        f("20260402000002", "[기재정정]사업보고서 (2025.12)"),
+        f("20260415000003", "[첨부정정]사업보고서 (2025.12)"),
+    ]
+    a = classify_periodic_reports(items)["latest_annual"]
+    assert a["rcept_no"] == "20260415000003"  # 최신본은 여전히 가장 늦은 접수
+    assert (a["body_rcept_no"], a["attachment_rcept_no"]) == ("20260402000002", "20260415000003")
+
+
+def test_body_and_attachment_sources_without_or_with_one_correction():
+    plain = classify_periodic_reports([f("20260310000001", "사업보고서 (2025.12)")])["latest_annual"]
+    assert plain["body_rcept_no"] == plain["attachment_rcept_no"] == "20260310000001"
+    only_body = classify_periodic_reports([
+        f("20260310000001", "사업보고서 (2025.12)"),
+        f("20260331000002", "[기재정정]사업보고서 (2025.12)"),
+        f("20260814000003", "반기보고서 (2026.06)"),
+        f("20260820000004", "[첨부추가]반기보고서 (2026.06)"),
+    ])
+    a = only_body["latest_annual"]
+    assert (a["body_rcept_no"], a["attachment_rcept_no"]) == ("20260331000002", "20260310000001")
+    (h,) = only_body["interim_after_annual"]
+    assert (h["body_rcept_no"], h["attachment_rcept_no"]) == ("20260814000003", "20260820000004")

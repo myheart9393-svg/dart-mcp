@@ -17,7 +17,8 @@ CLAUDE.md 공통 원칙을 따른다.
 ### 보고서 선택 (사업연도를 생략했을 때)
 
 사업연도 인자가 없으면 `find_company` 다음에 **`get_latest_reports(corp_code)`**를 호출한다.
-- `latest_annual`의 rcept_no·bsns_year를 분석 대상 사업보고서로 쓴다(정정본이 있으면 이미 정정본이 선택돼 있다. `superseded`는 쓰지 않는다).
+- `latest_annual`의 bsns_year를 사업연도로 쓰고, **본문 outline·섹션·검색은 `body_rcept_no`로, 감사보고서(첨부 00760/00761)는 `attachment_rcept_no`로** 읽는다. 정정 ZIP에는 바뀐 부분만 있다([첨부정정]·[첨부추가] ZIP엔 본문이 없고, [기재정정] ZIP엔 감사보고서가 없을 수 있다). 머리의 정정 표시는 `rcept_no`(최신본) 기준, 출처 `(rcept_no, section_id)`의 rcept_no는 실제로 읽은 접수번호(본문이면 body_rcept_no)다. `superseded`는 쓰지 않는다. 사업연도를 명시해 search_disclosures로 고를 때도 같은 규칙: 본문은 꼬리표 없음·[기재정정] 중 최신, 감사보고서는 꼬리표 없음·[첨부정정]/[첨부추가] 중 최신 접수본.
+- outline 응답의 `parse_warnings`가 비어 있지 않으면(예: "SECTION-1 14개 중 4개만 파싱됨") 원문 뒷부분이 빠졌을 수 있다. 보고서 머리에 그 경고를 그대로 적고, 목차에 없는 장은 "원문 파싱 누락으로 확인 불가"로 둔다.
   이 경우 search_disclosures로 사업보고서를 다시 찾지 않는다.
 - `interim_after_annual`이 비어 있지 않으면 **가장 마지막** 항목의 bsns_year·reprt_code로
   `get_key_financials(corp_code, <bsns_year>, reprt_code=<reprt_code>, period_type="cumulative")`를 호출해
@@ -35,9 +36,9 @@ CLAUDE.md 공통 원칙을 따른다.
 2. `get_key_financials(corp_code, <사업연도>)` → 3개년 핵심 계정·비율. rcept_no도 여기서 나온다.
    (연결 데이터가 없다는 message가 오면 `fs_div="OFS"`로 재호출하고 비교표에 "별도" 표기.)
    12월 결산이 아닌 회사는 사업연도의 기간이 다르므로 표 머리에 결산월을 적는다.
-3. 사업보고서 rcept_no 확인: 2의 rcept_no를 그대로 쓴다. 비어 있거나 정정본 여부를 확인해야 하면
+3. 본문 rcept_no 확인: `get_latest_reports`를 거쳤으면 `body_rcept_no`를 쓴다. 아니면 2의 rcept_no를 쓰되, 비어 있거나 정정본 여부를 확인해야 하면
    `search_disclosures(corp_code, "<사업연도+1>0101", "<사업연도+1>1231", pblntf_ty="A")`.
-4. `get_disclosure_outline(rcept_no)` (기본 depth=2) → 제목으로 아래 두 섹션 id를 확정.
+4. `get_disclosure_outline(body_rcept_no)` (기본 depth=2, 본문 없음 error면 hint의 접수번호로) → 제목으로 아래 두 섹션 id를 확정.
 5. 두 섹션만 읽는다 (각 1회, 30,000자 초과면 `max_chars`/`offset`으로 나누거나 `search_in_disclosure`로 필요한 부분만):
 
 | 순서 | 섹션(제목 기준) | 목적 |

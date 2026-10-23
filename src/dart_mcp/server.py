@@ -53,6 +53,8 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 mcp = FastMCP("dart")
 _cache = DisclosureCache()
 _client: DartClient | None = None
+# get_latest_reports가 본 정정 그룹의 rcept_no → 본문이 든 rcept_no(body_rcept_no). 본문 없는 첨부정정 ZIP 안내용
+_body_hint: dict[str, str] = {}
 
 
 def _get_client() -> DartClient:
@@ -82,6 +84,18 @@ def _load(rcept_no: str):
         raise ValueError(f"rcept_no는 14자리 숫자여야 합니다: {rcept_no!r}")
     client = None if _cache.has(rcept_no) else _get_client()
     return _cache.get(rcept_no, client)
+
+
+def _missing_main(disc) -> dict:
+    """본문(main) 없이 첨부만 든 ZIP(첨부정정·첨부추가 공시)을 main으로 읽으려 할 때의 에러."""
+    body = _body_hint.get(disc.rcept_no)
+    hint = (f"본문은 {body}에 있음: get_disclosure_outline({body!r})" if body and body != disc.rcept_no
+            else "search_disclosures로 같은 기간의 원본(꼬리표 없음) 또는 [기재정정]본을 찾으세요")
+    return {
+        "error": f"{disc.rcept_no}의 ZIP에는 본문(main)이 없고 첨부만 있습니다(첨부정정·첨부추가 공시일 수 있음).",
+        "available_file_ids": [x.file_id for x in disc.files],
+        "hint": hint,
+    }
 
 
 def _sort_key(section_id: str) -> tuple[int, ...]:
@@ -181,6 +195,10 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None, depth: int
         TITLE 기반 소제목(id가 "4.3.t12"처럼 ".tN"으로 끝남, kind="title")까지 나온다.
         재무제표 주석처럼 섹션 하나가 10만 자를 넘을 때 depth=3으로 다시 호출해 주석 번호 단위로 읽는다.
         (목차 JSON이 커지므로 큰 섹션의 하위만 필요하면 file_id와 함께 쓰거나 search_in_disclosure를 쓴다.)
+    parse_warnings: 비어 있지 않으면 파서가 원문 일부를 놓쳤을 수 있다(예: "SECTION-1 14개 중 4개만 파싱됨").
+      그 공시의 목차·검색 결과는 뒷부분이 빠졌을 수 있으니 보고서에 그 사실을 적고, 빠진 장의 내용은 "원문 확인 불가"로 둔다.
+    본문 없는 ZIP: 첨부정정·첨부추가 공시는 ZIP에 첨부(감사보고서)만 있다. 그 rcept_no로 본문을 요청하면 error와 hint가 온다.
+      본문은 get_latest_reports의 body_rcept_no, 감사보고서는 attachment_rcept_no로 읽는다.
     다음: 읽을 섹션을 고른 뒤 get_disclosure_section(rcept_no, section_id, file_id)를 호출한다.
       section_id에는 ".tN" 소제목 id도 그대로 쓸 수 있다.
       char_count가 큰 섹션은 하위(level 2~3) id로 쪼개 읽거나 max_chars/offset으로 나눠 읽는다.
@@ -188,6 +206,8 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None, depth: int
     """
     disc = _load(rcept_no)
     files = disc.files
+    if file_id in (None, "main") and disc.get_file("main") is None:
+        return _missing_main(disc)
     if file_id is not None:
         f = disc.get_file(file_id)
         if f is None:
@@ -196,16 +216,19 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None, depth: int
             }
         files = [f]
     depth = max(0, depth)
+    warnings = [w if f.file_id == "main" else f"[{f.file_id}] {w}" for f in files for w in f.parse_warnings]
     return {
         "rcept_no": disc.rcept_no,
         "depth": depth,
         "total_chars": sum(f.total_chars for f in files),
+        "parse_warnings": warnings,
         "files": [
             {
                 "file_id": f.file_id,
                 "filename": f.filename,
                 "total_chars": f.total_chars,
                 "section_count": len(f.sections),
+                "parse_warnings": f.parse_warnings,
                 "shown": sum(1 for s in f.sections if s.level <= depth),
                 "sections": [s.to_outline_dict() for s in f.sections if s.level <= depth],
             }
@@ -236,6 +259,8 @@ def get_disclosure_section(
     """
     disc = _load(rcept_no)
     f = disc.get_file(file_id)
+    if f is None and file_id == "main":
+        return _missing_main(disc)
     if f is None:
         return {"error": f"file_id {file_id!r} 없음. 사용 가능: {[x.file_id for x in disc.files]}"}
     sec = f.get_section(section_id)
@@ -287,6 +312,8 @@ def search_in_disclosure(
         return {"error": "query가 비어 있습니다"}
     disc = _load(rcept_no)
     f = disc.get_file(file_id)
+    if f is None and file_id == "main":
+        return _missing_main(disc)
     if f is None:
         return {"error": f"file_id {file_id!r} 없음. 사용 가능: {[x.file_id for x in disc.files]}"}
 
@@ -525,9 +552,15 @@ def get_latest_reports(corp_code: str) -> dict:
     결과:
       - latest_annual: {rcept_no, bsns_year, period("2025.12"), rcept_dt, report_nm, reprt_code "11011",
         prefix(원문 꼬리표), correction_kind("기재정정"|"첨부정정"|"첨부추가"|None), is_correction(기재정정만 True),
-        supersedes[], original_rcept_no·original_rcept_dt(최초 제출본, 정정 없으면 자기 자신)} — get_key_financials(corp_code, bsns_year)와 outline에 그대로 쓴다.
+        supersedes[], original_rcept_no·original_rcept_dt(최초 제출본, 정정 없으면 자기 자신),
+        body_rcept_no, attachment_rcept_no} — bsns_year는 get_key_financials(corp_code, bsns_year)에 쓴다.
+        **본문 outline·섹션·검색은 body_rcept_no로, 감사보고서(00760/00761)는 attachment_rcept_no로** 읽는다.
+        정정 ZIP에는 바뀐 부분만 있다: [첨부정정]·[첨부추가] ZIP은 본문이 없고, [기재정정] ZIP은 감사보고서 첨부가 없을 수 있다.
+        body_rcept_no = 꼬리표 없음·[기재정정] 중 최신, attachment_rcept_no = 꼬리표 없음·[첨부정정]/[첨부추가] 중 최신(같으면 정정 없음).
+        attachment_rcept_no의 원문 다운로드가 "status=014 파일이 존재하지 않습니다"로 실패하는 경우가 있다(첨부정정 실측).
+        그때는 original_rcept_no(최초 제출본)의 첨부 감사보고서를 쓰고 보고서에 그 사실을 적는다.
         correction_kind="기재정정"이면 보고서 머리에 "[기재정정본, 접수일 YYYY-MM-DD]"를 적고 정정 사유를 확인한다.
-      - interim_after_annual[]: 사업보고서 이후의 반기·분기보고서(기간순), 각각 reprt_code
+      - interim_after_annual[]: 사업보고서 이후의 반기·분기보고서(기간순, body_rcept_no·attachment_rcept_no 포함), 각각 reprt_code
         (11013=1분기, 11012=반기, 11014=3분기)와 bsns_year 포함 → get_key_financials(corp_code, bsns_year,
         reprt_code=...)로 최근 누적 실적을 받는다.
       - superseded[]: 정정본에 밀린 원본(superseded_by). 분석에 쓰지 않는다.
@@ -547,6 +580,9 @@ def get_latest_reports(corp_code: str) -> dict:
     if "error" in found:
         return found
     result = classify_periodic_reports(found["results"])
+    for rep_ in ([result["latest_annual"]] if result["latest_annual"] else []) + result["interim_after_annual"]:
+        for r in [rep_["rcept_no"], *rep_["supersedes"]]:
+            _body_hint[r] = rep_["body_rcept_no"]
     if result["latest_annual"] is None:
         return {"corp_code": corp_code, "error": "최근 2년 안에 사업보고서가 없습니다. search_disclosures로 기간을 넓혀 확인하세요.",
                 "searched": [bgn.isoformat(), today.isoformat()], "periodic_count": found["returned"]}

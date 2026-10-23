@@ -39,6 +39,8 @@ uv run python -m dart_mcp.healthcheck --sample 30 --seed 1   # 파서·재무 �
 5. **같은 섹션을 세션 중 두 번 읽지 않는다.** 이미 읽은 내용은 기억에서 쓴다.
 6. **첨부 파일도 목차가 있다.** 감사보고서는 file_id "00760"(별도)/"00761"(연결) 같은 첨부에 있고,
    `get_disclosure_outline(rcept_no, file_id="00761")`로 그 파일만 볼 수 있다.
+   정정 ZIP에는 바뀐 부분만 있으므로 본문은 `get_latest_reports`의 `body_rcept_no`, 감사보고서는 `attachment_rcept_no`로 연다
+   (첨부정정 ZIP엔 본문이 없고, 기재정정 ZIP엔 감사보고서가 없을 수 있다). outline의 `parse_warnings`가 있으면 뒷부분 누락을 의심한다.
 6-1. **감사보고서 첨부의 주석은 depth=3이어도 쪼개지지 않는다**(TITLE 태그 없음). 본문 "재무제표 주석" 섹션을 쓰거나 첨부는 search_in_disclosure로 찍어 offset으로 읽는다.
 7. **에러는 `{"error": ...}`로 온다.** 없는 section_id면 available_ids가 함께 오니 그걸 보고 고친다. 재시도 전에 인자를 확인한다.
 8. **숫자는 API, 서술은 원문.** 재무 숫자는 `get_key_financials`(핵심 10계정 + 비율, 3개년)나
