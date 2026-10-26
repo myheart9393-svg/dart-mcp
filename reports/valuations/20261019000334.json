@@ -1,0 +1,1080 @@
+{
+ "rcept_no": "20261019000334",
+ "original_rcept_no": "20261014000077",
+ "related_rcept_nos": [
+  "20261006000420"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00989619",
+  "name": "알테오젠",
+  "market": "코스닥",
+  "induty_code": "70113"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "주식회사 알테오젠바이오로직스",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "상장 모회사와 비상장 자회사 간 계열회사 합병",
+  "board_date": "2026-10-06",
+  "regime": "기준시가",
+  "ratio_text": "1 : 0.1679581"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "본 평가인은 합병당사회사가 제시한 합병비율이 자본시장과금융투자업에관한법률 시행령 제176조의5, 그리고 증권의발행및공시등에관한규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조에서 규정하고 있는 합병가액 산정방법에 따라 산정되었는지에 대하여 검토하였습니다.",
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2026년 9월 3일 ~ 2026년 10월 5일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)"
+  ],
+  "opinion_text": "주당 평가액 알테오젠 261,345원, 알테오젠바이오로직스 39,907~47,403원, 합병비율 1:0.1526985~0.1813809로 평가. 합병 당사회사 간 합의한 합병비율 1:0.1679581는 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 71721,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "안진회계법인",
+   "target": "알테오젠",
+   "role": "재무자문",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일 ~ 2035년 12월 31일",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 7.7,
+     "unit": "%",
+     "text": "7.7%",
+     "cite": {
+      "section_id": "5",
+      "offset": 26970,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 22855,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 257822,
+     "unit": "원",
+     "text": "257,822",
+     "cite": {
+      "section_id": "5",
+      "offset": 23841,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 206068,
+      "unit": "원",
+      "text": "206,068",
+      "cite": {
+       "section_id": "5",
+       "offset": 28482,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 345264,
+      "unit": "원",
+      "text": "345,264",
+      "cite": {
+       "section_id": "5",
+       "offset": 28420,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "합병법인 기준시가의 보완적 검토용 DCF(합병가액은 기준시가). range는 WACC·PGR 민감도 범위"
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "알테오젠바이오로직스",
+   "role": "재무자문",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "wacc": {
+     "value": 9.7,
+     "unit": "%",
+     "text": "9.7%",
+     "cite": {
+      "section_id": "5",
+      "offset": 42438,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 64515,
+     "unit": "원",
+     "text": "64,515",
+     "cite": {
+      "section_id": "5",
+      "offset": 42445,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 58250,
+      "unit": "원",
+      "text": "58,250",
+      "cite": {
+       "section_id": "5",
+       "offset": 5389,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 71667,
+      "unit": "원",
+      "text": "71,667",
+      "cite": {
+       "section_id": "5",
+       "offset": 5397,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "WACC 9.7%·64,515원은 민감도 표(8.7–10.7%)의 가운데 행 값. 표에 '기준' 표기는 없고, 4장 특별위원회 회의록에 재무자문사가 피합병회사에 '약 9.7%의 WACC'를 적용했다는 답변이 있다(notes 참조). g는 원문 확인 못 함"
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "알테오젠바이오로직스",
+   "role": "재무자문",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(Bx1+Cx1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 8119,
+     "unit": "원",
+     "text": "8,119",
+     "cite": {
+      "section_id": "5",
+      "offset": 5358,
+      "file_id": "main"
+     }
+    }
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 38197,
+      "unit": "원",
+      "text": "38,197",
+      "cite": {
+       "section_id": "5",
+       "offset": 5319,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 46248,
+      "unit": "원",
+      "text": "46,248",
+      "cite": {
+       "section_id": "5",
+       "offset": 5327,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  },
+  {
+   "subject": "신우회계법인",
+   "target": "알테오젠",
+   "role": "재무자문",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일 ~ 2035년 12월 31일. 2036년 이후 정상화 영구가치 및 마일스톤 유한 잔여가치 별도 반영",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 8.1543,
+     "unit": "%",
+     "text": "8.1543%",
+     "cite": {
+      "section_id": "5",
+      "offset": 55126,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 55146,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 253384,
+     "unit": "원",
+     "text": "253,384",
+     "cite": {
+      "section_id": "5",
+      "offset": 55102,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 204241,
+      "unit": "원",
+      "text": "204,241",
+      "cite": {
+       "section_id": "5",
+       "offset": 55166,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 337774,
+      "unit": "원",
+      "text": "337,774",
+      "cite": {
+       "section_id": "5",
+       "offset": 55175,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "합병법인 기준시가의 보완적 검토용 DCF"
+  },
+  {
+   "subject": "신우회계법인",
+   "target": "알테오젠바이오로직스",
+   "role": "재무자문",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "wacc": {
+     "value": 9.7546,
+     "unit": "%",
+     "text": "9.7546%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71523,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 69744,
+     "unit": "원",
+     "text": "69,744",
+     "cite": {
+      "section_id": "5",
+      "offset": 71672,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 62934,
+      "unit": "원",
+      "text": "62,934",
+      "cite": {
+       "section_id": "5",
+       "offset": 71649,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 77516,
+      "unit": "원",
+      "text": "77,516",
+      "cite": {
+       "section_id": "5",
+       "offset": 71695,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  },
+  {
+   "subject": "신우회계법인",
+   "target": "알테오젠바이오로직스",
+   "role": "재무자문",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(Bx1+Cx1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 8131,
+     "unit": "원",
+     "text": "8,131",
+     "cite": {
+      "section_id": "5",
+      "offset": 5736,
+      "file_id": "main"
+     }
+    }
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 41013,
+      "unit": "원",
+      "text": "41,013",
+      "cite": {
+       "section_id": "5",
+       "offset": 5695,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 49762,
+      "unit": "원",
+      "text": "49,762",
+      "cite": {
+       "section_id": "5",
+       "offset": 5705,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "알테오젠",
+   "role": "외부평가",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 6904,
+     "unit": "원",
+     "text": "6,904",
+     "cite": {
+      "section_id": "5",
+      "offset": 82483,
+      "file_id": "main"
+     }
+    }
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 261345,
+     "unit": "원",
+     "text": "261,345",
+     "cite": {
+      "section_id": "5",
+      "offset": 82457,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준주가(1개월·1주일 가중평균, 최종일 종가의 산술평균)가 자산가치보다 높아 기준주가를 합병가액으로"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "알테오젠바이오로직스",
+   "role": "외부평가",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년부터 2045년까지 20개년도",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 8.43,
+     "unit": "%",
+     "text": "8.43%",
+     "cite": {
+      "section_id": "5",
+      "offset": 220698,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 220779,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 220811,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.634,
+     "unit": null,
+     "text": "0.634",
+     "cite": {
+      "section_id": "5",
+      "offset": 220845,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.592,
+     "unit": null,
+     "text": "0.592",
+     "cite": {
+      "section_id": "5",
+      "offset": 223866,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 0.06,
+     "unit": "%",
+     "text": "0.06%",
+     "cite": {
+      "section_id": "5",
+      "offset": 220877,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 8.51,
+     "unit": "%",
+     "text": "8.51%",
+     "cite": {
+      "section_id": "5",
+      "offset": 220910,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.81,
+     "unit": "%",
+     "text": "9.81%",
+     "cite": {
+      "section_id": "5",
+      "offset": 220938,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 220962,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 8.13,
+     "unit": "%",
+     "text": "8.13%",
+     "cite": {
+      "section_id": "5",
+      "offset": 223848,
+      "file_id": "main"
+     }
+    },
+    "g": null,
+    "peers": [
+     {
+      "name": "셀트리온",
+      "value": {
+       "value": 0.642,
+       "unit": null,
+       "text": "0.642",
+       "cite": {
+        "section_id": "5",
+        "offset": 223471,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "팬젠",
+      "value": {
+       "value": 0.492,
+       "unit": null,
+       "text": "0.492",
+       "cite": {
+        "section_id": "5",
+        "offset": 223534,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "이수앱지스",
+      "value": {
+       "value": 0.581,
+       "unit": null,
+       "text": "0.581",
+       "cite": {
+        "section_id": "5",
+        "offset": 223604,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "삼천당제약",
+      "value": {
+       "value": 0.902,
+       "unit": null,
+       "text": "0.902",
+       "cite": {
+        "section_id": "5",
+        "offset": 223676,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "프레스티지 바이오파마",
+      "value": {
+       "value": 0.306,
+       "unit": null,
+       "text": "0.306",
+       "cite": {
+        "section_id": "5",
+        "offset": 223754,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "알테오젠",
+      "value": {
+       "value": 0.629,
+       "unit": null,
+       "text": "0.629",
+       "cite": {
+        "section_id": "5",
+        "offset": 223827,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 66965,
+     "unit": "원",
+     "text": "66,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 224612,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 61099,
+      "unit": "원",
+      "text": "61,099",
+      "cite": {
+       "section_id": "5",
+       "offset": 96869,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 73592,
+      "unit": "원",
+      "text": "73,592",
+      "cite": {
+       "section_id": "5",
+       "offset": 96878,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "kd는 세전타인자본비용(세후 7.43%). target_de는 유사기업 평균 부채비율(D/E), 목표 자본구성 E 92.48%·D 7.52%. 영구현금흐름의 현재가치는 '-'(추정기간 20년만 반영)라 g는 null. result.value는 WACC 8.43%일 때 민감도 표 값"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "알테오젠바이오로직스",
+   "role": "외부평가",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(나×1+다×1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 8119,
+     "unit": "원",
+     "text": "8,119",
+     "cite": {
+      "section_id": "5",
+      "offset": 89499,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 80248241313,
+     "unit": "원",
+     "text": "80,248,241,313",
+     "cite": {
+      "section_id": "5",
+      "offset": 92843,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 27086291336,
+     "unit": "원",
+     "text": "27,086,291,336",
+     "cite": {
+      "section_id": "5",
+      "offset": 91991,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 9883892,
+     "unit": "주",
+     "text": "9,883,892",
+     "cite": {
+      "section_id": "5",
+      "offset": 92885,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 39907,
+      "unit": "원",
+      "text": "39,907",
+      "cite": {
+       "section_id": "5",
+       "offset": 89469,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 47403,
+      "unit": "원",
+      "text": "47,403",
+      "cite": {
+       "section_id": "5",
+       "offset": 89478,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "상대가치는 유사회사 3사 미만으로 산정하지 않음"
+  },
+  {
+   "subject": "합병당사회사(협의)",
+   "target": "알테오젠바이오로직스",
+   "role": "회사",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "본질가치 (주1)"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 8119,
+     "unit": "원",
+     "text": "8,119",
+     "cite": {
+      "section_id": "5",
+      "offset": 292,
+      "file_id": "main"
+     }
+    }
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 43895,
+     "unit": "원",
+     "text": "43,895",
+     "cite": {
+      "section_id": "5",
+      "offset": 262,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 67746,
+    "unit": "원",
+    "text": "67,746",
+    "cite": {
+     "section_id": "5",
+     "offset": 319,
+     "file_id": "main"
+    }
+   },
+   "note": "안진·신우가 산정한 본질가치 범위 안에서 합병당사회사가 상호 협의해 정한 합병가액((주1)). 4장(section 4, offset 105995)에 양사 재무자문사 가정 차이를 항목별로 협의한 결과가 있다: 적용환율은 신우, ALTS-OP01 법인세율은 안진안(미국 표준세율), 판관비(SG) 비율·세부 판관비는 신우안, 해외 테르가제 매출원가는 안진안 채택"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "알테오젠",
+    "basis": "기준시가",
+    "value": {
+     "value": 261345,
+     "unit": "원",
+     "text": "261,345원",
+     "cite": {
+      "section_id": "5",
+      "offset": 181,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "알테오젠바이오로직스",
+    "basis": "본질가치",
+    "value": {
+     "value": 43895,
+     "unit": "원",
+     "text": "43,895원",
+     "cite": {
+      "section_id": "5",
+      "offset": 262,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가기관 주당 평가액(피합병법인)",
+    "subject": "이촌회계법인",
+    "range": {
+     "min": {
+      "value": 39907,
+      "unit": "원",
+      "text": "39,907",
+      "cite": {
+       "section_id": "5",
+       "offset": 89469,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 47403,
+      "unit": "원",
+      "text": "47,403",
+      "cite": {
+       "section_id": "5",
+       "offset": 89478,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가기관 합병비율 범위",
+    "subject": "이촌회계법인",
+    "range": {
+     "min": {
+      "value": 0.1526985,
+      "unit": "주",
+      "text": "0.1526985",
+      "cite": {
+       "section_id": "5",
+       "offset": 72525,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.1813809,
+      "unit": "주",
+      "text": "0.1813809",
+      "cite": {
+       "section_id": "5",
+       "offset": 72535,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.1679581,
+   "unit": "주",
+   "text": "0.1679581",
+   "cite": {
+    "section_id": "5",
+    "offset": 411,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인: 합의한 합병비율 1:0.1679581는 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "안진회계법인",
+   "target": "알테오젠",
+   "variables": "WACC 6.7–8.7%, 영구성장률 -1.0–1.0%",
+   "range": {
+    "min": {
+     "value": 206068,
+     "unit": "원",
+     "text": "206,068",
+     "cite": {
+      "section_id": "5",
+      "offset": 28482,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 345264,
+     "unit": "원",
+     "text": "345,264",
+     "cite": {
+      "section_id": "5",
+      "offset": 28420,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "알테오젠바이오로직스",
+   "variables": "WACC 8.7–10.7%",
+   "range": {
+    "min": {
+     "value": 58250,
+     "unit": "원",
+     "text": "58,250",
+     "cite": {
+      "section_id": "5",
+      "offset": 42466,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 71667,
+     "unit": "원",
+     "text": "71,667",
+     "cite": {
+      "section_id": "5",
+      "offset": 42425,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "신우회계법인",
+   "target": "알테오젠",
+   "variables": "WACC 기준 8.1543% ±1.0%p, 영구성장률 0.0–2.0% (0.5%p 간격)",
+   "range": {
+    "min": {
+     "value": 204241,
+     "unit": "원",
+     "text": "204,241",
+     "cite": {
+      "section_id": "5",
+      "offset": 60554,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 337774,
+     "unit": "원",
+     "text": "337,774",
+     "cite": {
+      "section_id": "5",
+      "offset": 60346,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "신우회계법인",
+   "target": "알테오젠바이오로직스",
+   "variables": "WACC 기준 9.7546% ±1.0%p",
+   "range": {
+    "min": {
+     "value": 62934,
+     "unit": "원",
+     "text": "62,934",
+     "cite": {
+      "section_id": "5",
+      "offset": 71649,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 77516,
+     "unit": "원",
+     "text": "77,516",
+     "cite": {
+      "section_id": "5",
+      "offset": 71695,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "알테오젠바이오로직스",
+   "variables": "WACC 7.43–9.43%",
+   "range": {
+    "min": {
+     "value": 61099,
+     "unit": "원",
+     "text": "61,099",
+     "cite": {
+      "section_id": "5",
+      "offset": 224621,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 73592,
+     "unit": "원",
+     "text": "73,592",
+     "cite": {
+      "section_id": "5",
+      "offset": 224603,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "citations": [
+  {
+   "rcept_no": "20261019000334",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 246,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261019000334",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 2940,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261019000334",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 26859,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "notes": [
+  "MCP 대신 직접 호출: 서버 재연결 전이라 search_valuation_disclosures·find_tables를 dart_mcp.server 함수로 직접 불렀다.",
+  "기재정정본(20261019000334) 기준. 최초 제출본 20261014000077에서는 같은 장이 section 4였다(정정으로 id가 한 칸 밀림).",
+  "짝 주요사항보고서 20261006000420은 목록에 [첨부추가]본만 있고 ZIP에는 본문 XML만 있다(평가의견서 첨부 없음).",
+  "회의록 인용값: 알테오젠 특별위원회 회차별 논의 표에 재무자문사 답변 '피합병회사 미래 현금흐름에는 약 9.7%의 WACC'(section 4, offset 69102), 보고 내용 '할인율 산정근거(WACC 7.70%)'(section 4, offset 101176). 7.70%는 안진 알테오젠 DCF의 7.7%와 같다.",
+  "합병가액은 개정 자본시장법(2026.9.8 개정, 2026.12.9 시행) 이전 체계(기준시가·본질가치)로 산정했다고 원문에 적혀 있다(4장)."
+ ],
+ "extracted_at": "2026-10-26T14:07:54+09:00",
+ "extractor_version": "1.0"
+}

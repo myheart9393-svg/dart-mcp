@@ -412,7 +412,7 @@ class Section:
     title: str
     char_count: int
     text: str        # 하위 섹션을 포함한 전체 Markdown
-    kind: str = "section"  # "section" (SECTION 태그) | "title" (섹션 안 TITLE 소제목 구간)
+    kind: str = "section"  # "section" (SECTION 태그) | "title" (섹션 안 TITLE 소제목 구간) | "heading" (줄머리 휴리스틱 구간 ".hN")
 
     def to_outline_dict(self) -> dict:
         """text를 뺀 목차용 dict."""
@@ -443,6 +443,59 @@ def split_by_titles(own_text: str, section_title: str) -> list[tuple[str, str]]:
     return parts if len(parts) >= 2 else []
 
 
+# TITLE 태그 없이 수십만 자가 한 덩어리인 섹션(증권신고서 "IV. 인수인의 의견", "II. 합병 가액 및 그 산출근거" 등.
+# 2026-10 실측: 제논 187,010자, 알테오젠 232,661자)을 줄머리 표지로 나눈다. 사업보고서는 TITLE이 있어 해당 없음.
+HEURISTIC_MIN_CHARS = 50_000
+HEURISTIC_MIN_CHUNK = 1_000  # 이보다 짧은 구간은 앞 구간에 합친다(소제목이 지나치게 잘게 생기지 않게)
+_HEURISTIC_TITLE_MAX = 60
+_HEURISTIC_RE = re.compile(r"^(?:[가-하]\.\s?\S|\(\d{1,2}\)\s?\S|\[(?!이미지\])[^\]\n]{2,80}\]$)", re.M)
+# 정기보고서(사업·반기·분기)는 TITLE 없는 큰 섹션("1. 사업의 개요" 등)도 휴리스틱으로 나누지 않는다.
+# 2026-10 캐시 실측: 나누면 사업보고서 66건의 depth=3 목차에 .hN이 수십 개씩 생기고, search_in_disclosure가 매치를
+# 기존 section_id("2.1") 대신 ".hN"으로 보고해 기존 보고서의 출처 표기와 어긋난다.
+_PERIODIC_NAME_RE = re.compile(r"(사업|반기|분기)보고서")
+
+
+def _document_name(root: etree._Element) -> str:
+    for el in root.iter():
+        if _tag_name(el) == "DOCUMENT-NAME":
+            return _norm_inline(_Renderer._text_of(el))
+    return ""
+
+
+def split_by_markers(own_text: str) -> list[tuple[str, str]]:
+    """TITLE 없는 큰 섹션 본문을 '가.'·'(1)'·단독 '[캡션]' 줄머리에서 나눈다 → [(소제목, 구간 텍스트)].
+
+    표 줄('|'로 시작)은 경계로 보지 않는다. 첫 표지 앞의 머리 부분은 버리지 않고 첫 구간에 붙인다.
+    앞 경계에서 HEURISTIC_MIN_CHUNK자 안에 붙은 표지는 경계로 쓰지 않는다(예: "나. …" 바로 뒤의 "(1) …"은 "나." 구간에 든다).
+    마지막 구간이 그보다 짧으면 앞 구간에 합친다. 구간이 2개 미만이면 빈 리스트.
+    소제목은 그 줄의 앞 60자(원문은 "가. 평가결과대표주관회사인…"처럼 제목과 본문이 한 줄에 붙어 있는 경우가 많다).
+    """
+    if len(own_text) < HEURISTIC_MIN_CHARS:
+        return []
+    starts = [m.start() for m in _HEURISTIC_RE.finditer(own_text)]
+    if len(starts) < 2:
+        return []
+    starts[0] = 0
+    merged: list[int] = [starts[0]]
+    for s in starts[1:]:
+        if s - merged[-1] >= HEURISTIC_MIN_CHUNK:
+            merged.append(s)
+    if len(own_text) - merged[-1] < HEURISTIC_MIN_CHUNK and len(merged) > 1:
+        merged.pop()
+    if len(merged) < 2:
+        return []
+    parts: list[tuple[str, str]] = []
+    for i, s in enumerate(merged):
+        end = merged[i + 1] if i + 1 < len(merged) else len(own_text)
+        chunk = own_text[s:end]
+        m = _HEURISTIC_RE.search(chunk)
+        line_at = m.start() if m else 0
+        first = chunk[line_at:].split("\n", 1)[0].strip().lstrip("#").strip()
+        title = first if len(first) <= _HEURISTIC_TITLE_MAX else first[:_HEURISTIC_TITLE_MAX] + "…"
+        parts.append((title, _finalize(chunk)))
+    return parts
+
+
 def _section_title(el: etree._Element) -> str:
     """SECTION 태그의 제목: ATITLE/TITLE 속성 → 직계 자식 중 첫 TITLE → 빈 문자열.
 
@@ -463,13 +516,15 @@ def build_outline(raw: bytes | str, *, root_title: str = "(표지 및 섹션 외
     """DART XML → 섹션 목록(문서 순서). 상위 섹션 text는 하위 섹션 내용을 포함한다.
 
     parse_warnings: 주면 뒷부분 누락 경고(truncation_warnings)를 담는다.
-    main: 본문 파일일 때만 "하위 섹션 50% 초과" 경고를 낸다(감사보고서 첨부는 주석이 대부분이라 정상).
+    main: 본문 파일일 때만 "하위 섹션 50% 초과" 경고를 내고 휴리스틱 소제목(.hN)을 만든다
+    (감사보고서 첨부는 주석이 대부분이라 정상이고, 첨부 주석은 search_in_disclosure로 찍는다).
     """
     root = parse_root(raw, warnings=parse_warnings)
     if root is None:
         return []
 
     sections: list[Section] = []
+    heuristic = main and not _PERIODIC_NAME_RE.search(_document_name(root))
 
     # "0" 섹션: SECTION-* 바깥의 모든 본문
     outside = _finalize(_Renderer(skip_sections=True).render(root))
@@ -490,8 +545,14 @@ def build_outline(raw: bytes | str, *, root_title: str = "(표지 및 섹션 외
 
         # 섹션 자체 본문(하위 SECTION 제외)에 TITLE 소제목이 2개 이상이면 "<id>.tN" 하위 항목 추가
         own_text = _finalize(_Renderer(skip_sections=True).render(el))
-        for n, (sub_title, sub_text) in enumerate(split_by_titles(own_text, title), start=1):
+        titled = split_by_titles(own_text, title)
+        for n, (sub_title, sub_text) in enumerate(titled, start=1):
             sections.append(Section(f"{sec_id}.t{n}", level + 1, sub_title, len(sub_text), sub_text, kind="title"))
+        # TITLE 소제목이 없는 큰 섹션만 줄머리 휴리스틱으로 "<id>.hN" 하위 항목(kind="heading", depth=3에서만 노출).
+        # 본문 파일이고 정기보고서가 아닐 때만(증권신고서·주요사항보고서 등)
+        if heuristic and not titled:
+            for n, (sub_title, sub_text) in enumerate(split_by_markers(own_text), start=1):
+                sections.append(Section(f"{sec_id}.h{n}", level + 1, sub_title, len(sub_text), sub_text, kind="heading"))
 
     # 안전장치: 하위 섹션 하나가 문서의 절반을 넘으면 트리 붕괴(뒤 섹션 흡수)를 의심한다
     total = sum(s.char_count for s in sections if s.level <= 1)

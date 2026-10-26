@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import datetime as dt
 import functools
+import json
 import logging
 import re
 import sys
@@ -20,7 +21,7 @@ except ImportError:  # mcp 1.x
     from mcp.server.fastmcp import FastMCP
 
 from .cache import DisclosureCache
-from .client import DartClient
+from .client import DartApiError, DartClient
 from .financials import (
     FINANCIAL_WARNING,
     FS_DIVS,
@@ -39,6 +40,8 @@ from .financials import (
     summarize_key_financials,
 )
 from .periodic import classify_periodic_reports
+from .tables import find_tables as find_markdown_tables
+from .valuation import scan_valuation_disclosures
 
 load_dotenv()
 logging.basicConfig(
@@ -99,8 +102,13 @@ def _missing_main(disc) -> dict:
 
 
 def _sort_key(section_id: str) -> tuple[int, ...]:
-    """'4.3.t12' → (4, 3, 12): 소제목(tN)도 문서 순서대로 정렬되게 한다."""
-    return tuple(int(p[1:]) if p.startswith("t") else int(p) for p in section_id.split("."))
+    """'4.3.t12' → (4, 3, 12): 소제목(tN)·휴리스틱 소제목(hN)도 문서 순서대로 정렬되게 한다."""
+    return tuple(int(p[1:]) if p[:1].isalpha() else int(p) for p in section_id.split("."))
+
+
+def _shown(sec, depth: int) -> bool:
+    """목차에 보일 섹션: level ≤ depth. 휴리스틱 소제목(kind="heading")은 depth ≥ 3일 때만."""
+    return sec.level <= depth and (sec.kind != "heading" or depth >= 3)
 
 
 # --------------------------------------------------------------------------- tools
@@ -133,6 +141,7 @@ def search_disclosures(
     end_de: str,
     pblntf_ty: str | None = None,
     max_results: int = 50,
+    page_no: int = 1,
 ) -> dict:
     """특정 회사의 공시 목록을 기간으로 검색한다 (OpenDART list.json).
 
@@ -140,37 +149,48 @@ def search_disclosures(
     인자:
       - bgn_de, end_de: "YYYYMMDD". 사업보고서는 보통 결산 다음 해 3월에 제출된다
         (예: 2024 회계연도 사업보고서는 2025-03에 접수 → bgn_de="20250101", end_de="20251231", pblntf_ty="A").
+        corp_code를 빈 문자열로 주면 전체 회사를 조회하지만 기간이 3개월로 제한된다(DART 규칙).
       - pblntf_ty (공시유형, 생략하면 전체):
           A=정기공시(사업·반기·분기보고서), B=주요사항보고, C=발행공시, D=지분공시, E=기타공시,
           F=외부감사관련, G=펀드공시, H=자산유동화, I=거래소공시, J=공정위공시
+      - max_results: 한 페이지 크기(1–100). page_no: 몇 번째 페이지(1부터). 응답의 has_more가 true면 page_no+1로 다시 부른다.
+        합병·분할·증권신고서 같은 가치평가 공시를 기간 전체에서 찾을 때는 search_valuation_disclosures가 페이지를 알아서 돈다.
     결과: 각 항목에 rcept_no(접수번호), report_nm(보고서명), rcept_dt(접수일), flr_nm(제출인).
+      total_count(전체 건수), total_page(max_results 기준 전체 페이지 수), page_no, has_more.
       report_nm에 "[기재정정]"이 붙으면 정정본이다. 최신순으로 정렬되어 있다.
     다음: 원하는 항목의 rcept_no로 get_disclosure_outline(rcept_no)를 호출해 목차부터 본다.
       원문 전체를 한 번에 받는 툴은 없다. 항상 목차 → 섹션 순으로 읽는다.
     """
-    client = _get_client()
+    page_count = min(max(1, int(max_results)), 100)
+    page_no = max(1, int(page_no))
+    data = _get_client().search_disclosures(
+        corp_code=corp_code or None, bgn_de=bgn_de, end_de=end_de, pblntf_ty=pblntf_ty,
+        page_no=page_no, page_count=page_count,
+    )
+    items = [_list_item(it) for it in data.get("list", [])]
+    total_page = int(data.get("total_page", 1) or 1)
+    return {"corp_code": corp_code, "total_count": int(data.get("total_count", 0)), "total_page": total_page,
+            "page_no": page_no, "has_more": page_no < total_page, "returned": len(items), "results": items}
+
+
+def _list_item(it: dict) -> dict:
+    return {k: it.get(k) for k in ("rcept_no", "report_nm", "rcept_dt", "flr_nm", "corp_name")}
+
+
+def _search_all(corp_code: str, bgn_de: str, end_de: str, pblntf_ty: str | None, limit: int) -> dict:
+    """search_disclosures를 페이지마다 불러 limit건까지 모은다(내부용: get_latest_reports는 200건이 필요하다)."""
     items: list[dict] = []
     page = 1
-    total = None
-    while len(items) < max_results:
-        page_count = min(100, max_results - len(items))
-        data = client.search_disclosures(
-            corp_code=corp_code, bgn_de=bgn_de, end_de=end_de, pblntf_ty=pblntf_ty,
-            page_no=page, page_count=page_count,
+    total = 0
+    while len(items) < limit:
+        data = _get_client().search_disclosures(
+            corp_code=corp_code, bgn_de=bgn_de, end_de=end_de, pblntf_ty=pblntf_ty, page_no=page,
+            page_count=min(100, limit - len(items)),
         )
         total = int(data.get("total_count", 0))
         batch = data.get("list", [])
-        for it in batch:
-            items.append(
-                {
-                    "rcept_no": it.get("rcept_no"),
-                    "report_nm": it.get("report_nm"),
-                    "rcept_dt": it.get("rcept_dt"),
-                    "flr_nm": it.get("flr_nm"),
-                    "corp_name": it.get("corp_name"),
-                }
-            )
-        if not batch or page >= int(data.get("total_page", 1)):
+        items += [_list_item(it) for it in batch]
+        if not batch or page >= int(data.get("total_page", 1) or 1):
             break
         page += 1
     return {"corp_code": corp_code, "total_count": total, "returned": len(items), "results": items}
@@ -193,6 +213,8 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None, depth: int
       - file_id: 주면 그 파일의 목차만 돌려준다 (생략 시 전체 파일).
       - depth: 보여줄 최대 level (기본 2 = 대분류·소분류). depth=3이면 level 3 SECTION과
         TITLE 기반 소제목(id가 "4.3.t12"처럼 ".tN"으로 끝남, kind="title")까지 나온다.
+        TITLE 없이 5만 자가 넘는 섹션(증권신고서 "IV. 인수인의 의견" 등)은 depth=3에서 줄머리 표지("가." "(1)" 단독 "[캡션]")로
+        나눈 휴리스틱 소제목(id "7.h3", kind="heading")이 나온다. 제목은 그 줄 앞 60자라 본문이 섞일 수 있다.
         재무제표 주석처럼 섹션 하나가 10만 자를 넘을 때 depth=3으로 다시 호출해 주석 번호 단위로 읽는다.
         (목차 JSON이 커지므로 큰 섹션의 하위만 필요하면 file_id와 함께 쓰거나 search_in_disclosure를 쓴다.)
     parse_warnings: 비어 있지 않으면 파서가 원문 일부를 놓쳤을 수 있다(예: "SECTION-1 14개 중 4개만 파싱됨").
@@ -229,8 +251,8 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None, depth: int
                 "total_chars": f.total_chars,
                 "section_count": len(f.sections),
                 "parse_warnings": f.parse_warnings,
-                "shown": sum(1 for s in f.sections if s.level <= depth),
-                "sections": [s.to_outline_dict() for s in f.sections if s.level <= depth],
+                "shown": sum(1 for s in f.sections if _shown(s, depth)),
+                "sections": [s.to_outline_dict() for s in f.sections if _shown(s, depth)],
             }
             for f in files
         ],
@@ -373,6 +395,123 @@ def search_in_disclosure(
         "returned": min(len(matches), max_results),
         "matches": [m[2] for m in matches[:max_results]],
     }
+
+
+def _list_page(**params: Any) -> dict:
+    """list.json 한 페이지. 끝난 구간(end_de < 오늘)·전체 회사 조회는 data/lists/에 저장해 다시 부르지 않는다."""
+    today = dt.date.today().strftime("%Y%m%d")
+    path = None
+    if not params.get("corp_code") and params["end_de"] < today:
+        key = f"{params['pblntf_detail_ty']}_{params['bgn_de']}_{params['end_de']}_p{params['page_no']}.json"
+        path = _cache.data_dir / "lists" / key
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        data = _get_client().search_disclosures(**params)
+    except DartApiError as exc:
+        if exc.status == NO_DATA_STATUS:
+            data = {"status": exc.status, "total_count": 0, "total_page": 1, "list": []}
+        else:
+            raise
+    if path is not None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+    return data
+
+
+@mcp.tool()
+@_safe
+def search_valuation_disclosures(
+    bgn_de: str,
+    end_de: str,
+    kinds: list[str] | None = None,
+    corp_code: str | None = None,
+    listed_only: bool = True,
+    max_results: int = 200,
+    offset: int = 0,
+) -> dict:
+    """기간 안의 가치평가 공시(합병·분할·분할합병·영업양수도·주식교환·이전·증권신고서)를 모두 찾는다.
+
+    언제: 가치평가 사례를 모으거나(/dart-valuation-scan) rcept_no 한 건의 등급·짝 공시를 확인할 때(/dart-valuation).
+      search_disclosures는 한 페이지씩이지만 이 툴은 3개월 구간으로 나눠 모든 페이지를 돈다(B001 주요사항보고서,
+      C001 증권신고(지분증권), C004 증권신고(합병등)). 끝난 구간은 data/lists/에 저장돼 두 번째부터는 API를 쓰지 않는다.
+    인자:
+      - bgn_de, end_de: "YYYYMMDD". 기간이 길면 그만큼 느리다(3개월에 약 25회 호출).
+      - kinds: 거래 유형 목록. merger(합병)·split(분할)·split_merger(분할합병)·business_transfer(영업양수도)·
+        share_exchange(주식교환·이전)·ipo·rights_offering(상장사 유상증자). 한글 별칭도 받는다.
+        생략하면 rights_offering을 뺀 전부(유상증자 신고서는 회사 가치평가가 아니라 발행가 할인 산정이라 명시해야 나온다).
+      - corp_code: 한 회사만(이때는 구간을 나누지 않는다). listed_only: 상장사(유가·코스닥)만. IPO는 비상장사라도 남긴다.
+      - max_results(기본 200)/offset: 결과가 많으면 has_more=true, next_offset으로 이어 받는다.
+    결과: deals[] 각 항목 = 한 거래(원본과 정정본을 묶음):
+      rcept_no(최신 접수본), report_nm, rcept_dt, corp_code, corp_name, market, filing_type("주요사항보고서"|"증권신고서"),
+      deal_type, deal_label, source_grade, correction_kind, original_rcept_no, body_rcept_no(본문 읽을 접수번호),
+      attachment_rcept_no, supersedes[], related_rcept_nos[](같은 회사·같은 거래의 B↔C 짝), notes[].
+      source_grade: "full" = 증권신고서(평가 가정이 본문에 있다), "summary" = 주요사항보고서(API ZIP에 평가의견서 첨부가
+      없어 본문의 "외부평가에 관한 사항" 5행과 결론만 있다). summary 건은 related_rcept_nos의 증권신고서가 있으면 그쪽을 읽는다.
+    다음: body_rcept_no로 get_disclosure_outline → (full) find_tables로 요약표·WACC·민감도 표를 바로 꺼낸다.
+    """
+    corp_code = (corp_code or "").strip() or None
+    if corp_code and not re.fullmatch(r"\d{8}", corp_code):
+        raise ValueError(f"corp_code는 8자리 숫자여야 합니다(find_company로 확인): {corp_code!r}")
+    for d in (bgn_de, end_de):
+        if not re.fullmatch(r"\d{8}", d or ""):
+            raise ValueError(f"날짜는 YYYYMMDD: {d!r}")
+    res = scan_valuation_disclosures(_list_page, bgn_de, end_de, kinds=kinds, corp_code=corp_code,
+                                     listed_only=listed_only)
+    deals = res["deals"]
+    offset = max(0, int(offset))
+    max_results = max(1, int(max_results))
+    page = deals[offset: offset + max_results]
+    more = offset + max_results < len(deals)
+    counts: dict[str, int] = {}
+    for d in deals:
+        counts[f"{d['deal_label']}/{d['source_grade']}"] = counts.get(f"{d['deal_label']}/{d['source_grade']}", 0) + 1
+    return {
+        "bgn_de": bgn_de, "end_de": end_de, "windows": res["windows"], "api_pages": res["api_calls"],
+        "total": len(deals), "counts": counts, "returned": len(page), "offset": offset,
+        "has_more": more, "next_offset": offset + max_results if more else None, "deals": page,
+    }
+
+
+@mcp.tool()
+@_safe
+def find_tables(
+    rcept_no: str,
+    section_id: str,
+    caption_pattern: str | None = None,
+    file_id: str = "main",
+    max_tables: int = 10,
+    offset: int = 0,
+) -> dict:
+    """섹션 안의 Markdown 표만 골라 [캡션, 단위, offset, 행 수, 표 전문]으로 돌려준다.
+
+    언제: 증권신고서 "II. 합병 가액 및 그 산출근거"(23만 자)나 "IV. 인수인의 의견"(18만 자)처럼 큰 섹션에서
+      "[공모가 산정 요약표]", 할인율(WACC) 구성표, 민감도 표, 유사기업 표만 바로 꺼낼 때. 섹션을 통째로 읽지 않는다.
+    인자:
+      - caption_pattern: 정규식(대소문자 무시). 표의 캡션(바로 앞의 한 칸짜리 "[...]" 표 또는 바로 앞 줄)이나
+        단위 행, 표 첫 두 행에 맞는 표만. 예: "요약", "민감도", "할인율|WACC|가중평균자본비용", "유사(기업|회사)".
+        생략하면 섹션의 모든 표.
+      - max_tables: 최대 개수(기본 10). 더 있으면 has_more=true, next_offset을 offset으로 넣어 이어 찾는다.
+    결과: tables[] 각각 {caption, caption_source("bracket"|"cell"|"line"), unit("(단위: 원)" 등), offset(섹션 텍스트 기준,
+      get_disclosure_section의 offset과 같다), rows(구분선 뺀 행 수), cols, chars, truncated, text(표 전문, 8,000자까지)}.
+      truncated=true면 get_disclosure_section(rcept_no, section_id, offset=<표 offset>)으로 나머지를 읽는다.
+    출처 표기: 표에서 옮긴 숫자는 (rcept_no, section_id, 표 offset)으로 적는다.
+    """
+    disc = _load(rcept_no)
+    f = disc.get_file(file_id)
+    if f is None and file_id == "main":
+        return _missing_main(disc)
+    if f is None:
+        return {"error": f"file_id {file_id!r} 없음. 사용 가능: {[x.file_id for x in disc.files]}"}
+    sec = f.get_section(section_id)
+    if sec is None:
+        return {"error": f"section_id {section_id!r} 없음 (file_id={file_id}). get_disclosure_outline로 id를 확인하세요.",
+                "available_ids": [s.id for s in f.sections][:200]}
+    if caption_pattern:
+        re.compile(caption_pattern)  # 잘못된 정규식은 여기서 error로
+    out = find_markdown_tables(sec.text, caption_pattern, max_tables=max(1, max_tables), offset=max(0, offset))
+    return {"rcept_no": rcept_no, "file_id": file_id, "section_id": sec.id, "title": sec.title,
+            "char_count": sec.char_count, "caption_pattern": caption_pattern, **out}
 
 
 def _check_fin_args(corp_code: str, bsns_year: str, reprt_code: str | None, fs_div: str) -> tuple[str, str, str, str]:
@@ -577,7 +716,7 @@ def get_latest_reports(corp_code: str) -> dict:
         raise ValueError(f"corp_code는 8자리 숫자여야 합니다(find_company로 확인): {corp_code!r}")
     today = dt.date.today()
     bgn = today - dt.timedelta(days=731)
-    found = search_disclosures(corp_code, bgn.strftime("%Y%m%d"), today.strftime("%Y%m%d"), "A", 200)
+    found = _search_all(corp_code, bgn.strftime("%Y%m%d"), today.strftime("%Y%m%d"), "A", 200)
     if "error" in found:
         return found
     result = classify_periodic_reports(found["results"])

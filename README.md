@@ -29,20 +29,22 @@ uv run pytest -q
 - `server.py`·`document.py`·`cache.py`·`financials.py`·`periodic.py`를 고치면 서버를 다시 시작해야 반영된다(새 세션 또는 `/mcp` 재연결).
 - 로그는 stderr 전용. stdout에 print하면 MCP 프로토콜이 깨진다.
 
-## MCP 툴 (8개)
+## MCP 툴 (10개)
 
 | 툴 | 하는 일 |
 |---|---|
 | `find_company(name)` | 회사명 부분일치 → corp_code (상장사 우선) |
-| `search_disclosures(corp_code, bgn_de, end_de, pblntf_ty)` | 기간별 공시 목록 (A 정기, B 주요사항, … J 공정위) |
+| `search_disclosures(corp_code, bgn_de, end_de, pblntf_ty, max_results, page_no)` | 기간별 공시 목록 한 페이지(≤100건, A 정기, B 주요사항, … J 공정위). `total_count`·`total_page`·`has_more`로 다음 페이지 |
+| `search_valuation_disclosures(bgn_de, end_de, kinds, corp_code, listed_only)` | 합병·분할·영업양수도·주식교환·IPO 공시를 3개월 구간·전 페이지로 모아 거래 단위로 묶음(정정본 최신, `original_rcept_no`), `source_grade`(증권신고서 full / 주요사항보고서 summary)와 B↔C 짝 `related_rcept_nos`. 유상증자는 `kinds`로 명시할 때만 |
+| `find_tables(rcept_no, section_id, caption_pattern, max_tables, offset)` | 섹션 안 Markdown 표만 [캡션·단위·offset·행 수·표 전문]으로. 23만 자 평가 섹션에서 "요약|민감도|WACC" 표를 바로 꺼낸다 |
 | `get_latest_reports(corp_code)` | 최근 2년 정기공시에서 최신 사업보고서 + 그 이후 반기·분기보고서(reprt_code 포함). 정정본 우선(`correction_kind`), 원본은 superseded, 과거 기간 늦은 정정은 `late_corrections` |
-| `get_disclosure_outline(rcept_no, file_id, depth)` | 파일·섹션 목차와 섹션별 글자 수. depth=3이면 주석 소제목(`4.3.t12`)까지 |
+| `get_disclosure_outline(rcept_no, file_id, depth)` | 파일·섹션 목차와 섹션별 글자 수. depth=3이면 주석 소제목(`4.3.t12`)까지, TITLE 없는 5만 자 이상 섹션(증권신고서 등, 정기보고서 제외)은 줄머리 휴리스틱 소제목(`7.h3`)까지 |
 | `get_disclosure_section(rcept_no, section_id, file_id, max_chars, offset)` | 한 섹션의 Markdown 본문(나눠 읽기 가능) |
 | `search_in_disclosure(rcept_no, query, file_id)` | 원문 키워드 위치(section_id, offset)와 앞뒤 문맥 |
 | `get_financial_statements(corp_code, bsns_year, reprt_code, fs_div, sj_div)` | BS/IS/CIS/CF 전체 계정(원 단위) |
 | `get_key_financials(corp_code, bsns_year, fs_div, reprt_code, period_type)` | 핵심 10계정 + 비율. 사업보고서는 3개년(`annual`), 반기·분기는 당기 vs 전년 동기(`cumulative`/`quarter`). 업종(`sector`)을 판단해 금융업이면 `warning`과 금융 계정을 준다 |
 
-## 슬래시 커맨드 (`.claude/commands/`, 6개)
+## 슬래시 커맨드 (`.claude/commands/`, 10개)
 
 | 커맨드 | 한 줄 설명 |
 |---|---|
@@ -52,6 +54,14 @@ uv run pytest -q
 | `/dart-compare <회사1> <회사2> [<회사3>] [연도]` | 2~3사 비교: 3개년 핵심 지표 같은 행 비교 + 경영진 전망 |
 | `/dart-event <rcept_no>` | 수시공시 한 건 요약과 직전 1년 유사 공시 비교 |
 | `/dart-review <보고서.md>` | 독립 서브에이전트 리뷰: 출처 누락·재무 API 재대조·원문 샘플 5개·표현 오류·"추정:" 누락 → `.review.md` |
+| `/dart-valuation <rcept_no>` | 가치평가 공시 한 건 → `reports/valuations/<rcept_no>.json`(스키마 검증)+`.md`: 평가 주체별 방법·WACC 구성·g·β·멀티플·결론·민감도 |
+| `/dart-valuation-review <json>` | 독립 서브에이전트 리뷰: cite 실재(무작위 8개)·가중치·본질가치 재계산·주체 혼입·단위 → `.review.md` |
+| `/dart-valuation-scan <bgn> <end> [유형]` | 기간 안의 가치평가 공시 표(외부평가 여부·기관, 증권신고서 짝, 등급, 추출 여부 ✓). 추출 안 함 |
+| `/dart-valuation-search <조건>` | 축적 사례를 조건(기간·유형·방법·업종·기관)으로 거른 표 + WACC·g·멀티플 분포(10건 미만이면 "통계적 의미 제한") |
+
+가치평가 사례는 **원문에 없으면 null, 추정 금지**. 숫자는 `{value, unit, text, cite}`(단위 원문 그대로). 스키마 문서는
+[docs/valuation_schema.md](docs/valuation_schema.md), 예시는 `reports/valuations/`(알테오젠 합병 full, 제논 IPO full, 우성 합병 summary).
+주요사항보고서는 API ZIP에 외부평가 의견서 첨부가 없어 summary 등급이다(본문 5행+결론만).
 
 - 연도를 생략하면 `get_latest_reports`로 최신 사업보고서를 고르고, 이후 반기·분기보고서가 있으면 "최근 분기 동향"(전년 동기 비교만)을 붙인다.
 - analyze/financial/risk/compare는 마지막에 `/dart-review`를 1회 돌리고 FAIL을 반영해 "리뷰 반영 내역"을 남긴다.
@@ -84,6 +94,7 @@ data/<rcept_no>/*.xml, *.md                   추출 XML·변환 Markdown
 data/<rcept_no>/outline.json                  목차(본문 제외)
 data/<rcept_no>/sections_<file_id>.json       섹션 본문
 data/fin/<corp_code>_<연도>_<reprt_code>_<fs_div>.json   재무 API 원본 응답, 90일 캐시(정정 의심 시 refresh=True)
+data/lists/<상세유형>_<bgn>_<end>_p<N>.json   search_valuation_disclosures의 list.json 페이지(끝난 구간만, 만료 없음. 늦은 정정을 반영하려면 지운다)
 data/company/<corp_code>.json                 기업개황(company.json: 시장구분 corp_cls, 업종 induty_code), 30일 캐시
 ```
 

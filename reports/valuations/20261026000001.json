@@ -1,0 +1,454 @@
+{
+ "rcept_no": "20261026000001",
+ "original_rcept_no": "20261007000505",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01950720",
+  "name": "제논",
+  "market": "기타",
+  "induty_code": "6202"
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 대표주관회사가 산정). 원문이 '외부평가기관'이라 부르는 삼덕회계법인 평가는 RCPS 공정가치용 보통주 평가로 valuations에 따로 둠",
+  "basis_text": "공모가격은「증권 인수업무 등에 관한 규정」제5조(주식의 공모가격 결정 등)에서 정하는 수요예측에 의한 방법에 따라 결정됩니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "증권 인수업무 등에 관한 규정 제5조"
+  ],
+  "opinion_text": "대표주관회사가 희망공모가액 9,700원–12,200원을 제시. 수요예측 결과를 반영해 발행회사와 협의하여 확정 예정",
+  "cite": {
+   "section_id": "4.3",
+   "offset": 3215,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼성증권 주식회사",
+   "target": "제논",
+   "role": "주관사",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "주식회사 와이즈넛",
+      "value": {
+       "value": 18.29,
+       "unit": "배",
+       "text": "18.29",
+       "cite": {
+        "section_id": "7",
+        "offset": 97479,
+        "file_id": "main"
+       }
+      },
+      "note": "LTM PER"
+     },
+     {
+      "name": "주식회사 비아이매트릭스",
+      "value": {
+       "value": 50.05,
+       "unit": "배",
+       "text": "50.05",
+       "cite": {
+        "section_id": "7",
+        "offset": 97487,
+        "file_id": "main"
+       }
+      },
+      "note": "LTM PER"
+     },
+     {
+      "name": "Brains Technology, Inc.",
+      "value": {
+       "value": 54.52,
+       "unit": "배",
+       "text": "54.52",
+       "cite": {
+        "section_id": "7",
+        "offset": 97495,
+        "file_id": "main"
+       }
+      },
+      "note": "LTM PER"
+     }
+    ],
+    "multiple": {
+     "value": 40.96,
+     "unit": "배",
+     "text": "40.96",
+     "cite": {
+      "section_id": "7",
+      "offset": 97522,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 4995,
+     "unit": "백만원",
+     "text": "4,995백만원",
+     "cite": {
+      "section_id": "7",
+      "offset": 99690,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 11.74,
+      "unit": "%",
+      "text": "11.74%",
+      "cite": {
+       "section_id": "7",
+       "offset": 104377,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 29.83,
+      "unit": "%",
+      "text": "29.83%",
+      "cite": {
+       "section_id": "7",
+       "offset": 104368,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": "PBR·PSR·EV/EBITDA 제외(평가방법 선정 단계)"
+   },
+   "result": {
+    "value": {
+     "value": 13823,
+     "unit": "원",
+     "text": "13,823원",
+     "cite": {
+      "section_id": "7",
+      "offset": 99815,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9700,
+      "unit": "원",
+      "text": "9,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 104406,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12200,
+      "unit": "원",
+      "text": "12,200원",
+      "cite": {
+       "section_id": "7",
+       "offset": 104415,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "result.value는 할인 전 주당 평가가액, result.range는 할인 후 희망공모가액 밴드. 적용 PER은 비교기업 3사 PER의 산술평균(표시값 18.29·50.05·54.52의 평균은 40.953이지만 원문 주4는 반올림 전 PER 40.9557배·조정 당기순이익 4,994,982,336원으로 산출했다고 밝힘)"
+  },
+  {
+   "subject": "삼덕회계법인",
+   "target": "제논",
+   "role": "외부평가",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 14.04,
+     "unit": "%",
+     "text": "14.04%",
+     "cite": {
+      "section_id": "7",
+      "offset": 108557,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "7",
+      "offset": 108571,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "7",
+      "offset": 108938,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1981,
+     "unit": "원",
+     "text": "1,981원",
+     "cite": {
+      "section_id": "7",
+      "offset": 108651,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "평가목적: 보통주 가치평가(상환전환우선주 공정가치 평가의 기초자산가격). 공모가격 산정용이 아니다. 주당가치 99,048원(액면분할 후·무상증자 전)을 무상증자(1주당 49주) 비율로 조정한 1,981원. WACC에 소규모기업 위험프리미엄 4.02% 포함"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "제논",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 13823,
+     "unit": "원",
+     "text": "13,823원",
+     "cite": {
+      "section_id": "7",
+      "offset": 1627,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "삼성증권 주식회사",
+    "range": {
+     "min": {
+      "value": 9700,
+      "unit": "원",
+      "text": "9,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 1754,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12200,
+      "unit": "원",
+      "text": "12,200원",
+      "cite": {
+       "section_id": "7",
+       "offset": 1761,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "opinion_text": "수요예측 이후 발행회사와 협의하여 최종 공모가액을 확정할 예정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "삼성증권 주식회사",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "PBR",
+   "PSR",
+   "EV/EBITDA"
+  ],
+  "applied_earnings": {
+   "value": 4995,
+   "unit": "백만원",
+   "text": "4,995백만원",
+   "cite": {
+    "section_id": "7",
+    "offset": 1398,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2026년 2분기 LTM 조정 당기순이익(LTM 당기순이익 2,944백만원 + RCPS·주주간계약 금융부채 관련 손익 1,802백만원 + 주식보상비용 249백만원)",
+  "multiple": {
+   "value": 40.96,
+   "unit": "배",
+   "text": "40.96배",
+   "cite": {
+    "section_id": "7",
+    "offset": 1475,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 14799500,
+   "unit": "주",
+   "text": "14,799,500주",
+   "cite": {
+    "section_id": "7",
+    "offset": 1549,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 13823,
+   "unit": "원",
+   "text": "13,823원",
+   "cite": {
+    "section_id": "7",
+    "offset": 1627,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 11.74,
+    "unit": "%",
+    "text": "11.74%",
+    "cite": {
+     "section_id": "7",
+     "offset": 104377,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 29.83,
+    "unit": "%",
+    "text": "29.83%",
+    "cite": {
+     "section_id": "7",
+     "offset": 104368,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 9700,
+    "unit": "원",
+    "text": "9,700원",
+    "cite": {
+     "section_id": "7",
+     "offset": 104406,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 12200,
+    "unit": "원",
+    "text": "12,200원",
+    "cite": {
+     "section_id": "7",
+     "offset": 104415,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "주식회사 와이즈넛",
+    "value": {
+     "value": 18.29,
+     "unit": "배",
+     "text": "18.29",
+     "cite": {
+      "section_id": "7",
+      "offset": 97479,
+      "file_id": "main"
+     }
+    },
+    "note": "LTM PER"
+   },
+   {
+    "name": "주식회사 비아이매트릭스",
+    "value": {
+     "value": 50.05,
+     "unit": "배",
+     "text": "50.05",
+     "cite": {
+      "section_id": "7",
+      "offset": 97487,
+      "file_id": "main"
+     }
+    },
+    "note": "LTM PER"
+   },
+   {
+    "name": "Brains Technology, Inc.",
+    "value": {
+     "value": 54.52,
+     "unit": "배",
+     "text": "54.52",
+     "cite": {
+      "section_id": "7",
+      "offset": 97495,
+      "file_id": "main"
+     }
+    },
+    "note": "LTM PER"
+   }
+  ],
+  "external_comparison": "외부평가(삼덕회계법인, 평가기준일 2026-03-31, FCFF DCF, WACC 14.04%·g 1.0%) 주당 1,981원 vs 공모 평가 주당 13,823원. 원문은 차이를 평가 목적·방법론 차이(사업계획상 영업이익이 LTM보다 낮게 추정)로 설명"
+ },
+ "citations": [
+  {
+   "rcept_no": "20261026000001",
+   "file_id": "main",
+   "section_id": "4.3",
+   "title": "3. 공모가격 결정방법",
+   "chars_read": 893,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261026000001",
+   "file_id": "main",
+   "section_id": "7",
+   "title": "IV. 인수인의 의견(분석기관의 평가의견)",
+   "chars_read": 8478,
+   "how": "find_tables/search"
+  }
+ ],
+ "notes": [
+  "MCP 대신 직접 호출: 서버 재연결 전이라 find_tables 등을 dart_mcp.server 함수로 직접 불렀다.",
+  "기재정정본(20261026000001) 기준. 최초 제출 20261007000505, 중간 정정 20261023000486.",
+  "IPO는 자본시장법 시행령 176조의5의 외부평가 대상이 아니다. external_valuation에는 공모가 산정 주체(대표주관회사)와 근거 규정을 적었다.",
+  "할인율 원문 표기는 '29.83% ~ 11.74%'(하단 공모가 9,700원 ↔ 29.83%, 상단 12,200원 ↔ 11.74%). discount_range는 min 11.74·max 29.83.",
+  "베타 언급 없음(검색 0건). EV/EBITDA는 제외 사유 표에만 있다."
+ ],
+ "extracted_at": "2026-10-26T14:07:56+09:00",
+ "extractor_version": "1.0"
+}
