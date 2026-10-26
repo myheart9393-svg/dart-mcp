@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.2.0 (2026-10-26)
+
+가치평가 사례 추출. 캐시 버전 7 → 8(옛 캐시는 저장된 ZIP으로 자동 재구성).
+
+- **valuation.py (신규)**: 합병·분할·분할합병·영업양수도·주식교환·IPO 공시 분류(`source_grade` full=증권신고서 / summary=주요사항보고서),
+  원본·정정본 묶기(`original_rcept_no`·`body_rcept_no`), B↔C 짝(`related_rcept_nos`), 3개월 구간·전 페이지 스캔.
+  사례 JSON 검증(`validate`)·cite 실재 확인(`verify-cites`)·md 렌더(`md`)·조회 표(`table`) CLI.
+- **valuation_schema.json (신규)** + `docs/valuation_schema.md`: 숫자는 전부 `{value, unit, text, cite}`, 원문에 없으면 null.
+- **tables.py (신규)**: 섹션 Markdown에서 표 블록 + 한 칸짜리 캡션·단위 표를 붙여 찾기.
+- **server.py**: `search_disclosures`에 `page_no`(응답 `total_page`·`has_more`, 한 페이지 ≤100), 새 툴 `search_valuation_disclosures`·`find_tables`,
+  끝난 구간 list.json 페이지 캐시 `data/lists/`. `_sort_key`가 `.hN` id 처리, `.hN`은 depth≥3에서만 목차에 보임.
+- **document.py**: TITLE 없는 5만 자 이상 섹션에 줄머리('가.'·'(1)'·단독 '[캡션]') 휴리스틱 소제목 `.hN`(kind="heading").
+  본문 파일·정기보고서가 아닐 때만(사업보고서·감사보고서 첨부는 그대로). parser_regression: 93건 중 4건(증권신고서 2·주요사항보고서 2)에 `.hN`만 추가, 기존 섹션 변경 0.
+- **scripts/parser_regression.py**: `build_outline`에 `main=(file_id=="main")`을 넘겨 cache.store와 같은 결과로 비교.
+- **커맨드**: `/dart-valuation`, `/dart-valuation-review`, `/dart-valuation-scan`, `/dart-valuation-search`.
+- **reports/valuations**: 알테오젠 합병(full), 제논 IPO(full), 우성 합병(summary) 사례와 리뷰, 2026-07–10 스캔.
+- 의존성: `jsonschema` 명시.
+
 ## v1.1.0 (2026-10-23)
 
 v1.0.0 이후 변경. 캐시 버전 3 → 7 (옛 캐시는 저장된 ZIP으로 자동 재구성, API 호출 없음).

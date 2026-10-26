@@ -27,7 +27,7 @@ log = logging.getLogger(__name__)
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
 # 섹션 구조화 규칙이 바뀌면 올린다. 버전이 다른 캐시는 저장된 ZIP으로부터 다시 만든다(API 호출 없음).
-CACHE_VERSION = 7  # 3: 편집기 템플릿 태그(COMMENT 등) 제외, 4: 표 머리글(TH/THEAD만)·ROWSPAN 소진·직계 TITLE 제목, 5: 본문 꺾쇠("<연혁>") 이스케이프, 6: 속성값 안 따옴표 이스케이프·parse_warnings, 7: 셀·TITLE 안 블록(P·DIV·LI·BR) 경계에 공백
+CACHE_VERSION = 8  # 8: TITLE 없는 5만 자 이상 섹션의 휴리스틱 소제목(.hN),3: 편집기 템플릿 태그(COMMENT 등) 제외, 4: 표 머리글(TH/THEAD만)·ROWSPAN 소진·직계 TITLE 제목, 5: 본문 꺾쇠("<연혁>") 이스케이프, 6: 속성값 안 따옴표 이스케이프·parse_warnings, 7: 셀·TITLE 안 블록(P·DIV·LI·BR) 경계에 공백
 
 
 class _StaleCache(Exception):

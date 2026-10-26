@@ -1,7 +1,7 @@
 # dart-mcp
 
 OpenDART 공시 원문을 섹션 단위로 읽는 MCP 서버(`dart`)와, 그 위에서 돌아가는 기업분석 슬래시 커맨드 프로젝트.
-코드는 `src/dart_mcp/` (client / document / cache / financials / periodic / report_lint / server / cli), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`.
+코드는 `src/dart_mcp/` (client / document / cache / financials / periodic / valuation / tables / report_lint / server / cli), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`(가치평가 사례는 `reports/valuations/`).
 
 ```bash
 uv run pytest -q                      # 단위테스트
@@ -17,7 +17,7 @@ uv run python -m dart_mcp.healthcheck --sample 30 --seed 1   # 파서·재무 �
 의도한 변경만 있으면 `--update`로 baseline을 갱신한다. 의도하지 않은 변경이 있으면 커밋하지 않고 원인부터 본다.
 
 서버 코드(`server.py`, `document.py`, `cache.py`)를 바꾸면 MCP 서버 프로세스를 다시 시작해야 반영된다
-(`financials.py`, `periodic.py`도 마찬가지. 새 세션을 열거나 `/mcp`에서 재연결). 로그는 stderr 전용이며 stdout에 print 하면 프로토콜이 깨진다.
+(`financials.py`, `periodic.py`, `valuation.py`, `tables.py`도 마찬가지. 새 세션을 열거나 `/mcp`에서 재연결). 로그는 stderr 전용이며 stdout에 print 하면 프로토콜이 깨진다.
 
 **재연결 규칙.** 재연결 뒤에도 세션의 툴 목록은 옛 것으로 남아 있을 수 있다. 서버를 고친 뒤 MCP 툴로 검증하기 전에
 ① 새로 추가·변경한 툴/인자가 툴 스키마에 보이는지 먼저 확인하고(ToolSearch `select:mcp__dart__<툴>`),
@@ -68,6 +68,16 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
 | `/dart-compare <회사1> <회사2> [<회사3>] [사업연도]` | 2~3사 비교. 3개년 핵심 지표(API) 같은 행 비교 + 규모·성장·수익성·안정성 + 경영진 전망 |
 | `/dart-event <rcept_no>` | 수시공시 한 건. 결정 내용·규모·주주 영향·직전 1년 유사 공시 비교를 3단 요약으로 |
 | `/dart-review <보고서.md>` | 독립 서브에이전트 리뷰(출처·API 재대조·원문 샘플 5개·표현 오류·추정 표기) → `<보고서>.review.md` |
+| `/dart-valuation <rcept_no>` | 가치평가 공시 한 건 → 사례 JSON(`valuation_schema.json`)+md. 평가 주체별 방법·WACC·g·β·멀티플·결론. 끝에 `/dart-valuation-review` |
+| `/dart-valuation-scan <bgn> <end> [유형]` | 기간 안의 합병·분할·영업양수도·주식교환·IPO 공시 표(외부평가 여부·기관, 증권신고서 짝, 등급, 추출 여부). 추출 안 함 |
+| `/dart-valuation-search <조건>` | `reports/valuations/*.json`을 조건으로 걸러 표 + WACC·g·멀티플 분포. 사례 10건 미만이면 "통계적 의미 제한" |
+
+### 가치평가 사례 규칙 (`/dart-valuation*`)
+- **원문에 없으면 null. 추정 금지.** 빈칸을 계산·유추로 채우지 않는다. 숫자는 전부 `{value, unit, text, cite}`이고 단위는 원문 그대로(환산 금지).
+- 평가 주체(외부평가기관·각 재무자문사·주관사·회사)가 다르면 valuations 원소를 나눈다. 회의록에 인용된 값은 notes로.
+- 주요사항보고서는 API ZIP에 평가의견서 첨부가 없다 → `source_grade="summary"`(5행+결론). 가정은 짝 증권신고서(full)에서 뽑는다.
+- 큰 평가 섹션은 `find_tables(rcept_no, section_id, caption_pattern)`로 표부터, 나머지만 search_in_disclosure. 스키마 문서: `docs/valuation_schema.md`.
+- 검증·조회 CLI: `uv run python -m dart_mcp.valuation validate|verify-cites|md <json>`, `... table reports/valuations`.
 
 공통 규칙: 보고서는 `reports/<회사명>_<종류>_<날짜>.md`로 저장, 마지막에 "참조한 섹션 목록" 부록,
 원문 장문 복사 금지(표는 핵심 행만), 범위는 `4–5배`(en dash — `~` 두 개는 Markdown 취소선이 됨),

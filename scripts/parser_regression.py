@@ -28,8 +28,10 @@ def snapshot(rcept_dir: Path) -> dict[str, list[list]]:
     rcept_no = rcept_dir.name
     out: dict[str, list[list]] = {}
     for xml in sorted(rcept_dir.glob("*.xml")):
-        sections = build_outline(xml.read_bytes())
-        out[file_id_of(xml.name, rcept_no)] = [[s.id, s.title, s.char_count] for s in sections]
+        file_id = file_id_of(xml.name, rcept_no)
+        # cache.store와 같은 인자로 만든다(main=False인 첨부는 휴리스틱 소제목 .hN을 만들지 않는다)
+        sections = build_outline(xml.read_bytes(), main=file_id == "main")
+        out[file_id] = [[s.id, s.title, s.char_count] for s in sections]
     return out
 
 
