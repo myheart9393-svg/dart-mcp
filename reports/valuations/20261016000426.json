@@ -1,0 +1,468 @@
+{
+ "rcept_no": "20261016000426",
+ "original_rcept_no": "20261016000426",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01403198",
+  "name": "제이앤티지",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사·공동주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 대신증권㈜ 및 공동주관회사 NH투자증권㈜가 희망공모가액 26,400원~31,900원 제시, 수요예측 결과 및 주식시장 상황 등을 감안해 발행회사와 협의하여 확정공모가액 결정 예정",
+  "cite": {
+   "section_id": "6",
+   "offset": 2905,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "대신증권㈜ (대표주관회사)",
+   "target": "제이앤티지",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "EV/EBITDA",
+    "peers": [
+     {
+      "name": "아모그린텍",
+      "value": {
+       "value": 9.04,
+       "unit": "배",
+       "text": "9.04",
+       "cite": {
+        "section_id": "6",
+        "offset": 54931,
+        "file_id": "main"
+       }
+      },
+      "note": "EV/EBITDA (2026년 반기 LTM, 연결)"
+     },
+     {
+      "name": "상아프론테크",
+      "value": {
+       "value": 11.86,
+       "unit": "배",
+       "text": "11.86",
+       "cite": {
+        "section_id": "6",
+        "offset": 54938,
+        "file_id": "main"
+       }
+      },
+      "note": "EV/EBITDA (2026년 반기 LTM, 연결)"
+     },
+     {
+      "name": "대주전자재료",
+      "value": {
+       "value": 38.64,
+       "unit": "배",
+       "text": "38.64",
+       "cite": {
+        "section_id": "6",
+        "offset": 54946,
+        "file_id": "main"
+       }
+      },
+      "note": "EV/EBITDA (2026년 반기 LTM, 연결)"
+     },
+     {
+      "name": "나노신소재",
+      "value": {
+       "value": 25.45,
+       "unit": "배",
+       "text": "25.45",
+       "cite": {
+        "section_id": "6",
+        "offset": 54954,
+        "file_id": "main"
+       }
+      },
+      "note": "EV/EBITDA (2026년 반기 LTM, 연결)"
+     }
+    ],
+    "multiple": {
+     "value": 21.25,
+     "unit": "배",
+     "text": "21.25",
+     "cite": {
+      "section_id": "6",
+      "offset": 55472,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 40835260531,
+     "unit": "원",
+     "text": "40,835,260,531",
+     "cite": {
+      "section_id": "6",
+      "offset": 55423,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 35.34,
+      "unit": "%",
+      "text": "35.34%",
+      "cite": {
+       "section_id": "6",
+       "offset": 57194,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 46.49,
+      "unit": "%",
+      "text": "46.49%",
+      "cite": {
+       "section_id": "6",
+       "offset": 57185,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 49336,
+     "unit": "원",
+     "text": "49,336",
+     "cite": {
+      "section_id": "6",
+      "offset": 55724,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 26400,
+      "unit": "원",
+      "text": "26,400원",
+      "cite": {
+       "section_id": "6",
+       "offset": 57223,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 31900,
+      "unit": "원",
+      "text": "31,900원",
+      "cite": {
+       "section_id": "6",
+       "offset": 57233,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "공동주관회사 NH투자증권㈜와 공동 산정. 적용산식: [2026년 반기 LTM EBITDA 40,835백만원 x 유사기업 EV/EBITDA 21.25배 - 순차입금 14,575백만원 - 비지배지분 0 + 공모유입자금 87,120백만원(3,300,000주 x 밴드 하단 26,400원)] = 적정 시가총액 940,094,881,723원 ÷ 적용주식수 19,055,024주 = 49,336원, x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "제이앤티지",
+    "basis": "EV/EBITDA 주당 평가가액(할인 전)",
+    "value": {
+     "value": 49336,
+     "unit": "원",
+     "text": "49,336",
+     "cite": {
+      "section_id": "6",
+      "offset": 55724,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "대신증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 26400,
+      "unit": "원",
+      "text": "26,400원",
+      "cite": {
+       "section_id": "6",
+       "offset": 57223,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 31900,
+      "unit": "원",
+      "text": "31,900원",
+      "cite": {
+       "section_id": "6",
+       "offset": 57233,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 49,336원에 46.49%~35.34% 할인율을 적용해 희망공모가액 26,400원~31,900원 제시. 확정공모가액은 수요예측 후 결정(미정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "대신증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "EV/EBITDA",
+  "excluded_multiples": [
+   "PER",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 40835260531,
+   "unit": "원",
+   "text": "40,835,260,531",
+   "cite": {
+    "section_id": "6",
+    "offset": 55423,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2026년 반기 LTM 실적 EBITDA(영업이익 33,394 + 감가상각비 6,177 + 무형자산상각비 1,264, 백만원)",
+  "multiple": {
+   "value": 21.25,
+   "unit": "배",
+   "text": "21.25",
+   "cite": {
+    "section_id": "6",
+    "offset": 55472,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 19055024,
+   "unit": "주",
+   "text": "19,055,024",
+   "cite": {
+    "section_id": "6",
+    "offset": 55675,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 49336,
+   "unit": "원",
+   "text": "49,336",
+   "cite": {
+    "section_id": "6",
+    "offset": 55724,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 35.34,
+    "unit": "%",
+    "text": "35.34%",
+    "cite": {
+     "section_id": "6",
+     "offset": 57194,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 46.49,
+    "unit": "%",
+    "text": "46.49%",
+    "cite": {
+     "section_id": "6",
+     "offset": 57185,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 26400,
+    "unit": "원",
+    "text": "26,400원",
+    "cite": {
+     "section_id": "6",
+     "offset": 57223,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 31900,
+    "unit": "원",
+    "text": "31,900원",
+    "cite": {
+     "section_id": "6",
+     "offset": 57233,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "아모그린텍",
+    "value": {
+     "value": 9.04,
+     "unit": "배",
+     "text": "9.04",
+     "cite": {
+      "section_id": "6",
+      "offset": 54931,
+      "file_id": "main"
+     }
+    },
+    "note": "EV/EBITDA (2026년 반기 LTM, 연결)"
+   },
+   {
+    "name": "상아프론테크",
+    "value": {
+     "value": 11.86,
+     "unit": "배",
+     "text": "11.86",
+     "cite": {
+      "section_id": "6",
+      "offset": 54938,
+      "file_id": "main"
+     }
+    },
+    "note": "EV/EBITDA (2026년 반기 LTM, 연결)"
+   },
+   {
+    "name": "대주전자재료",
+    "value": {
+     "value": 38.64,
+     "unit": "배",
+     "text": "38.64",
+     "cite": {
+      "section_id": "6",
+      "offset": 54946,
+      "file_id": "main"
+     }
+    },
+    "note": "EV/EBITDA (2026년 반기 LTM, 연결)"
+   },
+   {
+    "name": "나노신소재",
+    "value": {
+     "value": 25.45,
+     "unit": "배",
+     "text": "25.45",
+     "cite": {
+      "section_id": "6",
+      "offset": 54954,
+      "file_id": "main"
+     }
+    },
+    "note": "EV/EBITDA (2026년 반기 LTM, 연결)"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260519–20261026, listed_only=False)에서 IPO/full, 최초 제출(정정 없음), body_rcept_no=본 건.",
+  "평가 섹션은 IV. 인수인의 의견(분석기관의 평가의견)(§6, 140,473자). cite offset은 §6 텍스트 기준(공모가 산정 요약표·(2) 비교기업 EV/EBITDA 산출·(3) 주당 평가가액 산출·(4) 희망공모가액 결정 표).",
+  "주관사단: 대표주관회사 대신증권㈜, 공동주관회사 NH투자증권㈜. 비교기업 4사(아모그린텍·상아프론테크·대주전자재료·나노신소재) EV/EBITDA 단순평균 21.25배. PER·PBR·PSR은 부적합 사유로 제외(RCPS 부채분류로 순이익 왜곡, 자본총계 급변 등).",
+  "기준 시가총액 = 분석기준일 시가총액·최근 1주일·1개월 평균 중 최소값. 비교기업 순차입금은 2026년 반기말 연결 기준.",
+  "적용주식수 19,055,024주 = 발행주식총수 15,580,896 + 신주모집 3,300,000 + 상장주선인 의무인수 37,878 + 주식매수선택권 136,250.",
+  "할인율 참고: 2023년 이후 코스닥 일반상장법인 평가액 대비 할인율 평균 하단 34.18%·상단 22.74%. 주관사는 이보다 높은 할인율 적용.",
+  "확정공모가액은 이 최초 신고서에 '미정'. 이후 정정·발행조건확정 신고서가 나오면 따로 볼 것. 코스닥 일반상장. market은 공모 당시 비상장이라 '기타'.",
+  "배치 후 정리: 범위를 원문 표기 순서가 아니라 숫자 크기 순서(min ≤ max)로 바꿈(값·cite는 그대로)"
+ ],
+ "extracted_at": "2026-10-26T16:28:34+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261016000426",
+   "file_id": "main",
+   "section_id": "6.h1",
+   "title": "가. 평가 결과",
+   "chars_read": 3393,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000426",
+   "file_id": "main",
+   "section_id": "6.h10",
+   "title": "(3) 주당 평가가액 산출",
+   "chars_read": 1760,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000426",
+   "file_id": "main",
+   "section_id": "6.h11",
+   "title": "(4) 희망공모가액 결정",
+   "chars_read": 5846,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000426",
+   "file_id": "main",
+   "section_id": "6.h2",
+   "title": "나. 희망공모가액의 산출 방법",
+   "chars_read": 7221,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000426",
+   "file_id": "main",
+   "section_id": "6.h5",
+   "title": "(3) 비교대상회사 선정 결과",
+   "chars_read": 10896,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000426",
+   "file_id": "main",
+   "section_id": "6.h8",
+   "title": "라. 희망공모가액의 산정",
+   "chars_read": 3983,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000426",
+   "file_id": "main",
+   "section_id": "6.h9",
+   "title": "(2) 비교기업 EV/EBITDA 산출",
+   "chars_read": 1024,
+   "how": "section"
+  }
+ ]
+}

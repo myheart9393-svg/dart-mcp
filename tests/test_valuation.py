@@ -5,8 +5,11 @@ from dart_mcp.tables import find_tables
 from dart_mcp.valuation import (
     classify_valuation_filing,
     date_windows,
+    deal_stats,
+    filter_rows,
     group_filings,
     pair_related,
+    representative,
     scan_valuation_disclosures,
     validate_case,
     verify_citations,
@@ -208,7 +211,7 @@ MIN_CASE = {
     "external_valuation": {"required": True, "exemption_reason": None, "basis_text": None, "firm": "이촌회계법인",
                            "firm_type": "회계법인", "period": None, "audit_committee_consent": None, "standards_cited": []},
     "valuations": [{
-        "subject": "안진회계법인", "target": "알테오젠", "role": "재무자문", "method": "DCF", "weights": None,
+        "subject": "안진회계법인", "target": "알테오젠", "role": "재무자문", "purpose": "합병가액", "method": "DCF", "weights": None,
         "asset_value": None, "relative": None,
         "dcf": {"wacc": {"value": 8.1543, "unit": "%", "text": "8.1543%", "cite": _cite(10)}, "g": None, "peers": []},
         "result": {"value": {"value": 253384, "unit": "원", "cite": _cite(40)}, "unit": "원", "range": None},
@@ -233,3 +236,34 @@ def test_schema_accepts_minimal_case_and_rejects_uncited_numbers():
     text = "x" * 10 + "기준 가중평균자본비용: 8.1543%" + " " * 5 + "1주당 수익가치: 253,384원"
     res = verify_citations(MIN_CASE, lambda r, f, s: text, sample=8, seed=1)
     assert res["total"] == 2 and res["missing_cite"] == [] and all(x["ok"] for x in res["sampled"])
+
+
+# --------------------------------------------------------------------------- 거래 단위 통계
+def _r(rcept, role, wacc, purpose="합병가액", method="DCF", deal_type="merger", board="2026-10-06"):
+    return {"rcept_no": rcept, "role": role, "wacc": wacc, "g": None, "multiple": None, "multiple_type": None,
+            "purpose": purpose, "method": method, "deal_type": deal_type, "board_date": board,
+            "firm": "이촌회계법인", "subject": "x"}
+
+
+def test_representative_prefers_external_valuer_then_median():
+    assert representative([("재무자문", 7.7), ("외부평가", 8.43), ("재무자문", 9.7)]) == 8.43
+    assert representative([("재무자문", 7.0), ("재무자문", 9.0), ("주관사", 10.0)]) == 9.0
+    assert representative([]) is None
+
+
+def test_deal_stats_counts_deals_not_values_and_default_purpose_filter():
+    rows = [_r("A", "재무자문", 7.7), _r("A", "외부평가", 8.43), _r("A", "재무자문", 9.7),
+            _r("B", "재무자문", 10.0), _r("C", "외부평가", 14.04, purpose="공정가치평가", deal_type="ipo")]
+    kept = filter_rows(rows)  # 기본: 공정가치평가·손상검사 제외
+    assert {r["rcept_no"] for r in kept} == {"A", "B"}
+    s = deal_stats(kept)
+    w = s["variables"]["wacc"]
+    assert (s["deals"], w["deals"], w["values"]) == (2, 2, 4)  # "2건 거래, 4개 값"
+    assert w["per_deal"] == {"A": 8.43, "B": 10.0} and w["median"] == (8.43 + 10.0) / 2
+    assert s["firms"] == {"x": 1, "(외부평가 없음)": 1}  # A는 외부평가 원소 subject, B는 없음
+    from dart_mcp.valuation import range_order_errors
+    assert range_order_errors({"r": {"min": {"value": 29.8}, "max": {"value": 11.7}}}) and \
+        not range_order_errors({"r": {"min": {"value": 11.7}, "max": {"value": 29.8}}})
+    assert len(filter_rows(rows, purposes={"all"})) == 5
+    assert [r["rcept_no"] for r in filter_rows(rows, purposes={"공정가치평가"})] == ["C"]
+    assert filter_rows(rows, date_from="2026-11-01") == []

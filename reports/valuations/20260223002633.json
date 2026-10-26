@@ -1,0 +1,912 @@
+{
+ "rcept_no": "20260223002633",
+ "original_rcept_no": "20260130000454",
+ "related_rcept_nos": [
+  "20260223002159"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01101254",
+  "name": "케이피항공산업",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "엔에이치기업인수목적30호㈜",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열·임원겸직·대주주 특수관계·거래 모두 해당사항 없음(VIII. 당사회사간의 이해관계 등)",
+  "board_date": "2025-10-15",
+  "regime": "기준시가",
+  "ratio_text": "케이피항공산업㈜ : 엔에이치기업인수목적30호㈜ = 1:0.1672381"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "한울회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 8월 18일 ~ 2025년 10월 14일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "한울회계법인 자본시장법에 따른 외부평가업무 품질관리규정"
+  ],
+  "opinion_text": "합병당사회사의 주당평가액은 합병법인 11,062~14,134원, 피합병법인 2,000원의 범위로 평가되었으며 합병비율은 0.1415028~0.1807991로 평가되었다. 따라서 합의한 합병비율 1:0.1672381은 적정한 것으로 판단된다.",
+  "cite": {
+   "section_id": "5",
+   "offset": 70531,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼도회계법인",
+   "target": "케이피항공산업㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 3164,
+     "unit": "원",
+     "text": "3,164",
+     "cite": {
+      "section_id": "5",
+      "offset": 14365,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11959,
+     "unit": "원",
+     "text": "11,959",
+     "cite": {
+      "section_id": "5",
+      "offset": 14344,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 17823,
+    "unit": "원",
+    "text": "17,823",
+    "cite": {
+     "section_id": "5",
+     "offset": 14385,
+     "file_id": "main"
+    }
+   },
+   "note": "삼도회계법인은 회사가 의뢰한 '합병비율 산출 외부기관'(계약 2025-08-14, 수행 2025-08-14~10-14). 본질가치 = (자산가치x1 + 수익가치x1.5)÷2.5. 유사회사 3사 미만으로 상대가치 미산정. 이 값이 합의 합병가액."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "케이피항공산업㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년–2029년(5개년)",
+    "base_date": null,
+    "wacc": {
+     "value": 10.38,
+     "unit": "%",
+     "text": "10.38%",
+     "cite": {
+      "section_id": "5",
+      "offset": 65194,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 64860,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 64896,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.392,
+     "unit": null,
+     "text": "0.392",
+     "cite": {
+      "section_id": "5",
+      "offset": 64931,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.603,
+     "unit": null,
+     "text": "0.603",
+     "cite": {
+      "section_id": "5",
+      "offset": 64964,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.66,
+     "unit": "%",
+     "text": "4.66%",
+     "cite": {
+      "section_id": "5",
+      "offset": 64997,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.36,
+     "unit": "%",
+     "text": "12.36%",
+     "cite": {
+      "section_id": "5",
+      "offset": 65035,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.46,
+     "unit": "%",
+     "text": "9.46%",
+     "cite": {
+      "section_id": "5",
+      "offset": 65063,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 65143,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 68.02,
+     "unit": "%",
+     "text": "68.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 67559,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 20819,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "켄코아에어로스페이스",
+      "value": {
+       "value": 0.417,
+       "unit": null,
+       "text": "0.417",
+       "cite": {
+        "section_id": "5",
+        "offset": 67284,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "하이즈항공",
+      "value": {
+       "value": 0.298,
+       "unit": null,
+       "text": "0.298",
+       "cite": {
+        "section_id": "5",
+        "offset": 67345,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "아스트",
+      "value": {
+       "value": 0.307,
+       "unit": null,
+       "text": "0.307",
+       "cite": {
+        "section_id": "5",
+        "offset": 67407,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "케일럼",
+      "value": {
+       "value": 0.357,
+       "unit": null,
+       "text": "0.357",
+       "cite": {
+        "section_id": "5",
+        "offset": 67467,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "퍼스텍",
+      "value": {
+       "value": 0.582,
+       "unit": null,
+       "text": "0.582",
+       "cite": {
+        "section_id": "5",
+        "offset": 67492,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 17823,
+     "unit": "원",
+     "text": "17,823",
+     "cite": {
+      "section_id": "5",
+      "offset": 14385,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 기업가치 145,517백만원, 이자발생부채 33,397백만원, 주식수 6,290,885주(전환사채 419,419주 포함). 목표자본구조 자기자본 59.52%·타인자본 40.48%(target_de는 유사기업 평균 부채비율 68.02%). FCFF 표의 현가계수 행 라벨이 '할인율 8.48%'로 적혀 있으나 영구가치 표·WACC 표는 10.38%(원문 표기 그대로 둠)."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "엔에이치기업인수목적30호㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1727,
+     "unit": "원",
+     "text": "1,727",
+     "cite": {
+      "section_id": "5",
+      "offset": 9264,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 9239,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준주가 2,120원에 할인율 5.66% 반영한 평가가액 2,000원 > 자산가치 1,727원이므로 2,000원(Max)."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "케이피항공산업㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 3164,
+     "unit": "원",
+     "text": "3,164",
+     "cite": {
+      "section_id": "5",
+      "offset": 88147,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 12415,
+     "unit": "원",
+     "text": "12,415",
+     "cite": {
+      "section_id": "5",
+      "offset": 88126,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 11062,
+      "unit": "원",
+      "text": "11,062",
+      "cite": {
+       "section_id": "5",
+       "offset": 70413,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 14134,
+      "unit": "원",
+      "text": "14,134",
+      "cite": {
+       "section_id": "5",
+       "offset": 70420,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 18582,
+    "unit": "원",
+    "text": "18,582",
+    "cite": {
+     "section_id": "5",
+     "offset": 88167,
+     "file_id": "main"
+    }
+   },
+   "note": "외부평가기관 자체 산정 본질가치 12,415원. range는 평가의견의 합병법인 주당평가액 범위(합병비율 0.1415028~0.1807991). 합의가액 11,959원(삼도 산출)을 적정하다고 판단."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "케이피항공산업㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년–2029년(5개년)",
+    "base_date": null,
+    "wacc": {
+     "value": 8.48,
+     "unit": "%",
+     "text": "8.48%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139564,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139230,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139266,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.382,
+     "unit": null,
+     "text": "0.382",
+     "cite": {
+      "section_id": "5",
+      "offset": 139301,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.588,
+     "unit": null,
+     "text": "0.588",
+     "cite": {
+      "section_id": "5",
+      "offset": 139334,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139367,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 11.59,
+     "unit": "%",
+     "text": "11.59%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139405,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.92,
+     "unit": "%",
+     "text": "4.92%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139433,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139513,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 67.93,
+     "unit": "%",
+     "text": "67.93%",
+     "cite": {
+      "section_id": "5",
+      "offset": 140424,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 144636,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "켄코아에어로스페이스",
+      "value": {
+       "value": 0.417,
+       "unit": null,
+       "text": "0.417",
+       "cite": {
+        "section_id": "5",
+        "offset": 141823,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "하이즈항공",
+      "value": {
+       "value": 0.298,
+       "unit": null,
+       "text": "0.298",
+       "cite": {
+        "section_id": "5",
+        "offset": 141868,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "아스트",
+      "value": {
+       "value": 0.307,
+       "unit": null,
+       "text": "0.307",
+       "cite": {
+        "section_id": "5",
+        "offset": 141914,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "케일럼",
+      "value": {
+       "value": 0.357,
+       "unit": null,
+       "text": "0.357",
+       "cite": {
+        "section_id": "5",
+        "offset": 141958,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "이엠코리아",
+      "value": {
+       "value": 0.333,
+       "unit": null,
+       "text": "0.333",
+       "cite": {
+        "section_id": "5",
+        "offset": 142004,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "퍼스텍",
+      "value": {
+       "value": 0.582,
+       "unit": null,
+       "text": "0.582",
+       "cite": {
+        "section_id": "5",
+        "offset": 142021,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 18582,
+     "unit": "원",
+     "text": "18,582",
+     "cite": {
+      "section_id": "5",
+      "offset": 88167,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 기업가치 150,297백만원, 이자부부채 33,397백만원, 주식수 6,290,885주. 목표자본구조 자기자본 59.55%·타인자본 40.45%. Kd는 2024-12-31 이자부부채 세전 가중평균차입이자율. Size Premium은 한국공인회계사회 기업규모위험 연구 Micro 규모 평균."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "엔에이치기업인수목적30호㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1727,
+     "unit": "원",
+     "text": "1,727",
+     "cite": {
+      "section_id": "5",
+      "offset": 87874,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 12000000,
+     "unit": "주",
+     "text": "12,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 87863,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 84085,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2025-10-14. 1개월 가중평균 2,099원·1주일 2,125원·최근일 2,135원 산술평균 2,120원에 할인율 5.66% 반영. 자산가치는 전환사채(29억원, 전환가 1,000원) 전환 가정 후 주식수 12,000,000주 기준."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "케이피항공산업㈜",
+    "basis": "본질가치(합병가액)",
+    "value": {
+     "value": 11959,
+     "unit": "원",
+     "text": "11,959",
+     "cite": {
+      "section_id": "5",
+      "offset": 8574,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "엔에이치기업인수목적30호㈜",
+    "basis": "기준주가에 할인율을 반영한 평가가액(합병가액)",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 8583,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가 합병법인 주당평가액 범위",
+    "subject": "한울회계법인",
+    "range": {
+     "min": {
+      "value": 11062,
+      "unit": "원",
+      "text": "11,062",
+      "cite": {
+       "section_id": "5",
+       "offset": 70413,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 14134,
+      "unit": "원",
+      "text": "14,134",
+      "cite": {
+       "section_id": "5",
+       "offset": 70420,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가 합병비율 범위",
+    "subject": "한울회계법인",
+    "range": {
+     "min": {
+      "value": 0.1415028,
+      "unit": null,
+      "text": "0.1415028",
+      "cite": {
+       "section_id": "5",
+       "offset": 70487,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.1807991,
+      "unit": null,
+      "text": "0.1807991",
+      "cite": {
+       "section_id": "5",
+       "offset": 70497,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.1672381,
+   "unit": null,
+   "text": "0.1672381",
+   "cite": {
+    "section_id": "5",
+    "offset": 8607,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "외부평가기관(한울회계법인)은 합의 합병비율 1:0.1672381이 적정하다고 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼도회계법인",
+   "target": "케이피항공산업㈜",
+   "variables": "WACC ±0.5%p(9.88%~10.88%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 16059,
+     "unit": "원",
+     "text": "16,059",
+     "cite": {
+      "section_id": "5",
+      "offset": 22393,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 19937,
+     "unit": "원",
+     "text": "19,937",
+     "cite": {
+      "section_id": "5",
+      "offset": 22490,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "케이피항공산업㈜",
+   "variables": "WACC ±0.5%p(7.98%~8.98%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 16327,
+     "unit": "원",
+     "text": "16,327",
+     "cite": {
+      "section_id": "5",
+      "offset": 146024,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 21447,
+     "unit": "원",
+     "text": "21,447",
+     "cite": {
+      "section_id": "5",
+      "offset": 146092,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20250926–20260325, listed_only=False)에서 이 rcept_no 확인: source_grade full, body_rcept_no 동일, supersedes 20260130000454·20260210000404, 짝 공시 주요사항보고서 [기재정정] 20260223002159(summary).",
+  "SPAC(엔에이치기업인수목적30호, 코스닥 상장) 소멸 · 비상장 케이피항공산업 존속 합병상장. 합병법인=케이피항공산업(존속), 피합병법인=SPAC. company.market은 신고 당시 비상장이라 '기타'.",
+  "평가 주체 2곳: 삼도회계법인(회사가 의뢰한 합병비율 산출 외부기관, role=재무자문)과 한울회계법인(외부평가기관). 합의 합병가액 11,959원은 삼도 산출값이며 한울 자체 본질가치는 12,415원(WACC 8.48% vs 삼도 10.38%, Kd 4.92% vs 9.46%, Size Premium 4.02% vs 4.66%).",
+  "'근거 및 사유' 원문은 본문 섹션 5에서 찾지 못해 basis_text=null. 감사위원회 동의 여부 원문 없음.",
+  "이사회: 최초 2025-10-15, 1차 변경 2026-01-30, 2차 변경 2026-02-23(섹션 4). 합병신주 1,521,866주(액면 500원), 모집가액 11,959원(섹션 3.4).",
+  "분석기준일 2025-10-01(시행세칙 8조), 자산가치는 2024-12-31 감사받은 연결재무제표 기준. 베타는 2024-12-31 Bloomberg 조정 2년 Weekly.",
+  "외부평가기관의 과거 SPAC 합병 평가 이력(예측치 대비 실적 괴리율) 표가 섹션 5에 있음(이 사례에는 미수록)."
+ ],
+ "extracted_at": "2026-10-26T15:40:51+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260223002633",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 226,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260223002633",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 446,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260223002633",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 18785,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260223002633",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 42954,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

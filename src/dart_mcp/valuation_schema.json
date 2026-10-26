@@ -119,12 +119,14 @@
     },
     "valuation": {
       "type": "object", "additionalProperties": false,
-      "required": ["subject", "target", "role", "method", "weights", "asset_value", "dcf", "relative", "result"],
+      "required": ["subject", "target", "role", "purpose", "method", "weights", "asset_value", "dcf", "relative", "result"],
       "description": "평가 주체 1곳 × 대상 회사 1곳 × 방법 1개. 주체나 대상이 다르면 원소를 나눈다",
       "properties": {
         "subject": {"type": "string", "description": "평가 주체(예: 이촌회계법인)"},
         "target": {"type": "string", "description": "평가 대상 회사·사업부"},
         "role": {"enum": ["외부평가", "재무자문", "주관사", "회사"], "description": "회사 = 합병당사회사가 제시·협의한 가액(평가기관이 아님)"},
+        "purpose": {"enum": ["합병가액", "분할·교환비율", "양수도가액", "공모가", "공정가치평가", "손상검사", "기타"],
+                    "description": "그 평가가 무엇을 정하려고 했는지. 공정가치평가(RCPS·파생상품 등)·손상검사는 거래가액 평가가 아니라 조회 기본값에서 빠진다"},
         "method": {"enum": ["DCF", "DDM", "이익할인", "본질가치", "기준시가", "상대가치", "자산가치"]},
         "weights": {
           "anyOf": [{"type": "null"},
@@ -152,7 +154,10 @@
                        "beta_levered": {"$ref": "#/$defs/num_or_null"}, "size_premium": {"$ref": "#/$defs/num_or_null"},
                        "ke": {"$ref": "#/$defs/num_or_null"},
                        "kd": {"anyOf": [{"$ref": "#/$defs/num"}, {"type": "null"}], "description": "세전 타인자본비용. 원문에 세후만 있으면 null로 두고 note에"},
-                       "tax_rate": {"$ref": "#/$defs/num_or_null"}, "target_de": {"$ref": "#/$defs/num_or_null"},
+                       "tax_rate": {"$ref": "#/$defs/num_or_null"},
+                       "target_de": {"anyOf": [{"$ref": "#/$defs/num"}, {"type": "null"}], "description": "목표 부채비율 D/E"},
+                       "target_dv": {"anyOf": [{"$ref": "#/$defs/num"}, {"type": "null"}],
+                                     "description": "목표 타인자본 구성비율 D/(D+E). 원문이 '부채비율'이라 써도 자기자본비율과 합이 100%면 이쪽"},
                        "g": {"$ref": "#/$defs/num_or_null"},
                        "peers": {"type": "array", "items": {"$ref": "#/$defs/peer"}}}}]
         },

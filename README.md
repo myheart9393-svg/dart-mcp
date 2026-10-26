@@ -44,7 +44,7 @@ uv run pytest -q
 | `get_financial_statements(corp_code, bsns_year, reprt_code, fs_div, sj_div)` | BS/IS/CIS/CF 전체 계정(원 단위) |
 | `get_key_financials(corp_code, bsns_year, fs_div, reprt_code, period_type)` | 핵심 10계정 + 비율. 사업보고서는 3개년(`annual`), 반기·분기는 당기 vs 전년 동기(`cumulative`/`quarter`). 업종(`sector`)을 판단해 금융업이면 `warning`과 금융 계정을 준다 |
 
-## 슬래시 커맨드 (`.claude/commands/`, 10개)
+## 슬래시 커맨드 (`.claude/commands/`, 11개)
 
 | 커맨드 | 한 줄 설명 |
 |---|---|
@@ -57,11 +57,14 @@ uv run pytest -q
 | `/dart-valuation <rcept_no>` | 가치평가 공시 한 건 → `reports/valuations/<rcept_no>.json`(스키마 검증)+`.md`: 평가 주체별 방법·WACC 구성·g·β·멀티플·결론·민감도 |
 | `/dart-valuation-review <json>` | 독립 서브에이전트 리뷰: cite 실재(무작위 8개)·가중치·본질가치 재계산·주체 혼입·단위 → `.review.md` |
 | `/dart-valuation-scan <bgn> <end> [유형]` | 기간 안의 가치평가 공시 표(외부평가 여부·기관, 증권신고서 짝, 등급, 추출 여부 ✓). 추출 안 함 |
-| `/dart-valuation-search <조건>` | 축적 사례를 조건(기간·유형·방법·업종·기관)으로 거른 표 + WACC·g·멀티플 분포(10건 미만이면 "통계적 의미 제한") |
+| `/dart-valuation-search <조건>` | 축적 사례를 조건(기간·유형·방법·목적·업종·기관)으로 거른 표 + **거래 단위** WACC·g·멀티플 분포(대표값 = 외부평가기관 값, 없으면 중앙값). 기본은 거래가액 평가만(공정가치평가·손상검사 제외). 거래 10건 미만이면 "통계적 의미 제한" |
+| `/dart-valuation-batch <bgn> <end> [--grade full] [--limit N]` | 일괄 추출: `dart_mcp.batch plan`으로 큐(유상증자·SPAC·기존 건 제외, IPO 여부는 본문으로 확인) → 건마다 서브에이전트 `/dart-valuation` → 실패 기록 후 계속 → 무작위 20% 리뷰 → `_batch_<날짜>.md` |
 
 가치평가 사례는 **원문에 없으면 null, 추정 금지**. 숫자는 `{value, unit, text, cite}`(단위 원문 그대로). 스키마 문서는
-[docs/valuation_schema.md](docs/valuation_schema.md), 예시는 `reports/valuations/`(알테오젠 합병 full, 제논 IPO full, 우성 합병 summary).
+[docs/valuation_schema.md](docs/valuation_schema.md). 사례 DB는 `reports/valuations/`: 2026-01–10 증권신고서(full) 86건 일괄 추출
+(IPO 63·합병 14·주식교환 5·분할 4) + 알테오젠·제논·우성. 배치 기록 `_batch_2026-10-26.md`, 조회 예시 `_search_2026-10-26.md`.
 주요사항보고서는 API ZIP에 외부평가 의견서 첨부가 없어 summary 등급이다(본문 5행+결론만).
+작성 도구: `dart_mcp.casebuild`(숫자 cite를 원문에서 직접 찾음, MCP 재연결 전 `call`·`grep`), 통계: `dart_mcp.valuation stats`.
 
 - 연도를 생략하면 `get_latest_reports`로 최신 사업보고서를 고르고, 이후 반기·분기보고서가 있으면 "최근 분기 동향"(전년 동기 비교만)을 붙인다.
 - analyze/financial/risk/compare는 마지막에 `/dart-review`를 1회 돌리고 FAIL을 반영해 "리뷰 반영 내역"을 남긴다.

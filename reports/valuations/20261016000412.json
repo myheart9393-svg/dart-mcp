@@ -1,0 +1,436 @@
+{
+ "rcept_no": "20261016000412",
+ "original_rcept_no": "20261016000412",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00618173",
+  "name": "씨앤엠",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 한국투자증권㈜가 희망공모가액 10,000원~13,000원 제시, 수요예측 결과 및 주식시장 상황 등을 감안해 발행회사와 협의하여 확정공모가액 결정 예정",
+  "cite": {
+   "section_id": "6",
+   "offset": 2317,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한국투자증권㈜ (대표주관회사)",
+   "target": "씨앤엠",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "SNT모티브",
+      "value": {
+       "value": 7.18,
+       "unit": "배",
+       "text": "7.18",
+       "cite": {
+        "section_id": "6",
+        "offset": 35342,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 연결 지배기업 소유주지분 순이익 연환산 기준)"
+     },
+     {
+      "name": "네오티스",
+      "value": {
+       "value": 19.73,
+       "unit": "배",
+       "text": "19.73",
+       "cite": {
+        "section_id": "6",
+        "offset": 35349,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 연결 지배기업 소유주지분 순이익 연환산 기준)"
+     },
+     {
+      "name": "신성델타테크",
+      "value": {
+       "value": 28.15,
+       "unit": "배",
+       "text": "28.15",
+       "cite": {
+        "section_id": "6",
+        "offset": 35357,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 연결 지배기업 소유주지분 순이익 연환산 기준)"
+     },
+     {
+      "name": "이랜시스",
+      "value": {
+       "value": 44.78,
+       "unit": "배",
+       "text": "44.78",
+       "cite": {
+        "section_id": "6",
+        "offset": 35365,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 연결 지배기업 소유주지분 순이익 연환산 기준)"
+     }
+    ],
+    "multiple": {
+     "value": 24.96,
+     "unit": "배",
+     "text": "24.96",
+     "cite": {
+      "section_id": "6",
+      "offset": 36002,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 18990,
+     "unit": "백만원",
+     "text": "18,990",
+     "cite": {
+      "section_id": "6",
+      "offset": 36105,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 18.96,
+      "unit": "%",
+      "text": "18.96%",
+      "cite": {
+       "section_id": "6",
+       "offset": 39800,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 37.66,
+      "unit": "%",
+      "text": "37.66%",
+      "cite": {
+       "section_id": "6",
+       "offset": 39791,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 16041,
+     "unit": "원",
+     "text": "16,041",
+     "cite": {
+      "section_id": "6",
+      "offset": 36237,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 39829,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 39839,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2026년 반기 연결 당기순이익 9,495백만원 x2 = 18,990백만원 x 비교대상회사 평균 PER 24.96배 = 평가 시가총액 474,026백만원 ÷ 적용주식수 29,550,000주 = 16,041원, x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "씨앤엠",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 16041,
+     "unit": "원",
+     "text": "16,041",
+     "cite": {
+      "section_id": "6",
+      "offset": 36237,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "한국투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 39829,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 39839,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 16,041원에 37.66%~18.96% 할인율을 적용해 희망공모가액 10,000원~13,000원 제시. 확정공모가액은 수요예측 후 결정(이 최초 신고서 기준 미정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "한국투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "EV/EBITDA",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 18990,
+   "unit": "백만원",
+   "text": "18,990",
+   "cite": {
+    "section_id": "6",
+    "offset": 36105,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2026년 반기 연결 당기순이익(9,495,214천원) 연환산(x2) 실적치. 비지배지분 없음. LTM(17,283백만원) 대신 반기 연환산 적용",
+  "multiple": {
+   "value": 24.96,
+   "unit": "배",
+   "text": "24.96",
+   "cite": {
+    "section_id": "6",
+    "offset": 36002,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 29550000,
+   "unit": "주",
+   "text": "29,550,000",
+   "cite": {
+    "section_id": "6",
+    "offset": 36187,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 16041,
+   "unit": "원",
+   "text": "16,041",
+   "cite": {
+    "section_id": "6",
+    "offset": 36237,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 18.96,
+    "unit": "%",
+    "text": "18.96%",
+    "cite": {
+     "section_id": "6",
+     "offset": 39800,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 37.66,
+    "unit": "%",
+    "text": "37.66%",
+    "cite": {
+     "section_id": "6",
+     "offset": 39791,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 10000,
+    "unit": "원",
+    "text": "10,000원",
+    "cite": {
+     "section_id": "6",
+     "offset": 39829,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 13000,
+    "unit": "원",
+    "text": "13,000원",
+    "cite": {
+     "section_id": "6",
+     "offset": 39839,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "SNT모티브",
+    "value": {
+     "value": 7.18,
+     "unit": "배",
+     "text": "7.18",
+     "cite": {
+      "section_id": "6",
+      "offset": 35342,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 연결 지배기업 소유주지분 순이익 연환산 기준)"
+   },
+   {
+    "name": "네오티스",
+    "value": {
+     "value": 19.73,
+     "unit": "배",
+     "text": "19.73",
+     "cite": {
+      "section_id": "6",
+      "offset": 35349,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 연결 지배기업 소유주지분 순이익 연환산 기준)"
+   },
+   {
+    "name": "신성델타테크",
+    "value": {
+     "value": 28.15,
+     "unit": "배",
+     "text": "28.15",
+     "cite": {
+      "section_id": "6",
+      "offset": 35357,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 연결 지배기업 소유주지분 순이익 연환산 기준)"
+   },
+   {
+    "name": "이랜시스",
+    "value": {
+     "value": 44.78,
+     "unit": "배",
+     "text": "44.78",
+     "cite": {
+      "section_id": "6",
+      "offset": 35365,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 연결 지배기업 소유주지분 순이익 연환산 기준)"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260519–20261026, listed_only=False)에서 IPO/full, 최초 제출(정정 없음), body_rcept_no=본 건, related_rcept_nos 없음.",
+  "평가 섹션은 IV. 인수인의 의견(§6, 114,633자). cite offset은 §6 텍스트 기준(공모가 산정 요약표·(나) 비교대상회사 PER 산출·(다) 주당 평가가액 산출·(라) 희망공모가액 산출 표).",
+  "비교대상회사 4사(SNT모티브·네오티스·신성델타테크·이랜시스) PER 산술평균 24.96배. 기준 시가총액은 분석기준일 2026-10-08 시가총액·5영업일·20영업일 평균 중 최저. EV/EBITDA·PBR·PSR은 부적합 사유로 제외. 비교회사 선정 과정(6.h3)은 읽지 않음.",
+  "할인율 참고: 2023년 이후 코스닥 일반상장기업 평가액 대비 할인율 평균 하단 33.9%·상단 22.4%.",
+  "적용주식수 29,550,000주 = 기발행 보통주 26,500,000 + 공모 신주 2,950,000 + 상장주선인 신주인수권 100,000(희망공모가 하단 기준). 상장주선인 의무인수분은 우량대형법인으로 미적용, 상장 후 1년 내 행사 가능 주식매수선택권 없음.",
+  "주관사 유의사항: 자체 결산 별도 영업이익률 2026년 7월 0.29%·8월 4.44%로 반기(5.58%)보다 낮고, LME 구리 가격 재상승으로 하반기 원가 부담 가능.",
+  "확정공모가액은 이 최초 신고서에 '-'(미정). 이후 정정·발행조건확정 신고서가 나오면 따로 볼 것. 코스닥 상장 공모. market은 공모 당시 비상장이라 '기타'.",
+  "배치 후 정리: 범위를 원문 표기 순서가 아니라 숫자 크기 순서(min ≤ max)로 바꿈(값·cite는 그대로)"
+ ],
+ "extracted_at": "2026-10-26T16:28:18+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261016000412",
+   "file_id": "main",
+   "section_id": "6.h1",
+   "title": "가. 평가결과",
+   "chars_read": 2785,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000412",
+   "file_id": "main",
+   "section_id": "6.h2",
+   "title": "나. 희망공모가액의 산출방법(1) 희망공모가액 산출 방법 개요",
+   "chars_read": 3801,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000412",
+   "file_id": "main",
+   "section_id": "6.h4",
+   "title": "(3) 희망공모가액의 산출",
+   "chars_read": 10414,
+   "how": "section"
+  }
+ ]
+}

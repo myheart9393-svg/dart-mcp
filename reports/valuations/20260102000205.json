@@ -1,0 +1,689 @@
+{
+ "rcept_no": "20260102000205",
+ "original_rcept_no": "20251222000439",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00871587",
+  "name": "보원케미칼",
+  "market": "기타",
+  "induty_code": "2221"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "비엔케이제2호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계가 있는 경우 해당사항 없습니다.",
+  "board_date": "2025-08-29",
+  "regime": "기준시가",
+  "ratio_text": "1 : 0.3465603"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률 시행령 제176조의5, 그리고 증권의발행및공시등에관한규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조에서 규정하고 있는 합병가액 산정방법에 따라 합병비율을 검토하였습니다.",
+  "firm": "한미회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 05월 02일 ~ 2025년 08월 29일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.06)",
+   "외부평가업무 수행기준(2024.11)"
+  ],
+  "opinion_text": "주당평가액 합병법인 5,179~6,490원(액면 500원), 피합병법인 2,000원(액면 100원), 합병비율 0.3081664~0.3861749로 평가. 합의한 합병비율 1 : 0.3465603은 범위 내에 있어 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 78920,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한미회계법인",
+   "target": "보원케미칼",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(나X1+다X1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2133,
+     "unit": "원",
+     "text": "2,133",
+     "cite": {
+      "section_id": "5",
+      "offset": 15475,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 20659611218,
+     "unit": "원",
+     "text": "20,659,611,218",
+     "cite": {
+      "section_id": "5",
+      "offset": 15404,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 5841519808,
+     "unit": "원",
+     "text": "5,841,519,808",
+     "cite": {
+      "section_id": "5",
+      "offset": 14596,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 14818091410,
+     "unit": "원",
+     "text": "14,818,091,410",
+     "cite": {
+      "section_id": "5",
+      "offset": 14631,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 9684692,
+     "unit": "주",
+     "text": "9,684,692",
+     "cite": {
+      "section_id": "5",
+      "offset": 15439,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 5771,
+     "unit": "원",
+     "text": "5,771",
+     "cite": {
+      "section_id": "5",
+      "offset": 524,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 8197,
+    "unit": "원",
+    "text": "8,197",
+    "cite": {
+     "section_id": "5",
+     "offset": 16527,
+     "file_id": "main"
+    }
+   },
+   "note": "상대가치는 유사회사 요건(주당 법인세차감전이익·주당순자산 ±30%) 충족 3사 미만으로 산정하지 않음. 자산가치 조정은 2025.6.30 상환전환우선주 전량 보통주 전환(부채 장부가 14,818,091,410원 가산, 3,804,692주 가산). 최근 2년 주식 양수도(주당 3,560–4,350원, 액면분할 후)는 가치조정 대상 아님으로 판단"
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "보원케미칼",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 1월 1일부터 2029년 12월 31일까지의 5년",
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 11.27,
+     "unit": "%",
+     "text": "11.27%",
+     "cite": {
+      "section_id": "5",
+      "offset": 75549,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 72135,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 72197,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.564,
+     "unit": null,
+     "text": "0.564",
+     "cite": {
+      "section_id": "5",
+      "offset": 74306,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.8204,
+     "unit": null,
+     "text": "0.8204",
+     "cite": {
+      "section_id": "5",
+      "offset": 72241,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 72368,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.45,
+     "unit": "%",
+     "text": "13.45%",
+     "cite": {
+      "section_id": "5",
+      "offset": 72548,
+      "file_id": "main"
+     }
+    },
+    "kd": null,
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 75010,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 57.49,
+     "unit": "%",
+     "text": "57.49%",
+     "cite": {
+      "section_id": "5",
+      "offset": 74297,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77622,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "대원화성",
+      "value": {
+       "value": 0.316,
+       "unit": null,
+       "text": "0.316",
+       "cite": {
+        "section_id": "5",
+        "offset": 73731,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "덕성",
+      "value": {
+       "value": 0.746,
+       "unit": null,
+       "text": "0.746",
+       "cite": {
+        "section_id": "5",
+        "offset": 73790,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "동성케미컬",
+      "value": {
+       "value": 0.53,
+       "unit": null,
+       "text": "0.530",
+       "cite": {
+        "section_id": "5",
+        "offset": 73853,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "디케이앤디",
+      "value": {
+       "value": 0.393,
+       "unit": null,
+       "text": "0.393",
+       "cite": {
+        "section_id": "5",
+        "offset": 73913,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "백산",
+      "value": {
+       "value": 0.63,
+       "unit": null,
+       "text": "0.630",
+       "cite": {
+        "section_id": "5",
+        "offset": 73973,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "아셈스",
+      "value": {
+       "value": 0.552,
+       "unit": null,
+       "text": "0.552",
+       "cite": {
+        "section_id": "5",
+        "offset": 74032,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "원풍",
+      "value": {
+       "value": 0.466,
+       "unit": null,
+       "text": "0.466",
+       "cite": {
+        "section_id": "5",
+        "offset": 74084,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "웹스",
+      "value": {
+       "value": 0.263,
+       "unit": null,
+       "text": "0.263",
+       "cite": {
+        "section_id": "5",
+        "offset": 74143,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "진양산업",
+      "value": {
+       "value": 0.828,
+       "unit": null,
+       "text": "0.828",
+       "cite": {
+        "section_id": "5",
+        "offset": 74204,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "진양폴리우레탄",
+      "value": {
+       "value": 0.916,
+       "unit": null,
+       "text": "0.916",
+       "cite": {
+        "section_id": "5",
+        "offset": 74267,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 8197,
+     "unit": "원",
+     "text": "8,197",
+     "cite": {
+      "section_id": "5",
+      "offset": 16527,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 7210,
+      "unit": "원",
+      "text": "7,210",
+      "cite": {
+       "section_id": "5",
+       "offset": 150323,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 9396,
+      "unit": "원",
+      "text": "9,396",
+      "cite": {
+       "section_id": "5",
+       "offset": 150265,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "본질가치 중 수익가치(시행세칙 제6조, 현금흐름할인모형). kd는 원문에 세후 7.48%(BBB- 5년 무보증 회사채 수익률에 한계세율 20.9% 적용)만 있어 null. 목표자본구조 D/E 57.49%(동종기업 평균), E/V 63.50%·D/V 36.50%. β 0.8204는 Ke 표 값(동종기업 표 평균 Relevered Beta는 0.820). Size Risk Premium 4.02%(한국공인회계사회). range는 WACC 10.77–11.77%·영구성장률 0.50–1.50% 민감도 표 범위. 같은 값이 '나. 외부평가' 구간(section 5, offset 143791·147093)에도 반복"
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "비엔케이제2호기업인수목적",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1728,
+     "unit": "원",
+     "text": "1,728",
+     "cite": {
+      "section_id": "5",
+      "offset": 4930,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 10023704077,
+     "unit": "원",
+     "text": "10,023,704,077",
+     "cite": {
+      "section_id": "5",
+      "offset": 4858,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 8436424674,
+     "unit": "원",
+     "text": "8,436,424,674",
+     "cite": {
+      "section_id": "5",
+      "offset": 4046,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1587279403,
+     "unit": "원",
+     "text": "1,587,279,403",
+     "cite": {
+      "section_id": "5",
+      "offset": 4081,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 5800000,
+     "unit": "주",
+     "text": "5,800,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 4894,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 1620,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "상장 SPAC: 기준주가(1개월·1주일 가중평균종가·최근일 종가의 산술평균 2,018원)에 0.92% 할인한 2,000원. 자산가치 1,728원(전환사채 1,590,000주 전환 가정)보다 높아 합병가액은 Max[가, 나]=2,000원"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "보원케미칼",
+    "basis": "본질가치",
+    "value": {
+     "value": 5771,
+     "unit": "원",
+     "text": "5,771",
+     "cite": {
+      "section_id": "5",
+      "offset": 524,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "비엔케이제2호기업인수목적",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 434,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가기관 주당평가액(합병법인)",
+    "subject": "한미회계법인",
+    "range": {
+     "min": {
+      "value": 5179,
+      "unit": "원",
+      "text": "5,179",
+      "cite": {
+       "section_id": "5",
+       "offset": 80772,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 6490,
+      "unit": "원",
+      "text": "6,490",
+      "cite": {
+       "section_id": "5",
+       "offset": 80778,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가기관 합병비율 범위",
+    "subject": "한미회계법인",
+    "range": {
+     "min": {
+      "value": 0.3081664,
+      "unit": "주",
+      "text": "0.3081664",
+      "cite": {
+       "section_id": "5",
+       "offset": 80845,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.3861749,
+      "unit": "주",
+      "text": "0.3861749",
+      "cite": {
+       "section_id": "5",
+       "offset": 80855,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.3465603,
+   "unit": "주",
+   "text": "0.3465603",
+   "cite": {
+    "section_id": "5",
+    "offset": 684,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "한미회계법인: 합의한 합병비율 1 : 0.3465603은 평가 범위 내에 있으므로 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한미회계법인",
+   "target": "보원케미칼",
+   "variables": "WACC 10.77–11.77% (±0.5%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 7210,
+     "unit": "원",
+     "text": "7,210",
+     "cite": {
+      "section_id": "5",
+      "offset": 150323,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 9396,
+     "unit": "원",
+     "text": "9,396",
+     "cite": {
+      "section_id": "5",
+      "offset": 150265,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "기재정정본(20260102000205) 기준. 최초 제출본 20251222000439. 합병변경계약 2025.12.12·2025.12.22(section 4).",
+  "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 비상장 보원케미칼, 소멸(피합병법인)은 코스닥 상장 SPAC. 합병가액은 시행령 176조의5(보원 본질가치, SPAC 기준주가 할인).",
+  "company.market은 신고 당시(비상장) 기준 '기타'. 현재 기업개황 corp_cls는 K(코스닥).",
+  "합병가액 요약·DCF 표가 '가. 합병등 가액' 구간(Source: 한미회계법인 Analysis)과 '나. 외부평가' 구간에 같은 값으로 두 번 나온다. 평가 주체는 한미회계법인 하나로 보고 앞 구간을 cite.",
+  "주식매수청구가격(회사제시): 합병법인 5,771원, 피합병법인 2,113원(section 3.3).",
+  "평가기준일 2024-12-31, 본질가치 분석기준일 2025-08-22, 합병비율 제출일 2025-08-29."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20260102000205",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 266,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260102000205",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 315,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260102000205",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 414,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260102000205",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3640,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260102000205",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 40613,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-26T15:32:01+09:00",
+ "extractor_version": "1.1"
+}

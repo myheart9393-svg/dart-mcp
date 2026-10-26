@@ -1,0 +1,460 @@
+{
+ "rcept_no": "20261021000443",
+ "original_rcept_no": "20260909000378",
+ "related_rcept_nos": [
+  "20260909000378"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01705573",
+  "name": "유캐스트",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 유진투자증권이 희망공모가액 19,000원~23,000원을 제시하고, 수요예측 결과 및 주식시장 상황 등을 감안하여 발행회사와 협의해 확정공모가액을 결정할 예정",
+  "cite": {
+   "section_id": "7",
+   "offset": 2094,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "유진투자증권㈜ (대표주관회사)",
+   "target": "유캐스트",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "알에프에이치아이씨(주)",
+      "value": {
+       "value": 37.65,
+       "unit": "배",
+       "text": "37.65배",
+       "cite": {
+        "section_id": "7",
+        "offset": 32084,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기말 LTM PER"
+     },
+     {
+      "name": "(주)쏠리드",
+      "value": {
+       "value": 9.66,
+       "unit": "배",
+       "text": "9.66배",
+       "cite": {
+        "section_id": "7",
+        "offset": 32093,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기말 LTM PER"
+     },
+     {
+      "name": "(주)인텔리안테크놀로지스",
+      "value": {
+       "value": 15.42,
+       "unit": "배",
+       "text": "15.42배",
+       "cite": {
+        "section_id": "7",
+        "offset": 32101,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기말 LTM PER"
+     },
+     {
+      "name": "와이어블(주)",
+      "value": {
+       "value": 9.16,
+       "unit": "배",
+       "text": "9.16배",
+       "cite": {
+        "section_id": "7",
+        "offset": 32110,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기말 LTM PER"
+     }
+    ],
+    "multiple": {
+     "value": 17.97,
+     "unit": "배",
+     "text": "17.97 배",
+     "cite": {
+      "section_id": "7",
+      "offset": 32652,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 10401,
+     "unit": "백만원",
+     "text": "10,401 백만원",
+     "cite": {
+      "section_id": "7",
+      "offset": 32526,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 26.48,
+      "unit": "%",
+      "text": "26.48%",
+      "cite": {
+       "section_id": "7",
+       "offset": 35663,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 39.27,
+      "unit": "%",
+      "text": "39.27%",
+      "cite": {
+       "section_id": "7",
+       "offset": 35654,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 31286,
+     "unit": "원",
+     "text": "31,286 원",
+     "cite": {
+      "section_id": "7",
+      "offset": 32678,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 19000,
+      "unit": "원",
+      "text": "19,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 35693,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 23000,
+      "unit": "원",
+      "text": "23,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 35703,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2028년 추정 당기순이익(16,406백만원)의 2026년 반기말 현가 x 유사기업 PER ÷ 주식수 x (1-할인율). 현가할인율(연) 20%(B = A ÷ 1.2^2.5). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. PBR·PSR·EV/EBITDA는 부적합으로 제외"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "유캐스트",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 31286,
+     "unit": "원",
+     "text": "31,286 원",
+     "cite": {
+      "section_id": "7",
+      "offset": 32678,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "유진투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 19000,
+      "unit": "원",
+      "text": "19,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 35693,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 23000,
+      "unit": "원",
+      "text": "23,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 35703,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 31,286원에 39.27%~26.48% 할인율을 적용해 희망공모가액 19,000원~23,000원을 제시. 확정공모가액은 수요예측 후 발행회사와 협의해 결정 예정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "유진투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "PBR",
+   "PSR",
+   "EV/EBITDA"
+  ],
+  "applied_earnings": {
+   "value": 10401,
+   "unit": "백만원",
+   "text": "10,401 백만원",
+   "cite": {
+    "section_id": "7",
+    "offset": 32526,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2028년 추정 당기순이익 16,406백만원을 연 20%로 2.5년 할인한 2026년 반기말 현가(추정치)",
+  "multiple": {
+   "value": 17.97,
+   "unit": "배",
+   "text": "17.97 배",
+   "cite": {
+    "section_id": "7",
+    "offset": 32652,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 5973910,
+   "unit": "주",
+   "text": "5,973,910 주",
+   "cite": {
+    "section_id": "7",
+    "offset": 32570,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 31286,
+   "unit": "원",
+   "text": "31,286 원",
+   "cite": {
+    "section_id": "7",
+    "offset": 32678,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 26.48,
+    "unit": "%",
+    "text": "26.48%",
+    "cite": {
+     "section_id": "7",
+     "offset": 35663,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 39.27,
+    "unit": "%",
+    "text": "39.27%",
+    "cite": {
+     "section_id": "7",
+     "offset": 35654,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 19000,
+    "unit": "원",
+    "text": "19,000원",
+    "cite": {
+     "section_id": "7",
+     "offset": 35693,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 23000,
+    "unit": "원",
+    "text": "23,000원",
+    "cite": {
+     "section_id": "7",
+     "offset": 35703,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "알에프에이치아이씨(주)",
+    "value": {
+     "value": 37.65,
+     "unit": "배",
+     "text": "37.65배",
+     "cite": {
+      "section_id": "7",
+      "offset": 32084,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기말 LTM PER"
+   },
+   {
+    "name": "(주)쏠리드",
+    "value": {
+     "value": 9.66,
+     "unit": "배",
+     "text": "9.66배",
+     "cite": {
+      "section_id": "7",
+      "offset": 32093,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기말 LTM PER"
+   },
+   {
+    "name": "(주)인텔리안테크놀로지스",
+    "value": {
+     "value": 15.42,
+     "unit": "배",
+     "text": "15.42배",
+     "cite": {
+      "section_id": "7",
+      "offset": 32101,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기말 LTM PER"
+   },
+   {
+    "name": "와이어블(주)",
+    "value": {
+     "value": 9.16,
+     "unit": "배",
+     "text": "9.16배",
+     "cite": {
+      "section_id": "7",
+      "offset": 32110,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기말 LTM PER"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260524–20261026, listed_only=False)에서 IPO/full로 확인. 원본 20260909000378, supersedes 20260909000378.",
+  "비교기업 PER: 기준주가(분석기준일 2026.09.02 종가·1주일·1개월 평균 중 최소) ÷ 2026년 반기말 LTM(2025.3Q~2026.2Q) 지배주주 당기순이익 기준 EPS. 산술평균 PER 17.97배.",
+  "현가할인율 20%는 주관사 판단. 참고: 2025년 이후 코스닥 기술특례상장기업 연 할인율 평균 19.19%(평균 할인기간 2.81년), 비교기업 4개사 WACC 평균 19.5%(Bloomberg, 2026.2분기말)(7, 주당 평가가액 산출 주3).",
+  "할인율 원문 표기 '39.27% ~ 26.48%'(하단 19,000원 ↔ 39.27%, 상단 23,000원 ↔ 26.48%). 참고: 2025년 이후 코스닥 기술특례상장 신규상장법인 평가액 대비 할인율 평균 하단 40.71%·상단 28.21%.",
+  "적용주식수 5,973,910주 = 기발행 5,064,910 + 미행사 주식매수선택권 45,000 + 공모 신주 800,000 + 상장주선인 의무인수 24,000 + 신주인수권 40,000(대표주관회사 취득).",
+  "코스닥시장 상장(2026.08.20 상장예비심사 승인). 확정공모가액은 이 정정본 시점 미정. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:14:21+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261021000443",
+   "file_id": "main",
+   "section_id": "4.1",
+   "title": null,
+   "chars_read": 1218,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261021000443",
+   "file_id": "main",
+   "section_id": "7.h1",
+   "title": null,
+   "chars_read": 2555,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261021000443",
+   "file_id": "main",
+   "section_id": "7.h10",
+   "title": null,
+   "chars_read": 7010,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261021000443",
+   "file_id": "main",
+   "section_id": "7.h2",
+   "title": null,
+   "chars_read": 3687,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261021000443",
+   "file_id": "main",
+   "section_id": "7.h7",
+   "title": null,
+   "chars_read": 1685,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261021000443",
+   "file_id": "main",
+   "section_id": "7.h9",
+   "title": null,
+   "chars_read": 1756,
+   "how": "section"
+  }
+ ]
+}

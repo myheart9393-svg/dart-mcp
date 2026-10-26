@@ -1,0 +1,469 @@
+{
+ "rcept_no": "20261015000345",
+ "original_rcept_no": "20260908000417",
+ "related_rcept_nos": [
+  "20260908000417",
+  "20261001000582"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01835829",
+  "name": "바로팜",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 미래에셋증권이 희망공모가액 16,400원~20,200원을 제시하고, 수요예측 결과 및 주식시장 상황 등을 감안하여 발행회사와 협의해 확정공모가액을 결정할 예정",
+  "cite": {
+   "section_id": "7",
+   "offset": 2124,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "미래에셋증권㈜ (대표주관회사)",
+   "target": "바로팜",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "M3, Inc.",
+      "value": {
+       "value": 24.53,
+       "unit": "배",
+       "text": "24.53",
+       "cite": {
+        "section_id": "7",
+        "offset": 75193,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 LTM PER"
+     },
+     {
+      "name": "Doximity, Inc.",
+      "value": {
+       "value": 27.81,
+       "unit": "배",
+       "text": "27.81",
+       "cite": {
+        "section_id": "7",
+        "offset": 75201,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 LTM PER"
+     },
+     {
+      "name": "Galenica AG",
+      "value": {
+       "value": 25.89,
+       "unit": "배",
+       "text": "25.89",
+       "cite": {
+        "section_id": "7",
+        "offset": 75209,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 LTM PER"
+     },
+     {
+      "name": "한미사이언스",
+      "value": {
+       "value": 22.84,
+       "unit": "배",
+       "text": "22.84",
+       "cite": {
+        "section_id": "7",
+        "offset": 75217,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 LTM PER"
+     }
+    ],
+    "multiple": {
+     "value": 25.27,
+     "unit": "배",
+     "text": "25.27배",
+     "cite": {
+      "section_id": "7",
+      "offset": 75991,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 12891,
+     "unit": "백만원",
+     "text": "12,891백만원",
+     "cite": {
+      "section_id": "7",
+      "offset": 75869,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 23.91,
+      "unit": "%",
+      "text": "23.91%",
+      "cite": {
+       "section_id": "7",
+       "offset": 80320,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 38.22,
+      "unit": "%",
+      "text": "38.22%",
+      "cite": {
+       "section_id": "7",
+       "offset": 80311,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 26547,
+     "unit": "원",
+     "text": "26,547원",
+     "cite": {
+      "section_id": "7",
+      "offset": 80282,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 16400,
+      "unit": "원",
+      "text": "16,400원",
+      "cite": {
+       "section_id": "7",
+       "offset": 80348,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20200,
+      "unit": "원",
+      "text": "20,200원",
+      "cite": {
+       "section_id": "7",
+       "offset": 80358,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2027·2028년 추정 당기순이익 현재가치 평균 x 유사기업 PER ÷ 주식수 x (1-할인율). 현가할인율(연) 20.0%(2027년 1.5년, 2028년 2.5년 할인). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. PBR·PSR·EV/EBITDA는 부적합으로 제외"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "바로팜",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 26547,
+     "unit": "원",
+     "text": "26,547원",
+     "cite": {
+      "section_id": "7",
+      "offset": 80282,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "미래에셋증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 16400,
+      "unit": "원",
+      "text": "16,400원",
+      "cite": {
+       "section_id": "7",
+       "offset": 80348,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20200,
+      "unit": "원",
+      "text": "20,200원",
+      "cite": {
+       "section_id": "7",
+       "offset": 80358,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 26,547원에 38.22%~23.91% 할인율을 적용해 희망공모가액 16,400원~20,200원을 제시. 확정공모가액은 수요예측 후 발행회사와 협의해 결정 예정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "미래에셋증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "PBR",
+   "PSR",
+   "EV/EBITDA"
+  ],
+  "applied_earnings": {
+   "value": 12891,
+   "unit": "백만원",
+   "text": "12,891백만원",
+   "cite": {
+    "section_id": "7",
+    "offset": 75869,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2027년(14,439백만원)·2028년(23,344백만원) 추정 당기순이익을 연 20.0%로 현가화한 평균(추정치)",
+  "multiple": {
+   "value": 25.27,
+   "unit": "배",
+   "text": "25.27배",
+   "cite": {
+    "section_id": "7",
+    "offset": 75991,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 12271430,
+   "unit": "주",
+   "text": "12,271,430주",
+   "cite": {
+    "section_id": "7",
+    "offset": 75916,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 26547,
+   "unit": "원",
+   "text": "26,547원",
+   "cite": {
+    "section_id": "7",
+    "offset": 80282,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 23.91,
+    "unit": "%",
+    "text": "23.91%",
+    "cite": {
+     "section_id": "7",
+     "offset": 80320,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 38.22,
+    "unit": "%",
+    "text": "38.22%",
+    "cite": {
+     "section_id": "7",
+     "offset": 80311,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 16400,
+    "unit": "원",
+    "text": "16,400원",
+    "cite": {
+     "section_id": "7",
+     "offset": 80348,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 20200,
+    "unit": "원",
+    "text": "20,200원",
+    "cite": {
+     "section_id": "7",
+     "offset": 80358,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "M3, Inc.",
+    "value": {
+     "value": 24.53,
+     "unit": "배",
+     "text": "24.53",
+     "cite": {
+      "section_id": "7",
+      "offset": 75193,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 LTM PER"
+   },
+   {
+    "name": "Doximity, Inc.",
+    "value": {
+     "value": 27.81,
+     "unit": "배",
+     "text": "27.81",
+     "cite": {
+      "section_id": "7",
+      "offset": 75201,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 LTM PER"
+   },
+   {
+    "name": "Galenica AG",
+    "value": {
+     "value": 25.89,
+     "unit": "배",
+     "text": "25.89",
+     "cite": {
+      "section_id": "7",
+      "offset": 75209,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 LTM PER"
+   },
+   {
+    "name": "한미사이언스",
+    "value": {
+     "value": 22.84,
+     "unit": "배",
+     "text": "22.84",
+     "cite": {
+      "section_id": "7",
+      "offset": 75217,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 LTM PER"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260518–20261026, listed_only=False)에서 IPO/full로 확인. 원본 20260908000417, supersedes 20260908000417·20261001000582.",
+  "비교기업 PER: 기준 시가총액(2026.09.25 기준 1개월·1주일 평균·기준일 종가 중 최저) ÷ 2026년 반기 LTM 지배주주 당기순이익. 평균 PER 25.27배.",
+  "현가할인율 20.0%는 주관사 판단. 참고: 유사기업 4개사 WACC 평균 14.77%(Bloomberg), 2024년 이후 코스닥 비바이오 특례상장 추정실적 활용기업 연 할인율 평균 19.71%(7, (3) 주당 평가가액 산출 주2).",
+  "할인율 원문 표기 '38.22% ~ 23.91%'(하단 16,400원 ↔ 38.22%, 상단 20,200원 ↔ 23.91%). 참고: 2022년~현재 코스닥 이익미실현 신규상장법인 평가액 대비 할인율 평균 상단 23.39%·하단 35.26%.",
+  "적용주식수 12,271,430주 = 기발행 10,114,417 + 공모 1,780,000 + 상장주선인 의무인수 53,400 + 신주인수권 89,000 + 주식매수선택권 234,613.",
+  "코스닥시장 상장(사업모델기업 특례). 확정공모가액은 이 정정본 시점 미정. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:11:06+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261015000345",
+   "file_id": "main",
+   "section_id": "7.h1",
+   "title": null,
+   "chars_read": 2586,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000345",
+   "file_id": "main",
+   "section_id": "7.h10",
+   "title": null,
+   "chars_read": 5409,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000345",
+   "file_id": "main",
+   "section_id": "7.h11",
+   "title": null,
+   "chars_read": 1655,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000345",
+   "file_id": "main",
+   "section_id": "7.h12",
+   "title": null,
+   "chars_read": 1380,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000345",
+   "file_id": "main",
+   "section_id": "7.h2",
+   "title": null,
+   "chars_read": 4222,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000345",
+   "file_id": "main",
+   "section_id": "7.h8",
+   "title": null,
+   "chars_read": 1947,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000345",
+   "file_id": "main",
+   "section_id": "7.h9",
+   "title": null,
+   "chars_read": 1717,
+   "how": "section"
+  }
+ ]
+}

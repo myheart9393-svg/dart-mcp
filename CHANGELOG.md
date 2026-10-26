@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.3.0 (2026-10-26)
+
+가치평가 사례 DB 채우기.
+
+- **스키마**: `valuations[].purpose`(필수), `dcf.target_dv`(D/(D+E)), `income_value`, `role="회사"`. `validate`가 범위 min > max도 오류로 잡는다.
+- **valuation.py**: `stats` CLI(거래 단위 대표값 — 외부평가기관 값 우선, 없으면 중앙값 — "N건 거래, M개 값", 사분위, 평가기관별 거래 수,
+  IPO 멀티플·할인율 분포), `filter_rows`(기본은 거래가액 평가만), `equity_kind`(증권신고서(지분증권) IPO/유상증자를 본문으로 판정:
+  corp_cls는 조회 시점이라 올해 상장한 IPO는 K·Y, 상장폐지 회사의 유상증자는 E로 온다), SPAC 제외, 유상증자는 kinds로 명시할 때만.
+  `EXTRACTOR_VERSION` 1.1. md 렌더러: 목적 열, 범위 양 끝 cite, 단위 중복("12.85x배")·None 표기 수정.
+- **casebuild.py (신규)**: 사례 JSON 작성 도우미(N/R/C/val — cite를 원문에서 앞으로 먼저 찾고 없으면 예외), 툴 호출 기록 CLI(`call`·`grep`·`usage`).
+- **batch.py (신규)**: `/dart-valuation-batch`의 큐(plan)·기록(record)·보고(report).
+- **커맨드**: `/dart-valuation-batch` 신규. `/dart-valuation`에 purpose·casebuild·범위 순서·D/E vs D/V 규칙, `/dart-valuation-search`에 목적 필터·거래 단위 통계.
+- **사례**: 2026-01-01–10-26 full 등급 166건 → 추출 86건 성공·실패 0, 제외 80건(유상증자 58·SPAC 15·판단 불가 4·기존 2·해외 직접공모 1).
+  무작위 20%(18건) 독립 리뷰 18건 PASS. 배치 후 정리: IPO 할인율 범위 역순 15건(값·cite 그대로 순서만), D/V 1건.
+
 ## v1.2.0 (2026-10-26)
 
 가치평가 사례 추출. 캐시 버전 7 → 8(옛 캐시는 저장된 ZIP으로 자동 재구성).

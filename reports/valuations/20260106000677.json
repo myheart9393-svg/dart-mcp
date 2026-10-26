@@ -1,0 +1,190 @@
+{
+ "rcept_no": "20260106000677",
+ "original_rcept_no": "20251215000395",
+ "related_rcept_nos": [
+  "20251215000401"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00350048",
+  "name": "오성첨단소재",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "(주)엔에스엠",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "합병회사가 피합병회사 보통주 5,977,681주(28.77%) 보유, 관계회사 에코볼트(48.14%)를 통해 간접 지배(특별관계자)",
+  "board_date": "2025-12-11",
+  "regime": "기준시가",
+  "ratio_text": "오성첨단소재(주) 보통주 : (주)엔에스엠 보통주 = 1 : 0.4440053"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "주권상장법인(코스닥)과 코넥스 상장법인 간 합병으로 기준시가를 합병가액으로 산정해 외부평가 받지 않음",
+  "basis_text": "주권상장법인 간 합병에 해당하여 「자본시장 및 금융투자업에 관한 법률」 제165조의4 및 동법 시행령 제176조의5 제1항 제1호에 의거하여 합병가액을 산정한 후, 이를 기초로 합병비율을 산출하였으므로, 외부평가기관의 평가는 받지 않았습니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5 제1항 제1호"
+  ],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 5439,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "오성첨단소재(주)·(주)엔에스엠(합병당사회사)",
+   "target": "오성첨단소재(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1518,
+     "unit": "원",
+     "text": "1,518",
+     "cite": {
+      "section_id": "5",
+      "offset": 2072,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "자본시장법 시행령 176조의5 ①1호 기준시가(최근 1개월 가중평균종가 1,509원·1주일 1,527원·최근일 종가 1,519원의 산술평균). 할인·할증 미적용. 기산일 2025-12-10"
+  },
+  {
+   "subject": "오성첨단소재(주)·(주)엔에스엠(합병당사회사)",
+   "target": "(주)엔에스엠",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 674,
+     "unit": "원",
+     "text": "674",
+     "cite": {
+      "section_id": "5",
+      "offset": 4068,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코넥스 상장. 기준시가(최근 1개월 가중평균종가 730원·1주일 658원·최근일 종가 634원의 산술평균). 할인·할증 미적용. 기산일 2025-12-10"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "오성첨단소재(주)",
+    "basis": "기준시가",
+    "value": {
+     "value": 1518,
+     "unit": "원",
+     "text": "1,518",
+     "cite": {
+      "section_id": "5",
+      "offset": 298,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)엔에스엠",
+    "basis": "기준시가",
+    "value": {
+     "value": 674,
+     "unit": "원",
+     "text": "674",
+     "cite": {
+      "section_id": "5",
+      "offset": 306,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.4440053,
+   "unit": null,
+   "text": "0.4440053",
+   "cite": {
+    "section_id": "5",
+    "offset": 325,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": null,
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "citations": [
+  {
+   "rcept_no": "20260106000677",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 3681,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260106000677",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 857,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260106000677",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 2810,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260106000677",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 5461,
+   "how": "section"
+  }
+ ],
+ "notes": [
+  "MCP 대신 직접 호출: dart_mcp.casebuild call로 서버 함수를 직접 불렀다.",
+  "기재정정본(20260106000677) 기준. 최초 제출 20251215000395, 중간 정정 20251224000727·20260106000621.",
+  "상장법인 간 합병(코스닥·코넥스)이라 기준시가만으로 합병가액 산정. 자산가치·수익가치·상대가치·DCF 가정은 원문에 없음(표에 '-').",
+  "valuations의 subject는 평가기관이 아니라 합병당사회사(기준시가 산정). 외부평가기관 '해당사항 없음'(3.4).",
+  "합병신주 6,569,947주, 모집가액 1,518원(3.4). 합병회사 보유 엔에스엠 주식에는 신주 미교부."
+ ],
+ "extracted_at": "2026-10-26T15:29:09+09:00",
+ "extractor_version": "1.1"
+}

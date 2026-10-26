@@ -1,0 +1,433 @@
+{
+ "rcept_no": "20261022000478",
+ "original_rcept_no": "20261022000478",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01860700",
+  "name": "인터엑스",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 한국투자증권이 주당 평가가액 16,314원에 38.70%~20.31% 할인율을 적용해 희망공모가액 10,000원~13,000원 제시, 수요예측 후 발행회사와 협의해 확정 예정",
+  "cite": {
+   "section_id": "6",
+   "offset": 52708,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한국투자증권㈜ (대표주관회사)",
+   "target": "인터엑스",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "엠아이큐브솔루션",
+      "value": {
+       "value": 19.31,
+       "unit": "배",
+       "text": "19.31",
+       "cite": {
+        "section_id": "6",
+        "offset": 42682,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 LTM PER"
+     },
+     {
+      "name": "슈어소프트테크",
+      "value": {
+       "value": 18.87,
+       "unit": "배",
+       "text": "18.87",
+       "cite": {
+        "section_id": "6",
+        "offset": 42690,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 LTM PER"
+     },
+     {
+      "name": "와이즈넛",
+      "value": {
+       "value": 18.79,
+       "unit": "배",
+       "text": "18.79",
+       "cite": {
+        "section_id": "6",
+        "offset": 42698,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 LTM PER"
+     }
+    ],
+    "multiple": {
+     "value": 18.99,
+     "unit": "배",
+     "text": "18.99",
+     "cite": {
+      "section_id": "6",
+      "offset": 43280,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 12669,
+     "unit": "백만원",
+     "text": "12,669",
+     "cite": {
+      "section_id": "6",
+      "offset": 43237,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 20.31,
+      "unit": "%",
+      "text": "20.31%",
+      "cite": {
+       "section_id": "6",
+       "offset": 49328,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 38.7,
+      "unit": "%",
+      "text": "38.70%",
+      "cite": {
+       "section_id": "6",
+       "offset": 49319,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": "EV/EBITDA(감가상각비 등 비현금성 비용이 많은 산업에 유용)·PBR(금융기관 아님, 고정자산 비중 작음)·PSR(수익성 배제, 왜곡 가능) 제외"
+   },
+   "result": {
+    "value": {
+     "value": 16314,
+     "unit": "원",
+     "text": "16,314",
+     "cite": {
+      "section_id": "6",
+      "offset": 43372,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 49351,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 49361,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2029년 추정 당기순이익 현재가치 x 비교대상회사 평균 PER ÷ 주식수 x (1-할인율). 추정이익 현가 할인율 연 20.0%(할인기간 3.25년), 기업가치 평가액 240,610백만원. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "인터엑스",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 16314,
+     "unit": "원",
+     "text": "16,314",
+     "cite": {
+      "section_id": "6",
+      "offset": 43372,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "한국투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 49351,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 49361,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 16,314원에 할인율 38.70%~20.31%를 적용해 희망공모가액 10,000원~13,000원 제시. 확정공모가액은 미정(수요예측 후 결정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "한국투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "EV/EBITDA",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 12669,
+   "unit": "백만원",
+   "text": "12,669",
+   "cite": {
+    "section_id": "6",
+    "offset": 43237,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "추정치(2029년 추정 당기순이익 22,914백만원을 연 할인율 20.0%, 할인기간 3.25년으로 현가화한 12,669백만원)",
+  "multiple": {
+   "value": 18.99,
+   "unit": "배",
+   "text": "18.99",
+   "cite": {
+    "section_id": "6",
+    "offset": 43280,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 14748955,
+   "unit": "주",
+   "text": "14,748,955",
+   "cite": {
+    "section_id": "6",
+    "offset": 43342,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 16314,
+   "unit": "원",
+   "text": "16,314",
+   "cite": {
+    "section_id": "6",
+    "offset": 43372,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 20.31,
+    "unit": "%",
+    "text": "20.31%",
+    "cite": {
+     "section_id": "6",
+     "offset": 49328,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 38.7,
+    "unit": "%",
+    "text": "38.70%",
+    "cite": {
+     "section_id": "6",
+     "offset": 49319,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 10000,
+    "unit": "원",
+    "text": "10,000원",
+    "cite": {
+     "section_id": "6",
+     "offset": 49351,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 13000,
+    "unit": "원",
+    "text": "13,000원",
+    "cite": {
+     "section_id": "6",
+     "offset": 49361,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "엠아이큐브솔루션",
+    "value": {
+     "value": 19.31,
+     "unit": "배",
+     "text": "19.31",
+     "cite": {
+      "section_id": "6",
+      "offset": 42682,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 LTM PER"
+   },
+   {
+    "name": "슈어소프트테크",
+    "value": {
+     "value": 18.87,
+     "unit": "배",
+     "text": "18.87",
+     "cite": {
+      "section_id": "6",
+      "offset": 42690,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 LTM PER"
+   },
+   {
+    "name": "와이즈넛",
+    "value": {
+     "value": 18.79,
+     "unit": "배",
+     "text": "18.79",
+     "cite": {
+      "section_id": "6",
+      "offset": 42698,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 LTM PER"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260525–20261026, listed_only=False)에서 IPO/full, 정정 아님, body_rcept_no=본 건, 짝 공시 없음.",
+  "코스닥 상장 공모(본문 '기술성장기업'·'기술특례상장기업' 비교). market은 공모 당시 비상장이라 '기타'. 공모 신주 3,000,000주.",
+  "PER 18.99배는 비교대상회사 3사(엠아이큐브솔루션·슈어소프트테크·와이즈넛) 2026년 2분기말 LTM 지배주주 순이익 기준 PER 산술평균. 분석기준일 2026.10.14, 기준주가 = Min(1개월 평균, 5거래일 평균, 기준일 종가).",
+  "2029년 추정 당기순이익 22,914백만원(중립 Base 시나리오)을 연 20.0%·3.25년 할인. 할인율은 2024년 이후 코스닥 기술평가기업 평균 할인율(20%)·평균 할인기간(2.7년) 참고(6.h9 주3).",
+  "참고: 비교기업 WACC 엠아이큐브솔루션 25.40%·슈어소프트테크 35.30%·와이즈넛 24.80%, 평균 28.50%(Bloomberg 2026.06.30, 6.h9 주4). 공모가 산정에 직접 쓰이지 않은 참고값이라 valuations에 넣지 않음.",
+  "적용 주식수 14,748,955주 = 기발행 11,508,955 + 공모 신주 3,000,000 + 상장주선인 의무인수 90,000(공모가 하단 기준) + 신주인수권 150,000 + 주식매수선택권 0.",
+  "평가액 대비 할인율은 2024년 이후 코스닥 기술특례상장기업 할인율(평균 하단 39.13%·상단 26.13%)을 참고.",
+  "DCF·WACC 등 절대가치 평가는 원문 없음(주관사 PER만). 외부평가기관 평가 없음.",
+  "배치 후 정리: 범위를 원문 표기 순서가 아니라 숫자 크기 순서(min ≤ max)로 바꿈(값·cite는 그대로)"
+ ],
+ "extracted_at": "2026-10-26T16:30:55+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261022000478",
+   "file_id": "main",
+   "section_id": "6.h1",
+   "title": "가. 평가결과",
+   "chars_read": 2617,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261022000478",
+   "file_id": "main",
+   "section_id": "6.h10",
+   "title": "(4) 희망공모가액 결정",
+   "chars_read": 4214,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261022000478",
+   "file_id": "main",
+   "section_id": "6.h11",
+   "title": "마. 추정 당기순이익 산정 내역",
+   "chars_read": 2291,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261022000478",
+   "file_id": "main",
+   "section_id": "6.h2",
+   "title": "나. 희망공모가액의 산출방법",
+   "chars_read": 3525,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261022000478",
+   "file_id": "main",
+   "section_id": "6.h8",
+   "title": "라. 희망공모가액 산출",
+   "chars_read": 1605,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261022000478",
+   "file_id": "main",
+   "section_id": "6.h9",
+   "title": "(2) 비교대상회사 PER 산출",
+   "chars_read": 6934,
+   "how": "section"
+  }
+ ]
+}

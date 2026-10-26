@@ -1,0 +1,881 @@
+{
+ "rcept_no": "20260521000516",
+ "original_rcept_no": "20260311003968",
+ "related_rcept_nos": [
+  "20260521000540",
+  "20260521000524"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00872984",
+  "name": "이마트",
+  "market": "유가증권",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "share_exchange",
+  "counterparty": "(주)신세계푸드",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "신세계 그룹 계열회사이며 (주)신세계푸드는 (주)이마트의 자회사(발행주식총수의 66.45% 소유)",
+  "board_date": "2026-03-10",
+  "regime": "기준시가",
+  "ratio_text": "(주)이마트 : (주)신세계푸드 = 1 : 0.5031313"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "주권상장법인 간 주식교환으로 기준시가 기초 교환비율 산출 → 자본시장법 시행령 제176조의6 제4항에 따라 외부평가기관 평가 불요",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 9592,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한울회계법인",
+   "target": "(주)이마트",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 369806,
+     "unit": "원",
+     "text": "369,806원",
+     "cite": {
+      "section_id": "5",
+      "offset": 17806,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 10205109,
+     "unit": "백만원",
+     "text": "10,205,109",
+     "cite": {
+      "section_id": "5",
+      "offset": 17735,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 9758842,
+     "unit": "백만원",
+     "text": "9,758,842",
+     "cite": {
+      "section_id": "5",
+      "offset": 16648,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 446267,
+     "unit": "백만원",
+     "text": "446,267",
+     "cite": {
+      "section_id": "5",
+      "offset": 16678,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 27595819,
+     "unit": "주",
+     "text": "27,595,819주",
+     "cite": {
+      "section_id": "5",
+      "offset": 17766,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 348145,
+      "unit": "원",
+      "text": "348,145",
+      "cite": {
+       "section_id": "5",
+       "offset": 15199,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 443064,
+      "unit": "원",
+      "text": "443,064",
+      "cite": {
+       "section_id": "5",
+       "offset": 15209,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 383431,
+    "unit": "원",
+    "text": "383,431원",
+    "cite": {
+     "section_id": "5",
+     "offset": 29059,
+     "file_id": "main"
+    }
+   },
+   "note": "(주)이마트 특별위원회 회계자문사. 시행세칙 제4조–제6조 본질가치(자산1:수익1.5). 본질가치 점값은 원문 없음(범위만). 자산가치 분석기준일 2026-03-03, 2025-12-31 별도재무상태표 자본총계에 조정(시장성 없는 주식 순자산 차이, 시장성 있는 주식 종가 차이, 자기주식 가산, 배당 차감). 법상 의무 아닌 자발적 검증용 평가."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)이마트",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일–2030년 12월 31일(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.3,
+     "unit": "%",
+     "text": "5.3%",
+     "cite": {
+      "section_id": "5",
+      "offset": 31402,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 31206,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 383431,
+     "unit": "원",
+     "text": "383,431원",
+     "cite": {
+      "section_id": "5",
+      "offset": 29059,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 333704,
+      "unit": "원",
+      "text": "333,704원",
+      "cite": {
+       "section_id": "5",
+       "offset": 29123,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 491902,
+      "unit": "원",
+      "text": "491,902원",
+      "cite": {
+       "section_id": "5",
+       "offset": 29091,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(2030년 세전영업이익 기준). 수익가치 10,581,102백만원 = 기업가치 18,766,653 - 이자발생부채 8,185,551(상품권 포함). 종속·관계기업 지분가치 10,462,556백만원은 외부평가법인의 K-IFRS 1036 손상검사보고서 평가금액·순자산장부금액 준용. WACC 구성(rf·β 등) 원문 없음. range는 민감도(WACC 4.3–6.3%, g -1.0–1.0%)의 최소·최대."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)신세계푸드",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 94692,
+     "unit": "원",
+     "text": "94,692원",
+     "cite": {
+      "section_id": "5",
+      "offset": 25027,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 366694,
+     "unit": "백만원",
+     "text": "366,694",
+     "cite": {
+      "section_id": "5",
+      "offset": 24960,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 357699,
+     "unit": "백만원",
+     "text": "357,699",
+     "cite": {
+      "section_id": "5",
+      "offset": 23916,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 8995,
+     "unit": "백만원",
+     "text": "8,995",
+     "cite": {
+      "section_id": "5",
+      "offset": 23944,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 3872480,
+     "unit": "주",
+     "text": "3,872,480주",
+     "cite": {
+      "section_id": "5",
+      "offset": 24988,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 143525,
+      "unit": "원",
+      "text": "143,525",
+      "cite": {
+       "section_id": "5",
+       "offset": 15219,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 223789,
+      "unit": "원",
+      "text": "223,789",
+      "cite": {
+       "section_id": "5",
+       "offset": 15229,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 222724,
+    "unit": "원",
+    "text": "222,724원",
+    "cite": {
+     "section_id": "5",
+     "offset": 29070,
+     "file_id": "main"
+    }
+   },
+   "note": "한울회계법인((주)이마트 특별위원회 회계자문사)의 신세계푸드 본질가치. 본질가치 점값은 원문 없음(범위만)."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)신세계푸드",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일–2030년 12월 31일(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 7.6,
+     "unit": "%",
+     "text": "7.6%",
+     "cite": {
+      "section_id": "5",
+      "offset": 36693,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 36499,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 222724,
+     "unit": "원",
+     "text": "222,724원",
+     "cite": {
+      "section_id": "5",
+      "offset": 29070,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 176080,
+      "unit": "원",
+      "text": "176,080원",
+      "cite": {
+       "section_id": "5",
+       "offset": 29134,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 309854,
+      "unit": "원",
+      "text": "309,854원",
+      "cite": {
+       "section_id": "5",
+       "offset": 29102,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형. 2025년 매각한 급식사업부 제외(계속사업 기준). 수익가치 862,494백만원 = 기업가치 1,028,584 - 이자발생부채 166,091. WACC 구성 원문 없음. range는 민감도(WACC 6.6–8.6%, g 0.0–2.0%)의 최소·최대."
+  },
+  {
+   "subject": "회계법인 숲",
+   "target": "(주)이마트",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일–2030년 12월 31일(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.4,
+     "unit": "%",
+     "text": "5.4%",
+     "cite": {
+      "section_id": "5",
+      "offset": 43355,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 43165,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 311621,
+     "unit": "원",
+     "text": "311,621",
+     "cite": {
+      "section_id": "5",
+      "offset": 39621,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 278478,
+      "unit": "원",
+      "text": "278,478",
+      "cite": {
+       "section_id": "5",
+       "offset": 39655,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 363950,
+      "unit": "원",
+      "text": "363,950",
+      "cite": {
+       "section_id": "5",
+       "offset": 39689,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "(주)신세계푸드 특별위원회 회계자문사. 이익접근법(DCF)만 적용, 본질가치법은 주된 방법론으로 채택하지 않고 자산가치는 참고(Appendix). 주식가치 8,347,820백만원 = 영업가치 5,997,840 + 비영업용자산 8,852,214 - 이자발생부채 6,502,234, 유통주식수 26,788,353주. range는 할인율·영구성장률 ±0.5%p 민감도. WACC 구성 원문 없음."
+  },
+  {
+   "subject": "회계법인 숲",
+   "target": "(주)신세계푸드",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일–2030년 12월 31일(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.7,
+     "unit": "%",
+     "text": "5.7%",
+     "cite": {
+      "section_id": "5",
+      "offset": 49675,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 49479,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 153345,
+     "unit": "원",
+     "text": "153,345",
+     "cite": {
+      "section_id": "5",
+      "offset": 39631,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 128787,
+      "unit": "원",
+      "text": "128,787",
+      "cite": {
+       "section_id": "5",
+       "offset": 39665,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 191035,
+      "unit": "원",
+      "text": "191,035",
+      "cite": {
+       "section_id": "5",
+       "offset": 39699,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "회계법인 숲의 신세계푸드 DCF. 주식가치 554,412백만원 = 영업가치 589,267 + 비영업용자산 240,267 - 이자발생부채 275,123, 유통주식수 3,615,451주. range는 ±0.5%p 민감도."
+  },
+  {
+   "subject": "(주)이마트",
+   "target": "(주)이마트",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 99757,
+     "unit": "원",
+     "text": "99,757",
+     "cite": {
+      "section_id": "5",
+      "offset": 6467,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-03-09. 1개월 가중평균 113,939원·1주일 92,931원·최근일 92,400원 산술평균, 할증률 0.0%."
+  },
+  {
+   "subject": "(주)이마트",
+   "target": "(주)신세계푸드",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 50191,
+     "unit": "원",
+     "text": "50,191",
+     "cite": {
+      "section_id": "5",
+      "offset": 8167,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준시가 48,729원(1개월 49,348원·1주일 48,938원·최근일 47,900원 산술평균)에 할증률 3.0% 적용한 교환가액. 할증은 신세계푸드 요청(최대 10%)에 이마트가 한울 적정 교환비율 상단(0.5050948)과 자기주식 소각계획 범위 내로 3.0%만 수용."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)이마트",
+    "basis": "기준시가(할증 0.0%) 교환가액",
+    "value": {
+     "value": 99757,
+     "unit": "원",
+     "text": "99,757",
+     "cite": {
+      "section_id": "5",
+      "offset": 136,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)신세계푸드",
+    "basis": "기준시가에 3.0% 할증한 교환가액",
+    "value": {
+     "value": 50191,
+     "unit": "원",
+     "text": "50,191",
+     "cite": {
+      "section_id": "5",
+      "offset": 270,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "한울회계법인 본질가치 기준 적정 교환비율 범위",
+    "subject": "한울회계법인",
+    "range": {
+     "min": {
+      "value": 0.4122559,
+      "unit": null,
+      "text": "0.4122559",
+      "cite": {
+       "section_id": "5",
+       "offset": 14727,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.5050948,
+      "unit": null,
+      "text": "0.5050948",
+      "cite": {
+       "section_id": "5",
+       "offset": 14739,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "회계법인 숲 이익접근법 기준 적정 교환비율 범위",
+    "subject": "회계법인 숲",
+    "range": {
+     "min": {
+      "value": 0.4624694,
+      "unit": null,
+      "text": "0.4624694",
+      "cite": {
+       "section_id": "5",
+       "offset": 14753,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.5248934,
+      "unit": null,
+      "text": "0.5248934",
+      "cite": {
+       "section_id": "5",
+       "offset": 14765,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.5031313,
+   "unit": null,
+   "text": "0.5031313",
+   "cite": {
+    "section_id": "5",
+    "offset": 292,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 52304490483,
+   "unit": "원",
+   "text": "52,304,490,483",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 263,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "할증 3.0% 적용 교환비율 1:0.5031313은 양사 특별위원회 회계자문사가 산출한 적정 범위(한울 0.4122559~0.5050948, 숲 0.4624694~0.5248934) 안에 있어 적정성이 검증된다고 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한울회계법인",
+   "target": "(주)이마트",
+   "variables": "WACC 4.3%–6.3%(1.0%p 간격), 영구성장률 -1.0%–1.0% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 333704,
+     "unit": "원",
+     "text": "333,704",
+     "cite": {
+      "section_id": "5",
+      "offset": 33758,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 491902,
+     "unit": "원",
+     "text": "491,902",
+     "cite": {
+      "section_id": "5",
+      "offset": 33696,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)신세계푸드",
+   "variables": "WACC 6.6%–8.6%(1.0%p 간격), 영구성장률 0.0%–2.0% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 176080,
+     "unit": "원",
+     "text": "176,080",
+     "cite": {
+      "section_id": "5",
+      "offset": 38386,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 309854,
+     "unit": "원",
+     "text": "309,854",
+     "cite": {
+      "section_id": "5",
+      "offset": 38324,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "회계법인 숲",
+   "target": "(주)이마트",
+   "variables": "WACC 4.9%–5.9%, 영구성장률 0.5%–1.5%(±0.5%p) — 주당가치",
+   "range": {
+    "min": {
+     "value": 278478,
+     "unit": "원",
+     "text": "278,478",
+     "cite": {
+      "section_id": "5",
+      "offset": 46827,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 363950,
+     "unit": "원",
+     "text": "363,950",
+     "cite": {
+      "section_id": "5",
+      "offset": 46765,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "회계법인 숲",
+   "target": "(주)신세계푸드",
+   "variables": "WACC 5.2%–6.2%, 영구성장률 0.5%–1.5%(±0.5%p) — 주당가치",
+   "range": {
+    "min": {
+     "value": 128787,
+     "unit": "원",
+     "text": "128,787",
+     "cite": {
+      "section_id": "5",
+      "offset": 51639,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 191035,
+     "unit": "원",
+     "text": "191,035",
+     "cite": {
+      "section_id": "5",
+      "offset": 51577,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20251222–20260620, listed_only=False): 20260521000516은 [첨부정정] 20260521000524 거래(full)의 body_rcept_no. 원본 20260311003968, supersedes 20260320000159·20260320000167·20260403002690·20260521000516, 짝 주요사항보고서 [기재정정] 20260521000540(summary).",
+  "법정 외부평가 없음. 양사 특별위원회가 각자 회계자문사(이마트: 한울회계법인 본질가치법, 신세계푸드: 회계법인 숲 DCF)를 선임해 자발적으로 교환비율 범위를 산정 → role=재무자문.",
+  "할증·할인 없는 기준시가 교환비율(자본시장법 준용)은 0.4884770(섹션 5 요약표). 최종 비율은 신세계푸드 기준시가 3.0% 할증 후 0.5031313.",
+  "WACC 구성요소(rf·MRP·β·Kd·세율·목표자본구조)는 섹션 5에 없음(rf 등 null). 한울 수익가치의 영구성장률은 회사별 0.0%~1.0% 적용(이마트 0.0%, 신세계푸드 1.0%).",
+  "transaction_value는 교부 자기주식 524,319주 × 모집가액 99,757원의 모집총액(섹션 3.4). 이마트 보유 신세계푸드 주식·자기주식에는 배정하지 않음.",
+  "섹션 4.h24 '(3)-2 회계법인 숲의 자산가치를 고려한 본질가치법 적용에 의한 검증'은 이 사례에 미수록(읽지 않음)."
+ ],
+ "extracted_at": "2026-10-26T15:45:55+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260521000516",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 1041,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260521000516",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1070,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260521000516",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
+   "chars_read": 53898,
+   "how": "section"
+  }
+ ]
+}

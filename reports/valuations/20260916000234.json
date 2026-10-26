@@ -1,0 +1,319 @@
+{
+ "rcept_no": "20260916000234",
+ "original_rcept_no": "20260713000275",
+ "related_rcept_nos": [
+  "20260713000275",
+  "20260804000332",
+  "20260825000319",
+  "20260825000476",
+  "20260825000494"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01801026",
+  "name": "브릴스",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 아이비케이투자증권이 희망공모가액 16,500원~19,500원을 바탕으로 수요예측을 실시하고 시장상황 등을 감안하여 발행회사와 협의해 1주당 확정공모가액을 19,500원으로 최종 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 152650,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "아이비케이투자증권㈜ (대표주관회사)",
+   "target": "브릴스",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PSR",
+    "peers": [],
+    "multiple": {
+     "value": 12.31,
+     "unit": "배",
+     "text": "12.31 배",
+     "cite": {
+      "section_id": "0",
+      "offset": 150738,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 26137,
+     "unit": "백만원",
+     "text": "26,137백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 150658,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 29.95,
+      "unit": "%",
+      "text": "29.95%",
+      "cite": {
+       "section_id": "0",
+       "offset": 150938,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 40.73,
+      "unit": "%",
+      "text": "40.73%",
+      "cite": {
+       "section_id": "0",
+       "offset": 150947,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 27837,
+     "unit": "원",
+     "text": "27,837원",
+     "cite": {
+      "section_id": "0",
+      "offset": 150890,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 16500,
+      "unit": "원",
+      "text": "16,500원",
+      "cite": {
+       "section_id": "0",
+       "offset": 157355,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 19500,
+      "unit": "원",
+      "text": "19,500원",
+      "cite": {
+       "section_id": "0",
+       "offset": 157365,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2026년 반기 LTM 매출액 x 유사기업 PSR ÷ 주식수 x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 유사기업 목록·개별 PSR은 이 정정본에서 '(중략)'으로 생략되어 peers 비움."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "브릴스",
+    "basis": "PSR 주당 평가가액(할인 전)",
+    "value": {
+     "value": 27837,
+     "unit": "원",
+     "text": "27,837원",
+     "cite": {
+      "section_id": "0",
+      "offset": 150890,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "브릴스",
+    "basis": "확정 주당 공모가액",
+    "value": {
+     "value": 19500,
+     "unit": "원",
+     "text": "19,500원",
+     "cite": {
+      "section_id": "0",
+      "offset": 152199,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "아이비케이투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 16500,
+      "unit": "원",
+      "text": "16,500원",
+      "cite": {
+       "section_id": "0",
+       "offset": 157355,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 19500,
+      "unit": "원",
+      "text": "19,500원",
+      "cite": {
+       "section_id": "0",
+       "offset": 157365,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 27,837원에 할인율 40.73%~29.95%를 적용한 희망공모가액 16,500원~19,500원 상단인 19,500원으로 확정공모가액 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "아이비케이투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PSR",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 26137,
+   "unit": "백만원",
+   "text": "26,137백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 150658,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2026년 반기 기준 직전 12개월(LTM) 매출액(실적치)",
+  "multiple": {
+   "value": 12.31,
+   "unit": "배",
+   "text": "12.31 배",
+   "cite": {
+    "section_id": "0",
+    "offset": 150738,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 11553449,
+   "unit": "주",
+   "text": "11,553,449주",
+   "cite": {
+    "section_id": "0",
+    "offset": 150811,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 27837,
+   "unit": "원",
+   "text": "27,837원",
+   "cite": {
+    "section_id": "0",
+    "offset": 150890,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 29.95,
+    "unit": "%",
+    "text": "29.95%",
+    "cite": {
+     "section_id": "0",
+     "offset": 150938,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 40.73,
+    "unit": "%",
+    "text": "40.73%",
+    "cite": {
+     "section_id": "0",
+     "offset": 150947,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 16500,
+    "unit": "원",
+    "text": "16,500원",
+    "cite": {
+     "section_id": "0",
+     "offset": 157355,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 19500,
+    "unit": "원",
+    "text": "19,500원",
+    "cite": {
+     "section_id": "0",
+     "offset": 157365,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260419–20261016, listed_only=False, 260건 2페이지)에서 이 rcept_no를 찾지 못해 문서명([발행조건확정]증권신고서(지분증권))과 본문 '희망공모가액'으로 IPO/full 판단. 원본 20260713000275, 기재정정 20260804000332·20260825000319·20260825000476, 첨부정정 20260825000494 (search_disclosures).",
+  "이 ZIP은 발행조건확정 정정본으로 본문이 정정 전/후 대비 블록만 들어 있어 outline이 섹션 0 하나(189,337자). cite는 모두 '(주9)~(주11) 정정 후' 블록.",
+  "유사기업 선정·개별 PSR((2) 유사기업 PSR 산출)은 이 정정본에 '(중략)'으로 없음. 필요하면 원본 20260713000275 또는 최종 기재정정본을 따로 추출.",
+  "할인율은 2023년 이후 코스닥 신규 일반상장법인 평가액 대비 할인율(평균 하단 33.92%, 상단 22.44%)을 참고. 정정 전후 평가가액·할인율·밴드는 동일하고 확정공모가 19,500원만 추가.",
+  "코스닥시장 상장. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:18:18+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260916000234",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문) — IV. 인수인의 의견 정정 전/후",
+   "chars_read": 14024,
+   "how": "search/section"
+  }
+ ]
+}

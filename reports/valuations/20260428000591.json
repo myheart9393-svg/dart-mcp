@@ -1,0 +1,185 @@
+{
+ "rcept_no": "20260428000591",
+ "original_rcept_no": "20260402003868",
+ "related_rcept_nos": [
+  "20260402003868",
+  "20260413002041",
+  "20260421000319",
+  "20260428000290"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00390365",
+  "name": "토비스",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2025-11-05",
+  "regime": null,
+  "ratio_text": "분할신설회사 주식 배정비율 1주당 0.3536822주, 분할회사 주식은 1주당 0.6463178주 비율로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2025년 6월 30일 재무상태표 기준 순자산 장부가액 비율로 분할비율 산정(외부평가기관 해당사항 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 260,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "토비스",
+   "target": "주식회사 네오뷰(가칭)",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 95557590110,
+     "unit": "원",
+     "text": "95,557,590,110원",
+     "cite": {
+      "section_id": "5",
+      "offset": 391,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 270179236732,
+     "unit": "원",
+     "text": "270,179,236,732원",
+     "cite": {
+      "section_id": "5",
+      "offset": 507,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-06-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.3536822,
+     "unit": null,
+     "text": "0.3536822",
+     "cite": {
+      "section_id": "5",
+      "offset": 483,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = 분할신설회사 순자산 장부가액 ÷ (분할 전 순자산 장부가액 + 분할 전 자기주식 0원). 1주의 금액비율 500원÷500원 = 1을 곱해 배정비율 0.3536822. asset_value.total은 분할신설회사 순자산 장부가액, equity_book은 분할 전 순자산 장부가액. result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음. 신주 5,276,175주."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 네오뷰(가칭)",
+    "basis": "분할신주 모집(매출)가액(모집총액 ÷ 주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 18111,
+     "unit": "원",
+     "text": "18,111",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 366,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.3536822,
+   "unit": null,
+   "text": "0.3536822",
+   "cite": {
+    "section_id": "5",
+    "offset": 483,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 95557590110,
+   "unit": "원",
+   "text": "95,557,590,110원",
+   "cite": {
+    "section_id": "5",
+    "offset": 391,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "순자산 장부가액 기준 분할비율 0.3536822. 분할회사 주주에게 1주당 0.3536822주 배정, 분할회사 주식은 1주당 0.6463178주로 병합",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20251129–20260528, listed_only=False): 분할/full, 기재정정, 원본 20260402003868, supersedes 20260413002041·20260421000319. 같은 기간 짝 주요사항보고서 [첨부정정]주요사항보고서(회사분할결정) 20260428000290(summary).",
+  "단순·인적분할로 외부평가기관 '해당사항 없음'(IV. 평가 및 신주배정 등). 가치평가(DCF·상대가치 등)는 없고 순자산 장부가액 비율만 있음.",
+  "conclusion.ratio는 분할비율(무단위), transaction_value는 분할신설회사 순자산(모집총액 95,557,590,110원). 신주 5,276,175주, 액면가 500원. 모집총액·가액은 분할기일 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주3).",
+  "이사회 결의일 2025-11-05, 분할주주총회 2026-06-02, 분할기일 2026-07-01(III. 주요일정). 분할신설회사는 차량용 전장 디스플레이, 존속회사는 카지노 디스플레이 등.",
+  "3.4 주1)의 '2025년 03월 12일' 재상장 예비심사 승인 통보일은 원문 표기 그대로(이사회 2025-11-05 이후라 2026년의 오기로 보임 — 추정)."
+ ],
+ "extracted_at": "2026-10-26T15:44:51+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260428000591",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 251,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260428000591",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1277,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260428000591",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 분할에 관한 기본사항",
+   "chars_read": 2426,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260428000591",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 2576,
+   "how": "section"
+  }
+ ]
+}

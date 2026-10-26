@@ -1,0 +1,440 @@
+{
+ "rcept_no": "20261020000375",
+ "original_rcept_no": "20261020000375",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01366675",
+  "name": "에이엔에이치스트럭쳐",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 NH투자증권이 희망공모가액 11,200원~13,600원 제시. 수요예측 결과 및 주식시장 상황 등을 감안해 발행회사와 협의하여 확정공모가액 결정 예정",
+  "cite": {
+   "section_id": "6",
+   "offset": 2191,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "NH투자증권㈜ (대표주관회사)",
+   "target": "에이엔에이치스트럭쳐",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "한화에어로스페이스",
+      "value": {
+       "value": 29.4,
+       "unit": "배",
+       "text": "29.40",
+       "cite": {
+        "section_id": "6",
+        "offset": 23628,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 연환산 지배주주순이익)"
+     },
+     {
+      "name": "엘아이지디펜스앤에어로스페이스",
+      "value": {
+       "value": 34.26,
+       "unit": "배",
+       "text": "34.26",
+       "cite": {
+        "section_id": "6",
+        "offset": 23637,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 연환산 지배주주순이익)"
+     },
+     {
+      "name": "퍼스텍",
+      "value": {
+       "value": 34.53,
+       "unit": "배",
+       "text": "34.53",
+       "cite": {
+        "section_id": "6",
+        "offset": 23646,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 연환산 지배주주순이익)"
+     }
+    ],
+    "multiple": {
+     "value": 32.73,
+     "unit": "배",
+     "text": "32.73",
+     "cite": {
+      "section_id": "6",
+      "offset": 24835,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 5671,
+     "unit": "백만원",
+     "text": "5,671",
+     "cite": {
+      "section_id": "6",
+      "offset": 24790,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 21.58,
+      "unit": "%",
+      "text": "21.58%",
+      "cite": {
+       "section_id": "6",
+       "offset": 30202,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 35.42,
+      "unit": "%",
+      "text": "35.42%",
+      "cite": {
+       "section_id": "6",
+       "offset": 30195,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 17342,
+     "unit": "원",
+     "text": "17,342",
+     "cite": {
+      "section_id": "6",
+      "offset": 24930,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 11200,
+      "unit": "원",
+      "text": "11,200원",
+      "cite": {
+       "section_id": "6",
+       "offset": 30231,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13600,
+      "unit": "원",
+      "text": "13,600원",
+      "cite": {
+       "section_id": "6",
+       "offset": 30239,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2028년 추정 당기순이익 8,547백만원을 연 할인율 20%로 2.25년 현가화(2026년 9월말, 5,671백만원) x 비교기업 평균 PER 32.73배 = 적용 시가총액 185,615백만원 ÷ 적용주식수 10,703,357주 = 17,342원, x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "에이엔에이치스트럭쳐",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 17342,
+     "unit": "원",
+     "text": "17,342",
+     "cite": {
+      "section_id": "6",
+      "offset": 24930,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "NH투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 11200,
+      "unit": "원",
+      "text": "11,200원",
+      "cite": {
+       "section_id": "6",
+       "offset": 30231,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13600,
+      "unit": "원",
+      "text": "13,600원",
+      "cite": {
+       "section_id": "6",
+       "offset": 30239,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 17,342원에 35.42%~21.58% 할인율을 적용해 희망공모가액 11,200원~13,600원 제시. 확정공모가액은 수요예측 후 결정(이 최초 신고서 기준 미정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "NH투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "PBR",
+   "PSR",
+   "EV/EBITDA"
+  ],
+  "applied_earnings": {
+   "value": 5671,
+   "unit": "백만원",
+   "text": "5,671",
+   "cite": {
+    "section_id": "6",
+    "offset": 24790,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2028년 추정 당기순이익 8,547백만원을 연 20%로 2026년 9월말까지 2.25년 현가화한 값(추정치)",
+  "multiple": {
+   "value": 32.73,
+   "unit": "배",
+   "text": "32.73",
+   "cite": {
+    "section_id": "6",
+    "offset": 24835,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 10703357,
+   "unit": "주",
+   "text": "10,703,357",
+   "cite": {
+    "section_id": "6",
+    "offset": 24895,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 17342,
+   "unit": "원",
+   "text": "17,342",
+   "cite": {
+    "section_id": "6",
+    "offset": 24930,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 21.58,
+    "unit": "%",
+    "text": "21.58%",
+    "cite": {
+     "section_id": "6",
+     "offset": 30202,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 35.42,
+    "unit": "%",
+    "text": "35.42%",
+    "cite": {
+     "section_id": "6",
+     "offset": 30195,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 11200,
+    "unit": "원",
+    "text": "11,200원",
+    "cite": {
+     "section_id": "6",
+     "offset": 30231,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 13600,
+    "unit": "원",
+    "text": "13,600원",
+    "cite": {
+     "section_id": "6",
+     "offset": 30239,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "한화에어로스페이스",
+    "value": {
+     "value": 29.4,
+     "unit": "배",
+     "text": "29.40",
+     "cite": {
+      "section_id": "6",
+      "offset": 23628,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 연환산 지배주주순이익)"
+   },
+   {
+    "name": "엘아이지디펜스앤에어로스페이스",
+    "value": {
+     "value": 34.26,
+     "unit": "배",
+     "text": "34.26",
+     "cite": {
+      "section_id": "6",
+      "offset": 23637,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 연환산 지배주주순이익)"
+   },
+   {
+    "name": "퍼스텍",
+    "value": {
+     "value": 34.53,
+     "unit": "배",
+     "text": "34.53",
+     "cite": {
+      "section_id": "6",
+      "offset": 23646,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 연환산 지배주주순이익)"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260523–20261026, listed_only=False)에서 IPO/full, 최초 제출(정정 없음), body_rcept_no=본 건, related_rcept_nos 없음.",
+  "평가 섹션은 IV. 인수인의 의견(§6, 141,732자). cite offset은 §6 텍스트 기준(공모가 산정 요약표·(2) 비교기업 PER 산출·(3) 주당 평가가액 산출·(4) 희망공모가액 결정 표).",
+  "비교기업 3사(한화에어로스페이스·엘아이지디펜스앤에어로스페이스·퍼스텍) 2026년 반기 연환산 PER 평균 32.73배, 적용주식수는 분석기준일(2026-10-06) 상장주식총수. 참고용 최근 12개월(25.7~26.6) 기준 평균 PER 33.19배(미적용). PBR·PSR·EV/EBITDA는 부적합 사유로 제외. 비교기업 선정 세부(6.h4~6.h6)는 읽지 않음.",
+  "연 할인율 20%는 주관사 판단값. 참고: 유사기업 3사 WACC 평균 18.79%(Bloomberg 2026.10.13; 한화에어로스페이스 15.81%·엘아이지디펜스앤에어로스페이스 17.79%·퍼스텍 22.76%), 2022년 이후 코스닥 기술성장기업 평균 연 할인율 21.0%·평균 할인기간 2.8년.",
+  "할인율 참고: 2022년 이후 코스닥 기술특례상장기업 평가액 대비 할인율 평균 하단 39.98%·상단 26.98%. 주관사는 기술평가 A등급(2개 기관)·방산 수주 확대를 들어 평균보다 낮게 책정.",
+  "적용주식수 10,703,357주 = 발행주식총수 8,165,057 + 신주모집 2,100,000 + 상장주선인 의무인수 63,000 + 상장 후 행사가능 주식매수선택권 265,000 + 상장주선인 신주인수권 110,300.",
+  "추정 손익계산서(6.h11~6.h13)는 읽지 않음. 확정공모가액은 이 최초 신고서에 '-'(미정). 코스닥 상장 공모, market은 공모 당시 비상장이라 '기타'.",
+  "배치 후 정리: 범위를 원문 표기 순서가 아니라 숫자 크기 순서(min ≤ max)로 바꿈(값·cite는 그대로)"
+ ],
+ "extracted_at": "2026-10-26T16:29:58+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261020000375",
+   "file_id": "main",
+   "section_id": "6.h1",
+   "title": "가. 평가결과",
+   "chars_read": 2689,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261020000375",
+   "file_id": "main",
+   "section_id": "6.h10",
+   "title": "(4) 희망공모가액 결정",
+   "chars_read": 5220,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261020000375",
+   "file_id": "main",
+   "section_id": "6.h2",
+   "title": "나. 희망공모가액의 산출방법",
+   "chars_read": 3228,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261020000375",
+   "file_id": "main",
+   "section_id": "6.h3",
+   "title": "(2) 비교평가모형의 한계",
+   "chars_read": 1536,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261020000375",
+   "file_id": "main",
+   "section_id": "6.h7",
+   "title": "라. 희망공모가액 산출",
+   "chars_read": 1444,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261020000375",
+   "file_id": "main",
+   "section_id": "6.h8",
+   "title": "(2) 비교기업 PER 산출",
+   "chars_read": 1449,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261020000375",
+   "file_id": "main",
+   "section_id": "6.h9",
+   "title": "(3) 주당 평가가액 산출",
+   "chars_read": 5423,
+   "how": "section"
+  }
+ ]
+}

@@ -44,6 +44,7 @@
    "subject": "삼성증권 주식회사",
    "target": "제논",
    "role": "주관사",
+   "purpose": "공모가",
    "method": "상대가치",
    "weights": null,
    "asset_value": null,
@@ -179,6 +180,7 @@
    "subject": "삼덕회계법인",
    "target": "제논",
    "role": "외부평가",
+   "purpose": "공정가치평가",
    "method": "DCF",
    "weights": null,
    "asset_value": null,
@@ -449,6 +451,6 @@
   "할인율 원문 표기는 '29.83% ~ 11.74%'(하단 공모가 9,700원 ↔ 29.83%, 상단 12,200원 ↔ 11.74%). discount_range는 min 11.74·max 29.83.",
   "베타 언급 없음(검색 0건). EV/EBITDA는 제외 사유 표에만 있다."
  ],
- "extracted_at": "2026-10-26T14:07:56+09:00",
- "extractor_version": "1.0"
+ "extracted_at": "2026-10-26T15:20:14+09:00",
+ "extractor_version": "1.1"
 }

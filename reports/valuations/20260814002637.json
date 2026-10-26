@@ -1,0 +1,2451 @@
+{
+ "rcept_no": "20260814002637",
+ "original_rcept_no": "20260701000674",
+ "related_rcept_nos": [
+  "20260811000467"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00787057",
+  "name": "휴맥스",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "주식회사 휴맥스홀딩스",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "휴맥스그룹 소속 계열회사. 합병회사 (주)휴맥스의 최대주주는 (주)휴맥스홀딩스(35.64%), 피합병회사 최대주주는 변대규(36.98%). 변대규·정창수 임원 겸직.",
+  "board_date": "2026-06-30",
+  "regime": "기준시가",
+  "ratio_text": "주식회사 휴맥스 : 주식회사 휴맥스홀딩스 = 1 : 0.9646707"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "코스닥 주권상장법인 간 합병으로 기준시가(시행령 176조의5 ①1)로 합병가액을 산정해 외부평가기관의 평가가 요구되지 않음. 요약 '외부평가기관: -'.",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 6251,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "주식회사 휴맥스·주식회사 휴맥스홀딩스(합병당사회사)",
+   "target": "주식회사 휴맥스",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 5659,
+     "unit": "원",
+     "text": "5,659",
+     "cite": {
+      "section_id": "5",
+      "offset": 3093,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-06-29. 1개월 가중평균 6,104원·1주일 5,383원·최근일 5,490원 산술평균, 할인·할증 없음(시행령 176조의5 ①1)."
+  },
+  {
+   "subject": "주식회사 휴맥스·주식회사 휴맥스홀딩스(합병당사회사)",
+   "target": "주식회사 휴맥스홀딩스",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 5459,
+     "unit": "원",
+     "text": "5,459",
+     "cite": {
+      "section_id": "5",
+      "offset": 4902,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-06-29. 1개월 가중평균 6,233원·1주일 5,004원·최근일 5,140원 산술평균, 할인·할증 없음."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1 : 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 19332,
+     "unit": "원",
+     "text": "19,332",
+     "cite": {
+      "section_id": "5",
+      "offset": 12963,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 83363,
+     "unit": "백만원",
+     "text": "83,363",
+     "cite": {
+      "section_id": "5",
+      "offset": 12815,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 96128,
+     "unit": "백만원",
+     "text": "96,128",
+     "cite": {
+      "section_id": "5",
+      "offset": 11608,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -12765,
+     "unit": "백만원",
+     "text": "(12,765)",
+     "cite": {
+      "section_id": "5",
+      "offset": 11645,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 4312142,
+     "unit": "주",
+     "text": "4,312,142",
+     "cite": {
+      "section_id": "5",
+      "offset": 12847,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 24349,
+      "unit": "원",
+      "text": "24,349",
+      "cite": {
+       "section_id": "5",
+       "offset": 60508,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 29654,
+      "unit": "원",
+      "text": "29,654",
+      "cite": {
+       "section_id": "5",
+       "offset": 60515,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 31209,
+    "unit": "원",
+    "text": "31,209",
+    "cite": {
+     "section_id": "5",
+     "offset": 25503,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(코스닥 상장법인 간 기준시가 합병). 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'(2025.12) 취지로 자발적으로 선임한 회계법인의 합병비율 적정성 검토라 role=재무자문. 휴맥스(합병존속회사) 측 선임, 양사 모두 평가. 수행기간 2026-05-29 ~ 2026-06-29. 수익가치는 사업부별 DCF 합산(SOTP), 본질가치는 범위로만 제시(수익가치 민감도 최소·최대 반영). 자산가치는 2025-12-31 연결 자본총계에서 비지배지분 등 조정(백만원)."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스홀딩스",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1 : 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 13871,
+     "unit": "원",
+     "text": "13,871",
+     "cite": {
+      "section_id": "5",
+      "offset": 12972,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 35128,
+     "unit": "백만원",
+     "text": "35,128",
+     "cite": {
+      "section_id": "5",
+      "offset": 12824,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 92614,
+     "unit": "백만원",
+     "text": "92,614",
+     "cite": {
+      "section_id": "5",
+      "offset": 11617,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -57487,
+     "unit": "백만원",
+     "text": "(57,487)",
+     "cite": {
+      "section_id": "5",
+      "offset": 11656,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 2532525,
+     "unit": "주",
+     "text": "2,532,525",
+     "cite": {
+      "section_id": "5",
+      "offset": 12859,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 23199,
+      "unit": "원",
+      "text": "23,199",
+      "cite": {
+       "section_id": "5",
+       "offset": 60542,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 29535,
+      "unit": "원",
+      "text": "29,535",
+      "cite": {
+       "section_id": "5",
+       "offset": 60549,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 33651,
+    "unit": "원",
+    "text": "33,651",
+    "cite": {
+     "section_id": "5",
+     "offset": 26577,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(코스닥 상장법인 간 기준시가 합병). 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'(2025.12) 취지로 자발적으로 선임한 회계법인의 합병비율 적정성 검토라 role=재무자문. 휴맥스(합병존속회사) 측 선임, 양사 모두 평가. 수행기간 2026-05-29 ~ 2026-06-29. 수익가치는 사업부별 DCF 합산(SOTP), 본질가치는 범위로만 제시(수익가치 민감도 최소·최대 반영). 자산가치는 2025-12-31 연결 자본총계에서 비지배지분 등 조정(백만원)."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스 게이트웨이사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 8.56,
+     "unit": "%",
+     "text": "8.56%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23960,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23244,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23301,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.4324,
+     "unit": null,
+     "text": "0.4324",
+     "cite": {
+      "section_id": "5",
+      "offset": 21497,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7427,
+     "unit": null,
+     "text": "0.7427",
+     "cite": {
+      "section_id": "5",
+      "offset": 21910,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23543,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 9.33,
+     "unit": "%",
+     "text": "9.33%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23629,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23703,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23873,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 30214,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 26365,
+     "unit": "원",
+     "text": "26,365",
+     "cite": {
+      "section_id": "5",
+      "offset": 25480,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 25929,
+      "unit": "원",
+      "text": "25,929",
+      "cite": {
+       "section_id": "5",
+       "offset": 25566,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 27073,
+      "unit": "원",
+      "text": "27,073",
+      "cite": {
+       "section_id": "5",
+       "offset": 25522,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 게이트웨이사업부 기여분(원). 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스 전장사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 9.51,
+     "unit": "%",
+     "text": "9.51%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23968,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23252,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23309,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.2769,
+     "unit": null,
+     "text": "0.2769",
+     "cite": {
+      "section_id": "5",
+      "offset": 21511,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7581,
+     "unit": null,
+     "text": "0.7581",
+     "cite": {
+      "section_id": "5",
+      "offset": 21925,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23551,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.47,
+     "unit": "%",
+     "text": "13.47%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23637,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23711,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23882,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 33968,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4620,
+     "unit": "원",
+     "text": "4,620",
+     "cite": {
+      "section_id": "5",
+      "offset": 25489,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2573,
+      "unit": "원",
+      "text": "2,573",
+      "cite": {
+       "section_id": "5",
+       "offset": 25575,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 7728,
+      "unit": "원",
+      "text": "7,728",
+      "cite": {
+       "section_id": "5",
+       "offset": 25531,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 전장사업부 기여분(원). 휴맥스 보유지분율 70.5% 반영 금액. 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스 EVCS사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 12.39,
+     "unit": "%",
+     "text": "12.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23976,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23260,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23317,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 1.0933,
+     "unit": null,
+     "text": "1.0933",
+     "cite": {
+      "section_id": "5",
+      "offset": 21527,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.0683,
+     "unit": null,
+     "text": "1.0683",
+     "cite": {
+      "section_id": "5",
+      "offset": 21942,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.0,
+     "unit": "%",
+     "text": "3.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23559,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.93,
+     "unit": "%",
+     "text": "14.93%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23646,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23719,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23891,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 38038,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 224,
+     "unit": "원",
+     "text": "224",
+     "cite": {
+      "section_id": "5",
+      "offset": 25497,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": -809,
+      "unit": "원",
+      "text": "(809)",
+      "cite": {
+       "section_id": "5",
+       "offset": 25583,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1734,
+      "unit": "원",
+      "text": "1,734",
+      "cite": {
+       "section_id": "5",
+       "offset": 25539,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 EVCS사업부 기여분(원). 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스홀딩스 IT사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 11.28,
+     "unit": "%",
+     "text": "11.28%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23985,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23268,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23325,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.5018,
+     "unit": null,
+     "text": "0.5018",
+     "cite": {
+      "section_id": "5",
+      "offset": 21551,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.6251,
+     "unit": null,
+     "text": "0.6251",
+     "cite": {
+      "section_id": "5",
+      "offset": 21966,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23567,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.41,
+     "unit": "%",
+     "text": "12.41%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23655,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23727,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23900,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 54557,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 14683,
+     "unit": "원",
+     "text": "14,683",
+     "cite": {
+      "section_id": "5",
+      "offset": 26562,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 12688,
+      "unit": "원",
+      "text": "12,688",
+      "cite": {
+       "section_id": "5",
+       "offset": 26682,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17635,
+      "unit": "원",
+      "text": "17,635",
+      "cite": {
+       "section_id": "5",
+       "offset": 26621,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스홀딩스 1주당 수익가치에 대한 IT사업부 기여분(원). 휴맥스홀딩스 보유지분율 반영 금액. 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스홀딩스 ESG사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 13.57,
+     "unit": "%",
+     "text": "13.57%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23994,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23276,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23333,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.7815,
+     "unit": null,
+     "text": "0.7815",
+     "cite": {
+      "section_id": "5",
+      "offset": 21566,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.8355,
+     "unit": null,
+     "text": "0.8355",
+     "cite": {
+      "section_id": "5",
+      "offset": 21981,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23575,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.09,
+     "unit": "%",
+     "text": "14.09%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23664,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23735,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23909,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 57845,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 889,
+     "unit": "원",
+     "text": "889",
+     "cite": {
+      "section_id": "5",
+      "offset": 26571,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 782,
+      "unit": "원",
+      "text": "782",
+      "cite": {
+       "section_id": "5",
+       "offset": 26691,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1034,
+      "unit": "원",
+      "text": "1,034",
+      "cite": {
+       "section_id": "5",
+       "offset": 26630,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스홀딩스 1주당 수익가치에 대한 ESG사업부 기여분(원). 휴맥스홀딩스 보유지분율 반영 금액. 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1 : 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 19332,
+     "unit": "원",
+     "text": "19,332",
+     "cite": {
+      "section_id": "5",
+      "offset": 68245,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 83363,
+     "unit": "백만원",
+     "text": "83,363",
+     "cite": {
+      "section_id": "5",
+      "offset": 68166,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 96129,
+     "unit": "백만원",
+     "text": "96,129",
+     "cite": {
+      "section_id": "5",
+      "offset": 66661,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -12766,
+     "unit": "백만원",
+     "text": "(12,766)",
+     "cite": {
+      "section_id": "5",
+      "offset": 66698,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 4312142,
+     "unit": "주",
+     "text": "4,312,142",
+     "cite": {
+      "section_id": "5",
+      "offset": 68198,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 24194,
+      "unit": "원",
+      "text": "24,194",
+      "cite": {
+       "section_id": "5",
+       "offset": 114391,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 29608,
+      "unit": "원",
+      "text": "29,608",
+      "cite": {
+       "section_id": "5",
+       "offset": 114398,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 31019,
+    "unit": "원",
+    "text": "31,019",
+    "cite": {
+     "section_id": "5",
+     "offset": 79704,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(코스닥 상장법인 간 기준시가 합병). 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'(2025.12) 취지로 자발적으로 선임한 회계법인의 합병비율 적정성 검토라 role=재무자문. 휴맥스홀딩스(합병소멸회사) 측 선임, 양사 모두 평가. 수행기간 2026-05-20 ~ 2026-06-29. 수익가치는 사업부별 DCF 합산(SOTP), 본질가치는 범위로만 제시(수익가치 민감도 최소·최대 반영). 자산가치는 2025-12-31 연결 자본총계에서 비지배지분 등 조정(백만원)."
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스홀딩스",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1 : 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 13870,
+     "unit": "원",
+     "text": "13,870",
+     "cite": {
+      "section_id": "5",
+      "offset": 68254,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 35127,
+     "unit": "백만원",
+     "text": "35,127",
+     "cite": {
+      "section_id": "5",
+      "offset": 68175,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 92614,
+     "unit": "백만원",
+     "text": "92,614",
+     "cite": {
+      "section_id": "5",
+      "offset": 66670,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -57487,
+     "unit": "백만원",
+     "text": "(57,487)",
+     "cite": {
+      "section_id": "5",
+      "offset": 66709,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 2532525,
+     "unit": "주",
+     "text": "2,532,525",
+     "cite": {
+      "section_id": "5",
+      "offset": 68210,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 23166,
+      "unit": "원",
+      "text": "23,166",
+      "cite": {
+       "section_id": "5",
+       "offset": 114425,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 29488,
+      "unit": "원",
+      "text": "29,488",
+      "cite": {
+       "section_id": "5",
+       "offset": 114432,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 33587,
+    "unit": "원",
+    "text": "33,587",
+    "cite": {
+     "section_id": "5",
+     "offset": 80809,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(코스닥 상장법인 간 기준시가 합병). 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'(2025.12) 취지로 자발적으로 선임한 회계법인의 합병비율 적정성 검토라 role=재무자문. 휴맥스홀딩스(합병소멸회사) 측 선임, 양사 모두 평가. 수행기간 2026-05-20 ~ 2026-06-29. 수익가치는 사업부별 DCF 합산(SOTP), 본질가치는 범위로만 제시(수익가치 민감도 최소·최대 반영). 자산가치는 2025-12-31 연결 자본총계에서 비지배지분 등 조정(백만원)."
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스 게이트웨이사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 8.56,
+     "unit": "%",
+     "text": "8.56%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78119,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77444,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77501,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.4324,
+     "unit": null,
+     "text": "0.4324",
+     "cite": {
+      "section_id": "5",
+      "offset": 77572,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7427,
+     "unit": null,
+     "text": "0.7427",
+     "cite": {
+      "section_id": "5",
+      "offset": 77648,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77723,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 9.33,
+     "unit": "%",
+     "text": "9.33%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77794,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77867,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78037,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 84425,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 26238,
+     "unit": "원",
+     "text": "26,238",
+     "cite": {
+      "section_id": "5",
+      "offset": 79681,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 25801,
+      "unit": "원",
+      "text": "25,801",
+      "cite": {
+       "section_id": "5",
+       "offset": 79767,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 26951,
+      "unit": "원",
+      "text": "26,951",
+      "cite": {
+       "section_id": "5",
+       "offset": 79723,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 게이트웨이사업부 기여분(원). 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스 전장사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 9.51,
+     "unit": "%",
+     "text": "9.51%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78127,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77452,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77509,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.2769,
+     "unit": null,
+     "text": "0.2769",
+     "cite": {
+      "section_id": "5",
+      "offset": 77581,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7581,
+     "unit": null,
+     "text": "0.7581",
+     "cite": {
+      "section_id": "5",
+      "offset": 77657,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77731,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.47,
+     "unit": "%",
+     "text": "13.47%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77802,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77875,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78046,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 88142,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4515,
+     "unit": "원",
+     "text": "4,515",
+     "cite": {
+      "section_id": "5",
+      "offset": 79690,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2461,
+      "unit": "원",
+      "text": "2,461",
+      "cite": {
+       "section_id": "5",
+       "offset": 79776,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 7639,
+      "unit": "원",
+      "text": "7,639",
+      "cite": {
+       "section_id": "5",
+       "offset": 79732,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 전장사업부 기여분(원). 휴맥스 보유지분율 70.5% 반영 금액. 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스 EVCS사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 12.39,
+     "unit": "%",
+     "text": "12.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78135,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77460,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77517,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 1.0933,
+     "unit": null,
+     "text": "1.0933",
+     "cite": {
+      "section_id": "5",
+      "offset": 77590,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.0683,
+     "unit": null,
+     "text": "1.0683",
+     "cite": {
+      "section_id": "5",
+      "offset": 77666,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.0,
+     "unit": "%",
+     "text": "3.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77739,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.93,
+     "unit": "%",
+     "text": "14.93%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77811,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77883,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78055,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 92138,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 266,
+     "unit": "원",
+     "text": "266",
+     "cite": {
+      "section_id": "5",
+      "offset": 79698,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": -826,
+      "unit": "원",
+      "text": "(826)",
+      "cite": {
+       "section_id": "5",
+       "offset": 79784,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1868,
+      "unit": "원",
+      "text": "1,868",
+      "cite": {
+       "section_id": "5",
+       "offset": 79740,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 EVCS사업부 기여분(원). 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스홀딩스 IT사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 11.28,
+     "unit": "%",
+     "text": "11.28%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78144,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77468,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77525,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.5018,
+     "unit": null,
+     "text": "0.5018",
+     "cite": {
+      "section_id": "5",
+      "offset": 77599,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.6251,
+     "unit": null,
+     "text": "0.6251",
+     "cite": {
+      "section_id": "5",
+      "offset": 77675,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77747,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.41,
+     "unit": "%",
+     "text": "12.41%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77820,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.91,
+     "unit": "%",
+     "text": "9.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77891,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78064,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108471,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 14890,
+     "unit": "원",
+     "text": "14,890",
+     "cite": {
+      "section_id": "5",
+      "offset": 80794,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 12927,
+      "unit": "원",
+      "text": "12,927",
+      "cite": {
+       "section_id": "5",
+       "offset": 80912,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17788,
+      "unit": "원",
+      "text": "17,788",
+      "cite": {
+       "section_id": "5",
+       "offset": 80853,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스홀딩스 1주당 수익가치에 대한 IT사업부 기여분(원). 휴맥스홀딩스 보유지분율 반영 금액. 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스홀딩스 ESG사업부",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026~2030년(5년)",
+    "base_date": null,
+    "wacc": {
+     "value": 13.6,
+     "unit": "%",
+     "text": "13.60%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78153,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77476,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77533,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.7815,
+     "unit": null,
+     "text": "0.7815",
+     "cite": {
+      "section_id": "5",
+      "offset": 77608,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.8355,
+     "unit": null,
+     "text": "0.8355",
+     "cite": {
+      "section_id": "5",
+      "offset": 77684,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77755,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.09,
+     "unit": "%",
+     "text": "14.09%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77829,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.81,
+     "unit": "%",
+     "text": "9.81%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77899,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 78073,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111784,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 732,
+     "unit": "원",
+     "text": "732",
+     "cite": {
+      "section_id": "5",
+      "offset": 80803,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 643,
+      "unit": "원",
+      "text": "643",
+      "cite": {
+       "section_id": "5",
+       "offset": 80921,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 850,
+      "unit": "원",
+      "text": "850",
+      "cite": {
+       "section_id": "5",
+       "offset": 80862,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스홀딩스 1주당 수익가치에 대한 ESG사업부 기여분(원). 휴맥스홀딩스 보유지분율 반영 금액. 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 휴맥스",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 5659,
+     "unit": "원",
+     "text": "5,659",
+     "cite": {
+      "section_id": "5",
+      "offset": 310,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "주식회사 휴맥스홀딩스",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 5459,
+     "unit": "원",
+     "text": "5,459",
+     "cite": {
+      "section_id": "5",
+      "offset": 318,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "이촌회계법인 본질가치 기준 합병비율 적정범위",
+    "subject": "이촌회계법인",
+    "range": {
+     "min": {
+      "value": 0.9528006,
+      "unit": null,
+      "text": "0.9528006",
+      "cite": {
+       "section_id": "5",
+       "offset": 60587,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.995981,
+      "unit": null,
+      "text": "0.995981",
+      "cite": {
+       "section_id": "5",
+       "offset": 60601,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "보현회계법인 본질가치 기준 합병비율 적정범위",
+    "subject": "보현회계법인",
+    "range": {
+     "min": {
+      "value": 0.95751,
+      "unit": null,
+      "text": "0.957510",
+      "cite": {
+       "section_id": "5",
+       "offset": 114471,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.995947,
+      "unit": null,
+      "text": "0.995947",
+      "cite": {
+       "section_id": "5",
+       "offset": 114486,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.9646707,
+   "unit": null,
+   "text": "0.9646707",
+   "cite": {
+    "section_id": "5",
+    "offset": 339,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 13249490267,
+   "unit": "원",
+   "text": "13,249,490,267",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 267,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "기준시가 합병비율 1:0.9646707이 이촌(1:0.9528006~1:0.995981)·보현(1:0.957510~1:0.995947) 회계법인의 본질가치 기준 적정범위 안에 포함되어 합병비율이 적정하다고 판단(합병당사회사).",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스 게이트웨이사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": 25929,
+     "unit": "원",
+     "text": "25,929",
+     "cite": {
+      "section_id": "5",
+      "offset": 30162,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 27073,
+     "unit": "원",
+     "text": "27,073",
+     "cite": {
+      "section_id": "5",
+      "offset": 30173,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스 전장사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": 2573,
+     "unit": "원",
+     "text": "2,573",
+     "cite": {
+      "section_id": "5",
+      "offset": 33918,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 7728,
+     "unit": "원",
+     "text": "7,728",
+     "cite": {
+      "section_id": "5",
+      "offset": 33928,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스 EVCS사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": -809,
+     "unit": "원",
+     "text": "△809",
+     "cite": {
+      "section_id": "5",
+      "offset": 37988,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1734,
+     "unit": "원",
+     "text": "1,734",
+     "cite": {
+      "section_id": "5",
+      "offset": 37997,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스홀딩스 IT사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": 12688,
+     "unit": "원",
+     "text": "12,688",
+     "cite": {
+      "section_id": "5",
+      "offset": 54504,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 17635,
+     "unit": "원",
+     "text": "17,635",
+     "cite": {
+      "section_id": "5",
+      "offset": 54515,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 휴맥스홀딩스 ESG사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": 782,
+     "unit": "원",
+     "text": "782",
+     "cite": {
+      "section_id": "5",
+      "offset": 57797,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1034,
+     "unit": "원",
+     "text": "1034",
+     "cite": {
+      "section_id": "5",
+      "offset": 57805,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스 게이트웨이사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": 25852,
+     "unit": "원",
+     "text": "25,852",
+     "cite": {
+      "section_id": "5",
+      "offset": 84373,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 27002,
+     "unit": "원",
+     "text": "27,002",
+     "cite": {
+      "section_id": "5",
+      "offset": 84384,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스 전장사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": 2461,
+     "unit": "원",
+     "text": "2,461",
+     "cite": {
+      "section_id": "5",
+      "offset": 88092,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 7639,
+     "unit": "원",
+     "text": "7,639",
+     "cite": {
+      "section_id": "5",
+      "offset": 88102,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스 EVCS사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": -826,
+     "unit": "원",
+     "text": "△826",
+     "cite": {
+      "section_id": "5",
+      "offset": 92088,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1868,
+     "unit": "원",
+     "text": "1,868",
+     "cite": {
+      "section_id": "5",
+      "offset": 92097,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스홀딩스 IT사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": 12927,
+     "unit": "원",
+     "text": "12,927",
+     "cite": {
+      "section_id": "5",
+      "offset": 108418,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 17788,
+     "unit": "원",
+     "text": "17,788",
+     "cite": {
+      "section_id": "5",
+      "offset": 108429,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "주식회사 휴맥스홀딩스 ESG사업부",
+   "variables": "WACC ±1.0%p(0.5%p 간격) × 영구성장률 5단계 — 1주당 수익가치(사업부 기여분)",
+   "range": {
+    "min": {
+     "value": 643,
+     "unit": "원",
+     "text": "643",
+     "cite": {
+      "section_id": "5",
+      "offset": 111738,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 850,
+     "unit": "원",
+     "text": "850",
+     "cite": {
+      "section_id": "5",
+      "offset": 111746,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260317–20260913, listed_only=False)에서 이 rcept_no가 body_rcept_no인 거래 확인. 원본 20260701000674, supersedes 20260722000508·20260723000640·20260731000416·20260805000241·20260811000487·20260814002593(첨부정정, attachment_rcept_no). 짝 공시 20260811000467([기재정정]주요사항보고서(회사합병결정)).",
+  "합병가액은 양사 기준시가(할인·할증 없음). 법정 외부평가 없음. 이촌회계법인(휴맥스 측)·보현회계법인(휴맥스홀딩스 측)이 각각 양사를 본질가치(1:1.5)로 평가한 자발적 적정성 검토를 role=재무자문으로 수록. 수익가치는 사업부별(게이트웨이·전장·EVCS·IT·ESG) DCF 합산이라 DCF 원소는 사업부 단위로 나눔. 홀딩스의 게이트웨이·전장·EVCS 기여분(지분율 35.6% 반영)은 휴맥스 사업부와 가정이 같아 DCF 원소를 따로 두지 않음(본질가치 원소의 수익가치에 포함).",
+  "원문 불일치: 이촌 WACC 표 ESG 13.57% vs 민감도 본문 기준값 13.56%. 이촌 표 베타는 %(43.24% 등)로 표기돼 본문 소수 표기(0.4324 등)를 씀. 보현 WACC 표 ESG 타인자본비용 9.81%(다른 열·본문 9.905%). 보현 본문 무위험이자율 3.385%(표 3.39%).",
+  "원문 불일치: 보현 휴맥스 게이트웨이 민감도 본문은 최소 25,852원~최대 27,002원(기준값 26,290원)이나 수익가치 결과표는 25,801~26,951원(26,238원). 보현의 홀딩스 지분 게이트웨이·전장·EVCS 민감도 본문이 휴맥스 직접 평가 값과 동일하게 기재됨. 이촌 결과표 휴맥스 수익가치 합계 134,577백만원 vs 본문 134,557백만원. valuations.result.range는 결과표, sensitivity는 민감도 본문 값.",
+  "보현 종합의견 본문은 기준시가 합병비율을 1 : 0.96467로 반올림 표기.",
+  "대용기업(peers) 목록은 추출하지 않음(Bloomberg 동종기업 조정 베타, 섹션 5 각 사업부 수익가치 개요에 있음).",
+  "transaction_value는 합병신주 모집총액(2,341,313주 × 5,659원, 섹션 3.4). 특별위원회(각사 사외이사 등 3인)·법률전문가(광장·클라스한결) 검토는 섹션 4에 있음(미수록)."
+ ],
+ "extracted_at": "2026-10-26T16:05:59+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260814002637",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 5681,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260814002637",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1822,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260814002637",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 56854,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

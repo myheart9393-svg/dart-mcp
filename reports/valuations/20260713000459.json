@@ -1,0 +1,2024 @@
+{
+ "rcept_no": "20260713000459",
+ "original_rcept_no": "20260625000630",
+ "related_rcept_nos": [
+  "20260626000005"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00113526",
+  "name": "대한항공",
+  "market": "유가증권",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "아시아나항공(주)",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "계열회사 간 흡수합병. 합병존속회사 (주)대한항공이 합병소멸회사 아시아나항공(주) 지분 63.88% 보유(종속기업).",
+  "board_date": "2026-05-13",
+  "regime": "기준시가",
+  "ratio_text": "(주)대한항공 : 아시아나항공(주) = 1 : 0.2736432"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "유가증권시장 주권상장법인 간 합병으로 기준시가(시행령 176조의5 ①1)로 합병가액을 산정해 외부평가 의무 없음(같은 조 ⑧1). 증권신고서 요약 '외부평가기관: 해당사항 없음'.",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 5624,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "(주)대한항공·아시아나항공(주)(합병당사회사)",
+   "target": "(주)대한항공",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 25409,
+     "unit": "원",
+     "text": "25,409",
+     "cite": {
+      "section_id": "5",
+      "offset": 2266,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-05-12. 1개월 가중평균 25,345원·1주일 26,032원·최근일 24,850원 산술평균, 할인·할증 없음(시행령 176조의5 ①1)."
+  },
+  {
+   "subject": "(주)대한항공·아시아나항공(주)(합병당사회사)",
+   "target": "아시아나항공(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6953,
+     "unit": "원",
+     "text": "6,953",
+     "cite": {
+      "section_id": "5",
+      "offset": 4218,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-05-12. 1개월 가중평균 7,063원·1주일 6,987원·최근일 6,810원 산술평균, 할인·할증 없음."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)대한항공",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 24265,
+     "unit": "원",
+     "text": "24,265",
+     "cite": {
+      "section_id": "5",
+      "offset": 26248,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11187861262069,
+     "unit": "원",
+     "text": "11,187,861,262,069",
+     "cite": {
+      "section_id": "5",
+      "offset": 26536,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -2227292456247,
+     "unit": "원",
+     "text": "(2,227,292,456,247)",
+     "cite": {
+      "section_id": "5",
+      "offset": 26576,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 8960568805822,
+     "unit": "원",
+     "text": "8,960,568,805,822",
+     "cite": {
+      "section_id": "5",
+      "offset": 27660,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 368220661,
+     "unit": "주",
+     "text": "368,220,661",
+     "cite": {
+      "section_id": "5",
+      "offset": 26424,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 25811,
+     "unit": "원",
+     "text": "25,811",
+     "cite": {
+      "section_id": "5",
+      "offset": 25568,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 22891,
+      "unit": "원",
+      "text": "22,891",
+      "cite": {
+       "section_id": "5",
+       "offset": 24976,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 29298,
+      "unit": "원",
+      "text": "29,298",
+      "cite": {
+       "section_id": "5",
+       "offset": 24985,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 26842,
+    "unit": "원",
+    "text": "26,842",
+    "cite": {
+     "section_id": "5",
+     "offset": 43448,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 '기업 조직개편시 이사의 행위규범 가이드라인' 취지로 ESG위원회(특별위원회 기능)가 자발적으로 선임한 회계자문사의 본질가치 기준 합병비율 적정성 보충 검토. 대한항공 ESG위원회 선임. 기준시가 기산일 2026-05-11(25,784원·7,036원, 비율 1:0.2728824). 자산가치 분석기준일 2026-05-06. 본질가치 범위는 WACC ±0.5%(g 1.0%) 민감도."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)대한항공",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 6.4,
+     "unit": "%",
+     "text": "6.4%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17803,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17511,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17540,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.49,
+     "unit": null,
+     "text": "0.49",
+     "cite": {
+      "section_id": "5",
+      "offset": 17575,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.89,
+     "unit": null,
+     "text": "0.89",
+     "cite": {
+      "section_id": "5",
+      "offset": 17662,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": -0.36,
+     "unit": "%",
+     "text": "-0.36%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17716,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 10.1,
+     "unit": "%",
+     "text": "10.1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17687,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.6,
+     "unit": "%",
+     "text": "3.6%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17750,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 27.5,
+     "unit": "%",
+     "text": "27.5%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17627,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 112.9,
+     "unit": "%",
+     "text": "112.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17600,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 45615,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 26842,
+     "unit": "원",
+     "text": "26,842",
+     "cite": {
+      "section_id": "5",
+      "offset": 43448,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 21976,
+      "unit": "원",
+      "text": "21,976",
+      "cite": {
+       "section_id": "5",
+       "offset": 25053,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 32653,
+      "unit": "원",
+      "text": "32,653",
+      "cite": {
+       "section_id": "5",
+       "offset": 25062,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 영업가치 14,410,514백만원, 종속·관계기업 지분가치 4,342,795백만원(아시아나 63.88%는 DCF 준용), 비영업자산 8,547,927백만원, 이자발생부채(우선주 포함) 17,417,493백만원. Kd(리스) 2.4%는 별도. 원문 '목표자본구조 112.9%'를 target_de로 옮김(D/E로 명시되지 않음)."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "아시아나항공(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 284,
+     "unit": "원",
+     "text": "284",
+     "cite": {
+      "section_id": "5",
+      "offset": 33461,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 228402608855,
+     "unit": "원",
+     "text": "228,402,608,855",
+     "cite": {
+      "section_id": "5",
+      "offset": 33803,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -169880152939,
+     "unit": "원",
+     "text": "(169,880,152,939)",
+     "cite": {
+      "section_id": "5",
+      "offset": 33840,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 58522455916,
+     "unit": "원",
+     "text": "58,522,455,916",
+     "cite": {
+      "section_id": "5",
+      "offset": 34901,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 205990711,
+     "unit": "주",
+     "text": "205,990,711",
+     "cite": {
+      "section_id": "5",
+      "offset": 33595,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7254,
+     "unit": "원",
+     "text": "7,254",
+     "cite": {
+      "section_id": "5",
+      "offset": 25614,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 5633,
+      "unit": "원",
+      "text": "5,633",
+      "cite": {
+       "section_id": "5",
+       "offset": 24994,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 9126,
+      "unit": "원",
+      "text": "9,126",
+      "cite": {
+       "section_id": "5",
+       "offset": 25002,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 11901,
+    "unit": "원",
+    "text": "11,901",
+    "cite": {
+     "section_id": "5",
+     "offset": 43457,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 '기업 조직개편시 이사의 행위규범 가이드라인' 취지로 ESG위원회(특별위원회 기능)가 자발적으로 선임한 회계자문사의 본질가치 기준 합병비율 적정성 보충 검토. 대한항공 ESG위원회 선임. 기준시가 기산일 2026-05-11(25,784원·7,036원, 비율 1:0.2728824). 자산가치 분석기준일 2026-05-06. 본질가치 범위는 WACC ±0.5%(g 1.0%) 민감도."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "아시아나항공(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 7.2,
+     "unit": "%",
+     "text": "7.2%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17810,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17519,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17548,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.49,
+     "unit": null,
+     "text": "0.49",
+     "cite": {
+      "section_id": "5",
+      "offset": 17582,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.89,
+     "unit": null,
+     "text": "0.89",
+     "cite": {
+      "section_id": "5",
+      "offset": 17669,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": -0.36,
+     "unit": "%",
+     "text": "-0.36%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17725,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 10.1,
+     "unit": "%",
+     "text": "10.1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17695,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 6.1,
+     "unit": "%",
+     "text": "6.1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17757,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 27.5,
+     "unit": "%",
+     "text": "27.5%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17635,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 112.9,
+     "unit": "%",
+     "text": "112.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17609,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 50865,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11901,
+     "unit": "원",
+     "text": "11,901",
+     "cite": {
+      "section_id": "5",
+      "offset": 43457,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9199,
+      "unit": "원",
+      "text": "9,199",
+      "cite": {
+       "section_id": "5",
+       "offset": 25071,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15021,
+      "unit": "원",
+      "text": "15,021",
+      "cite": {
+       "section_id": "5",
+       "offset": 25079,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형. 영업가치 6,466,874백만원, 지분가치 652,366백만원, 비영업자산 3,294,639백만원(이월결손금 효과 361,107 포함), 이자발생부채 7,962,329백만원. Kd(리스) 2.2%는 별도. 2025년 매각한 일반 화물사업 현금흐름 제외."
+  },
+  {
+   "subject": "한영회계법인",
+   "target": "(주)대한항공",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 24265,
+     "unit": "원",
+     "text": "24,265",
+     "cite": {
+      "section_id": "5",
+      "offset": 55752,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11187861,
+     "unit": "백만원",
+     "text": "11,187,861",
+     "cite": {
+      "section_id": "5",
+      "offset": 56115,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -2227292,
+     "unit": "백만원",
+     "text": "(2,227,292)",
+     "cite": {
+      "section_id": "5",
+      "offset": 56147,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 8960570,
+     "unit": "백만원",
+     "text": "8,960,570",
+     "cite": {
+      "section_id": "5",
+      "offset": 57138,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 368220661,
+     "unit": "주",
+     "text": "368,220,661",
+     "cite": {
+      "section_id": "5",
+      "offset": 55923,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 28297,
+     "unit": "원",
+     "text": "28,297",
+     "cite": {
+      "section_id": "5",
+      "offset": 55034,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 23488,
+      "unit": "원",
+      "text": "23,488",
+      "cite": {
+       "section_id": "5",
+       "offset": 54436,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 34351,
+      "unit": "원",
+      "text": "34,351",
+      "cite": {
+       "section_id": "5",
+       "offset": 54445,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 30985,
+    "unit": "원",
+    "text": "30,985",
+    "cite": {
+     "section_id": "5",
+     "offset": 72200,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 '기업 조직개편시 이사의 행위규범 가이드라인' 취지로 ESG위원회(특별위원회 기능)가 자발적으로 선임한 회계자문사의 본질가치 기준 합병비율 적정성 보충 검토. 대한항공 ESG위원회 선임. 기준시가 기산일 2026-05-11(25,784원·7,036원, 비율 1:0.2728824). 자산가치 분석기준일 2026-05-06. 본질가치 범위는 WACC ±0.5%(g 1.00%) 민감도."
+  },
+  {
+   "subject": "한영회계법인",
+   "target": "(주)대한항공",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.1,
+     "unit": "%",
+     "text": "5.10%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71477,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71171,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71206,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.3255,
+     "unit": null,
+     "text": "0.3255",
+     "cite": {
+      "section_id": "5",
+      "offset": 71241,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7505,
+     "unit": null,
+     "text": "0.7505",
+     "cite": {
+      "section_id": "5",
+      "offset": 71276,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 9.39,
+     "unit": "%",
+     "text": "9.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71310,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71345,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 27.5,
+     "unit": "%",
+     "text": "27.50%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71374,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 180.06,
+     "unit": "%",
+     "text": "180.06%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71437,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 74304,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 30985,
+     "unit": "원",
+     "text": "30,985",
+     "cite": {
+      "section_id": "5",
+      "offset": 72200,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 22970,
+      "unit": "원",
+      "text": "22,970",
+      "cite": {
+       "section_id": "5",
+       "offset": 54514,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 41075,
+      "unit": "원",
+      "text": "41,075",
+      "cite": {
+       "section_id": "5",
+       "offset": 54523,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 영업가치 15,050,870백만원, 지분가치 4,349,393백만원, 비영업자산 9,612,163백만원, 이자발생부채 17,576,527백만원, 우선주 26,492백만원. β는 유사회사 2년 Monthly Beta 평균. 세후 Kd 2.71%. 방법론 요약표는 E/(D+E) 35.71%·D/(D+E) 64.29%."
+  },
+  {
+   "subject": "한영회계법인",
+   "target": "아시아나항공(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 284,
+     "unit": "원",
+     "text": "284",
+     "cite": {
+      "section_id": "5",
+      "offset": 54494,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7817,
+     "unit": "원",
+     "text": "7,817",
+     "cite": {
+      "section_id": "5",
+      "offset": 55080,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 5484,
+      "unit": "원",
+      "text": "5,484",
+      "cite": {
+       "section_id": "5",
+       "offset": 54454,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 10721,
+      "unit": "원",
+      "text": "10,721",
+      "cite": {
+       "section_id": "5",
+       "offset": 54462,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 12839,
+    "unit": "원",
+    "text": "12,839",
+    "cite": {
+     "section_id": "5",
+     "offset": 72209,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 '기업 조직개편시 이사의 행위규범 가이드라인' 취지로 ESG위원회(특별위원회 기능)가 자발적으로 선임한 회계자문사의 본질가치 기준 합병비율 적정성 보충 검토. 대한항공 ESG위원회 선임. 기준시가 기산일 2026-05-11(25,784원·7,036원, 비율 1:0.2728824). 자산가치 분석기준일 2026-05-06. 본질가치 범위는 WACC ±0.5%(g 1.00%) 민감도."
+  },
+  {
+   "subject": "한영회계법인",
+   "target": "아시아나항공(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.18,
+     "unit": "%",
+     "text": "5.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71485,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71179,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71214,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.3255,
+     "unit": null,
+     "text": "0.3255",
+     "cite": {
+      "section_id": "5",
+      "offset": 71250,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7505,
+     "unit": null,
+     "text": "0.7505",
+     "cite": {
+      "section_id": "5",
+      "offset": 71285,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 9.39,
+     "unit": "%",
+     "text": "9.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71318,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.91,
+     "unit": "%",
+     "text": "3.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71353,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 27.5,
+     "unit": "%",
+     "text": "27.50%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71383,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 180.06,
+     "unit": "%",
+     "text": "180.06%",
+     "cite": {
+      "section_id": "5",
+      "offset": 71447,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 79444,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 12839,
+     "unit": "원",
+     "text": "12,839",
+     "cite": {
+      "section_id": "5",
+      "offset": 72209,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 8951,
+      "unit": "원",
+      "text": "8,951",
+      "cite": {
+       "section_id": "5",
+       "offset": 54532,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17679,
+      "unit": "원",
+      "text": "17,679",
+      "cite": {
+       "section_id": "5",
+       "offset": 54540,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형. 영업가치 7,175,474백만원, 지분가치 518,103백만원, 비영업자산 2,543,797백만원, 이자발생부채 7,592,668백만원. 세후 Kd 2.84%. 유사회사 목록은 원문 미확인."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "(주)대한항공",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 24262,
+     "unit": "원",
+     "text": "24,262",
+     "cite": {
+      "section_id": "5",
+      "offset": 84445,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11187861262069,
+     "unit": "원",
+     "text": "11,187,861,262,069",
+     "cite": {
+      "section_id": "5",
+      "offset": 84726,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -2227291581615,
+     "unit": "원",
+     "text": "(2,227,291,581,615)",
+     "cite": {
+      "section_id": "5",
+      "offset": 84766,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 8960569680454,
+     "unit": "원",
+     "text": "8,960,569,680,454",
+     "cite": {
+      "section_id": "5",
+      "offset": 84569,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 369331455,
+     "unit": "주",
+     "text": "369,331,455",
+     "cite": {
+      "section_id": "5",
+      "offset": 84382,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 28811,
+     "unit": "원",
+     "text": "28,811",
+     "cite": {
+      "section_id": "5",
+      "offset": 83682,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 24312,
+      "unit": "원",
+      "text": "24,312",
+      "cite": {
+       "section_id": "5",
+       "offset": 83081,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 34437,
+      "unit": "원",
+      "text": "34,437",
+      "cite": {
+       "section_id": "5",
+       "offset": 83090,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 31844,
+    "unit": "원",
+    "text": "31,844원",
+    "cite": {
+     "section_id": "5",
+     "offset": 102892,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 '기업 조직개편시 이사의 행위규범 가이드라인' 취지로 ESG위원회(특별위원회 기능)가 자발적으로 선임한 회계자문사의 본질가치 기준 합병비율 적정성 보충 검토. 아시아나항공 ESG위원회 선임(합병소멸회사·그 주주 관점). 최종 결과는 기산일 2026-05-12·자산가치 분석기준일 2026-05-06 기준(초기 기산일 2026-04-28 기준시가 24,485원·7,076원, 비율 1:0.2889898). 과거거래분석·유사기업비교법은 검토 후 미적용. 본질가치 범위는 WACC ±0.5%(g 1.00%) 민감도."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "(주)대한항공",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.19,
+     "unit": "%",
+     "text": "5.19%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101921,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.4,
+     "unit": "%",
+     "text": "3.4%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101624,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101657,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.334,
+     "unit": null,
+     "text": "0.334",
+     "cite": {
+      "section_id": "5",
+      "offset": 101695,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.72,
+     "unit": null,
+     "text": "0.720",
+     "cite": {
+      "section_id": "5",
+      "offset": 101766,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 9.1,
+     "unit": "%",
+     "text": "9.1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101825,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.7,
+     "unit": "%",
+     "text": "3.7%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101858,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 27.5,
+     "unit": "%",
+     "text": "27.5%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101885,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 159.4,
+     "unit": "%",
+     "text": "159.4%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101726,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 105704,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "(주)대한항공",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "아시아나항공(주)",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "캐세이퍼시픽",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "중화항공",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "에바항공",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "싱가포르항공",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 31844,
+     "unit": "원",
+     "text": "31,844원",
+     "cite": {
+      "section_id": "5",
+      "offset": 102892,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 24345,
+      "unit": "원",
+      "text": "24,345",
+      "cite": {
+       "section_id": "5",
+       "offset": 83159,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 41220,
+      "unit": "원",
+      "text": "41,220",
+      "cite": {
+       "section_id": "5",
+       "offset": 83168,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year), Stand-alone 사업계획 기준. 영업가치 15,570,850,182,650원, 지분가치 4,346,740,651,321원, 비영업자산 10,410,701,687,889원, 이자발생부채 18,576,033,186,313원, 우선주 시가총액 26,492,436,900원 차감. TV 산출표는 WACC를 '5.2%'로 반올림 표기. 규모위험 '-'."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "아시아나항공(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 284,
+     "unit": "원",
+     "text": "284",
+     "cite": {
+      "section_id": "5",
+      "offset": 83139,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7805,
+     "unit": "원",
+     "text": "7,805",
+     "cite": {
+      "section_id": "5",
+      "offset": 83728,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 5668,
+      "unit": "원",
+      "text": "5,668",
+      "cite": {
+       "section_id": "5",
+       "offset": 83099,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 10451,
+      "unit": "원",
+      "text": "10,451",
+      "cite": {
+       "section_id": "5",
+       "offset": 83107,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 12820,
+    "unit": "원",
+    "text": "12,820원",
+    "cite": {
+     "section_id": "5",
+     "offset": 102902,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 '기업 조직개편시 이사의 행위규범 가이드라인' 취지로 ESG위원회(특별위원회 기능)가 자발적으로 선임한 회계자문사의 본질가치 기준 합병비율 적정성 보충 검토. 아시아나항공 ESG위원회 선임(합병소멸회사·그 주주 관점). 최종 결과는 기산일 2026-05-12·자산가치 분석기준일 2026-05-06 기준(초기 기산일 2026-04-28 기준시가 24,485원·7,076원, 비율 1:0.2889898). 과거거래분석·유사기업비교법은 검토 후 미적용. 본질가치 범위는 WACC ±0.5%(g 1.00%) 민감도."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "아시아나항공(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.27,
+     "unit": "%",
+     "text": "5.27%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101929,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.4,
+     "unit": "%",
+     "text": "3.4%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101631,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101664,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.334,
+     "unit": null,
+     "text": "0.334",
+     "cite": {
+      "section_id": "5",
+      "offset": 101703,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.72,
+     "unit": null,
+     "text": "0.720",
+     "cite": {
+      "section_id": "5",
+      "offset": 101774,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 9.1,
+     "unit": "%",
+     "text": "9.1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101832,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.9,
+     "unit": "%",
+     "text": "3.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101865,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 27.5,
+     "unit": "%",
+     "text": "27.5%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101893,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 159.4,
+     "unit": "%",
+     "text": "159.4%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101735,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 112539,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "(주)대한항공",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "아시아나항공(주)",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "캐세이퍼시픽",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "중화항공",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "에바항공",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     },
+     {
+      "name": "싱가포르항공",
+      "value": null,
+      "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 12820,
+     "unit": "원",
+     "text": "12,820원",
+     "cite": {
+      "section_id": "5",
+      "offset": 102902,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9257,
+      "unit": "원",
+      "text": "9,257",
+      "cite": {
+       "section_id": "5",
+       "offset": 83177,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17230,
+      "unit": "원",
+      "text": "17,230",
+      "cite": {
+       "section_id": "5",
+       "offset": 83185,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형. 영업가치 7,311,318,441,607원, 지분가치 518,103,123,561원, 비영업자산 2,775,107,658,593원, 이자발생부채 7,963,829,628,418원. TV 산출표는 WACC '5.3%' 표기. 규모위험 '-'."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)대한항공",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 25409,
+     "unit": "원",
+     "text": "25,409",
+     "cite": {
+      "section_id": "5",
+      "offset": 310,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "아시아나항공(주)",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 6953,
+     "unit": "원",
+     "text": "6,953",
+     "cite": {
+      "section_id": "5",
+      "offset": 319,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "한울회계법인 본질가치 기준 합병비율 적정범위",
+    "subject": "한울회계법인",
+    "range": {
+     "min": {
+      "value": 0.246068,
+      "unit": null,
+      "text": "0.246068",
+      "cite": {
+       "section_id": "5",
+       "offset": 25112,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.311492,
+      "unit": null,
+      "text": "0.311492",
+      "cite": {
+       "section_id": "5",
+       "offset": 25127,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "한영회계법인 본질가치 기준 합병비율 적정범위",
+    "subject": "한영회계법인",
+    "range": {
+     "min": {
+      "value": 0.2334957,
+      "unit": null,
+      "text": "0.2334957",
+      "cite": {
+       "section_id": "5",
+       "offset": 54573,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.3120974,
+      "unit": null,
+      "text": "0.3120974",
+      "cite": {
+       "section_id": "5",
+       "offset": 54589,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "삼일회계법인 본질가치 기준 합병비율 적정범위",
+    "subject": "삼일회계법인",
+    "range": {
+     "min": {
+      "value": 0.2331259,
+      "unit": null,
+      "text": "0.2331259",
+      "cite": {
+       "section_id": "5",
+       "offset": 83221,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.3034993,
+      "unit": null,
+      "text": "0.3034993",
+      "cite": {
+       "section_id": "5",
+       "offset": 83237,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.2736432,
+   "unit": null,
+   "text": "0.2736432",
+   "cite": {
+    "section_id": "5",
+    "offset": 340,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 516761152889,
+   "unit": "원",
+   "text": "516,761,152,889",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 274,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "기준시가 합병비율 1:0.2736432가 한울(0.246068~0.311492)·한영(0.2334957~0.3120974)·삼일(0.2331259~0.3034993) 회계자문사의 본질가치 기준 적정 범위 안에 모두 포함되어 합병비율이 합리적 범위 내에 있다고 판단(합병당사회사).",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한울회계법인",
+   "target": "(주)대한항공",
+   "variables": "WACC ±0.5%p × 영구성장률 1.0% 고정 — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 21976,
+     "unit": "원",
+     "text": "21,976",
+     "cite": {
+      "section_id": "5",
+      "offset": 25053,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 32653,
+     "unit": "원",
+     "text": "32,653",
+     "cite": {
+      "section_id": "5",
+      "offset": 25062,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "아시아나항공(주)",
+   "variables": "WACC ±0.5%p × 영구성장률 1.0% 고정 — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 9199,
+     "unit": "원",
+     "text": "9,199",
+     "cite": {
+      "section_id": "5",
+      "offset": 25071,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 15021,
+     "unit": "원",
+     "text": "15,021",
+     "cite": {
+      "section_id": "5",
+      "offset": 25079,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "한영회계법인",
+   "target": "(주)대한항공",
+   "variables": "WACC ±0.5%p × 영구성장률 1.0% 고정 — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 22970,
+     "unit": "원",
+     "text": "22,970",
+     "cite": {
+      "section_id": "5",
+      "offset": 54514,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 41075,
+     "unit": "원",
+     "text": "41,075",
+     "cite": {
+      "section_id": "5",
+      "offset": 54523,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "한영회계법인",
+   "target": "아시아나항공(주)",
+   "variables": "WACC ±0.5%p × 영구성장률 1.0% 고정 — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 8951,
+     "unit": "원",
+     "text": "8,951",
+     "cite": {
+      "section_id": "5",
+      "offset": 54532,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 17679,
+     "unit": "원",
+     "text": "17,679",
+     "cite": {
+      "section_id": "5",
+      "offset": 54540,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "(주)대한항공",
+   "variables": "WACC ±0.5%p × 영구성장률 1.0% 고정 — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 24345,
+     "unit": "원",
+     "text": "24,345",
+     "cite": {
+      "section_id": "5",
+      "offset": 83159,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 41220,
+     "unit": "원",
+     "text": "41,220",
+     "cite": {
+      "section_id": "5",
+      "offset": 83168,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "아시아나항공(주)",
+   "variables": "WACC ±0.5%p × 영구성장률 1.0% 고정 — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 9257,
+     "unit": "원",
+     "text": "9,257",
+     "cite": {
+      "section_id": "5",
+      "offset": 83177,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 17230,
+     "unit": "원",
+     "text": "17,230",
+     "cite": {
+      "section_id": "5",
+      "offset": 83185,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260214–20260812, listed_only=False): 이 rcept_no가 거래의 rcept_no·body_rcept_no(full). 원본 20260625000630(supersedes, 감사보고서 첨부는 attachment_rcept_no 20260625000630), 짝 공시 20260626000005([기재정정]주요사항보고서(회사합병결정), summary).",
+  "합병가액은 양사 기준시가(할인·할증 없음). 법정 외부평가 없음. 대한항공 ESG위원회가 한울·한영회계법인을, 아시아나항공 ESG위원회가 삼일회계법인을 회계자문사로 선임해 양사 본질가치(1:1.5, 수익가치 DCF)로 합병비율 적정성을 보충 검토 — role=재무자문으로 수록.",
+  "본질가치 result.value는 각 자문사 WACC 기준점(민감도 표 중앙 열), range는 WACC ±0.5% 최소·최대. 한울 방법론 요약표(섹션 5 offset 약 19,000)는 본질가치를 점 값(25,811원·7,254원)만 적음.",
+  "원문 불일치: 한영 수익가치 기준점 1주당 대한항공 30,985원·아시아나 12,839원(수익가치 종합표) — 본질가치 중앙값 28,297원·7,817원과 정합. 삼일 기준점 31,844원·12,820원, 본질가치 28,811원·7,805원(비율 1:0.2709129).",
+  "원문 불일치: 한울 대한항공 조정된 순자산가액 서술은 8,960,570백만원, 표는 8,960,568,805,822원. 삼일은 대한항공 자산가치를 우선주 포함 총발행주식수 369,331,455주로 나눠 24,262원(한울·한영은 보통주 귀속분 기준 24,265원).",
+  "한울 WACC 구성표는 방법론 요약(섹션 5 '3. 한울회계법인의 가치평가 방법론')에만 있고 상세 검토 부분에는 없음. 한울 Kd는 일반·리스 2종(대한항공 3.6%/2.4%, 아시아나 6.1%/2.2%) — kd에는 일반을 넣음.",
+  "한영 유사회사 목록·개별 베타, 삼일 개별 베타는 원문 없음. 아시아나 자산가치(284원)의 한영·삼일 조정 내역은 읽지 않아 per_share만 수록.",
+  "transaction_value는 합병신주 모집총액(20,337,721주 × 25,409원, 섹션 3.4). 법률자문: 김앤장(대한항공 ESG위)·태평양(아시아나 ESG위) — 섹션 4에 상세(미수록)."
+ ],
+ "extracted_at": "2026-10-26T16:03:39+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260713000459",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 742,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260713000459",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 71032,
+   "how": "search/section"
+  }
+ ]
+}

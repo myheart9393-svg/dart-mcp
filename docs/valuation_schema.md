@@ -15,6 +15,10 @@
 5. `source_grade`: `full` = 증권신고서(가정까지 본문에 있다), `summary` = 주요사항보고서(API ZIP에 평가의견서 첨부가 없어
    본문 "외부평가에 관한 사항" 5행과 결론만 있다. 할인율·g·베타·멀티플은 보통 null).
 
+6. **범위 `{min, max}`는 숫자 크기 순서**(min ≤ max). 원문이 "29.83% ~ 11.74%"처럼 큰 값을 먼저 써도 그렇다. `validate`가
+   min > max를 오류로 잡는다(JSON Schema는 값 비교를 못 해 `valuation.range_order_errors`로 검사).
+7. **통계는 거래 단위**: `valuation stats`는 거래(rcept_no)마다 대표값 하나 — 외부평가 역할 값(여럿이면 그 중앙값), 없으면 그 거래 값들의 중앙값.
+
 ## 최상위
 
 | 필드 | 뜻 |
@@ -40,11 +44,12 @@
 | 필드 | 뜻 |
 |---|---|
 | subject / target / role | 평가 주체 / 대상 회사·사업부 / 외부평가·재무자문·주관사·회사(당사회사가 협의·제시한 가액) |
+| purpose | 합병가액·분할·교환비율·양수도가액·공모가·공정가치평가·손상검사·기타. 공정가치평가(예: IPO 신고서의 RCPS 평가)·손상검사는 조회·통계 기본값에서 빠진다 |
 | method | DCF·DDM·이익할인·본질가치·기준시가·상대가치·자산가치 |
 | weights | {asset, income, basis}. 본질가치는 1:1.5(시행세칙 제4조). 원문이 40%·60%로 쓰면 0.4·0.6 |
 | asset_value | per_share, total(조정 순자산), equity_book(직전 사업연도말 자본총계), adjustments, shares, base_date |
 | income_value | 본질가치 원소의 주당 수익가치(점 값). 범위만 있으면 null, 범위는 같은 주체의 DCF 원소 result.range |
-| dcf | forecast_years, base_date, wacc, rf, mrp, beta_unlevered, beta_levered, size_premium, ke, kd(세전), tax_rate, target_de, g, peers[] |
+| dcf | forecast_years, base_date, wacc, rf, mrp, beta_unlevered, beta_levered, size_premium, ke, kd(세전), tax_rate, target_de(D/E), target_dv(D/(D+E)), g, peers[] |
 | relative | multiple_type, peers[], multiple, applied_earnings, discount_range, not_applied_reason |
 | result | value(점), unit, range(min·max) |
 | note | 그 원소 해석에 필요한 원문 근거(예: "민감도 표 가운데 행, '기준' 표기 없음") |

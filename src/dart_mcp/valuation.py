@@ -28,7 +28,9 @@ from .periodic import CORRECTION_KINDS
 log = logging.getLogger(__name__)
 
 SCHEMA_PATH = Path(__file__).with_name("valuation_schema.json")
-EXTRACTOR_VERSION = "1.0"
+EXTRACTOR_VERSION = "1.1"  # 1.1: valuations[].purpose
+# 조회·통계 기본값에서 빼는 평가 목적(거래가액을 정하는 평가가 아니다)
+NON_DEAL_PURPOSES = {"공정가치평가", "손상검사"}
 
 # (report_nm에 들어가는 문자열, deal_type) — 앞에서부터 처음 맞는 것. "분할합병"은 "분할"·"합병"보다 먼저 본다.
 _B_PATTERNS = (
@@ -88,7 +90,8 @@ def prefix_kind(prefix: str) -> str | None:
 def classify_valuation_filing(report_nm: str, corp_cls: str | None = None) -> dict | None:
     """보고서명 → {filing_type, deal_type, source_grade, base_name, prefix, prefix_kind}. 대상이 아니면 None.
 
-    증권신고서(지분증권)은 회사가 비상장(corp_cls E·N·없음)이면 IPO, 상장(Y·K)이면 유상증자로 본다.
+    증권신고서(지분증권)은 회사가 비상장(corp_cls E·N·없음)이면 IPO, 상장(Y·K)이면 유상증자로 **잠정** 분류한다.
+    corp_cls는 조회 시점 상태라 이미 상장한 IPO도 유상증자로 나온다 → 확정은 equity_kind(본문)로(/dart-valuation-batch).
     투자설명서·증권발행실적보고서·소액공모는 대상이 아니다(평가 내용은 증권신고서에 있다).
     """
     prefix, base = split_prefix(report_nm)
@@ -107,6 +110,23 @@ def classify_valuation_filing(report_nm: str, corp_cls: str | None = None) -> di
             return {"filing_type": "주요사항보고서", "deal_type": deal, "source_grade": "summary",
                     "base_name": base, "prefix": prefix, "prefix_kind": prefix_kind(prefix)}
     return None
+
+
+# 증권신고서(지분증권)의 IPO/유상증자 구분은 본문으로 한다. list.json의 corp_cls는 **조회 시점** 상태라 올해 상장을 마친
+# IPO 회사도 K·Y로 온다(2026-10 실측: 피스피스스튜디오·폴레드·에이치엘지노믹스 등 2026 상장사 75건 중 다수). 주요사항보고서
+# (유상증자결정) 유무도 양쪽으로 틀린다(케이뱅크 IPO는 있음, 뉴로메카·루닛 유상증자는 구간 안에 없음).
+IPO_MARKERS = ("희망공모가액", "상장예비심사", "공모희망가액")
+RIGHTS_MARKERS = ("구주주", "주주배정", "예정발행가액", "신주인수권증서")
+SPAC_RE = re.compile(r"기업인수목적|스팩")
+
+
+def equity_kind(text: str) -> str | None:
+    """증권신고서(지분증권) 본문(앞부분이면 충분) → "ipo" | "rights_offering" | None(판단 불가). 표지 단어 빈도를 비교한다."""
+    ipo = sum(text.count(k) for k in IPO_MARKERS)
+    rights = sum(text.count(k) for k in RIGHTS_MARKERS)
+    if ipo == 0 and rights == 0:
+        return None
+    return "ipo" if ipo >= rights else "rights_offering"
 
 
 def _date(s: str) -> dt.date:
@@ -173,7 +193,8 @@ def group_filings(items: list[dict]) -> list[dict]:
                 "attachment_rcept_no": latest(("첨부정정", "첨부추가")),
                 "supersedes": [r["rcept_no"] for r in g if r is not head],
                 "related_rcept_nos": [],
-                "notes": notes,
+                "notes": notes + (["상장사 지분증권 신고서: 올해 상장한 IPO일 수 있음(corp_cls는 조회 시점) → 본문 equity_kind로 확인"]
+                                  if head["deal_type"] == "rights_offering" else []),
             })
     deals.sort(key=lambda d: (d["rcept_dt"], d["rcept_no"]), reverse=True)
     return deals
@@ -277,7 +298,9 @@ def scan_valuation_disclosures(
     deals = group_filings(rows)
     pair_related(deals)
     if listed_only:
-        deals = [d for d in deals if d["corp_cls"] in ("Y", "K") or d["deal_type"] == "ipo"]
+        # 비상장사 공시는 빼되, 비상장 단계에 낸 IPO 신고서는 남긴다(SPAC 상장은 평가가 없어 뺀다)
+        deals = [d for d in deals if d["corp_cls"] in ("Y", "K")
+                 or (d["deal_type"] == "ipo" and not SPAC_RE.search(d["corp_name"] or ""))]
     deals = [d for d in deals if d["deal_type"] in wanted]
     return {"deals": deals, "api_calls": calls, "windows": windows, "scanned": scanned}
 
@@ -292,8 +315,29 @@ def validate_case(case: dict) -> list[str]:
     import jsonschema
 
     validator = jsonschema.Draft202012Validator(load_schema())
-    return [f"{'/'.join(map(str, e.absolute_path)) or '(root)'}: {e.message}"
-            for e in sorted(validator.iter_errors(case), key=lambda e: list(e.absolute_path))]
+    errors = [f"{'/'.join(map(str, e.absolute_path)) or '(root)'}: {e.message}"
+              for e in sorted(validator.iter_errors(case), key=lambda e: list(e.absolute_path))]
+    return errors + range_order_errors(case)
+
+
+def range_order_errors(node: Any, path: str = "") -> list[str]:
+    """{min, max} 범위에서 min.value > max.value인 곳(JSON Schema로는 값 비교를 못 한다).
+
+    배치 1차 실측: IPO 할인율 "29.83% ~ 11.74%"를 원문 표기 순서대로 min=29.83으로 넣은 건이 15건 나왔다.
+    범위는 숫자 크기 순서다(min ≤ max). 어느 끝이 하단 공모가에 대응하는지는 note에 적는다.
+    """
+    out: list[str] = []
+    if isinstance(node, dict):
+        if set(node) == {"min", "max"} and all(isinstance(node[k], dict) for k in ("min", "max")):
+            a, b = node["min"].get("value"), node["max"].get("value")
+            if isinstance(a, (int, float)) and isinstance(b, (int, float)) and a > b:
+                out.append(f"{path or '(root)'}: 범위 min({a}) > max({b}) — 숫자 크기 순서로 넣는다")
+        for k, v in node.items():
+            out += range_order_errors(v, f"{path}/{k}")
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            out += range_order_errors(v, f"{path}/{i}")
+    return out
 
 
 def iter_numbers(node: Any, path: str = "") -> list[tuple[str, dict]]:
@@ -381,11 +425,116 @@ def flatten_case(case: dict) -> list[dict]:
         res = val.get("result") or {}
         rows.append({
             **base, "subject": val.get("subject"), "target": val.get("target"), "role": val.get("role"),
+            "purpose": val.get("purpose"),
             "method": val.get("method"), "wacc": v(dcf.get("wacc")), "g": v(dcf.get("g")),
             "multiple_type": rel.get("multiple_type"), "multiple": v(rel.get("multiple")),
             "result": v(res.get("value")), "result_unit": res.get("unit"),
         })
     return rows
+
+
+def _deal_date(row: dict) -> str:
+    """조회 기간 기준일: 이사회 결의일, 없으면 접수일(rcept_no 앞 8자리)."""
+    r = row["rcept_no"]
+    return row.get("board_date") or f"{r[:4]}-{r[4:6]}-{r[6:8]}"
+
+
+def _quantiles(xs: list[float]) -> dict:
+    """n, 중앙값, 1·3사분위(선형 보간), 최소·최대."""
+    import statistics
+
+    s = sorted(xs)
+    if not s:
+        return {"n": 0}
+    q = statistics.quantiles(s, n=4, method="inclusive") if len(s) > 1 else [s[0], s[0], s[0]]
+    return {"n": len(s), "median": statistics.median(s), "q1": q[0], "q3": q[2], "min": s[0], "max": s[-1]}
+
+
+def representative(values: list[tuple[str | None, float]]) -> float | None:
+    """한 거래의 값 여럿 → 대표값. 외부평가 역할 값이 있으면 그 값들의 중앙값, 없으면 전체 중앙값."""
+    import statistics
+
+    if not values:
+        return None
+    ext = [x for role, x in values if role == "외부평가"]
+    return statistics.median(ext or [x for _, x in values])
+
+
+def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str | None = None,
+                deal_types: set[str] | None = None, methods: set[str] | None = None,
+                purposes: set[str] | None = None, firm: str | None = None) -> list[dict]:
+    """평가 행 거르기. purposes=None이면 거래가액 평가만(공정가치평가·손상검사 제외), {"all"}이면 전부."""
+    out = []
+    for r in rows:
+        d = _deal_date(r)
+        if (date_from and d < date_from) or (date_to and d > date_to):
+            continue
+        if deal_types and r["deal_type"] not in deal_types:
+            continue
+        if methods and r.get("method") not in methods:
+            continue
+        p = r.get("purpose")
+        if purposes is None:
+            if p in NON_DEAL_PURPOSES:
+                continue
+        elif "all" not in purposes and p not in purposes:
+            continue
+        if firm and firm not in (r.get("firm") or "") and firm not in (r.get("subject") or ""):
+            continue
+        out.append(r)
+    return out
+
+
+def deal_stats(rows: list[dict], variables: tuple[str, ...] = ("wacc", "g", "multiple")) -> dict:
+    """거래(rcept_no) 단위 통계. 변수마다 거래별 대표값(representative)으로 분위수를 내고 "N건 거래, M개 값"을 함께 준다.
+
+    multiple은 multiple_type별로 따로 센다. firms: 거래별 외부평가기관(external_valuation.firm) 건수.
+    """
+    by_deal: dict[str, list[dict]] = {}
+    for r in rows:
+        by_deal.setdefault(r["rcept_no"], []).append(r)
+    out: dict[str, Any] = {"deals": len(by_deal), "values": len(rows), "variables": {}, "firms": {}}
+    for var in variables:
+        groups: dict[str, dict[str, list]] = {}
+        for rno, rs in by_deal.items():
+            for r in rs:
+                if r.get(var) is None:
+                    continue
+                key = f"{var}:{r.get('multiple_type') or '?'}" if var == "multiple" else var
+                groups.setdefault(key, {}).setdefault(rno, []).append((r.get("role"), float(r[var])))
+        for key, per_deal in groups.items():
+            reps = {rno: representative(vals) for rno, vals in per_deal.items()}
+            out["variables"][key] = {**_quantiles(list(reps.values())), "deals": len(reps),
+                                     "values": sum(len(v) for v in per_deal.values()), "per_deal": reps}
+    # 평가기관별 거래 수: 그 거래의 외부평가 원소 subject(거래당 중복 없이). external_valuation.firm은 자유 문구라
+    # ("한미회계법인(존속회사 선임), 한울회계법인(소멸회사 선임)" 등 — 배치 실측) 세지 않는다. 외부평가 원소가 없으면 "(외부평가 없음)"
+    for rs in by_deal.values():
+        names = sorted({r["subject"] for r in rs if r.get("role") == "외부평가" and r.get("subject")}) or ["(외부평가 없음)"]
+        for f in names:
+            out["firms"][f] = out["firms"].get(f, 0) + 1
+    return out
+
+
+def ipo_stats(cases: list[dict]) -> dict:
+    """IPO 사례(case.ipo)의 거래 단위 통계: 적용 멀티플 종류 분포, 종류별 멀티플 분위수, 할인율 하단·상단 분위수."""
+    kinds: dict[str, int] = {}
+    mult: dict[str, list[float]] = {}
+    lo: list[float] = []
+    hi: list[float] = []
+    for c in cases:
+        ipo = c.get("ipo") or {}
+        mt = ipo.get("multiple_type") or "(없음)"
+        kinds[mt] = kinds.get(mt, 0) + 1
+        m = (ipo.get("multiple") or {}).get("value")
+        if m is not None:
+            mult.setdefault(mt, []).append(float(m))
+        dr = ipo.get("discount_range") or {}
+        if (dr.get("min") or {}).get("value") is not None:
+            lo.append(float(dr["min"]["value"]))
+        if (dr.get("max") or {}).get("value") is not None:
+            hi.append(float(dr["max"]["value"]))
+    return {"deals": len(cases), "multiple_types": kinds, "multiple": {k: _quantiles(v) for k, v in mult.items()},
+            "discount_min": _quantiles(lo), "discount_max": _quantiles(hi)}
 
 
 def _fmt(x: Any) -> str:
@@ -395,7 +544,8 @@ def _fmt(x: Any) -> str:
     if x.get("text"):
         t = str(x["text"])
         unit = x.get("unit") or ""
-        return t if (not unit or t.endswith(unit) or unit == "주") else f"{t}{unit}"
+        # 원문 표기가 이미 단위 표지로 끝나면("12.85x", "8.43%", "261,345원") 붙이지 않는다("12.85x배" 방지)
+        return t if (not unit or t.endswith(unit) or not t[-1:].isdigit()) else f"{t}{unit}"
     return f"{x['value']}{x.get('unit') or ''}"
 
 
@@ -406,6 +556,9 @@ def _fmt_range(r: dict | None) -> str:
 
 
 def _cite_s(x: Any) -> str:
+    if isinstance(x, dict) and set(x) == {"min", "max"}:  # 범위면 양 끝 cite(같으면 하나)
+        a, b = _cite_s(x.get("min")), _cite_s(x.get("max"))
+        return a if a == b or not b else f"{a} {b}".strip()
     c = x.get("cite") if isinstance(x, dict) else None
     if not c:
         return ""
@@ -422,10 +575,10 @@ def render_markdown(case: dict) -> str:
     d, ev, co = case["deal"], case["external_valuation"], case["conclusion"]
     label = DEAL_LABELS.get(d["type"], d["type"])
     out = [f"# {case['company']['name']} {label} 가치평가 (rcept_no {case['rcept_no']}, {case['filing_type']}, 등급 {case['source_grade']})",
-           f"> 원본 {case.get('original_rcept_no')} / 짝 공시 {', '.join(case.get('related_rcept_nos') or []) or '없음'} / "
+           f"> 원본 {case.get('original_rcept_no') or '–'} / 짝 공시 {', '.join(case.get('related_rcept_nos') or []) or '없음'} / "
            f"이사회 {d.get('board_date') or '원문 없음'} / 체계 {d.get('regime') or '원문 없음'} / 추출 {case['extracted_at']} (v{case['extractor_version']})",
            "", "## 1. 거래 개요", "", "| 항목 | 내용 |", "|---|---|",
-           f"| 회사 | {case['company']['name']} ({case['company'].get('market') or '–'}, {case['company'].get('corp_code')}) |",
+           f"| 회사 | {case['company']['name']} ({case['company'].get('market') or '–'}, {case['company'].get('corp_code') or '–'}) |",
            f"| 거래 | {label} — 상대방 {d.get('counterparty') or '–'} (상장 {_yn(d.get('counterparty_listed'))}) |",
            f"| 관계 | {d.get('relation_text') or '–'} (특수관계 {_yn(d.get('related_party'))}) |",
            f"| 비율 | {d.get('ratio_text') or '–'} |",
@@ -438,15 +591,15 @@ def render_markdown(case: dict) -> str:
            f"| 준수 기준 | {', '.join(ev.get('standards_cited') or []) or '원문 없음'} |",
            f"| 의견 요지 | {ev.get('opinion_text') or '원문 없음'} {_cite_s(ev)} |",
            "", "## 2. 평가 주체별 방법·가정", "",
-           "| 주체 | 대상 | 역할 | 방법 | 가중(자산:수익) | WACC | g | β(U/L) | 멀티플 | 결과 | 범위 | 출처 |",
-           "|---|---|---|---|---|---|---|---|---|---|---|---|"]
+           "| 주체 | 대상 | 역할 | 목적 | 방법 | 가중(자산:수익) | WACC | g | β(U/L) | 멀티플 | 결과 | 범위 | 출처 |",
+           "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for v in case["valuations"]:
         dcf, rel, res, w = v.get("dcf") or {}, v.get("relative") or {}, v["result"], v.get("weights")
         beta = f"{_fmt(dcf.get('beta_unlevered'))}/{_fmt(dcf.get('beta_levered'))}" if dcf else "–"
         mult = f"{rel.get('multiple_type') or ''} {_fmt(rel.get('multiple'))}".strip() if rel else "–"
         cites = [x for x in (dcf.get("wacc"), res.get("value"), (res.get("range") or {}).get("min"))
                  if isinstance(x, dict) and x.get("cite")][:2]
-        out.append(f"| {v['subject']} | {v['target']} | {v['role']} | {v['method']} | "
+        out.append(f"| {v['subject']} | {v['target']} | {v['role']} | {v.get('purpose') or '–'} | {v['method']} | "
                    f"{f'{w['asset']}:{w['income']}' if w else '–'} | {_fmt(dcf.get('wacc')) if dcf else '–'} | "
                    f"{_fmt(dcf.get('g')) if dcf else '–'} | {beta} | {mult} | {_fmt(res.get('value'))} | "
                    f"{_fmt_range(res.get('range'))} | {' '.join(_cite_s(x) for x in cites)} |")
@@ -460,15 +613,15 @@ def render_markdown(case: dict) -> str:
         out += ["", f"**WACC 구성 — {v['subject']} / {v['target']}**", "", "| 항목 | 값 | 출처 |", "|---|---|---|"]
         for k, lab in (("rf", "무위험이자율"), ("mrp", "시장위험프리미엄"), ("beta_unlevered", "Unlevered β"),
                        ("beta_levered", "Relevered β"), ("size_premium", "규모위험프리미엄"), ("ke", "자기자본비용"),
-                       ("kd", "세전타인자본비용"), ("tax_rate", "세율"), ("target_de", "목표 D/E"), ("wacc", "WACC"), ("g", "영구성장률")):
+                       ("kd", "세전타인자본비용"), ("tax_rate", "세율"), ("target_de", "목표 D/E"), ("target_dv", "목표 D/(D+E)"), ("wacc", "WACC"), ("g", "영구성장률")):
             out.append(f"| {lab} | {_fmt(dcf.get(k))} | {_cite_s(dcf.get(k))} |")
         if dcf.get("peers"):
             out.append("")
             out.append("유사기업: " + ", ".join(f"{p['name']} {_fmt(p.get('value'))}" for p in dcf["peers"]))
-    out += ["", "## 3. 결론", "", "| 회사 | 기준 | 주당 가액 | 출처 |", "|---|---|---|---|"]
+    out += ["", "## 3. 결론", "", "| 회사/주체 | 기준 | 주당 가액·범위 | 출처 |", "|---|---|---|---|"]
     out += [f"| {p['company']} | {p.get('basis') or '–'} | {_fmt(p['value'])} | {_cite_s(p['value'])} |" for p in co["price_per_share"]]
     for r in co["range"]:
-        out.append(f"| {r.get('subject') or '–'} | {r['label']} | {_fmt_range(r['range'])} | {_cite_s(r['range'].get('min'))} |")
+        out.append(f"| {r.get('subject') or '–'} | {r['label']} | {_fmt_range(r['range'])} | {_cite_s(r['range'])} |")
     if co.get("ratio"):
         out.append(f"| – | 비율 | {_fmt(co['ratio'])} | {_cite_s(co['ratio'])} |")
     if co.get("transaction_value"):
@@ -476,7 +629,7 @@ def render_markdown(case: dict) -> str:
     out += ["", f"의견: {co.get('opinion_text') or '원문 없음'}", "", "## 4. 민감도", ""]
     if case["sensitivity"]:
         out += ["| 주체 | 대상 | 변수 | 범위 | 출처 |", "|---|---|---|---|---|"]
-        out += [f"| {s['subject']} | {s['target']} | {s['variables']} | {_fmt_range(s['range'])} | {_cite_s(s['range'].get('min'))} |"
+        out += [f"| {s['subject']} | {s['target']} | {s['variables']} | {_fmt_range(s['range'])} | {_cite_s(s['range'])} |"
                 for s in case["sensitivity"]]
     else:
         out.append("원문 없음")
@@ -490,7 +643,7 @@ def render_markdown(case: dict) -> str:
             out.append(f"| {lab} | {_fmt(ipo.get(k))} | {_cite_s(ipo.get(k))} |")
         for k, lab in (("discount_range", "할인율"), ("price_band", "공모희망가액")):
             r = ipo.get(k)
-            out.append(f"| {lab} | {_fmt_range(r)} | {_cite_s((r or {}).get('min'))} |")
+            out.append(f"| {lab} | {_fmt_range(r)} | {_cite_s(r or {})} |")
         if ipo.get("applied_earnings_basis"):
             out.append(f"| 적용 이익 기준 | {ipo['applied_earnings_basis']} | |")
         if ipo.get("peers"):
@@ -506,14 +659,46 @@ def render_markdown(case: dict) -> str:
     return "\n".join(out).replace("~", "–") + "\n"
 
 
+def _stats_cli(directory: Path, argv: list[str]) -> int:
+    """stats <dir> [--from YYYY-MM-DD] [--to YYYY-MM-DD] [--deal-type merger,ipo] [--method DCF] [--purpose 합병가액,…|all] [--firm X]
+
+    거래 단위 통계(JSON): 걸러진 행, deal_stats(WACC·g·멀티플 대표값 분위수, 평가기관별 건수), IPO가 있으면 ipo_stats.
+    """
+    import argparse
+
+    ap = argparse.ArgumentParser(prog="dart_mcp.valuation stats")
+    ap.add_argument("--from", dest="date_from")
+    ap.add_argument("--to", dest="date_to")
+    ap.add_argument("--deal-type")
+    ap.add_argument("--method")
+    ap.add_argument("--purpose")
+    ap.add_argument("--firm")
+    a = ap.parse_args(argv)
+    split = (lambda s: {x.strip() for x in s.split(",") if x.strip()} if s else None)
+    cases = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(directory.glob("*.json"))
+             if not p.name.startswith("_")]
+    rows = [r for c in cases for r in flatten_case(c)]
+    rows = filter_rows(rows, date_from=a.date_from, date_to=a.date_to, deal_types=split(a.deal_type),
+                       methods=split(a.method), purposes=split(a.purpose), firm=a.firm)
+    kept = {r["rcept_no"] for r in rows}
+    out = {"filters": vars(a), "rows": rows, **deal_stats(rows)}
+    ipo_cases = [c for c in cases if c["rcept_no"] in kept and c["deal"]["type"] == "ipo"]
+    if ipo_cases:
+        out["ipo"] = ipo_stats(ipo_cases)
+    print(json.dumps(out, ensure_ascii=False, indent=1))
+    return 0
+
+
 def _cli(argv: list[str]) -> int:
     """uv run python -m dart_mcp.valuation validate <case.json> | verify-cites <case.json> [--sample 8] [--seed N]
-    | md <case.json> (같은 이름 .md 생성) | table <dir>"""
+    | md <case.json> (같은 이름 .md 생성) | table <dir> | stats <dir> [필터…] (거래 단위 통계)"""
     sys.stdout.reconfigure(encoding="utf-8")
-    if len(argv) < 2 or argv[0] not in ("validate", "verify-cites", "table", "md"):
+    if len(argv) < 2 or argv[0] not in ("validate", "verify-cites", "table", "md", "stats"):
         print(_cli.__doc__)
         return 2
     cmd, target = argv[0], Path(argv[1])
+    if cmd == "stats":
+        return _stats_cli(target, argv[2:])
     if cmd == "md":
         md_path = target.with_suffix(".md")
         md_path.write_text(render_markdown(json.loads(target.read_text(encoding="utf-8"))), encoding="utf-8")

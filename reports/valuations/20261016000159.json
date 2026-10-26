@@ -1,0 +1,365 @@
+{
+ "rcept_no": "20261016000159",
+ "original_rcept_no": "20260921000405",
+ "related_rcept_nos": [
+  "20260921000405"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01025617",
+  "name": "하나에어로다이내믹스",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 아이비케이투자증권이 EV/EBITDA 상대가치법으로 주당 평가가액 6,950원을 산출하고 17.99%~32.37% 할인율을 적용해 희망공모가액 4,700원~5,700원을 제시. 확정공모가액은 수요예측 결과 등을 감안해 발행회사와 협의해 결정",
+  "cite": {
+   "section_id": "7",
+   "offset": 2719,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "아이비케이투자증권㈜ (대표주관회사)",
+   "target": "하나에어로다이내믹스",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "EV/EBITDA",
+    "peers": [
+     {
+      "name": "한화에어로스페이스",
+      "value": {
+       "value": 15.5,
+       "unit": "배",
+       "text": "15.50",
+       "cite": {
+        "section_id": "7",
+        "offset": 26805,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 LTM EV/EBITDA"
+     },
+     {
+      "name": "신화프리텍",
+      "value": {
+       "value": 20.3,
+       "unit": "배",
+       "text": "20.30",
+       "cite": {
+        "section_id": "7",
+        "offset": 26813,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 LTM EV/EBITDA"
+     }
+    ],
+    "multiple": {
+     "value": 17.89,
+     "unit": "배",
+     "text": "17.89",
+     "cite": {
+      "section_id": "7",
+      "offset": 1740,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 6942,
+     "unit": "백만원",
+     "text": "6,942",
+     "cite": {
+      "section_id": "7",
+      "offset": 1605,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 17.99,
+      "unit": "%",
+      "text": "17.99%",
+      "cite": {
+       "section_id": "7",
+       "offset": 31687,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 32.37,
+      "unit": "%",
+      "text": "32.37%",
+      "cite": {
+       "section_id": "7",
+       "offset": 31694,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 6950,
+     "unit": "원",
+     "text": "6,950원",
+     "cite": {
+      "section_id": "7",
+      "offset": 31663,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4700,
+      "unit": "원",
+      "text": "4,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 31718,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5700,
+      "unit": "원",
+      "text": "5,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 31725,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: [2026년 반기 LTM EBITDA x 유사기업 EV/EBITDA - 순차입금 + 공모유입자금] ÷ 적용주식수 x {1-할인율}. 순차입금 22,408백만원, 공모유입자금 21,300백만원(밴드 하단 기준), 적정시가총액 123,086백만원. result.value는 할인 전 주당 평가가액(요약표·희망공모가액 산출내역 6,950원), range는 희망공모가액 밴드. PER·PBR·PSR은 부적합으로 제외"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "하나에어로다이내믹스",
+    "basis": "EV/EBITDA 주당 평가가액(할인 전)",
+    "value": {
+     "value": 6950,
+     "unit": "원",
+     "text": "6,950원",
+     "cite": {
+      "section_id": "7",
+      "offset": 31663,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "아이비케이투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 4700,
+      "unit": "원",
+      "text": "4,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 31718,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5700,
+      "unit": "원",
+      "text": "5,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 31725,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 6,950원에 17.99%~32.37% 할인율을 적용해 희망공모가액 4,700원~5,700원을 제시. 확정 공모가액은 수요예측 결과를 반영해 최종 확정 예정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "아이비케이투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "EV/EBITDA",
+  "excluded_multiples": [
+   "PER",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 6942,
+   "unit": "백만원",
+   "text": "6,942",
+   "cite": {
+    "section_id": "7",
+    "offset": 1605,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "실적치: 2026년 반기 LTM EBITDA(영업이익 5,424 + 감가상각비 1,510 + 무형자산상각비 7, 백만원)",
+  "multiple": {
+   "value": 17.89,
+   "unit": "배",
+   "text": "17.89",
+   "cite": {
+    "section_id": "7",
+    "offset": 1740,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 17729964,
+   "unit": "주",
+   "text": "17,729,964",
+   "cite": {
+    "section_id": "7",
+    "offset": 2070,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 6950,
+   "unit": "원",
+   "text": "6,950원",
+   "cite": {
+    "section_id": "7",
+    "offset": 31663,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 17.99,
+    "unit": "%",
+    "text": "17.99%",
+    "cite": {
+     "section_id": "7",
+     "offset": 31687,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 32.37,
+    "unit": "%",
+    "text": "32.37%",
+    "cite": {
+     "section_id": "7",
+     "offset": 31694,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 4700,
+    "unit": "원",
+    "text": "4,700원",
+    "cite": {
+     "section_id": "7",
+     "offset": 31718,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 5700,
+    "unit": "원",
+    "text": "5,700원",
+    "cite": {
+     "section_id": "7",
+     "offset": 31725,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "한화에어로스페이스",
+    "value": {
+     "value": 15.5,
+     "unit": "배",
+     "text": "15.50",
+     "cite": {
+      "section_id": "7",
+      "offset": 26805,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 LTM EV/EBITDA"
+   },
+   {
+    "name": "신화프리텍",
+    "value": {
+     "value": 20.3,
+     "unit": "배",
+     "text": "20.30",
+     "cite": {
+      "section_id": "7",
+      "offset": 26813,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 LTM EV/EBITDA"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260519–20261026, listed_only=False): IPO, full, 기재정정, 원본 20260921000405(supersedes), body_rcept_no 자체.",
+  "유사기업: 1차 업종(KSIC C31310·C31311·C31312·C31321·C31322·C29223 등) 14개사 → 2차 사업 유사성 8개사 → 3차 재무·일반 유사성 2개사(한화에어로스페이스 15.50배, 신화프리텍 20.30배). 적용 배수 17.89배는 2사 평균. 한국항공우주(42.02배)·켄코아에어로스페이스(112.00배)는 비경상적 Multiple로 제외.",
+  "원문 불일치: [EV/EBITDA에 의한 평가가치] 표(섹션 7, offset 28867)는 적용주식수 17,929,964주·주당 평가가액 6,865원으로 적혀 있으나, 요약표·주석의 적용주식수는 17,729,964주(기발행 13,197,964 + 공모신주 4,400,000 + 상장주선인 의무인수 132,000)이고 요약표·희망공모가액 산출내역의 주당 평가가액은 6,950원이다. 이 사례는 6,950원·17,729,964주를 썼다.",
+  "참고 산출(원문): 신규모집유입자금 미반영 시 적정시가총액 101,786백만원·주당 5,741원(offset 29779), 2025년 연간 EBITDA 6,561백만원 적용 시 주당 6,480원(offset 30798).",
+  "요약표 ① 행 라벨은 '2025년 반기 LTM 기준 EBITDA'로 적혀 있으나 적용 재무수치 행·주석은 2026년 반기 LTM이다(원문 오기로 보임).",
+  "상장시장 표기 혼재: 평가결과 문단에 '유가증권시장 상장'과 '코스닥 시장 상장공모'가 함께 나온다. 할인율 참고표는 2023년 이후 코스닥 일반상장기업 평가액 대비 할인율.",
+  "DCF·본질가치법은 미래현금흐름·할인율 추정의 주관성 등을 이유로 사용하지 않음. 할인율(WACC)·g·β 값은 없음."
+ ],
+ "extracted_at": "2026-10-26T16:19:46+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261016000159",
+   "file_id": "main",
+   "section_id": "7",
+   "title": "IV. 인수인의 의견(분석기관의 평가의견)",
+   "chars_read": 15045,
+   "how": "find_tables/section"
+  }
+ ]
+}

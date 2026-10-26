@@ -1,0 +1,506 @@
+{
+ "rcept_no": "20260623000368",
+ "original_rcept_no": null,
+ "related_rcept_nos": [
+  "20260623000373",
+  "20260316001529"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00605522",
+  "name": "아리바이오홀딩스",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "(주)아리바이오",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "피합병회사 최대주주 정재준 대표이사가 2023-06-30 합병회사 (주)소룩스의 최대주주로 변경(I. 합병에 관한 기본사항)",
+  "board_date": "2024-08-09",
+  "regime": "기준시가",
+  "ratio_text": "1: 2.0610695(주)소룩스 : (주)아리바이오"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2024-07-01 ~ 2024-08-09",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장과 금융투자업에 관한 법률 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "증권의 발행 및 공시 등에 관한 규정 시행세칙 제4조~제8조"
+  ],
+  "opinion_text": "합병법인 주당 10,136원, 피합병법인 주당 20,891원으로 산정되어 합병당사회사간 합의한 합병비율 2.0610695는 적정하며, 시행령 176조의5 및 증권발행공시규정·시행세칙의 합병가액 산정방법에 위배되어 산정된 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 249315,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)소룩스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 2284,
+     "unit": "원",
+     "text": "2,284",
+     "cite": {
+      "section_id": "5",
+      "offset": 5264,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 104361118750,
+     "unit": "원",
+     "text": "104,361,118,750",
+     "cite": {
+      "section_id": "5",
+      "offset": 5189,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 62421326519,
+     "unit": "원",
+     "text": "62,421,326,519",
+     "cite": {
+      "section_id": "5",
+      "offset": 4172,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 41939792231,
+     "unit": "원",
+     "text": "41,939,792,231",
+     "cite": {
+      "section_id": "5",
+      "offset": 4208,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 45687721,
+     "unit": "주",
+     "text": "45,687,721",
+     "cite": {
+      "section_id": "5",
+      "offset": 5227,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10136,
+     "unit": "원",
+     "text": "10,136",
+     "cite": {
+      "section_id": "5",
+      "offset": 2364,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "시행령 176조의5 ①1호. 기산일 2024-08-08, 1개월 가중평균 11,217원·1주일 10,679원·최근일 11,890원 산술평균 기준시가 11,262원에 10.00% 할인. 할인 후 평가가액이 자산가치(2,284원)보다 높아 합병가액으로 적용."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)아리바이오",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 3706,
+     "unit": "원",
+     "text": "3,706",
+     "cite": {
+      "section_id": "5",
+      "offset": 24370,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 90569880599,
+     "unit": "원",
+     "text": "90,569,880,599",
+     "cite": {
+      "section_id": "5",
+      "offset": 24296,
+      "file_id": "main"
+     }
+    },
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 24439531,
+     "unit": "주",
+     "text": "24,439,531",
+     "cite": {
+      "section_id": "5",
+      "offset": 24333,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 20891,
+     "unit": "원",
+     "text": "20,891",
+     "cite": {
+      "section_id": "5",
+      "offset": 11299,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 32347,
+    "unit": "원",
+    "text": "32,347",
+    "cite": {
+     "section_id": "5",
+     "offset": 29559,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장법인 본질가치(시행세칙 제4조). 상대가치는 유사회사 요건 충족 법인이 3사 미만이라 미산정."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)아리바이오",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년–2045년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 17.5914,
+     "unit": "%",
+     "text": "17.5914%",
+     "cite": {
+      "section_id": "5",
+      "offset": 249221,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 241878,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 9.0,
+     "unit": "%",
+     "text": "9.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 241941,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 1.1185,
+     "unit": null,
+     "text": "1.1185",
+     "cite": {
+      "section_id": "5",
+      "offset": 242822,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.1713,
+     "unit": null,
+     "text": "1.1713",
+     "cite": {
+      "section_id": "5",
+      "offset": 241995,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.73,
+     "unit": "%",
+     "text": "4.73%",
+     "cite": {
+      "section_id": "5",
+      "offset": 242100,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 18.45,
+     "unit": "%",
+     "text": "18.45%",
+     "cite": {
+      "section_id": "5",
+      "offset": 242179,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.14,
+     "unit": "%",
+     "text": "4.14%",
+     "cite": {
+      "section_id": "5",
+      "offset": 248961,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 243306,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 5.97,
+     "unit": "%",
+     "text": "5.97%",
+     "cite": {
+      "section_id": "5",
+      "offset": 242814,
+      "file_id": "main"
+     }
+    },
+    "g": null,
+    "peers": [
+     {
+      "name": "툴젠",
+      "value": {
+       "value": 1.2548,
+       "unit": null,
+       "text": "1.2548",
+       "cite": {
+        "section_id": "5",
+        "offset": 242488,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "큐라클",
+      "value": {
+       "value": 1.1373,
+       "unit": null,
+       "text": "1.1373",
+       "cite": {
+        "section_id": "5",
+        "offset": 242578,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "올릭스",
+      "value": {
+       "value": 0.9093,
+       "unit": null,
+       "text": "0.9093",
+       "cite": {
+        "section_id": "5",
+        "offset": 242641,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "카이노스메드",
+      "value": {
+       "value": 1.4167,
+       "unit": null,
+       "text": "1.4167",
+       "cite": {
+        "section_id": "5",
+        "offset": 242705,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "리가켐바이오",
+      "value": {
+       "value": 0.8743,
+       "unit": null,
+       "text": "0.8743",
+       "cite": {
+        "section_id": "5",
+        "offset": 242772,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 32347,
+     "unit": "원",
+     "text": "32,347",
+     "cite": {
+      "section_id": "5",
+      "offset": 29559,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF. 2046년 이후 영구현금흐름 가치 0(영구성장률 미적용 → g null). 영업가치 732,534,254,041원+비영업자산 119,639,882,439원=기업가치 852,174,136,481원, 이자부부채 61,617,079,409원, 수익가치 790,557,057,072원, 희석 주식수 24,439,531주. Kd는 2023-12-31 이자부부채 세전 가중평균차입이자율(산식상 4.1355%). 주력 파이프라인 AR1001(알츠하이머) 신약 매출 추정."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)소룩스",
+    "basis": "기준시가에 할인율을 반영한 평가가액(합병가액)",
+    "value": {
+     "value": 10136,
+     "unit": "원",
+     "text": "10,136",
+     "cite": {
+      "section_id": "5",
+      "offset": 131,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)아리바이오",
+    "basis": "본질가치(합병가액)",
+    "value": {
+     "value": 20891,
+     "unit": "원",
+     "text": "20,891",
+     "cite": {
+      "section_id": "5",
+      "offset": 193,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 2.0610695,
+   "unit": null,
+   "text": "2.0610695",
+   "cite": {
+    "section_id": "5",
+    "offset": 347,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 550992544424,
+   "unit": "원",
+   "text": "550,992,544,424",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 265,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인은 합병비율 1:2.0610695가 관련 법규의 합병가액 산정방법에 따라 산정되어 적정하다고 판단",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "배치 목록(reports/valuations/_batch_2026-10-26.json)에서 거래 20260623000373([첨부정정], body_rcept_no=20260623000368, source_grade full, supersedes 20260316001529·20260623000368) 확인. 이 rcept_no는 같은 날 접수된 [기재정정] 본문.",
+  "original_rcept_no: 최초 증권신고서(합병)는 2024-08-19 제출(진행경과)이나 search_disclosures(C, 20240801–20260630) 목록에 최초본이 없어 null (최초 접수 계열: 20240819000311 [첨부추가]). 이후 기재정정 다수(2024-09~2026-06).",
+  "회사명: 원문은 (주)소룩스(합병존속, 코스닥, LED 조명), 조회 시점 corp_name은 아리바이오홀딩스. 피합병 (주)아리바이오는 K-OTC 비상장(신약개발, AR1001).",
+  "평가기준일 2023-12-31, 피합병법인 자산가치는 2024-12-31 재무상태표도 검토(종합평가의견). 주식매수선택권(8·9차) 행사 가정해 순자산·주식수 반영.",
+  "섹션 5 3.0 비교표: 2023-12-28 외부평가기관 평가의견서(이전 이촌회계법인 주식가치평가, 소룩스의 아리바이오 주식 취득 목적 추정) 수익가치 739,634,461천원 → 본 분석기관 평가의견서 790,557,057천원(Neuco LO 계약·약가·점유율 변경 반영). 이전 평가는 별도 valuations 원소로 넣지 않음.",
+  "민감도 분석 표는 원문에서 찾지 못함(sensitivity 빈 배열). 할인율 10.00%는 기준시가 할인율(WACC 아님).",
+  "모집총액 550,992,544,424원(합병신주 54,359,959주 × 10,136원)은 섹션 3.4 표에서 transaction_value로 인용."
+ ],
+ "extracted_at": "2026-10-26T15:59:57+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260623000368",
+   "file_id": "main",
+   "section_id": "0",
+   "title": null,
+   "chars_read": 612,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260623000368",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 546,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260623000368",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 9437,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20260623000368",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 35835,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

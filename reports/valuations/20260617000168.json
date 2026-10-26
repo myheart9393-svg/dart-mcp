@@ -1,0 +1,413 @@
+{
+ "rcept_no": "20260617000168",
+ "original_rcept_no": "20260409002935",
+ "related_rcept_nos": [
+  "20260409002935",
+  "20260423000256",
+  "20260429000535",
+  "20260519000246",
+  "20260519000313",
+  "20260519000319",
+  "20260608000300",
+  "20260611000588",
+  "20260612000126",
+  "20260617000171",
+  "20260623000422"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01370517",
+  "name": "스트라드비젼",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 KB증권이 주당 평가가액 17,563원에 31.76%~20.39% 할인율을 적용해 희망공모가액 12,000원~14,000원을 제시하고, 수요예측 결과 및 주식시장 상황 등을 감안해 발행회사와 협의하여 확정공모가액 12,000원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 320396,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "KB증권㈜ (대표주관회사)",
+   "target": "스트라드비젼",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "현대오토에버",
+      "value": {
+       "value": 56.65,
+       "unit": "배",
+       "text": "56.65",
+       "cite": {
+        "section_id": "0",
+        "offset": 335088,
+        "file_id": "main"
+       }
+      },
+      "note": "PER(2025년 (지배주주)당기순이익 기준)"
+     },
+     {
+      "name": "슈어소프트테크",
+      "value": {
+       "value": 42.04,
+       "unit": "배",
+       "text": "42.04",
+       "cite": {
+        "section_id": "0",
+        "offset": 335096,
+        "file_id": "main"
+       }
+      },
+      "note": "PER(2025년 (지배주주)당기순이익 기준)"
+     },
+     {
+      "name": "엠디에스테크",
+      "value": {
+       "value": 13.67,
+       "unit": "배",
+       "text": "13.67",
+       "cite": {
+        "section_id": "0",
+        "offset": 335104,
+        "file_id": "main"
+       }
+      },
+      "note": "PER(2025년 (지배주주)당기순이익 기준)"
+     }
+    ],
+    "multiple": {
+     "value": 37.45,
+     "unit": "배",
+     "text": "37.45 배",
+     "cite": {
+      "section_id": "0",
+      "offset": 336293,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 26059,
+     "unit": "백만원",
+     "text": "26,059 백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 336177,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 20.39,
+      "unit": "%",
+      "text": "20.39%",
+      "cite": {
+       "section_id": "0",
+       "offset": 341640,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 31.76,
+      "unit": "%",
+      "text": "31.76%",
+      "cite": {
+       "section_id": "0",
+       "offset": 341631,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 17563,
+     "unit": "원",
+     "text": "17,563 원/주",
+     "cite": {
+      "section_id": "0",
+      "offset": 336319,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 12000,
+      "unit": "원",
+      "text": "12,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 341669,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 14000,
+      "unit": "원",
+      "text": "14,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 341679,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2028년 당기순이익 현재가치 x 유사기업 PER ÷ 주식수 x (1-할인율). 2028년 추정 순이익 45,031백만원을 연 할인율 20.0%로 3.00년 할인(C = A / [(1+B)^3.00])해 2025년말 현재가치 26,059백만원. 유사기업 PER 37.45배는 3사 산술평균(평가기준일 2026-04-03). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "스트라드비젼",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 17563,
+     "unit": "원",
+     "text": "17,563 원/주",
+     "cite": {
+      "section_id": "0",
+      "offset": 336319,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "스트라드비젼",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 12000,
+     "unit": "원",
+     "text": "12,000원",
+     "cite": {
+      "section_id": "0",
+      "offset": 341708,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "KB증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 12000,
+      "unit": "원",
+      "text": "12,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 341669,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 14000,
+      "unit": "원",
+      "text": "14,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 341679,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "수요예측 결과 및 주식시장 상황 등을 감안하여 대표주관회사와 발행회사가 협의해 확정공모가액을 12,000원(밴드 하단)으로 최종 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "KB증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 26059,
+   "unit": "백만원",
+   "text": "26,059 백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 336177,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2028년 추정 당기순이익(45,031백만원)의 2025년말 기준 현재가치(연 할인율 20.0%, 3.00년)",
+  "multiple": {
+   "value": 37.45,
+   "unit": "배",
+   "text": "37.45 배",
+   "cite": {
+    "section_id": "0",
+    "offset": 336293,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 55573396,
+   "unit": "주",
+   "text": "55,573,396 주",
+   "cite": {
+    "section_id": "0",
+    "offset": 336223,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 17563,
+   "unit": "원",
+   "text": "17,563 원/주",
+   "cite": {
+    "section_id": "0",
+    "offset": 336319,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 20.39,
+    "unit": "%",
+    "text": "20.39%",
+    "cite": {
+     "section_id": "0",
+     "offset": 341640,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 31.76,
+    "unit": "%",
+    "text": "31.76%",
+    "cite": {
+     "section_id": "0",
+     "offset": 341631,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 12000,
+    "unit": "원",
+    "text": "12,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 341669,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 14000,
+    "unit": "원",
+    "text": "14,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 341679,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "현대오토에버",
+    "value": {
+     "value": 56.65,
+     "unit": "배",
+     "text": "56.65",
+     "cite": {
+      "section_id": "0",
+      "offset": 335088,
+      "file_id": "main"
+     }
+    },
+    "note": "PER(2025년 (지배주주)당기순이익 기준)"
+   },
+   {
+    "name": "슈어소프트테크",
+    "value": {
+     "value": 42.04,
+     "unit": "배",
+     "text": "42.04",
+     "cite": {
+      "section_id": "0",
+      "offset": 335096,
+      "file_id": "main"
+     }
+    },
+    "note": "PER(2025년 (지배주주)당기순이익 기준)"
+   },
+   {
+    "name": "엠디에스테크",
+    "value": {
+     "value": 13.67,
+     "unit": "배",
+     "text": "13.67",
+     "cite": {
+      "section_id": "0",
+      "offset": 335104,
+      "file_id": "main"
+     }
+    },
+    "note": "PER(2025년 (지배주주)당기순이익 기준)"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260118–20260717, listed_only=False)에서 이 rcept_no가 든 거래를 못 찾아 본문 표지(증권신고서(지분증권), 증권발행조건확정)로 full 판단. 원본·짝 공시는 search_disclosures(corp_code 01370517, C)로 확인. 최초제출일 2026-04-09(원문); original_rcept_no는 목록상 같은 날 접수된 20260409002935([첨부추가]로 표시)로 둠.",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주16)·(주17) 정정 후)에서 옮겼다.",
+  "현가할인율 20.0% 참고: 2024년 이후 코스닥 기술특례상장기업 적용 연 할인율 평균 20, 할인기간 2.7~2.9년. 비교기업 Bloomberg WACC 평균 2024.12.31 19.2%·2025.12.31 19.7%·2026.04.03 30.4%(일시적 MRP 상승으로 판단)((주17) 정정 후 (3) 주3·주4).",
+  "할인율 원문 표기 '31.76% ~ 20.39%'(하단 12,000원 ↔ 31.76%, 상단 14,000원 ↔ 20.39%). 참고: 2024년 이후 코스닥 기술특례상장 신규상장법인 평가액 대비 할인율 평균 하단 38.40%·상단 26.12%.",
+  "적용주식수 55,573,396주 = 기발행 46,165,213 + 주식매수선택권 1,873,750 + 신주인수권부사채 381,100 + 공모신주 7,000,000 + 상장주선인 의무인수 153,333. 미행사 주식매수선택권 전부 행사 가정 시 주당 평가가액 17,493원.",
+  "참고 업종 PER: 시스템 SW 22개사 조정평균 24.3배, 응용 SW 55개사 조정평균 36.7배.",
+  "코스닥시장 상장 공모, 공모 7,000,000주, 확정총액 84,000,000,000원. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T15:56:46+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260617000168",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 16878,
+   "how": "search/section"
+  }
+ ]
+}

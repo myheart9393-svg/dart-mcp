@@ -1,0 +1,320 @@
+{
+ "rcept_no": "20260430000407",
+ "original_rcept_no": "20260402003261",
+ "related_rcept_nos": [
+  "20260402003261",
+  "20260413001806",
+  "20260424000036",
+  "20260430000415",
+  "20260508000515"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01565364",
+  "name": "폴레드",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 대표주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 NH투자증권이 영업 현황·산업 전망·주식시장 상황 등을 고려해 희망공모가액 4,100원~5,000원을 제시하고, 수요예측 결과 등을 감안해 발행회사와 협의하여 확정공모가액 5,000원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 100206,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "NH투자증권㈜ (대표주관회사)",
+   "target": "폴레드",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 19.05,
+     "unit": "배",
+     "text": "19.05배",
+     "cite": {
+      "section_id": "0",
+      "offset": 99082,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 8362,
+     "unit": "백만원",
+     "text": "8,362백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 99015,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 19.07,
+      "unit": "%",
+      "text": "19.07%",
+      "cite": {
+       "section_id": "0",
+       "offset": 105783,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 33.64,
+      "unit": "%",
+      "text": "33.64%",
+      "cite": {
+       "section_id": "0",
+       "offset": 105776,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 6178,
+     "unit": "원",
+     "text": "6,178원",
+     "cite": {
+      "section_id": "0",
+      "offset": 99271,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4100,
+      "unit": "원",
+      "text": "4,100원",
+      "cite": {
+       "section_id": "0",
+       "offset": 105812,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5000,
+      "unit": "원",
+      "text": "5,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 105819,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: [2025년 당기순이익 x 유사기업 PER] ÷ 적용 주식수(희석 반영) x {1 - 할인율}. 적용 재무수치는 실적치(2025년 온기 당기순이익). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 유사기업 목록·개별 PER은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "폴레드",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 6178,
+     "unit": "원",
+     "text": "6,178원",
+     "cite": {
+      "section_id": "0",
+      "offset": 99271,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "폴레드",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 5000,
+     "unit": "원",
+     "text": "5,000원",
+     "cite": {
+      "section_id": "0",
+      "offset": 105847,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "NH투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 4100,
+      "unit": "원",
+      "text": "4,100원",
+      "cite": {
+       "section_id": "0",
+       "offset": 105812,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5000,
+      "unit": "원",
+      "text": "5,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 105819,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "수요예측 참여현황 및 시장상황 등을 감안하여 발행회사와 협의한 후 확정공모가액을 1주당 5,000원으로 최종 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "NH투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 8362,
+   "unit": "백만원",
+   "text": "8,362백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 99015,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "실적치(2025년 온기 당기순이익)",
+  "multiple": {
+   "value": 19.05,
+   "unit": "배",
+   "text": "19.05배",
+   "cite": {
+    "section_id": "0",
+    "offset": 99082,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 25784765,
+   "unit": "주",
+   "text": "25,784,765주",
+   "cite": {
+    "section_id": "0",
+    "offset": 99191,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 6178,
+   "unit": "원",
+   "text": "6,178원",
+   "cite": {
+    "section_id": "0",
+    "offset": 99271,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 19.07,
+    "unit": "%",
+    "text": "19.07%",
+    "cite": {
+     "section_id": "0",
+     "offset": 105783,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 33.64,
+    "unit": "%",
+    "text": "33.64%",
+    "cite": {
+     "section_id": "0",
+     "offset": 105776,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 4100,
+    "unit": "원",
+    "text": "4,100원",
+    "cite": {
+     "section_id": "0",
+     "offset": 105812,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 5000,
+    "unit": "원",
+    "text": "5,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 105819,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20251201–20260530, listed_only=False)에서 이 rcept_no가 든 거래를 못 찾아 outline 문서명(증권신고서(지분증권), 발행조건확정)으로 full 판단. 짝 공시는 search_disclosures(corp_code 01565364, pblntf_ty=C)로 확인. 최초제출일 2026-04-02(표지).",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주9)·(주10)·(주11) 정정 후)에서 옮겼다.",
+  "유사기업 선정·개별 PER 등 상세 산출은 이 정정본에 없음. 직전 기재정정 20260413001806(최초 20260402003261)을 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "할인율 원문 표기는 '33.64%~19.07%'(하단 4,100원 ↔ 33.64%, 상단 5,000원 ↔ 19.07%로 추정). discount_range는 min 19.07·max 33.64.",
+  "할인율 참고: 2023년 이후 코스닥 일반상장기업 신규상장법인의 평가액 대비 할인율 평균 하단 34.02%·상단 22.51%((주11) 정정 후 주1)).",
+  "코스닥시장 상장 공모(일반기업). market은 공모 당시 비상장이라 '기타'. 공모주식 기명식 보통주 2,600,000주, 액면가 100원, 모집총액 13,000,000,000원(표지). 대표주관 NH투자증권(총액인수). 유아용품·유아가전 사업."
+ ],
+ "extracted_at": "2026-10-26T15:47:58+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260430000407",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 10558,
+   "how": "search/section"
+  }
+ ]
+}

@@ -1,0 +1,330 @@
+{
+ "rcept_no": "20260623000235",
+ "original_rcept_no": "20260417000560",
+ "related_rcept_nos": [
+  "20260417000560",
+  "20260508000554",
+  "20260526000315",
+  "20260526000326",
+  "20260526000330",
+  "20260527000403",
+  "20260612000375"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01424261",
+  "name": "레몬헬스케어",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 KB증권이 PER 상대가치법으로 주당 평가가액 14,844원을 산출하고 49.47%~32.63% 할인율을 적용해 희망공모가액 7,500원~10,000원을 제시, 수요예측 결과 및 주식시장 상황 등을 감안해 발행회사와 협의하여 확정공모가액 1주당 10,000원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 89793,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "KB증권㈜ (대표주관회사)",
+   "target": "레몬헬스케어",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 25.48,
+     "unit": "배",
+     "text": "25.48배",
+     "cite": {
+      "section_id": "0",
+      "offset": 89019,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 7897,
+     "unit": "백만원",
+     "text": "7,897",
+     "cite": {
+      "section_id": "0",
+      "offset": 88874,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 32.63,
+      "unit": "%",
+      "text": "32.63%",
+      "cite": {
+       "section_id": "0",
+       "offset": 95225,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 49.47,
+      "unit": "%",
+      "text": "49.47%",
+      "cite": {
+       "section_id": "0",
+       "offset": 95216,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 14844,
+     "unit": "원",
+     "text": "14,844",
+     "cite": {
+      "section_id": "0",
+      "offset": 89316,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 7500,
+      "unit": "원",
+      "text": "7,500원",
+      "cite": {
+       "section_id": "0",
+       "offset": 89907,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 89916,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2027년도 온기 추정 당기순이익의 현가 x 비교회사 PER ÷ 주식수 x {1-할인율}. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 비교회사 목록·개별 PER·현가 할인율은 이 발행조건확정 정정본에 없음('(중략)')"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "레몬헬스케어",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 14844,
+     "unit": "원",
+     "text": "14,844",
+     "cite": {
+      "section_id": "0",
+      "offset": 89316,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "레몬헬스케어",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 10000,
+     "unit": "원",
+     "text": "10,000원",
+     "cite": {
+      "section_id": "0",
+      "offset": 89937,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "KB증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 7500,
+      "unit": "원",
+      "text": "7,500원",
+      "cite": {
+       "section_id": "0",
+       "offset": 89907,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 89916,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": {
+   "value": 20000000000,
+   "unit": "원",
+   "text": "20,000,000,000",
+   "cite": {
+    "section_id": "0",
+    "offset": 6080,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "수요예측 참여현황 및 시장상황 등을 감안하여 발행회사와 협의한 후 확정공모가액을 1주당 10,000원(밴드 상단)으로 최종 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "KB증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 7897,
+   "unit": "백만원",
+   "text": "7,897",
+   "cite": {
+    "section_id": "0",
+    "offset": 88874,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2027년도 온기 추정 당기순이익의 현가",
+  "multiple": {
+   "value": 25.48,
+   "unit": "배",
+   "text": "25.48배",
+   "cite": {
+    "section_id": "0",
+    "offset": 89019,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 13555559,
+   "unit": "주",
+   "text": "13,555,559",
+   "cite": {
+    "section_id": "0",
+    "offset": 89158,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 14844,
+   "unit": "원",
+   "text": "14,844",
+   "cite": {
+    "section_id": "0",
+    "offset": 89316,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 32.63,
+    "unit": "%",
+    "text": "32.63%",
+    "cite": {
+     "section_id": "0",
+     "offset": 95225,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 49.47,
+    "unit": "%",
+    "text": "49.47%",
+    "cite": {
+     "section_id": "0",
+     "offset": 95216,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 7500,
+    "unit": "원",
+    "text": "7,500원",
+    "cite": {
+     "section_id": "0",
+     "offset": 89907,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 10000,
+    "unit": "원",
+    "text": "10,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 89916,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260124–20260723, listed_only=False) 결과에 이 rcept_no가 없어(IPO 미포함) outline 문서명(발행조건확정 증권신고서(지분증권))으로 full 판단. 원본 20260417000560·supersedes(20260508000554·20260526000315·20260526000326·20260526000330·20260527000403·20260612000375)는 배치 목록(reports/valuations/_batch_2026-10-26.json) 기준.",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '(주9) 정정 후'(공모가 산정 요약표·가. 평가결과)와 '(주10) 정정 후'(희망공모가액 결정)에서 옮겼다.",
+  "비교회사 선정·개별 PER·추정 순이익 현가 할인율 등 상세 산출은 이 정정본에 없음('(중략)'). 원본 20260417000560(또는 최근 기재정정 20260612000375)을 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "할인율 원문 표기 '49.47% ~ 32.63%'(하단 7,500원 ↔ 49.47%, 상단 10,000원 ↔ 32.63%로 추정: 14,844원 기준 역산). 비교: 2023년 이후 코스닥 기술평가기업 평가액 대비 할인율 평균 상단 39.57%·하단 26.90%((주10) 주1)).",
+  "코스닥시장 상장 공모(2025-11-12 예비심사 신청, 2026-03-26 승인), 대표주관회사 KB증권 총액인수. 공모 2,000,000주(액면 500원), 확정총액 20,000,000,000원, 청약 2026-06-24~25, 납입 2026-06-29. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T15:57:42+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260623000235",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 21370,
+   "how": "search/section"
+  }
+ ]
+}

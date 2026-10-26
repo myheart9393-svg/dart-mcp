@@ -1,0 +1,323 @@
+{
+ "rcept_no": "20260915000237",
+ "original_rcept_no": "20260728000487",
+ "related_rcept_nos": [
+  "20260728000487",
+  "20260819000337",
+  "20260908000396",
+  "20260910000096",
+  "20260915000241",
+  "20260921000349"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01564514",
+  "name": "글로벌테크놀로지",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 한국투자증권이 PER 상대가치(2029년 추정 당기순이익 현가 x 비교대상회사 PER)로 주당 평가가액 17,557원, 할인율 25.96%~14.56%를 적용해 희망공모가액 13,000원~15,000원을 제시하고, 수요예측 결과를 반영해 발행회사와 협의하여 확정공모가액 10,000원으로 결정(밴드 하단 미만)",
+  "cite": {
+   "section_id": "0",
+   "offset": 141242,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한국투자증권㈜ (대표주관회사)",
+   "target": "글로벌테크놀로지",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 19.22,
+     "unit": "배",
+     "text": "19.22 배",
+     "cite": {
+      "section_id": "0",
+      "offset": 150444,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 17943,
+     "unit": "백만원",
+     "text": "17,943 백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 150402,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 14.56,
+      "unit": "%",
+      "text": "14.56 %",
+      "cite": {
+       "section_id": "0",
+       "offset": 162947,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 25.96,
+      "unit": "%",
+      "text": "25.96 %",
+      "cite": {
+       "section_id": "0",
+       "offset": 162937,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 17557,
+     "unit": "원",
+     "text": "17,557 원",
+     "cite": {
+      "section_id": "0",
+      "offset": 150538,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 162971,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15000,
+      "unit": "원",
+      "text": "15,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 162981,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2029년 추정 당기순이익(29,264백만원)을 연할인율 15.0%, 할인기간 3.5년으로 현가(17,943백만원) x 비교대상회사 PER 19.22배 = 기업가치 344,920백만원 ÷ 적용주식수 19,646,144주 x {1-할인율}. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 비교대상회사 선정·개별 PER 표는 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "글로벌테크놀로지",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 17557,
+     "unit": "원",
+     "text": "17,557 원",
+     "cite": {
+      "section_id": "0",
+      "offset": 150538,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "글로벌테크놀로지",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 10000,
+     "unit": "원",
+     "text": "10,000원",
+     "cite": {
+      "section_id": "0",
+      "offset": 163003,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "한국투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 162971,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15000,
+      "unit": "원",
+      "text": "15,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 162981,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "수요예측 참여현황 및 시장상황 등을 감안해 대표주관회사와 발행회사가 협의하여 확정공모가액 10,000원으로 결정(희망밴드 하단 13,000원 미만)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "한국투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 17943,
+   "unit": "백만원",
+   "text": "17,943 백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 150402,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2029년 추정 당기순이익(29,264백만원)의 현재가치(연할인율 15.0%, 할인기간 3.5년)",
+  "multiple": {
+   "value": 19.22,
+   "unit": "배",
+   "text": "19.22 배",
+   "cite": {
+    "section_id": "0",
+    "offset": 150444,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 19646144,
+   "unit": "주",
+   "text": "19,646,144 주",
+   "cite": {
+    "section_id": "0",
+    "offset": 150507,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 17557,
+   "unit": "원",
+   "text": "17,557 원",
+   "cite": {
+    "section_id": "0",
+    "offset": 150538,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 14.56,
+    "unit": "%",
+    "text": "14.56 %",
+    "cite": {
+     "section_id": "0",
+     "offset": 162947,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 25.96,
+    "unit": "%",
+    "text": "25.96 %",
+    "cite": {
+     "section_id": "0",
+     "offset": 162937,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 13000,
+    "unit": "원",
+    "text": "13,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 162971,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 15000,
+    "unit": "원",
+    "text": "15,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 162981,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260418–20261015, listed_only=False, 2페이지)에서 이 rcept_no가 든 거래를 못 찾아 outline 문서명(증권신고서(지분증권), 발행조건확정)으로 full 판단. 원본·짝 공시는 search_disclosures(corp_code 01564514, pblntf_ty C)로 확인(최초제출일 2026.07.28 = 20260728000487, 목록상 [첨부추가]).",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주15)·(주16)·(주17) 정정 후)에서 옮겼다.",
+  "적용 당기순이익 현가: 공모가 산정 요약표는 '17,942백만원', (3) 주당 평가가액 산출 표는 '17,943 백만원'으로 원문 내 1백만원 차이(반올림). 산출 표 값을 사용.",
+  "할인율 원문 표기는 '25.96 % ~ 14.56 %'(하단 13,000원 ↔ 25.96%, 상단 15,000원 ↔ 14.56%). discount_range는 min 14.56·max 25.96. 2024년 이후 코스닥 기술특례상장 신규상장법인 평가액 대비 할인율 평균 38.77%(하단)·26.26%(상단)((주17) 정정 후 주1)).",
+  "현가 할인율 15.0%·할인기간 3.5년(기술성장기업 평균 20%·2.8년 대비). 참고 비교기업 WACC(Bloomberg): FITIPOWER INTEGRATED TECH, NOVATEK MICROELECTRONICS, SITRONIX TECHNOLOGY, ITH CORP, LX세미콘, 평균 14.00%(2026.03.31)·19.93%(2026.06.30)((주16) 정정 후 주4)). PER 비교대상회사 목록·개별 PER은 이 정정본에 없음('(2) 비교대상회사 PER 산출' 미정정). 기재정정 20260908000396을 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "적용주식수 19,646,144주 = 기발행 15,506,144 + 공모신주 4,000,000 + 상장주선인 의무인수 140,000(희망가 기준). 확정공모가 기준 의무인수 주식수는 100,000주((주17) 정정 후 주3)).",
+  "확정공모가액 10,000원은 희망밴드 하단(13,000원) 미만. 공모주식수 4,000,000주, 모집총액 40,000,000,000원(표지). 대표주관 한국투자증권.",
+  "코스닥시장 상장 공모(기술성장기업). market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:17:00+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260915000237",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 21138,
+   "how": "search/section"
+  }
+ ]
+}

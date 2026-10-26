@@ -1,0 +1,381 @@
+{
+ "rcept_no": "20261016000158",
+ "original_rcept_no": "20260903000275",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01543043",
+  "name": "티앤이코리아",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 신한투자증권이 PER 상대가치법(2027년 추정 당기순이익을 연 15.0%로 현가 할인)으로 주당 평가가액 21,304원을 산출하고 40.86%~28.18% 할인율을 적용해 희망공모가액 12,600원~15,300원을 제시, 수요예측 결과 및 주식시장 상황 등을 감안해 발행회사와 협의하여 1주당 15,300원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 138115,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "신한투자증권㈜ (대표주관회사)",
+   "target": "티앤이코리아",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 19.48,
+     "unit": "배",
+     "text": "19.48배",
+     "cite": {
+      "section_id": "0",
+      "offset": 137008,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 12595,
+     "unit": "백만원",
+     "text": "12,595백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 136928,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 28.18,
+      "unit": "%",
+      "text": "28.18%",
+      "cite": {
+       "section_id": "0",
+       "offset": 161753,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 40.86,
+      "unit": "%",
+      "text": "40.86%",
+      "cite": {
+       "section_id": "0",
+       "offset": 161746,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 21304,
+     "unit": "원",
+     "text": "21,304원",
+     "cite": {
+      "section_id": "0",
+      "offset": 137159,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 12600,
+      "unit": "원",
+      "text": "12,600원",
+      "cite": {
+       "section_id": "0",
+       "offset": 161782,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15300,
+      "unit": "원",
+      "text": "15,300원",
+      "cite": {
+       "section_id": "0",
+       "offset": 161792,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 추정 당기순이익 현재가치 x 유사기업 PER ÷ 주식수 x {1-할인율}. 2027년 추정 순이익 15,533백만원을 연할인율 15.0%로 1.5년 할인(C = A / [(1+B)^1.5])해 2026년 반기말 현재가치 12,595백만원, 적용 주당순이익 1,093원. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. PER 유사기업 목록·개별 PER 산출((2) 유사기업 PER 산출)은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "티앤이코리아",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 21304,
+     "unit": "원",
+     "text": "21,304원",
+     "cite": {
+      "section_id": "0",
+      "offset": 137159,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "티앤이코리아",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 15300,
+     "unit": "원",
+     "text": "15,300원",
+     "cite": {
+      "section_id": "0",
+      "offset": 161821,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "신한투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 12600,
+      "unit": "원",
+      "text": "12,600원",
+      "cite": {
+       "section_id": "0",
+       "offset": 161782,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15300,
+      "unit": "원",
+      "text": "15,300원",
+      "cite": {
+       "section_id": "0",
+       "offset": 161792,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": {
+   "value": 36720000000,
+   "unit": "원",
+   "text": "36,720,000,000",
+   "cite": {
+    "section_id": "0",
+    "offset": 6708,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "수요예측 결과 및 주식시장 상황 등을 감안하여 대표주관회사 신한투자증권과 발행회사가 협의해 확정공모가액을 1주당 15,300원(밴드 상단)으로 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "신한투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 12595,
+   "unit": "백만원",
+   "text": "12,595백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 136928,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "추정치(2027년 추정 당기순이익 15,533백만원의 2026년 반기말 현재가치, 연할인율 15.0%)",
+  "multiple": {
+   "value": 19.48,
+   "unit": "배",
+   "text": "19.48배",
+   "cite": {
+    "section_id": "0",
+    "offset": 137008,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 11519096,
+   "unit": "주",
+   "text": "11,519,096주",
+   "cite": {
+    "section_id": "0",
+    "offset": 137080,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 21304,
+   "unit": "원",
+   "text": "21,304원",
+   "cite": {
+    "section_id": "0",
+    "offset": 137159,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 28.18,
+    "unit": "%",
+    "text": "28.18%",
+    "cite": {
+     "section_id": "0",
+     "offset": 161753,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 40.86,
+    "unit": "%",
+    "text": "40.86%",
+    "cite": {
+     "section_id": "0",
+     "offset": 161746,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 12600,
+    "unit": "원",
+    "text": "12,600원",
+    "cite": {
+     "section_id": "0",
+     "offset": 161782,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 15300,
+    "unit": "원",
+    "text": "15,300원",
+    "cite": {
+     "section_id": "0",
+     "offset": 161792,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "성광벤드",
+    "value": {
+     "value": 27.95,
+     "unit": "%",
+     "text": "27.95",
+     "cite": {
+      "section_id": "0",
+      "offset": 155171,
+      "file_id": "main"
+     }
+    },
+    "note": "비교기업 WACC (Bloomberg, 주3) 참고용 — PER 유사기업 목록 아님"
+   },
+   {
+    "name": "비엠티",
+    "value": {
+     "value": 16.15,
+     "unit": "%",
+     "text": "16.15",
+     "cite": {
+      "section_id": "0",
+      "offset": 155181,
+      "file_id": "main"
+     }
+    },
+    "note": "비교기업 WACC (Bloomberg, 주3) 참고용 — PER 유사기업 목록 아님"
+   },
+   {
+    "name": "비에이치아이",
+    "value": {
+     "value": 29.12,
+     "unit": "%",
+     "text": "29.12",
+     "cite": {
+      "section_id": "0",
+      "offset": 155194,
+      "file_id": "main"
+     }
+    },
+    "note": "비교기업 WACC (Bloomberg, 주3) 참고용 — PER 유사기업 목록 아님"
+   },
+   {
+    "name": "코세스",
+    "value": {
+     "value": 45.51,
+     "unit": "%",
+     "text": "45.51",
+     "cite": {
+      "section_id": "0",
+      "offset": 155204,
+      "file_id": "main"
+     }
+    },
+    "note": "비교기업 WACC (Bloomberg, 주3) 참고용 — PER 유사기업 목록 아님"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260519–20261026, listed_only=False): IPO, full, 원본 20260903000275, supersedes 20260903000275·20260923000255.",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '(주21) 정정 후'(공모가 산정 요약표), '(주22) 정정 후'(가. 평가결과), '(주23) 정정 후'(주당 평가가액 산출), '(주24) 정정 후'(희망공모가액 산출내역)에서 옮겼다.",
+  "ipo.peers는 PER 유사기업이 아니라 주3) 참고용 비교기업 WACC(평균 29.68%, Bloomberg)다. 주관사는 15.0%가 DCF 자본비용이 아닌 PER 추정이익 현가 할인율이라고 밝힘.",
+  "현가 할인율 비교: 2023년 이후 코스닥 기술특례상장기업 평균 연할인율 20.68%, 평균 할인기간 2.7년((주23) 정정 후).",
+  "적용주식수 11,519,096주 = 기발행보통주 8,885,737 + 공모신주 2,400,000 + 상장주선인 의무인수분 65,359 + 주관사 신주인수권 168,000(공모주식수의 7.0%). 1년 내 행사가능 주식매수선택권 없음.",
+  "코스닥시장 상장 공모(기술성장기업), 신주모집 2,400,000주, 확정총액 36,720,000,000원(15,300원 기준), 청약 2026-10-20~21, 납입 2026-10-23, 신한투자증권 총액인수. 상장예비심사 승인 2026-08-20.",
+  "유사기업 선정·개별 PER 산출과 추정 당기순이익 산정 내역은 이 정정본에 없음. 원본(20260903000275)을 /dart-valuation으로 따로 뽑으면 보완된다."
+ ],
+ "extracted_at": "2026-10-26T16:08:02+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261016000158",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 26120,
+   "how": "search/section"
+  }
+ ]
+}

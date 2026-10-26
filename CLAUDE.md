@@ -1,7 +1,7 @@
 # dart-mcp
 
 OpenDART 공시 원문을 섹션 단위로 읽는 MCP 서버(`dart`)와, 그 위에서 돌아가는 기업분석 슬래시 커맨드 프로젝트.
-코드는 `src/dart_mcp/` (client / document / cache / financials / periodic / valuation / tables / report_lint / server / cli), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`(가치평가 사례는 `reports/valuations/`).
+코드는 `src/dart_mcp/` (client / document / cache / financials / periodic / valuation / casebuild / batch / tables / report_lint / server / cli), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`(가치평가 사례는 `reports/valuations/`).
 
 ```bash
 uv run pytest -q                      # 단위테스트
@@ -70,14 +70,20 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
 | `/dart-review <보고서.md>` | 독립 서브에이전트 리뷰(출처·API 재대조·원문 샘플 5개·표현 오류·추정 표기) → `<보고서>.review.md` |
 | `/dart-valuation <rcept_no>` | 가치평가 공시 한 건 → 사례 JSON(`valuation_schema.json`)+md. 평가 주체별 방법·WACC·g·β·멀티플·결론. 끝에 `/dart-valuation-review` |
 | `/dart-valuation-scan <bgn> <end> [유형]` | 기간 안의 합병·분할·영업양수도·주식교환·IPO 공시 표(외부평가 여부·기관, 증권신고서 짝, 등급, 추출 여부). 추출 안 함 |
-| `/dart-valuation-search <조건>` | `reports/valuations/*.json`을 조건으로 걸러 표 + WACC·g·멀티플 분포. 사례 10건 미만이면 "통계적 의미 제한" |
+| `/dart-valuation-search <조건>` | `reports/valuations/*.json`을 조건으로 걸러 표 + **거래 단위** WACC·g·멀티플 분포("N건 거래, M개 값"). 기본은 거래가액 평가만(공정가치평가·손상검사 제외). 거래 10건 미만이면 "통계적 의미 제한" |
+| `/dart-valuation-batch <bgn> <end> [--grade full] [--limit N]` | 대상 큐(`dart_mcp.batch plan`) → 건마다 서브에이전트로 `/dart-valuation`, 실패는 기록하고 계속, 끝나고 무작위 20% 리뷰 → `_batch_<날짜>.md` |
 
 ### 가치평가 사례 규칙 (`/dart-valuation*`)
 - **원문에 없으면 null. 추정 금지.** 빈칸을 계산·유추로 채우지 않는다. 숫자는 전부 `{value, unit, text, cite}`이고 단위는 원문 그대로(환산 금지).
 - 평가 주체(외부평가기관·각 재무자문사·주관사·회사)가 다르면 valuations 원소를 나눈다. 회의록에 인용된 값은 notes로.
+- 원소마다 `purpose`(합병가액·분할·교환비율·양수도가액·공모가·공정가치평가·손상검사·기타). 범위는 숫자 크기 순(min ≤ max, `validate`가 검사).
+  JSON은 `dart_mcp.casebuild`(N/R/C/val — cite를 원문에서 직접 찾음)로 만든다.
+- 통계는 거래 단위: 같은 거래의 값 여럿은 외부평가기관 값이 대표값(없으면 중앙값) — `uv run python -m dart_mcp.valuation stats reports/valuations [필터]`.
+- 증권신고서(지분증권)의 IPO/유상증자는 corp_cls(조회 시점)로 못 가린다(올해 상장한 IPO는 K·Y, 상장폐지 회사의 유상증자는 E) → 본문 `equity_kind`.
 - 주요사항보고서는 API ZIP에 평가의견서 첨부가 없다 → `source_grade="summary"`(5행+결론). 가정은 짝 증권신고서(full)에서 뽑는다.
 - 큰 평가 섹션은 `find_tables(rcept_no, section_id, caption_pattern)`로 표부터, 나머지만 search_in_disclosure. 스키마 문서: `docs/valuation_schema.md`.
-- 검증·조회 CLI: `uv run python -m dart_mcp.valuation validate|verify-cites|md <json>`, `... table reports/valuations`.
+- 검증·조회 CLI: `uv run python -m dart_mcp.valuation validate|verify-cites|md <json>`, `... table|stats reports/valuations`.
+  배치: `uv run python -m dart_mcp.batch plan|record|report`. MCP 재연결 전 툴 호출: `uv run python -m dart_mcp.casebuild call|grep|usage`.
 
 공통 규칙: 보고서는 `reports/<회사명>_<종류>_<날짜>.md`로 저장, 마지막에 "참조한 섹션 목록" 부록,
 원문 장문 복사 금지(표는 핵심 행만), 범위는 `4–5배`(en dash — `~` 두 개는 Markdown 취소선이 됨),

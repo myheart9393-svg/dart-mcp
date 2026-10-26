@@ -1,0 +1,321 @@
+{
+ "rcept_no": "20260911000209",
+ "original_rcept_no": "20260729000302",
+ "related_rcept_nos": [
+  "20260729000302",
+  "20260818000130",
+  "20260903000071",
+  "20260909000118",
+  "20260911000214"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01867688",
+  "name": "와이즈플래닛컴퍼니",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 대신증권이 희망공모가액 10,000원~12,000원을 제시하고 수요예측 결과 및 주식시장 상황 등을 감안하여 발행회사와 협의해 확정공모가액 12,000원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 200715,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "대신증권㈜ (대표주관회사)",
+   "target": "와이즈플래닛컴퍼니",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 20.04,
+     "unit": "배",
+     "text": "20.04배",
+     "cite": {
+      "section_id": "0",
+      "offset": 202123,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 11619880968,
+     "unit": "원",
+     "text": "11,619,880,968원",
+     "cite": {
+      "section_id": "0",
+      "offset": 202003,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 48.4,
+      "unit": "%",
+      "text": "48.4%",
+      "cite": {
+       "section_id": "0",
+       "offset": 208511,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 57.0,
+      "unit": "%",
+      "text": "57.0%",
+      "cite": {
+       "section_id": "0",
+       "offset": 208503,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 23240,
+     "unit": "원",
+     "text": "23,240원",
+     "cite": {
+      "section_id": "0",
+      "offset": 202166,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 208538,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12000,
+      "unit": "원",
+      "text": "12,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 208548,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2026년 반기 LTM 지배기업지분 당기순이익 x 유사기업 PER ÷ 적용 주식수 x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 비교기업 목록·개별 PER((2) 유사기업 PER 산출)은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "와이즈플래닛컴퍼니",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 23240,
+     "unit": "원",
+     "text": "23,240원",
+     "cite": {
+      "section_id": "0",
+      "offset": 202166,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "와이즈플래닛컴퍼니",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 12000,
+     "unit": "원",
+     "text": "12,000원",
+     "cite": {
+      "section_id": "0",
+      "offset": 208635,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "대신증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 208538,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12000,
+      "unit": "원",
+      "text": "12,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 208548,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "상대가치 주당 평가가액 23,240원에 57.0%~48.4% 할인율을 적용해 희망공모가액 10,000원~12,000원을 제시하고, 수요예측 결과를 반영해 확정공모가액을 12,000원으로 최종 확정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "대신증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 11619880968,
+   "unit": "원",
+   "text": "11,619,880,968원",
+   "cite": {
+    "section_id": "0",
+    "offset": 202003,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2026년 반기 LTM 지배기업지분 당기순이익(실적치)",
+  "multiple": {
+   "value": 20.04,
+   "unit": "배",
+   "text": "20.04배",
+   "cite": {
+    "section_id": "0",
+    "offset": 202123,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 10020030,
+   "unit": "주",
+   "text": "10,020,030주",
+   "cite": {
+    "section_id": "0",
+    "offset": 202042,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 23240,
+   "unit": "원",
+   "text": "23,240원",
+   "cite": {
+    "section_id": "0",
+    "offset": 202166,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 48.4,
+    "unit": "%",
+    "text": "48.4%",
+    "cite": {
+     "section_id": "0",
+     "offset": 208511,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 57.0,
+    "unit": "%",
+    "text": "57.0%",
+    "cite": {
+     "section_id": "0",
+     "offset": 208503,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 10000,
+    "unit": "원",
+    "text": "10,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 208538,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 12000,
+    "unit": "원",
+    "text": "12,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 208548,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260414–20261011, listed_only=False, 2페이지)에서 이 rcept_no를 찾지 못해 outline 문서명([발행조건확정]증권신고서(지분증권))으로 IPO/full 판단. 원본 20260729000302는 search_disclosures(pblntf_ty=C)로 확인.",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주14)·(주15)·(주16) 정정 후)에서 옮겼다.",
+  "정정 전후 차이: 상장주선인 의무인수분 48,000주→64,000주(공모주식수 1.0% 추가)로 적용주식수 10,004,030주→10,020,030주, 주당 평가가액 23,277원→23,240원.",
+  "적용주식수 10,020,030주 = 기발행 보통주 8,616,030 + 공모신주 1,340,000 + 상장주선인 의무인수분 64,000(주식매수선택권 없음).",
+  "할인율 원문 표기는 '57.0% ~ 48.4%'(하단 10,000원 ↔ 57.0%, 상단 12,000원 ↔ 48.4%). discount_range는 min 48.4·max 57.0. 참고로 2023년~현재 코스닥 일반상장법인 평가액 대비 할인율 비교표가 (주16) 정정 후 주2에 있다.",
+  "비교기업 선정·개별 PER 상세는 원본·기재정정(20260729000302 / 20260903000071 등)을 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "코스닥시장 일반상장 공모. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:14:52+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260911000209",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 10524,
+   "how": "search/section"
+  }
+ ]
+}

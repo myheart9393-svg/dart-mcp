@@ -1,0 +1,1359 @@
+{
+ "rcept_no": "20261014000358",
+ "original_rcept_no": "20260907000046",
+ "related_rcept_nos": [
+  "20260907000046",
+  "20261001000333",
+  "20260904000509"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00876865",
+  "name": "네오오토",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "share_exchange",
+  "counterparty": "오토인더스트리",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "증권신고서 제출일 현재 양사는 동일한 최대주주 등의 지배 하에 있는 계열회사",
+  "board_date": "2026-09-04",
+  "regime": "기준시가",
+  "ratio_text": "(주)네오오토 : (주)오토인더스트리 = 1 : 91.3667379"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장법령상 외부평가의무에 따라 완전모회사가 되는 회사가 선정한 외부평가기관은 이촌회계법인",
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2026.08.19 ~ 2026.09.03",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)"
+  ],
+  "opinion_text": "주당평가액은 네오오토 9,798원, 오토인더스트리 845,178원~1,030,092원으로 평가되어 주식교환비율은 1 : 86.2602776~105.1329047이며, 당사회사 간 합의한 주식교환비율 1:91.3667379는 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 48108,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼도회계법인",
+   "target": "네오오토",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 10969,
+     "unit": "원",
+     "text": "10,969",
+     "cite": {
+      "section_id": "5",
+      "offset": 7159,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2026-08-28"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 9798,
+     "unit": "원",
+     "text": "9,798",
+     "cite": {
+      "section_id": "5",
+      "offset": 7055,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-09-03. 1개월·1주일 거래량가중산술평균종가와 최근일 종가의 산술평균. 자산가치(10,969원)가 기준시가를 상회하나 기준시가 적용."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "네오오토",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 10969,
+     "unit": "원",
+     "text": "10,969",
+     "cite": {
+      "section_id": "5",
+      "offset": 7159,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2026-08-28"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10173,
+      "unit": "원",
+      "text": "10,173",
+      "cite": {
+       "section_id": "5",
+       "offset": 7107,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12093,
+      "unit": "원",
+      "text": "12,093",
+      "cite": {
+       "section_id": "5",
+       "offset": 7116,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 10897,
+    "unit": "원",
+    "text": "10,897",
+    "cite": {
+     "section_id": "5",
+     "offset": 16105,
+     "file_id": "main"
+    }
+   },
+   "note": "참고용: 시행세칙 제4조~제6조에 준해 산정한 완전모회사 본질가치(교환가액은 기준시가). 수익가치 범위 9,642~12,842원(민감도 최소·최대). 점 본질가치는 원문에 없음."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "네오오토",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일 ~ 2030년 12월 31일(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 9.82,
+     "unit": "%",
+     "text": "9.82%",
+     "cite": {
+      "section_id": "5",
+      "offset": 13975,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 13954,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10897,
+     "unit": "원",
+     "text": "10,897",
+     "cite": {
+      "section_id": "5",
+      "offset": 16105,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 추정현금흐름 현재가치 37,539백만원, 영구현금흐름 현재가치 73,609백만원, EV 111,148백만원, 비영업자산 54,759백만원, 이자부부채 18,961백만원, 주식가치 146,946백만원, 희석주식수 13,485,071주. WACC 구성요소(rf·β·Kd 등) 수치는 본문에 없음."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "오토인더스트리",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 793996,
+     "unit": "원",
+     "text": "793,996",
+     "cite": {
+      "section_id": "5",
+      "offset": 18293,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2026-08-28"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 939981,
+     "unit": "원",
+     "text": "939,981원",
+     "cite": {
+      "section_id": "5",
+      "offset": 3877,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 832316,
+      "unit": "원",
+      "text": "832,316",
+      "cite": {
+       "section_id": "5",
+       "offset": 7125,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1109673,
+      "unit": "원",
+      "text": "1,109,673",
+      "cite": {
+       "section_id": "5",
+       "offset": 7135,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 1037304,
+    "unit": "원",
+    "text": "1,037,304원",
+    "cite": {
+     "section_id": "5",
+     "offset": 23630,
+     "file_id": "main"
+    }
+   },
+   "note": "당사회사가 결정한 오토인더스트리 교환가액 939,981원은 삼도 산정 자산가치·수익가치로 계산한 값. range는 민감도 최소·최대 수익가치(857,863~1,320,124원) 적용. 자산가치 = 조정 순자산 140,659백만원 + RCPS 전환효과 32,962백만원 = 173,621백만원 ÷ 218,667주."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "오토인더스트리",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일 ~ 2030년 12월 31일(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 9.7,
+     "unit": "%",
+     "text": "9.70%",
+     "cite": {
+      "section_id": "5",
+      "offset": 20873,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 20852,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1037304,
+     "unit": "원",
+     "text": "1,037,304원",
+     "cite": {
+      "section_id": "5",
+      "offset": 23630,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "연결 기준 FCFF(별도·해외법인(베트남·인도)·네오스틸 부문 구분). 추정 PV 38,217백만원, 영구 PV 182,682백만원, EV 220,899백만원, 비영업용자산 104,899백만원, 이자부부채 및 차입부채성항목 98,974백만원, 주식가치 226,824백만원, 희석주식수 218,667주. WACC 구성요소 수치는 본문에 없음."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "네오오토",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 10969,
+     "unit": "원",
+     "text": "10,969",
+     "cite": {
+      "section_id": "5",
+      "offset": 7993,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2026-08-28"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 9798,
+     "unit": "원",
+     "text": "9,798",
+     "cite": {
+      "section_id": "5",
+      "offset": 7890,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-09-03 기준시가."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "네오오토",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 10969,
+     "unit": "원",
+     "text": "10,969",
+     "cite": {
+      "section_id": "5",
+      "offset": 7993,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2026-08-28"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9621,
+      "unit": "원",
+      "text": "9,621",
+      "cite": {
+       "section_id": "5",
+       "offset": 7942,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12533,
+      "unit": "원",
+      "text": "12,533",
+      "cite": {
+       "section_id": "5",
+       "offset": 7950,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 10590,
+    "unit": "원",
+    "text": "10,590",
+    "cite": {
+     "section_id": "5",
+     "offset": 31373,
+     "file_id": "main"
+    }
+   },
+   "note": "참고용 완전모회사 본질가치(교환가액은 기준시가). 수익가치 범위 8,722~13,576원(민감도 최소·최대)."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "네오오토",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일 ~ 2030년 12월 31일(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 9.54,
+     "unit": "%",
+     "text": "9.54%",
+     "cite": {
+      "section_id": "5",
+      "offset": 29489,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 29468,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10590,
+     "unit": "원",
+     "text": "10,590",
+     "cite": {
+      "section_id": "5",
+      "offset": 31373,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF. 추정 PV 25,747백만원, 영구 PV 106,850백만원, 영업가치 132,596백만원, 비영업자산 31,587백만원, EV 164,184백만원, 이자부부채 등 21,369백만원, 자기자본가치 142,815백만원, 발행주식총수 13,486,348주(CB 전환 1,674,107주 포함). WACC 구성요소 수치는 본문에 없음."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "오토인더스트리",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 826227,
+     "unit": "원",
+     "text": "826,227",
+     "cite": {
+      "section_id": "5",
+      "offset": 33514,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2026-08-28"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 865026,
+      "unit": "원",
+      "text": "865,026",
+      "cite": {
+       "section_id": "5",
+       "offset": 7959,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1063097,
+      "unit": "원",
+      "text": "1,063,097",
+      "cite": {
+       "section_id": "5",
+       "offset": 7969,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 1017681,
+    "unit": "원",
+    "text": "1,017,681",
+    "cite": {
+     "section_id": "5",
+     "offset": 38313,
+     "file_id": "main"
+    }
+   },
+   "note": "별도재무상태표 기준 자산가치(조정 순자산 180,669백만원 ÷ 218,667주). range는 민감도 최소·최대 수익가치(890,892~1,221,010원) 적용. 점 본질가치는 원문에 없음."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "오토인더스트리",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일 ~ 2030년 12월 31일(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 9.39,
+     "unit": "%",
+     "text": "9.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 35952,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 35931,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1017681,
+     "unit": "원",
+     "text": "1,017,681",
+     "cite": {
+      "section_id": "5",
+      "offset": 38313,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF. 추정 PV 35,983백만원, 영구 PV 124,789백만원, 영업가치 160,773백만원, 비영업용자산 98,893백만원, 기업가치 259,665백만원, 이자부부채 등 37,132백만원, 수익가치 222,533백만원, 218,667주. WACC 구성요소 수치는 본문에 없음."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "네오오토",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 9798,
+     "unit": "원",
+     "text": "9,798원",
+     "cite": {
+      "section_id": "5",
+      "offset": 47947,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "외부평가기관은 자본시장법령에 따라 네오오토의 자산가치·본질가치는 평가하지 않음(섹션 5 '3. 외부평가에 관한 사항')."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "오토인더스트리",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 829508,
+     "unit": "원",
+     "text": "829,508",
+     "cite": {
+      "section_id": "5",
+      "offset": 63563,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2026-08-28"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 845178,
+      "unit": "원",
+      "text": "845,178",
+      "cite": {
+       "section_id": "5",
+       "offset": 63529,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1030092,
+      "unit": "원",
+      "text": "1,030,092",
+      "cite": {
+       "section_id": "5",
+       "offset": 63539,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 972490,
+    "unit": "원",
+    "text": "972,490",
+    "cite": {
+     "section_id": "5",
+     "offset": 73484,
+     "file_id": "main"
+    }
+   },
+   "note": "수익가치 범위 855,625~1,163,815원(민감도 최소·최대)을 적용한 본질가치 범위. 기준 수익가치 972,490원에 대한 점 본질가치는 원문에 없음."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "오토인더스트리",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일 ~ 2030년 12월 31일(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 9.1,
+     "unit": "%",
+     "text": "9.10%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137377,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137068,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137101,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.388,
+     "unit": null,
+     "text": "0.3880",
+     "cite": {
+      "section_id": "5",
+      "offset": 138799,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.8768,
+     "unit": null,
+     "text": "0.8768",
+     "cite": {
+      "section_id": "5",
+      "offset": 137136,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137164,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.42,
+     "unit": "%",
+     "text": "14.42%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137198,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 7.44,
+     "unit": "%",
+     "text": "7.44%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137228,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137252,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 161.5,
+     "unit": "%",
+     "text": "161.50%",
+     "cite": {
+      "section_id": "5",
+      "offset": 138787,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 88437,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "씨티알모빌리티",
+      "value": {
+       "value": 0.2806,
+       "unit": null,
+       "text": "0.2806",
+       "cite": {
+        "section_id": "5",
+        "offset": 138378,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "디와이씨",
+      "value": {
+       "value": 0.2875,
+       "unit": null,
+       "text": "0.2875",
+       "cite": {
+        "section_id": "5",
+        "offset": 138450,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "네오오토",
+      "value": {
+       "value": 0.9,
+       "unit": null,
+       "text": "0.9000",
+       "cite": {
+        "section_id": "5",
+        "offset": 138522,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "디아이씨",
+      "value": {
+       "value": 0.7242,
+       "unit": null,
+       "text": "0.7242",
+       "cite": {
+        "section_id": "5",
+        "offset": 138600,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "오리엔트정공",
+      "value": {
+       "value": -0.0206,
+       "unit": null,
+       "text": "(0.0206)",
+       "cite": {
+        "section_id": "5",
+        "offset": 138675,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "경창산업",
+      "value": {
+       "value": 0.1563,
+       "unit": null,
+       "text": "0.1563",
+       "cite": {
+        "section_id": "5",
+        "offset": 138754,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 972490,
+     "unit": "원",
+     "text": "972,490",
+     "cite": {
+      "section_id": "5",
+      "offset": 73484,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 수익가치 212,651백만원(이자부부채 33,729백만원 차감 후) ÷ 218,667주(RCPS 전환 가정). 목표자본구조 자기자본 38.24%·타인자본 61.76% (target_de는 유사기업 평균 부채비율 161.50%, beta_unlevered는 유사기업 6사 평균 0.3880). 세후 타인자본비용 5.80%."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "네오오토",
+    "basis": "기준시가 9,798원에 5% 할증한 주식교환가액",
+    "value": {
+     "value": 10288,
+     "unit": "원",
+     "text": "10,288",
+     "cite": {
+      "section_id": "5",
+      "offset": 1032,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "오토인더스트리",
+    "basis": "본질가치(주식교환가액)",
+    "value": {
+     "value": 939981,
+     "unit": "원",
+     "text": "939,981",
+     "cite": {
+      "section_id": "5",
+      "offset": 942,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가 오토인더스트리 주당 평가액 범위",
+    "subject": "이촌회계법인",
+    "range": {
+     "min": {
+      "value": 845178,
+      "unit": "원",
+      "text": "845,178",
+      "cite": {
+       "section_id": "5",
+       "offset": 63529,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1030092,
+      "unit": "원",
+      "text": "1,030,092",
+      "cite": {
+       "section_id": "5",
+       "offset": 63539,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가 주식교환비율 범위",
+    "subject": "이촌회계법인",
+    "range": {
+     "min": {
+      "value": 86.2602776,
+      "unit": null,
+      "text": "86.2602776",
+      "cite": {
+       "section_id": "5",
+       "offset": 4576,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 105.1329047,
+      "unit": null,
+      "text": "105.1329047",
+      "cite": {
+       "section_id": "5",
+       "offset": 4593,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "재무자문 주식교환비율 범위",
+    "subject": "삼도회계법인",
+    "range": {
+     "min": {
+      "value": 84.9475403,
+      "unit": null,
+      "text": "84.9475403",
+      "cite": {
+       "section_id": "5",
+       "offset": 4636,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 113.2550521,
+      "unit": null,
+      "text": "113.2550521",
+      "cite": {
+       "section_id": "5",
+       "offset": 4653,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "재무자문 주식교환비율 범위",
+    "subject": "현대회계법인",
+    "range": {
+     "min": {
+      "value": 88.2859767,
+      "unit": null,
+      "text": "88.2859767",
+      "cite": {
+       "section_id": "5",
+       "offset": 4696,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 108.5014289,
+      "unit": null,
+      "text": "108.5014289",
+      "cite": {
+       "section_id": "5",
+       "offset": 4713,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "재무자문 네오오토 1주당 본질가치 범위",
+    "subject": "삼도회계법인",
+    "range": {
+     "min": {
+      "value": 10173,
+      "unit": "원",
+      "text": "10,173",
+      "cite": {
+       "section_id": "5",
+       "offset": 7107,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12093,
+      "unit": "원",
+      "text": "12,093",
+      "cite": {
+       "section_id": "5",
+       "offset": 7116,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "재무자문 네오오토 1주당 본질가치 범위",
+    "subject": "현대회계법인",
+    "range": {
+     "min": {
+      "value": 9621,
+      "unit": "원",
+      "text": "9,621",
+      "cite": {
+       "section_id": "5",
+       "offset": 7942,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12533,
+      "unit": "원",
+      "text": "12,533",
+      "cite": {
+       "section_id": "5",
+       "offset": 7950,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 91.3667379,
+   "unit": null,
+   "text": "91.3667379",
+   "cite": {
+    "section_id": "5",
+    "offset": 1069,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 205542820320,
+   "unit": "원",
+   "text": "205,542,820,320",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 273,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인은 합의 교환비율 1:91.3667379가 평가 범위 내로 적정하다는 의견. 네오오토 교환가액 10,288원은 특별위원회 권고로 기준시가에 5% 할증한 값으로, 삼도·현대가 산정한 네오오토 본질가치 범위에 모두 포함",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼도회계법인",
+   "target": "네오오토",
+   "variables": "WACC 8.82%~10.82%, 영구성장률 0.0%~2.0% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 9642,
+     "unit": "원",
+     "text": "9,642",
+     "cite": {
+      "section_id": "5",
+      "offset": 16312,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 12842,
+     "unit": "원",
+     "text": "12,842",
+     "cite": {
+      "section_id": "5",
+      "offset": 16369,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "오토인더스트리",
+   "variables": "WACC 8.70%~10.70%, 영구성장률 0.0%~2.0% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 857863,
+     "unit": "원",
+     "text": "857,863",
+     "cite": {
+      "section_id": "5",
+      "offset": 24000,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1320124,
+     "unit": "원",
+     "text": "1,320,124",
+     "cite": {
+      "section_id": "5",
+      "offset": 24066,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "네오오토",
+   "variables": "WACC 8.54%~10.54%, 영구성장률 0.0%~2.0% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 8722,
+     "unit": "원",
+     "text": "8,722",
+     "cite": {
+      "section_id": "5",
+      "offset": 31645,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 13576,
+     "unit": "원",
+     "text": "13,576",
+     "cite": {
+      "section_id": "5",
+      "offset": 31701,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "오토인더스트리",
+   "variables": "WACC 8.39%~10.39%, 영구성장률 0.0%~2.0% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 890892,
+     "unit": "원",
+     "text": "890,892",
+     "cite": {
+      "section_id": "5",
+      "offset": 38976,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1221010,
+     "unit": "원",
+     "text": "1,221,010",
+     "cite": {
+      "section_id": "5",
+      "offset": 39042,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "오토인더스트리",
+   "variables": "WACC 8.10%~10.10%, 영구성장률 0.00%~2.00% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 855625,
+     "unit": "원",
+     "text": "855,625",
+     "cite": {
+      "section_id": "5",
+      "offset": 95856,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1163815,
+     "unit": "원",
+     "text": "1,163,815",
+     "cite": {
+      "section_id": "5",
+      "offset": 95922,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260517–20261026, listed_only=False)에서 확인: source_grade full, 기재정정, original 20260907000046, supersedes 20260907000046·20261001000333, 짝 공시 20260904000509(주요사항보고서, summary). attachment_rcept_no 20260907000046.",
+  "평가 주체 3곳: 이촌회계법인(네오오토 선임 법정 외부평가기관, 2026.08.19 선임), 삼도회계법인(네오오토 특별위원회 선임 재무자문, 2026.07.28), 현대회계법인(오토인더스트리 선임 재무자문, 2026.08.10). 삼도·현대는 교차검증용으로 법적 요구 외 별도 선임.",
+  "최종 교환가액: 네오오토 = 기준시가 9,798원 x 1.05 = 10,288원(특별위원회 제4차 회의 권고, 2026-09-04 이사회 결의), 오토인더스트리 = 삼도 산정 본질가치 939,981원. 네오오토 자산가치 10,969원이 기준시가를 상회하나 자산가치 적용(시행령 176조의5 ①2가 단서)은 하지 않음.",
+  "체계: 2026.12.9 시행 개정 자본시장법(공정한 가액)은 이사회 결의일(2026-09-04)이 시행 전이라 미적용 — 개정 전 기준시가·본질가치 체계(섹션 5 '3. 외부평가에 관한 사항').",
+  "외부평가기관 선정에 대한 감사위원회 동의 여부는 본문에서 확인되지 않아 null.",
+  "삼도·현대의 WACC 구성요소(rf·MRP·β·규모위험·Kd·자본구조) 수치는 본문에 없고 전제조건 표의 WACC·g만 있음.",
+  "이촌 β 산정 유사기업 6사에 네오오토 자신이 포함됨(Unlevered Beta 0.9000). 오리엔트정공은 음(-)의 베타((0.0206))로 평균에 포함.",
+  "오토인더스트리 교환대상주식 218,667주(보통주 165,333주 + RCPS 53,334주, 주식교환일 전 전환 예정). 오토인더스트리는 네오오토 주식 945,000주(7.01%) 보유.",
+  "transaction_value는 교환신주 19,978,890주 x 10,288원 = 모집총액 205,542,820,320원(섹션 3.4)."
+ ],
+ "extracted_at": "2026-10-26T16:13:11+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261014000358",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1410,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261014000358",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 주식의 포괄적 교환ㆍ이전에 관한 기본사항",
+   "chars_read": 2432,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261014000358",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
+   "chars_read": 52219,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

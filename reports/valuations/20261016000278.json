@@ -1,0 +1,1094 @@
+{
+ "rcept_no": "20261016000278",
+ "original_rcept_no": "20260929000659",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01906394",
+  "name": "솔리스",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "한화플러스제5호기업인수목적㈜",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열·임원겸직·거래 해당사항 없음. 다만 SPAC 발기인 한화투자증권이 솔리스 주요주주(25.00%) 조합의 공동 GP이자 상장주선인·합병자문사(VIII. 당사회사간의 이해관계 등)",
+  "board_date": "2026-07-27",
+  "regime": "기준시가",
+  "ratio_text": "솔리스 주식회사 : 한화플러스제5호기업인수목적㈜ = 1 : 0.1792597"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "「자본시장과 금융투자업에 관한 법률」 제165조의4에 따른 외부평가기관의 평가의견서(한미회계법인)",
+  "firm": "한미회계법인",
+  "firm_type": "회계법인",
+  "period": "2026년 5월 6일 ~ 2026년 7월 26일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.06)",
+   "외부평가업무 수행기준(2024.11)",
+   "한미회계법인 자본시장법에 따른 외부평가업무 품질관리규정"
+  ],
+  "opinion_text": "합병당사회사의 주당평가액은 합병법인 10,409~12,048원, 피합병법인 2,000원의 범위로 평가되었으며 합병비율은 0.1660027~0.1921414로 평가되었다. 합의한 합병비율 1 : 0.1792597은 범위 내에 있으므로 적정한 것으로 판단된다.",
+  "cite": {
+   "section_id": "5",
+   "offset": 143180,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한울회계법인",
+   "target": "솔리스㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 3172,
+     "unit": "원",
+     "text": "3,172",
+     "cite": {
+      "section_id": "5",
+      "offset": 12520,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11157,
+     "unit": "원",
+     "text": "11,157",
+     "cite": {
+      "section_id": "5",
+      "offset": 12478,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10409,
+      "unit": "원",
+      "text": "10,409원",
+      "cite": {
+       "section_id": "5",
+       "offset": 26822,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12048,
+      "unit": "원",
+      "text": "12,048원",
+      "cite": {
+       "section_id": "5",
+       "offset": 26832,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 16481,
+    "unit": "원",
+    "text": "16,481",
+    "cite": {
+     "section_id": "5",
+     "offset": 12552,
+     "file_id": "main"
+    }
+   },
+   "note": "한울회계법인은 합병법인 솔리스㈜가 의뢰한 합병가치 평가(합병비율 산출) 기관(계약 2026-05-31, 수행 2026-05-31~07-26). 본질가치 = (자산가치x1 + 수익가치x1.5)÷2.5. 유사회사 3사 미만으로 상대가치 미산정. 이 값이 합의 합병가액. range는 민감도(WACC·g ±0.5%p) 기준 본질가치 범위. 자산가치는 2025-12-31 연결 자본총계+CB 전환 등 가산 24,381,328,157원 ÷ 7,687,597주."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "솔리스㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년–2030년(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 12.35,
+     "unit": "%",
+     "text": "12.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 120225,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 120303,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 120340,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.8159,
+     "unit": null,
+     "text": "0.8159",
+     "cite": {
+      "section_id": "5",
+      "offset": 120374,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.056,
+     "unit": null,
+     "text": "1.0560",
+     "cite": {
+      "section_id": "5",
+      "offset": 120407,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 120440,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.85,
+     "unit": "%",
+     "text": "15.85%",
+     "cite": {
+      "section_id": "5",
+      "offset": 120478,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.91,
+     "unit": "%",
+     "text": "3.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 120508,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 120596,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 37.73,
+     "unit": "%",
+     "text": "37.73%",
+     "cite": {
+      "section_id": "5",
+      "offset": 121292,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24455,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "티이엠씨씨엔에스",
+      "value": {
+       "value": 0.7438,
+       "unit": null,
+       "text": "0.7438",
+       "cite": {
+        "section_id": "5",
+        "offset": 122057,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "필에너지",
+      "value": {
+       "value": 0.9572,
+       "unit": null,
+       "text": "0.9572",
+       "cite": {
+        "section_id": "5",
+        "offset": 122122,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "나인테크",
+      "value": {
+       "value": 0.9455,
+       "unit": null,
+       "text": "0.9455",
+       "cite": {
+        "section_id": "5",
+        "offset": 122187,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "이노메트리",
+      "value": {
+       "value": 0.8832,
+       "unit": null,
+       "text": "0.8832",
+       "cite": {
+        "section_id": "5",
+        "offset": 122248,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "케이엔에스",
+      "value": {
+       "value": 0.77,
+       "unit": null,
+       "text": "0.7700",
+       "cite": {
+        "section_id": "5",
+        "offset": 122313,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "티에스아이",
+      "value": {
+       "value": 0.7452,
+       "unit": null,
+       "text": "0.7452",
+       "cite": {
+        "section_id": "5",
+        "offset": 122378,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "엠플러스",
+      "value": {
+       "value": 0.7716,
+       "unit": null,
+       "text": "0.7716",
+       "cite": {
+        "section_id": "5",
+        "offset": 122443,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "지아이텍",
+      "value": {
+       "value": 0.613,
+       "unit": null,
+       "text": "0.6130",
+       "cite": {
+        "section_id": "5",
+        "offset": 122507,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "에스에프에이",
+      "value": {
+       "value": 0.8593,
+       "unit": null,
+       "text": "0.8593",
+       "cite": {
+        "section_id": "5",
+        "offset": 122577,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "윤성에프앤씨",
+      "value": {
+       "value": 1.3993,
+       "unit": null,
+       "text": "1.3993",
+       "cite": {
+        "section_id": "5",
+        "offset": 122644,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "나래나노텍",
+      "value": {
+       "value": 0.2087,
+       "unit": null,
+       "text": "0.2087",
+       "cite": {
+        "section_id": "5",
+        "offset": 122710,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "피엔티",
+      "value": {
+       "value": 0.8938,
+       "unit": null,
+       "text": "0.8938",
+       "cite": {
+        "section_id": "5",
+        "offset": 122775,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 16481,
+     "unit": "원",
+     "text": "16,481",
+     "cite": {
+      "section_id": "5",
+      "offset": 12552,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형(기중 현금흐름). 영업가치 118,710,765천원 + 비영업자산 12,838,540천원(CB 대금 9,000,000천원 포함) - 이자부부채 4,852,767천원 = 주주가치 126,696,538천원, 주식수 7,687,597주. 목표자본구조 E/V 72.61%·D/V 27.39%. Size Premium은 한국공인회계사회 기업규모위험 연구 3분위수 Micro 평균. 연결재무제표 기준."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "한화플러스제5호기업인수목적㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1643,
+     "unit": "원",
+     "text": "1,643",
+     "cite": {
+      "section_id": "5",
+      "offset": 10549,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 7250000,
+     "unit": "주",
+     "text": "7,250,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 10513,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 8085,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-07-26. 1개월 가중평균 2,032원·1주일 2,028원·최근일 2,025원 산술평균 2,028원에 1.40% 할인. 자산가치는 CB(22.9억원, 전환가 1,000원) 전환 가정 2,290,000주 가산 후 7,250,000주 기준. Max[2,000, 1,643]=2,000."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "솔리스㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 3172,
+     "unit": "원",
+     "text": "3,172",
+     "cite": {
+      "section_id": "5",
+      "offset": 155014,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10409,
+      "unit": "원",
+      "text": "10,409",
+      "cite": {
+       "section_id": "5",
+       "offset": 154964,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12048,
+      "unit": "원",
+      "text": "12,048",
+      "cite": {
+       "section_id": "5",
+       "offset": 154973,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 16481,
+    "unit": "원",
+    "text": "16,481",
+    "cite": {
+     "section_id": "5",
+     "offset": 254575,
+     "file_id": "main"
+    }
+   },
+   "note": "외부평가기관은 별도 점추정치를 제시하지 않고 적정 범위(수익가치 15,233~17,965원, 본질가치 10,409~12,048원)를 산정. 합의 합병가액 11,157원(한울 산출)이 범위 내라 적정하다고 판단. 수익가치 16,481원은 한미의 DCF 결과 표 값."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "솔리스㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년–2030년(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 12.35,
+     "unit": "%",
+     "text": "12.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 252561,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 249769,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 249831,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.816,
+     "unit": null,
+     "text": "0.816",
+     "cite": {
+      "section_id": "5",
+      "offset": 251318,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.056,
+     "unit": null,
+     "text": "1.056",
+     "cite": {
+      "section_id": "5",
+      "offset": 249875,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 249978,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.85,
+     "unit": "%",
+     "text": "15.85%",
+     "cite": {
+      "section_id": "5",
+      "offset": 250191,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.91,
+     "unit": "%",
+     "text": "3.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 252310,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": null,
+    "target_de": {
+     "value": 37.73,
+     "unit": "%",
+     "text": "37.73%",
+     "cite": {
+      "section_id": "5",
+      "offset": 252530,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 254973,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "티이엠씨씨엔에스",
+      "value": {
+       "value": 0.744,
+       "unit": null,
+       "text": "0.744",
+       "cite": {
+        "section_id": "5",
+        "offset": 250572,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "필에너지",
+      "value": {
+       "value": 0.957,
+       "unit": null,
+       "text": "0.957",
+       "cite": {
+        "section_id": "5",
+        "offset": 250636,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "나인테크",
+      "value": {
+       "value": 0.945,
+       "unit": null,
+       "text": "0.945",
+       "cite": {
+        "section_id": "5",
+        "offset": 250700,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "이노메트리",
+      "value": {
+       "value": 0.883,
+       "unit": null,
+       "text": "0.883",
+       "cite": {
+        "section_id": "5",
+        "offset": 250760,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "케이엔에스",
+      "value": {
+       "value": 0.77,
+       "unit": null,
+       "text": "0.770",
+       "cite": {
+        "section_id": "5",
+        "offset": 250824,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "티에스아이",
+      "value": {
+       "value": 0.745,
+       "unit": null,
+       "text": "0.745",
+       "cite": {
+        "section_id": "5",
+        "offset": 250888,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "엠플러스",
+      "value": {
+       "value": 0.772,
+       "unit": null,
+       "text": "0.772",
+       "cite": {
+        "section_id": "5",
+        "offset": 250952,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "지아이텍",
+      "value": {
+       "value": 0.613,
+       "unit": null,
+       "text": "0.613",
+       "cite": {
+        "section_id": "5",
+        "offset": 251015,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "에스에프에이",
+      "value": {
+       "value": 0.859,
+       "unit": null,
+       "text": "0.859",
+       "cite": {
+        "section_id": "5",
+        "offset": 251084,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "윤성에프앤씨",
+      "value": {
+       "value": 1.399,
+       "unit": null,
+       "text": "1.399",
+       "cite": {
+        "section_id": "5",
+        "offset": 251150,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "나래나노텍",
+      "value": {
+       "value": 0.209,
+       "unit": null,
+       "text": "0.209",
+       "cite": {
+        "section_id": "5",
+        "offset": 251215,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "피엔티",
+      "value": {
+       "value": 0.894,
+       "unit": null,
+       "text": "0.894",
+       "cite": {
+        "section_id": "5",
+        "offset": 251279,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 16481,
+     "unit": "원",
+     "text": "16,481",
+     "cite": {
+      "section_id": "5",
+      "offset": 254575,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 추정치·WACC·g·결과가 한울 산정과 동일(영업가치 118,710,765천원, 주주가치 126,696,538천원). Kd(1-t) 3.05%, E/V 72.61%·D/V 27.39%. 한미 WACC 표에 세율 행이 없어 tax_rate=null."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "한화플러스제5호기업인수목적㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1643,
+     "unit": "원",
+     "text": "1,643",
+     "cite": {
+      "section_id": "5",
+      "offset": 156226,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 156206,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준시가 2,028원에 1.40% 할인한 2,000원 > 자산가치 1,643원이므로 2,000원(Max)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "솔리스㈜",
+    "basis": "본질가치(합병가액)",
+    "value": {
+     "value": 11157,
+     "unit": "원",
+     "text": "11,157",
+     "cite": {
+      "section_id": "5",
+      "offset": 6334,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "한화플러스제5호기업인수목적㈜",
+    "basis": "기준주가에 할인율을 반영한 평가가액(합병가액)",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 6343,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가 합병법인 주당평가액 범위",
+    "subject": "한미회계법인",
+    "range": {
+     "min": {
+      "value": 10409,
+      "unit": "원",
+      "text": "10,409",
+      "cite": {
+       "section_id": "5",
+       "offset": 143014,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12048,
+      "unit": "원",
+      "text": "12,048",
+      "cite": {
+       "section_id": "5",
+       "offset": 143021,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가 합병비율 범위",
+    "subject": "한미회계법인",
+    "range": {
+     "min": {
+      "value": 0.1660027,
+      "unit": null,
+      "text": "0.1660027",
+      "cite": {
+       "section_id": "5",
+       "offset": 143089,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.1921414,
+      "unit": null,
+      "text": "0.1921414",
+      "cite": {
+       "section_id": "5",
+       "offset": 143099,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.1792597,
+   "unit": null,
+   "text": "0.1792597",
+   "cite": {
+    "section_id": "5",
+    "offset": 6367,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "외부평가기관(한미회계법인)은 합의 합병비율 1 : 0.1792597이 자체 산정 범위(0.1660027~0.1921414) 내에 있어 적정하다고 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한울회계법인",
+   "target": "솔리스㈜",
+   "variables": "WACC ±0.5%p(11.85%~12.85%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 15233,
+     "unit": "원",
+     "text": "15,233원",
+     "cite": {
+      "section_id": "5",
+      "offset": 26702,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 17965,
+     "unit": "원",
+     "text": "17,965원",
+     "cite": {
+      "section_id": "5",
+      "offset": 26742,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "솔리스㈜",
+   "variables": "WACC ±0.5%p(11.85%~12.85%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 15233,
+     "unit": "원",
+     "text": "15,233",
+     "cite": {
+      "section_id": "5",
+      "offset": 255729,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 17965,
+     "unit": "원",
+     "text": "17,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 255667,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260519–20261026, listed_only=False)에서 이 rcept_no 확인: merger/full, body_rcept_no 동일, attachment_rcept_no 20260929000659, supersedes 20260929000659·20261007000105, related_rcept_nos 없음.",
+  "SPAC(한화플러스제5호기업인수목적, 코스닥 상장) 소멸 · 비상장 솔리스 존속 합병상장. 합병법인=솔리스(존속), 피합병법인=SPAC. company.market은 신고 당시 비상장이라 '기타'.",
+  "평가 주체 2곳: 한울회계법인(합병법인이 의뢰한 합병가치 평가·합병비율 산출, role=재무자문)과 한미회계법인(외부평가기관, 피합병법인이 2026-05-06 선정). 두 기관의 WACC(12.35%)·g(1.0%)·수익가치(16,481원)·민감도가 동일하며, 한미 베타 표는 소수 3자리 표기.",
+  "분석기준일 2026-07-21(시행세칙 8조 단서: 같은 날 CB 전량 전환), 평가기준일 2025-12-31, 연결재무제표 기준.",
+  "이사회: 최초 2026-07-27, 1차 변경 2026-09-29, 2차 변경계약 2026-10-07(합병신주 889,126→889,128주), 3차 변경 2026-10-16(일정 변경). 합병가액·비율은 변경 없음(섹션 4). 합병신주 889,128주(액면 100원), 모집가액 11,157원(섹션 3.4).",
+  "감사위원회 동의 여부 원문 없음. 외부평가기관의 과거 SPAC 합병 평가 이력(예측 대비 실적 괴리율) 표가 섹션 5에 있음(미수록)."
+ ],
+ "extracted_at": "2026-10-26T16:23:11+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261016000278",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 2321,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000278",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 915,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000278",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3640,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261016000278",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 59721,
+   "how": "search/section"
+  }
+ ]
+}

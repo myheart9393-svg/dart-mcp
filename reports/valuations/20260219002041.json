@@ -1,0 +1,321 @@
+{
+ "rcept_no": "20260219002041",
+ "original_rcept_no": "20251223000517",
+ "related_rcept_nos": [
+  "20251223000517",
+  "20260116000223",
+  "20260204000082",
+  "20260209000008",
+  "20260219002071",
+  "20260226002277"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01554508",
+  "name": "액스비스",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 대표주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사가 희망공모가액 10,100원~11,500원을 제시하고 수요예측 참여현황 및 시장상황 등을 감안하여 발행회사와 협의해 확정공모가액 11,500원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 115231,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "미래에셋증권㈜ (대표주관회사)",
+   "target": "액스비스",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 27.6,
+     "unit": "배",
+     "text": "27.60",
+     "cite": {
+      "section_id": "0",
+      "offset": 114661,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 5202396820,
+     "unit": "원",
+     "text": "5,202,396,820",
+     "cite": {
+      "section_id": "0",
+      "offset": 114571,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 23.4,
+      "unit": "%",
+      "text": "23.40%",
+      "cite": {
+       "section_id": "0",
+       "offset": 114889,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 32.73,
+      "unit": "%",
+      "text": "32.73%",
+      "cite": {
+       "section_id": "0",
+       "offset": 114898,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 15014,
+     "unit": "원",
+     "text": "15,014",
+     "cite": {
+      "section_id": "0",
+      "offset": 114846,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10100,
+      "unit": "원",
+      "text": "10,100",
+      "cite": {
+       "section_id": "0",
+       "offset": 114981,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 11500,
+      "unit": "원",
+      "text": "11,500",
+      "cite": {
+       "section_id": "0",
+       "offset": 114990,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: [2025년 3분기 연환산 기준 순이익 x 유사기업 PER] ÷ 적용 주식수(희석 반영) x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 유사기업 목록·개별 PER은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "액스비스",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 15014,
+     "unit": "원",
+     "text": "15,014",
+     "cite": {
+      "section_id": "0",
+      "offset": 114846,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "액스비스",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 11500,
+     "unit": "원",
+     "text": "11,500원",
+     "cite": {
+      "section_id": "0",
+      "offset": 119039,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "미래에셋증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 10100,
+      "unit": "원",
+      "text": "10,100",
+      "cite": {
+       "section_id": "0",
+       "offset": 114981,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 11500,
+      "unit": "원",
+      "text": "11,500",
+      "cite": {
+       "section_id": "0",
+       "offset": 114990,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "수요예측 참여현황 및 시장상황 등을 감안하여 발행회사와 협의한 후 확정공모가액을 1주당 11,500원으로 최종 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "미래에셋증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 5202396820,
+   "unit": "원",
+   "text": "5,202,396,820",
+   "cite": {
+    "section_id": "0",
+    "offset": 114571,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "실적치(2025년 3분기 연환산 기준 순이익)",
+  "multiple": {
+   "value": 27.6,
+   "unit": "배",
+   "text": "27.60",
+   "cite": {
+    "section_id": "0",
+    "offset": 114661,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 9563740,
+   "unit": "주",
+   "text": "9,563,740",
+   "cite": {
+    "section_id": "0",
+    "offset": 114750,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 15014,
+   "unit": "원",
+   "text": "15,014",
+   "cite": {
+    "section_id": "0",
+    "offset": 114846,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 23.4,
+    "unit": "%",
+    "text": "23.40%",
+    "cite": {
+     "section_id": "0",
+     "offset": 114889,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 32.73,
+    "unit": "%",
+    "text": "32.73%",
+    "cite": {
+     "section_id": "0",
+     "offset": 114898,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 10100,
+    "unit": "원",
+    "text": "10,100",
+    "cite": {
+     "section_id": "0",
+     "offset": 114981,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 11500,
+    "unit": "원",
+    "text": "11,500",
+    "cite": {
+     "section_id": "0",
+     "offset": 114990,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20250922–20260321, listed_only=False, 203건 2페이지)에서 이 rcept_no가 든 거래를 못 찾아 outline 문서명(증권신고서(지분증권), 발행조건확정)으로 full 판단. 짝 공시는 search_disclosures(corp_code 01554508, pblntf_ty=C)로 확인.",
+  "발행조건확정 정정본(20260219002041)은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주9)·(주10) 정정 후)에서 옮겼다.",
+  "유사기업 선정·개별 PER 산출((2) 적용 PER 배수 산출)은 이 정정본에 없음('(중략)'). 직전 기재정정 20260204000082(최초 20251223000517)를 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "할인율 원문 표기: 요약표 '23.40% ~ 32.73%', 산출내역 '32.73% ~ 23.40%'(하단 10,100원 ↔ 32.73%, 상단 11,500원 ↔ 23.40%). discount_range는 min 23.40·max 32.73.",
+  "할인율 참고: 2024년 이후 코스닥 일반상장기업 신규상장법인의 평가액 대비 할인율 평균 하단 34.60%·상단 23.55%((주10) 정정 후 주1)).",
+  "코스닥시장 상장 공모(일반상장). market은 공모 당시 비상장이라 '기타'. 공모주식 기명식 보통주 2,300,000주, 모집총액 26,450,000,000원(표지)."
+ ],
+ "extracted_at": "2026-10-26T15:41:31+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260219002041",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 18424,
+   "how": "search/section"
+  }
+ ]
+}

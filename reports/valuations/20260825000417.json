@@ -1,0 +1,321 @@
+{
+ "rcept_no": "20260825000417",
+ "original_rcept_no": "20260707000316",
+ "related_rcept_nos": [
+  "20260707000316",
+  "20260729000423",
+  "20260729000518",
+  "20260821000340",
+  "20260825000414",
+  "20260831001467"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01586923",
+  "name": "스카이랩스",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 한국투자증권이 2030년 추정 당기순이익의 현재가치 x 비교대상회사 PER로 주당 평가가액 24,682원을 산출하고 할인율 47.33%~35.18%를 적용해 희망공모가액 13,000원~16,000원을 제시, 수요예측 결과를 반영해 확정공모가액 10,000원(밴드 하단 미만)으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 203827,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한국투자증권㈜ (대표주관회사)",
+   "target": "스카이랩스",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 29.52,
+     "unit": "배",
+     "text": "29.52배",
+     "cite": {
+      "section_id": "0",
+      "offset": 188876,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 16433,
+     "unit": "백만원",
+     "text": "16,433백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 188788,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 35.18,
+      "unit": "%",
+      "text": "35.18%",
+      "cite": {
+       "section_id": "0",
+       "offset": 189096,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 47.33,
+      "unit": "%",
+      "text": "47.33%",
+      "cite": {
+       "section_id": "0",
+       "offset": 189087,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 24682,
+     "unit": "원",
+     "text": "24,682원",
+     "cite": {
+      "section_id": "0",
+      "offset": 189039,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 203543,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 16000,
+      "unit": "원",
+      "text": "16,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 203553,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 추정 당기순이익 현재가치 x 비교대상회사 PER ÷ 주식수 x (1-할인율). 적용 당기순이익은 2030년 추정 당기순이익 30,822백만원을 연할인율 15.0%로 4.5년 할인(C=A/[(1+B)^4.5]); 기업가치 평가액 485,181백만원. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 비교대상회사 목록·개별 PER은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "스카이랩스",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 24682,
+     "unit": "원",
+     "text": "24,682원",
+     "cite": {
+      "section_id": "0",
+      "offset": 189039,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "스카이랩스",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 10000,
+     "unit": "원",
+     "text": "10,000원",
+     "cite": {
+      "section_id": "0",
+      "offset": 203579,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "한국투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 203543,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 16000,
+      "unit": "원",
+      "text": "16,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 203553,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "수요예측 참여현황 및 시장상황 등을 감안하여 대표주관회사와 발행회사가 협의해 확정공모가액을 10,000원으로 결정(희망밴드 13,000원~16,000원 하단 미만)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "한국투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 16433,
+   "unit": "백만원",
+   "text": "16,433백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 188788,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "추정치(2030년 추정 당기순이익 30,822백만원을 연할인율 15.0%로 4.5년 현가할인한 값)",
+  "multiple": {
+   "value": 29.52,
+   "unit": "배",
+   "text": "29.52배",
+   "cite": {
+    "section_id": "0",
+    "offset": 188876,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 19657417,
+   "unit": "주",
+   "text": "19,657,417주",
+   "cite": {
+    "section_id": "0",
+    "offset": 188954,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 24682,
+   "unit": "원",
+   "text": "24,682원",
+   "cite": {
+    "section_id": "0",
+    "offset": 189039,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 35.18,
+    "unit": "%",
+    "text": "35.18%",
+    "cite": {
+     "section_id": "0",
+     "offset": 189096,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 47.33,
+    "unit": "%",
+    "text": "47.33%",
+    "cite": {
+     "section_id": "0",
+     "offset": 189087,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 13000,
+    "unit": "원",
+    "text": "13,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 203543,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 16000,
+    "unit": "원",
+    "text": "16,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 203553,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260328–20260924, listed_only=False, offset 0·200 전부)에서 이 rcept_no가 든 거래를 못 찾아 outline 문서명(증권신고서(지분증권), 발행조건확정)으로 full 판단. 원본·짝 공시는 search_disclosures(corp_code 01586923, pblntf_ty C)로 확인(정정대상 최초제출일 2026.07.07).",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주15)·(주16)·(주17) 정정 후)에서 옮겼다. 정정 전 적용주식수 19,637,417주·주당 평가가액 24,707원이 정정 후 19,657,417주·24,682원으로 바뀌었다.",
+  "연할인율 15.0%: 2024년 이후 코스닥 기술평가기업 평균 연할인율 약 20.01%(평균 할인기간 2.8년) 대비 낮게 적용한 근거를 주관사가 기재((주16) 정정 후 주2). 비교기업 WACC 참고: 인바디 33.2%, 씨어스 22.2%, 메디아나 27.6%, 평균 27.7%(Bloomberg 2026.07.02, 주3) — 원문은 이것이 PER 현가할인율과 목적이 다르다고 밝힘.",
+  "적용주식수 19,657,417주 = 기발행 16,681,977 + 공모 신주 2,000,000 + 상장주선인 의무인수 80,000 + 주식매수선택권 895,440((주16) 정정 후 주4).",
+  "비교대상회사 선정·개별 PER은 이 정정본에 없다. 원본 20260707000316(또는 기재정정 20260729000518)을 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "코스닥시장 상장 공모(할인율은 기술평가기업 사례와 비교). 공모 2,000,000주(신주), 확정총액 20,000,000,000원, 대표주관회사 한국투자증권. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:05:26+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260825000417",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 19730,
+   "how": "search/section"
+  }
+ ]
+}

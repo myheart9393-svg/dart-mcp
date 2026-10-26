@@ -1,0 +1,827 @@
+{
+ "rcept_no": "20261016000353",
+ "original_rcept_no": "20261006000111",
+ "related_rcept_nos": [
+  "20261006000111",
+  "20261026000251"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00806282",
+  "name": "럭스코",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "아이비케이에스제24호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2026-06-19",
+  "regime": "기준시가",
+  "ratio_text": "주식회사 럭스코 : 아이비케이에스제24호기업인수목적 주식회사 = 1:0.2584313"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "삼도회계법인",
+  "firm_type": "회계법인",
+  "period": "2026년 5월 21일 ~ 2026년 6월 19일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "삼도회계법인 자본시장법에 따른 외부평가업무 품질관리규정"
+  ],
+  "opinion_text": "합병당사회사의 주당평가액은 합병법인 7,104~8,524원, 피합병법인 2,000원의 범위로 평가되었으며 합병비율은 0.2346316~0.2815315로 평가되었다. 따라서 합병당사회사 간 합의한 합병비율 1:0.2584313은 적정한 것으로 판단된다.",
+  "cite": {
+   "section_id": "5",
+   "offset": 104625,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이정회계법인",
+   "target": "주식회사 럭스코",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1665,
+     "unit": "원",
+     "text": "1,665",
+     "cite": {
+      "section_id": "5",
+      "offset": 5720,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7739,
+     "unit": "원",
+     "text": "7,739",
+     "cite": {
+      "section_id": "5",
+      "offset": 5690,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 11789,
+    "unit": "원",
+    "text": "11,789",
+    "cite": {
+     "section_id": "5",
+     "offset": 5748,
+     "file_id": "main"
+    }
+   },
+   "note": "이정회계법인은 회사가 의뢰한 '합병비율 산출 외부기관'(계약 2026-05-20, 수행 2026-05-20~06-10). 본질가치 = (자산가치x1 + 수익가치x1.5)÷2.5. 유사회사 3사 미만으로 상대가치 미산정. 이 값이 합의 합병가액."
+  },
+  {
+   "subject": "이정회계법인",
+   "target": "주식회사 럭스코",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년–2030년(5개년)",
+    "base_date": "2026-06-12",
+    "wacc": {
+     "value": 10.3675,
+     "unit": "%",
+     "text": "10.3675%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102076,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.385,
+     "unit": "%",
+     "text": "3.3850%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99750,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.0000%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99815,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.558615,
+     "unit": null,
+     "text": "0.558615",
+     "cite": {
+      "section_id": "5",
+      "offset": 100981,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7449,
+     "unit": null,
+     "text": "0.7449",
+     "cite": {
+      "section_id": "5",
+      "offset": 99862,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99966,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.3639,
+     "unit": "%",
+     "text": "13.3639%",
+     "cite": {
+      "section_id": "5",
+      "offset": 100014,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.69,
+     "unit": "%",
+     "text": "4.6900%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101839,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.2%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102162,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 43.98,
+     "unit": "%",
+     "text": "43.98%",
+     "cite": {
+      "section_id": "5",
+      "offset": 100972,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 18265,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "지투파워",
+      "value": {
+       "value": 0.878096,
+       "unit": null,
+       "text": "0.878096",
+       "cite": {
+        "section_id": "5",
+        "offset": 100803,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta"
+     },
+     {
+      "name": "서전기전",
+      "value": {
+       "value": 0.478421,
+       "unit": null,
+       "text": "0.478421",
+       "cite": {
+        "section_id": "5",
+        "offset": 100876,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta"
+     },
+     {
+      "name": "피앤씨테크",
+      "value": {
+       "value": 0.319328,
+       "unit": null,
+       "text": "0.319328",
+       "cite": {
+        "section_id": "5",
+        "offset": 100946,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11789,
+     "unit": "원",
+     "text": "11,789",
+     "cite": {
+      "section_id": "5",
+      "offset": 17571,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형(기중 현금흐름 가정). 추정기간 현재가치 32,290,783천원, 영구현금흐름 현재가치 108,912,611천원, 영업가치 141,203,394천원, 비영업용자산 14,562,697천원, 기업가치 155,766,091천원, 이자발생부채 11,602,418천원, 주주가치 144,163,673천원, 주식수 12,228,611주(주식선택권·우리사주 유상증자 포함). 목표자본구조 E/V 69.4521%·D/V 30.5479% (동종기업 평균 D/E 43.98%). Kd는 합병법인 이자부부채 세전 가중평균차입이자율. 에스엔시스는 상장 2년 미만으로 베타 산정에서 제외."
+  },
+  {
+   "subject": "이정회계법인",
+   "target": "아이비케이에스제24호기업인수목적 주식회사",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1695,
+     "unit": "원",
+     "text": "1,695",
+     "cite": {
+      "section_id": "5",
+      "offset": 6491,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 6466,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준주가 2,224원에 할인율 10.07% 반영한 2,000원 > 자산가치 1,695원이므로 2,000원(Max). 자산가치는 전환사채(액면 1,770백만원) 전환 가정 후 순자산·주식수 기준."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "주식회사 럭스코",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1665,
+     "unit": "원",
+     "text": "1,665",
+     "cite": {
+      "section_id": "5",
+      "offset": 117598,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 7104,
+      "unit": "원",
+      "text": "7,104",
+      "cite": {
+       "section_id": "5",
+       "offset": 117550,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 8524,
+      "unit": "원",
+      "text": "8,524",
+      "cite": {
+       "section_id": "5",
+       "offset": 117558,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "외부평가기관 삼도회계법인 자체 평가는 범위로만 제시(최소치 7,104원·최대치 8,524원, 합병비율 0.2815315~0.2346316). 수익가치 범위 10,730~13,097원(income_value는 단일값이 없어 null), 최소·최대는 WACC±0.5%p·g±0.5%p 민감도 결과. 합의 합병비율 1:0.2584313(이정 산출 7,739원)을 적정하다고 판단."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "주식회사 럭스코",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년–2030년(5개년)",
+    "base_date": "2026-06-12",
+    "wacc": {
+     "value": 10.3675,
+     "unit": "%",
+     "text": "10.3675%",
+     "cite": {
+      "section_id": "5",
+      "offset": 219327,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.385,
+     "unit": "%",
+     "text": "3.3850%",
+     "cite": {
+      "section_id": "5",
+      "offset": 217001,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.0000%",
+     "cite": {
+      "section_id": "5",
+      "offset": 217066,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.558615,
+     "unit": null,
+     "text": "0.558615",
+     "cite": {
+      "section_id": "5",
+      "offset": 218232,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7449,
+     "unit": null,
+     "text": "0.7449",
+     "cite": {
+      "section_id": "5",
+      "offset": 217113,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 217217,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.3639,
+     "unit": "%",
+     "text": "13.3639%",
+     "cite": {
+      "section_id": "5",
+      "offset": 217265,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.69,
+     "unit": "%",
+     "text": "4.6900%",
+     "cite": {
+      "section_id": "5",
+      "offset": 219090,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.2%",
+     "cite": {
+      "section_id": "5",
+      "offset": 219413,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 43.98,
+     "unit": "%",
+     "text": "43.98%",
+     "cite": {
+      "section_id": "5",
+      "offset": 218223,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 222227,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "지투파워",
+      "value": {
+       "value": 0.878096,
+       "unit": null,
+       "text": "0.878096",
+       "cite": {
+        "section_id": "5",
+        "offset": 218054,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta"
+     },
+     {
+      "name": "서전기전",
+      "value": {
+       "value": 0.478421,
+       "unit": null,
+       "text": "0.478421",
+       "cite": {
+        "section_id": "5",
+        "offset": 218127,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta"
+     },
+     {
+      "name": "피앤씨테크",
+      "value": {
+       "value": 0.319328,
+       "unit": null,
+       "text": "0.319328",
+       "cite": {
+        "section_id": "5",
+        "offset": 218197,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11789,
+     "unit": "원",
+     "text": "11,789",
+     "cite": {
+      "section_id": "5",
+      "offset": 221533,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10730,
+      "unit": "원",
+      "text": "10,730",
+      "cite": {
+       "section_id": "5",
+       "offset": 224636,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13097,
+      "unit": "원",
+      "text": "13,097",
+      "cite": {
+       "section_id": "5",
+       "offset": 224733,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "삼도 상세 산정(5-2 가중평균자본비용, 5-3 수익가치 산정결과)의 WACC 구성·FCFF·주당 수익가치 11,789원은 이정회계법인과 동일. range는 민감도(WACC 9.87%~10.87%, g 0.50%~1.50%) 최소·최대."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "아이비케이에스제24호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1695,
+     "unit": "원",
+     "text": "1,695",
+     "cite": {
+      "section_id": "5",
+      "offset": 133017,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 132992,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준주가 2,224원에 할인율 10.07% 반영한 2,000원 > 자산가치 1,695원이므로 2,000원(Max). 자산가치는 전환사채(액면 1,770백만원) 전환 가정 후 순자산·주식수 기준. 기산일 2026-06-18(이사회 결의일 2026-06-19 전일)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 럭스코",
+    "basis": "본질가치(합병가액)",
+    "value": {
+     "value": 7739,
+     "unit": "원",
+     "text": "7,739",
+     "cite": {
+      "section_id": "5",
+      "offset": 5819,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "아이비케이에스제24호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액(합병가액)",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 5827,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가 합병법인 주당평가액 범위",
+    "subject": "삼도회계법인",
+    "range": {
+     "min": {
+      "value": 7104,
+      "unit": "원",
+      "text": "7,104",
+      "cite": {
+       "section_id": "5",
+       "offset": 104518,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 8524,
+      "unit": "원",
+      "text": "8,524원",
+      "cite": {
+       "section_id": "5",
+       "offset": 104524,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가 합병비율 범위",
+    "subject": "삼도회계법인",
+    "range": {
+     "min": {
+      "value": 0.2346316,
+      "unit": null,
+      "text": "0.2346316",
+      "cite": {
+       "section_id": "5",
+       "offset": 104590,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.2815315,
+      "unit": null,
+      "text": "0.2815315",
+      "cite": {
+       "section_id": "5",
+       "offset": 104600,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.2584313,
+   "unit": null,
+   "text": "0.2584313",
+   "cite": {
+    "section_id": "5",
+    "offset": 5851,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "외부평가기관(삼도회계법인)은 합병당사회사 간 합의한 합병비율 1:0.2584313이 적정하다고 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이정회계법인",
+   "target": "주식회사 럭스코",
+   "variables": "WACC ±0.5%p(9.87%~10.87%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 10730,
+     "unit": "원",
+     "text": "10,730",
+     "cite": {
+      "section_id": "5",
+      "offset": 20674,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 13097,
+     "unit": "원",
+     "text": "13,097",
+     "cite": {
+      "section_id": "5",
+      "offset": 20771,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "주식회사 럭스코",
+   "variables": "WACC ±0.5%p(9.87%~10.87%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 10730,
+     "unit": "원",
+     "text": "10,730",
+     "cite": {
+      "section_id": "5",
+      "offset": 224636,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 13097,
+     "unit": "원",
+     "text": "13,097",
+     "cite": {
+      "section_id": "5",
+      "offset": 224733,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260519–20261026, listed_only=False)에서 이 rcept_no는 [기재정정] 20261026000251 거래의 supersedes에 포함 (원본 20261006000111). 즉 이 건은 이후 정정(2026-10-26)으로 대체된 중간 정정본이며, 최신 본문은 20261026000251을 따로 /dart-valuation으로 볼 것. 이 실행은 요청한 rcept_no(20261016000353) 본문 기준. report_nm의 정정 꼬리표는 추정(XML 문서명 미확인).",
+  "SPAC(아이비케이에스제24호기업인수목적, 코스닥 상장) 소멸 · 비상장 럭스코 존속 합병상장. company.market은 신고 당시 비상장이라 '기타'.",
+  "평가 주체 2곳: 이정회계법인(회사가 의뢰한 합병비율 산출 외부기관, role=재무자문)과 삼도회계법인(외부평가기관). 합의 합병가액 7,739원은 이정 산출값. 삼도는 범위(7,104~8,524원)로만 제시하고 WACC·g·FCFF는 이정과 동일(10.3675%, 1%).",
+  "분석기준일 2026-06-12(시행세칙 8조), 자산가치는 2025-12-31 감사받은 개별재무제표 기준. 합병신주 1,093,164주(액면 100원), 모집가액 7,739원(섹션 3.4).",
+  "'근거 및 사유' 원문, 감사위원회 동의 여부, 당사회사 간 관계는 이 실행에서 읽지 않음(null).",
+  "외부평가기관의 과거 SPAC 합병 평가 이력(예측치 대비 실적 괴리율)과 산정법인-외부평가법인 확인사항 표가 섹션 5에 있음(이 사례에는 미수록)."
+ ],
+ "extracted_at": "2026-10-26T16:26:49+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261016000353",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 466,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261016000353",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3624,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261016000353",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 30889,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

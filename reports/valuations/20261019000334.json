@@ -47,6 +47,7 @@
    "subject": "안진회계법인",
    "target": "알테오젠",
    "role": "재무자문",
+   "purpose": "합병가액",
    "method": "DCF",
    "weights": null,
    "asset_value": null,
@@ -117,6 +118,7 @@
    "subject": "안진회계법인",
    "target": "알테오젠바이오로직스",
    "role": "재무자문",
+   "purpose": "합병가액",
    "method": "DCF",
    "weights": null,
    "asset_value": null,
@@ -175,6 +177,7 @@
    "subject": "안진회계법인",
    "target": "알테오젠바이오로직스",
    "role": "재무자문",
+   "purpose": "합병가액",
    "method": "본질가치",
    "weights": {
     "asset": 1,
@@ -226,6 +229,7 @@
    "subject": "신우회계법인",
    "target": "알테오젠",
    "role": "재무자문",
+   "purpose": "합병가액",
    "method": "DCF",
    "weights": null,
    "asset_value": null,
@@ -296,6 +300,7 @@
    "subject": "신우회계법인",
    "target": "알테오젠바이오로직스",
    "role": "재무자문",
+   "purpose": "합병가액",
    "method": "DCF",
    "weights": null,
    "asset_value": null,
@@ -353,6 +358,7 @@
    "subject": "신우회계법인",
    "target": "알테오젠바이오로직스",
    "role": "재무자문",
+   "purpose": "합병가액",
    "method": "본질가치",
    "weights": {
     "asset": 1,
@@ -404,6 +410,7 @@
    "subject": "이촌회계법인",
    "target": "알테오젠",
    "role": "외부평가",
+   "purpose": "합병가액",
    "method": "기준시가",
    "weights": null,
    "asset_value": {
@@ -440,6 +447,7 @@
    "subject": "이촌회계법인",
    "target": "알테오젠바이오로직스",
    "role": "외부평가",
+   "purpose": "합병가액",
    "method": "DCF",
    "weights": null,
    "asset_value": null,
@@ -676,6 +684,7 @@
    "subject": "이촌회계법인",
    "target": "알테오젠바이오로직스",
    "role": "외부평가",
+   "purpose": "합병가액",
    "method": "본질가치",
    "weights": {
     "asset": 1,
@@ -759,6 +768,7 @@
    "subject": "합병당사회사(협의)",
    "target": "알테오젠바이오로직스",
    "role": "회사",
+   "purpose": "합병가액",
    "method": "본질가치",
    "weights": {
     "asset": 1,
@@ -1075,6 +1085,6 @@
   "회의록 인용값: 알테오젠 특별위원회 회차별 논의 표에 재무자문사 답변 '피합병회사 미래 현금흐름에는 약 9.7%의 WACC'(section 4, offset 69102), 보고 내용 '할인율 산정근거(WACC 7.70%)'(section 4, offset 101176). 7.70%는 안진 알테오젠 DCF의 7.7%와 같다.",
   "합병가액은 개정 자본시장법(2026.9.8 개정, 2026.12.9 시행) 이전 체계(기준시가·본질가치)로 산정했다고 원문에 적혀 있다(4장)."
  ],
- "extracted_at": "2026-10-26T14:07:54+09:00",
- "extractor_version": "1.0"
+ "extracted_at": "2026-10-26T15:20:12+09:00",
+ "extractor_version": "1.1"
 }

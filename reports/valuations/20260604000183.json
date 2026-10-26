@@ -1,0 +1,186 @@
+{
+ "rcept_no": "20260604000183",
+ "original_rcept_no": "20260514001430",
+ "related_rcept_nos": [
+  "20260514001430",
+  "20260526000465",
+  "20260602000191",
+  "20260514000430"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00160588",
+  "name": "한화",
+  "market": "유가증권",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2026-01-14",
+  "regime": null,
+  "ratio_text": "분할회사 주주에게 1주당 1.2182335주(분할비율 0.2436467 x 1주의 금액비율 5) 배정, 분할회사 주식은 1주당 0.7563533주 비율로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2025년 9월 30일 재무상태표 기준 순자산 장부가액(자기주식 장부가액 합산) 비율로 분할비율 산정(외부평가기관 해당사항 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 283,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한화",
+   "target": "한화머시너리앤서비스홀딩스 주식회사(가칭)",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 859864027167,
+     "unit": "원",
+     "text": "859,864,027,167원",
+     "cite": {
+      "section_id": "5",
+      "offset": 1331,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 3502116898859,
+     "unit": "원",
+     "text": "3,502,116,898,859원",
+     "cite": {
+      "section_id": "5",
+      "offset": 1465,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 27025564538,
+     "unit": "원",
+     "text": "27,025,564,538원",
+     "cite": {
+      "section_id": "5",
+      "offset": 1496,
+      "file_id": "main"
+     }
+    },
+    "shares": null,
+    "base_date": "2025-09-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.2436467,
+     "unit": null,
+     "text": "0.2436467",
+     "cite": {
+      "section_id": "5",
+      "offset": 1442,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = (분할신설회사 순자산 장부가액 + 신설회사 자기주식 0원) ÷ (분할 전 순자산 장부가액 + 분할 전 자기주식 장부가액). adjustments는 분할 전 자기주식 장부가액(분모에 가산). 1주의 금액비율 5,000원÷1,000원 = 5를 곱해 배정비율 1.2182335. result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음. 신주 108,206,580주(보통 84,515,535·우선 23,691,045)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "한화머시너리앤서비스홀딩스 주식회사(가칭)",
+    "basis": "분할신주(보통·우선) 모집(매출)가액(모집총액 ÷ 주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 7946,
+     "unit": "원",
+     "text": "7,946",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 392,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2436467,
+   "unit": null,
+   "text": "0.2436467",
+   "cite": {
+    "section_id": "5",
+    "offset": 1442,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 859864027167,
+   "unit": "원",
+   "text": "859,864,027,167원",
+   "cite": {
+    "section_id": "5",
+    "offset": 1331,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "순자산 장부가액 기준 분할비율 0.2436467(자기주식 소각 반영, 2026-05-14 이사회 정정; 최초 0.2365278). 인적분할로 주주 지분율이 유지되어 분할비율과 무관하게 부의 이전 없음",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260105–20260704, listed_only=False): 분할/full, 기재정정, 원본 20260514001430, supersedes 20260526000465·20260602000191. 짝 주요사항보고서 [기재정정]주요사항보고서(회사분할결정) 20260514000430(summary).",
+  "단순·인적분할로 외부평가기관 '해당사항 없음'(IV. 평가 및 신주배정 등). 가치평가(DCF·상대가치 등)는 없고 순자산 장부가액 비율만 있음.",
+  "분할비율 변경: 최초 이사회(2026-01-14) 0.2365278 → 개정 상법 제343조에 따른 보통주 자기주식 소각(2026-04-09 완료) 반영해 2026-05-14 이사회에서 0.2436467로 정정. 제1우선주 156,425주 소각은 분할비율에 미반영(반영 가정 시 분할전 순자산 3,490,644,018,537원, 분할비율 0.2444414 — 유의적 차이 없다고 판단, 섹션 5).",
+  "conclusion.transaction_value는 분할신설회사 순자산(자본총계) 859,864,027,167원. 모집총액 보통주 671,603,041,916원·우선주 188,260,985,251원, 모집가액 7,946원(보통·우선 동일). 분할기일 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주4).",
+  "이사회 결의일 2026-01-14, 분할주주총회 2026-07-15, 분할기일 2026-08-01(III. 주요일정). 분할신설회사는 지주회사(자회사 지분관리·신규 사업 투자)로 종속기업투자주식·현금 등 배부."
+ ],
+ "extracted_at": "2026-10-26T15:50:12+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260604000183",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 251,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260604000183",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 2765,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260604000183",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 4079,
+   "how": "section"
+  }
+ ]
+}

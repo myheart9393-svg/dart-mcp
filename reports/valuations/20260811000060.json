@@ -1,0 +1,322 @@
+{
+ "rcept_no": "20260811000060",
+ "original_rcept_no": "20260625000626",
+ "related_rcept_nos": [
+  "20260625000626",
+  "20260714000417",
+  "20260721000296",
+  "20260806000050",
+  "20260810000140",
+  "20260810000143",
+  "20260811000064",
+  "20260818000030"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01588897",
+  "name": "니어스랩",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 삼성증권이 2029년 추정당기순이익 현재가치 x 유사기업 PER로 주당 평가가액 53,402원을 산출하고 할인율 43.82%~22.85%를 적용해 희망공모가액 30,000원~41,200원을 제시, 수요예측 결과 등을 감안해 확정공모가액 41,200원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 211871,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼성증권㈜ (대표주관회사)",
+   "target": "니어스랩",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 44.41,
+     "unit": "배",
+     "text": "44.41배",
+     "cite": {
+      "section_id": "0",
+      "offset": 210786,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 7922,
+     "unit": "백만원",
+     "text": "7,922백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 210707,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 22.85,
+      "unit": "%",
+      "text": "22.85%",
+      "cite": {
+       "section_id": "0",
+       "offset": 224428,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 43.82,
+      "unit": "%",
+      "text": "43.82%",
+      "cite": {
+       "section_id": "0",
+       "offset": 224421,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 53402,
+     "unit": "원",
+     "text": "53,402원",
+     "cite": {
+      "section_id": "0",
+      "offset": 210936,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 30000,
+      "unit": "원",
+      "text": "30,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 224457,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 41200,
+      "unit": "원",
+      "text": "41,200원",
+      "cite": {
+       "section_id": "0",
+       "offset": 224465,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 추정 당기순이익 현재가치(2029년 추정당기순이익의 현재가치 평균) x 유사기업 PER ÷ 주식수 x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 비교기업 목록·개별 PER·현가 할인율은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "니어스랩",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 53402,
+     "unit": "원",
+     "text": "53,402원",
+     "cite": {
+      "section_id": "0",
+      "offset": 210936,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "니어스랩",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 41200,
+     "unit": "원",
+     "text": "41,200원",
+     "cite": {
+      "section_id": "0",
+      "offset": 212014,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "삼성증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 30000,
+      "unit": "원",
+      "text": "30,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 224457,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 41200,
+      "unit": "원",
+      "text": "41,200원",
+      "cite": {
+       "section_id": "0",
+       "offset": 224465,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "대표주관회사가 기관투자자 대상 수요예측 결과 및 주식시장 상황 등을 감안하여 발행회사와 협의해 확정공모가액을 41,200원(밴드 상단)으로 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "삼성증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 7922,
+   "unit": "백만원",
+   "text": "7,922백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 210707,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "추정치(2029년 추정당기순이익의 현재가치 평균)",
+  "multiple": {
+   "value": 44.41,
+   "unit": "배",
+   "text": "44.41배",
+   "cite": {
+    "section_id": "0",
+    "offset": 210786,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 6588365,
+   "unit": "주",
+   "text": "6,588,365주",
+   "cite": {
+    "section_id": "0",
+    "offset": 210858,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 53402,
+   "unit": "원",
+   "text": "53,402원",
+   "cite": {
+    "section_id": "0",
+    "offset": 210936,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 22.85,
+    "unit": "%",
+    "text": "22.85%",
+    "cite": {
+     "section_id": "0",
+     "offset": 224428,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 43.82,
+    "unit": "%",
+    "text": "43.82%",
+    "cite": {
+     "section_id": "0",
+     "offset": 224421,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 30000,
+    "unit": "원",
+    "text": "30,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 224457,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 41200,
+    "unit": "원",
+    "text": "41,200원",
+    "cite": {
+     "section_id": "0",
+     "offset": 224465,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260313–20260910, listed_only=False, offset 0·200 전부)에서 이 rcept_no가 든 거래를 못 찾아 outline 문서명(증권신고서(지분증권), 발행조건확정)으로 full 판단. 원본·짝 공시는 search_disclosures(corp_code 01588897)로 확인.",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주16)·(주17)·(주18) 정정 후)에서 옮겼다.",
+  "할인율 비교(원문): 2025년 이후 코스닥 기술특례상장 신규상장법인 평균 40.10%~28.89%, 코스닥 전체 신규상장법인 평균 37.50%~25.90%; 2023년~현재 전체 36.63%~24.49%, 기술특례 39.80%~26.92%((주18) 정정 후).",
+  "당해연도(2026년) 및 향후 3년(2027~2029년) 손익 추정 후 2029년 당기순이익의 현가에 유사기업 평균 PER 적용((주16) 정정 후). 현가 할인율·비교기업 선정·개별 PER은 이 정정본에 없음. 원본 20260625000626(또는 최종 기재정정 20260810000140)을 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "코스닥시장 상장 공모(기술특례상장 비교군 사용). 공모 910,000주, 확정총액 37,492,000,000원. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:00:51+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260811000060",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 18578,
+   "how": "search/section"
+  }
+ ]
+}

@@ -1,0 +1,1344 @@
+{
+ "rcept_no": "20260319000923",
+ "original_rcept_no": "20260212000160",
+ "related_rcept_nos": [
+  "20260211000379",
+  "20260212000160",
+  "20260318000706",
+  "20260319000987"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(주식의포괄적교환ㆍ이전) 정정본(본문)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00105280",
+  "name": "현대지에프홀딩스",
+  "market": "유가증권",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "share_exchange",
+  "counterparty": "(주)현대홈쇼핑",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": null,
+  "board_date": "2026-02-11",
+  "regime": "기준시가",
+  "ratio_text": "(주)현대지에프홀딩스 : (주)현대홈쇼핑 = 1 : 6.3571040"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "주권상장법인 간 주식교환으로 기준주가로 교환가액을 산정해 외부평가기관 평가가 요구되지 않음(계열회사 간 포괄적 주식교환, 시행령 176조의6 ④2)",
+  "basis_text": "동법 시행령 제176조의6 제3항에 의하여 교환가액의 적정성에 대한 외부평가기관의 평가가 요구되지 않습니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "자발적 공정성 검토: 안진회계법인 1 : 6.08 ~ 1 : 7.31, 삼도회계법인 1 : 6.17 ~ 1 : 6.52. 기준주가로 산출한 1 : 6.3571040은 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 7423,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "현대지에프홀딩스·현대홈쇼핑(당사회사)",
+   "target": "현대지에프홀딩스",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10004,
+     "unit": "원",
+     "text": "10,004",
+     "cite": {
+      "section_id": "5",
+      "offset": 3926,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "자본시장법 시행령 176조의5 ①1·176조의6 ②: 기산일 2026-02-10, 1개월 가중평균종가 9,121원·1주일 10,222원·최근일 10,670원의 산술평균. 할인·할증 0%"
+  },
+  {
+   "subject": "현대지에프홀딩스·현대홈쇼핑(당사회사)",
+   "target": "현대홈쇼핑",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 63598,
+     "unit": "원",
+     "text": "63,598",
+     "cite": {
+      "section_id": "5",
+      "offset": 5756,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-02-10, 1개월 가중평균종가 59,450원·1주일 64,344원·최근일 67,000원의 산술평균. 할인·할증 0%"
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "현대지에프홀딩스",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 각각 1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 11239,
+     "unit": "원",
+     "text": "11,239",
+     "cite": {
+      "section_id": "5",
+      "offset": 11666,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 1752224,
+     "unit": "백만원",
+     "text": "1,752,224",
+     "cite": {
+      "section_id": "5",
+      "offset": 11586,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 1376403,
+     "unit": "백만원",
+     "text": "1,376,403",
+     "cite": {
+      "section_id": "5",
+      "offset": 10714,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 375821,
+     "unit": "백만원",
+     "text": "375,821",
+     "cite": {
+      "section_id": "5",
+      "offset": 10750,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 155904301,
+     "unit": "주",
+     "text": "155,904,301",
+     "cite": {
+      "section_id": "5",
+      "offset": 11623,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 26640,
+      "unit": "원",
+      "text": "26,640",
+      "cite": {
+       "section_id": "5",
+       "offset": 10077,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 34559,
+      "unit": "원",
+      "text": "34,559",
+      "cite": {
+       "section_id": "5",
+       "offset": 10086,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치 36,907–50,106원(범위). 시행세칙 제4조–제6조 준용, 자산가치는 2024-12-31 별도 자본총계 기준. 수익가치는 손상검사(K-IFRS 1036) 외부평가법인 보고서 평가금액을 준용. 원문 수익가치 산정표(1.3)는 열이 어긋나 있어 수익가치 점값(42,224)은 옮기지 않음"
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "현대홈쇼핑",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 각각 1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 109409,
+     "unit": "원",
+     "text": "109,409",
+     "cite": {
+      "section_id": "5",
+      "offset": 11675,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 1312909,
+     "unit": "백만원",
+     "text": "1,312,909",
+     "cite": {
+      "section_id": "5",
+      "offset": 11598,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 1626564,
+     "unit": "백만원",
+     "text": "1,626,564",
+     "cite": {
+      "section_id": "5",
+      "offset": 10726,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -313655,
+     "unit": "백만원",
+     "text": "(313,655)",
+     "cite": {
+      "section_id": "5",
+      "offset": 10760,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 12000000,
+     "unit": "주",
+     "text": "12,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 11637,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 194857,
+      "unit": "원",
+      "text": "194,857",
+      "cite": {
+       "section_id": "5",
+       "offset": 10095,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 210007,
+      "unit": "원",
+      "text": "210,007",
+      "cite": {
+       "section_id": "5",
+       "offset": 10105,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치 251,823–277,072원(범위, WACC ±0.5%p 민감도 상·하단). 중앙값 263,725원은 DCF 원소에"
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "현대홈쇼핑",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 10월 1일부터 2030년 12월 31일까지의 5.25년",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 9.2,
+     "unit": "%",
+     "text": "9.2%",
+     "cite": {
+      "section_id": "5",
+      "offset": 29039,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": null,
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 263725,
+     "unit": "원",
+     "text": "263,725",
+     "cite": {
+      "section_id": "5",
+      "offset": 28562,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 251823,
+      "unit": "원",
+      "text": "251,823",
+      "cite": {
+       "section_id": "5",
+       "offset": 30202,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 277072,
+      "unit": "원",
+      "text": "277,072",
+      "cite": {
+       "section_id": "5",
+       "offset": 30222,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "손상검사 외부평가법인 보고서 평가금액 준용. 영구현금흐름 표의 영구성장률은 '-'(원문 본문은 회사별 0.0%~1.0%)라 g=null. range는 WACC 8.7–9.7% 민감도"
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "현대백화점",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 10월 1일부터 2030년 12월 31일까지의 5.25년",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 5.7,
+     "unit": "%",
+     "text": "5.70%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24267,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24065,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 344392,
+     "unit": "원",
+     "text": "344,392",
+     "cite": {
+      "section_id": "5",
+      "offset": 23670,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 285059,
+      "unit": "원",
+      "text": "285,059",
+      "cite": {
+       "section_id": "5",
+       "offset": 24623,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 435409,
+      "unit": "원",
+      "text": "435,409",
+      "cite": {
+       "section_id": "5",
+       "offset": 24643,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "현대지에프홀딩스 지분가치 산정용 관계기업 평가(지분율 36.8%). 손상검사 보고서 준용. 영구현금흐름은 2029년 세전영업이익 기준. range는 WACC 4.7–6.7%"
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "현대그린푸드",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 10월 1일부터 2030년 12월 31일까지의 5.25년",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 5.4,
+     "unit": "%",
+     "text": "5.4%",
+     "cite": {
+      "section_id": "5",
+      "offset": 26786,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": null,
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 85496,
+     "unit": "원",
+     "text": "85,496",
+     "cite": {
+      "section_id": "5",
+      "offset": 26433,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 71485,
+      "unit": "원",
+      "text": "71,485",
+      "cite": {
+       "section_id": "5",
+       "offset": 26813,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 107823,
+      "unit": "원",
+      "text": "107,823",
+      "cite": {
+       "section_id": "5",
+       "offset": 26831,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "현대지에프홀딩스 지분가치 산정용 종속기업 평가(지분율 39.5%). WACC는 민감도 표 중앙값 5.4%. 영구현금흐름 세부표는 원문에 없음. range는 WACC 4.4–6.4%"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대지에프홀딩스",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 각각 1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 27590,
+     "unit": "원",
+     "text": "27,590",
+     "cite": {
+      "section_id": "5",
+      "offset": 31973,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 4301363,
+     "unit": "백만원",
+     "text": "4,301,363",
+     "cite": {
+      "section_id": "5",
+      "offset": 31918,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 7191649,
+     "unit": "백만원",
+     "text": "7,191,649",
+     "cite": {
+      "section_id": "5",
+      "offset": 31701,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -2890286,
+     "unit": "백만원",
+     "text": "(2,890,286)",
+     "cite": {
+      "section_id": "5",
+      "offset": 31730,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 155904301,
+     "unit": "주",
+     "text": "155,904,301",
+     "cite": {
+      "section_id": "5",
+      "offset": 31943,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-09-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 33493,
+     "unit": "원",
+     "text": "33,493",
+     "cite": {
+      "section_id": "5",
+      "offset": 31005,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 37429,
+    "unit": "원",
+    "text": "37,429",
+    "cite": {
+     "section_id": "5",
+     "offset": 31067,
+     "file_id": "main"
+    }
+   },
+   "note": "2025년 3분기말 연결 자본총계에서 비지배지분 차감, 현대백화점·대원강업 지분은 DCF 수익가치를 공정가치로 준용해 가산(395,725백만원)"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대홈쇼핑",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 각각 1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 199662,
+     "unit": "원",
+     "text": "199,662",
+     "cite": {
+      "section_id": "5",
+      "offset": 33644,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 2395941,
+     "unit": "백만원",
+     "text": "2,395,941",
+     "cite": {
+      "section_id": "5",
+      "offset": 33590,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 3721783,
+     "unit": "백만원",
+     "text": "3,721,783",
+     "cite": {
+      "section_id": "5",
+      "offset": 33405,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -1325842,
+     "unit": "백만원",
+     "text": "(1,325,842)",
+     "cite": {
+      "section_id": "5",
+      "offset": 33434,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 12000000,
+     "unit": "주",
+     "text": "12,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 33615,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-09-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 218481,
+     "unit": "원",
+     "text": "218,481",
+     "cite": {
+      "section_id": "5",
+      "offset": 31014,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 231027,
+    "unit": "원",
+    "text": "231,027",
+    "cite": {
+     "section_id": "5",
+     "offset": 31076,
+     "file_id": "main"
+    }
+   },
+   "note": "2025년 3분기말 연결 자본총계 + 자기주식 69,076백만원 − 비지배지분 1,394,918백만원"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대지에프홀딩스",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 10월 1일부터 2030년 12월 31일까지의 5.25년",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 6.65,
+     "unit": "%",
+     "text": "6.65%",
+     "cite": {
+      "section_id": "5",
+      "offset": 37272,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 37149,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 37429,
+     "unit": "원",
+     "text": "37,429",
+     "cite": {
+      "section_id": "5",
+      "offset": 36785,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 37255,
+      "unit": "원",
+      "text": "37,255",
+      "cite": {
+       "section_id": "5",
+       "offset": 39520,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 37513,
+      "unit": "원",
+      "text": "37,513",
+      "cite": {
+       "section_id": "5",
+       "offset": 39578,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "순수지주회사 자체 영업현금흐름(음수)+종속·관계기업 지분가치 5,992,388백만원+비영업자산−이자발생부채. 법인세율은 과세표준 구간별(11%·22%·24.2%·27.5%, 지방소득세 포함). range는 WACC 5.7–7.7%·g 0.0–2.0% 민감도"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대홈쇼핑",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 10월 1일부터 2030년 12월 31일까지의 5.25년",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 7.99,
+     "unit": "%",
+     "text": "7.99%",
+     "cite": {
+      "section_id": "5",
+      "offset": 50294,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 50175,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 231027,
+     "unit": "원",
+     "text": "231,027",
+     "cite": {
+      "section_id": "5",
+      "offset": 49811,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 221367,
+      "unit": "원",
+      "text": "221,367",
+      "cite": {
+       "section_id": "5",
+       "offset": 51563,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 248322,
+      "unit": "원",
+      "text": "248,322",
+      "cite": {
+       "section_id": "5",
+       "offset": 51501,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "종속기업(한섬·현대퓨처넷·현대엘앤씨) 지분가치는 손상검사 보고서 준용. range는 WACC 7.0–9.0%·g 0.0–2.0%"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대백화점",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 10월 1일부터 2030년 12월 31일까지의 5.25년",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 5.05,
+     "unit": "%",
+     "text": "5.05%",
+     "cite": {
+      "section_id": "5",
+      "offset": 46385,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 46262,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 293973,
+     "unit": "원",
+     "text": "293,973",
+     "cite": {
+      "section_id": "5",
+      "offset": 45897,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 234306,
+      "unit": "원",
+      "text": "234,306",
+      "cite": {
+       "section_id": "5",
+       "offset": 48122,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 469368,
+      "unit": "원",
+      "text": "469,368",
+      "cite": {
+       "section_id": "5",
+       "offset": 48060,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "현대지에프홀딩스 지분가치 산정용 관계기업 평가(지분율 36.8%). range는 WACC 4.1–6.1%·g 0.0–2.0%"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대그린푸드",
+   "role": "재무자문",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 10월 1일부터 2030년 12월 31일까지의 5.25년",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 5.36,
+     "unit": "%",
+     "text": "5.36%",
+     "cite": {
+      "section_id": "5",
+      "offset": 42981,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 42856,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 82835,
+     "unit": "원",
+     "text": "82,835",
+     "cite": {
+      "section_id": "5",
+      "offset": 42492,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 61701,
+      "unit": "원",
+      "text": "61,701",
+      "cite": {
+       "section_id": "5",
+       "offset": 44176,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 139579,
+      "unit": "원",
+      "text": "139,579",
+      "cite": {
+       "section_id": "5",
+       "offset": 44116,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "현대지에프홀딩스 지분가치 산정용 종속기업 평가(지분율 39.5%). range는 WACC 4.4–6.4%·g 0.0–2.0%"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "현대지에프홀딩스",
+    "basis": "기준주가(교환가액)",
+    "value": {
+     "value": 10004,
+     "unit": "원",
+     "text": "10,004",
+     "cite": {
+      "section_id": "5",
+      "offset": 150,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "현대홈쇼핑",
+    "basis": "기준주가(교환가액)",
+    "value": {
+     "value": 63598,
+     "unit": "원",
+     "text": "63,598",
+     "cite": {
+      "section_id": "5",
+      "offset": 159,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "안진회계법인 본질가치 교환비율",
+    "subject": "안진회계법인",
+    "range": {
+     "min": {
+      "value": 6.0766796,
+      "unit": "배",
+      "text": "6.0766796",
+      "cite": {
+       "section_id": "5",
+       "offset": 9422,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 7.314437,
+      "unit": "배",
+      "text": "7.3144370",
+      "cite": {
+       "section_id": "5",
+       "offset": 9438,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "삼도회계법인 교환비율(수익가치~본질가치)",
+    "subject": "삼도회계법인",
+    "range": {
+     "min": {
+      "value": 6.17,
+      "unit": "배",
+      "text": "6.17",
+      "cite": {
+       "section_id": "5",
+       "offset": 9456,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 6.52,
+      "unit": "배",
+      "text": "6.52",
+      "cite": {
+       "section_id": "5",
+       "offset": 9467,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 6.357104,
+   "unit": "배",
+   "text": "6.3571040",
+   "cite": {
+    "section_id": "5",
+    "offset": 302,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "기준주가로 산출한 교환비율 1 : 6.3571040은 안진(1 : 6.08 ~ 1 : 7.31)·삼도(1 : 6.17 ~ 1 : 6.52) 적정 범위 안에 있어 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "안진회계법인",
+   "target": "현대홈쇼핑",
+   "variables": "WACC 8.7–9.7% (±0.5%p), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 251823,
+     "unit": "원",
+     "text": "251,823",
+     "cite": {
+      "section_id": "5",
+      "offset": 30202,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 277072,
+     "unit": "원",
+     "text": "277,072",
+     "cite": {
+      "section_id": "5",
+      "offset": 30222,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "현대백화점",
+   "variables": "WACC 4.7–6.7% (±1.0%p), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 285059,
+     "unit": "원",
+     "text": "285,059",
+     "cite": {
+      "section_id": "5",
+      "offset": 24623,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 435409,
+     "unit": "원",
+     "text": "435,409",
+     "cite": {
+      "section_id": "5",
+      "offset": 24643,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "현대그린푸드",
+   "variables": "WACC 4.4–6.4% (±1.0%p), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 71485,
+     "unit": "원",
+     "text": "71,485",
+     "cite": {
+      "section_id": "5",
+      "offset": 26813,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 107823,
+     "unit": "원",
+     "text": "107,823",
+     "cite": {
+      "section_id": "5",
+      "offset": 26831,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대지에프홀딩스",
+   "variables": "WACC 5.7–7.7% (±1.0%p), 영구성장률 0.0–2.0% (±1.0%p), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 37255,
+     "unit": "원",
+     "text": "37,255",
+     "cite": {
+      "section_id": "5",
+      "offset": 39520,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 37513,
+     "unit": "원",
+     "text": "37,513",
+     "cite": {
+      "section_id": "5",
+      "offset": 39578,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대그린푸드",
+   "variables": "WACC 4.4–6.4% (±1.0%p), 영구성장률 0.0–2.0% (±1.0%p), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 61701,
+     "unit": "원",
+     "text": "61,701",
+     "cite": {
+      "section_id": "5",
+      "offset": 44176,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 139579,
+     "unit": "원",
+     "text": "139,579",
+     "cite": {
+      "section_id": "5",
+      "offset": 44116,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대백화점",
+   "variables": "WACC 4.1–6.1% (±1.0%p), 영구성장률 0.0–2.0% (±1.0%p), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 234306,
+     "unit": "원",
+     "text": "234,306",
+     "cite": {
+      "section_id": "5",
+      "offset": 48122,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 469368,
+     "unit": "원",
+     "text": "469,368",
+     "cite": {
+      "section_id": "5",
+      "offset": 48060,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "현대홈쇼핑",
+   "variables": "WACC 7.0–9.0% (±1.0%p), 영구성장률 0.0–2.0% (±1.0%p), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 221367,
+     "unit": "원",
+     "text": "221,367",
+     "cite": {
+      "section_id": "5",
+      "offset": 51563,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 248322,
+     "unit": "원",
+     "text": "248,322",
+     "cite": {
+      "section_id": "5",
+      "offset": 51501,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures: 첨부정정 20260319000987(attachment_rcept_no)의 body_rcept_no가 이 접수번호. 최초 20260212000160, 중간 정정 20260318000706, 주요사항보고서 20260211000379(짝 공시).",
+  "법정 외부평가는 면제(3.4 표 외부평가기관 '-'). 3.4 주1은 '제176조의6 제4항', section 5의 3.은 '제3항'으로 표기가 다름. basis_text는 section 5 원문 그대로.",
+  "양사 특별위원회가 자발적으로 회계법인을 선임: 현대홈쇼핑 → 안진회계법인(2025-11-24 ~ 2026-02-10), 현대지에프홀딩스 → 삼도회계법인(2026-01-05 ~ 2026-02-10). 법정 외부평가가 아니라 role=재무자문으로 넣었다.",
+  "안진회계법인 수익가치는 손상검사(K-IFRS 1036)용 외부평가법인 보고서 평가금액을 준용했다고 원문이 밝힘(평가기관명 미기재). 삼도도 일부 종속기업(현대이지웰·리바트·에버다임, 한섬·퓨처넷·엘앤씨)은 손상검사 보고서 준용.",
+  "안진 현대지에프홀딩스 수익가치 산정표(1.3)는 파싱 결과 행·열이 어긋나 보임(현대홈쇼핑 열에 47,952·12,000,000 등). 범위 값은 요약표(1.1)에서 옮겼다.",
+  "현대백화점·현대그린푸드 원소는 현대지에프홀딩스 지분가치 산정의 하위 평가(target이 거래 당사회사가 아님).",
+  "rf·MRP·β·Ke·Kd·목표자본구조 등 WACC 구성은 원문에 없음. 삼도 법인세율은 과세표준 구간별 누진세율이라 tax_rate=null.",
+  "자기주식 소각 기준일(2026-06-26)이 기산일(2026-02-10) 이후라 소각 효과는 교환비율에 반영되지 않음(section 5).",
+  "relation_text: 원문에 '회사와의 관계' 항목 문자열이 없음. 현대지에프홀딩스가 현대홈쇼핑 지분 61.4%(6,882,852주)를 보유한 계열회사 간 거래(section 4 특별위원회 검토)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20260319000923",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1161,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260319000923",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 주식의 포괄적 교환ㆍ이전에 관한 기본사항",
+   "chars_read": 1216,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260319000923",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
+   "chars_read": 52623,
+   "how": "section"
+  }
+ ],
+ "extracted_at": "2026-10-26T15:40:11+09:00",
+ "extractor_version": "1.1"
+}

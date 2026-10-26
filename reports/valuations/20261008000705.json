@@ -1,0 +1,392 @@
+{
+ "rcept_no": "20261008000705",
+ "original_rcept_no": "20260915000390",
+ "related_rcept_nos": [
+  "20260915000390"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01706509",
+  "name": "다비오",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 대신증권이 희망공모가액 12,300원~16,600원을 제시하고, 수요예측 결과 및 주식시장 상황 등을 감안하여 발행회사와 협의해 확정공모가액을 결정할 예정",
+  "cite": {
+   "section_id": "7",
+   "offset": 2054,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "대신증권㈜ (대표주관회사)",
+   "target": "다비오",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "비아이매트릭스",
+      "value": {
+       "value": 52.74,
+       "unit": "배",
+       "text": "52.74 x",
+       "cite": {
+        "section_id": "7",
+        "offset": 29621,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기 LTM PER"
+     },
+     {
+      "name": "슈어소프트테크",
+      "value": {
+       "value": 19.7,
+       "unit": "배",
+       "text": "19.70 x",
+       "cite": {
+        "section_id": "7",
+        "offset": 29631,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기 LTM PER"
+     },
+     {
+      "name": "와이즈넛",
+      "value": {
+       "value": 20.18,
+       "unit": "배",
+       "text": "20.18 x",
+       "cite": {
+        "section_id": "7",
+        "offset": 29641,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기 LTM PER"
+     }
+    ],
+    "multiple": {
+     "value": 30.87,
+     "unit": "배",
+     "text": "30.87배",
+     "cite": {
+      "section_id": "7",
+      "offset": 30140,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 5456,
+     "unit": "백만원",
+     "text": "5,456 백만원",
+     "cite": {
+      "section_id": "7",
+      "offset": 30026,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 10.57,
+      "unit": "%",
+      "text": "10.57%",
+      "cite": {
+       "section_id": "7",
+       "offset": 36912,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 33.74,
+      "unit": "%",
+      "text": "33.74%",
+      "cite": {
+       "section_id": "7",
+       "offset": 36903,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 18563,
+     "unit": "원",
+     "text": "18,563원",
+     "cite": {
+      "section_id": "7",
+      "offset": 30165,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 12300,
+      "unit": "원",
+      "text": "12,300원",
+      "cite": {
+       "section_id": "7",
+       "offset": 36940,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 16600,
+      "unit": "원",
+      "text": "16,600원",
+      "cite": {
+       "section_id": "7",
+       "offset": 36950,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2028년 추정 당기순이익(7,472백만원)의 현가 x 유사기업 평균 PER ÷ 주식수 x {1-할인율}. 현가할인율(연) 15.0%(C = A / (1+B)^2.25). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. EV/EBITDA·PBR·PSR은 부적합으로 제외. 기준주가는 평가기준일(2026.10.02) 기준 1개월·1주일 평균·당일 종가 중 최저가"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "다비오",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 18563,
+     "unit": "원",
+     "text": "18,563원",
+     "cite": {
+      "section_id": "7",
+      "offset": 30165,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "대신증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 12300,
+      "unit": "원",
+      "text": "12,300원",
+      "cite": {
+       "section_id": "7",
+       "offset": 36940,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 16600,
+      "unit": "원",
+      "text": "16,600원",
+      "cite": {
+       "section_id": "7",
+       "offset": 36950,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 18,563원에 33.74%~10.57% 할인율을 적용해 희망공모가액 12,300원~16,600원을 제시. 확정공모가액은 수요예측 후 발행회사와 협의해 결정 예정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "대신증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "EV/EBITDA",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 5456,
+   "unit": "백만원",
+   "text": "5,456 백만원",
+   "cite": {
+    "section_id": "7",
+    "offset": 30026,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2028년 추정 당기순이익 7,472백만원을 연 15.0%로 2.25년 할인한 현가(추정치)",
+  "multiple": {
+   "value": 30.87,
+   "unit": "배",
+   "text": "30.87배",
+   "cite": {
+    "section_id": "7",
+    "offset": 30140,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 9071821,
+   "unit": "주",
+   "text": "9,071,821주",
+   "cite": {
+    "section_id": "7",
+    "offset": 30071,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 18563,
+   "unit": "원",
+   "text": "18,563원",
+   "cite": {
+    "section_id": "7",
+    "offset": 30165,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 10.57,
+    "unit": "%",
+    "text": "10.57%",
+    "cite": {
+     "section_id": "7",
+     "offset": 36912,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 33.74,
+    "unit": "%",
+    "text": "33.74%",
+    "cite": {
+     "section_id": "7",
+     "offset": 36903,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 12300,
+    "unit": "원",
+    "text": "12,300원",
+    "cite": {
+     "section_id": "7",
+     "offset": 36940,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 16600,
+    "unit": "원",
+    "text": "16,600원",
+    "cite": {
+     "section_id": "7",
+     "offset": 36950,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "비아이매트릭스",
+    "value": {
+     "value": 52.74,
+     "unit": "배",
+     "text": "52.74 x",
+     "cite": {
+      "section_id": "7",
+      "offset": 29621,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기 LTM PER"
+   },
+   {
+    "name": "슈어소프트테크",
+    "value": {
+     "value": 19.7,
+     "unit": "배",
+     "text": "19.70 x",
+     "cite": {
+      "section_id": "7",
+      "offset": 29631,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기 LTM PER"
+   },
+   {
+    "name": "와이즈넛",
+    "value": {
+     "value": 20.18,
+     "unit": "배",
+     "text": "20.18 x",
+     "cite": {
+      "section_id": "7",
+      "offset": 29641,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기 LTM PER"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260511–20261026, listed_only=False)에서 이 rcept_no(기재정정, original 20260915000390, body_rcept_no 자체) 확인. source_grade=full.",
+  "비교회사 3개사(비아이매트릭스·슈어소프트테크·와이즈넛)는 1차 업종(KSIC J58222·J58221·J63991) 161개사 → 2차 재무 82개사 → 사업 유사성 등으로 선정. 적용 PER 30.87배는 3사 평균.",
+  "적용주식수 9,071,821주 = 기발행 7,517,071주 + 공모신주 1,000,000주 + 상장주선인 의무인수 30,000주 + 1년내 행사가능 희석주식 524,750주.",
+  "할인율 원문 표기는 '33.74% ~ 10.57%'(하단 12,300원 ↔ 33.74%, 상단 16,600원 ↔ 10.57%). discount_range는 min 10.57·max 33.74.",
+  "현가할인율 15.0% 참고로 2023년 이후 코스닥 기술특례상장기업 연할인율 평균 20%·할인기간 평균 2.7년 표 제시(섹션 7). 유사기업 WACC 표는 읽지 않음.",
+  "코스닥시장 상장 공모. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:17:19+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261008000705",
+   "file_id": "main",
+   "section_id": "7",
+   "title": "IV. 인수인의 의견(분석기관의 평가의견)",
+   "chars_read": 20190,
+   "how": "find_tables/section"
+  }
+ ]
+}

@@ -1,0 +1,425 @@
+{
+ "rcept_no": "20261019000343",
+ "original_rcept_no": "20261019000343",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01077540",
+  "name": "씨아이에스케미칼",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 KB증권이 주당 평가가액 9,651원에 44.05%~29.54% 할인율을 적용해 희망공모가액 5,400원~6,800원 제시, 수요예측 후 발행회사와 협의해 확정 예정",
+  "cite": {
+   "section_id": "6",
+   "offset": 62035,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "KB증권㈜ (대표주관회사)",
+   "target": "씨아이에스케미칼",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "나노신소재",
+      "value": {
+       "value": 38.95,
+       "unit": "배",
+       "text": "38.95",
+       "cite": {
+        "section_id": "6",
+        "offset": 51101,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 기준 LTM PER"
+     },
+     {
+      "name": "신흥에스이씨",
+      "value": {
+       "value": 11.08,
+       "unit": "배",
+       "text": "11.08",
+       "cite": {
+        "section_id": "6",
+        "offset": 51109,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 기준 LTM PER"
+     },
+     {
+      "name": "성우",
+      "value": {
+       "value": 13.7,
+       "unit": "배",
+       "text": "13.70",
+       "cite": {
+        "section_id": "6",
+        "offset": 51117,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 기준 LTM PER"
+     }
+    ],
+    "multiple": {
+     "value": 21.24,
+     "unit": "배",
+     "text": "21.24",
+     "cite": {
+      "section_id": "6",
+      "offset": 51862,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 14587,
+     "unit": "백만원",
+     "text": "14,587",
+     "cite": {
+      "section_id": "6",
+      "offset": 51755,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 29.54,
+      "unit": "%",
+      "text": "29.54%",
+      "cite": {
+       "section_id": "6",
+       "offset": 58843,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 44.05,
+      "unit": "%",
+      "text": "44.05%",
+      "cite": {
+       "section_id": "6",
+       "offset": 58834,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": "EV/EBITDA(감가상각비·금융비용 반영 필요)·PBR(장부가치가 성장성·수익창출능력 미반영)·PSR(수익성 배제) 제외"
+   },
+   "result": {
+    "value": {
+     "value": 9651,
+     "unit": "원",
+     "text": "9,651",
+     "cite": {
+      "section_id": "6",
+      "offset": 51888,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 5400,
+      "unit": "원",
+      "text": "5,400원",
+      "cite": {
+       "section_id": "6",
+       "offset": 58866,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 6800,
+      "unit": "원",
+      "text": "6,800원",
+      "cite": {
+       "section_id": "6",
+       "offset": 58875,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 추정 당기순이익 현재가치(2027·2028년 평균) x 유사기업 평균 PER ÷ 주식수 x (1-할인율). 추정이익 현가 할인율 연 20.0%(할인기간 1.25년·2.25년), 주당순이익 454원. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "씨아이에스케미칼",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 9651,
+     "unit": "원",
+     "text": "9,651",
+     "cite": {
+      "section_id": "6",
+      "offset": 51888,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "KB증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 5400,
+      "unit": "원",
+      "text": "5,400원",
+      "cite": {
+       "section_id": "6",
+       "offset": 58866,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 6800,
+      "unit": "원",
+      "text": "6,800원",
+      "cite": {
+       "section_id": "6",
+       "offset": 58875,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 9,651원에 할인율 44.05%~29.54%를 적용해 희망공모가액 5,400원~6,800원 제시. 확정공모가액은 미정(수요예측 후 결정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "KB증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "EV/EBITDA",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 14587,
+   "unit": "백만원",
+   "text": "14,587",
+   "cite": {
+    "section_id": "6",
+    "offset": 51755,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "추정치(2027년 10,359백만원·2028년 31,539백만원 추정 당기순이익을 연 할인율 20.0%, 할인기간 1.25년·2.25년으로 2026년 9월말 현가화한 8,248·20,926백만원의 산술평균)",
+  "multiple": {
+   "value": 21.24,
+   "unit": "배",
+   "text": "21.24",
+   "cite": {
+    "section_id": "6",
+    "offset": 51862,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 32109595,
+   "unit": "주",
+   "text": "32,109,595",
+   "cite": {
+    "section_id": "6",
+    "offset": 51795,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 9651,
+   "unit": "원",
+   "text": "9,651",
+   "cite": {
+    "section_id": "6",
+    "offset": 51888,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 29.54,
+    "unit": "%",
+    "text": "29.54%",
+    "cite": {
+     "section_id": "6",
+     "offset": 58843,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 44.05,
+    "unit": "%",
+    "text": "44.05%",
+    "cite": {
+     "section_id": "6",
+     "offset": 58834,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 5400,
+    "unit": "원",
+    "text": "5,400원",
+    "cite": {
+     "section_id": "6",
+     "offset": 58866,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 6800,
+    "unit": "원",
+    "text": "6,800원",
+    "cite": {
+     "section_id": "6",
+     "offset": 58875,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "나노신소재",
+    "value": {
+     "value": 38.95,
+     "unit": "배",
+     "text": "38.95",
+     "cite": {
+      "section_id": "6",
+      "offset": 51101,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 기준 LTM PER"
+   },
+   {
+    "name": "신흥에스이씨",
+    "value": {
+     "value": 11.08,
+     "unit": "배",
+     "text": "11.08",
+     "cite": {
+      "section_id": "6",
+      "offset": 51109,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 기준 LTM PER"
+   },
+   {
+    "name": "성우",
+    "value": {
+     "value": 13.7,
+     "unit": "배",
+     "text": "13.70",
+     "cite": {
+      "section_id": "6",
+      "offset": 51117,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 기준 LTM PER"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260522–20261026, listed_only=False)에서 IPO/full, 정정 아님, body_rcept_no=본 건, 짝 공시 없음.",
+  "코스닥 기술특례상장(혁신기술기업). market은 공모 당시 비상장이라 '기타'. 공모 신주 4,000,000주.",
+  "PER 21.24배는 유사기업 3사(나노신소재·신흥에스이씨·성우) LTM(2026년 2분기말) PER 산술평균. 분석기준일 2026.09.17, 기준주가 = Min(1개월, 1주일 평균, 분석기준일 종가).",
+  "추정이익 현가 할인율 20.0%는 유사 3사 WACC 평균 22.9%(Bloomberg 2026.09.17)와 2024년 이후 코스닥 기술특례상장기업 적용 추이(평균 20%)를 참고(6.h9 주3·주4).",
+  "적용 주식수 32,109,595주 = 기발행 26,796,595 + 주식매수선택권 893,000 + 공모 신주 4,000,000 + 신주인수권 300,000 + 상장주선인 의무인수 120,000.",
+  "할인율은 2024년 이후 코스닥 기술특례상장 신규상장법인 평가액 대비 할인율(평균 하단 39.05%·상단 26.05%)을 참고.",
+  "참고(공모가 미반영): 성일하이텍 Forward PER 26.24배. 성일하이텍·새빗켐은 LTM 순손실로 유사기업에서 제외.",
+  "DCF·WACC 등 절대가치 평가는 원문 없음(주관사 PER만). 외부평가기관 평가 없음.",
+  "배치 후 정리: 범위를 원문 표기 순서가 아니라 숫자 크기 순서(min ≤ max)로 바꿈(값·cite는 그대로)"
+ ],
+ "extracted_at": "2026-10-26T16:29:22+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261019000343",
+   "file_id": "main",
+   "section_id": "6.h1",
+   "title": "가. 평가결과",
+   "chars_read": 2671,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261019000343",
+   "file_id": "main",
+   "section_id": "6.h10",
+   "title": "(4) 희망공모가액 결정",
+   "chars_read": 6512,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261019000343",
+   "file_id": "main",
+   "section_id": "6.h2",
+   "title": "나. 희망공모가액의 산출방법",
+   "chars_read": 3309,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261019000343",
+   "file_id": "main",
+   "section_id": "6.h8",
+   "title": "라. 희망공모가액의 산정",
+   "chars_read": 1945,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261019000343",
+   "file_id": "main",
+   "section_id": "6.h9",
+   "title": "(2) 유사기업 PER 산출",
+   "chars_read": 7853,
+   "how": "section"
+  }
+ ]
+}

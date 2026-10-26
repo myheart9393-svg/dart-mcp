@@ -1,0 +1,1143 @@
+{
+ "rcept_no": "20260826000056",
+ "original_rcept_no": "20260826000056",
+ "related_rcept_nos": [
+  "20260826000414"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[정정제출요구]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00631518",
+  "name": "SK이노베이션",
+  "market": "유가증권",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "SK아이이테크놀로지(주)",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "합병존속회사 SK이노베이션(주)이 합병소멸회사 SK아이이테크놀로지(주)의 최대주주(보통주 43,633,432주, 53.35%). 동일 기업집단 계열회사.",
+  "board_date": "2026-08-25",
+  "regime": "기준시가",
+  "ratio_text": "SK이노베이션(주) : SK아이이테크놀로지(주) = 1 : 0.1174540"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "유가증권시장 주권상장법인 간 합병으로 기준시가(시행령 176조의5 ①1)로 합병가액을 산정해 자본시장법령상 외부평가기관의 평가가 요구되지 않음. 요약 '외부평가기관: 해당사항 없음'.",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "4",
+   "offset": 5881,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "SK이노베이션(주)·SK아이이테크놀로지(주)(합병당사회사)",
+   "target": "SK이노베이션(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 125862,
+     "unit": "원",
+     "text": "125,862",
+     "cite": {
+      "section_id": "4",
+      "offset": 2295,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-08-24. 1개월 가중평균 118,611원·1주일 128,874원·최근일 130,100원 산술평균, 할인·할증 없음(시행령 176조의5 ①1)."
+  },
+  {
+   "subject": "SK이노베이션(주)·SK아이이테크놀로지(주)(합병당사회사)",
+   "target": "SK아이이테크놀로지(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 14783,
+     "unit": "원",
+     "text": "14,783",
+     "cite": {
+      "section_id": "4",
+      "offset": 4324,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-08-24. 1개월 가중평균 14,364원·1주일 14,676원·최근일 15,310원 산술평균, 할인·할증 없음."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "SK이노베이션(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2030-12-31(4.75개년)",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 8.66,
+     "unit": "%",
+     "text": "8.66%",
+     "cite": {
+      "section_id": "4",
+      "offset": 30784,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 30587,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 126686,
+     "unit": "원",
+     "text": "126,686",
+     "cite": {
+      "section_id": "4",
+      "offset": 28005,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 100166,
+      "unit": "원",
+      "text": "100,166",
+      "cite": {
+       "section_id": "4",
+       "offset": 28063,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 157628,
+      "unit": "원",
+      "text": "157,628",
+      "cite": {
+       "section_id": "4",
+       "offset": 28034,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "법정 외부평가 의무 없음(유가증권 상장법인 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 가이드라인(2026.2.25) 취지로 특별위원회가 자발적으로 선임한 재무자문사의 합병비율 적정성 보충 검토라 role=재무자문. SK이노베이션 특별위원회 선임, 수행기간 2026-06-04 ~ 2026-08-25. 지주회사로 별도 영업현금흐름 DCF(WACC 8.66%·g 0.00%) + 종속·관계·공동기업 지분가치(SK온·SK에너지·SK Innovation America는 DCF, 기타는 수익가치·순자산) + 비영업자산 − 이자발생부채 − 우선주 주주가치. 본문의 영구성장률은 0.00%~2.00%(DCF 적용 자회사 포함). 범위는 WACC ±0.5%p·PGR ±0.5%p 민감도. 삼일은 WACC 구성요소(rf·β·Kd 등)를 공시하지 않음."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "SK아이이테크놀로지(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2035-12-31(9.75개년)",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 9.0,
+     "unit": "%",
+     "text": "9.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 49137,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 48935,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 14394,
+     "unit": "원",
+     "text": "14,394",
+     "cite": {
+      "section_id": "4",
+      "offset": 28015,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 11674,
+      "unit": "원",
+      "text": "11,674",
+      "cite": {
+       "section_id": "4",
+       "offset": 28073,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17738,
+      "unit": "원",
+      "text": "17,738",
+      "cite": {
+       "section_id": "4",
+       "offset": 28044,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "법정 외부평가 의무 없음(유가증권 상장법인 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 가이드라인(2026.2.25) 취지로 특별위원회가 자발적으로 선임한 재무자문사의 합병비율 적정성 보충 검토라 role=재무자문. 추정기간 이후 자본적지출 절감 효과·이월결손금 공제 효과 가산. 범위는 WACC 8.50~9.50%·g 0.50~1.50% 민감도."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "SK온(주)(SK이노베이션 종속기업)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2033-12-31",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 9.8,
+     "unit": "%",
+     "text": "9.80%",
+     "cite": {
+      "section_id": "4",
+      "offset": 37149,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": null,
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 19571174,
+     "unit": "백만원",
+     "text": "19,571,174",
+     "cite": {
+      "section_id": "4",
+      "offset": 31082,
+      "file_id": "main"
+     }
+    },
+    "unit": "백만원",
+    "range": null
+   },
+   "note": "SK이노베이션 수익가치 중 지분가치(100% 기준, 보유지분율 90.3%). WACC 9.80%는 사업부문별 할인율(배터리 10.19%, 원유·석유화학 중개 7.69%, 탱크터미널 7.70%, 기유·윤활유 8.71%)의 가중평균 현가계수 역산값. 영구성장률 0.00%~2.00%(범위라 g null)."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "SK에너지(주)(SK이노베이션 종속기업)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2030-12-31(4.75개년)",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 8.85,
+     "unit": "%",
+     "text": "8.85%",
+     "cite": {
+      "section_id": "4",
+      "offset": 39862,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 39666,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3530770,
+     "unit": "백만원",
+     "text": "3,530,770",
+     "cite": {
+      "section_id": "4",
+      "offset": 31136,
+      "file_id": "main"
+     }
+    },
+    "unit": "백만원",
+    "range": null
+   },
+   "note": "SK이노베이션 수익가치 중 지분가치(보유지분율 100.0%)."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "SK Innovation America, Inc.(SK이노베이션 종속기업)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2030-12-31(4.75개년)",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 8.42,
+     "unit": "%",
+     "text": "8.42%",
+     "cite": {
+      "section_id": "4",
+      "offset": 42392,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": null,
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2833652,
+     "unit": "백만원",
+     "text": "2,833,652",
+     "cite": {
+      "section_id": "4",
+      "offset": 31208,
+      "file_id": "main"
+     }
+    },
+    "unit": "백만원",
+    "range": null
+   },
+   "note": "지분가치(백만원, 2026-03-31 환율 1,513.4원/USD 환산). 영구성장률 표기 '-'. 원 DCF는 천USD 단위."
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "SK이노베이션(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2030-12-31(4.75개년)",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 8.7,
+     "unit": "%",
+     "text": "8.70%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22894,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.88,
+     "unit": "%",
+     "text": "3.88%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22583,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22612,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.59,
+     "unit": null,
+     "text": "0.59",
+     "cite": {
+      "section_id": "4",
+      "offset": 22647,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.01,
+     "unit": null,
+     "text": "1.01",
+     "cite": {
+      "section_id": "4",
+      "offset": 22680,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22713,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 11.97,
+     "unit": "%",
+     "text": "11.97%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22740,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.26,
+     "unit": "%",
+     "text": "4.26%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22773,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22798,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22366,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 128023,
+     "unit": "원",
+     "text": "128,023",
+     "cite": {
+      "section_id": "4",
+      "offset": 58695,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 96095,
+      "unit": "원",
+      "text": "96,095",
+      "cite": {
+       "section_id": "4",
+       "offset": 58753,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 176477,
+      "unit": "원",
+      "text": "176,477",
+      "cite": {
+       "section_id": "4",
+       "offset": 58724,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "법정 외부평가 의무 없음(유가증권 상장법인 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 가이드라인(2026.2.25) 취지로 특별위원회가 자발적으로 선임한 재무자문사의 합병비율 적정성 보충 검토라 role=재무자문. SK아이이테크놀로지 특별위원회 선임, 수행기간 2026-06-10 ~ 2026-08-25. 별도 영업가치 DCF + 주요 종속기업(SK온·SK Innovation America·SK에너지·SK아이이테크놀로지)은 DCF 평가액, 기타는 장부가액 등. 목표자본구조는 Debt/TIC 41.84%(D/E 아님, target_de null). 세후 타인자본비용 4.26%. 베타는 동종기업 평균 2년 주간 조정베타. 범위는 WACC ±1.0%p·PGR ±1.0%p 민감도(주요 종속기업 민감도 포함)."
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "SK아이이테크놀로지(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2035-12-31(9.75개년)",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 9.0,
+     "unit": "%",
+     "text": "9.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22902,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.88,
+     "unit": "%",
+     "text": "3.88%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22591,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22620,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.67,
+     "unit": null,
+     "text": "0.67",
+     "cite": {
+      "section_id": "4",
+      "offset": 22654,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.06,
+     "unit": null,
+     "text": "1.06",
+     "cite": {
+      "section_id": "4",
+      "offset": 22687,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22721,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.36,
+     "unit": "%",
+     "text": "12.36%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22749,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 6.07,
+     "unit": "%",
+     "text": "6.07%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22781,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22806,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 22374,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 15008,
+     "unit": "원",
+     "text": "15,008",
+     "cite": {
+      "section_id": "4",
+      "offset": 58705,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10531,
+      "unit": "원",
+      "text": "10,531",
+      "cite": {
+       "section_id": "4",
+       "offset": 58762,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 22187,
+      "unit": "원",
+      "text": "22,187",
+      "cite": {
+       "section_id": "4",
+       "offset": 58734,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "법정 외부평가 의무 없음(유가증권 상장법인 간 기준시가 합병, 시행령 176조의5 ⑧1). 법무부 가이드라인(2026.2.25) 취지로 특별위원회가 자발적으로 선임한 재무자문사의 합병비율 적정성 보충 검토라 role=재무자문. 목표자본구조 Debt/TIC 43.03%(target_de null). 세후 타인자본비용 4.60%, 법인세는 폴란드·한국 세율. 범위는 WACC 8.00~10.00%·g 0.00~2.00% 민감도."
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "에스케이온(주)(SK이노베이션 종속기업)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2033-12-31",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 9.88,
+     "unit": "%",
+     "text": "9.88%",
+     "cite": {
+      "section_id": "4",
+      "offset": 67483,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": null,
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 18826049,
+     "unit": "백만원",
+     "text": "18,826,049",
+     "cite": {
+      "section_id": "4",
+      "offset": 62133,
+      "file_id": "main"
+     }
+    },
+    "unit": "백만원",
+    "range": null
+   },
+   "note": "종속기업투자주식 수익가치(100% 기준, 지분율 90.30%). WACC 9.88%는 사업부문별 할인율(배터리 10.20%, TI 7.50%, ET 7.30%, EN 9.60%) 가중 현가계수 기준. 영구성장률 배터리 1.00%, 그 외 0.00%(g null)."
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "SK Innovation America, Inc.(SK이노베이션 종속기업)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2030-12-31(4.75개년)",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 8.9,
+     "unit": "%",
+     "text": "8.90%",
+     "cite": {
+      "section_id": "4",
+      "offset": 70716,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 70531,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2823819,
+     "unit": "백만원",
+     "text": "2,823,819",
+     "cite": {
+      "section_id": "4",
+      "offset": 62215,
+      "file_id": "main"
+     }
+    },
+    "unit": "백만원",
+    "range": null
+   },
+   "note": "수익가치(백만원, 지분율 100.00%). 자회사 LNG Americas 8.90%·DewBlaine Energy 9.10% 할인율 별도 적용."
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "SK에너지(주)(SK이노베이션 종속기업)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026-04-01 ~ 2030-12-31(4.75개년)",
+    "base_date": "2026-03-31",
+    "wacc": {
+     "value": 8.7,
+     "unit": "%",
+     "text": "8.70%",
+     "cite": {
+      "section_id": "4",
+      "offset": 76329,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 76135,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3463056,
+     "unit": "백만원",
+     "text": "3,463,056",
+     "cite": {
+      "section_id": "4",
+      "offset": 62072,
+      "file_id": "main"
+     }
+    },
+    "unit": "백만원",
+    "range": null
+   },
+   "note": "수익가치(백만원, 지분율 100.00%)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "SK이노베이션(주)",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 125862,
+     "unit": "원",
+     "text": "125,862",
+     "cite": {
+      "section_id": "4",
+      "offset": 328,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "SK아이이테크놀로지(주)",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 14783,
+     "unit": "원",
+     "text": "14,783",
+     "cite": {
+      "section_id": "4",
+      "offset": 338,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "삼일회계법인 수익가치 기준 합병비율 적정범위",
+    "subject": "삼일회계법인",
+    "range": {
+     "min": {
+      "value": 0.0740604,
+      "unit": null,
+      "text": "0.0740604",
+      "cite": {
+       "section_id": "4",
+       "offset": 7455,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.177086,
+      "unit": null,
+      "text": "0.1770860",
+      "cite": {
+       "section_id": "4",
+       "offset": 7471,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "삼정회계법인 수익가치 기준 합병비율 적정범위",
+    "subject": "삼정회계법인",
+    "range": {
+     "min": {
+      "value": 0.1095925,
+      "unit": null,
+      "text": "0.1095925",
+      "cite": {
+       "section_id": "4",
+       "offset": 7489,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.1257201,
+      "unit": null,
+      "text": "0.1257201",
+      "cite": {
+       "section_id": "4",
+       "offset": 7505,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.117454,
+   "unit": null,
+   "text": "0.1174540",
+   "cite": {
+    "section_id": "4",
+    "offset": 360,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 564025380600,
+   "unit": "원",
+   "text": "564,025,380,600",
+   "cite": {
+    "section_id": "2.4",
+    "offset": 281,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "기준시가 합병비율 1:0.1174540이 삼일(1:0.0740604~1:0.1770860)·삼정(1:0.1095925~1:0.1257201) 회계법인의 수익가치 기준 적정범위 안에 포함되어 합리적인 범위 내에 있다고 판단(합병당사회사).",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼일회계법인",
+   "target": "SK이노베이션(주)",
+   "variables": "WACC ±0.5%p × 영구성장률 ±0.5%p — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 100166,
+     "unit": "원",
+     "text": "100,166",
+     "cite": {
+      "section_id": "4",
+      "offset": 31970,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 157628,
+     "unit": "원",
+     "text": "157,628",
+     "cite": {
+      "section_id": "4",
+      "offset": 32036,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "SK아이이테크놀로지(주)",
+   "variables": "WACC 8.50~9.50% × 영구성장률 0.50~1.50% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 11674,
+     "unit": "원",
+     "text": "11,674",
+     "cite": {
+      "section_id": "4",
+      "offset": 49573,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 17738,
+     "unit": "원",
+     "text": "17,738",
+     "cite": {
+      "section_id": "4",
+      "offset": 49633,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "SK이노베이션(주)",
+   "variables": "WACC ±1.0%p × 영구성장률 ±1.0%p — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 96095,
+     "unit": "원",
+     "text": "96,095",
+     "cite": {
+      "section_id": "4",
+      "offset": 63911,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 176477,
+     "unit": "원",
+     "text": "176,477",
+     "cite": {
+      "section_id": "4",
+      "offset": 63977,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "SK아이이테크놀로지(주)",
+   "variables": "WACC 8.00~10.00% × 영구성장률 0.00~2.00% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 10531,
+     "unit": "원",
+     "text": "10,531",
+     "cite": {
+      "section_id": "4",
+      "offset": 82573,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 22187,
+     "unit": "원",
+     "text": "22,187",
+     "cite": {
+      "section_id": "4",
+      "offset": 82633,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260329–20260925, listed_only=False)에서 이 rcept_no가 body_rcept_no인 거래 확인(원본, supersedes 없음). 짝 공시 20260826000414([기재정정]주요사항보고서(회사합병결정), 원본 20260825000424). report_nm '[정정제출요구]'는 DART 표기 그대로.",
+  "합병가액은 양사 기준시가(할인·할증 없음). 법정 외부평가 없음. 삼일회계법인(SK이노베이션 특별위원회)·삼정회계법인(SK아이이테크놀로지 특별위원회)이 각각 양사를 DCF 수익가치로 평가한 자발적 적정성 검토를 role=재무자문으로 수록. 두 회계법인 모두 시장가치법·자산가치법·본질가치법은 미적용.",
+  "SK이노베이션 수익가치는 지주회사 SOTP(별도 영업가치 + 종속기업 지분가치)라 주요 종속기업 DCF를 별도 원소로 둠(결과는 100% 기준 지분가치·수익가치, 백만원).",
+  "원문 차이: 삼정 SK이노베이션 수익가치에 반영된 SK아이이테크놀로지 지분율 53.40%(VIII장 지분율 53.35%). 삼일 SK에너지 지분가치 3,530,770백만원 vs 삼정 3,463,056백만원.",
+  "삼일은 WACC 구성요소(무위험이자율·베타·타인자본비용·자본구조)를 공시하지 않아 dcf 하위 값은 null. 대용기업(peers) 목록은 추출하지 않음.",
+  "transaction_value는 합병신주 모집총액(4,481,300주 × 125,862원, 섹션 2.4). 특별위원회(SK이노베이션 독립이사 6인·SK아이이테크놀로지 4인)·법률자문(김앤장·율촌) 검토는 섹션 3에 있음(미수록)."
+ ],
+ "extracted_at": "2026-10-26T16:10:24+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260826000056",
+   "file_id": "main",
+   "section_id": "10",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 1344,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260826000056",
+   "file_id": "main",
+   "section_id": "2.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 862,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260826000056",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 43414,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

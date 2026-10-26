@@ -19,12 +19,32 @@ argument-hint: <rcept_no>
   특별위원회 회의록에 인용된 값) 각각 subject·target·role을 밝혀 따로 넣는다. 회의록·Q&A에서 인용된 값은 원 평가 주체 원소에 넣지 말고,
   원 평가 표에서 같은 값을 찾으면 그 표를 cite한다. 못 찾으면 notes에 "회의록 인용값: …(cite)"로만 남긴다.
 - 원문 장문 복사 금지. `opinion_text`·`basis_text`는 300자 이내.
+- **목표자본구조**: D/E는 `target_de`, D/(D+E) 구성비율은 `target_dv`. 원문 표가 "부채비율"이라 적어도 "자기자본비율"과 합이 100%면
+  D/V다(알에프텍 2026 실측). 원문 라벨이 아니라 정의로 고른다.
+- **범위(`R(lo, hi)`)는 숫자 크기 순서**: min ≤ max. 원문이 "29.83% ~ 11.74%"처럼 큰 값을 먼저 써도 `R(11.74, 29.83)`.
+  어느 끝이 하단 공모가에 대응하는지는 note에 적는다. `validate`가 min > max를 오류로 잡는다(배치 1차에서 IPO 15건 발생).
+- **valuations[].purpose 필수**: 합병가액 · 분할·교환비율 · 양수도가액 · 공모가 · 공정가치평가(RCPS·파생상품 등 회계용) · 손상검사 · 기타.
+  같은 문서라도 목적이 다르면 그대로 적는다(예: IPO 신고서의 RCPS 공정가치 평가 = 공정가치평가). 조회 기본값은 공정가치평가·손상검사를 뺀다.
+
+## (0) 작성 도구 — cite는 손으로 적지 않는다
+- JSON은 `dart_mcp.casebuild`로 만든다(작업 폴더의 builder 스크립트, 커밋하지 않음):
+  `B.RCEPT = "<body_rcept_no>"`, 숫자는 `N("<원문 표기>", "<section_id>", <그 표의 offset>, "<단위>")`, 범위는 `R(lo, hi)`,
+  원소는 `val(subject, target, role, method, purpose=..., ...)`, 문자 필드 cite는 `C(section_id, "<원문 구절>", offset)`.
+  N은 offset부터 4,000자 안에서 원문 표기를 **앞으로 먼저** 찾아 실제 위치를 cite로 쓰고, 없으면 예외를 낸다(원문에 없는 숫자 방지).
+  anchor는 **그 주체의 표 offset**을 준다(바로 앞 다른 주체 표의 같은 숫자를 잡지 않게).
+- 툴 호출은 MCP 툴을 쓰되, 새 툴(find_tables·search_valuation_disclosures)이 툴 목록에 없으면(서버 재연결 전) 모든 dart 호출을
+  `uv run python -m dart_mcp.casebuild call --log <log> --tag <rcept_no> <툴> '<json>'`로 하고 notes에 "MCP 대신 직접 호출"을 적는다.
+  큰 섹션 키워드 위치는 `... casebuild grep --log <log> --tag <rcept_no> <rcept_no> <section_id> '<정규식>' 150 8`(섹션 기준 offset).
+  끝나면 `casebuild usage --log <log> --tag <rcept_no>`로 호출 수·읽은 글자 수, `casebuild.citations_from_log(...)`로 citations를 채운다.
 
 ## (a) 등급·짝 확인
 1. `search_valuation_disclosures(bgn_de=<rcept_no 앞 8자리 - 150일>, end_de=<rcept_no 앞 8자리 + 30일, 오늘을 넘지 않게>,
    listed_only=False)`에서 이 rcept_no가 든 거래(rcept_no·supersedes·original_rcept_no 중 하나가 일치)를 찾는다.
    - `source_grade`, `body_rcept_no`(본문을 읽을 번호), `original_rcept_no`, `related_rcept_nos`를 적어 둔다.
    - 못 찾으면 `get_disclosure_outline`의 문서명으로 판단한다(증권신고서 → full, 주요사항보고서 → summary).
+   - 증권신고서(지분증권)인데 deal_type이 rights_offering이면 IPO일 수 있다(corp_cls는 조회 시점 상태). 본문에 "희망공모가액"·"상장예비심사"가
+     있으면 IPO로 뽑고, 구주주·주주배정 유상증자면 사례 대상이 아니므로 추출하지 않고 "유상증자: 대상 아님"으로 끝낸다.
+     SPAC(기업인수목적회사) 상장 공모도 평가가 없어 대상이 아니다.
 2. summary인데 related_rcept_nos에 증권신고서가 있으면: 그 증권신고서도 `/dart-valuation`으로 따로 뽑으라고 notes에 적는다
    (이 실행은 요청한 rcept_no만 한다).
 
@@ -57,6 +77,7 @@ argument-hint: <rcept_no>
 - `reports/valuations/<rcept_no>.json` — 사례 JSON. `extracted_at`은 지금 시각(ISO8601, +09:00), `extractor_version`은
   `dart_mcp.valuation.EXTRACTOR_VERSION`. `citations`에 읽은 섹션(rcept_no, file_id, section_id, title, chars_read, how).
 - 저장 직후 검증: `uv run python -m dart_mcp.valuation validate reports/valuations/<rcept_no>.json` → valid=false면 고친다.
+  이어서 `... valuation verify-cites <json> --sample 500`(전수)으로 모든 숫자가 cite 위치에 있는지 확인한다. md는 `... valuation md <json>`.
 - `reports/valuations/<rcept_no>.md` — 사람용:
 
 ```
@@ -77,6 +98,7 @@ argument-hint: <rcept_no>
 ```
 
 ## (e) 리뷰
+`/dart-valuation-batch` 안에서 부를 때는 리뷰를 돌리지 않는다(배치가 끝난 뒤 무작위 20%만). 단독 실행이면
 작성 후 `/dart-valuation-review reports/valuations/<rcept_no>.json`을 1회 돌리고(서브에이전트), FAIL을 반영한 뒤
 md 맨 끝에 `## 리뷰 반영 내역` 표(`| 리뷰 항목 | 위치 | 수정 전 | 수정 후 / 미반영 사유 |`)를 붙인다. 리뷰는 1회로 끝낸다.
 채팅에는 valuations 요약, 리뷰 PASS/FAIL, MCP 툴 호출 횟수와 읽은 글자 수(작성/리뷰 분리)를 보고한다.

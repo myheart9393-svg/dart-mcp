@@ -1,0 +1,325 @@
+{
+ "rcept_no": "20260810000682",
+ "original_rcept_no": "20260626000715",
+ "related_rcept_nos": [
+  "20260626000715",
+  "20260714000315"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00229085",
+  "name": "기도산업",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 미래에셋증권이 유사기업 PER 상대가치법으로 주당 평가가액 36,246원을 산출하고 31.58%~21.65% 할인율을 적용해 희망공모가액 24,800원~28,400원을 제시, 수요예측 결과 및 주식시장 상황 등을 감안해 발행회사와 협의하여 1주당 28,400원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 145321,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "미래에셋증권㈜ (대표주관회사)",
+   "target": "기도산업",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 10.01,
+     "unit": "배",
+     "text": "10.01배",
+     "cite": {
+      "section_id": "0",
+      "offset": 144864,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 21165,
+     "unit": "백만원",
+     "text": "21,165백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 144784,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 21.65,
+      "unit": "%",
+      "text": "21.65%",
+      "cite": {
+       "section_id": "0",
+       "offset": 151696,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 31.58,
+      "unit": "%",
+      "text": "31.58%",
+      "cite": {
+       "section_id": "0",
+       "offset": 151689,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 36246,
+     "unit": "원",
+     "text": "36,246원",
+     "cite": {
+      "section_id": "0",
+      "offset": 145014,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 24800,
+      "unit": "원",
+      "text": "24,800원",
+      "cite": {
+       "section_id": "0",
+       "offset": 151724,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 28400,
+      "unit": "원",
+      "text": "28,400원",
+      "cite": {
+       "section_id": "0",
+       "offset": 151734,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2026년 1분기 기준 LTM 지배기업지분 조정 당기순이익 x 유사기업 PER ÷ 주식수 x {1-할인율}. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 유사기업 목록·개별 PER·당기순이익 조정 내역은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "기도산업",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 36246,
+     "unit": "원",
+     "text": "36,246원",
+     "cite": {
+      "section_id": "0",
+      "offset": 145014,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "기도산업",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 28400,
+     "unit": "원",
+     "text": "28,400원",
+     "cite": {
+      "section_id": "0",
+      "offset": 151759,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "미래에셋증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 24800,
+      "unit": "원",
+      "text": "24,800원",
+      "cite": {
+       "section_id": "0",
+       "offset": 151724,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 28400,
+      "unit": "원",
+      "text": "28,400원",
+      "cite": {
+       "section_id": "0",
+       "offset": 151734,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": {
+   "value": 48280000000,
+   "unit": "원",
+   "text": "48,280,000,000원",
+   "cite": {
+    "section_id": "0",
+    "offset": 46137,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "수요예측 결과 및 주식시장 상황 등을 감안하여 대표주관회사와 발행회사가 협의해 확정공모가액을 1주당 28,400원(밴드 상단)으로 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "미래에셋증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 21165,
+   "unit": "백만원",
+   "text": "21,165백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 144784,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "실적치(2026년 1분기 기준 LTM 지배기업지분 조정 당기순이익)",
+  "multiple": {
+   "value": 10.01,
+   "unit": "배",
+   "text": "10.01배",
+   "cite": {
+    "section_id": "0",
+    "offset": 144864,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 5843707,
+   "unit": "주",
+   "text": "5,843,707주",
+   "cite": {
+    "section_id": "0",
+    "offset": 144936,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 36246,
+   "unit": "원",
+   "text": "36,246원",
+   "cite": {
+    "section_id": "0",
+    "offset": 145014,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 21.65,
+    "unit": "%",
+    "text": "21.65%",
+    "cite": {
+     "section_id": "0",
+     "offset": 151696,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 31.58,
+    "unit": "%",
+    "text": "31.58%",
+    "cite": {
+     "section_id": "0",
+     "offset": 151689,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 24800,
+    "unit": "원",
+    "text": "24,800원",
+    "cite": {
+     "section_id": "0",
+     "offset": 151724,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 28400,
+    "unit": "원",
+    "text": "28,400원",
+    "cite": {
+     "section_id": "0",
+     "offset": 151734,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260313–20260909, listed_only=False) 결과: source_grade=full, deal_type=ipo, original 20260626000715, supersedes 20260626000715·20260714000315.",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '(주11) 정정 후'(공모가 산정 요약표·가. 평가결과), '(주12) 정정 후'(희망공모가액 산출내역), '(주2) 정정 후'(공모방법 합계)에서 옮겼다.",
+  "할인율 비교: 2023년~현재 코스닥 일반상장 신규 상장법인 평가액 대비 할인율 평균 하단 33.93%·상단 22.43% ((주12) 정정 후 주2)).",
+  "코스닥시장 상장 공모, 대표주관회사 미래에셋증권. 공모 1,700,000주(신주모집 1,350,000주 + 구주매출 350,000주), 확정총액 48,280,000,000원(28,400원 기준), 청약 2026-08-11~12, 납입 2026-08-14.",
+  "유사기업 선정·개별 PER 산출((2) 유사기업 PER 산출)과 조정 당기순이익 산출 내역은 이 정정본에 없음. 원본 20260626000715를 /dart-valuation으로 따로 뽑으면 보완된다."
+ ],
+ "extracted_at": "2026-10-26T16:02:24+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260810000682",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 20078,
+   "how": "search/section"
+  }
+ ]
+}

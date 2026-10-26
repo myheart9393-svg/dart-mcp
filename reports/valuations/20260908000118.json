@@ -1,0 +1,1389 @@
+{
+ "rcept_no": "20260908000118",
+ "original_rcept_no": null,
+ "related_rcept_nos": [
+  "20260730000215"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00155948",
+  "name": "로젠",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "주식회사 모다이노칩",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "합병회사·피합병회사 모두 (주)대명화학 그룹 계열회사(최대주주 대명화학: 로젠 48.78%, 모다이노칩 75.25%). 대표이사 최용석이 모다이노칩 사내이사 겸직.",
+  "board_date": "2026-03-09",
+  "regime": "기준시가",
+  "ratio_text": "로젠 주식회사 : 주식회사 모다이노칩 = 1 : 0.9755740"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "코스닥 주권상장법인 간 합병으로 기준시가(시행령 176조의5 ①1)로 합병가액을 산정해 외부평가 의무 없음(같은 조 ⑧1). 증권신고서 요약 '외부평가기관: 해당사항 없음'.",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 6810,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "로젠 주식회사·주식회사 모다이노칩(합병당사회사)",
+   "target": "로젠 주식회사",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2047,
+     "unit": "원",
+     "text": "2,047",
+     "cite": {
+      "section_id": "5",
+      "offset": 2273,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-03-06. 1개월 가중평균 2,216원·1주일 1,949원·최근일 1,977원 산술평균, 할인·할증 없음(시행령 176조의5 ①1)."
+  },
+  {
+   "subject": "로젠 주식회사·주식회사 모다이노칩(합병당사회사)",
+   "target": "주식회사 모다이노칩",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1997,
+     "unit": "원",
+     "text": "1,997",
+     "cite": {
+      "section_id": "5",
+      "offset": 3950,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-03-06. 1개월 가중평균 2,057원·1주일 1,908원·최근일 2,025원 산술평균, 할인·할증 없음."
+  },
+  {
+   "subject": "대현회계법인",
+   "target": "로젠 주식회사",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 7339,
+     "unit": "원",
+     "text": "7,339",
+     "cite": {
+      "section_id": "5",
+      "offset": 11398,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 412139607533,
+     "unit": "원",
+     "text": "412,139,607,533",
+     "cite": {
+      "section_id": "5",
+      "offset": 11327,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 398082466859,
+     "unit": "원",
+     "text": "398,082,466,859",
+     "cite": {
+      "section_id": "5",
+      "offset": 10219,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 14057140674,
+     "unit": "원",
+     "text": "14,057,140,674",
+     "cite": {
+      "section_id": "5",
+      "offset": 10254,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 56156301,
+     "unit": "주",
+     "text": "56,156,301",
+     "cite": {
+      "section_id": "5",
+      "offset": 11363,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2250,
+      "unit": "원",
+      "text": "2,250",
+      "cite": {
+       "section_id": "5",
+       "offset": 9605,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4678,
+      "unit": "원",
+      "text": "4,678",
+      "cite": {
+       "section_id": "5",
+       "offset": 9613,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 144,
+    "unit": "원",
+    "text": "144",
+    "cite": {
+     "section_id": "5",
+     "offset": 16241,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병). 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'(2025.12) 취지로 자발적으로 선임한 회계자문사의 합병비율 적정성 검토(원문은 '외부평가'·'회계자문사'로 혼용). 로젠 측 선임(특별위원회). 본질가치는 범위로만 제시(수익가치 민감도 최소·최대 반영). 수행기간 2026-05-18~06-15. 분석기준일 2026-02-26."
+  },
+  {
+   "subject": "대현회계법인",
+   "target": "로젠 주식회사",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.38,
+     "unit": "%",
+     "text": "5.38%",
+     "cite": {
+      "section_id": "5",
+      "offset": 19892,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 19913,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 144,
+     "unit": "원",
+     "text": "144",
+     "cite": {
+      "section_id": "5",
+      "offset": 16241,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": -1142,
+      "unit": "원",
+      "text": "(1,142)",
+      "cite": {
+       "section_id": "5",
+       "offset": 16275,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 2903,
+      "unit": "원",
+      "text": "2,903",
+      "cite": {
+       "section_id": "5",
+       "offset": 16257,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 영업가치 361,036백만원, 비영업자산 64,253백만원, 이자부부채 417,183백만원(차입금+리스부채), 주식수 56,156,301주. WACC 구성요소(rf·β 등)는 원문에 없음. 범위는 WACC 4.38~6.38%·g -1~1% 민감도 최소·최대."
+  },
+  {
+   "subject": "대현회계법인",
+   "target": "주식회사 모다이노칩",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 4662,
+     "unit": "원",
+     "text": "4,662",
+     "cite": {
+      "section_id": "5",
+      "offset": 14287,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 371685658889,
+     "unit": "원",
+     "text": "371,685,658,889",
+     "cite": {
+      "section_id": "5",
+      "offset": 14220,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 365720448217,
+     "unit": "원",
+     "text": "365,720,448,217",
+     "cite": {
+      "section_id": "5",
+      "offset": 13113,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 5965210672,
+     "unit": "원",
+     "text": "5,965,210,672",
+     "cite": {
+      "section_id": "5",
+      "offset": 13148,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 79721622,
+     "unit": "주",
+     "text": "79,721,622",
+     "cite": {
+      "section_id": "5",
+      "offset": 14252,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2234,
+      "unit": "원",
+      "text": "2,234",
+      "cite": {
+       "section_id": "5",
+       "offset": 9621,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4234,
+      "unit": "원",
+      "text": "4,234",
+      "cite": {
+       "section_id": "5",
+       "offset": 9629,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 1770,
+    "unit": "원",
+    "text": "1,770",
+    "cite": {
+     "section_id": "5",
+     "offset": 21122,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병). 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'(2025.12) 취지로 자발적으로 선임한 회계자문사의 합병비율 적정성 검토(원문은 '외부평가'·'회계자문사'로 혼용). 대현회계법인이 양사 모두 평가."
+  },
+  {
+   "subject": "대현회계법인",
+   "target": "주식회사 모다이노칩",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 6.44,
+     "unit": "%",
+     "text": "6.44%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24791,
+      "file_id": "main"
+     }
+    },
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": null,
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24812,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1770,
+     "unit": "원",
+     "text": "1,770",
+     "cite": {
+      "section_id": "5",
+      "offset": 21122,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 615,
+      "unit": "원",
+      "text": "615",
+      "cite": {
+       "section_id": "5",
+       "offset": 21158,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 3949,
+      "unit": "원",
+      "text": "3,949",
+      "cite": {
+       "section_id": "5",
+       "offset": 21140,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형. 영업가치 462,519백만원, 비영업자산 97,834백만원, 이자부부채 419,228백만원, 주식수 79,721,622주. 2026-04-29 흡수합병한 (주)케이브랜즈 현금흐름·자산·부채 포함. WACC 구성요소 원문 없음."
+  },
+  {
+   "subject": "지인회계법인",
+   "target": "로젠 주식회사",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 7339,
+     "unit": "원",
+     "text": "7,339",
+     "cite": {
+      "section_id": "5",
+      "offset": 31242,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 412139607533,
+     "unit": "원",
+     "text": "412,139,607,533",
+     "cite": {
+      "section_id": "5",
+      "offset": 31171,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 398082466859,
+     "unit": "원",
+     "text": "398,082,466,859",
+     "cite": {
+      "section_id": "5",
+      "offset": 30068,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 14057140674,
+     "unit": "원",
+     "text": "14,057,140,674",
+     "cite": {
+      "section_id": "5",
+      "offset": 30103,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 56156301,
+     "unit": "주",
+     "text": "56,156,301",
+     "cite": {
+      "section_id": "5",
+      "offset": 31207,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2259,
+      "unit": "원",
+      "text": "2,259",
+      "cite": {
+       "section_id": "5",
+       "offset": 29224,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4635,
+      "unit": "원",
+      "text": "4,635",
+      "cite": {
+       "section_id": "5",
+       "offset": 29232,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 124,
+    "unit": "원",
+    "text": "124",
+    "cite": {
+     "section_id": "5",
+     "offset": 38626,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병). 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'(2025.12) 취지로 자발적으로 선임한 회계자문사의 합병비율 적정성 검토(원문은 '외부평가'·'회계자문사'로 혼용). 모다이노칩 측 선임(특별위원회), 양사 모두 평가. 수행기간 2026.07.27~2026.08.19."
+  },
+  {
+   "subject": "지인회계법인",
+   "target": "로젠 주식회사",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 5.33,
+     "unit": "%",
+     "text": "5.33%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40920,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.385,
+     "unit": "%",
+     "text": "3.385%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40644,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40679,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.17,
+     "unit": null,
+     "text": "0.17",
+     "cite": {
+      "section_id": "5",
+      "offset": 41832,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.5376,
+     "unit": null,
+     "text": "0.5376",
+     "cite": {
+      "section_id": "5",
+      "offset": 40710,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.66,
+     "unit": "%",
+     "text": "4.66%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40748,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.35,
+     "unit": "%",
+     "text": "12.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40779,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.72,
+     "unit": "%",
+     "text": "3.72%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40805,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.2%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40881,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 43998,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "동방",
+      "value": {
+       "value": 0.16,
+       "unit": null,
+       "text": "0.16",
+       "cite": {
+        "section_id": "5",
+        "offset": 41536,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "한진",
+      "value": {
+       "value": 0.15,
+       "unit": null,
+       "text": "0.15",
+       "cite": {
+        "section_id": "5",
+        "offset": 41599,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "CJ대한통운",
+      "value": {
+       "value": 0.27,
+       "unit": null,
+       "text": "0.27",
+       "cite": {
+        "section_id": "5",
+        "offset": 41668,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "케이씨티시",
+      "value": {
+       "value": 0.17,
+       "unit": null,
+       "text": "0.17",
+       "cite": {
+        "section_id": "5",
+        "offset": 41732,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "한익스프레스",
+      "value": {
+       "value": 0.1,
+       "unit": null,
+       "text": "0.10",
+       "cite": {
+        "section_id": "5",
+        "offset": 41794,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 124,
+     "unit": "원",
+     "text": "124",
+     "cite": {
+      "section_id": "5",
+      "offset": 38626,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": -1127,
+      "unit": "원",
+      "text": "(1,127)",
+      "cite": {
+       "section_id": "5",
+       "offset": 38660,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 2832,
+      "unit": "원",
+      "text": "2,832",
+      "cite": {
+       "section_id": "5",
+       "offset": 38642,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형(mid-year). 자본구조 자기자본 26.35%·타인자본 73.65%(대용기업 평균, D/(D+E)라 target_de는 null). Kd는 2026년 가중평균차입이자율, 규모위험 4.66%(한공회). β는 KICPA 2년 Weekly 조정 Beta. 영업가치 359,921백만원, 이자발생부채 417,183백만원."
+  },
+  {
+   "subject": "지인회계법인",
+   "target": "주식회사 모다이노칩",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 4662,
+     "unit": "원",
+     "text": "4,662",
+     "cite": {
+      "section_id": "5",
+      "offset": 35378,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 371685658889,
+     "unit": "원",
+     "text": "371,685,658,889",
+     "cite": {
+      "section_id": "5",
+      "offset": 35311,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 365720448217,
+     "unit": "원",
+     "text": "365,720,448,217",
+     "cite": {
+      "section_id": "5",
+      "offset": 34209,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 5965210672,
+     "unit": "원",
+     "text": "5,965,210,672",
+     "cite": {
+      "section_id": "5",
+      "offset": 34244,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 79721622,
+     "unit": "주",
+     "text": "79,721,622",
+     "cite": {
+      "section_id": "5",
+      "offset": 35343,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2239,
+      "unit": "원",
+      "text": "2,239",
+      "cite": {
+       "section_id": "5",
+       "offset": 29240,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4326,
+      "unit": "원",
+      "text": "4,326",
+      "cite": {
+       "section_id": "5",
+       "offset": 29248,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 1799,
+    "unit": "원",
+    "text": "1,799",
+    "cite": {
+     "section_id": "5",
+     "offset": 45229,
+     "file_id": "main"
+    }
+   },
+   "note": "법정 외부평가 의무 없음(상장사 간 기준시가 합병). 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'(2025.12) 취지로 자발적으로 선임한 회계자문사의 합병비율 적정성 검토(원문은 '외부평가'·'회계자문사'로 혼용). "
+  },
+  {
+   "subject": "지인회계법인",
+   "target": "주식회사 모다이노칩",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026–2030(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 6.09,
+     "unit": "%",
+     "text": "6.09%",
+     "cite": {
+      "section_id": "5",
+      "offset": 47534,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.385,
+     "unit": "%",
+     "text": "3.385%",
+     "cite": {
+      "section_id": "5",
+      "offset": 47258,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 47293,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.28,
+     "unit": null,
+     "text": "0.28",
+     "cite": {
+      "section_id": "5",
+      "offset": 48538,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.6284,
+     "unit": null,
+     "text": "0.6284",
+     "cite": {
+      "section_id": "5",
+      "offset": 47324,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.02,
+     "unit": "%",
+     "text": "3.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 47362,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 11.43,
+     "unit": "%",
+     "text": "11.43%",
+     "cite": {
+      "section_id": "5",
+      "offset": 47393,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 3.63,
+     "unit": "%",
+     "text": "3.63%",
+     "cite": {
+      "section_id": "5",
+      "offset": 47419,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.2%",
+     "cite": {
+      "section_id": "5",
+      "offset": 47495,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 50560,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "(주)광주신세계",
+      "value": {
+       "value": 0.32,
+       "unit": null,
+       "text": "0.32",
+       "cite": {
+        "section_id": "5",
+        "offset": 48156,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "롯데쇼핑(주)",
+      "value": {
+       "value": 0.17,
+       "unit": null,
+       "text": "0.17",
+       "cite": {
+        "section_id": "5",
+        "offset": 48226,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "(주)신세계",
+      "value": {
+       "value": 0.37,
+       "unit": null,
+       "text": "0.37",
+       "cite": {
+        "section_id": "5",
+        "offset": 48294,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "(주)이마트",
+      "value": {
+       "value": 0.21,
+       "unit": null,
+       "text": "0.21",
+       "cite": {
+        "section_id": "5",
+        "offset": 48363,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "한화갤러리아(주)",
+      "value": {
+       "value": 0.21,
+       "unit": null,
+       "text": "0.21",
+       "cite": {
+        "section_id": "5",
+        "offset": 48430,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "(주)현대백화점",
+      "value": {
+       "value": 0.43,
+       "unit": null,
+       "text": "0.43",
+       "cite": {
+        "section_id": "5",
+        "offset": 48500,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1799,
+     "unit": "원",
+     "text": "1,799",
+     "cite": {
+      "section_id": "5",
+      "offset": 45229,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 623,
+      "unit": "원",
+      "text": "623",
+      "cite": {
+       "section_id": "5",
+       "offset": 45265,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4102,
+      "unit": "원",
+      "text": "4,102",
+      "cite": {
+       "section_id": "5",
+       "offset": 45247,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 영구성장모형. 자본구조 자기자본 38.45%·타인자본 61.55%(대용기업 평균, D/(D+E)). 규모위험 3.02%(한공회 Micro cap). 영업가치 464,814백만원, 비영업자산 97,834백만원, 이자발생부채 419,228백만원."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "로젠 주식회사",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 2047,
+     "unit": "원",
+     "text": "2,047",
+     "cite": {
+      "section_id": "5",
+      "offset": 304,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "주식회사 모다이노칩",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 1997,
+     "unit": "원",
+     "text": "1,997",
+     "cite": {
+      "section_id": "5",
+      "offset": 312,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "대현회계법인 본질가치 기준 합병비율 적정범위",
+    "subject": "대현회계법인",
+    "range": {
+     "min": {
+      "value": 0.9050876,
+      "unit": null,
+      "text": "0.9050876",
+      "cite": {
+       "section_id": "5",
+       "offset": 9736,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.9928889,
+      "unit": null,
+      "text": "0.9928889",
+      "cite": {
+       "section_id": "5",
+       "offset": 9752,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "지인회계법인 본질가치 기준 합병비율 적정범위",
+    "subject": "지인회계법인",
+    "range": {
+     "min": {
+      "value": 0.9333333,
+      "unit": null,
+      "text": "0.9333333",
+      "cite": {
+       "section_id": "5",
+       "offset": 29355,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.9911465,
+      "unit": null,
+      "text": "0.9911465",
+      "cite": {
+       "section_id": "5",
+       "offset": 29371,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.975574,
+   "unit": null,
+   "text": "0.9755740",
+   "cite": {
+    "section_id": "5",
+    "offset": 333,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 156380094190,
+   "unit": "원",
+   "text": "156,380,094,190",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 270,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "기준시가 합병비율 1:0.9755740이 대현(0.9050876~0.9928889)·지인(0.9333333~0.9911465) 회계자문사의 본질가치 기준 적정범위 안에 모두 포함되어 합병비율이 적정·공정하다고 판단(합병당사회사).",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "대현회계법인",
+   "target": "로젠 주식회사",
+   "variables": "WACC 4.38%~6.38% × 영구성장률 -1.0%~1.0% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": -1142,
+     "unit": "원",
+     "text": "(1,142)",
+     "cite": {
+      "section_id": "5",
+      "offset": 20664,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 2903,
+     "unit": "원",
+     "text": "2,903",
+     "cite": {
+      "section_id": "5",
+      "offset": 20610,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "대현회계법인",
+   "target": "주식회사 모다이노칩",
+   "variables": "WACC 5.44%~7.44% × 영구성장률 -1.0%~1.0% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 615,
+     "unit": "원",
+     "text": "615",
+     "cite": {
+      "section_id": "5",
+      "offset": 25637,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 3949,
+     "unit": "원",
+     "text": "3,949",
+     "cite": {
+      "section_id": "5",
+      "offset": 25581,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "지인회계법인",
+   "target": "로젠 주식회사",
+   "variables": "WACC 4.33%~6.33% × 영구성장률 -1.00%~1.00% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": -1127,
+     "unit": "원",
+     "text": "(1,127)",
+     "cite": {
+      "section_id": "5",
+      "offset": 44713,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 2832,
+     "unit": "원",
+     "text": "2,832",
+     "cite": {
+      "section_id": "5",
+      "offset": 44769,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "지인회계법인",
+   "target": "주식회사 모다이노칩",
+   "variables": "WACC 5.09%~7.09% × 영구성장률 -1.00%~1.00% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 623,
+     "unit": "원",
+     "text": "623",
+     "cite": {
+      "section_id": "5",
+      "offset": 51355,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 4102,
+     "unit": "원",
+     "text": "4,102",
+     "cite": {
+      "section_id": "5",
+      "offset": 51409,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260411–20261008, listed_only=False)에서 [첨부정정] 20260908000120 거래의 body_rcept_no가 이 rcept_no. supersedes 20260714000156·20260714000225·20260714000268·20260908000118, 목록에 꼬리표 없는 최초 제출본 없음(original_rcept_no null). 짝 공시 20260730000215는 [기재정정]주요사항보고서(회사합병결정).",
+  "합병가액은 양사 기준시가(할인·할증 없음). 법정 외부평가 없음. 대현회계법인(로젠 측)·지인회계법인(모다이노칩 측)이 각각 양사를 본질가치(1:1.5)로 평가한 자발적 적정성 검토를 role=재무자문으로 수록. 두 기관 모두 g 0%, 자산가치 동일(로젠 7,339원·모다이노칩 4,662원).",
+  "원문 불일치: 두 검토의견서 요약은 모다이노칩 기준주가를 '1,977원'으로 적었으나 합병가액 표는 1,997원(1,977원은 로젠 최근일 종가). 이 사례는 표 값 1,997원 사용.",
+  "원문 불일치: 섹션 5는 '최대주주인 합병소멸회사와 그 자회사인 합병존속회사'라 적었으나 섹션 11은 양사 최대주주가 (주)대명화학(48.78%·75.25%)이라 적음. relation_text는 섹션 11 기준.",
+  "대현회계법인의 WACC 구성요소(rf·MRP·β·Kd 등)는 섹션 5에 없음(영구현금흐름 표의 WACC·g만). 본질가치 점 값은 원문에 없고 범위만 있어 result.value=null.",
+  "transaction_value는 합병신주 모집총액(76,394,770주 × 2,047원, 섹션 3.4).",
+  "특별위원회(각사 사외이사 1인·외부전문가 2인), 법무법인 광장 의견서 등은 섹션 4에 있음(미수록)."
+ ],
+ "extracted_at": "2026-10-26T15:50:30+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260908000118",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 4126,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260908000118",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 319,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260908000118",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 55321,
+   "how": "section"
+  }
+ ]
+}

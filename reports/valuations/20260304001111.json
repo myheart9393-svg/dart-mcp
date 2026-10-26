@@ -1,0 +1,312 @@
+{
+ "rcept_no": "20260304001111",
+ "original_rcept_no": "20260105000155",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01782183",
+  "name": "카나프테라퓨틱스",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 대표주관회사가 산정)",
+  "basis_text": "대표주관회사인 한국투자증권㈜는 ㈜카나프테라퓨틱스의 영업현황, 산업전망 및 주식시장 상황 등을 고려하여 희망공모가액을 다음과 같이 제시하였습니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "희망공모가액 16,000원–20,000원 제시 후 수요예측 결과 및 주식시장 상황을 감안해 대표주관회사와 발행회사가 협의하여 1주당 20,000원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 164638,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한국투자증권㈜",
+   "target": "카나프테라퓨틱스",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 23.59,
+     "unit": "배",
+     "text": "23.59배",
+     "cite": {
+      "section_id": "0",
+      "offset": 163585,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 14142,
+     "unit": "백만원",
+     "text": "14,142백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 163497,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 19.13,
+      "unit": "%",
+      "text": "19.13%",
+      "cite": {
+       "section_id": "0",
+       "offset": 163805,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 35.3,
+      "unit": "%",
+      "text": "35.30%",
+      "cite": {
+       "section_id": "0",
+       "offset": 163796,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 24731,
+     "unit": "원",
+     "text": "24,731원",
+     "cite": {
+      "section_id": "0",
+      "offset": 163748,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 16000,
+      "unit": "원",
+      "text": "16,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 170060,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20000,
+      "unit": "원",
+      "text": "20,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 170070,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "result.value는 할인 전 주당 평가가액(① 2028년 추정 당기순이익의 현재가치 × ② 비교대상회사 PER ÷ ③ 주식수), result.range는 할인 후 희망공모가액 밴드. 확정공모가액 20,000원(밴드 상단). 비교기업별 PER·현재가치 할인율은 이 발행조건확정 정정 ZIP에 없음(정정 전 신고서 본문에 있음)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "카나프테라퓨틱스",
+    "basis": "확정공모가액",
+    "value": {
+     "value": 20000,
+     "unit": "원",
+     "text": "20,000원",
+     "cite": {
+      "section_id": "0",
+      "offset": 163884,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "카나프테라퓨틱스",
+    "basis": "PER 상대가치 주당 평가가액(할인 전)",
+    "value": {
+     "value": 24731,
+     "unit": "원",
+     "text": "24,731원",
+     "cite": {
+      "section_id": "0",
+      "offset": 163748,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "한국투자증권㈜",
+    "range": {
+     "min": {
+      "value": 16000,
+      "unit": "원",
+      "text": "16,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 164762,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20000,
+      "unit": "원",
+      "text": "20,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 164772,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "opinion_text": "수요예측 결과 및 주식시장 상황 등을 감안하여 대표주관회사와 발행회사가 협의하여 1주당 20,000원으로 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "한국투자증권㈜",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 14142,
+   "unit": "백만원",
+   "text": "14,142백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 163497,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2028년 추정 당기순이익의 현재가치(장래 5년간 2025년–2029년 손익 추정)",
+  "multiple": {
+   "value": 23.59,
+   "unit": "배",
+   "text": "23.59배",
+   "cite": {
+    "section_id": "0",
+    "offset": 163585,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 13489530,
+   "unit": "주",
+   "text": "13,489,530주",
+   "cite": {
+    "section_id": "0",
+    "offset": 163663,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 24731,
+   "unit": "원",
+   "text": "24,731원",
+   "cite": {
+    "section_id": "0",
+    "offset": 163748,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 19.13,
+    "unit": "%",
+    "text": "19.13%",
+    "cite": {
+     "section_id": "0",
+     "offset": 163805,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 35.3,
+    "unit": "%",
+    "text": "35.30%",
+    "cite": {
+     "section_id": "0",
+     "offset": 163796,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 16000,
+    "unit": "원",
+    "text": "16,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 170060,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 20000,
+    "unit": "원",
+    "text": "20,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 170070,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "citations": [
+  {
+   "rcept_no": "20260304001111",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 31293,
+   "how": "search/section"
+  }
+ ],
+ "notes": [
+  "MCP 대신 직접 호출(dart_mcp.casebuild call). 배치 실행이라 리뷰 생략.",
+  "발행조건확정 정정 ZIP(20260304001111): 본문이 섹션 구분 없이 1개 섹션('0', 201,954자)으로 파싱됨. 정정 전/후 대비 부분만 있어 cite는 '정정 후' 표를 씀.",
+  "원본 20260105000155, 중간 정정 20260119000192·20260202001085·20260212000323·20260223000875. 비교기업 선정·개별 PER·추정 순이익 현재가치 할인율·외부평가(RCPS 등)는 이 ZIP에 없어 null/빈 배열 — 필요하면 직전 정정(20260223000875) 본문을 따로 추출.",
+  "할인율 원문 표기 '35.30% ~ 19.13%'(하단 16,000원 ↔ 35.30%, 상단 20,000원 ↔ 19.13%). discount_range는 min 19.13·max 35.30.",
+  "할인율 참고 표(2022년 이후 코스닥 기술특례 신규상장법인 평균 할인율 하단 39.62%·상단 26.51%)는 원문 주1에 있음.",
+  "2025-10-17 상장예비심사신청, 2025-12-18 예비심사 승인(원문 주7)."
+ ],
+ "extracted_at": "2026-10-26T15:30:01+09:00",
+ "extractor_version": "1.1"
+}

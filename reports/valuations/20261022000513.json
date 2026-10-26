@@ -45,6 +45,7 @@
    "subject": "삼정회계법인",
    "target": "우성",
    "role": "재무자문",
+   "purpose": "합병가액",
    "method": "자산가치",
    "weights": null,
    "asset_value": {
@@ -81,6 +82,7 @@
    "subject": "삼정회계법인",
    "target": "우성유통",
    "role": "재무자문",
+   "purpose": "합병가액",
    "method": "본질가치",
    "weights": {
     "asset": 1,
@@ -131,6 +133,7 @@
    "subject": "한영회계법인",
    "target": "우성",
    "role": "외부평가",
+   "purpose": "합병가액",
    "method": "자산가치",
    "weights": null,
    "asset_value": {
@@ -166,6 +169,7 @@
    "subject": "한영회계법인",
    "target": "우성유통",
    "role": "외부평가",
+   "purpose": "합병가액",
    "method": "본질가치",
    "weights": {
     "asset": 1,
@@ -218,6 +222,7 @@
    "subject": "한영회계법인",
    "target": "우성유통",
    "role": "외부평가",
+   "purpose": "합병가액",
    "method": "DCF",
    "weights": null,
    "asset_value": null,
@@ -374,6 +379,6 @@
   "짝 증권신고서 없음(search_valuation_disclosures의 related_rcept_nos가 비어 있다). 원문: 합병대가를 자기주식으로 지급해 신주를 발행하지 않는다.",
   "감사위원회가 '외부평가기관의견서 작성 업무는 EY 한영에 맡기기로 의결'(section 2) → audit_committee_consent=true."
  ],
- "extracted_at": "2026-10-26T14:07:59+09:00",
- "extractor_version": "1.0"
+ "extracted_at": "2026-10-26T15:20:16+09:00",
+ "extractor_version": "1.1"
 }

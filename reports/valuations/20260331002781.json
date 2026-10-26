@@ -1,0 +1,849 @@
+{
+ "rcept_no": "20260331002781",
+ "original_rcept_no": null,
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01596221",
+  "name": "세미티에스",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "엔에이치기업인수목적29호 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열·임원겸직·대주주 특수관계·거래 모두 해당사항 없음(VIII. 당사회사간의 이해관계 등)",
+  "board_date": "2025-11-14",
+  "regime": "기준시가",
+  "ratio_text": "주식회사 세미티에스 : 엔에이치기업인수목적29호㈜ = 1:0.4432624"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 9월 29일 ~ 2025년 11월 13일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "이촌회계법인 자본시장법에 따른 외부평가업무 품질관리규정"
+  ],
+  "opinion_text": "합병당사회사의 주당평가액은 합병법인 4,020원~4,862원, 피합병법인 2,000원의 범위로 평가되었으며 합병비율은 0.4113534~0.4975124로 평가되었다. 따라서 합병당사회사 간 산정한 합병비율 1:0.4432624는 적정한 것으로 판단된다.",
+  "cite": {
+   "section_id": "5",
+   "offset": 95927,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "우리회계법인",
+   "target": "주식회사 세미티에스",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1162,
+     "unit": "원",
+     "text": "1,162",
+     "cite": {
+      "section_id": "5",
+      "offset": 10685,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4512,
+     "unit": "원",
+     "text": "4,512",
+     "cite": {
+      "section_id": "5",
+      "offset": 10644,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 6746,
+    "unit": "원",
+    "text": "6,746",
+    "cite": {
+     "section_id": "5",
+     "offset": 10717,
+     "file_id": "main"
+    }
+   },
+   "note": "우리회계법인은 회사가 의뢰한 '합병비율 산출 외부기관'(계약 2025-10-01, 수행 2025-10-01~11-13). 본질가치 = (자산가치x1 + 수익가치x1.5)÷2.5. 유사회사 3사 미만으로 상대가치 미산정. 이 값이 합의 합병가액."
+  },
+  {
+   "subject": "우리회계법인",
+   "target": "주식회사 세미티에스",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년–2029년(5개년)",
+    "base_date": null,
+    "wacc": {
+     "value": 13.62,
+     "unit": "%",
+     "text": "13.62%",
+     "cite": {
+      "section_id": "5",
+      "offset": 91763,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 91848,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 91884,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.90191,
+     "unit": null,
+     "text": "0.90191",
+     "cite": {
+      "section_id": "5",
+      "offset": 91919,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.06692,
+     "unit": null,
+     "text": "1.06692",
+     "cite": {
+      "section_id": "5",
+      "offset": 91954,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 91989,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.43,
+     "unit": "%",
+     "text": "15.43%",
+     "cite": {
+      "section_id": "5",
+      "offset": 92027,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 8.11,
+     "unit": "%",
+     "text": "8.11%",
+     "cite": {
+      "section_id": "5",
+      "offset": 92055,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 92135,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 24.14,
+     "unit": "%",
+     "text": "24.14%",
+     "cite": {
+      "section_id": "5",
+      "offset": 93069,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 21075,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "저스템",
+      "value": {
+       "value": 1.07011,
+       "unit": null,
+       "text": "1.07011",
+       "cite": {
+        "section_id": "5",
+        "offset": 92894,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "에스엠코어",
+      "value": {
+       "value": 0.86272,
+       "unit": null,
+       "text": "0.86272",
+       "cite": {
+        "section_id": "5",
+        "offset": 92957,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "에스에프에이",
+      "value": {
+       "value": 0.77289,
+       "unit": null,
+       "text": "0.77289",
+       "cite": {
+        "section_id": "5",
+        "offset": 93024,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6746,
+     "unit": "원",
+     "text": "6,746",
+     "cite": {
+      "section_id": "5",
+      "offset": 10717,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 영업가치 153,325백만원, 비영업자산 21,545백만원, 기업가치 174,870백만원, 이자발생부채(리스부채) 21백만원, 주식수 25,916,772주(주식매수선택권 2,140,487주 포함). 목표자본구조 자기자본 80.56%·타인자본 19.44%(target_de는 유사기업 평균 부채비율 24.14%). Kd는 신용등급 BBB0 무보증 회사채(5년) 이자율, Size Premium은 한국공인회계사회 기업규모위험 연구 Micro 규모 평균."
+  },
+  {
+   "subject": "우리회계법인",
+   "target": "엔에이치기업인수목적29호 주식회사",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1810,
+     "unit": "원",
+     "text": "1,810",
+     "cite": {
+      "section_id": "5",
+      "offset": 5857,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 17250000,
+     "unit": "주",
+     "text": "17,250,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 9199,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 5837,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2025-11-13. 1개월 가중평균 2,102원·1주일 2,105원·최근일 2,105원 산술평균 2,104원에 할인율 4.94% 반영한 2,000원 > 자산가치 1,810원(Max). 자산가치는 전환사채(29억원, 전환가 1,000원) 전환 가정 후 주식수 17,250,000주 기준."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 세미티에스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1162,
+     "unit": "원",
+     "text": "1,162",
+     "cite": {
+      "section_id": "5",
+      "offset": 116361,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4391,
+     "unit": "원",
+     "text": "4,391",
+     "cite": {
+      "section_id": "5",
+      "offset": 116320,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4020,
+      "unit": "원",
+      "text": "4,020원",
+      "cite": {
+       "section_id": "5",
+       "offset": 95818,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4862,
+      "unit": "원",
+      "text": "4,862원",
+      "cite": {
+       "section_id": "5",
+       "offset": 95825,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 6544,
+    "unit": "원",
+    "text": "6,544",
+    "cite": {
+     "section_id": "5",
+     "offset": 116393,
+     "file_id": "main"
+    }
+   },
+   "note": "외부평가기관 자체 산정 본질가치 4,391원(합병비율 0.4554771). range는 평가의견의 합병법인 주당평가액 범위(합병비율 0.4113534~0.4975124). 합의 합병비율 1:0.4432624(우리회계법인 산출 4,512원 기준)를 적정하다고 판단."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 세미티에스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년–2029년(5개년)",
+    "base_date": null,
+    "wacc": {
+     "value": 13.62,
+     "unit": "%",
+     "text": "13.62%",
+     "cite": {
+      "section_id": "5",
+      "offset": 212984,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 213069,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 213105,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.90191,
+     "unit": null,
+     "text": "0.90191",
+     "cite": {
+      "section_id": "5",
+      "offset": 213140,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.06692,
+     "unit": null,
+     "text": "1.06692",
+     "cite": {
+      "section_id": "5",
+      "offset": 213175,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 213210,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.43,
+     "unit": "%",
+     "text": "15.43%",
+     "cite": {
+      "section_id": "5",
+      "offset": 213248,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 8.11,
+     "unit": "%",
+     "text": "8.11%",
+     "cite": {
+      "section_id": "5",
+      "offset": 213276,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 213356,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 24.14,
+     "unit": "%",
+     "text": "24.14%",
+     "cite": {
+      "section_id": "5",
+      "offset": 214292,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 217016,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "저스템",
+      "value": {
+       "value": 1.07011,
+       "unit": null,
+       "text": "1.07011",
+       "cite": {
+        "section_id": "5",
+        "offset": 214117,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "에스엠코어",
+      "value": {
+       "value": 0.86272,
+       "unit": null,
+       "text": "0.86272",
+       "cite": {
+        "section_id": "5",
+        "offset": 214180,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "에스에프에이",
+      "value": {
+       "value": 0.77289,
+       "unit": null,
+       "text": "0.77289",
+       "cite": {
+        "section_id": "5",
+        "offset": 214247,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6544,
+     "unit": "원",
+     "text": "6,544",
+     "cite": {
+      "section_id": "5",
+      "offset": 116393,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 추정기간 영업가치 42,551백만원, 추정기간 이후 105,520백만원, 비영업자산 21,543백만원, 기업가치 169,614백만원, 이자부부채 21백만원, 주식수 25,916,772주. WACC 구성(13.62%)은 우리회계법인과 동일하고 매출·FCFF 추정에서 차이."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "엔에이치기업인수목적29호 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1810,
+     "unit": "원",
+     "text": "1,810",
+     "cite": {
+      "section_id": "5",
+      "offset": 111497,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 17250000,
+     "unit": "주",
+     "text": "17,250,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 114861,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 111477,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준주가 2,104원에 할인율 4.94% 반영 2,000원 > 자산가치 1,810원(전환사채 전환 가정 17,250,000주)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 세미티에스",
+    "basis": "본질가치(합병가액)",
+    "value": {
+     "value": 4512,
+     "unit": "원",
+     "text": "4,512",
+     "cite": {
+      "section_id": "5",
+      "offset": 5174,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "엔에이치기업인수목적29호 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액(합병가액)",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 5182,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가 합병법인 주당평가액 범위",
+    "subject": "이촌회계법인",
+    "range": {
+     "min": {
+      "value": 4020,
+      "unit": "원",
+      "text": "4,020원",
+      "cite": {
+       "section_id": "5",
+       "offset": 95818,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4862,
+      "unit": "원",
+      "text": "4,862원",
+      "cite": {
+       "section_id": "5",
+       "offset": 95825,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가 합병비율 범위",
+    "subject": "이촌회계법인",
+    "range": {
+     "min": {
+      "value": 0.4113534,
+      "unit": null,
+      "text": "0.4113534",
+      "cite": {
+       "section_id": "5",
+       "offset": 95892,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.4975124,
+      "unit": null,
+      "text": "0.4975124",
+      "cite": {
+       "section_id": "5",
+       "offset": 95902,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.4432624,
+   "unit": null,
+   "text": "0.4432624",
+   "cite": {
+    "section_id": "5",
+    "offset": 5206,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "외부평가기관(이촌회계법인)은 합병당사회사 간 산정한 합병비율 1:0.4432624가 적정하다고 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "우리회계법인",
+   "target": "주식회사 세미티에스",
+   "variables": "WACC ±1%p(12.62%~14.62%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 6119,
+     "unit": "원",
+     "text": "6,119",
+     "cite": {
+      "section_id": "5",
+      "offset": 22930,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 7544,
+     "unit": "원",
+     "text": "7,544",
+     "cite": {
+      "section_id": "5",
+      "offset": 22986,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 세미티에스",
+   "variables": "WACC ±1%p(12.62%~14.62%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 5926,
+     "unit": "원",
+     "text": "5,926",
+     "cite": {
+      "section_id": "5",
+      "offset": 218908,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 7329,
+     "unit": "원",
+     "text": "7,329",
+     "cite": {
+      "section_id": "5",
+      "offset": 218964,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20251101–20260430, listed_only=False)에서 [첨부정정] 20260331004551 거래의 body_rcept_no가 이 rcept_no. supersedes 20260303000253·20260312001034·20260323000223·20260331002781, 목록에 꼬리표 없는 최초 제출본 없음(original_rcept_no null). report_nm은 XML DOCUMENT-NAME(정정 꼬리표는 원문에 없음, 추정: 3월 31일 기재정정본).",
+  "SPAC(엔에이치기업인수목적29호, 코스닥 상장) 소멸 · 비상장 세미티에스 존속 합병상장. company.market은 신고 당시 비상장이라 '기타'.",
+  "평가 주체 2곳: 우리회계법인(회사가 의뢰한 합병비율 산출 외부기관, role=재무자문)과 이촌회계법인(외부평가기관). 합의 합병가액 4,512원은 우리 산출값이며 이촌 자체 본질가치는 4,391원(수익가치 6,544원 vs 6,746원). WACC·g 구성은 두 기관 동일(13.62%, 1.00%).",
+  "'근거 및 사유' 원문은 섹션 5에서 찾지 못해 basis_text=null. 감사위원회 동의 여부 원문 없음.",
+  "이사회: 최초 2025-11-14, 1차 변경 2026년 02월(일자 원문 미기재), 1차 변경계약 2026-02-27(섹션 4). 합병신주 6,360,815주(액면 100원), 모집가액 4,512원(섹션 3.4).",
+  "분석기준일 2025-11-07(시행세칙 8조), 자산가치는 2024-12-31 감사받은 별도재무제표 기준. 외부평가 평가의견서는 2025-11-14 거래소 제출 후 2025년 3분기 실적 반영 위해 정정공시(섹션 3.1).",
+  "외부평가기관의 과거 SPAC 합병 평가 이력(예측치 대비 실적 괴리율)과 산정법인-외부평가법인 확인사항 표가 섹션 5에 있음(이 사례에는 미수록)."
+ ],
+ "extracted_at": "2026-10-26T15:46:53+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260331002781",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 255,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260331002781",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 509,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260331002781",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 18928,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20260331002781",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 50463,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

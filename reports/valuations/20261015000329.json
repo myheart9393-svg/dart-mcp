@@ -1,0 +1,504 @@
+{
+ "rcept_no": "20261015000329",
+ "original_rcept_no": "20260828001853",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01705740",
+  "name": "엠비디",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 하나증권이 2029년 추정 당기순이익 현재가치에 비교회사 평균 PER 27.36배를 적용해 주당 평가가액 15,862원을 산출하고 39.06%~26.09% 할인율을 적용해 희망공모가액 9,600원~11,700원을 제시. 확정공모가액은 수요예측 결과 등을 감안해 발행회사와 협의하여 결정 예정",
+  "cite": {
+   "section_id": "7",
+   "offset": 2003,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "하나증권㈜ (대표주관회사)",
+   "target": "엠비디",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "나노엔텍",
+      "value": {
+       "value": 23.65,
+       "unit": "배",
+       "text": "23.65",
+       "cite": {
+        "section_id": "7",
+        "offset": 55037,
+        "file_id": "main"
+       }
+      },
+      "note": "국내, PER(2026년 2분기 LTM)"
+     },
+     {
+      "name": "프로티아",
+      "value": {
+       "value": 11.2,
+       "unit": "배",
+       "text": "11.20",
+       "cite": {
+        "section_id": "7",
+        "offset": 55045,
+        "file_id": "main"
+       }
+      },
+      "note": "국내, PER(2026년 2분기 LTM)"
+     },
+     {
+      "name": "METTLER-TOLEDO INTERNATIONAL",
+      "value": {
+       "value": 30.8,
+       "unit": "배",
+       "text": "30.8",
+       "cite": {
+        "section_id": "7",
+        "offset": 55053,
+        "file_id": "main"
+       }
+      },
+      "note": "해외, PER(2026년 2분기 LTM)"
+     },
+     {
+      "name": "ILLUMINA INC",
+      "value": {
+       "value": 36.0,
+       "unit": "배",
+       "text": "36.0",
+       "cite": {
+        "section_id": "7",
+        "offset": 55060,
+        "file_id": "main"
+       }
+      },
+      "note": "해외, PER(2026년 2분기 LTM)"
+     },
+     {
+      "name": "SARTORIUS AG",
+      "value": {
+       "value": 35.2,
+       "unit": "배",
+       "text": "35.2",
+       "cite": {
+        "section_id": "7",
+        "offset": 55067,
+        "file_id": "main"
+       }
+      },
+      "note": "해외, PER(2026년 2분기 LTM)"
+     }
+    ],
+    "multiple": {
+     "value": 27.36,
+     "unit": "배",
+     "text": "27.36배",
+     "cite": {
+      "section_id": "7",
+      "offset": 1497,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 8730,
+     "unit": "백만원",
+     "text": "8,730백만원",
+     "cite": {
+      "section_id": "7",
+      "offset": 1417,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 26.09,
+      "unit": "%",
+      "text": "26.09%",
+      "cite": {
+       "section_id": "7",
+       "offset": 59864,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 39.06,
+      "unit": "%",
+      "text": "39.06%",
+      "cite": {
+       "section_id": "7",
+       "offset": 59855,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 15862,
+     "unit": "원",
+     "text": "15,862원",
+     "cite": {
+      "section_id": "7",
+      "offset": 1649,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9600,
+      "unit": "원",
+      "text": "9,600원",
+      "cite": {
+       "section_id": "7",
+       "offset": 59892,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 11700,
+      "unit": "원",
+      "text": "11,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 59901,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2029년 추정 당기순이익(18,028백만원)을 연할인율 25.0%, 할인기간 3.25년으로 현가화(8,730백만원) x 비교회사 평균 PER ÷ 적용주식수 x {1-할인율}. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. EV/EBITDA·PBR·PSR은 제외."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "엠비디",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 15862,
+     "unit": "원",
+     "text": "15,862원",
+     "cite": {
+      "section_id": "7",
+      "offset": 1649,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "하나증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 9600,
+      "unit": "원",
+      "text": "9,600원",
+      "cite": {
+       "section_id": "7",
+       "offset": 59892,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 11700,
+      "unit": "원",
+      "text": "11,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 59901,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": {
+   "value": 19200000000,
+   "unit": "원",
+   "text": "19,200,000,000",
+   "cite": {
+    "section_id": "4.1",
+    "offset": 155,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "희망공모가액 9,600원~11,700원 제시. 확정공모가액은 수요예측 결과 및 주식시장 상황 등을 감안해 대표주관회사와 발행회사가 협의하여 결정 예정(이 정정본 기준 미확정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "하나증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "EV/EBITDA",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 8730,
+   "unit": "백만원",
+   "text": "8,730백만원",
+   "cite": {
+    "section_id": "7",
+    "offset": 1417,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "추정치: 2029년 추정 당기순이익 18,028백만원의 현재가치(연할인율 25.0%, 할인기간 3.25년)",
+  "multiple": {
+   "value": 27.36,
+   "unit": "배",
+   "text": "27.36배",
+   "cite": {
+    "section_id": "7",
+    "offset": 1497,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 15058738,
+   "unit": "주",
+   "text": "15,058,738주",
+   "cite": {
+    "section_id": "7",
+    "offset": 1569,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 15862,
+   "unit": "원",
+   "text": "15,862원",
+   "cite": {
+    "section_id": "7",
+    "offset": 1649,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 26.09,
+    "unit": "%",
+    "text": "26.09%",
+    "cite": {
+     "section_id": "7",
+     "offset": 59864,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 39.06,
+    "unit": "%",
+    "text": "39.06%",
+    "cite": {
+     "section_id": "7",
+     "offset": 59855,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 9600,
+    "unit": "원",
+    "text": "9,600원",
+    "cite": {
+     "section_id": "7",
+     "offset": 59892,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 11700,
+    "unit": "원",
+    "text": "11,700원",
+    "cite": {
+     "section_id": "7",
+     "offset": 59901,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "나노엔텍",
+    "value": {
+     "value": 23.65,
+     "unit": "배",
+     "text": "23.65",
+     "cite": {
+      "section_id": "7",
+      "offset": 55037,
+      "file_id": "main"
+     }
+    },
+    "note": "국내, PER(2026년 2분기 LTM)"
+   },
+   {
+    "name": "프로티아",
+    "value": {
+     "value": 11.2,
+     "unit": "배",
+     "text": "11.20",
+     "cite": {
+      "section_id": "7",
+      "offset": 55045,
+      "file_id": "main"
+     }
+    },
+    "note": "국내, PER(2026년 2분기 LTM)"
+   },
+   {
+    "name": "METTLER-TOLEDO INTERNATIONAL",
+    "value": {
+     "value": 30.8,
+     "unit": "배",
+     "text": "30.8",
+     "cite": {
+      "section_id": "7",
+      "offset": 55053,
+      "file_id": "main"
+     }
+    },
+    "note": "해외, PER(2026년 2분기 LTM)"
+   },
+   {
+    "name": "ILLUMINA INC",
+    "value": {
+     "value": 36.0,
+     "unit": "배",
+     "text": "36.0",
+     "cite": {
+      "section_id": "7",
+      "offset": 55060,
+      "file_id": "main"
+     }
+    },
+    "note": "해외, PER(2026년 2분기 LTM)"
+   },
+   {
+    "name": "SARTORIUS AG",
+    "value": {
+     "value": 35.2,
+     "unit": "배",
+     "text": "35.2",
+     "cite": {
+      "section_id": "7",
+      "offset": 55067,
+      "file_id": "main"
+     }
+    },
+    "note": "해외, PER(2026년 2분기 LTM)"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260518–20261026): 기재정정 증권신고서, 원본 20260828001853, 대체 공시 20260828001853·20260918000439, body_rcept_no=본 건.",
+  "비교회사 PER은 2026년 2분기말 기준 직전 12개월 (지배주주)당기순이익, 기준주가는 분석기준일(2026.08.21) 기준 1개월·1주일 평균 및 기준일 종가 중 최저가(Bloomberg·Quantiwise). 해외 3사 포함(적격해외증권시장).",
+  "현가 연할인율 25.0%의 참고값으로 2024년 이후 코스닥 기술특례상장기업 평균 연할인율 20%·할인기간 2.7년, 비교기업 WACC(나노엔텍 27.66%, 프로티아 12.52%, METTLER-TOLEDO 12.87%, ILLUMINA 13.94%, SARTORIUS 12.62%, Bloomberg 2026.08.21)가 원문 주석에 제시됨(평가 투입값 아님).",
+  "평가액 대비 할인율 39.06%~26.09%는 2024년 이후 코스닥 기술특례상장기업 할인율 평균(하단 39.06%, 상단 26.09%)을 그대로 적용.",
+  "적용주식수 15,058,738주 = 기발행 12,262,238 + 공모신주 2,000,000 + 상장주선인 의무인수 60,000 + 주식매수선택권 536,500 + 신주인수권 200,000.",
+  "공모: 보통주 2,000,000주 신주모집(일반공모), 하나증권 총액인수, 모집총액 19,200,000,000원(밴드 하단 9,600원 기준), 청약 2026.11.12~11.13, 납입 2026.11.17. 사업모델기업 특례 상장.",
+  "원문 7.h5 서술 중 '국내 비교기업인 바디텍메드'라는 표현이 있으나 최종 비교기업 5개사 목록에는 없음(원문 불일치, 그대로 둠)."
+ ],
+ "extracted_at": "2026-10-26T16:07:16+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261015000329",
+   "file_id": "main",
+   "section_id": "4.1",
+   "title": "1. 공모개요",
+   "chars_read": 1147,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261015000329",
+   "file_id": "main",
+   "section_id": "7.h1",
+   "title": null,
+   "chars_read": 2526,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000329",
+   "file_id": "main",
+   "section_id": "7.h2",
+   "title": null,
+   "chars_read": 3179,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000329",
+   "file_id": "main",
+   "section_id": "7.h5",
+   "title": null,
+   "chars_read": 2780,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000329",
+   "file_id": "main",
+   "section_id": "7.h7",
+   "title": null,
+   "chars_read": 1887,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000329",
+   "file_id": "main",
+   "section_id": "7.h8",
+   "title": null,
+   "chars_read": 5274,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261015000329",
+   "file_id": "main",
+   "section_id": "7.h9",
+   "title": null,
+   "chars_read": 3857,
+   "how": "section"
+  }
+ ]
+}

@@ -1,0 +1,488 @@
+{
+ "rcept_no": "20261008000660",
+ "original_rcept_no": "20261008000660",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01795859",
+  "name": "엔키화이트햇",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 신영증권이 영업현황·산업전망·주식시장 상황 등을 고려해 희망공모가액 13,000원~16,500원 제시, 수요예측 결과 등을 감안해 발행회사와 협의하여 확정공모가액 결정 예정",
+  "cite": {
+   "section_id": "6",
+   "offset": 2787,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "신영증권㈜ (대표주관회사)",
+   "target": "엔키화이트햇",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "안랩",
+      "value": {
+       "value": 14.24,
+       "unit": "배",
+       "text": "14.24",
+       "cite": {
+        "section_id": "6",
+        "offset": 51725,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 LTM, KRW)"
+     },
+     {
+      "name": "라온시큐어",
+      "value": {
+       "value": 25.47,
+       "unit": "배",
+       "text": "25.47",
+       "cite": {
+        "section_id": "6",
+        "offset": 51733,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 LTM, KRW)"
+     },
+     {
+      "name": "지니언스",
+      "value": {
+       "value": 15.32,
+       "unit": "배",
+       "text": "15.32",
+       "cite": {
+        "section_id": "6",
+        "offset": 51741,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 LTM, KRW)"
+     },
+     {
+      "name": "Qualys",
+      "value": {
+       "value": 29.47,
+       "unit": "배",
+       "text": "29.47",
+       "cite": {
+        "section_id": "6",
+        "offset": 51749,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 LTM, USD)"
+     },
+     {
+      "name": "Rapid7",
+      "value": {
+       "value": 39.78,
+       "unit": "배",
+       "text": "39.78",
+       "cite": {
+        "section_id": "6",
+        "offset": 51757,
+        "file_id": "main"
+       }
+      },
+      "note": "PER (2026년 반기 LTM, USD)"
+     }
+    ],
+    "multiple": {
+     "value": 24.86,
+     "unit": "배",
+     "text": "24.86",
+     "cite": {
+      "section_id": "6",
+      "offset": 52602,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 10035,
+     "unit": "백만원",
+     "text": "10,035",
+     "cite": {
+      "section_id": "6",
+      "offset": 52479,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 24.85,
+      "unit": "%",
+      "text": "24.85%",
+      "cite": {
+       "section_id": "6",
+       "offset": 59363,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 40.79,
+      "unit": "%",
+      "text": "40.79%",
+      "cite": {
+       "section_id": "6",
+       "offset": 59354,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 21955,
+     "unit": "원",
+     "text": "21,955",
+     "cite": {
+      "section_id": "6",
+      "offset": 52642,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 59392,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 16500,
+      "unit": "원",
+      "text": "16,500원",
+      "cite": {
+       "section_id": "6",
+       "offset": 59402,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2029년 추정 당기순이익 18,448백만원을 연 할인율 19.0%로 3.5년(2026년 2분기 말 기준) 현가화(10,035백만원) ÷ 적용주식수 11,361,312주 = 883.28원 x 유사기업 PER 24.86배 = 21,955원, x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "엔키화이트햇",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 21955,
+     "unit": "원",
+     "text": "21,955",
+     "cite": {
+      "section_id": "6",
+      "offset": 52642,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "신영증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 13000,
+      "unit": "원",
+      "text": "13,000원",
+      "cite": {
+       "section_id": "6",
+       "offset": 59392,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 16500,
+      "unit": "원",
+      "text": "16,500원",
+      "cite": {
+       "section_id": "6",
+       "offset": 59402,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 21,955원에 40.79%~24.85% 할인율을 적용해 희망공모가액 13,000원~16,500원 제시. 확정공모가액은 수요예측 후 결정(이 최초 신고서 기준 미정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "신영증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "PBR",
+   "PSR",
+   "EV/EBITDA"
+  ],
+  "applied_earnings": {
+   "value": 10035,
+   "unit": "백만원",
+   "text": "10,035",
+   "cite": {
+    "section_id": "6",
+    "offset": 52479,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2029년 추정 당기순이익(중립적 Base 시나리오, 별도) 18,448백만원을 연 19.0%로 3.5년 현가화(추정치)",
+  "multiple": {
+   "value": 24.86,
+   "unit": "배",
+   "text": "24.86",
+   "cite": {
+    "section_id": "6",
+    "offset": 52602,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 11361312,
+   "unit": "주",
+   "text": "11,361,312",
+   "cite": {
+    "section_id": "6",
+    "offset": 52516,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 21955,
+   "unit": "원",
+   "text": "21,955",
+   "cite": {
+    "section_id": "6",
+    "offset": 52642,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 24.85,
+    "unit": "%",
+    "text": "24.85%",
+    "cite": {
+     "section_id": "6",
+     "offset": 59363,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 40.79,
+    "unit": "%",
+    "text": "40.79%",
+    "cite": {
+     "section_id": "6",
+     "offset": 59354,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 13000,
+    "unit": "원",
+    "text": "13,000원",
+    "cite": {
+     "section_id": "6",
+     "offset": 59392,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 16500,
+    "unit": "원",
+    "text": "16,500원",
+    "cite": {
+     "section_id": "6",
+     "offset": 59402,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "안랩",
+    "value": {
+     "value": 14.24,
+     "unit": "배",
+     "text": "14.24",
+     "cite": {
+      "section_id": "6",
+      "offset": 51725,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 LTM, KRW)"
+   },
+   {
+    "name": "라온시큐어",
+    "value": {
+     "value": 25.47,
+     "unit": "배",
+     "text": "25.47",
+     "cite": {
+      "section_id": "6",
+      "offset": 51733,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 LTM, KRW)"
+   },
+   {
+    "name": "지니언스",
+    "value": {
+     "value": 15.32,
+     "unit": "배",
+     "text": "15.32",
+     "cite": {
+      "section_id": "6",
+      "offset": 51741,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 LTM, KRW)"
+   },
+   {
+    "name": "Qualys",
+    "value": {
+     "value": 29.47,
+     "unit": "배",
+     "text": "29.47",
+     "cite": {
+      "section_id": "6",
+      "offset": 51749,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 LTM, USD)"
+   },
+   {
+    "name": "Rapid7",
+    "value": {
+     "value": 39.78,
+     "unit": "배",
+     "text": "39.78",
+     "cite": {
+      "section_id": "6",
+      "offset": 51757,
+      "file_id": "main"
+     }
+    },
+    "note": "PER (2026년 반기 LTM, USD)"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260511–20261026, listed_only=False)에서 IPO/full, 최초 제출(정정 없음), body_rcept_no=본 건.",
+  "평가 섹션은 IV. 인수인의 의견(§6, 168,492자). cite offset은 §6 텍스트 기준(공모가 산정 요약표·(4) 유사기업 PER 산정·(5) 주당 평가가액 산출·(6) 희망공모가액 산정 표).",
+  "유사기업 5사(안랩·라온시큐어·지니언스·Qualys·Rapid7) PER 산술평균 24.86배. 해외 2사는 USD 기준 PER로 원화 환산 없음. PBR·PSR·EV/EBITDA는 부적합 사유로 제외.",
+  "현가할인율 19.0%는 주관사 판단값. 참고: 2023년 이후 코스닥 기술성장기업 평균 연 할인율 20.6%·평균 할인기간 2.69년, 비교기업 5사 평균 WACC 19.4%(Bloomberg 2026.09.30; 안랩 22.7%·라온시큐어 24.6%·지니언스 22.3%·Qualys 17.4%·Rapid7 10.1%).",
+  "할인율 참고: 2023년 이후 코스닥 기술성장기업 평가액 대비 할인율 평균 하단 39.87%·상단 27.22%.",
+  "적용주식수 11,361,312주 = 기발행 8,847,414 + 공모 신주 1,700,000 + 상장주선인 의무인수 51,000 + 대표주관회사 신주인수권 85,000 + 미행사 주식매수선택권 677,898.",
+  "확정공모가액은 이 최초 신고서에 '-'(미정). 이후 정정·발행조건확정 신고서가 나오면 따로 볼 것. 코스닥 기술성장기업 상장. market은 공모 당시 비상장이라 '기타'.",
+  "배치 후 정리: 범위를 원문 표기 순서가 아니라 숫자 크기 순서(min ≤ max)로 바꿈(값·cite는 그대로)"
+ ],
+ "extracted_at": "2026-10-26T16:26:12+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261008000660",
+   "file_id": "main",
+   "section_id": "6.h1",
+   "title": "가. 평가결과",
+   "chars_read": 3311,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261008000660",
+   "file_id": "main",
+   "section_id": "6.h2",
+   "title": "나. 희망공모가액의 산출 방법",
+   "chars_read": 3041,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261008000660",
+   "file_id": "main",
+   "section_id": "6.h5",
+   "title": "(4) 유사기업 PER 산정",
+   "chars_read": 2562,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261008000660",
+   "file_id": "main",
+   "section_id": "6.h6",
+   "title": "(5) 주당 평가가액 산출",
+   "chars_read": 6950,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261008000660",
+   "file_id": "main",
+   "section_id": "6.h7",
+   "title": "(6) 희망공모가액 산정",
+   "chars_read": 6124,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261008000660",
+   "file_id": "main",
+   "section_id": "6.h8",
+   "title": "(7) 추정 당기순이익 산정 내역",
+   "chars_read": 1808,
+   "how": "section"
+  }
+ ]
+}

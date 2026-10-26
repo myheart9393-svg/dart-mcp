@@ -1,0 +1,320 @@
+{
+ "rcept_no": "20260626000241",
+ "original_rcept_no": "20260522000421",
+ "related_rcept_nos": [
+  "20260522000421",
+  "20260610000563",
+  "20260615000074",
+  "20260617000156",
+  "20260626000243"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01501764",
+  "name": "레메디",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 KB증권이 주당 평가가액 32,639원에 45.5%~36.6% 할인율을 적용해 희망공모가액 17,800원~20,700원을 제시하고, 수요예측 결과 및 시장상황 등을 감안해 발행회사와 협의하여 확정공모가액 20,700원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 93069,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "KB증권㈜ (대표주관회사)",
+   "target": "레메디",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 21.95,
+     "unit": "배",
+     "text": "21.95배",
+     "cite": {
+      "section_id": "0",
+      "offset": 92525,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 12046,
+     "unit": "백만원",
+     "text": "12,046백만원",
+     "cite": {
+      "section_id": "0",
+      "offset": 92444,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 36.6,
+      "unit": "%",
+      "text": "36.6%",
+      "cite": {
+       "section_id": "0",
+       "offset": 98177,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 45.5,
+      "unit": "%",
+      "text": "45.5%",
+      "cite": {
+       "section_id": "0",
+       "offset": 98169,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 32639,
+     "unit": "원",
+     "text": "32,639원",
+     "cite": {
+      "section_id": "0",
+      "offset": 92676,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 17800,
+      "unit": "원",
+      "text": "17,800원",
+      "cite": {
+       "section_id": "0",
+       "offset": 98204,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20700,
+      "unit": "원",
+      "text": "20,700원",
+      "cite": {
+       "section_id": "0",
+       "offset": 98214,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2028년 추정 당기순이익의 현재가치 x 유사기업 PER ÷ 주식수 x (1-할인율). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 비교기업 목록·개별 PER·현재가치 할인율은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "레메디",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 32639,
+     "unit": "원",
+     "text": "32,639원",
+     "cite": {
+      "section_id": "0",
+      "offset": 92676,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "레메디",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 20700,
+     "unit": "원",
+     "text": "20,700원",
+     "cite": {
+      "section_id": "0",
+      "offset": 98243,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "KB증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 17800,
+      "unit": "원",
+      "text": "17,800원",
+      "cite": {
+       "section_id": "0",
+       "offset": 98204,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20700,
+      "unit": "원",
+      "text": "20,700원",
+      "cite": {
+       "section_id": "0",
+       "offset": 98214,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "수요예측 참여현황 및 시장상황 등을 감안하여 발행회사와 협의한 후 주당 확정공모가액을 20,700원(밴드 상단)으로 최종 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "KB증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 12046,
+   "unit": "백만원",
+   "text": "12,046백만원",
+   "cite": {
+    "section_id": "0",
+    "offset": 92444,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2028년 추정 당기순이익의 현재가치",
+  "multiple": {
+   "value": 21.95,
+   "unit": "배",
+   "text": "21.95배",
+   "cite": {
+    "section_id": "0",
+    "offset": 92525,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 8101189,
+   "unit": "주",
+   "text": "8,101,189주",
+   "cite": {
+    "section_id": "0",
+    "offset": 92597,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 32639,
+   "unit": "원",
+   "text": "32,639원",
+   "cite": {
+    "section_id": "0",
+    "offset": 92676,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 36.6,
+    "unit": "%",
+    "text": "36.6%",
+    "cite": {
+     "section_id": "0",
+     "offset": 98177,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 45.5,
+    "unit": "%",
+    "text": "45.5%",
+    "cite": {
+     "section_id": "0",
+     "offset": 98169,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 17800,
+    "unit": "원",
+    "text": "17,800원",
+    "cite": {
+     "section_id": "0",
+     "offset": 98204,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 20700,
+    "unit": "원",
+    "text": "20,700원",
+    "cite": {
+     "section_id": "0",
+     "offset": 98214,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260127–20260726, listed_only=False)에서 이 rcept_no가 든 거래를 못 찾아 outline 문서명(증권신고서(지분증권), 발행조건확정)으로 full 판단. 원본·짝 공시는 search_disclosures(corp_code 01501764, C)로 확인.",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주9)·(주10) 정정 후)에서 옮겼다.",
+  "비교기업 선정·개별 PER·추정 순이익 현재가치 할인율 등 상세 산출은 이 정정본에 없음('(중략)'). 원본 20260522000421(또는 기재정정 20260615000074)을 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "할인율 원문 표기는 '45.5% ~ 36.6%'(하단 17,800원 ↔ 45.5%, 상단 20,700원 ↔ 36.6%). discount_range는 min 36.6·max 45.5. 비교회사 PER 원문 표기 '21.95배'.",
+  "할인율 참고: 2023년 이후 코스닥 기술특례상장기업 신규상장법인의 평가액 대비 할인율 평균 하단 39.57%·상단 26.90%((주10) 정정 후 주1)).",
+  "코스닥시장 상장 공모(기술평가·이익미실현 트랙 비교군 참조), 2026-05-07 상장예비심사 승인. 공모 1,200,000주, 확정총액 24,840,000,000원. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T15:54:00+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260626000241",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 16118,
+   "how": "search/section"
+  }
+ ]
+}

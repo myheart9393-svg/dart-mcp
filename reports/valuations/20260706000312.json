@@ -1,0 +1,1100 @@
+{
+ "rcept_no": "20260706000312",
+ "original_rcept_no": "20260514001490",
+ "related_rcept_nos": [
+  "20260514001192"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01350869",
+  "name": "우리금융지주",
+  "market": "유가증권",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "share_exchange",
+  "counterparty": "동양생명보험㈜",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "본건 주식교환의 당사회사는 ㈜우리금융지주 그룹에 속해 있는 당사자이며, 동양생명보험㈜ 현재 ㈜우리금융지주의 자회사로 본 증권신고서 제출일 전일 현재 ㈜우리금융지주가 발행주식의 약 77.90%를 소유하고 있습니다.",
+  "board_date": "2026-04-24",
+  "regime": "기준시가",
+  "ratio_text": "㈜우리금융지주: 동양생명보험㈜ = 1 : 0.2521056"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "주권상장법인간 주식교환으로 기준시가를 기초로 교환비율을 산출하여 자본시장법 시행령 제176조의6 제4항 제2호에 의해 외부평가 불요. 다만 법무부 가이드라인(2026.02.25)에 따라 자발적으로 삼일회계법인(양사 공동)·안진회계법인(동양생명 재검증) 가치검토 수행",
+  "basis_text": "자본시장법 시행령 제176조의6 제4항 제2호에 의하여 본건 주식교환에 대해서는 교환가액의 적정성에 대한 외부평가기관의 평가가 요구되지 않습니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "안진회계법인: 가치검토 교환비율 범위 1 : 0.1368448 ~ 1 : 0.2786088. 기준주가로 산출한 1 : 0.2521056은 범위 내에 존재하므로 적정한 것으로 판단",
+  "cite": {
+   "section_id": "4",
+   "offset": 165072,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "당사회사(㈜우리금융지주·동양생명보험㈜)",
+   "target": "㈜우리금융지주",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 34589,
+     "unit": "원",
+     "text": "34,589",
+     "cite": {
+      "section_id": "5",
+      "offset": 3384,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-04-23(이사회 결의일 2026-04-24 전영업일). 1개월 거래량가중평균종가 33,607원, 1주일 35,310원, 최근일 종가 34,850원의 산술평균. 할인·할증 0%."
+  },
+  {
+   "subject": "당사회사(㈜우리금융지주·동양생명보험㈜)",
+   "target": "동양생명보험㈜",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 8720,
+     "unit": "원",
+     "text": "8,720",
+     "cite": {
+      "section_id": "5",
+      "offset": 5303,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-04-23. 1개월 거래량가중평균종가 8,685원, 1주일 8,656원, 최근일 종가 8,820원의 산술평균. 할인·할증 0%."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "㈜우리금융지주",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년–2030년(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": null,
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": {
+     "value": 9.0,
+     "unit": "%",
+     "text": "9.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 16938,
+      "file_id": "main"
+     }
+    },
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 16758,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 62639,
+     "unit": "원",
+     "text": "62,639",
+     "cite": {
+      "section_id": "5",
+      "offset": 12563,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 46609,
+      "unit": "원",
+      "text": "46,609",
+      "cite": {
+       "section_id": "5",
+       "offset": 12582,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 79231,
+      "unit": "원",
+      "text": "79,231",
+      "cite": {
+       "section_id": "5",
+       "offset": 12601,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFE(자기자본 기준 잉여현금흐름할인법, 연결). 추정기간 PV 10,066십억원 + 영구현금흐름 PV 32,474십억원 + 비영업용자산 3,046십억원 = 주식가치 45,585십억원, 유통주식수 727,752,783주. 최소치는 2년 주간 베타 적용 할인율(Ke 11.43%, 원문 주석에는 10.93%로도 표기), 최대치는 Ke 8.50%·목표 CET1 13.0% 유지 가정. 성장필요자본은 2030년까지 보통주자본비율 13.2% 점진 달성 가정. Ke 구성요소(rf·MRP·β)는 본문에 없음."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "동양생명보험㈜",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 14670,
+     "unit": "원",
+     "text": "14,670",
+     "cite": {
+      "section_id": "5",
+      "offset": 13422,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 2289,
+     "unit": "십억원",
+     "text": "2,289",
+     "cite": {
+      "section_id": "5",
+      "offset": 13314,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 1549,
+     "unit": "십억원",
+     "text": "1,549",
+     "cite": {
+      "section_id": "5",
+      "offset": 13031,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 282,
+     "unit": "십억원",
+     "text": "282",
+     "cite": {
+      "section_id": "5",
+      "offset": 13227,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 156062581,
+     "unit": "주",
+     "text": "156,062,581",
+     "cite": {
+      "section_id": "5",
+      "offset": 13379,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 14670,
+     "unit": "원",
+     "text": "14,670",
+     "cite": {
+      "section_id": "5",
+      "offset": 13422,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10989,
+      "unit": "원",
+      "text": "10,989",
+      "cite": {
+       "section_id": "5",
+       "offset": 13443,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 14761,
+      "unit": "원",
+      "text": "14,761",
+      "cite": {
+       "section_id": "5",
+       "offset": 13464,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "MVS(Market Value Surplus, IFRS17/K-ICS 기반 시가평가) — 스키마 method enum에 없어 자산가치로 분류. 보유계약 기준 공정가치 1,831십억원(순자산 1,549 + 공정가치조정 282) + 신계약가치 458십억원(직전 1년 신계약가치 96십억원, 5년 배수, 성장률 1%). 최대치는 사업계획 성장률 시나리오, 최소치는 손해율 5% 할증 시나리오."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "㈜우리금융지주",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PBR",
+    "peers": [
+     {
+      "name": "KB금융",
+      "value": {
+       "value": 0.82,
+       "unit": "배",
+       "text": "0.82",
+       "cite": {
+        "section_id": "5",
+        "offset": 28927,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     },
+     {
+      "name": "신한지주",
+      "value": {
+       "value": 0.69,
+       "unit": "배",
+       "text": "0.69",
+       "cite": {
+        "section_id": "5",
+        "offset": 29021,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     },
+     {
+      "name": "하나금융지주",
+      "value": {
+       "value": 0.63,
+       "unit": "배",
+       "text": "0.63",
+       "cite": {
+        "section_id": "5",
+        "offset": 29117,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     }
+    ],
+    "multiple": null,
+    "applied_earnings": {
+     "value": 32307,
+     "unit": "십억원",
+     "text": "32,307",
+     "cite": {
+      "section_id": "5",
+      "offset": 26080,
+      "file_id": "main"
+     }
+    },
+    "discount_range": null,
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 30613,
+      "unit": "원",
+      "text": "30,613",
+      "cite": {
+       "section_id": "5",
+       "offset": 26324,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 39769,
+      "unit": "원",
+      "text": "39,769",
+      "cite": {
+       "section_id": "5",
+       "offset": 26333,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "유사상장기업비교법(PBR). 유사회사 PBR 중앙값 0.69x(2025년 12월말, 최소치)~0.90x(2026-04-23, 최대치). 순자산은 지배지분에서 신종자본증권 차감. 유사거래비교법은 경영권 포함 금융지주 거래사례 부재로 제외."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "동양생명보험㈜",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PBR",
+    "peers": [
+     {
+      "name": "삼성생명보험",
+      "value": {
+       "value": 0.45,
+       "unit": "배",
+       "text": "0.45",
+       "cite": {
+        "section_id": "5",
+        "offset": 29261,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     },
+     {
+      "name": "미래에셋생명보험",
+      "value": {
+       "value": 0.5,
+       "unit": "배",
+       "text": "0.50",
+       "cite": {
+        "section_id": "5",
+        "offset": 29347,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     }
+    ],
+    "multiple": null,
+    "applied_earnings": {
+     "value": 1549,
+     "unit": "십억원",
+     "text": "1,549",
+     "cite": {
+      "section_id": "5",
+      "offset": 26098,
+      "file_id": "main"
+     }
+    },
+    "discount_range": null,
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4720,
+      "unit": "원",
+      "text": "4,720",
+      "cite": {
+       "section_id": "5",
+       "offset": 26342,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 8330,
+      "unit": "원",
+      "text": "8,330",
+      "cite": {
+       "section_id": "5",
+       "offset": 26350,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "유사상장기업비교법(PBR). 유사회사 삼성생명·미래에셋생명 PBR 중앙값 0.48x(최소치)~0.84x(최대치). 한화생명은 PBR 이례적 저수준으로 제외."
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "㈜우리금융지주",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년–2030년(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": null,
+    "rf": null,
+    "mrp": null,
+    "beta_unlevered": null,
+    "beta_levered": null,
+    "size_premium": null,
+    "ke": {
+     "value": 9.0,
+     "unit": "%",
+     "text": "9.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 36838,
+      "file_id": "main"
+     }
+    },
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 36715,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 51084,
+     "unit": "원",
+     "text": "51,084",
+     "cite": {
+      "section_id": "5",
+      "offset": 33007,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 45332,
+      "unit": "원",
+      "text": "45,332",
+      "cite": {
+       "section_id": "5",
+       "offset": 33026,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 60172,
+      "unit": "원",
+      "text": "60,172",
+      "cite": {
+       "section_id": "5",
+       "offset": 33045,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFE(연결). 추정기간 PV 7,034십억원 + 영구현금흐름 PV 26,798십억원 + 비영업용자산 3,359십억원 = 주식가치 37,191십억원, 유통주식수 728,035,737주. 범위는 민감도(Ke 8.00%~10.00%, g 0.00%~2.00%) 최소·최대. 성장필요자본은 2027년 CET1 13.2% 달성 후 유지 가정. Ke 구성요소는 본문에 없음."
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "동양생명보험㈜",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 12394,
+     "unit": "원",
+     "text": "12,394",
+     "cite": {
+      "section_id": "5",
+      "offset": 33629,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 1934,
+     "unit": "십억원",
+     "text": "1,934",
+     "cite": {
+      "section_id": "5",
+      "offset": 33521,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 2943,
+     "unit": "십억원",
+     "text": "2,943",
+     "cite": {
+      "section_id": "5",
+      "offset": 33320,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -1492,
+     "unit": "십억원",
+     "text": "(1,492)",
+     "cite": {
+      "section_id": "5",
+      "offset": 33430,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 156062581,
+     "unit": "주",
+     "text": "156,062,581",
+     "cite": {
+      "section_id": "5",
+      "offset": 33586,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 12394,
+     "unit": "원",
+     "text": "12,394",
+     "cite": {
+      "section_id": "5",
+      "offset": 33629,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 8234,
+      "unit": "원",
+      "text": "8,234",
+      "cite": {
+       "section_id": "5",
+       "offset": 33650,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12630,
+      "unit": "원",
+      "text": "12,630",
+      "cite": {
+       "section_id": "5",
+       "offset": 33670,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "MVS(시장가치 잉여금 접근법) — 스키마 method enum에 없어 자산가치로 분류. K-ICS 건전성감독기준 재무상태표 기준 순자산 2,943십억원, 공정가치조정 (1,492)십억원(현행추정부채·위험마진·이연법인세), 보유계약가치 1,451십억원 + 신계약가치 484십억원(성장률 0%, 5년). 최대치는 사업계획 물량, 최소치는 손해율 7.5% 증가 시나리오."
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "㈜우리금융지주",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PBR",
+    "peers": [
+     {
+      "name": "KB금융",
+      "value": {
+       "value": 0.82,
+       "unit": "배",
+       "text": "0.82",
+       "cite": {
+        "section_id": "5",
+        "offset": 44724,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     },
+     {
+      "name": "신한지주",
+      "value": {
+       "value": 0.69,
+       "unit": "배",
+       "text": "0.69",
+       "cite": {
+        "section_id": "5",
+        "offset": 44818,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     },
+     {
+      "name": "하나금융지주",
+      "value": {
+       "value": 0.63,
+       "unit": "배",
+       "text": "0.63",
+       "cite": {
+        "section_id": "5",
+        "offset": 44914,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     }
+    ],
+    "multiple": null,
+    "applied_earnings": {
+     "value": 32307,
+     "unit": "십억원",
+     "text": "32,307",
+     "cite": {
+      "section_id": "5",
+      "offset": 41930,
+      "file_id": "main"
+     }
+    },
+    "discount_range": null,
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 30327,
+      "unit": "원",
+      "text": "30,327",
+      "cite": {
+       "section_id": "5",
+       "offset": 42229,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 38285,
+      "unit": "원",
+      "text": "38,285",
+      "cite": {
+       "section_id": "5",
+       "offset": 42238,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "유사상장기업비교법(PBR). PBR 중앙값 0.69x(2025년 12월말, 최소치)~0.87x(2026년 2월말, 최대치). 자기주식 취득 소요액 200십억원 차감."
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "동양생명보험㈜",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PBR",
+    "peers": [
+     {
+      "name": "한화생명보험",
+      "value": {
+       "value": 0.23,
+       "unit": "배",
+       "text": "0.23",
+       "cite": {
+        "section_id": "5",
+        "offset": 45059,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     },
+     {
+      "name": "삼성생명보험",
+      "value": {
+       "value": 0.45,
+       "unit": "배",
+       "text": "0.45",
+       "cite": {
+        "section_id": "5",
+        "offset": 45150,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     },
+     {
+      "name": "미래에셋생명보험",
+      "value": {
+       "value": 0.5,
+       "unit": "배",
+       "text": "0.50",
+       "cite": {
+        "section_id": "5",
+        "offset": 45232,
+        "file_id": "main"
+       }
+      },
+      "note": "PBR(2025년 12월말 기준, 최소치 산정용)"
+     }
+    ],
+    "multiple": null,
+    "applied_earnings": {
+     "value": 1549,
+     "unit": "십억원",
+     "text": "1,549",
+     "cite": {
+      "section_id": "5",
+      "offset": 41948,
+      "file_id": "main"
+     }
+    },
+    "discount_range": null,
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4478,
+      "unit": "원",
+      "text": "4,478",
+      "cite": {
+       "section_id": "5",
+       "offset": 42247,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 6535,
+      "unit": "원",
+      "text": "6,535",
+      "cite": {
+       "section_id": "5",
+       "offset": 42255,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "유사상장기업비교법(PBR). 유사회사 한화생명·삼성생명·미래에셋생명 PBR 중앙값 0.45x(최소치)~0.66x(최대치). 삼일과 달리 한화생명 포함."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "㈜우리금융지주",
+    "basis": "기준주가(교환가액)",
+    "value": {
+     "value": 34589,
+     "unit": "원",
+     "text": "34,589",
+     "cite": {
+      "section_id": "5",
+      "offset": 148,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "동양생명보험㈜",
+    "basis": "기준주가(교환가액)",
+    "value": {
+     "value": 8720,
+     "unit": "원",
+     "text": "8,720",
+     "cite": {
+      "section_id": "5",
+      "offset": 157,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "삼일 내재가치법 교환비율",
+    "subject": "삼일회계법인",
+    "range": {
+     "min": {
+      "value": 0.1386978,
+      "unit": null,
+      "text": "0.1386978",
+      "cite": {
+       "section_id": "5",
+       "offset": 10978,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.3167038,
+      "unit": null,
+      "text": "0.3167038",
+      "cite": {
+       "section_id": "5",
+       "offset": 10990,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "삼일 유사상장기업비교법 교환비율",
+    "subject": "삼일회계법인",
+    "range": {
+     "min": {
+      "value": 0.1541774,
+      "unit": null,
+      "text": "0.1541774",
+      "cite": {
+       "section_id": "5",
+       "offset": 11032,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.2094516,
+      "unit": null,
+      "text": "0.2094516",
+      "cite": {
+       "section_id": "5",
+       "offset": 11044,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "안진 내재가치법 교환비율",
+    "subject": "안진회계법인",
+    "range": {
+     "min": {
+      "value": 0.1368448,
+      "unit": null,
+      "text": "0.1368448",
+      "cite": {
+       "section_id": "5",
+       "offset": 31761,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.2786088,
+      "unit": null,
+      "text": "0.2786088",
+      "cite": {
+       "section_id": "5",
+       "offset": 31773,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "안진 유사상장기업비교법 교환비율",
+    "subject": "안진회계법인",
+    "range": {
+     "min": {
+      "value": 0.1476585,
+      "unit": null,
+      "text": "0.1476585",
+      "cite": {
+       "section_id": "5",
+       "offset": 31815,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.1706953,
+      "unit": null,
+      "text": "0.1706953",
+      "cite": {
+       "section_id": "5",
+       "offset": 31827,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.2521056,
+   "unit": null,
+   "text": "0.2521056",
+   "cite": {
+    "section_id": "5",
+    "offset": 298,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 300816209375,
+   "unit": "원",
+   "text": "300,816,209,375",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 264,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "기준주가 교환비율 1 : 0.2521056은 삼일·안진 내재가치법 교환비율 범위 내에 포함(삼일은 실제 취득 자기주식 반영 재산정 범위 내 포함 확인, 안진은 적정 판단)",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼일회계법인",
+   "target": "㈜우리금융지주",
+   "variables": "자기자본비용(Ke) 8.50%·9.00%·11.43%, 영구성장률 ±0.5%p(0.50%~1.50%) — 주당가치",
+   "range": {
+    "min": {
+     "value": 46609,
+     "unit": "원",
+     "text": "46,609",
+     "cite": {
+      "section_id": "5",
+      "offset": 18255,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 79231,
+     "unit": "원",
+     "text": "79,231",
+     "cite": {
+      "section_id": "5",
+      "offset": 18315,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "㈜우리금융지주",
+   "variables": "자기자본비용(Ke) ±1.0%p(8.00%~10.00%), 영구성장률 ±1.0%p(0.00%~2.00%) — 주당가치",
+   "range": {
+    "min": {
+     "value": 45332,
+     "unit": "원",
+     "text": "45,332",
+     "cite": {
+      "section_id": "5",
+      "offset": 37869,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 60172,
+     "unit": "원",
+     "text": "60,172",
+     "cite": {
+      "section_id": "5",
+      "offset": 37929,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260207–20260805, listed_only=False): source_grade full, body_rcept_no 20260706000312, original 20260514001490, supersedes 20260514001490·20260703000474·20260703000507·20260703000524·20260703000531, 짝 주요사항보고서 20260514001192.",
+  "법정 외부평가 없음(상장사간 기준시가). 삼일회계법인은 양사가 공동 선임한 외부산정기관(수행 2026-02-27~04-24), 안진회계법인은 동양생명이 교환비율 재검증용으로 신규 선임(수행 2026-06-09~06-19). 둘 다 법적 의무 아닌 자발적 가치검토라 role=외부평가로 두고 external_valuation.firm은 null.",
+  "두 회계법인 모두 우리금융지주는 FCFE, 동양생명은 MVS(스키마 enum 부재로 method=자산가치), 교차검증으로 PBR 유사상장기업비교법 적용. 본질가치는 주요 방법으로 쓰지 않음.",
+  "Ke 구성요소(무위험이자율·MRP·베타)는 본문에 수치 없음(삼일 활동내역에 검토 사실만 기재).",
+  "삼일 유통주식수 727,752,783주는 소각예정 자기주식 추정치 6,269,592주 차감 기준. 실제 취득 5,986,638주 반영 시 728,035,737주, 내재가치 교환비율 0.1387518~0.3168270, 유사상장 0.1542374~0.2095331(원문 주석).",
+  "상대가치 원소의 peers 값은 2025년 12월말(최소치) PBR. 최대치 시점 PBR은 note의 중앙값 참조. relative.applied_earnings는 순자산장부금액(지배지분-신종자본증권).",
+  "교환신주 기명식보통주 8,696,875주(액면 5,000원, 모집가액 34,589원, 모집총액 300,816,209,375원 — 섹션 3.4). 동양생명 자기주식 5,296,004주는 2026-04-30 소각 완료.",
+  "금융업(금융지주·생명보험) 거래."
+ ],
+ "extracted_at": "2026-10-26T15:52:43+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260706000312",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 1850,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260706000312",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 857,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260706000312",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 주식의 포괄적 교환ㆍ이전에 관한 기본사항",
+   "chars_read": 1213,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260706000312",
+   "file_id": "main",
+   "section_id": "4.h26",
+   "title": "[안진회계법인]",
+   "chars_read": 4881,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260706000312",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
+   "chars_read": 65250,
+   "how": "find_tables/section"
+  }
+ ]
+}

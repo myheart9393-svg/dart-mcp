@@ -1,0 +1,1422 @@
+{
+ "rcept_no": "20260821000638",
+ "original_rcept_no": "20260422000680",
+ "related_rcept_nos": [
+  "20260821000643",
+  "20260804000294"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00309831",
+  "name": "알에프텍",
+  "market": "코스닥",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "에코볼트 주식회사",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "(주)알에프텍의 최대주주 오성첨단소재(주)가 에코볼트(주)의 최대주주(보통주 29.89%)이며, 대표이사 조경숙이 에코볼트 사내이사(회장) 겸직",
+  "board_date": "2026-04-13",
+  "regime": "기준시가",
+  "ratio_text": "(주)알에프텍 : 에코볼트(주) 1 : 0.2027268"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "코스닥 상장법인 간 합병으로 자본시장법 제165조의4 및 시행령 제176조의5 제1항 제1호에 따라 기준시가로 합병가액 산정 → 외부평가기관 평가 받지 않음",
+  "basis_text": null,
+  "firm": "이촌회계법인((주)알에프텍 선임), 정동회계법인(에코볼트(주) 선임) — 자발적 적정성 평가",
+  "firm_type": "회계법인",
+  "period": "이촌회계법인 2026-06-09 ~ 2026-06-19 / 정동회계법인 2026-06-08 ~ 2026-06-19",
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "기준시가 합병비율 1 : 0.4053487이 각 회계법인의 본질가치 평가법 적정 범위(이촌 1 : 0.3906541 ~ 1 : 0.4699142, 정동 1 : 0.4002849 ~ 1 : 0.4892949) 내에 있어 합병비율은 적정하다고 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 6319,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)알에프텍",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 5082,
+     "unit": "원",
+     "text": "5,082",
+     "cite": {
+      "section_id": "5",
+      "offset": 10251,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 229900,
+     "unit": "백만원",
+     "text": "229,900",
+     "cite": {
+      "section_id": "5",
+      "offset": 10186,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 111847,
+     "unit": "백만원",
+     "text": "111,847",
+     "cite": {
+      "section_id": "5",
+      "offset": 9377,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 118053,
+     "unit": "백만원",
+     "text": "118,053",
+     "cite": {
+      "section_id": "5",
+      "offset": 9406,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 45241115,
+     "unit": "주",
+     "text": "45,241,115",
+     "cite": {
+      "section_id": "5",
+      "offset": 10214,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4922,
+      "unit": "원",
+      "text": "4,922",
+      "cite": {
+       "section_id": "5",
+       "offset": 8840,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5692,
+      "unit": "원",
+      "text": "5,692",
+      "cite": {
+       "section_id": "5",
+       "offset": 8848,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 5334,
+    "unit": "원",
+    "text": "5,334",
+    "cite": {
+     "section_id": "5",
+     "offset": 15073,
+     "file_id": "main"
+    }
+   },
+   "note": "(주)알에프텍이 이사회 결의 후 선임한 외부 회계법인. 법상 의무 아닌 자발적 적정성 평가(법무부 가이드라인). 시행세칙 제4조–제6조 본질가치(자산1:수익1.5). 본질가치 점값은 원문 없음(범위만, 수익가치 민감도 범위 반영). 자산가치: 2025-12-31 감사받은 별도재무제표 자본총계에 시장성 없는/있는 주식 차이, 자기주식 가산 등 조정(시행세칙 제5조). 2026.2·3월 유상증자 자본금·자본잉여금 증가 가산."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)알에프텍",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일–2030년 12월 31일(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 11.37,
+     "unit": "%",
+     "text": "11.37%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14340,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.385,
+     "unit": "%",
+     "text": "3.385%",
+     "cite": {
+      "section_id": "5",
+      "offset": 13902,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 13937,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.5436,
+     "unit": null,
+     "text": "0.5436",
+     "cite": {
+      "section_id": "5",
+      "offset": 13984,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.79,
+     "unit": null,
+     "text": "0.79",
+     "cite": {
+      "section_id": "5",
+      "offset": 14033,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14077,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.756,
+     "unit": "%",
+     "text": "13.756%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14138,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.806,
+     "unit": "%",
+     "text": "9.806%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14187,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14281,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 17848,
+      "file_id": "main"
+     }
+    },
+    "peers": [],
+    "target_dv": {
+     "value": 37.79,
+     "unit": "%",
+     "text": "37.79%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14218,
+      "file_id": "main"
+     }
+    }
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 5334,
+     "unit": "원",
+     "text": "5,334",
+     "cite": {
+      "section_id": "5",
+      "offset": 15073,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4815,
+      "unit": "원",
+      "text": "4,815",
+      "cite": {
+       "section_id": "5",
+       "offset": 15125,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 6098,
+      "unit": "원",
+      "text": "6,098",
+      "cite": {
+       "section_id": "5",
+       "offset": 15099,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF, mid-year convention. 수익가치 241,296백만원 = 기업가치 305,949(영업가치 127,718 + 비영업용자산 178,231) - 이자발생부채 64,653. target_de는 대용기업 평균 부채비율 37.79%(자기자본비율 62.21%). Kd는 신용등급 BBB- 5년 회사채 수익률. 본문 서술은 'WACC는 (주)에코볼트 11.37%'로 회사명 오기(표는 (주)알에프텍 11.37%)."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "에코볼트(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2843,
+     "unit": "원",
+     "text": "2,843",
+     "cite": {
+      "section_id": "5",
+      "offset": 11660,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 144234,
+     "unit": "백만원",
+     "text": "144,234",
+     "cite": {
+      "section_id": "5",
+      "offset": 11595,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 208235,
+     "unit": "백만원",
+     "text": "208,235",
+     "cite": {
+      "section_id": "5",
+      "offset": 10786,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -64002,
+     "unit": "백만원",
+     "text": "(64,002)",
+     "cite": {
+      "section_id": "5",
+      "offset": 10815,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 50732723,
+     "unit": "주",
+     "text": "50,732,723",
+     "cite": {
+      "section_id": "5",
+      "offset": 11623,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2223,
+      "unit": "원",
+      "text": "2,223",
+      "cite": {
+       "section_id": "5",
+       "offset": 8856,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 2313,
+      "unit": "원",
+      "text": "2,313",
+      "cite": {
+       "section_id": "5",
+       "offset": 8864,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 1900,
+    "unit": "원",
+    "text": "1,900",
+    "cite": {
+     "section_id": "5",
+     "offset": 15081,
+     "file_id": "main"
+    }
+   },
+   "note": "이촌회계법인의 에코볼트 본질가치. 본질가치 점값은 원문 없음(범위만). 자산가치 조정에 시장성 있는 주식 종가 차이 차감 50,064백만원, 2026.2월 유상감자 자본금 감소 12,683백만원, 자기주식 소각 4,952백만원 반영."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "에코볼트(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일–2030년 12월 31일(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 11.59,
+     "unit": "%",
+     "text": "11.59%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14349,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.385,
+     "unit": "%",
+     "text": "3.385%",
+     "cite": {
+      "section_id": "5",
+      "offset": 13902,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 13937,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.5403,
+     "unit": null,
+     "text": "0.5403",
+     "cite": {
+      "section_id": "5",
+      "offset": 13993,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.58,
+     "unit": null,
+     "text": "0.58",
+     "cite": {
+      "section_id": "5",
+      "offset": 14040,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14077,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.01,
+     "unit": "%",
+     "text": "12.010%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14148,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 8.454,
+     "unit": "%",
+     "text": "8.454%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14196,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14290,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 22172,
+      "file_id": "main"
+     }
+    },
+    "peers": [],
+    "target_dv": {
+     "value": 7.74,
+     "unit": "%",
+     "text": "7.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 14227,
+      "file_id": "main"
+     }
+    }
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1900,
+     "unit": "원",
+     "text": "1,900",
+     "cite": {
+      "section_id": "5",
+      "offset": 15081,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 1810,
+      "unit": "원",
+      "text": "1,810",
+      "cite": {
+       "section_id": "5",
+       "offset": 15133,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1959,
+      "unit": "원",
+      "text": "1,959",
+      "cite": {
+       "section_id": "5",
+       "offset": 15107,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF, mid-year. 영업가치 (2,912)백만원(영구현금흐름 PV (9,162), 추정기간 이후 적자 지속 가정) + 비영업용자산 100,102 = 기업가치 97,190, 이자발생부채 792 차감 수익가치 96,398백만원. Kd는 신용등급 BBB0 회사채 수익률. target_de는 대용기업 평균 부채비율."
+  },
+  {
+   "subject": "정동회계법인",
+   "target": "(주)알에프텍",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 5082,
+     "unit": "원",
+     "text": "5,082",
+     "cite": {
+      "section_id": "5",
+      "offset": 28802,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 229900,
+     "unit": "백만원",
+     "text": "229,900",
+     "cite": {
+      "section_id": "5",
+      "offset": 28737,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 111847,
+     "unit": "백만원",
+     "text": "111,847",
+     "cite": {
+      "section_id": "5",
+      "offset": 27928,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 118053,
+     "unit": "백만원",
+     "text": "118,053",
+     "cite": {
+      "section_id": "5",
+      "offset": 27957,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 45241115,
+     "unit": "주",
+     "text": "45,241,115",
+     "cite": {
+      "section_id": "5",
+      "offset": 28765,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4626,
+      "unit": "원",
+      "text": "4,626",
+      "cite": {
+       "section_id": "5",
+       "offset": 27391,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5423,
+      "unit": "원",
+      "text": "5,423",
+      "cite": {
+       "section_id": "5",
+       "offset": 27399,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 4857,
+    "unit": "원",
+    "text": "4,857",
+    "cite": {
+     "section_id": "5",
+     "offset": 33622,
+     "file_id": "main"
+    }
+   },
+   "note": "에코볼트(주)가 이사회 결의 후 선임한 외부 회계법인. 자발적 평가. 자산가치 산정표는 이촌회계법인과 동일. 본질가치 점값은 원문 없음(범위만)."
+  },
+  {
+   "subject": "정동회계법인",
+   "target": "(주)알에프텍",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일–2030년 12월 31일(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 11.49,
+     "unit": "%",
+     "text": "11.49%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32881,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32453,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32486,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.56,
+     "unit": null,
+     "text": "0.56",
+     "cite": {
+      "section_id": "5",
+      "offset": 32533,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.83,
+     "unit": null,
+     "text": "0.83",
+     "cite": {
+      "section_id": "5",
+      "offset": 32578,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32622,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.03,
+     "unit": "%",
+     "text": "14.03%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32683,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.81,
+     "unit": "%",
+     "text": "9.81%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32730,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32822,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 36361,
+      "file_id": "main"
+     }
+    },
+    "peers": [],
+    "target_dv": {
+     "value": 38.55,
+     "unit": "%",
+     "text": "38.55%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32759,
+      "file_id": "main"
+     }
+    }
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4857,
+     "unit": "원",
+     "text": "4,857",
+     "cite": {
+      "section_id": "5",
+      "offset": 33622,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4322,
+      "unit": "원",
+      "text": "4,322",
+      "cite": {
+       "section_id": "5",
+       "offset": 33674,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5650,
+      "unit": "원",
+      "text": "5,650",
+      "cite": {
+       "section_id": "5",
+       "offset": 33648,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF, mid-year. 현금성자산을 비영업용자산 대신 순이자발생부채에서 차감: 기업가치 205,956(영업가치 106,161 + 비영업용자산 99,795) - 순이자발생부채 (13,784) = 수익가치 219,739백만원. 본문 서술은 'WACC는 (주)에코볼트 11.49%'로 회사명 오기."
+  },
+  {
+   "subject": "정동회계법인",
+   "target": "에코볼트(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2843,
+     "unit": "원",
+     "text": "2,843",
+     "cite": {
+      "section_id": "5",
+      "offset": 30211,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 144234,
+     "unit": "백만원",
+     "text": "144,234",
+     "cite": {
+      "section_id": "5",
+      "offset": 30146,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 208235,
+     "unit": "백만원",
+     "text": "208,235",
+     "cite": {
+      "section_id": "5",
+      "offset": 29337,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -64002,
+     "unit": "백만원",
+     "text": "(64,002)",
+     "cite": {
+      "section_id": "5",
+      "offset": 29366,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 50732723,
+     "unit": "주",
+     "text": "50,732,723",
+     "cite": {
+      "section_id": "5",
+      "offset": 30174,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": null,
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2168,
+      "unit": "원",
+      "text": "2,168",
+      "cite": {
+       "section_id": "5",
+       "offset": 27407,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 2263,
+      "unit": "원",
+      "text": "2,263",
+      "cite": {
+       "section_id": "5",
+       "offset": 27415,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 1816,
+    "unit": "원",
+    "text": "1,816",
+    "cite": {
+     "section_id": "5",
+     "offset": 33630,
+     "file_id": "main"
+    }
+   },
+   "note": "정동회계법인의 에코볼트 본질가치. 결과요약표 수익가치 범위는 '1,718 ~ 1,876'이나 DCF 결과표·민감도표는 1,722–1,877, 검토의견서 요약은 본질가치 '2,171원 ~ 2,264원'으로 원문 내 불일치. 여기서는 결과요약표 본질가치 범위를 씀."
+  },
+  {
+   "subject": "정동회계법인",
+   "target": "에코볼트(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 1월 1일–2030년 12월 31일(5년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 11.7,
+     "unit": "%",
+     "text": "11.70%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32890,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32453,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32486,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.54,
+     "unit": null,
+     "text": "0.54",
+     "cite": {
+      "section_id": "5",
+      "offset": 32540,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.58,
+     "unit": null,
+     "text": "0.58",
+     "cite": {
+      "section_id": "5",
+      "offset": 32585,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32622,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.05,
+     "unit": "%",
+     "text": "12.05%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32692,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 8.45,
+     "unit": "%",
+     "text": "8.45%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32738,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 11.0,
+     "unit": "%",
+     "text": "11.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32831,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40766,
+      "file_id": "main"
+     }
+    },
+    "peers": [],
+    "target_dv": {
+     "value": 7.74,
+     "unit": "%",
+     "text": "7.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32768,
+      "file_id": "main"
+     }
+    }
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1816,
+     "unit": "원",
+     "text": "1,816",
+     "cite": {
+      "section_id": "5",
+      "offset": 33630,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 1722,
+      "unit": "원",
+      "text": "1,722",
+      "cite": {
+       "section_id": "5",
+       "offset": 33682,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1877,
+      "unit": "원",
+      "text": "1,877",
+      "cite": {
+       "section_id": "5",
+       "offset": 33656,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF, mid-year. 기업가치 34,583(영업가치 (7,198) + 비영업용자산 41,781) - 순이자발생부채 (57,529) = 수익가치 92,112백만원. 법인세율 11.00%(이촌 22.00%와 다름, 구간별 법인세율 적용)."
+  },
+  {
+   "subject": "(주)알에프텍",
+   "target": "(주)알에프텍",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 9535,
+     "unit": "원",
+     "text": "9,535",
+     "cite": {
+      "section_id": "5",
+      "offset": 2730,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-04-12. 1개월 가중평균 1,819원·1주일 1,892원·최근일 2,010원 산술평균 기준주가 1,907원, 할인·할증 없음. 액면병합(500원→2,500원) 반영 합병가액 = 기준주가 × 5."
+  },
+  {
+   "subject": "에코볼트(주)",
+   "target": "에코볼트(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1933,
+     "unit": "원",
+     "text": "1,933",
+     "cite": {
+      "section_id": "5",
+      "offset": 4877,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "1개월 788원·1주일 766원·최근일 766원 산술평균 기준주가 773원, 할인·할증 없음. 주식분할(1,000원→500원)·무상감자(80.0%) 반영 합병가액 = 기준주가 / 2 × 5 = 1,932.5원 → 1,933원."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)알에프텍",
+    "basis": "기준주가(할인·할증 없음) × 5(액면병합)",
+    "value": {
+     "value": 9535,
+     "unit": "원",
+     "text": "9,535",
+     "cite": {
+      "section_id": "5",
+      "offset": 296,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "에코볼트(주)",
+    "basis": "기준주가 / 2(주식분할) × 5(무상감자 80%)",
+    "value": {
+     "value": 1933,
+     "unit": "원",
+     "text": "1,933",
+     "cite": {
+      "section_id": "5",
+      "offset": 304,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "이촌회계법인 본질가치 기준 합병비율 적정 범위(액면병합·분할·감자 반영 전 기준)",
+    "subject": "이촌회계법인",
+    "range": {
+     "min": {
+      "value": 0.3906541,
+      "unit": null,
+      "text": "0.3906541",
+      "cite": {
+       "section_id": "5",
+       "offset": 8957,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.4699142,
+      "unit": null,
+      "text": "0.4699142",
+      "cite": {
+       "section_id": "5",
+       "offset": 8973,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "정동회계법인 본질가치 기준 합병비율 적정 범위(액면병합·분할·감자 반영 전 기준)",
+    "subject": "정동회계법인",
+    "range": {
+     "min": {
+      "value": 0.4002849,
+      "unit": null,
+      "text": "0.4002849",
+      "cite": {
+       "section_id": "5",
+       "offset": 27508,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.4892949,
+      "unit": null,
+      "text": "0.4892949",
+      "cite": {
+       "section_id": "5",
+       "offset": 27524,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.2027268,
+   "unit": null,
+   "text": "0.2027268",
+   "cite": {
+    "section_id": "5",
+    "offset": 325,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 39204449260,
+   "unit": "원",
+   "text": "39,204,449,260",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 262,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "액면병합·주식분할·무상감자 반영 전 기준시가 합병비율 1 : 0.4053487이 이촌·정동 회계법인의 본질가치 기반 적정 범위 안에 있어 합병비율의 적정성이 확인됨. 최종 합병비율은 반영 후 1 : 0.2027268.",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)알에프텍",
+   "variables": "WACC 10.37%–12.37%(0.5%p 간격), 영구성장률 0.00%–2.00%(0.5%p) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 4815,
+     "unit": "원",
+     "text": "4,815",
+     "cite": {
+      "section_id": "5",
+      "offset": 19660,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 6098,
+     "unit": "원",
+     "text": "6,098",
+     "cite": {
+      "section_id": "5",
+      "offset": 19420,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "에코볼트(주)",
+   "variables": "WACC 10.59%–12.59%(0.5%p 간격), 영구성장률 0.00%–2.00%(0.5%p) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 1810,
+     "unit": "원",
+     "text": "1,810",
+     "cite": {
+      "section_id": "5",
+      "offset": 23643,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1959,
+     "unit": "원",
+     "text": "1,959",
+     "cite": {
+      "section_id": "5",
+      "offset": 23883,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "정동회계법인",
+   "target": "(주)알에프텍",
+   "variables": "WACC 10.49%–12.49%(0.5%p 간격), 영구성장률 0.00%–2.00%(0.5%p) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 4322,
+     "unit": "원",
+     "text": "4,322",
+     "cite": {
+      "section_id": "5",
+      "offset": 38240,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 5650,
+     "unit": "원",
+     "text": "5,650",
+     "cite": {
+      "section_id": "5",
+      "offset": 38000,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "정동회계법인",
+   "target": "에코볼트(주)",
+   "variables": "WACC 10.70%–12.70%(0.5%p 간격), 영구성장률 0.00%–2.00%(0.5%p) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 1722,
+     "unit": "원",
+     "text": "1,722",
+     "cite": {
+      "section_id": "5",
+      "offset": 42315,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1877,
+     "unit": "원",
+     "text": "1,877",
+     "cite": {
+      "section_id": "5",
+      "offset": 42555,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260323–20260920, listed_only=False): 20260821000638은 [첨부정정] 20260821000643 거래(full)의 body_rcept_no. 원본 20260422000680, 짝 공시 20260804000294.",
+  "법정 외부평가 없음(기준시가). 이사회 결의 이후 법무부 '기업 조직개편 시 이사의 행위규범 가이드라인'에 따라 양사가 각각 외부 회계법인을 사후 선임해 본질가치법으로 합병비율 적정 범위를 산정 → role=외부평가(의무 아님). 성과보수 없는 정액보수.",
+  "적정 범위와 비교 대상 비율 0.4053487은 액면병합·주식분할·무상감자 반영 전 기준. 반영 후 최종 합병비율은 0.2027268.",
+  "원문 오기·불일치: ① 양 회계법인 WACC 서술에 '(주)에코볼트'로 회사명 오기 ② 정동 종합평가의견 본문이 이촌 범위(0.3906541~0.4699142)를 인용, 검토의견서 요약은 정동 범위(0.4002849~0.4892949) ③ 정동 에코볼트 수익가치 범위 요약표 1,718~1,876 vs DCF표 1,722~1,877.",
+  "정동회계법인 법인세율 에코볼트 11.00%(이촌 22.00%). 이촌 β(U) 0.5436/0.5403, 정동 0.56/0.54로 표기 자릿수 다름.",
+  "유사기업(대용기업) 명단은 섹션 5에 없음(peers 비움).",
+  "리뷰 반영: 원문 \"부채비율\"(h)은 자기자본비율(i)과 합이 100%인 D/(D+E)라 target_de → target_dv로 옮김"
+ ],
+ "extracted_at": "2026-10-26T15:52:08+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260821000638",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 1259,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260821000638",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 785,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260821000638",
+   "file_id": "main",
+   "section_id": "4.h1",
+   "title": "가. 합병의 상대방과 배경",
+   "chars_read": 2228,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260821000638",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 44759,
+   "how": "section"
+  }
+ ]
+}

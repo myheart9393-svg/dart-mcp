@@ -1,0 +1,329 @@
+{
+ "rcept_no": "20260522000571",
+ "original_rcept_no": "20260407003401",
+ "related_rcept_nos": [
+  "20260407003401",
+  "20260424000811",
+  "20260515002959",
+  "20260520000321",
+  "20260522000577"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[발행조건확정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01755259",
+  "name": "피스피스스튜디오",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 자본시장법 시행령 176조의5 외부평가 대상이 아님(공모가는 주관회사가 산정)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "공동대표주관회사 미래에셋증권·NH투자증권이 희망공모가액 19,000원~21,500원을 제시하고 수요예측 결과 및 주식시장 상황 등을 감안하여 발행회사와 협의해 확정공모가액 21,500원으로 결정",
+  "cite": {
+   "section_id": "0",
+   "offset": 209203,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "미래에셋증권㈜, NH투자증권㈜ (공동대표주관회사)",
+   "target": "피스피스스튜디오",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 21.48,
+     "unit": "배",
+     "text": "21.48",
+     "cite": {
+      "section_id": "0",
+      "offset": 208423,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 17278,
+     "unit": "백만원",
+     "text": "17,278",
+     "cite": {
+      "section_id": "0",
+      "offset": 208342,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 13.66,
+      "unit": "%",
+      "text": "13.66%",
+      "cite": {
+       "section_id": "0",
+       "offset": 214248,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 23.7,
+      "unit": "%",
+      "text": "23.70%",
+      "cite": {
+       "section_id": "0",
+       "offset": 214241,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 24902,
+     "unit": "원",
+     "text": "24,902",
+     "cite": {
+      "section_id": "0",
+      "offset": 208592,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 19000,
+      "unit": "원",
+      "text": "19,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 214277,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 21500,
+      "unit": "원",
+      "text": "21,500원",
+      "cite": {
+       "section_id": "0",
+       "offset": 214285,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2025년도 온기 조정 당기순이익 x 비교회사 PER ÷ 주식수 x (1-할인율). 조정 당기순이익 17,278백만원 = 2025년 연결 지배주주 순이익 11,404백만원 + 파생상품평가손실 1,836 + RCPS 이자비용 2,530 + 1차 주식보상비용 1,509. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 비교기업 목록·개별 PER은 이 발행조건확정 정정본에 없음"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "피스피스스튜디오",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 24902,
+     "unit": "원",
+     "text": "24,902",
+     "cite": {
+      "section_id": "0",
+      "offset": 208592,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "피스피스스튜디오",
+    "basis": "확정 공모가액",
+    "value": {
+     "value": 21500,
+     "unit": "원",
+     "text": "21,500원",
+     "cite": {
+      "section_id": "0",
+      "offset": 214314,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "미래에셋증권㈜, NH투자증권㈜ (공동대표주관회사)",
+    "range": {
+     "min": {
+      "value": 19000,
+      "unit": "원",
+      "text": "19,000원",
+      "cite": {
+       "section_id": "0",
+       "offset": 214277,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 21500,
+      "unit": "원",
+      "text": "21,500원",
+      "cite": {
+       "section_id": "0",
+       "offset": 214285,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": {
+   "value": 48861695500,
+   "unit": "원",
+   "text": "48,861,695,500원",
+   "cite": {
+    "section_id": "0",
+    "offset": 398,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "수요예측 참여현황 및 시장상황 등을 감안하여 발행회사와 협의한 후 확정공모가액을 주당 21,500원으로 최종 결정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "미래에셋증권㈜, NH투자증권㈜ (공동대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [],
+  "applied_earnings": {
+   "value": 17278,
+   "unit": "백만원",
+   "text": "17,278",
+   "cite": {
+    "section_id": "0",
+    "offset": 208342,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2025년도 온기 조정 당기순이익(실적치)",
+  "multiple": {
+   "value": 21.48,
+   "unit": "배",
+   "text": "21.48",
+   "cite": {
+    "section_id": "0",
+    "offset": 208423,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 14906231,
+   "unit": "주",
+   "text": "14,906,231",
+   "cite": {
+    "section_id": "0",
+    "offset": 208499,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 24902,
+   "unit": "원",
+   "text": "24,902",
+   "cite": {
+    "section_id": "0",
+    "offset": 208592,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 13.66,
+    "unit": "%",
+    "text": "13.66%",
+    "cite": {
+     "section_id": "0",
+     "offset": 214248,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 23.7,
+    "unit": "%",
+    "text": "23.70%",
+    "cite": {
+     "section_id": "0",
+     "offset": 214241,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 19000,
+    "unit": "원",
+    "text": "19,000원",
+    "cite": {
+     "section_id": "0",
+     "offset": 214277,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 21500,
+    "unit": "원",
+    "text": "21,500원",
+    "cite": {
+     "section_id": "0",
+     "offset": 214285,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20251223–20260621, listed_only=False)에서 이 rcept_no가 든 거래를 못 찾아 outline 문서명(증권신고서(지분증권), 발행조건확정)으로 full 판단. 원본·짝 공시는 search_disclosures(corp_code 01755259, C)로 확인(최초 제출 2026-04-07).",
+  "발행조건확정 정정본은 정정 전/후 대비만 담아 outline이 섹션 '0' 하나다. 값은 '정정 후' 부분((주17)·(주18) 정정 후)에서 옮겼다.",
+  "비교기업 선정·개별 PER 등 상세 산출은 이 정정본에 없음('(중략)'). 기재정정 20260515002959(최초 20260407003401)를 /dart-valuation으로 따로 뽑으면 보완된다.",
+  "할인율 원문 표기는 '23.70%~13.66%'(하단 19,000원 ↔ 23.70%, 상단 21,500원 ↔ 13.66%). discount_range는 min 13.66·max 23.70.",
+  "할인율 참고: 2023년 이후 코스닥시장 일반 신규상장법인 평가액 대비 할인율 평균 하단 34.03%·상단 22.54%((주18) 정정 후 주1)).",
+  "transaction_value는 확정 모집총액(기명식 보통주 2,272,637주 × 21,500원, 표지). 코스닥시장 상장 공모(일반상장). market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T15:54:06+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260522000571",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 17777,
+   "how": "search/section"
+  }
+ ]
+}

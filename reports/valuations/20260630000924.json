@@ -1,0 +1,213 @@
+{
+ "rcept_no": "20260630000924",
+ "original_rcept_no": "20260518000279",
+ "related_rcept_nos": [
+  "20260630000547"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00109107",
+  "name": "대농",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2026-05-12",
+  "regime": null,
+  "ratio_text": "분할존속회사 : 0.9385233, 분할신설회사 : 0.0614767 (보통주 1주당 신설회사 주식 0.0614767주 배정)"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2025년 12월 31일 재무상태표와 자기주식을 고려한 순자산가액 비율로 분할비율 산정(외부평가기관 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 205,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "대농",
+   "target": "주식회사 대농티앤씨",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 200000,
+     "unit": "주",
+     "text": "200,000",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 288,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.0614767,
+     "unit": null,
+     "text": "0.0614767",
+     "cite": {
+      "section_id": "5",
+      "offset": 1566,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "순자산가액 비율로 산정 시 신설회사 자본금 970,848,348원이나 자본금을 1,000,000,000원으로 정하고 차이는 주식발행초과금에서 조정. 최종 분할비율은 자기주식 제외 자본금(액면) 기준 표로 제시(존속 15,272,219,222 : 신설 1,000,385,778, 단주 포함). 자기주식 147,573주에는 신설회사 신주 미배정(개정 상법). result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 대농티앤씨",
+    "basis": "분할신주 모집(매출)가액",
+    "value": {
+     "value": 47098,
+     "unit": "원",
+     "text": "47,098",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 306,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.0614767,
+   "unit": null,
+   "text": "0.0614767",
+   "cite": {
+    "section_id": "5",
+    "offset": 1566,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 9419572418,
+   "unit": "원",
+   "text": "9,419,572,418",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 315,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "2025-12-31 재무상태표 기준 순자산가액 비율(자기주식 고려)로 분할존속 0.9385233 : 분할신설 0.0614767. 단순인적분할로 주식매수청구권 없음",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260201–20260730, listed_only=False): 분할/full, 기재정정, 원본 20260518000279, supersedes 20260518000279·20260609000209·20260611000017·20260619000302·20260622000205. 짝 주요사항보고서 [기재정정]주요사항보고서(회사분할결정) 20260630000547(summary).",
+  "단순·인적분할로 외부평가기관 '없음'(IV. 평가 및 신주배정 등). DCF·상대가치 등 가치평가 없음, 순자산가액 비율만 있음.",
+  "분할회사 (주)대농(비상장, (주)신영 92.38% 보유) → 존속: 경영컨설팅·부동산(임대·시행), 신설 (주)대농티앤씨: 섬유제품 제조 및 판매(패션소재). 둘 다 비상장(섹션 4).",
+  "conclusion.transaction_value는 모집총액 9,419,572,418원(= 감소할 자본금 1,000,000,000 + 준비금 8,419,572,418, 섹션 4). 신설회사 발행 200,000주(배정대상 200,077주, 단주 약 77주), 액면 5,000원.",
+  "이사회 결의일 2026-05-12, 분할주주총회 2026-07-30, 분할기일 2026-09-01, 신주배정기준일 2026-08-31(섹션 3.3·4·5)."
+ ],
+ "extracted_at": "2026-10-26T15:53:14+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "10",
+   "title": "VII. 주식매수청구권에 관한 사항",
+   "chars_read": 224,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 32,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "3.2",
+   "title": "II. 형태",
+   "chars_read": 61,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 161,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 381,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "3.5",
+   "title": "V. 당사회사에 관한 사항 요약",
+   "chars_read": 239,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "3.6",
+   "title": "VI. 그 외 추가사항",
+   "chars_read": 96,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 분할에 관한 기본사항",
+   "chars_read": 3401,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20260630000924",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 1897,
+   "how": "section"
+  }
+ ]
+}

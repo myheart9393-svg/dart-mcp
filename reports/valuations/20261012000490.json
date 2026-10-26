@@ -1,0 +1,456 @@
+{
+ "rcept_no": "20261012000490",
+ "original_rcept_no": "20260921000209",
+ "related_rcept_nos": [
+  "20260921000209"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01797635",
+  "name": "에이엘로봇",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 대신증권이 희망공모가액 15,700원~17,600원을 제시하고, 수요예측 결과 및 주식시장 상황 등을 감안하여 발행회사와 협의해 확정공모가액을 결정할 예정",
+  "cite": {
+   "section_id": "7",
+   "offset": 2064,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "대신증권㈜ (대표주관회사)",
+   "target": "에이엘로봇",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "고영",
+      "value": {
+       "value": 39.43,
+       "unit": "배",
+       "text": "39.43 x",
+       "cite": {
+        "section_id": "7",
+        "offset": 48438,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 LTM PER"
+     },
+     {
+      "name": "큐렉소",
+      "value": {
+       "value": 61.01,
+       "unit": "배",
+       "text": "61.01 x",
+       "cite": {
+        "section_id": "7",
+        "offset": 48448,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 LTM PER"
+     },
+     {
+      "name": "씨피시스템",
+      "value": {
+       "value": 35.36,
+       "unit": "배",
+       "text": "35.36 x",
+       "cite": {
+        "section_id": "7",
+        "offset": 48458,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 LTM PER"
+     },
+     {
+      "name": "아진엑스텍",
+      "value": {
+       "value": 23.28,
+       "unit": "배",
+       "text": "23.28 x",
+       "cite": {
+        "section_id": "7",
+        "offset": 48468,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 LTM PER"
+     },
+     {
+      "name": "라온로보틱스",
+      "value": {
+       "value": 26.78,
+       "unit": "배",
+       "text": "26.78 x",
+       "cite": {
+        "section_id": "7",
+        "offset": 48478,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 2분기말 LTM PER"
+     }
+    ],
+    "multiple": {
+     "value": 37.17,
+     "unit": "배",
+     "text": "37.17 배",
+     "cite": {
+      "section_id": "7",
+      "offset": 48977,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 7751,
+     "unit": "백만원",
+     "text": "7,751 백만원",
+     "cite": {
+      "section_id": "7",
+      "offset": 48860,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 23.84,
+      "unit": "%",
+      "text": "23.84%",
+      "cite": {
+       "section_id": "7",
+       "offset": 56247,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 32.06,
+      "unit": "%",
+      "text": "32.06%",
+      "cite": {
+       "section_id": "7",
+       "offset": 56238,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 23108,
+     "unit": "원",
+     "text": "23,108 원",
+     "cite": {
+      "section_id": "7",
+      "offset": 49003,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 15700,
+      "unit": "원",
+      "text": "15,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 56275,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17600,
+      "unit": "원",
+      "text": "17,600원",
+      "cite": {
+       "section_id": "7",
+       "offset": 56285,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2028년 추정 당기순이익(11,682백만원)의 현가 x 유사기업 PER ÷ 주식수 x (1-할인율). 현가할인율(연) 20.0%(C = A / 1.2^2.25). result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. EV/EBITDA·PBR·PSR은 부적합으로 제외"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "에이엘로봇",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 23108,
+     "unit": "원",
+     "text": "23,108 원",
+     "cite": {
+      "section_id": "7",
+      "offset": 49003,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "대신증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 15700,
+      "unit": "원",
+      "text": "15,700원",
+      "cite": {
+       "section_id": "7",
+       "offset": 56275,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17600,
+      "unit": "원",
+      "text": "17,600원",
+      "cite": {
+       "section_id": "7",
+       "offset": 56285,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 23,108원에 32.06%~23.84% 할인율을 적용해 희망공모가액 15,700원~17,600원을 제시. 확정공모가액은 수요예측 후 발행회사와 협의해 결정 예정",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "대신증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "EV/EBITDA",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 7751,
+   "unit": "백만원",
+   "text": "7,751 백만원",
+   "cite": {
+    "section_id": "7",
+    "offset": 48860,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "2028년 추정 당기순이익 11,682백만원을 연 20.0%로 2.25년 할인한 현재가치(추정치)",
+  "multiple": {
+   "value": 37.17,
+   "unit": "배",
+   "text": "37.17 배",
+   "cite": {
+    "section_id": "7",
+    "offset": 48977,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 12468320,
+   "unit": "주",
+   "text": "12,468,320 주",
+   "cite": {
+    "section_id": "7",
+    "offset": 48905,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 23108,
+   "unit": "원",
+   "text": "23,108 원",
+   "cite": {
+    "section_id": "7",
+    "offset": 49003,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 23.84,
+    "unit": "%",
+    "text": "23.84%",
+    "cite": {
+     "section_id": "7",
+     "offset": 56247,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 32.06,
+    "unit": "%",
+    "text": "32.06%",
+    "cite": {
+     "section_id": "7",
+     "offset": 56238,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 15700,
+    "unit": "원",
+    "text": "15,700원",
+    "cite": {
+     "section_id": "7",
+     "offset": 56275,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 17600,
+    "unit": "원",
+    "text": "17,600원",
+    "cite": {
+     "section_id": "7",
+     "offset": 56285,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "고영",
+    "value": {
+     "value": 39.43,
+     "unit": "배",
+     "text": "39.43 x",
+     "cite": {
+      "section_id": "7",
+      "offset": 48438,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 LTM PER"
+   },
+   {
+    "name": "큐렉소",
+    "value": {
+     "value": 61.01,
+     "unit": "배",
+     "text": "61.01 x",
+     "cite": {
+      "section_id": "7",
+      "offset": 48448,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 LTM PER"
+   },
+   {
+    "name": "씨피시스템",
+    "value": {
+     "value": 35.36,
+     "unit": "배",
+     "text": "35.36 x",
+     "cite": {
+      "section_id": "7",
+      "offset": 48458,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 LTM PER"
+   },
+   {
+    "name": "아진엑스텍",
+    "value": {
+     "value": 23.28,
+     "unit": "배",
+     "text": "23.28 x",
+     "cite": {
+      "section_id": "7",
+      "offset": 48468,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 LTM PER"
+   },
+   {
+    "name": "라온로보틱스",
+    "value": {
+     "value": 26.78,
+     "unit": "배",
+     "text": "26.78 x",
+     "cite": {
+      "section_id": "7",
+      "offset": 48478,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 2분기말 LTM PER"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260515–20261026, listed_only=False)에서 IPO/full로 확인. 원본 20260921000209(기재정정 전), supersedes 20260921000209.",
+  "비교기업 PER: 기준주가 ÷ 2025년 3분기~2026년 2분기 합산(지배주주) 당기순이익 기준 EPS, 적용주식수는 분석기준일(2026.09.03) 상장주식총수. 적용 PER 37.17배(5개사 평균).",
+  "현가할인율 20.0%는 주관사 판단. 참고: 2023년 이후 코스닥 기술특례상장기업 연 할인율 평균 20.6%(할인기간 평균 2.7년), 비교기업 5개사 WACC 평균 13.95%(DataGuide 2025.12.30)(7, 주당 평가가액 산출 주2).",
+  "할인율 원문 표기 '32.06% ~ 23.84%'(하단 15,700원 ↔ 32.06%, 상단 17,600원 ↔ 23.84%).",
+  "적용주식수 12,468,320주 = 기발행 9,584,870 + 공모 신주 2,400,000 + 상장주선인 의무인수 63,694 + 희석가능주식 419,756(주식매수선택권 292,368·신주인수권 127,388).",
+  "코스닥시장 상장 공모. 확정공모가액은 이 정정본 시점 미정. market은 공모 당시 비상장이라 '기타'."
+ ],
+ "extracted_at": "2026-10-26T16:18:19+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261012000490",
+   "file_id": "main",
+   "section_id": "4.3",
+   "title": "3. 공모가격 결정방법",
+   "chars_read": 735,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261012000490",
+   "file_id": "main",
+   "section_id": "7",
+   "title": "IV. 인수인의 의견(분석기관의 평가의견)",
+   "chars_read": 13317,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

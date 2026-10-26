@@ -1,0 +1,425 @@
+{
+ "rcept_no": "20261021000210",
+ "original_rcept_no": "20260929000347",
+ "related_rcept_nos": [
+  "20260929000347"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01658035",
+  "name": "옵토닉스",
+  "market": "기타",
+  "induty_code": null
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 한국투자증권이 영업 현황·산업 전망·주식시장 상황 등을 고려해 희망공모가액 10,000원~12,000원 제시, 수요예측 후 발행회사와 협의해 확정 예정",
+  "cite": {
+   "section_id": "7",
+   "offset": 2536,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한국투자증권㈜ (대표주관회사)",
+   "target": "옵토닉스",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "EV/EBITDA",
+    "peers": [
+     {
+      "name": "LIG디펜스앤에어로스페이스",
+      "value": {
+       "value": 30.5,
+       "unit": "배",
+       "text": "30.50",
+       "cite": {
+        "section_id": "7",
+        "offset": 49075,
+        "file_id": "main"
+       }
+      },
+      "note": "EV/EBITDA (2026년 반기 LTM)"
+     },
+     {
+      "name": "파이버프로",
+      "value": {
+       "value": 25.35,
+       "unit": "배",
+       "text": "25.35",
+       "cite": {
+        "section_id": "7",
+        "offset": 49083,
+        "file_id": "main"
+       }
+      },
+      "note": "EV/EBITDA (2026년 반기 LTM)"
+     },
+     {
+      "name": "그린광학",
+      "value": {
+       "value": 19.95,
+       "unit": "배",
+       "text": "19.95",
+       "cite": {
+        "section_id": "7",
+        "offset": 49091,
+        "file_id": "main"
+       }
+      },
+      "note": "EV/EBITDA (2026년 반기 LTM)"
+     }
+    ],
+    "multiple": {
+     "value": 25.27,
+     "unit": "배",
+     "text": "25.27x",
+     "cite": {
+      "section_id": "7",
+      "offset": 49554,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 5276,
+     "unit": "백만원",
+     "text": "5,276백만원",
+     "cite": {
+      "section_id": "7",
+      "offset": 49505,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 17.8,
+      "unit": "%",
+      "text": "17.80%",
+      "cite": {
+       "section_id": "7",
+       "offset": 50825,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 31.0,
+      "unit": "%",
+      "text": "31.00%",
+      "cite": {
+       "section_id": "7",
+       "offset": 50816,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 14615,
+     "unit": "원",
+     "text": "14,615원",
+     "cite": {
+      "section_id": "7",
+      "offset": 49727,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 50848,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12000,
+      "unit": "원",
+      "text": "12,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 50858,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: {2026년 반기 LTM EBITDA x 비교기업 평균 EV/EBITDA - 순차입금} ÷ 공모 후 주식수 x (1-할인율). 순차입금 (-)6,489백만원(공모자금 유입 22,000백만원 차감), 적정시가총액 139,803백만원. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "옵토닉스",
+    "basis": "EV/EBITDA 주당 평가가액(할인 전)",
+    "value": {
+     "value": 14615,
+     "unit": "원",
+     "text": "14,615원",
+     "cite": {
+      "section_id": "7",
+      "offset": 49727,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "한국투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 10000,
+      "unit": "원",
+      "text": "10,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 50848,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12000,
+      "unit": "원",
+      "text": "12,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 50858,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 14,615원에 할인율 31.00%~17.80%를 적용해 희망공모가액 10,000원~12,000원 제시. 확정공모가는 수요예측 후 결정(이 정정본 기준 미정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "한국투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "EV/EBITDA",
+  "excluded_multiples": [
+   "PER",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 5276,
+   "unit": "백만원",
+   "text": "5,276백만원",
+   "cite": {
+    "section_id": "7",
+    "offset": 49505,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "실적치(2026년 반기 기준 과거 12개월(LTM) EBITDA, 연결기준)",
+  "multiple": {
+   "value": 25.27,
+   "unit": "배",
+   "text": "25.27x",
+   "cite": {
+    "section_id": "7",
+    "offset": 49554,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 9566000,
+   "unit": "주",
+   "text": "9,566,000주",
+   "cite": {
+    "section_id": "7",
+    "offset": 49678,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 14615,
+   "unit": "원",
+   "text": "14,615원",
+   "cite": {
+    "section_id": "7",
+    "offset": 49727,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 17.8,
+    "unit": "%",
+    "text": "17.80%",
+    "cite": {
+     "section_id": "7",
+     "offset": 50825,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 31.0,
+    "unit": "%",
+    "text": "31.00%",
+    "cite": {
+     "section_id": "7",
+     "offset": 50816,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 10000,
+    "unit": "원",
+    "text": "10,000원",
+    "cite": {
+     "section_id": "7",
+     "offset": 50848,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 12000,
+    "unit": "원",
+    "text": "12,000원",
+    "cite": {
+     "section_id": "7",
+     "offset": 50858,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "LIG디펜스앤에어로스페이스",
+    "value": {
+     "value": 30.5,
+     "unit": "배",
+     "text": "30.50",
+     "cite": {
+      "section_id": "7",
+      "offset": 49075,
+      "file_id": "main"
+     }
+    },
+    "note": "EV/EBITDA (2026년 반기 LTM)"
+   },
+   {
+    "name": "파이버프로",
+    "value": {
+     "value": 25.35,
+     "unit": "배",
+     "text": "25.35",
+     "cite": {
+      "section_id": "7",
+      "offset": 49083,
+      "file_id": "main"
+     }
+    },
+    "note": "EV/EBITDA (2026년 반기 LTM)"
+   },
+   {
+    "name": "그린광학",
+    "value": {
+     "value": 19.95,
+     "unit": "배",
+     "text": "19.95",
+     "cite": {
+      "section_id": "7",
+      "offset": 49091,
+      "file_id": "main"
+     }
+    },
+    "note": "EV/EBITDA (2026년 반기 LTM)"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260523–20261026, listed_only=False)에서 IPO/full, correction_kind=기재정정, body_rcept_no=본 건, 원본 20260929000347(supersedes).",
+  "평가 섹션은 IV. 인수인의 의견(§7). cite offset은 §7 텍스트 기준(요약표·(2) 비교기업 EV/EBITDA 산출·(3) 주당 평가가액 산출·(4) 희망공모가액 결정 표).",
+  "비교기업 3사(LIG디펜스앤에어로스페이스·파이버프로·그린광학) EV/EBITDA 산술평균 25.27배. PER·PBR·PSR은 부적합 사유로 제외.",
+  "할인율은 2023년 이후 코스닥 일반상장법인 평가액 대비 할인율(평균 하단 33.9%·상단 22.5%)을 참고. 적용주식수에 주식매수선택권 219,000주는 행사 개시가 상장 1년 이후라 제외.",
+  "확정공모가액은 이 정정본에 '-'(미정). 이후 발행조건확정 정정이 나오면 따로 볼 것.",
+  "코스닥시장 상장(일반상장). market은 공모 당시 비상장이라 '기타'.",
+  "배치 후 정리: 범위를 원문 표기 순서가 아니라 숫자 크기 순서(min ≤ max)로 바꿈(값·cite는 그대로)"
+ ],
+ "extracted_at": "2026-10-26T16:23:12+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261021000210",
+   "file_id": "main",
+   "section_id": "7",
+   "title": "IV. 인수인의 의견(분석기관의 평가의견)",
+   "chars_read": 416,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20261021000210",
+   "file_id": "main",
+   "section_id": "7.h1",
+   "title": "가. 평가 결과",
+   "chars_read": 3011,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261021000210",
+   "file_id": "main",
+   "section_id": "7.h10",
+   "title": "(4) 희망공모가액 결정",
+   "chars_read": 4459,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261021000210",
+   "file_id": "main",
+   "section_id": "7.h8",
+   "title": "라. 희망공모가액의 산정",
+   "chars_read": 2289,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261021000210",
+   "file_id": "main",
+   "section_id": "7.h9",
+   "title": "(2) 비교기업 EV/EBITDA 산출",
+   "chars_read": 2067,
+   "how": "section"
+  }
+ ]
+}
