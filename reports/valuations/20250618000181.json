@@ -26,7 +26,9 @@
   "ratio_text": "분할회사 주주에게 1주당 0.44302361주(분할비율 0.44302361 x 1주의 금액비율 1) 배정, 분할회사 주식은 1주당 0.55697639주 비율로 병합",
   "status": "완료",
   "status_source": "20250818000144",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "합병·분할합병 아님"
  },
  "external_valuation": {
   "required": false,
@@ -200,6 +202,14 @@
    "title": "III. 분할의 요령",
    "chars_read": 2033,
    "how": "section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "해당 없음",
+   "basis": "분할은 상대가치 비교 대상이 아니다(시행세칙 제7조는 합병가액)"
   }
  ]
 }

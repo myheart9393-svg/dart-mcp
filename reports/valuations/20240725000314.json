@@ -22,7 +22,9 @@
   "ratio_text": "(주)차이커뮤니케이션 : 한국제11호기업인수목적(주) = 1: 0.1970249(한국제11호기업인수목적(주)의 기명식 보통주식 1주당 (주)차이커뮤니케이션의 기명식 보통주식 0.1970249주)",
   "status": "완료",
   "status_source": "20240904000113",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/0.note '비상장 존속법인(스팩 소멸방식). 시행령 제17' 외 3곳"
  },
  "external_valuation": {
   "required": true,
@@ -566,6 +568,14 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 35850,
    "how": "find_tables/search/section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 5795 '는 단점이 있습니다.\n\n2.3.4. 상대가치 분석방법\n\n자본시장과금융투자업에관한' — 추출 누락 의심"
   }
  ]
 }

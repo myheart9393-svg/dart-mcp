@@ -24,7 +24,9 @@
   "ratio_text": "HD현대중공업 주식회사 : HD현대미포 주식회사 = 1 : 0.4059146",
   "status": "완료",
   "status_source": "20251201000400",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": false,
@@ -179,6 +181,14 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 5953,
    "how": "section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 288 '- 수익가치 | - | - |\n| 상대가치 | - | - |\n| 합병가액(1주' — 추출 누락 의심"
   }
  ]
 }

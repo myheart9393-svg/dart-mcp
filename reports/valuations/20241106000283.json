@@ -22,7 +22,9 @@
   "ratio_text": "(주)블랙야크아이앤씨: 미래에셋비전기업인수목적1호(주) = 1: 0.5169294",
   "status": "완료",
   "status_source": "20250106000199",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/0.weights.basis '(증발공 시행세칙 제4조, SPAC 협의 평가방법)' 외 3곳"
  },
  "external_valuation": {
   "required": true,

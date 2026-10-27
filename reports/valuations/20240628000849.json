@@ -24,7 +24,9 @@
   "ratio_text": "(주)에스피소프트 : (주)유호스트 = 1 : 2.3260536",
   "status": "완료",
   "status_source": "20240816000042",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "합병·분할합병 아님"
  },
  "external_valuation": {
   "required": true,
@@ -533,5 +535,19 @@
   }
  ],
  "extracted_at": "2026-10-27T09:51:25+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "absent_reasons": [
+  {
+   "path": "valuations/2/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h10, 5.h11, 5.h12, 5.h13, 5.h14, 5.h15, 5.h16, 5.h17, 5.h18, 5.h19, 5.h2, 5.h20, 5.h21, 5.h22, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7, 5.h8, 5.h9에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 5477 '재한다는 단점이 있습니다.2.3.4 상대가치 분석방법「자본시장과 금융투자업에 관' — 추출 누락 의심"
+  }
+ ]
 }

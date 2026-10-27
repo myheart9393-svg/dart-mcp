@@ -40,7 +40,10 @@
         "status": {"enum": ["진행", "완료", "철회·중단", "미확인", null],
                    "description": "거래 상태(valuation status CLI가 같은 회사의 이후 공시 목록으로 판정). IPO·유상증자는 null"},
         "status_source": {"anyOf": [{"$ref": "#/$defs/rcept_no"}, {"type": "null"}], "description": "상태 근거 공시 접수번호(완료·철회 서류). 진행·미확인은 null"},
-        "status_checked": {"anyOf": [{"$ref": "#/$defs/date"}, {"type": "null"}], "description": "상태를 판정한 날"}
+        "status_checked": {"anyOf": [{"$ref": "#/$defs/date"}, {"type": "null"}], "description": "상태를 판정한 날"},
+        "spac": {"enum": [true, false, "unknown", null],
+                 "description": "SPAC 합병 여부(파생: casedb derive — 회사명·상대방명과 외부평가 근거·가중치 근거·note의 SPAC/176조의5 ③ 문구)"},
+        "spac_basis": {"type": ["string", "null"], "description": "SPAC 판정 근거(이름·문구 위치)"}
       }
     },
     "external_valuation": {
@@ -77,6 +80,16 @@
     "ipo": {"anyOf": [{"$ref": "#/$defs/ipo"}, {"type": "null"}]},
     "citations": {"type": "array", "items": {"$ref": "#/$defs/citation"}, "description": "읽은 섹션 목록(참조 부록)"},
     "notes": {"type": "array", "items": {"type": "string"}, "description": "원문 한계·짝 공시 안내 등. 추정은 쓰지 않는다"},
+    "relative_value": {"anyOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["applied"],
+                       "properties": {"applied": {"type": ["boolean", "null"], "description": "거래 단위로 상대가치를 산정했는지"},
+                                      "reason": {"type": ["string", "null"], "description": "미산정 사유 원문 요지(예: 유사회사 3사 미만)"},
+                                      "cite": {"anyOf": [{"$ref": "#/$defs/cite"}, {"type": "null"}]}}}],
+                       "description": "거래 단위 상대가치 산정 여부와 사유(합병·교환). 원소 relative와 별도"},
+    "absent_reasons": {"type": "array", "description": "비어 있는 필드의 이유(값을 채우지 않는다)",
+                       "items": {"type": "object", "additionalProperties": false, "required": ["path", "field", "reason", "basis"],
+                                 "properties": {"path": {"type": "string"}, "field": {"type": "string"},
+                                                "reason": {"enum": ["원문에 없음", "추출 안 함", "해당 없음"]},
+                                                "basis": {"type": "string", "description": "판정 근거(키워드 감사 위치 등)"}}}},
     "source_inconsistent": {"type": "array", "description": "원문 자체가 항등식에 안 맞는 곳(값은 원문대로). validate는 이 항목의 경고를 source_inconsistent로 센다",
                             "items": {"type": "object", "additionalProperties": false, "required": ["check", "path", "note"],
                                       "properties": {"check": {"enum": ["a_beta", "b_ke", "c_wacc", "d_intrinsic", "e_market_price", "f_ratio", "g_asset_sum"]},
@@ -167,6 +180,16 @@
                        "target_dv": {"anyOf": [{"$ref": "#/$defs/num"}, {"type": "null"}],
                                      "description": "목표 타인자본 구성비율 D/(D+E). 원문이 '부채비율'이라 써도 자기자본비율과 합이 100%면 이쪽"},
                        "g": {"$ref": "#/$defs/num_or_null"},
+                       "specific_risk": {"anyOf": [{"$ref": "#/$defs/num"}, {"type": "null"}],
+                                         "description": "회사 고유위험 프리미엄(규모위험과 별도로 가산한 경우만). 원문 라벨이 'Firm Specific Risk'여도 근거가 KICPA 규모위험이면 size_premium"},
+                       "size_premium_basis": {"type": ["string", "null"], "description": "규모위험 근거(예: KICPA Size Premium 5분위, Micro-Cap). 원문 문구"},
+                       "beta_method": {"anyOf": [{"type": "null"}, {"type": "object", "additionalProperties": false,
+                                       "properties": {"adjusted": {"type": ["boolean", "null"], "description": "조정베타(Blume 등) 여부"},
+                                                      "period": {"type": ["string", "null"], "description": "관측기간(예: 2년)"},
+                                                      "frequency": {"type": ["string", "null"], "description": "주기(주간·월간)"},
+                                                      "index": {"type": ["string", "null"], "description": "시장지수(KOSPI 등)"},
+                                                      "source": {"type": ["string", "null"], "description": "Bloomberg·KICPA 조회·코스콤 등"},
+                                                      "cite": {"anyOf": [{"$ref": "#/$defs/cite"}, {"type": "null"}]}}}]},
                        "peers": {"type": "array", "items": {"$ref": "#/$defs/peer"}}}}]
         },
         "relative": {

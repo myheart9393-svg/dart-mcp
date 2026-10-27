@@ -387,3 +387,75 @@ def test_industry_section_groups():
     assert matches("26429", "26") and not matches("26429", "27")
     rows = [dict(_r("A", "외부평가", 8.0), induty_code="29271"), dict(_r("B", "외부평가", 9.0), induty_code="58222")]
     assert [r["rcept_no"] for r in filter_rows(rows, industries={"제조업"})] == ["A"]
+
+
+# --------------------------------------------------------------------------- v1.6 조회 기능
+def test_firm_filter_uses_subject_and_role_only():
+    rows = [dict(_r("A", "외부평가", 8.0), subject="한미회계법인", firm="한미회계법인(존속), 한울회계법인(소멸)"),
+            dict(_r("A", "외부평가", 12.0), subject="한울회계법인", firm="한미회계법인(존속), 한울회계법인(소멸)"),
+            dict(_r("B", "재무자문", 9.0), subject="한미회계법인"), dict(_r("B", "외부평가", 11.0), subject="이촌회계법인")]
+    ext = filter_rows(rows, firm="한미")
+    assert [(r["rcept_no"], r["wacc"]) for r in ext] == [("A", 8.0)]  # 같은 거래의 한울 값·다른 역할은 빠진다
+    assert deal_stats(ext)["variables"]["wacc"]["per_deal"] == {"A": 8.0}
+    assert {r["wacc"] for r in filter_rows(rows, firm="한미", firm_role="any")} == {8.0, 9.0}
+    assert [r["wacc"] for r in filter_rows(rows, firm="한미", firm_role="재무자문")] == [9.0]
+
+
+def test_status_and_spac_filters():
+    rows = [dict(_r("A", "외부평가", 8.0), status="완료", spac=True), dict(_r("B", "외부평가", 9.0), status="철회·중단", spac=False),
+            dict(_r("C", "외부평가", 10.0), status=None, spac="unknown")]
+    assert [r["rcept_no"] for r in filter_rows(rows, exclude_statuses={"철회·중단"})] == ["A", "C"]
+    assert [r["rcept_no"] for r in filter_rows(rows, statuses={"none"})] == ["C"]
+    assert [r["rcept_no"] for r in filter_rows(rows, spac={"true"})] == ["A"]
+    assert [r["rcept_no"] for r in filter_rows(rows, spac={"unknown"})] == ["C"]
+
+
+def test_derive_spac_by_name_text_and_unknown():
+    from dart_mcp.casedb import derive_spac
+
+    def case(name, cp, basis="", note="", ev=""):
+        return {"company": {"name": name}, "deal": {"type": "merger", "counterparty": cp},
+                "external_valuation": {"basis_text": ev}, "valuations": [{"weights": {"basis": basis}, "note": note}], "notes": []}
+    assert derive_spac(case("바이오포트", "디비금융제11호기업인수목적(주)"))[0] is True
+    v, b = derive_spac(case("지슨", "주식회사 지슨", ev="SPAC 합병으로 피합병법인은"))
+    assert v is True and b.startswith("문구:")  # 이름엔 없고 문구로만
+    assert derive_spac(case("넥상스코리아", "넥상스대영", note="상증세법 보충적 평가"))[0] is False
+    assert derive_spac(case("A", "B"))[0] == "unknown"  # 볼 문구가 없다
+    assert derive_spac({**case("A", "B"), "deal": {"type": "split", "counterparty": None}})[0] is False
+
+
+def test_compare_percentile_nearest_and_small_sample():
+    from dart_mcp.casedb import compare, percentile
+
+    assert percentile([1, 2, 3, 4], 2.5) == 50 and percentile([1, 2, 2, 3], 2) == 50
+    rows = [dict(_r(k, "외부평가", w), g=g, company=k, spac=True) for k, w, g in (("A", 10.0, 1.0), ("B", 11.0, 1.0), ("C", 14.0, 0.0))]
+    out = compare(rows, {"wacc": 11.2, "g": 1.0}, n=2)
+    assert out["variables"]["wacc"]["n"] == 3 and out["variables"]["wacc"]["note"].startswith("표본 부족")
+    assert [x["rcept_no"] for x in out["nearest"]] == ["B", "A"] and out["warning"].startswith("표본 부족")
+
+
+def test_export_csv_has_bom_and_columns(tmp_path):
+    import csv
+
+    from dart_mcp.casedb import EXPORT_COLUMNS, export_rows, write_csv
+
+    case = copy.deepcopy(MIN_CASE)
+    rows = export_rows([case])
+    assert len(rows) == len(case["valuations"]) and rows[0]["WACC"] == 8.1543
+    p = tmp_path / "x.csv"
+    write_csv(rows, p)
+    assert p.read_bytes()[:3] == b"\xef\xbb\xbf"
+    assert next(csv.reader(open(p, encoding="utf-8-sig"))) == EXPORT_COLUMNS
+
+
+def test_null_audit_negation_marks_absent(monkeypatch):
+    from dart_mcp import nullaudit
+
+    cite = {"section_id": "5", "offset": 0, "file_id": "main"}
+    case = {"rcept_no": "X", "deal": {"type": "merger"}, "conclusion": {},
+            "valuations": [{"purpose": "합병가액", "method": "DCF", "dcf": {"wacc": {"value": 9, "unit": "%", "text": "9%", "cite": cite},
+                                                                       "size_premium": None, "peers": []}}]}
+    monkeypatch.setattr(nullaudit, "_section_texts", lambda r, s: {"5": "자기자본비용 산정시 Size risk premium을 반영하지 않았습니다." + " " * 200 + "동종기업 Unlevered Beta 표"})
+    got = {it["field"]: it for it in nullaudit.audit_case(case)["items"]}
+    assert got["size_premium"]["reason"] == "원문에 없음" and "미적용 명시" in got["size_premium"]["basis"]
+    assert got["peers"]["reason"] == "추출 안 함" and got["relative"]["reason"] == "원문에 없음"

@@ -25,7 +25,9 @@
   "ratio_text": "디비월드 : 디비메탈 = 1 : 0.0362402",
   "status": "완료",
   "status_source": "20250701000360",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": false,
@@ -265,6 +267,20 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 25365,
    "how": "find_tables/search/section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "valuations/1/income_value",
+   "field": "income_value",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
   }
  ]
 }

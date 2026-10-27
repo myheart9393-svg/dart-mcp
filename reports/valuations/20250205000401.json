@@ -25,7 +25,9 @@
   "ratio_text": "합병비율: 우양에이치씨㈜ : 케이비제26호기업인수목적㈜ = 1:0.1620483",
   "status": "완료",
   "status_source": "20250313000443",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/0.weights.basis '(증발공 시행세칙 제4조, SPAC과 협의한 평가방법)' 외 3곳"
  },
  "external_valuation": {
   "required": true,

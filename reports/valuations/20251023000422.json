@@ -22,7 +22,9 @@
   "ratio_text": "대신밸런스제18호기업인수목적(주) 보통주 1주당 (주)지에프아이 보통주 0.1589320주 교부(1 : 0.1589320)",
   "status": "완료",
   "status_source": "20251226000449",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: external_valuation.basis_text '제8조에 따라 주권상장법인(SPAC)과 주권비상장법인 간 합병' 외 4곳"
  },
  "external_valuation": {
   "required": true,

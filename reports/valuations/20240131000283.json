@@ -22,7 +22,9 @@
   "ratio_text": "㈜삐아 : 신영해피투모로우제7호기업인수목적㈜ = 1:0.2727025",
   "status": "완료",
   "status_source": "20240411000658",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: external_valuation.basis_text '융투자업에관한법률 시행령 제176조의5제3항의 규정에 의거 주권상장법인' 외 3곳"
  },
  "external_valuation": {
   "required": true,

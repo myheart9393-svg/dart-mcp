@@ -22,7 +22,9 @@
   "ratio_text": "(주)크리에이츠 : 엔에이치기업인수목적20호(주) = 1 : 0.4005468",
   "status": "철회·중단",
   "status_source": "20240221001443",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/2.note '코스닥 상장 SPAC: 기산일 2023-08-2' 외 1곳"
  },
  "external_valuation": {
   "required": true,

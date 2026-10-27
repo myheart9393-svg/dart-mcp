@@ -22,7 +22,9 @@
   "ratio_text": "합병비율: ㈜뉴키즈온 : 케이비제28호기업인수목적㈜ = 1 : 0.1832341(케이비제28호기업인수목적㈜ 기명식 보통주식 1주당㈜뉴키즈온 기명식 보통주식 0.1832341주)",
   "status": "완료",
   "status_source": "20250625000299",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/2.note '코스닥 상장 SPAC(피합병법인, 소멸). 기산' 외 1곳"
  },
  "external_valuation": {
   "required": true,
@@ -561,5 +563,13 @@
   }
  ],
  "extracted_at": "2026-10-27T10:05:11+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "absent_reasons": [
+  {
+   "path": "valuations/1/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: 원문이 미적용 명시 — section 5 offset 122410 '주) 자본비용 산정시 아래의 이유로 Size risk premium을 반영하지 않았습니다.자기자본비용은'"
+  }
+ ]
 }

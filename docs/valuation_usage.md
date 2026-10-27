@@ -6,7 +6,10 @@
 외부평가기관 값이 대표값(없으면 그 거래 값들의 중앙값). 결과는 항상 "N건 거래, M개 값"으로 읽는다.
 
 ```bash
-uv run python -m dart_mcp.valuation stats reports/valuations [--from --to --deal-type --method --purpose --firm --regime]
+uv run python -m dart_mcp.valuation stats reports/valuations [--from --to --deal-type --method --purpose --industry --regime
+    --firm X --as 외부평가|재무자문|any --status --exclude-status --spac true|false|unknown]
+uv run python -m dart_mcp.casedb compare reports/valuations [필터…] --wacc 11 --g 1 --srp 3.5 --beta-l 1.0 [--n 3]
+uv run python -m dart_mcp.casedb export reports/valuations --csv 사례.csv [필터…]   # 평가 요소 1행, UTF-8 BOM(엑셀)
 ```
 
 ## 조회 예시 5개
@@ -14,7 +17,7 @@ uv run python -m dart_mcp.valuation stats reports/valuations [--from --to --deal
 | # | 질문 | 명령 | 결과(2026-10-27) |
 |---|---|---|---|
 | 1 | 업종별 WACC | `stats … --method DCF --industry 29` (KSIC 코드 접두, 2자리=중분류. 결과 `industries`에 중분류 라벨별 거래 수) | 29 기타 기계·장비: 8건 거래, WACC 중앙값 11.88%(Q1–Q3 11.26–13.09%). 다른 중분류는 DCF 거래 4건 이하 |
-| 2 | 특정 평가기관의 사례 | `stats … --firm 이촌` (외부평가기관 문구 또는 평가 주체에 포함) | 6건 거래·49개 값, WACC 중앙값 11.41%(8.43–17.59%), g 중앙값 1.0%. 외부평가 거래 수 순위는 결과의 `firms` |
+| 2 | 특정 평가기관의 사례 | `stats … --firm 이촌` (그 기관이 **평가 주체인 원소만**, 기본 `--as 외부평가`; 재무자문까지 보려면 `--as any`) | 12건 거래·13개 값, WACC 중앙값 11.12%(8.43–17.59%), g 중앙값 1.0%. v1.5까지는 같은 거래의 다른 기관 값이 섞였다(이촌 26개 값) |
 | 3 | IPO 비교기업 선정 | `stats … --deal-type ipo` → `ipo.multiple_types`, 각 사례 JSON의 `ipo.peers[]`·`excluded_multiples` | 64건: PER 51·EV/EBITDA 10·PSR 2·PBR 1. PER 중앙값 24.96배, 할인율 하단·상단 중앙값 23.9%·37.8%. 비교기업명·배수는 `ipo.peers[]`(25건에 있음) |
 | 4 | 본질가치 가중 | `stats … --method 본질가치` → 사례 JSON의 `valuations[].weights`·`asset_value`·`income_value` | 18건 거래·54개 원소. 가중치는 전부 자산 1 : 수익 1.5(시행세칙 제4조). 예: 보원케미칼(한미회계법인) 자산 2,133원·수익 8,197원 |
 | 5 | 민감도 범위 | 사례 JSON의 `sensitivity[]` (`variables` 문구 + `range.min/max`) | 68개 표. 예: 보원케미칼(한미회계법인) WACC 10.77–11.77%·g 0.50–1.50% → 1주당 수익가치 7,210–9,396원 |
@@ -23,6 +26,9 @@ uv run python -m dart_mcp.valuation stats reports/valuations [--from --to --deal
 - 합병·분할·주식교환은 **반드시 `--regime`을 준다.** 2026.12.9 이후 이사회 결의분부터 공정가액 체계라 기준시가 사례와 한 분포로 보지 않는다
   (두 체계가 섞이면 결과에 `warning`). IPO는 `--deal-type ipo`만으로 충분하다.
 - 공정가치평가(RCPS 등)·손상검사 원소는 기본값에서 빠진다. 넣으려면 `--purpose all`.
+- **선례 대비 내 가정의 위치**: `casedb compare`가 변수별 분포(n·중앙값·Q1–Q3)와 내 값의 백분위, 표준화 거리 최근접 선례 N건(접수번호·기관·SPAC·상태)을 준다.
+  예: 제조업 합병 DCF(기준시가, 2023-10-27 이후, 철회 제외) — WACC 11.0% 백분위 54, 규모위험 3.5% 36, βL 1.0 61, 최근접 바이오포트·셀로맥스사이언스·엔비알모션(모두 SPAC).
+- **SPAC 합병**은 `deal.spac`(파생)으로 가른다(`--spac false`). 합병 70건 중 SPAC 36 — 섞으면 g(SPAC 1.0% 일색)와 WACC 분포가 SPAC 쪽으로 기운다.
 - 업종은 대분류로도 묶인다: `--industry 제조업`(KSIC 10–34), `정보통신`(58–63), `금융보험`(64–66), `도소매`(45–47), 또는 대분류 문자 `C`.
 - 합병·분할·교환 사례에는 `deal.status`(진행·완료·철회·중단·미확인)가 있다. 철회 건도 통계에 남고 `statuses`로 따로 센다 — 평가보고서에 인용할 때 철회 여부를 함께 적는다.
 - 원문 자체가 산식에 안 맞는 사례는 `source_inconsistent`에 표시돼 있다(10건). 그 숫자를 인용할 때는 원문의 다른 값과 함께 확인한다.
@@ -51,3 +57,5 @@ uv run python -m dart_mcp.valuation stats reports/valuations [--from --to --deal
   g > 5%, 멀티플 ≤ 0, 할인율 0–70% 밖, 자산가치 합계 불일치)는 2026-10-27 현재 4건(원문 표 합계 불일치 3·확인 필요 1)이고, 값이 범위 안이라고 맞는 값은 아니다.
   평가보고서에 쓰는 숫자는 DART 원문에서 직접 확인하고 원문을 출처로 적는다. 사례 DB는 찾는 도구이지 출처가 아니다.
 - 단위는 원문 그대로다(원·백만원·%·배). 합산·비교 전에 `unit`을 맞춘다.
+- **null은 0이 아니다.** 규모위험·비교회사·상대가치·수익가치가 비어 있으면 `absent_reasons`에 이유가 있다("원문에 없음"·"추출 안 함"·"해당 없음",
+  키워드 감사 기준). "추출 안 함"인 건은 원문을 직접 확인한다. β 산정 방식·규모위험 근거·거래 단위 상대가치는 v1.6 스키마에 칸만 있고 기존 사례는 비어 있다.

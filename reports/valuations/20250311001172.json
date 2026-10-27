@@ -22,7 +22,9 @@
   "ratio_text": "대신밸런스제15호기업인수목적(주)의 보통주(액면가 100원) 1주당 합병법인인 티씨머티리얼즈(주)의 보통주(액면금액 500원) 0.5534034주 를 교부",
   "status": "완료",
   "status_source": "20250429000136",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/0.weights.basis '.5로 가중산술평균(시행령 176조의5 ③, SPAC과 협의하여 정하' 외 3곳"
  },
  "external_valuation": {
   "required": true,

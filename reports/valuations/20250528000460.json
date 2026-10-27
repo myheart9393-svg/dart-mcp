@@ -28,7 +28,9 @@
   "ratio_text": "키움제8호기업인수목적㈜ : ㈜지슨 = 1 : 2.8500190(㈜지슨 보통주 1주당 키움제8호기업인수목적㈜ 보통주 2.8500190주)",
   "status": "완료",
   "status_source": "20250730000041",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "문구: external_valuation.basis_text '조 및 시행세칙 4–8조. SPAC 합병으로 피합병법인은 SP' 외 4곳"
  },
  "external_valuation": {
   "required": true,

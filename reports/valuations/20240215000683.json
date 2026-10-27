@@ -26,7 +26,9 @@
   "ratio_text": "케이비제22호기업인수목적㈜의 기명식 보통주식 1주당 ㈜카티스의 기명식 보통주식 0.5953922주",
   "status": "완료",
   "status_source": "20240419000061",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: external_valuation.basis_text '자본시장법 시행령 제176조의5 제3항 기업인수목적회사 특례: 피' 외 4곳"
  },
  "external_valuation": {
   "required": true,
@@ -618,6 +620,14 @@
    "check": "g_asset_sum",
    "path": "valuations/0",
    "note": "원문 자산가치 표: 자본총계 17,972,812,080 + 조정항목 71,571,036 ≠ 조정된 순자산가액 19,329,183,116(차이 1,284,800,000). 값은 원문대로"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "valuations/1/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h10, 5.h11, 5.h12, 5.h13, 5.h14, 5.h15, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7, 5.h8, 5.h9에 키워드 없음 — 원문에 없음 추정"
   }
  ]
 }

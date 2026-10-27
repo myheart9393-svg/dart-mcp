@@ -24,7 +24,9 @@
   "ratio_text": "㈜우리금융지주: 동양생명보험㈜ = 1 : 0.2521056",
   "status": "완료",
   "status_source": "20260811000475",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "합병·분할합병 아님"
  },
  "external_valuation": {
   "required": false,
@@ -1098,6 +1100,32 @@
    "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
    "chars_read": 65250,
    "how": "find_tables/section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "valuations/2/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/2/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/6/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/6/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5에 키워드 없음 — 원문에 없음 추정"
   }
  ]
 }

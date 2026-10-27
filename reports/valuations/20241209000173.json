@@ -22,7 +22,9 @@
   "ratio_text": "키움제6호기업인수목적(주) 기명식 보통주식 1주당 (주)에르코스 농업회사법인 기명식 보통주식 0.2168411주 교부 (합병가액 (주)에르코스 농업회사법인 1주당 9,223원, 키움제6호기업인수목적(주) 1주당 2,000원)",
   "status": "완료",
   "status_source": "20250213000825",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/2.note '코스닥 상장 SPAC(피합병법인, 소멸). 기산' 외 1곳"
  },
  "external_valuation": {
   "required": true,

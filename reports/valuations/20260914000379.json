@@ -31,7 +31,9 @@
   "relation_text": null,
   "board_date": null,
   "regime": "IPO",
-  "ratio_text": null
+  "ratio_text": null,
+  "spac": false,
+  "spac_basis": "합병·분할합병 아님"
  },
  "external_valuation": {
   "required": false,

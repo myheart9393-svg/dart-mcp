@@ -39,8 +39,13 @@
 | ipo | underwriter, method, multiple_type, excluded_multiples[], applied_earnings(+basis), multiple, shares, value_per_share, discount_range, price_band, peers[], external_comparison |
 | citations[] | 읽은 섹션 {rcept_no, file_id, section_id, title, chars_read, how} |
 | notes[] | 원문 한계·짝 공시·회의록 인용값 등(추정은 쓰지 않는다) |
+| relative_value | {applied, reason, cite}: 거래 단위 상대가치 산정 여부(합병·교환). v1.6 신설, 기존 사례는 비어 있음 |
+| absent_reasons[] | {path, field, reason, basis}: 비어 있는 필드의 이유("원문에 없음"·"추출 안 함"·"해당 없음"). `casedb audit-null --write`가 키워드 감사로 채운다 |
 | source_inconsistent[] | {check, path, note}: 원문 자체가 회계 항등식에 안 맞는 곳(값은 원문대로). `validate`가 이 경고를 따로 센다 |
 | extracted_at, extractor_version | ISO8601(+09:00), `dart_mcp.valuation.EXTRACTOR_VERSION` |
+
+`spac`·`spac_basis`(파생, `casedb derive`): true·false·"unknown". 회사명·상대방명(기업인수목적·스팩·SPAC)과 외부평가 근거·가중치 근거·note의
+SPAC 단어 또는 시행령 176조의5 ③을 함께 본다. 이름에 없고 문구로만 잡히는 건이 있다(지슨·씨피시스템 — 사례 회사명 두 칸 모두 비SPAC명).
 
 `status`·`status_source`·`status_checked`: 거래 상태(`진행`·`완료`·`철회·중단`·`미확인`, IPO는 null)와 근거 공시·판정일.
 `uv run python -m dart_mcp.valuation status reports/valuations`가 같은 회사의 이후 공시 목록(list.json, 원문 안 받음)으로 채운다 —
@@ -59,7 +64,7 @@
 | weights | {asset, income, basis}. 본질가치는 1:1.5(시행세칙 제4조). 원문이 40%·60%로 쓰면 0.4·0.6 |
 | asset_value | per_share, total(조정 순자산), equity_book(직전 사업연도말 자본총계), adjustments, shares, base_date |
 | income_value | 본질가치 원소의 주당 수익가치(점 값). 범위만 있으면 null, 범위는 같은 주체의 DCF 원소 result.range |
-| dcf | forecast_years, base_date, wacc, rf, mrp, beta_unlevered, beta_levered, size_premium, ke, kd(세전), tax_rate, target_de(D/E), target_dv(D/(D+E)), g, peers[] |
+| dcf | (v1.6) specific_risk, size_premium_basis, beta_method{adjusted, period, frequency, index, source, cite} · forecast_years, base_date, wacc, rf, mrp, beta_unlevered, beta_levered, size_premium, ke, kd(세전), tax_rate, target_de(D/E), target_dv(D/(D+E)), g, peers[] |
 | relative | multiple_type, peers[], multiple, applied_earnings, discount_range, not_applied_reason |
 | result | value(점), unit, range(min·max) |
 | note | 그 원소 해석에 필요한 원문 근거(예: "민감도 표 가운데 행, '기준' 표기 없음") |

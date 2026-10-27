@@ -24,7 +24,9 @@
   "ratio_text": "(주)대성파인텍 : (주)모노리스 = 1 : 3.1000870",
   "status": "완료",
   "status_source": "20250829001776",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": true,
@@ -922,6 +924,20 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 58754,
    "how": "find_tables/search/section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "valuations/4/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 59956 '사를 유사기업으로 선택하여 유사기업 영업베타의 평균값으로 계산한 영업베타에 피합' — 추출 누락 의심"
+  },
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 5863 '재한다는 약점이 있습니다.\n\n3.4 상대가치 분석방법\n\n「자본시장과 금융투자업에' — 추출 누락 의심"
   }
  ]
 }

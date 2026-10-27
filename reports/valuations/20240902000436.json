@@ -27,7 +27,9 @@
   "ratio_text": "교보12호기업인수목적(주) 보통주 1주당 알에프시스템즈(주) 보통주 0.3274930주 교부(알에프시스템즈 : 교보12호 = 1 : 0.3274930)",
   "status": "완료",
   "status_source": "20241127000445",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/0.weights.basis '+CX3)÷4] — 시행령 176조의5 ③ SPAC 특례로 협의(일반' 외 5곳"
  },
  "external_valuation": {
   "required": true,
@@ -664,6 +666,20 @@
    "check": "g_asset_sum",
    "path": "valuations/0",
    "note": "원문 자산가치 표: 26,792,115,089 + 4,827,880,021 ≠ 31,569,995,110(차이 50,000,000). 값은 원문대로"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "valuations/1/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: 원문이 미적용 명시 — section 5 offset 136704 ')\n\n자본비용 산정시 아래의 이유로 Size risk premium을 반영하지 않았습니다.\n\n- 자기자'"
+  },
+  {
+   "path": "valuations/2/income_value",
+   "field": "income_value",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 619 '규정에 의거하여 본질가치(자산가치와 수익가치를 1과 3의 비율로 가중산술평균한' — 추출 누락 의심"
   }
  ]
 }

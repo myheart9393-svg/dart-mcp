@@ -636,6 +636,20 @@ def verify_citations(case: dict, get_text: Callable[[str, str, str], str | None]
     return {"total": len(nums), "missing_cite": missing, "sampled": results}
 
 
+# 통계 변수(행 열 이름 → dcf 필드). 단위: β는 배수, 나머지는 %(원문 단위 그대로 — 사례 DB 실측상 전부 %)
+DCF_VARS = {"wacc": "wacc", "g": "g", "rf": "rf", "mrp": "mrp", "size_premium": "size_premium",
+            "beta_u": "beta_unlevered", "beta_l": "beta_levered", "ke": "ke", "kd": "kd", "tax_rate": "tax_rate"}
+STAT_VARS = (*DCF_VARS, "d_over_e")
+
+
+def d_over_e(dcf: dict) -> float | None:
+    """목표 D/E(%). target_de가 있으면 그 값, 없고 target_dv만 있으면 D/V→D/E 환산(정의 변환이지 추정이 아니다)."""
+    de, dv = _pct(dcf.get("target_de")), _pct(dcf.get("target_dv"))
+    if de is not None:
+        return de
+    return dv / (100 - dv) * 100 if dv is not None and dv < 100 else None
+
+
 def flatten_case(case: dict) -> list[dict]:
     """사례 JSON → 평가 주체·대상별 한 행씩(조회 표용). 숫자는 value만."""
     def v(x: Any) -> Any:
@@ -647,7 +661,7 @@ def flatten_case(case: dict) -> list[dict]:
         "induty_code": case["company"].get("induty_code"), "deal_type": case["deal"]["type"],
         "industry": industry_label(case["company"].get("induty_code")),
         "board_date": case["deal"].get("board_date"), "regime": case["deal"].get("regime"),
-        "status": case["deal"].get("status"),
+        "status": case["deal"].get("status"), "spac": case["deal"].get("spac"),
         "firm": (case.get("external_valuation") or {}).get("firm"), "source_grade": case["source_grade"],
     }
     for val in case.get("valuations") or [{}]:
@@ -658,6 +672,8 @@ def flatten_case(case: dict) -> list[dict]:
             **base, "subject": val.get("subject"), "target": val.get("target"), "role": val.get("role"),
             "purpose": val.get("purpose"),
             "method": val.get("method"), "wacc": v(dcf.get("wacc")), "g": v(dcf.get("g")),
+            **{k: v(dcf.get(src)) for k, src in DCF_VARS.items() if k not in ("wacc", "g")},
+            "d_over_e": d_over_e(dcf),
             "multiple_type": rel.get("multiple_type"), "multiple": v(rel.get("multiple")),
             "result": v(res.get("value")), "result_unit": res.get("unit"),
         })
@@ -693,12 +709,17 @@ def representative(values: list[tuple[str | None, float]]) -> float | None:
 
 def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str | None = None,
                 deal_types: set[str] | None = None, methods: set[str] | None = None,
-                purposes: set[str] | None = None, firm: str | None = None,
-                regimes: set[str] | None = None, industries: set[str] | None = None) -> list[dict]:
+                purposes: set[str] | None = None, firm: str | None = None, firm_role: str = "외부평가",
+                regimes: set[str] | None = None, industries: set[str] | None = None,
+                statuses: set[str] | None = None, exclude_statuses: set[str] | None = None,
+                spac: set[str] | None = None) -> list[dict]:
     """평가 행 거르기. purposes=None이면 거래가액 평가만(공정가치평가·손상검사 제외), {"all"}이면 전부.
 
     regimes: deal.regime 값 집합(예: {"기준시가"}). "none"은 regime이 null인 행.
-    industries: KSIC 코드 접두("26", "582"), 대분류 문자("C") 또는 대분류 별칭("제조업", "정보통신", "금융보험", "도소매") 집합 — 하나라도 맞는 행."""
+    industries: KSIC 코드 접두("26", "582"), 대분류 문자("C") 또는 대분류 별칭("제조업", "정보통신", "금융보험", "도소매") 집합 — 하나라도 맞는 행.
+    firm: 그 기관이 **subject인 원소만**(firm_role "외부평가"(기본)·"재무자문"·"any"로 역할 제한). 다른 기관의 원소는 행에서 빠지므로
+      거래 대표값에 섞이지 않는다(v1.5까지는 external_valuation.firm 문구로도 맞춰 같은 거래의 다른 기관 값이 섞였다 — 2026-10 실무 시험).
+    statuses / exclude_statuses: deal.status("진행"·"완료"·"철회·중단"·"미확인", null은 "none"). spac: {"true", "false", "unknown"}."""
     out = []
     for r in rows:
         d = _deal_date(r)
@@ -714,7 +735,12 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
                 continue
         elif "all" not in purposes and p not in purposes:
             continue
-        if firm and firm not in (r.get("firm") or "") and firm not in (r.get("subject") or ""):
+        if firm and (firm not in (r.get("subject") or "") or (firm_role != "any" and r.get("role") != firm_role)):
+            continue
+        st = r.get("status") or "none"
+        if (statuses and st not in statuses) or (exclude_statuses and st in exclude_statuses):
+            continue
+        if spac and _spac_key(r.get("spac")) not in spac:
             continue
         if regimes and (r.get("regime") or "none") not in regimes:
             continue
@@ -724,7 +750,11 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
     return out
 
 
-def deal_stats(rows: list[dict], variables: tuple[str, ...] = ("wacc", "g", "multiple")) -> dict:
+def _spac_key(v: Any) -> str:
+    return "true" if v is True else "false" if v is False else "unknown"
+
+
+def deal_stats(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS, "multiple")) -> dict:
     """거래(rcept_no) 단위 통계. 변수마다 거래별 대표값(representative)으로 분위수를 내고 "N건 거래, M개 값"을 함께 준다.
 
     multiple은 multiple_type별로 따로 센다. firms: 거래별 외부평가기관(external_valuation.firm) 건수.
@@ -997,6 +1027,38 @@ def _status_cli(directory: Path, argv: list[str]) -> int:
     return 0
 
 
+def _split(s: str | None) -> set[str] | None:
+    return {x.strip() for x in s.split(",") if x.strip()} if s else None
+
+
+def add_filter_args(ap: Any) -> None:
+    """stats·compare·export 공통 필터."""
+    ap.add_argument("--from", dest="date_from", help="이사회 결의일(없으면 접수일) 이후 YYYY-MM-DD")
+    ap.add_argument("--to", dest="date_to")
+    ap.add_argument("--deal-type")
+    ap.add_argument("--method")
+    ap.add_argument("--purpose")
+    ap.add_argument("--firm", help="그 기관이 subject인 원소만")
+    ap.add_argument("--as", dest="firm_role", default="외부평가", choices=["외부평가", "재무자문", "any"])
+    ap.add_argument("--regime")
+    ap.add_argument("--industry")
+    ap.add_argument("--status", help="진행,완료,철회·중단,미확인,none")
+    ap.add_argument("--exclude-status", help="예: 철회·중단")
+    ap.add_argument("--spac", help="true,false,unknown")
+
+
+def apply_filter_args(rows: list[dict], a: Any) -> list[dict]:
+    spac = {x.lower() for x in _split(a.spac) or set()} or None
+    return filter_rows(rows, date_from=a.date_from, date_to=a.date_to, deal_types=_split(a.deal_type),
+                       methods=_split(a.method), purposes=_split(a.purpose), firm=a.firm, firm_role=a.firm_role,
+                       regimes=_split(a.regime), industries=_split(a.industry), statuses=_split(a.status),
+                       exclude_statuses=_split(a.exclude_status), spac=spac)
+
+
+def load_cases(directory: Path) -> list[dict]:
+    return [json.loads(p.read_text(encoding="utf-8")) for p in sorted(directory.glob("*.json")) if not p.name.startswith("_")]
+
+
 def _stats_cli(directory: Path, argv: list[str]) -> int:
     """stats <dir> [--from YYYY-MM-DD] [--to YYYY-MM-DD] [--deal-type merger,ipo] [--method DCF] [--purpose 합병가액,…|all] [--firm X]
     [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none] [--industry 26,21 | C | 제조업,정보통신 (코드 접두·대분류)]
@@ -1007,33 +1069,23 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
     import argparse
 
     ap = argparse.ArgumentParser(prog="dart_mcp.valuation stats")
-    ap.add_argument("--from", dest="date_from")
-    ap.add_argument("--to", dest="date_to")
-    ap.add_argument("--deal-type")
-    ap.add_argument("--method")
-    ap.add_argument("--purpose")
-    ap.add_argument("--firm")
-    ap.add_argument("--regime")
-    ap.add_argument("--industry")
+    add_filter_args(ap)
     a = ap.parse_args(argv)
-    split = (lambda s: {x.strip() for x in s.split(",") if x.strip()} if s else None)
-    cases = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(directory.glob("*.json"))
-             if not p.name.startswith("_")]
-    rows = [r for c in cases for r in flatten_case(c)]
-    rows = filter_rows(rows, date_from=a.date_from, date_to=a.date_to, deal_types=split(a.deal_type),
-                       methods=split(a.method), purposes=split(a.purpose), firm=a.firm, regimes=split(a.regime),
-                       industries=split(a.industry))
+    cases = load_cases(directory)
+    rows = apply_filter_args([r for c in cases for r in flatten_case(c)], a)
     kept = {r["rcept_no"] for r in rows}
     regimes: dict[str, int] = {}
     industries: dict[str, int] = {}
     statuses: dict[str, int] = {}
+    spacs: dict[str, int] = {}
     for rno in kept:
         first = next(r for r in rows if r["rcept_no"] == rno)
         reg, ind, st = first.get("regime") or "none", first.get("industry") or "(없음)", first.get("status") or "(없음)"
         regimes[reg] = regimes.get(reg, 0) + 1
         industries[ind] = industries.get(ind, 0) + 1
         statuses[st] = statuses.get(st, 0) + 1
-    out = {"filters": vars(a), "regimes": regimes, "statuses": statuses,
+        spacs[_spac_key(first.get("spac"))] = spacs.get(_spac_key(first.get("spac")), 0) + 1
+    out = {"filters": vars(a), "regimes": regimes, "statuses": statuses, "spac": spacs,
            "industries": dict(sorted(industries.items(), key=lambda x: -x[1])),
            "rows": rows, **deal_stats(rows)}
     if {"기준시가", REGIME_FAIR} <= set(regimes):

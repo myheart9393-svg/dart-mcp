@@ -22,7 +22,9 @@
   "ratio_text": "에이치엘비(주) 보통주 : 에이치엘비사이언스(주) 보통주 = 1 : 0.0446318",
   "status": "완료",
   "status_source": "20251231000397",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": false,
@@ -189,6 +191,14 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 5705,
    "how": "section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 349 '| 1 | 0.0446318 |\n| 상대가치 | - | - |\n\n| | |\n|-' — 추출 누락 의심"
   }
  ]
 }

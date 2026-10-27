@@ -24,7 +24,9 @@
   "ratio_text": "주식회사 휴맥스 : 주식회사 휴맥스홀딩스 = 1 : 0.9646707",
   "status": "완료",
   "status_source": "20261001000301",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": false,
@@ -2449,6 +2451,74 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 56854,
    "how": "find_tables/search/section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "valuations/4/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/5/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/6/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/7/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/8/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/11/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/12/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/13/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/14/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/15/dcf/peers",
+   "field": "peers",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+  },
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 281 '- 수익가치 | - | - |\n| 상대가치 | - | - |\n| 합병가액(1주' — 추출 누락 의심"
   }
  ]
 }

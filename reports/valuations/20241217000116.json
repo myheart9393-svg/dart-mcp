@@ -22,7 +22,9 @@
   "ratio_text": "(주)에스엠씨지 : 키움제7호기업인수목적(주) = 1 : 0.6451613",
   "status": "완료",
   "status_source": "20250220000550",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/2.note '코스닥 상장 SPAC: 기산일 2024-07-1' 외 2곳"
  },
  "external_valuation": {
   "required": true,

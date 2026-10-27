@@ -22,7 +22,9 @@
   "ratio_text": "신영해피투모로우제8호기업인수목적㈜의 보통주(액면가 100원) 1주당 합병법인인 ㈜애드포러스의 보통주(액면금액 500원) 0.1322397주를 교부 (합병가액 ㈜애드포러스 1주당 15,124원, 신영해피투모로우제8호기업인수목적㈜ 2,000원)",
   "status": "완료",
   "status_source": "20250806000008",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: valuations/2.note '코스닥 상장 SPAC(피합병법인, 소멸). 기산' 외 1곳"
  },
  "external_valuation": {
   "required": true,

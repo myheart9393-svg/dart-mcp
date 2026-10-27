@@ -81,6 +81,17 @@ argument-hint: <rcept_no>
 3. 표에 없는 값만 `search_in_disclosure(body_rcept_no, q)` (q: 할인율|WACC|영구성장률|베타|EV/EBITDA|PER 중 필요한 것,
    context_chars=200, max_results≤8)로 위치를 찍고 `get_disclosure_section(..., offset=<매치-500>, max_chars≤3000)`으로 그 부근만 읽는다.
 4. 외부평가기관 명칭·근거·기간·감사위원회 동의·준수 기준은 "외부평가" 검색 또는 요약 섹션에서.
+4-1. **v1.6 추가 필드**(원문에 있을 때만, 없으면 null — 비워 둔 이유는 `absent_reasons`에):
+   - **SPAC 여부 근거**: SPAC 합병이면 notes에 근거 문구와 위치("시행령 176조의5 ③ … (section 5, offset …)")를 남긴다. `deal.spac`은 `casedb derive`가
+     회사명·상대방명·근거 문구로 다시 계산하므로 직접 쓰지 않는다. 상대방명은 **SPAC 법인명 그대로**(예: "OO기업인수목적X호") 적는다.
+   - **β 산정 방식** `dcf.beta_method`: {adjusted(조정베타 여부), period(관측기간), frequency(주간·월간), index(시장지수), source(Bloomberg·KICPA 조회·코스콤 등), cite}.
+     동종기업 β 표의 주석(주1)에 보통 있다.
+   - **규모위험 근거** `dcf.size_premium_basis`: 원문 문구(예: "한국공인회계사회 Size Premium 5분위", "Micro-Cap"). 원문 라벨이 'Firm Specific Risk'여도
+     근거가 KICPA 규모위험이면 값은 `size_premium`. 규모위험과 **별도로** 더한 회사 고유위험만 `specific_risk`. 원문이 "규모위험을 반영하지 않았다"고 쓰면
+     size_premium null + absent_reasons "원문에 없음"(미적용 명시).
+   - **거래 단위 상대가치** `relative_value`: {applied, reason, cite} — 합병·교환이면 늘 채운다("상대가치 | 해당사항 없음"·"유사회사 3사 미만으로 산정하지 아니함"이면
+     applied=false + 사유 원문 요지).
+   - **본질가치의 수익가치 점 값** `income_value`: 원문 표에 1주당 수익가치가 있으면 반드시 넣는다(범위만 있으면 null + absent_reasons).
 5. `regime`: 원문이 2026.12.9 시행 개정법을 적용했다고 쓰면 "공정가액(2026.12.9 개정)", 기준시가·본질가치 체계면 "기준시가",
    IPO면 "IPO". 원문으로 판단할 수 없으면 null.
 

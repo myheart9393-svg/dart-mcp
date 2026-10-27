@@ -256,4 +256,9 @@ healthcheck 검사 항목 (각 PASS/WARN/FAIL/N/A):
 업종: 새 사례는 `batch record … ok`가 induty_code를 채운다. 기존 사례는 `uv run python -m dart_mcp.industry fill reports/valuations`(비어 있는 것만, 30일 캐시),
 분포는 `... industry dist reports/valuations`. 조회는 `stats --industry <KSIC 접두 | 대분류 문자 | 제조업·정보통신·금융보험·도소매 등>`.
 
+조회 도구(`dart_mcp.casedb`, v1.6): `derive`(SPAC 파생), `compare`(내 가정 vs 선례 백분위·최근접), `export --csv`(평가 요소 1행, 엑셀용),
+`audit-null [--write]`(null 필드를 캐시 원문 키워드로 감사 → `absent_reasons`). 기관별 통계는 `stats --firm <이름> --as 외부평가|재무자문|any`
+— 그 기관이 평가 주체인 원소만 쓴다(예: `--method DCF`에서 이촌 외부평가 9건 거래, WACC 중앙값 11.47%; v1.5까지는 같은 거래의 다른 기관 값이 섞여 11.38%·26개 값).
+새 사례를 넣은 뒤에는 `casedb derive`와 `casedb audit-null --write`도 돌린다.
+
 사용 예시·인용 표기법은 [docs/valuation_usage.md](docs/valuation_usage.md).

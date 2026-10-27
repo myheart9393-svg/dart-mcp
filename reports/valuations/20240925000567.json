@@ -25,7 +25,9 @@
   "ratio_text": "(주)위메이드맥스:(주)매드엔진 = 1 : 260.8557326",
   "status": "완료",
   "status_source": "20241217000217",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "합병·분할합병 아님"
  },
  "external_valuation": {
   "required": true,
@@ -684,5 +686,13 @@
   }
  ],
  "extracted_at": "2026-10-27T09:58:24+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "absent_reasons": [
+  {
+   "path": "valuations/2/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h10, 5.h11, 5.h12, 5.h13, 5.h14, 5.h15, 5.h16, 5.h17, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7, 5.h8, 5.h9에 키워드 없음 — 원문에 없음 추정"
+  }
+ ]
 }

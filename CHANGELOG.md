@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.6.0 (2026-10-27)
+
+사례 DB를 실무 질의에 쓸 수 있게(새 추출 없음). 스키마: `deal.spac`·`spac_basis`, `dcf.specific_risk`·`size_premium_basis`·`beta_method`, `relative_value`, `absent_reasons[]`.
+
+- **`--firm` 의미 수정**: 그 기관이 subject인 원소만, `--as 외부평가(기본)|재무자문|any`. v1.5까지는 external_valuation.firm 문구로도 맞춰 같은 거래의 다른 기관 값이
+  행에 섞였다(이촌 26개 값 → 외부평가 10개 값). 한울 외부평가 WACC 중앙값 10.88 → 11.59%, 삼도 10.37 → 12.87%.
+- **SPAC 파생**(`casedb derive`): 합병·분할합병 70건 SPAC 36(이름+문구 34, 문구만 2: 지슨·씨피시스템)·비SPAC 34·unknown 0.
+- **공통 필터** `--status`·`--exclude-status`·`--spac`·`--as`, **통계 변수** rf·mrp·size_premium·beta_u·beta_l·ke·kd·tax_rate·d_over_e(거래 단위 대표값).
+- **`casedb compare`**: 내 가정의 백분위·최근접 선례 N건·n<5 표본 부족. 2026-10 실무 시험 시나리오 1의 수작업 결과와 숫자 일치.
+- **`casedb export --csv`**: 평가 요소 1행, UTF-8 BOM.
+- **`casedb audit-null --write`**: 규모위험·비교회사·상대가치·수익가치 null을 캐시 원문 키워드로 감사(키워드 ±80자 미적용 문구면 "원문에 없음") → `absent_reasons`.
+  161건 전부 캐시 있음. 규모위험 51: 원문에 없음 35(미적용 명시 5)·추출 안 함 16 / 비교회사 59: 14·45 / 상대가치 72: 원문에 없음 3·추출 안 함 54(미산정 명시 13)·해당 없음 15 / 수익가치 10: 5·5.
+- **Firm Specific Risk 3건**(삼덕·한경·참 회계법인): 원문 주석상 근거가 KICPA 규모위험이라 size_premium 유지(분리하지 않음), `specific_risk` 칸만 신설.
+- **템플릿**: SPAC 근거·SPAC 법인명 그대로, β 산정 방식, 규모위험 근거, 거래 단위 상대가치, 본질가치 수익가치 점 값.
+
 ## v1.5.0 (2026-10-27)
 
 사례 DB 정합성(회계 항등식)과 거래 상태. 스키마 변경: `deal.status`·`status_source`·`status_checked`, 최상위 `source_inconsistent[]`.

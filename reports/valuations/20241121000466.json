@@ -27,7 +27,9 @@
   "ratio_text": "두산로보틱스 : 두산에너빌리티 = 1 : 0.0432962 (분할비율 0.1157542 × 합병비율 0.3740353)",
   "status": "철회·중단",
   "status_source": "20241210000324",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": true,

@@ -22,7 +22,9 @@
   "ratio_text": "디비금융제11호기업인수목적(주)의 보통주(액면가 100원) 1주당 합병법인인 (주)바이오포트코리아의 보통주(액면금액 200원) 0.1486215주를 교부 (합병가액 (주)바이오포트코리아 1주당 13,457원, 디비금융제11호기업인수목적(주) 2,000원)",
   "status": "완료",
   "status_source": "20250429000397",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: external_valuation.basis_text '융투자업에관한법률 시행령 제176조의5제3항의 기업인수목적회사 특례규정' 외 3곳"
  },
  "external_valuation": {
   "required": true,

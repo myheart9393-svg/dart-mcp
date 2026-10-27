@@ -24,7 +24,9 @@
   "ratio_text": "오성첨단소재(주) 보통주 : (주)엔에스엠 보통주 = 1 : 0.4440053",
   "status": "완료",
   "status_source": "20260313000607",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": false,
@@ -189,5 +191,13 @@
   "합병신주 6,569,947주, 모집가액 1,518원(3.4). 합병회사 보유 엔에스엠 주식에는 신주 미교부."
  ],
  "extracted_at": "2026-10-26T15:29:09+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "absent_reasons": [
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 339 '| 1 | 0.4440053 |\n| 상대가치 | - | - |\n\n| | |\n|-' — 추출 누락 의심"
+  }
+ ]
 }

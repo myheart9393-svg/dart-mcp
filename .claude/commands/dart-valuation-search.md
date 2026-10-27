@@ -12,7 +12,7 @@ argument-hint: <조건 예: "2026년 합병 DCF">
    ```
    uv run python -m dart_mcp.valuation stats reports/valuations [--from YYYY-MM-DD] [--to YYYY-MM-DD]
        [--deal-type merger,split,split_merger,business_transfer,share_exchange,ipo] [--method DCF,본질가치,…]
-       [--purpose 합병가액,공모가,…|all] [--firm 이촌] [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none]
+       [--purpose 합병가액,공모가,…|all] [--firm 이촌 --as 외부평가|재무자문|any] [--status 완료 | --exclude-status 철회·중단] [--spac true|false] [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none]
        [--industry 26,21 | C | 제조업,정보통신,금융보험,도소매 (KSIC 코드 접두·대분류 문자·대분류 별칭)]
    ```
    - 기간 기준일은 이사회 결의일, 없으면 접수일(rcept_no 앞 8자리). "2026년" → `--from 2026-01-01 --to 2026-12-31`, "하반기" → 07-01–12-31.
@@ -23,6 +23,11 @@ argument-hint: <조건 예: "2026년 합병 DCF">
      "원문 없음"으로 남긴다. "WACC가 있는 것만"처럼 명시하면 그때 뺀다.
    - **합병가액 체계(regime)**: 2026.12.9 이후 이사회 결의분부터 기준시가 → 공정가액 체계다. 합병·분할 등에서 두 체계가 섞이면
      결과에 `warning`이 온다 → `--regime`으로 나눠 따로 돌리고 표·분포도 체계별로 낸다. 한 분포로 합치지 않는다.
+   - **기관**: "이촌의 사례"는 `--firm 이촌`(기본 `--as 외부평가` — 그 기관이 외부평가 주체인 원소만). "이촌이 재무자문한"은 `--as 재무자문`, 역할 무관은 `--as any`.
+   - **SPAC**: "SPAC 제외"·"일반 합병" → `--spac false`. 합병 질의에는 결과의 `spac` 분포를 요약에 쓴다(SPAC이 절반이라 섞이면 g·WACC가 기운다).
+   - **내 가정 비교**("WACC 11%가 선례 대비 어디쯤"): `uv run python -m dart_mcp.casedb compare reports/valuations [같은 필터] --wacc 11 [--g --srp --beta-l …]`
+     → 변수별 백분위와 최근접 선례 표. 엑셀로 달라면 `casedb export --csv`.
+   - 변수: wacc·g 외에 rf·mrp·size_premium·beta_u·beta_l·ke·kd·tax_rate·d_over_e(D/E, D/V만 있으면 환산)도 `variables`에 거래 단위로 나온다.
    - 업종은 `--industry <KSIC 접두>`. "반도체·전자" → 26, "제약·바이오" → 21(의약품)·70(연구개발업), "소프트웨어" → 582(58 출판업 안의
      소프트웨어 개발·공급업), "기계" → 29. 옮긴 접두를 맨 위 한 줄에 적는다. 결과의 `industries`(중분류 라벨별 거래 수)를 요약에 쓰고,
      표에는 `industry` 열(예: "26 전자부품·컴퓨터·영상·음향·통신장비")을 넣는다. induty_code가 없는 사례는 "(없음)".

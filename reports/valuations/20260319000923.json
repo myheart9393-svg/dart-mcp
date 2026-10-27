@@ -27,7 +27,9 @@
   "ratio_text": "(주)현대지에프홀딩스 : (주)현대홈쇼핑 = 1 : 6.3571040",
   "status": "완료",
   "status_source": "20260630000857",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "합병·분할합병 아님"
  },
  "external_valuation": {
   "required": false,
@@ -1343,5 +1345,109 @@
   }
  ],
  "extracted_at": "2026-10-26T15:40:11+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "absent_reasons": [
+  {
+   "path": "valuations/2/income_value",
+   "field": "income_value",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 201 '| 0% | 0% |\n| 자산가치·수익가치 평균 | - | - |\n| - 자산' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/3/income_value",
+   "field": "income_value",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 201 '| 0% | 0% |\n| 자산가치·수익가치 평균 | - | - |\n| - 자산' — 추출 누락 의심"
+  },
+  {
+   "path": "valuations/4/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/4/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/5/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/5/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/6/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/6/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/9/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/9/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/10/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/10/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/11/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/11/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/12/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "valuations/12/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 316 '| 1 | 6.3571040 |\n| 상대가치 | - | - |\n\n2. 산출근거' — 추출 누락 의심"
+  }
+ ]
 }

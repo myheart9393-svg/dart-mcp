@@ -25,7 +25,9 @@
   "ratio_text": "주식회사 럭스코 : 아이비케이에스제24호기업인수목적 주식회사 = 1:0.2584313",
   "status": "진행",
   "status_source": null,
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: notes/2 'SPAC(아이비케이에스제24호기업인' 외 1곳"
  },
  "external_valuation": {
   "required": true,
@@ -825,6 +827,20 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 30889,
    "how": "find_tables/search/section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "valuations/3/income_value",
+   "field": "income_value",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 700 '4조 내지 제6조에 따라 자산가치와 수익가치를 각각 1과 1.5로 하여 가중산술' — 추출 누락 의심"
+  },
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: section 5 offset 3974 '존재한다는 단점이 있습니다.(라) 상대가치 분석방법「자본시장과 금융투자업에 관' — 추출 누락 의심"
   }
  ]
 }

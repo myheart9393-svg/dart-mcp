@@ -26,7 +26,9 @@
   "ratio_text": "(주)나노엔텍 : (주)에이에이아이헬스케어 = 1 : 0.4748121",
   "status": "완료",
   "status_source": "20251002000465",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "합병·분할합병 아님"
  },
  "external_valuation": {
   "required": true,

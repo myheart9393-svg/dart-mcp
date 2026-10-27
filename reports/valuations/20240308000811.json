@@ -24,7 +24,9 @@
   "ratio_text": "1 :1.3099695한국정보인증(주) : (주)디지털존",
   "status": "완료",
   "status_source": "20240502000361",
-  "status_checked": "2026-10-27"
+  "status_checked": "2026-10-27",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": true,
@@ -574,6 +576,14 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 33150,
    "how": "find_tables/search/section"
+  }
+ ],
+ "absent_reasons": [
+  {
+   "path": "relative",
+   "field": "relative",
+   "reason": "추출 안 함",
+   "basis": "키워드 감사 2026-10-27: 원문이 미산정 명시(relative_value.applied=false로 보강 가능) — section 5 offset 308 '사항없음 | 9,846 |\n| 다. 상대가치(주3) | 해당사항없음 | 해당사항'"
   }
  ]
 }
