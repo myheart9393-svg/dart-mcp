@@ -24,7 +24,10 @@
   "relation_text": null,
   "board_date": "2026-02-11",
   "regime": "기준시가",
-  "ratio_text": "(주)현대지에프홀딩스 : (주)현대홈쇼핑 = 1 : 6.3571040"
+  "ratio_text": "(주)현대지에프홀딩스 : (주)현대홈쇼핑 = 1 : 6.3571040",
+  "status": "완료",
+  "status_source": "20260630000857",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

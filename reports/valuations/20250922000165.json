@@ -21,7 +21,10 @@
   "relation_text": "합병회사 HD현대중공업(주)와 피합병회사 HD현대미포(주)는 HD현대 그룹 기업집단 소속 계열회사(양사 최대주주 HD한국조선해양(주), 보통주 74.15%·42.40%)",
   "board_date": "2025-08-27",
   "regime": "기준시가",
-  "ratio_text": "HD현대중공업 주식회사 : HD현대미포 주식회사 = 1 : 0.4059146"
+  "ratio_text": "HD현대중공업 주식회사 : HD현대미포 주식회사 = 1 : 0.4059146",
+  "status": "완료",
+  "status_source": "20251201000400",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

@@ -19,7 +19,10 @@
   "relation_text": null,
   "board_date": "2024-04-30",
   "regime": "기준시가",
-  "ratio_text": "하나금융22호기업인수목적(주)의 기명식 보통주식 1주당 (주)에스지헬스케어의 기명식 보통주식 0.3285691주"
+  "ratio_text": "하나금융22호기업인수목적(주)의 기명식 보통주식 1주당 (주)에스지헬스케어의 기명식 보통주식 0.3285691주",
+  "status": "완료",
+  "status_source": "20241205000309",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

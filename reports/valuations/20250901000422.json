@@ -22,7 +22,10 @@
   "relation_text": "가. 계열회사 또는 자회사 등의 관계가 있는 경우해당사항 없습니다.",
   "board_date": "2025-05-16",
   "regime": "기준시가",
-  "ratio_text": "㈜에이엘티:아이비케이에스제21호기업인수목적㈜ = 1:0.3824823"
+  "ratio_text": "㈜에이엘티:아이비케이에스제21호기업인수목적㈜ = 1:0.3824823",
+  "status": "완료",
+  "status_source": "20251028000274",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

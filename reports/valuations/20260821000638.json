@@ -22,7 +22,10 @@
   "relation_text": "(주)알에프텍의 최대주주 오성첨단소재(주)가 에코볼트(주)의 최대주주(보통주 29.89%)이며, 대표이사 조경숙이 에코볼트 사내이사(회장) 겸직",
   "board_date": "2026-04-13",
   "regime": "기준시가",
-  "ratio_text": "(주)알에프텍 : 에코볼트(주) 1 : 0.2027268"
+  "ratio_text": "(주)알에프텍 : 에코볼트(주) 1 : 0.2027268",
+  "status": "진행",
+  "status_source": null,
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

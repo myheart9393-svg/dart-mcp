@@ -52,6 +52,33 @@ def section(code: str | None) -> str | None:
     return None
 
 
+# 대분류 묶음 별칭(--industry에 코드 접두 대신 쓸 수 있다). 값은 ksic.json sections의 문자
+SECTION_ALIASES = {
+    "농림어업": "A", "광업": "B", "제조업": "C", "제조": "C", "전기가스": "D", "수도폐기물": "E", "건설": "F", "건설업": "F",
+    "도소매": "G", "도매소매": "G", "운수": "H", "운수창고": "H", "숙박음식": "I", "정보통신": "J", "정보통신업": "J",
+    "금융보험": "K", "금융·보험": "K", "금융": "K", "부동산": "L", "전문과학기술": "M", "사업지원": "N",
+    "교육": "P", "보건복지": "Q", "예술스포츠": "R", "기타서비스": "S",
+}
+
+
+def section_letter(code: str | None) -> str | None:
+    s = section(code)
+    return s.split(" ", 1)[0] if s else None
+
+
+def matches(code: str | None, token: str) -> bool:
+    """--industry 토큰 하나와 induty_code 비교: 숫자면 코드 접두("26", "582"), 대분류 문자("C") 또는 별칭("제조업", "정보통신")이면 대분류."""
+    t = token.strip()
+    if not t:
+        return False
+    if t.isdigit():
+        return (code or "").startswith(t)
+    letter = t.upper() if len(t) == 1 and t.isalpha() else SECTION_ALIASES.get(t) or SECTION_ALIASES.get(t.replace(" ", ""))
+    if letter is None:
+        raise ValueError(f"--industry {t!r}를 모름. KSIC 코드 접두(26), 대분류 문자(C) 또는 {sorted(SECTION_ALIASES)}")
+    return section_letter(code) == letter
+
+
 def lookup(corp_code: str, data_dir: Path | None = None) -> tuple[str | None, str | None]:
     """corp_code → (induty_code, 실패 사유). financials.load_company(30일 캐시)를 쓴다."""
     from .client import DartClient

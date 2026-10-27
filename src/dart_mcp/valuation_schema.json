@@ -36,7 +36,11 @@
         "board_date": {"anyOf": [{"$ref": "#/$defs/date"}, {"type": "null"}], "description": "이사회 결의일"},
         "regime": {"enum": ["기준시가", "공정가액(2026.12.9 개정)", "IPO", null],
                    "description": "합병가액 산정 체계. 2026.9.8 개정 자본시장법은 2026.12.9 이후 이사회 결의분부터 공정가액 기준"},
-        "ratio_text": {"type": ["string", "null"], "description": "합병비율 등 원문 문자열"}
+        "ratio_text": {"type": ["string", "null"], "description": "합병비율 등 원문 문자열"},
+        "status": {"enum": ["진행", "완료", "철회·중단", "미확인", null],
+                   "description": "거래 상태(valuation status CLI가 같은 회사의 이후 공시 목록으로 판정). IPO·유상증자는 null"},
+        "status_source": {"anyOf": [{"$ref": "#/$defs/rcept_no"}, {"type": "null"}], "description": "상태 근거 공시 접수번호(완료·철회 서류). 진행·미확인은 null"},
+        "status_checked": {"anyOf": [{"$ref": "#/$defs/date"}, {"type": "null"}], "description": "상태를 판정한 날"}
       }
     },
     "external_valuation": {
@@ -73,6 +77,10 @@
     "ipo": {"anyOf": [{"$ref": "#/$defs/ipo"}, {"type": "null"}]},
     "citations": {"type": "array", "items": {"$ref": "#/$defs/citation"}, "description": "읽은 섹션 목록(참조 부록)"},
     "notes": {"type": "array", "items": {"type": "string"}, "description": "원문 한계·짝 공시 안내 등. 추정은 쓰지 않는다"},
+    "source_inconsistent": {"type": "array", "description": "원문 자체가 항등식에 안 맞는 곳(값은 원문대로). validate는 이 항목의 경고를 source_inconsistent로 센다",
+                            "items": {"type": "object", "additionalProperties": false, "required": ["check", "path", "note"],
+                                      "properties": {"check": {"enum": ["a_beta", "b_ke", "c_wacc", "d_intrinsic", "e_market_price", "f_ratio", "g_asset_sum"]},
+                                                     "path": {"type": "string"}, "note": {"type": "string"}}}},
     "extracted_at": {"type": "string", "format": "date-time"},
     "extractor_version": {"type": "string"}
   },

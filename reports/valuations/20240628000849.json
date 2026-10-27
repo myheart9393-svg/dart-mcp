@@ -21,7 +21,10 @@
   "relation_text": null,
   "board_date": "2024-06-14",
   "regime": "기준시가",
-  "ratio_text": "(주)에스피소프트 : (주)유호스트 = 1 : 2.3260536"
+  "ratio_text": "(주)에스피소프트 : (주)유호스트 = 1 : 2.3260536",
+  "status": "완료",
+  "status_source": "20240816000042",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

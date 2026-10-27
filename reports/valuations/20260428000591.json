@@ -24,7 +24,10 @@
   "relation_text": null,
   "board_date": "2025-11-05",
   "regime": null,
-  "ratio_text": "분할신설회사 주식 배정비율 1주당 0.3536822주, 분할회사 주식은 1주당 0.6463178주 비율로 병합"
+  "ratio_text": "분할신설회사 주식 배정비율 1주당 0.3536822주, 분할회사 주식은 1주당 0.6463178주 비율로 병합",
+  "status": "완료",
+  "status_source": "20260720000048",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

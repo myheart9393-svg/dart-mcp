@@ -18,6 +18,10 @@
 6. **범위 `{min, max}`는 숫자 크기 순서**(min ≤ max). 원문이 "29.83% ~ 11.74%"처럼 큰 값을 먼저 써도 그렇다. `validate`가
    min > max를 오류로 잡는다(JSON Schema는 값 비교를 못 해 `valuation.range_order_errors`로 검사).
    `validate`는 값 분포 밖(WACC 0–30% 밖, g ≥ WACC, g > 5%, 멀티플 ≤ 0, 할인율 0–70% 밖)을 `warnings[]`로 따로 준다 — 오류가 아니라 원문 대조 대상.
+   **회계 항등식**(`identity_checks`, 경고): a β 재조정 βL=βu×(1+(1−t)×D/E)(어긋나면 D/E↔D/V 반대 해석·세율 9.9–27.5% 범위 확인),
+   b Ke=rf+β×MRP+규모위험, c WACC=Ke×(1−D/V)+Kd×(1−t)×D/V, d 본질가치 가중평균(상증법은 순자산 80% 하한), e 기준시가(입력 필드 없음 → skip),
+   f 합병·교환비율=주당 가액의 비(분할합병 skip), g 자본총계+조정항목=조정 순자산. 허용오차: 금리·β는 max(상대 0.5%, 표시 자릿수 반올림 전파),
+   금액(d·f·g)은 표시 자릿수 반올림 전파만.
 7. **통계는 거래 단위**: `valuation stats`는 거래(rcept_no)마다 대표값 하나 — 외부평가 역할 값(여럿이면 그 중앙값), 없으면 그 거래 값들의 중앙값.
 
 ## 최상위
@@ -35,7 +39,12 @@
 | ipo | underwriter, method, multiple_type, excluded_multiples[], applied_earnings(+basis), multiple, shares, value_per_share, discount_range, price_band, peers[], external_comparison |
 | citations[] | 읽은 섹션 {rcept_no, file_id, section_id, title, chars_read, how} |
 | notes[] | 원문 한계·짝 공시·회의록 인용값 등(추정은 쓰지 않는다) |
+| source_inconsistent[] | {check, path, note}: 원문 자체가 회계 항등식에 안 맞는 곳(값은 원문대로). `validate`가 이 경고를 따로 센다 |
 | extracted_at, extractor_version | ISO8601(+09:00), `dart_mcp.valuation.EXTRACTOR_VERSION` |
+
+`status`·`status_source`·`status_checked`: 거래 상태(`진행`·`완료`·`철회·중단`·`미확인`, IPO는 null)와 근거 공시·판정일.
+`uv run python -m dart_mcp.valuation status reports/valuations`가 같은 회사의 이후 공시 목록(list.json, 원문 안 받음)으로 채운다 —
+완료 = 증권발행실적보고서(합병등)·합병등종료보고서, 철회 = "…결정 철회"·철회신고서(바로 앞 증권신고서가 같은 유형). 본문 접수 후 270일 안에 둘 다 없으면 진행, 지나면 미확인.
 
 `regime`: `"기준시가"`(현행 176조의5 ①: 상장사 기준시가, 비상장사 본질가치) · `"공정가액(2026.12.9 개정)"`(2026.9.8 개정 자본시장법, 2026.12.9 이후
 이사회 결의분부터 — 알테오젠 증권신고서 기재) · `"IPO"` · null(원문으로 판단 불가).

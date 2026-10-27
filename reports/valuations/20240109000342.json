@@ -21,7 +21,10 @@
   "relation_text": "합병회사 (주)베셀이 피합병회사 (주)에스케이씨에스 보통주 4,240,899주(76.12%)를 보유한 최대주주",
   "board_date": "2023-12-27",
   "regime": "기준시가",
-  "ratio_text": "주식회사 베셀: 주식회사 에스케이씨에스 = 1: 0.6595995"
+  "ratio_text": "주식회사 베셀: 주식회사 에스케이씨에스 = 1: 0.6595995",
+  "status": "완료",
+  "status_source": "20240319000855",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

@@ -21,7 +21,10 @@
   "relation_text": "합병존속회사 SK이노베이션(주)이 합병소멸회사 SK아이이테크놀로지(주)의 최대주주(보통주 43,633,432주, 53.35%). 동일 기업집단 계열회사.",
   "board_date": "2026-08-25",
   "regime": "기준시가",
-  "ratio_text": "SK이노베이션(주) : SK아이이테크놀로지(주) = 1 : 0.1174540"
+  "ratio_text": "SK이노베이션(주) : SK아이이테크놀로지(주) = 1 : 0.1174540",
+  "status": "진행",
+  "status_source": null,
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

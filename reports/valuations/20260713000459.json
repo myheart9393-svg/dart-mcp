@@ -21,7 +21,10 @@
   "relation_text": "계열회사 간 흡수합병. 합병존속회사 (주)대한항공이 합병소멸회사 아시아나항공(주) 지분 63.88% 보유(종속기업).",
   "board_date": "2026-05-13",
   "regime": "기준시가",
-  "ratio_text": "(주)대한항공 : 아시아나항공(주) = 1 : 0.2736432"
+  "ratio_text": "(주)대한항공 : 아시아나항공(주) = 1 : 0.2736432",
+  "status": "진행",
+  "status_source": null,
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,
@@ -2019,6 +2022,18 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 71032,
    "how": "search/section"
+  }
+ ],
+ "source_inconsistent": [
+  {
+   "check": "c_wacc",
+   "path": "valuations/3",
+   "note": "원문 WACC에 리스부채 Kd(2.4%)가 별도 항목으로 들어감(스키마에 필드 없음) — 일반 Kd만으로는 6.13%, 원문 6.4%(원문 추가 항목)"
+  },
+  {
+   "check": "c_wacc",
+   "path": "valuations/5",
+   "note": "원문 WACC에 리스부채 Kd(2.2%)가 별도 항목으로 들어감(스키마에 필드 없음) — 일반 Kd만으로는 7.09%, 원문 7.2%(원문 추가 항목)"
   }
  ]
 }

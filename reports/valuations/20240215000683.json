@@ -23,7 +23,10 @@
   "relation_text": "기업인수목적회사(코스닥 상장 SPAC)와 비상장법인 간 합병. 비상장 ㈜카티스가 존속, SPAC은 소멸(우회상장 성격)",
   "board_date": "2023-06-01",
   "regime": "기준시가",
-  "ratio_text": "케이비제22호기업인수목적㈜의 기명식 보통주식 1주당 ㈜카티스의 기명식 보통주식 0.5953922주"
+  "ratio_text": "케이비제22호기업인수목적㈜의 기명식 보통주식 1주당 ㈜카티스의 기명식 보통주식 0.5953922주",
+  "status": "완료",
+  "status_source": "20240419000061",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,
@@ -608,6 +611,13 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 48913,
    "how": "find_tables/search/section"
+  }
+ ],
+ "source_inconsistent": [
+  {
+   "check": "g_asset_sum",
+   "path": "valuations/0",
+   "note": "원문 자산가치 표: 자본총계 17,972,812,080 + 조정항목 71,571,036 ≠ 조정된 순자산가액 19,329,183,116(차이 1,284,800,000). 값은 원문대로"
   }
  ]
 }

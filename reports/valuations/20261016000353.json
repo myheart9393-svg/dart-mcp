@@ -22,7 +22,10 @@
   "relation_text": null,
   "board_date": "2026-06-19",
   "regime": "기준시가",
-  "ratio_text": "주식회사 럭스코 : 아이비케이에스제24호기업인수목적 주식회사 = 1:0.2584313"
+  "ratio_text": "주식회사 럭스코 : 아이비케이에스제24호기업인수목적 주식회사 = 1:0.2584313",
+  "status": "진행",
+  "status_source": null,
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

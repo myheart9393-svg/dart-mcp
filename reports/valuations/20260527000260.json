@@ -21,7 +21,10 @@
   "relation_text": "피합병회사 (주)위지윅스튜디오가 (주)엔피 최대주주(보통주 20.73%), 양사 '컴투스' 그룹 계열(VIII. 당사회사간의 이해관계 등)",
   "board_date": "2026-04-08",
   "regime": "기준시가",
-  "ratio_text": "주식회사 엔피 : 주식회사 위지윅스튜디오 1 : 0.5774514"
+  "ratio_text": "주식회사 엔피 : 주식회사 위지윅스튜디오 1 : 0.5774514",
+  "status": "완료",
+  "status_source": "20260715000202",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

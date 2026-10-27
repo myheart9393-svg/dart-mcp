@@ -22,7 +22,10 @@
   "relation_text": "신세계 그룹 계열회사이며 (주)신세계푸드는 (주)이마트의 자회사(발행주식총수의 66.45% 소유)",
   "board_date": "2026-03-10",
   "regime": "기준시가",
-  "ratio_text": "(주)이마트 : (주)신세계푸드 = 1 : 0.5031313"
+  "ratio_text": "(주)이마트 : (주)신세계푸드 = 1 : 0.5031313",
+  "status": "완료",
+  "status_source": "20260723000253",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

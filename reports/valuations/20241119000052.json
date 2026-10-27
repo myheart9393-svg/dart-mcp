@@ -21,7 +21,10 @@
   "relation_text": "엘비세미콘(주)이 (주)엘비루셈 지분 48.78%를 보유한 최대주주로 양사는 상호 계열회사 관계",
   "board_date": "2024-10-18",
   "regime": "기준시가",
-  "ratio_text": "엘비세미콘(주) : (주)엘비루셈 = 1 : 1.1347948"
+  "ratio_text": "엘비세미콘(주) : (주)엘비루셈 = 1 : 1.1347948",
+  "status": "완료",
+  "status_source": "20250203000186",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

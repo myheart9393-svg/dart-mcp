@@ -21,7 +21,10 @@
   "relation_text": "동원산업(주)는 (주)동원에프앤비의 지분 74.38%를 보유한 최대주주",
   "board_date": "2025-04-14",
   "regime": "기준시가",
-  "ratio_text": "동원산업(주) : (주)동원에프앤비 = 1 : 0.9150232"
+  "ratio_text": "동원산업(주) : (주)동원에프앤비 = 1 : 0.9150232",
+  "status": "완료",
+  "status_source": "20250714000274",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

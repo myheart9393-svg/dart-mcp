@@ -19,7 +19,10 @@
   "relation_text": "계열회사 또는 자회사 등의 관계가 있는 경우해당사항 없습니다.",
   "board_date": "2024-06-14",
   "regime": "기준시가",
-  "ratio_text": "(주)블랙야크아이앤씨: 미래에셋비전기업인수목적1호(주) = 1: 0.5169294"
+  "ratio_text": "(주)블랙야크아이앤씨: 미래에셋비전기업인수목적1호(주) = 1: 0.5169294",
+  "status": "완료",
+  "status_source": "20250106000199",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,
@@ -526,5 +529,12 @@
   }
  ],
  "extracted_at": "2026-10-27T09:59:16+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "source_inconsistent": [
+  {
+   "check": "b_ke",
+   "path": "valuations/0",
+   "note": "원문 CAPM 표가 시장위험프리미엄을 14.85%로 적었으나 Ke 14.42% = 3.18 + 0.9863×8.00 + 3.35로, 원문 Ke는 MRP 8.00% 기준(14.85%는 원문 표기 오류 추정). mrp 값은 원문 표기대로 둠"
+  }
+ ]
 }

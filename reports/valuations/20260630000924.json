@@ -21,7 +21,10 @@
   "relation_text": null,
   "board_date": "2026-05-12",
   "regime": null,
-  "ratio_text": "분할존속회사 : 0.9385233, 분할신설회사 : 0.0614767 (보통주 1주당 신설회사 주식 0.0614767주 배정)"
+  "ratio_text": "분할존속회사 : 0.9385233, 분할신설회사 : 0.0614767 (보통주 1주당 신설회사 주식 0.0614767주 배정)",
+  "status": "완료",
+  "status_source": "20260902000169",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

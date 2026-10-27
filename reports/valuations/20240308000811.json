@@ -21,7 +21,10 @@
   "relation_text": "한국정보인증(주) | (주)디지털존 최대주주 | 보통주 | - | - | 2,428,489 | 80.96",
   "board_date": "2024-01-30",
   "regime": "기준시가",
-  "ratio_text": "1 :1.3099695한국정보인증(주) : (주)디지털존"
+  "ratio_text": "1 :1.3099695한국정보인증(주) : (주)디지털존",
+  "status": "완료",
+  "status_source": "20240502000361",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

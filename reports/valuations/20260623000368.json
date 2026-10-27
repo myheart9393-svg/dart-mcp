@@ -22,7 +22,10 @@
   "relation_text": "피합병회사 최대주주 정재준 대표이사가 2023-06-30 합병회사 (주)소룩스의 최대주주로 변경(I. 합병에 관한 기본사항)",
   "board_date": "2024-08-09",
   "regime": "기준시가",
-  "ratio_text": "1: 2.0610695(주)소룩스 : (주)아리바이오"
+  "ratio_text": "1: 2.0610695(주)소룩스 : (주)아리바이오",
+  "status": "철회·중단",
+  "status_source": "20260929000637",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

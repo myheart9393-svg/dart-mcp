@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.5.0 (2026-10-27)
+
+사례 DB 정합성(회계 항등식)과 거래 상태. 스키마 변경: `deal.status`·`status_source`·`status_checked`, 최상위 `source_inconsistent[]`.
+
+- **validate 항등식 검사**(`identity_checks`, 경고): a β 재조정(D/E↔D/V 혼동 의심 표시, 동종기업별 세율 재조정 범위 허용), b Ke, c WACC(D/V는 target_dv 우선),
+  d 본질가치(상증법 80% 하한), e 기준시가(입력 필드가 없어 skip), f 합병·교환비율(분할합병 skip), g 자산가치 합계(기존 경고를 옮김).
+  허용오차: 금리·β는 max(상대 0.5%, 입력 표시 자릿수 반올림 전파), 금액은 표시 자릿수 전파만. `validate <dir>`가 항목별 pass/warn/skip/source_inconsistent를 센다.
+- **경고 처리(161건)**: 처음 18건 → 추출 오류 2(우리금융지주 MVS 조정 순자산 total 2행), 원문 자체 불일치 10(표 합계 4·표기와 산식 값 3·원문 추가 조정/항목 3,
+  `source_inconsistent`로 표시), 허용오차·규칙 6(동종기업별 세율 2·상증법 하한 2·D/V 우선 1·분할합병 1)+ 입력 반올림 전파 1. 처리 후 경고 0.
+- **거래 상태**: `valuation status <dir>` — 같은 회사의 이후 list.json으로 완료(증권발행실적보고서(합병등)·합병등종료보고서)·철회(…결정 철회, 같은 유형 철회신고서) 판정.
+  97건: 완료 77·철회·중단 10·진행 10·미확인 0(2026-10-27). stats에 `statuses`, rows에 status.
+- **업종 대분류 묶음**: `--industry 제조업|정보통신|금융보험|도소매|…` 또는 대분류 문자(C). `industry.matches`.
+- **템플릿**: 원문 산술 불일치는 값은 원문대로 + `source_inconsistent`, MVS의 total은 조정 순자산, 상증법은 basis에 '상증법'·'80%'.
+
 ## v1.4.0 (2026-10-27)
 
 업종 코드와 2024–2025 합병·분할·교환 사례.

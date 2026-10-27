@@ -21,7 +21,10 @@
   "relation_text": "합병회사·피합병회사 모두 (주)대명화학 그룹 계열회사(최대주주 대명화학: 로젠 48.78%, 모다이노칩 75.25%). 대표이사 최용석이 모다이노칩 사내이사 겸직.",
   "board_date": "2026-03-09",
   "regime": "기준시가",
-  "ratio_text": "로젠 주식회사 : 주식회사 모다이노칩 = 1 : 0.9755740"
+  "ratio_text": "로젠 주식회사 : 주식회사 모다이노칩 = 1 : 0.9755740",
+  "status": "진행",
+  "status_source": null,
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

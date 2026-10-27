@@ -21,7 +21,10 @@
   "relation_text": "(주)세아특수강은 세아그룹의 계열회사로, (주)세아홀딩스가 보통주 5,987,180주(지분율 69.86%) 보유",
   "board_date": "2025-10-30",
   "regime": "기준시가",
-  "ratio_text": "(주)세아홀딩스 : (주)세아특수강 = 1 : 0.1348985"
+  "ratio_text": "(주)세아홀딩스 : (주)세아특수강 = 1 : 0.1348985",
+  "status": "완료",
+  "status_source": "20260213002058",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

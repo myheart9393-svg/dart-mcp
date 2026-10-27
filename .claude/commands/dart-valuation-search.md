@@ -13,7 +13,7 @@ argument-hint: <조건 예: "2026년 합병 DCF">
    uv run python -m dart_mcp.valuation stats reports/valuations [--from YYYY-MM-DD] [--to YYYY-MM-DD]
        [--deal-type merger,split,split_merger,business_transfer,share_exchange,ipo] [--method DCF,본질가치,…]
        [--purpose 합병가액,공모가,…|all] [--firm 이촌] [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none]
-       [--industry 26,21 (KSIC 코드 접두, 2자리=중분류)]
+       [--industry 26,21 | C | 제조업,정보통신,금융보험,도소매 (KSIC 코드 접두·대분류 문자·대분류 별칭)]
    ```
    - 기간 기준일은 이사회 결의일, 없으면 접수일(rcept_no 앞 8자리). "2026년" → `--from 2026-01-01 --to 2026-12-31`, "하반기" → 07-01–12-31.
    - "합병" → `--deal-type merger`(분할합병 포함하려면 split_merger도). "IPO"·"공모" → `ipo`.
@@ -29,9 +29,10 @@ argument-hint: <조건 예: "2026년 합병 DCF">
 2. 결과 JSON의 `rows`를 표로:
 
 ```
-| 회사 | 업종 | 거래 | 이사회 | 평가기관 | 주체(역할) | 대상 | 목적 | 방법 | WACC(%) | g(%) | 멀티플 | 결과 | 등급 | rcept_no |
+| 회사 | 업종 | 거래 | 상태 | 이사회 | 평가기관 | 주체(역할) | 대상 | 목적 | 방법 | WACC(%) | g(%) | 멀티플 | 결과 | 등급 | rcept_no |
 ```
-   null은 "–"(변수 열은 "원문 없음"). 결과는 result + result_unit 그대로(환산하지 않는다).
+   null은 "–"(변수 열은 "원문 없음"). **상태**(rows의 status: 진행·완료·철회·중단·미확인)는 그대로 적고 철회 건도 빼지 않는다 —
+   요약에 `statuses`(상태별 거래 수)와 "철회 제외 시" 중앙값을 한 줄 덧붙인다. 결과는 result + result_unit 그대로(환산하지 않는다).
 3. **분포는 거래 단위**(`variables`): 한 거래의 값이 여럿이면 외부평가기관 값이 대표값(없으면 그 거래 값들의 중앙값).
    변수마다 "**N건 거래, M개 값**"을 먼저 쓰고 중앙값·1사분위–3사분위·최소–최대(en dash). 거래별 대표값(`per_deal`)도 작은 표로.
    멀티플은 종류별(`multiple:PER` 등)로 따로.

@@ -22,7 +22,10 @@
   "relation_text": "가. 계열회사 또는 자회사 등의 관계 여부해당사항 없습니다.",
   "board_date": "2024-11-07",
   "regime": "기준시가",
-  "ratio_text": "합병비율: 우양에이치씨㈜ : 케이비제26호기업인수목적㈜ = 1:0.1620483"
+  "ratio_text": "합병비율: 우양에이치씨㈜ : 케이비제26호기업인수목적㈜ = 1:0.1620483",
+  "status": "완료",
+  "status_source": "20250313000443",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

@@ -19,7 +19,10 @@
   "relation_text": "계열·임원겸직·대주주 특수관계·경쟁/보완관계·당사회사간 거래 모두 해당사항 없음(VIII. 당사회사간의 이해관계 등)",
   "board_date": "2026-06-30",
   "regime": "기준시가",
-  "ratio_text": "㈜셀트릭스:아이비케이에스제25호기업인수목적㈜ = 1:0.4612273"
+  "ratio_text": "㈜셀트릭스:아이비케이에스제25호기업인수목적㈜ = 1:0.4612273",
+  "status": "진행",
+  "status_source": null,
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

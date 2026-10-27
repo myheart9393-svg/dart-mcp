@@ -21,7 +21,10 @@
   "relation_text": "계열·임원겸직·대주주 특수관계·거래 모두 해당사항 없음(VIII. 당사회사간의 이해관계 등)",
   "board_date": "2025-10-15",
   "regime": "기준시가",
-  "ratio_text": "케이피항공산업㈜ : 엔에이치기업인수목적30호㈜ = 1:0.1672381"
+  "ratio_text": "케이피항공산업㈜ : 엔에이치기업인수목적30호㈜ = 1:0.1672381",
+  "status": "완료",
+  "status_source": "20260428000161",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

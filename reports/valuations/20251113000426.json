@@ -21,7 +21,10 @@
   "relation_text": "합병회사인 오스템임플란트(주)는 피합병회사인 오스템글로벌(주)의 지분 98.96% 보유, 피합병회사는 합병회사의 연결 대상 종속회사",
   "board_date": "2025-08-29",
   "regime": "기준시가",
-  "ratio_text": "오스템임플란트(주) : 오스템글로벌(주) = 1 : 0.0127869"
+  "ratio_text": "오스템임플란트(주) : 오스템글로벌(주) = 1 : 0.0127869",
+  "status": "완료",
+  "status_source": "20260115000215",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,
@@ -280,6 +283,13 @@
    "title": "II. 합병 가액 및 그 산출근거",
    "chars_read": 38408,
    "how": "search/section"
+  }
+ ],
+ "source_inconsistent": [
+  {
+   "check": "d_intrinsic",
+   "path": "valuations/0",
+   "note": "원문이 3:2 가중평균 후 '자기주식 보유분을 반영'해 864,710원이라 적음. 그 조정의 입력값은 원문에 없어 항등식으로 검산 불가(원문 추가 조정)"
   }
  ]
 }

@@ -22,7 +22,10 @@
   "relation_text": "「독점규제 및 공정거래에 관한 법률」에 따라 'DB' 집단에 속한 계열회사(최대주주 모두 (주)DB하이텍)",
   "board_date": "2025-03-24",
   "regime": "기준시가",
-  "ratio_text": "디비월드 : 디비메탈 = 1 : 0.0362402"
+  "ratio_text": "디비월드 : 디비메탈 = 1 : 0.0362402",
+  "status": "완료",
+  "status_source": "20250701000360",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

@@ -19,7 +19,10 @@
   "relation_text": "본 주식교환의 당사자는 두산그룹에 속해 있는 계열회사",
   "board_date": "2024-07-11",
   "regime": "기준시가",
-  "ratio_text": "두산로보틱스(주) : 두산밥캣(주) = 1 : 0.6317462"
+  "ratio_text": "두산로보틱스(주) : 두산밥캣(주) = 1 : 0.6317462",
+  "status": "철회·중단",
+  "status_source": "20240829001379",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": false,

@@ -306,6 +306,12 @@ def scan_valuation_disclosures(
     return {"deals": deals, "api_calls": calls, "windows": windows, "scanned": scanned}
 
 
+def industry_match(code: str | None, token: str) -> bool:
+    from .industry import matches
+
+    return matches(code, token)
+
+
 def industry_label(code: str | None) -> str | None:
     from .industry import label
 
@@ -367,9 +373,8 @@ def _pct(field: Any) -> float | None:
 def distribution_warnings(case: dict) -> list[str]:
     """값 분포 밖의 숫자(FAIL 아님 — 원문이 그럴 수 있다). 원문 대조가 필요한 곳을 찍는다.
 
-    WACC 0–30% 밖, g ≥ WACC(같은 원소), g > 5%, 적용 멀티플 ≤ 0, 할인율 0–70% 밖,
-    자산가치 자본총계 + 조정항목 ≠ 조정 순자산(같은 단위, 분할 제외 — 분할은 equity_book이 분할 전 회사라 맞지 않는 게 정상).
-    2026-10 배치 리뷰 실측: 조정항목 부호 누락("(81,583,335)"를 양수로) 2건, 가산항목 한 줄만 넣음 1건. 원문 표 자체가 안 맞는 건도 있다(note).
+    WACC 0–30% 밖, g ≥ WACC(같은 원소), g > 5%, 적용 멀티플 ≤ 0, 할인율 0–70% 밖.
+    회계 항등식(β 재조정·Ke·WACC·본질가치·합병비율·자산가치 합계)은 identity_checks.
     """
     out: list[str] = []
 
@@ -393,17 +398,175 @@ def distribution_warnings(case: dict) -> list[str]:
             out.append(f"{p}/dcf/g: g {g:g}% > {G_MAX:g}%")
         if g is not None and w is not None and g >= w:
             out.append(f"{p}/dcf/g: g {g:g}% ≥ WACC {w:g}%")
-        av = val.get("asset_value") or {}
-        eq, adj, tot = (av.get(k) if isinstance(av.get(k), dict) else {} for k in ("equity_book", "adjustments", "total"))
-        nums = [x.get("value") for x in (eq, adj, tot)]
-        if (case.get("deal") or {}).get("type") != "split" and all(isinstance(x, (int, float)) for x in nums)                 and len({eq.get("unit"), adj.get("unit"), tot.get("unit")}) == 1                 and abs(nums[0] + nums[1] - nums[2]) > max(2, abs(nums[2]) * 1e-6):
-            out.append(f"{p}/asset_value: 자본총계 {nums[0]:,} + 조정항목 {nums[1]:,} ≠ 조정 순자산 {nums[2]:,} — 부호·합계 확인")
         multiple(rel.get("multiple"), f"{p}/relative/multiple")
         discount(rel.get("discount_range"), f"{p}/relative/discount_range")
     ipo = case.get("ipo") or {}
     multiple(ipo.get("multiple"), "ipo/multiple")
     discount(ipo.get("discount_range"), "ipo/discount_range")
     return out
+
+
+# --------------------------------------------------------------------------- 회계 항등식
+IDENTITY_REL_TOL = 0.005  # 상대 0.5%
+IDENTITY_CHECKS = ("a_beta", "b_ke", "c_wacc", "d_intrinsic", "e_market_price", "f_ratio", "g_asset_sum")
+
+
+def _num(field: Any) -> float | None:
+    return float(field["value"]) if isinstance(field, dict) and isinstance(field.get("value"), (int, float)) else None
+
+
+def _ulp(field: Any) -> float:
+    """원문 표기(text)의 마지막 자리 1단위("11.40%" → 0.01, "15,124" → 1)."""
+    t = str((field or {}).get("text") or "")
+    m = re.search(r"\d[\d,]*(?:\.(\d+))?", t)
+    return 10.0 ** -len(m.group(1)) if m and m.group(1) else 1.0
+
+
+def _h(field: Any) -> float:
+    """원문 표기 반올림 오차(마지막 자리 0.5단위)."""
+    return _ulp(field) / 2
+
+
+def _close(calc: float, stated: float, field: Any, prop: float = 0.0, rel: bool = True) -> bool:
+    """허용오차 = max(상대 0.5%(rel일 때), 원문 표시 자릿수 0.5단위 + 입력값 표시 자릿수 반올림의 전파 prop).
+
+    비율·금리(a·b·c)는 rel=True, 금액 산술(d·f·g)은 rel=False(원 단위 합계에 0.5%는 너무 느슨하다 — RF시스템즈 5천만원 차이가 0.16%)."""
+    tol = _h(field) + prop
+    if rel:
+        tol = max(tol, IDENTITY_REL_TOL * abs(stated))
+    return abs(calc - stated) <= tol + 1e-9
+
+
+def _de_dv(dcf: dict) -> tuple[float | None, float | None]:
+    """목표자본구조 → (D/E, D/V) 소수. β 재조정은 D/E(target_de 우선), WACC 가중치는 D/V(target_dv 우선) — 원문이 둘을 따로 적으면 각각 그 값."""
+    de, dv = _pct(dcf.get("target_de")), _pct(dcf.get("target_dv"))
+    de_x = de / 100 if de is not None else (dv / (100 - dv) if dv is not None and dv < 100 else None)
+    dv_x = dv / 100 if dv is not None else (de / (100 + de) if de is not None else None)
+    return de_x, dv_x
+
+
+TAX_BAND = (9.9, 27.5)  # 국내 법인세 한계세율(지방소득세 포함) 범위 — 동종기업별 세율로 재조정 후 평균한 βL 허용
+
+
+def identity_checks(case: dict) -> list[dict]:
+    """회계 항등식 검사 → [{check, path, status: pass|warn|skip|source_inconsistent, detail}].
+
+    a β 재조정 βL = βu×(1+(1−t)×D/E). 안 맞으면 ① 적힌 값을 반대 정의(D/E↔D/V)로 읽어 맞는지("D/E↔D/V 혼동 의심")
+      ② 세율 9.9–27.5% 범위 안에서 맞는지(동종기업별 세율로 재조정 후 평균 — 광교·한울 2024 실측, 통과로 센다)
+    b Ke = rf + βL×MRP + 규모위험(null이면 0)   c WACC = Ke×(1−D/V) + Kd×(1−t)×D/V (Kd 세전, D/V는 target_dv 우선)
+    d 본질가치 = (자산×w_a + 수익×w_i)/(w_a+w_i). weights.basis가 상증법(80% 하한)이면 max(가중평균, 순자산×0.8)
+    e 기준시가 산술평균 — 스키마에 입력값 필드가 없어 늘 skip
+    f 합병·교환비율 = 회사별 주당 가액의 비(양방향 중 하나). 분할합병은 비율 = 분할비율×합병비율이라 skip
+    g 자산가치 자본총계 + 조정항목 = 조정 순자산(분할 제외: equity_book이 분할 전 회사)
+    필요한 필드가 하나라도 없으면 skip. 허용오차 _close. case.source_inconsistent[{check, path}]의 경고는 status=source_inconsistent.
+    """
+    known = {(x.get("check"), x.get("path")) for x in case.get("source_inconsistent") or []}
+    out: list[dict] = []
+
+    def put(check: str, path: str, ok: bool | None, detail: str = "") -> None:
+        st = "skip" if ok is None else "pass" if ok else "warn"
+        if st == "warn" and (check, path) in known:
+            st = "source_inconsistent"
+        out.append({"check": check, "path": path, "status": st, "detail": detail if st != "skip" else ""})
+
+    deal_type = (case.get("deal") or {}).get("type")
+    for i, val in enumerate(case.get("valuations") or []):
+        p = f"valuations/{i}"
+        dcf = val.get("dcf") or {}
+        if dcf:
+            def F(k: str) -> dict:
+                return dcf.get(k) or {}
+            bu, bl, t = _num(dcf.get("beta_unlevered")), _num(dcf.get("beta_levered")), _pct(dcf.get("tax_rate"))
+            de, dv = _de_dv(dcf)
+            if None in (bu, bl, t, de):
+                put("a_beta", p, None)
+            else:
+                def lev(tax: float, x: float) -> float:
+                    return bu * (1 + (1 - tax / 100) * x)
+                calc = lev(t, de)
+                prop = _h(F("beta_unlevered")) * (1 + (1 - t / 100) * de) \
+                    + bu * (1 - t / 100) * _h(F("target_de") or F("target_dv")) / 100
+                ok, detail = _close(calc, bl, F("beta_levered"), prop), ""
+                if not ok:
+                    lo, hi = sorted((lev(TAX_BAND[1], de), lev(TAX_BAND[0], de)))
+                    which = "target_de" if dcf.get("target_de") else "target_dv"
+                    x = _pct(dcf.get(which))
+                    other = x / (100 - x) if which == "target_de" and x < 100 else x / 100
+                    alt = lev(t, other)
+                    if _close(alt, bl, F("beta_levered"), prop) and abs(alt - calc) > IDENTITY_REL_TOL * bl:
+                        detail = (f"D/E↔D/V 혼동 의심: {which} {x:g}%를 {'D/V' if which == 'target_de' else 'D/E'}로 보면 "
+                                  f"βL {alt:.4f}로 맞음(적힌 대로면 {calc:.4f})")
+                    elif lo - prop <= bl <= hi + prop:
+                        ok, detail = True, f"동종기업별 세율 재조정 범위({TAX_BAND[0]}–{TAX_BAND[1]}%) 안"
+                    else:
+                        detail = (f"βL 계산 {calc:.4f} ≠ 원문 {bl:g} (세율 {TAX_BAND[0]}–{TAX_BAND[1]}% 범위 {lo:.4f}–{hi:.4f}, "
+                                  f"반대 해석 {alt:.4f}도 안 맞음)")
+                put("a_beta", p, ok, detail)
+            rf, mrp, ke, sp = _pct(dcf.get("rf")), _pct(dcf.get("mrp")), _pct(dcf.get("ke")), _pct(dcf.get("size_premium"))
+            if None in (rf, mrp, ke, bl):
+                put("b_ke", p, None)
+            else:
+                calc = rf + bl * mrp + (sp or 0)
+                prop = _h(F("rf")) + _h(F("beta_levered")) * mrp + bl * _h(F("mrp")) + (_h(F("size_premium")) if sp is not None else 0)
+                put("b_ke", p, _close(calc, ke, F("ke"), prop),
+                    f"Ke 계산 {calc:.2f}% ≠ 원문 {ke:g}% (rf {rf:g} + β {bl:g}×MRP {mrp:g} + 규모 {sp or 0:g})")
+            kd, w = _pct(dcf.get("kd")), _pct(dcf.get("wacc"))
+            if None in (ke, kd, t, dv, w):
+                put("c_wacc", p, None)
+            else:
+                calc = ke * (1 - dv) + kd * (1 - t / 100) * dv
+                prop = _h(F("ke")) * (1 - dv) + _h(F("kd")) * (1 - t / 100) * dv \
+                    + abs(ke - kd * (1 - t / 100)) * _h(F("target_dv") or F("target_de")) / 100
+                put("c_wacc", p, _close(calc, w, F("wacc"), prop),
+                    f"WACC 계산 {calc:.2f}% ≠ 원문 {w:g}% (Ke {ke:g}, Kd {kd:g}, t {t:g}, D/V {dv * 100:.2f}%)")
+        if val.get("method") == "본질가치":
+            wts = val.get("weights") or {}
+            af, incf = (val.get("asset_value") or {}).get("per_share"), val.get("income_value")
+            a, inc = _num(af), _num(incf)
+            res_f = (val.get("result") or {}).get("value")
+            res = _num(res_f)
+            wa, wi = wts.get("asset"), wts.get("income")
+            if None in (a, inc, wa, wi, res) or not (wa + wi):
+                put("d_intrinsic", p, None)
+            else:
+                calc = (a * wa + inc * wi) / (wa + wi)
+                floor = re.search(r"상증|80\s*%|100분의\s*80", str(wts.get("basis") or ""))
+                if floor:
+                    calc = max(calc, a * 0.8)
+                prop = (wa * _h(af) + wi * _h(incf)) / (wa + wi) + _h(res_f)  # 원문이 절상·절사하면 1단위까지
+                put("d_intrinsic", p, _close(calc, res, res_f, prop, rel=False),
+                    f"본질가치 계산 {calc:,.1f} ≠ 원문 {res:,.0f} (자산 {a:,.0f}×{wa:g} + 수익 {inc:,.0f}×{wi:g}"
+                    f"{', 상증법 80% 하한' if floor else ''})")
+        if val.get("method") == "기준시가":
+            put("e_market_price", p, None)
+        av = val.get("asset_value") or {}
+        eq, adj, tot = (_num(av.get(k)) for k in ("equity_book", "adjustments", "total"))
+        units = {(av.get(k) or {}).get("unit") for k in ("equity_book", "adjustments", "total")}
+        if deal_type == "split" or None in (eq, adj, tot) or len(units) != 1:
+            if av:
+                put("g_asset_sum", p, None)
+        else:
+            prop = _h(av["equity_book"]) + _h(av["adjustments"])
+            put("g_asset_sum", p, _close(eq + adj, tot, av["total"], prop, rel=False),
+                f"자본총계 {eq:,.0f} + 조정항목 {adj:,.0f} = {eq + adj:,.0f} ≠ 조정 순자산 {tot:,.0f}")
+    concl = case.get("conclusion") or {}
+    ratio = _num(concl.get("ratio"))
+    prices = [x["value"] for x in concl.get("price_per_share") or [] if _num(x.get("value"))]
+    if deal_type in ("merger", "share_exchange"):
+        if ratio is None or len(prices) < 2:
+            put("f_ratio", "conclusion", None)
+        else:
+            cands = [(_num(a) / _num(b), a, b) for a in prices for b in prices if a is not b and _num(b)]
+            ok = any(_close(c, ratio, concl["ratio"], c * (_h(a) / _num(a) + _h(b) / _num(b)), rel=False) for c, a, b in cands)
+            put("f_ratio", "conclusion", ok,
+                f"비율 {ratio:g}이 주당 가액 {[_num(x) for x in prices]}의 어떤 비({', '.join(f'{c:.6g}' for c, _, _ in cands)})와도 안 맞음")
+    elif deal_type == "split_merger":
+        put("f_ratio", "conclusion", None)
+    return out
+
+
+def _identity_warnings(results: list[dict]) -> list[str]:
+    return [f"항등식 {x['check']} {x['path']}: {x['detail']}" for x in results if x["status"] == "warn"]
 
 
 def iter_numbers(node: Any, path: str = "") -> list[tuple[str, dict]]:
@@ -484,6 +647,7 @@ def flatten_case(case: dict) -> list[dict]:
         "induty_code": case["company"].get("induty_code"), "deal_type": case["deal"]["type"],
         "industry": industry_label(case["company"].get("induty_code")),
         "board_date": case["deal"].get("board_date"), "regime": case["deal"].get("regime"),
+        "status": case["deal"].get("status"),
         "firm": (case.get("external_valuation") or {}).get("firm"), "source_grade": case["source_grade"],
     }
     for val in case.get("valuations") or [{}]:
@@ -534,7 +698,7 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
     """평가 행 거르기. purposes=None이면 거래가액 평가만(공정가치평가·손상검사 제외), {"all"}이면 전부.
 
     regimes: deal.regime 값 집합(예: {"기준시가"}). "none"은 regime이 null인 행.
-    industries: KSIC 코드 접두 집합(예: {"26", "21"}, {"582"}) — induty_code가 그중 하나로 시작하는 행."""
+    industries: KSIC 코드 접두("26", "582"), 대분류 문자("C") 또는 대분류 별칭("제조업", "정보통신", "금융보험", "도소매") 집합 — 하나라도 맞는 행."""
     out = []
     for r in rows:
         d = _deal_date(r)
@@ -554,7 +718,7 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
             continue
         if regimes and (r.get("regime") or "none") not in regimes:
             continue
-        if industries and not any((r.get("induty_code") or "").startswith(x) for x in industries):
+        if industries and not any(industry_match(r.get("induty_code"), x) for x in industries):
             continue
         out.append(r)
     return out
@@ -734,9 +898,108 @@ def render_markdown(case: dict) -> str:
     return "\n".join(out).replace("~", "–") + "\n"
 
 
+# --------------------------------------------------------------------------- 거래 상태(이후 공시 목록으로)
+# 2026-10 실측(161건 중 합병·분할·교환 97건의 이후 list.json): 완료는 "증권발행실적보고서(합병등)"(95건)·"합병등종료보고서(합병|분할|
+# 주식의포괄적교환ㆍ이전)", 철회는 "철회신고서"(무엇을 철회하는지 이름에 없다)·"기타주요경영사항 (회사합병 결정 철회)" 등.
+# "합병등종료보고서(자산양수도)"는 다른 거래라 뺀다.
+DEAL_STATUSES = ("진행", "완료", "철회·중단", "미확인")
+NEW_DEAL_GAP_DAYS = 30
+STATUS_PENDING_DAYS = 270  # 끝난 흔적이 없을 때 본문 접수 후 이 기간 안이면 "진행", 지나면 "미확인"
+_DONE_RE = re.compile(r"증권발행실적보고서\(합병등\)|합병등종료보고서\((합병|분할|분할합병|주식의포괄적교환ㆍ이전)\)")
+_KIND_WORDS = {"merger": ("합병",), "split": ("분할",), "split_merger": ("분할합병", "분할", "합병"),
+               "share_exchange": ("교환", "이전")}
+_NEW_DEAL_RE = {
+    "merger": re.compile(r"^(증권신고서\(합병\)|주요사항보고서\(회사합병결정\))$"),
+    "split": re.compile(r"^(증권신고서\(분할\)|주요사항보고서\(회사분할결정\))$"),
+    "split_merger": re.compile(r"^(증권신고서\(분할\)|주요사항보고서\(회사분할합병결정\))$"),
+    "share_exchange": re.compile(r"^(증권신고서\(주식의포괄적교환ㆍ이전\)|주요사항보고서\(주식교환ㆍ이전결정\))$"),
+}
+
+
+def classify_deal_status(case: dict, filings: list[dict], today: str) -> dict:
+    """같은 회사의 공시 목록(list.json 항목: rcept_no, rcept_dt, report_nm) → {status, status_source, evidence}.
+
+    창: 이 사례의 본문 접수(rcept_no) 다음부터 같은 회사가 같은 유형의 새 거래(꼬리표 없는 증권신고서·주요사항보고서)를 낸 날 전까지
+    (HLB 2025: 생명과학 합병 철회 후 사이언스 합병 완료 — 창이 없으면 뒤 거래의 완료를 앞 거래에 붙인다).
+    창 안에서 ① "…결정 철회"(유형 단어 포함) 또는 "철회신고서"(바로 앞 증권신고서가 같은 유형) → 철회·중단
+    ② 완료 서류 → 완료. 둘 다 있으면 늦은 쪽(철회 뒤 완료면 철회가 다른 신고서였던 것 — 제넥신 2024).
+    아무것도 없으면 today − 본문 접수일 ≤ STATUS_PENDING_DAYS면 진행, 아니면 미확인. 원문은 받지 않는다.
+    """
+    typ = case["deal"]["type"]
+    words = _KIND_WORDS.get(typ)
+    if not words:
+        return {"status": None, "status_source": None, "evidence": "상태 판정 대상 아님"}
+    body = case["rcept_no"]
+    rows = sorted((f for f in filings if f.get("rcept_no")), key=lambda f: f["rcept_no"])
+    base = lambda nm: re.sub(r"^(\[[^\]]*\]\s*)+", "", nm or "").strip()
+    # 새 거래 = 꼬리표 없는 같은 유형 원본, 본문 접수 30일 뒤부터, 이 거래의 짝 공시가 아닌 것
+    # (실측: 같은 날 낸 짝 주요사항보고서·[첨부정정]을 새 거래로 보면 아리바이오 2026-09-29 철회를 놓친다)
+    mine = set(case.get("related_rcept_nos") or []) | {case.get("original_rcept_no")}
+    min_new = (_date(body[:8]) + dt.timedelta(days=NEW_DEAL_GAP_DAYS)).strftime("%Y%m%d")
+    end = next((f["rcept_no"] for f in rows if f["rcept_no"][:8] >= min_new and f["rcept_no"] not in mine
+                and _NEW_DEAL_RE[typ].match((f["report_nm"] or "").strip())), None)
+    window = [f for f in rows if f["rcept_no"] > body and (end is None or f["rcept_no"] < end)]
+    events: list[tuple[str, dict]] = []
+    for f in window:
+        nm = base(f["report_nm"])
+        if _DONE_RE.search(nm):
+            events.append(("완료", f))
+        elif "철회" in nm and "결정" in nm and any(w in nm for w in words):
+            events.append(("철회·중단", f))
+        elif nm.startswith("철회신고서"):
+            prev = [g for g in rows if g["rcept_no"] < f["rcept_no"] and base(g["report_nm"]).startswith("증권신고서")]
+            if prev and any(w in base(prev[-1]["report_nm"]) for w in words):
+                events.append(("철회·중단", f))
+    if events:
+        st, f = events[-1] if events[-1][0] == "완료" else next((e for e in events if e[0] == "철회·중단"), events[-1])
+        return {"status": st, "status_source": f["rcept_no"], "evidence": f"{f['rcept_dt']} {base(f['report_nm'])}"}
+    days = (_date(today) - _date(body[:8])).days
+    return {"status": "진행" if days <= STATUS_PENDING_DAYS else "미확인", "status_source": None,
+            "evidence": f"본문 접수 후 {days}일, 완료·철회 공시 없음" + (f"(다음 거래 {end} 전까지)" if end else "")}
+
+
+def _status_cli(directory: Path, argv: list[str]) -> int:
+    """status <dir> [--today YYYYMMDD]: 합병·분할·분할합병·교환 사례의 deal.status를 같은 회사의 이후 공시 목록(list.json)으로 채운다."""
+    import logging as _lg
+
+    from . import server
+
+    _lg.disable(_lg.INFO)
+    today = argv[argv.index("--today") + 1] if "--today" in argv else dt.date.today().strftime("%Y%m%d")
+    out, calls = [], 0
+    for p in sorted(directory.glob("*.json")):
+        if p.name.startswith("_"):
+            continue
+        case = json.loads(p.read_text(encoding="utf-8"))
+        if case["deal"]["type"] not in _KIND_WORDS or not case["company"].get("corp_code"):
+            continue
+        start = min(case.get("original_rcept_no") or case["rcept_no"], case["rcept_no"])[:8]
+        items, page = [], 1
+        while True:
+            r = server.search_disclosures(corp_code=case["company"]["corp_code"], bgn_de=start, end_de=today,
+                                          max_results=100, page_no=page)
+            calls += 1
+            if "error" in r:
+                break
+            items += r["results"]
+            if not r.get("has_more"):
+                break
+            page += 1
+        res = classify_deal_status(case, items, today)
+        case["deal"].update({"status": res["status"], "status_source": res["status_source"],
+                             "status_checked": f"{today[:4]}-{today[4:6]}-{today[6:]}"})
+        p.write_text(json.dumps(case, ensure_ascii=False, indent=1), encoding="utf-8")
+        out.append({"rcept_no": case["rcept_no"], "company": case["company"]["name"], "type": case["deal"]["type"], **res})
+    counts: dict[str, int] = {}
+    for r in out:
+        counts[r["status"]] = counts.get(r["status"], 0) + 1
+    print(json.dumps({"cases": len(out), "list_calls": calls, "status": counts, "rows": out}, ensure_ascii=False, indent=1))
+    return 0
+
+
 def _stats_cli(directory: Path, argv: list[str]) -> int:
     """stats <dir> [--from YYYY-MM-DD] [--to YYYY-MM-DD] [--deal-type merger,ipo] [--method DCF] [--purpose 합병가액,…|all] [--firm X]
-    [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none] [--industry 26,21 (KSIC 코드 접두)]
+    [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none] [--industry 26,21 | C | 제조업,정보통신 (코드 접두·대분류)]
 
     거래 단위 통계(JSON): 걸러진 행, deal_stats(WACC·g·멀티플 대표값 분위수, 평가기관별 건수), IPO가 있으면 ipo_stats.
     industries: 중분류 라벨별 거래 수("26 전자부품·…", 매핑에 없으면 코드만). regimes: 체계별 거래 수. 기준시가와 공정가액 체계가 섞이면 warning — 합병가액 산정 체계가 달라 한 분포로 보면 안 된다.
@@ -763,12 +1026,15 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
     kept = {r["rcept_no"] for r in rows}
     regimes: dict[str, int] = {}
     industries: dict[str, int] = {}
+    statuses: dict[str, int] = {}
     for rno in kept:
         first = next(r for r in rows if r["rcept_no"] == rno)
-        reg, ind = first.get("regime") or "none", first.get("industry") or "(없음)"
+        reg, ind, st = first.get("regime") or "none", first.get("industry") or "(없음)", first.get("status") or "(없음)"
         regimes[reg] = regimes.get(reg, 0) + 1
         industries[ind] = industries.get(ind, 0) + 1
-    out = {"filters": vars(a), "regimes": regimes, "industries": dict(sorted(industries.items(), key=lambda x: -x[1])),
+        statuses[st] = statuses.get(st, 0) + 1
+    out = {"filters": vars(a), "regimes": regimes, "statuses": statuses,
+           "industries": dict(sorted(industries.items(), key=lambda x: -x[1])),
            "rows": rows, **deal_stats(rows)}
     if {"기준시가", REGIME_FAIR} <= set(regimes):
         out["warning"] = f"기준시가·{REGIME_FAIR} 체계가 섞였다 — --regime으로 나눠 따로 본다"
@@ -782,23 +1048,30 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
 def _cli(argv: list[str]) -> int:
     """uv run python -m dart_mcp.valuation validate <case.json|dir> | verify-cites <case.json> [--sample 8] [--seed N]
     | md <case.json> (같은 이름 .md 생성) | table <dir> | stats <dir> [필터…] (거래 단위 통계)
+    | status <dir> [--today YYYYMMDD] (합병·분할·교환 사례의 deal.status를 이후 공시 목록으로 채움, 원문 안 받음)
     validate: errors[]가 있으면 FAIL(종료코드 1), warnings[](분포 밖 값)는 원문 대조용 — 종료코드에 영향 없음."""
     sys.stdout.reconfigure(encoding="utf-8")
-    if len(argv) < 2 or argv[0] not in ("validate", "verify-cites", "table", "md", "stats"):
+    if len(argv) < 2 or argv[0] not in ("validate", "verify-cites", "table", "md", "stats", "status"):
         print(_cli.__doc__)
         return 2
     cmd, target = argv[0], Path(argv[1])
     if cmd == "validate" and target.is_dir():
-        results = []
+        results, summary = [], {}
         for p in sorted(target.glob("*.json")):
             if p.name.startswith("_"):
                 continue
             c = json.loads(p.read_text(encoding="utf-8"))
-            results.append({"file": p.name, "errors": validate_case(c), "warnings": distribution_warnings(c)})
+            ids = identity_checks(c)
+            for x in ids:
+                summary.setdefault(x["check"], {"pass": 0, "warn": 0, "skip": 0, "source_inconsistent": 0})[x["status"]] += 1
+            results.append({"file": p.name, "errors": validate_case(c), "warnings": distribution_warnings(c) + _identity_warnings(ids)})
         print(json.dumps({"cases": len(results), "failed": sum(bool(r["errors"]) for r in results),
                           "warned": sum(bool(r["warnings"]) for r in results),
+                          "identities": {k: summary.get(k, {}) for k in IDENTITY_CHECKS},
                           "results": [r for r in results if r["errors"] or r["warnings"]]}, ensure_ascii=False, indent=1))
         return 1 if any(r["errors"] for r in results) else 0
+    if cmd == "status":
+        return _status_cli(target, argv[2:])
     if cmd == "stats":
         return _stats_cli(target, argv[2:])
     if cmd == "md":
@@ -814,7 +1087,8 @@ def _cli(argv: list[str]) -> int:
     if cmd == "validate":
         errors = validate_case(case)
         print(json.dumps({"file": str(target), "valid": not errors, "errors": errors,
-                          "warnings": distribution_warnings(case)}, ensure_ascii=False, indent=1))
+                          "warnings": distribution_warnings(case) + _identity_warnings(identity_checks(case))},
+                         ensure_ascii=False, indent=1))
         return 0 if not errors else 1
     sample = int(argv[argv.index("--sample") + 1]) if "--sample" in argv else 8
     seed = int(argv[argv.index("--seed") + 1]) if "--seed" in argv else target.stat().st_size

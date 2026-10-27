@@ -21,7 +21,10 @@
   "relation_text": "계열회사 또는 자회사 등의 관계 여부: 해당사항 없습니다.",
   "board_date": "2024-09-30",
   "regime": "기준시가",
-  "ratio_text": "㈜에이아이코리아 : 한국제14호기업인수목적㈜ = 1:0.2092101"
+  "ratio_text": "㈜에이아이코리아 : 한국제14호기업인수목적㈜ = 1:0.2092101",
+  "status": "완료",
+  "status_source": "20250416000091",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,
@@ -601,5 +604,12 @@
   }
  ],
  "extracted_at": "2026-10-27T10:04:03+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "source_inconsistent": [
+  {
+   "check": "a_beta",
+   "path": "valuations/1",
+   "note": "원문 βL 1.39093은 βu 1.250과 원문 D/E 16.19%·세율 23.1%로 재현되지 않음(1.4056). 원문 WACC 식의 D/V 12.63%(D/E 14.46%)로는 재현됨 — 원문 D/E 표기와 산식 값이 엇갈림"
+  }
+ ]
 }

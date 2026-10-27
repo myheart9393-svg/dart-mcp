@@ -315,12 +315,75 @@ def test_fill_case_records_reason(monkeypatch):
     assert industry.fill_case(case)["induty_code"] == "26429" and case["notes"] == ["기존"]  # 다시 채우면 사유 note는 지운다
 
 
-def test_asset_sum_warning_skips_split_and_catches_sign():
-    from dart_mcp.valuation import distribution_warnings
+def test_asset_sum_identity_skips_split_and_catches_sign():
+    from dart_mcp.valuation import identity_checks
 
-    def case(adj, typ="merger"):
-        n = lambda v: {"value": v, "unit": "원", "text": str(v), "cite": None}
-        return {"deal": {"type": typ}, "valuations": [{"asset_value": {"equity_book": n(1000), "adjustments": n(adj), "total": n(900)}}]}
-    assert distribution_warnings(case(-100)) == []
-    assert any("조정항목" in w for w in distribution_warnings(case(100)))  # 차감을 양수로 넣은 경우
-    assert distribution_warnings(case(100, "split")) == []
+    def st(adj, typ="merger", known=None):
+        n = lambda v: {"value": v, "unit": "원", "text": f"{v:,}", "cite": None}
+        c = {"deal": {"type": typ}, "valuations": [{"asset_value": {"equity_book": n(1000), "adjustments": n(adj), "total": n(900)}}],
+             "conclusion": {}, "source_inconsistent": known or []}
+        return [x["status"] for x in identity_checks(c) if x["check"] == "g_asset_sum"]
+    assert st(-100) == ["pass"] and st(100) == ["warn"]  # 차감을 양수로 넣은 경우
+    assert st(100, "split") == ["skip"]
+    assert st(100, known=[{"check": "g_asset_sum", "path": "valuations/0", "note": "원문 표 합계 불일치"}]) == ["source_inconsistent"]
+
+
+def _pctf(v, text=None):
+    return {"value": v, "unit": "%", "text": text or f"{v}%", "cite": None}
+
+
+def test_identity_beta_flags_de_dv_confusion_and_wacc_ke():
+    from dart_mcp.valuation import identity_checks
+
+    dcf = {"beta_unlevered": {"value": 0.7083, "unit": None, "text": "0.7083", "cite": None},
+           "beta_levered": {"value": 0.8774, "unit": None, "text": "0.8774", "cite": None},
+           "tax_rate": _pctf(20.9), "target_de": _pctf(30.18), "rf": _pctf(2.99), "mrp": _pctf(8.0),
+           "size_premium": _pctf(3.75), "ke": _pctf(13.76), "kd": _pctf(4.27), "wacc": _pctf(11.4, "11.4%")}
+    case = {"deal": {"type": "merger"}, "valuations": [{"dcf": dcf}], "conclusion": {}}
+    st = {x["check"]: x for x in identity_checks(case)}
+    assert st["a_beta"]["status"] == st["b_ke"]["status"] == st["c_wacc"]["status"] == "pass"  # 애드포러스 2025 실값
+    dcf2 = dict(dcf, target_de=None, target_dv=_pctf(30.18))  # 같은 값을 D/V로 잘못 넣은 경우
+    a = {x["check"]: x for x in identity_checks({**case, "valuations": [{"dcf": dcf2}]})}["a_beta"]
+    assert a["status"] == "warn" and "D/E↔D/V 혼동 의심" in a["detail"]
+
+
+def test_identity_intrinsic_and_ratio():
+    from dart_mcp.valuation import identity_checks
+
+    n = lambda v: {"value": v, "unit": "원", "text": f"{v:,}", "cite": None}
+    val = {"method": "본질가치", "weights": {"asset": 1, "income": 1.5}, "asset_value": {"per_share": n(4313)},
+           "income_value": n(22331), "result": {"value": n(15124), "unit": "원", "range": None}}
+    case = {"deal": {"type": "merger"}, "valuations": [val],
+            "conclusion": {"price_per_share": [{"value": n(15124)}, {"value": n(2000)}],
+                           "ratio": {"value": 0.1322397, "unit": None, "text": "0.1322397", "cite": None}}}
+    st = {x["check"]: x["status"] for x in identity_checks(case)}
+    assert st["d_intrinsic"] == st["f_ratio"] == "pass" and st["g_asset_sum"] == "skip"
+
+
+def test_classify_deal_status_window_and_withdrawal():
+    from dart_mcp.valuation import classify_deal_status
+
+    f = lambda r, nm: {"rcept_no": r, "rcept_dt": r[:8], "report_nm": nm}
+    case = {"rcept_no": "20260623000368", "deal": {"type": "merger"}, "related_rcept_nos": ["20260623000373"]}
+    rows = [f("20260623000368", "[기재정정]증권신고서(합병)"), f("20260623000373", "주요사항보고서(회사합병결정)"),
+            f("20260929000637", "철회신고서"), f("20260929000640", "기타주요경영사항 (회사합병 결정 철회)")]
+    r = classify_deal_status(case, rows, "20261027")
+    assert r["status"] == "철회·중단" and r["status_source"] == "20260929000637"  # 같은 날 짝 공시는 새 거래가 아니다
+    hlb = {"rcept_no": "20250519000315", "deal": {"type": "merger"}, "related_rcept_nos": []}
+    rows = [f("20250801000001", "기타경영사항(자율공시) (회사합병결정 철회에 관한 사항)"),
+            f("20250917000002", "주요사항보고서(회사합병결정)"), f("20251231000386", "증권발행실적보고서(합병등)")]
+    assert classify_deal_status(hlb, rows, "20261027")["status"] == "철회·중단"  # 다음 거래의 완료를 붙이지 않는다
+    gx = {"rcept_no": "20240726000291", "deal": {"type": "merger"}, "related_rcept_nos": []}
+    rows = [f("20240701000001", "증권신고서(합병)"), f("20240729000148", "철회신고서"), f("20241002000001", "합병등종료보고서(합병)")]
+    assert classify_deal_status(gx, rows, "20261027")["status"] == "완료"  # 철회 뒤 완료면 완료
+    assert classify_deal_status(gx, [], "20240901")["status"] == "진행" and classify_deal_status(gx, [], "20261027")["status"] == "미확인"
+
+
+def test_industry_section_groups():
+    from dart_mcp.industry import matches
+
+    assert matches("29271", "제조업") and matches("10897", "C") and not matches("58222", "제조업")
+    assert matches("58222", "정보통신") and matches("64992", "금융보험") and matches("47122", "도소매")
+    assert matches("26429", "26") and not matches("26429", "27")
+    rows = [dict(_r("A", "외부평가", 8.0), induty_code="29271"), dict(_r("B", "외부평가", 9.0), induty_code="58222")]
+    assert [r["rcept_no"] for r in filter_rows(rows, industries={"제조업"})] == ["A"]

@@ -19,7 +19,10 @@
   "relation_text": "계열회사 또는 자회사 등의 관계 여부해당사항 없습니다.",
   "board_date": "2023-08-24",
   "regime": "기준시가",
-  "ratio_text": "(주)크리에이츠 : 엔에이치기업인수목적20호(주) = 1 : 0.4005468"
+  "ratio_text": "(주)크리에이츠 : 엔에이치기업인수목적20호(주) = 1 : 0.4005468",
+  "status": "철회·중단",
+  "status_source": "20240221001443",
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,

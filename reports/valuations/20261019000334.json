@@ -21,7 +21,10 @@
   "relation_text": "상장 모회사와 비상장 자회사 간 계열회사 합병",
   "board_date": "2026-10-06",
   "regime": "기준시가",
-  "ratio_text": "1 : 0.1679581"
+  "ratio_text": "1 : 0.1679581",
+  "status": "진행",
+  "status_source": null,
+  "status_checked": "2026-10-27"
  },
  "external_valuation": {
   "required": true,
@@ -1086,5 +1089,12 @@
   "합병가액은 개정 자본시장법(2026.9.8 개정, 2026.12.9 시행) 이전 체계(기준시가·본질가치)로 산정했다고 원문에 적혀 있다(4장)."
  ],
  "extracted_at": "2026-10-26T15:20:12+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "source_inconsistent": [
+  {
+   "check": "a_beta",
+   "path": "valuations/7",
+   "note": "원문 βL 0.634는 βu 0.592·D/E 8.13%(=D/V 7.52%와 일치)·세율 24.2%로 재현되지 않음(0.6285). D/E·D/V 표기는 서로 맞으므로 추출 오류 아님"
+  }
+ ]
 }
