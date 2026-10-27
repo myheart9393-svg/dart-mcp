@@ -453,7 +453,7 @@ def identity_checks(case: dict) -> list[dict]:
 
     a β 재조정 βL = βu×(1+(1−t)×D/E). 안 맞으면 ① 적힌 값을 반대 정의(D/E↔D/V)로 읽어 맞는지("D/E↔D/V 혼동 의심")
       ② 세율 9.9–27.5% 범위 안에서 맞는지(동종기업별 세율로 재조정 후 평균 — 광교·한울 2024 실측, 통과로 센다)
-    b Ke = rf + βL×MRP + 규모위험(null이면 0)   c WACC = Ke×(1−D/V) + Kd×(1−t)×D/V (Kd 세전, D/V는 target_dv 우선)
+    b Ke = rf + βL×MRP + 규모위험(null이면 0) + 고유위험(specific_risk)   c WACC = Ke×(1−D/V) + Kd×(1−t)×D/V (Kd 세전, D/V는 target_dv 우선)
     d 본질가치 = (자산×w_a + 수익×w_i)/(w_a+w_i). weights.basis가 상증법(80% 하한)이면 max(가중평균, 순자산×0.8)
     e 기준시가 산술평균 — 스키마에 입력값 필드가 없어 늘 skip
     f 합병·교환비율 = 회사별 주당 가액의 비(양방향 중 하나). 분할합병은 비율 = 분할비율×합병비율이라 skip
@@ -506,10 +506,11 @@ def identity_checks(case: dict) -> list[dict]:
             if None in (rf, mrp, ke, bl):
                 put("b_ke", p, None)
             else:
-                calc = rf + bl * mrp + (sp or 0)
-                prop = _h(F("rf")) + _h(F("beta_levered")) * mrp + bl * _h(F("mrp")) + (_h(F("size_premium")) if sp is not None else 0)
+                xr = _pct(dcf.get("specific_risk"))  # 고유위험 가산(규모위험과 별도, v1.6.1)
+                calc = rf + bl * mrp + (sp or 0) + (xr or 0)
+                prop = _h(F("rf")) + _h(F("beta_levered")) * mrp + bl * _h(F("mrp")) + (_h(F("size_premium")) if sp is not None else 0)                     + (_h(F("specific_risk")) if xr is not None else 0)
                 put("b_ke", p, _close(calc, ke, F("ke"), prop),
-                    f"Ke 계산 {calc:.2f}% ≠ 원문 {ke:g}% (rf {rf:g} + β {bl:g}×MRP {mrp:g} + 규모 {sp or 0:g})")
+                    f"Ke 계산 {calc:.2f}% ≠ 원문 {ke:g}% (rf {rf:g} + β {bl:g}×MRP {mrp:g} + 규모 {sp or 0:g} + 고유 {xr or 0:g})")
             kd, w = _pct(dcf.get("kd")), _pct(dcf.get("wacc"))
             if None in (ke, kd, t, dv, w):
                 put("c_wacc", p, None)
@@ -637,7 +638,7 @@ def verify_citations(case: dict, get_text: Callable[[str, str, str], str | None]
 
 
 # 통계 변수(행 열 이름 → dcf 필드). 단위: β는 배수, 나머지는 %(원문 단위 그대로 — 사례 DB 실측상 전부 %)
-DCF_VARS = {"wacc": "wacc", "g": "g", "rf": "rf", "mrp": "mrp", "size_premium": "size_premium",
+DCF_VARS = {"wacc": "wacc", "g": "g", "rf": "rf", "mrp": "mrp", "size_premium": "size_premium", "specific_risk": "specific_risk",
             "beta_u": "beta_unlevered", "beta_l": "beta_levered", "ke": "ke", "kd": "kd", "tax_rate": "tax_rate"}
 STAT_VARS = (*DCF_VARS, "d_over_e")
 
@@ -673,6 +674,8 @@ def flatten_case(case: dict) -> list[dict]:
             "purpose": val.get("purpose"),
             "method": val.get("method"), "wacc": v(dcf.get("wacc")), "g": v(dcf.get("g")),
             **{k: v(dcf.get(src)) for k, src in DCF_VARS.items() if k not in ("wacc", "g")},
+            # 규모위험은 "적용" 값만: 원문이 미적용을 명시한 0.00%는 통계에서 빼고 size_premium_not_applied로 센다(v1.6.1)
+            **({"size_premium": None, "size_premium_not_applied": True} if dcf.get("size_premium_applied") is False else {}),
             "d_over_e": d_over_e(dcf),
             "multiple_type": rel.get("multiple_type"), "multiple": v(rel.get("multiple")),
             "result": v(res.get("value")), "result_unit": res.get("unit"),
@@ -762,7 +765,8 @@ def deal_stats(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS, "mult
     by_deal: dict[str, list[dict]] = {}
     for r in rows:
         by_deal.setdefault(r["rcept_no"], []).append(r)
-    out: dict[str, Any] = {"deals": len(by_deal), "values": len(rows), "variables": {}, "firms": {}}
+    out: dict[str, Any] = {"deals": len(by_deal), "values": len(rows), "variables": {}, "firms": {},
+                           "size_premium_not_applied": sum(1 for rs in by_deal.values() if any(r.get("size_premium_not_applied") for r in rs))}
     for var in variables:
         groups: dict[str, dict[str, list]] = {}
         for rno, rs in by_deal.items():

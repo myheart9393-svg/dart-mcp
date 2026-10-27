@@ -71,6 +71,7 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
 | `/dart-valuation <rcept_no>` | 가치평가 공시 한 건 → 사례 JSON(`valuation_schema.json`)+md. 평가 주체별 방법·WACC·g·β·멀티플·결론. 끝에 `/dart-valuation-review` |
 | `/dart-valuation-scan <bgn> <end> [유형]` | 기간 안의 합병·분할·영업양수도·주식교환·IPO 공시 표(외부평가 여부·기관, 증권신고서 짝, 등급, 추출 여부). 추출 안 함 |
 | `/dart-valuation-search <조건>` | `reports/valuations/*.json`을 조건으로 걸러 표 + **거래 단위** WACC·g·멀티플 분포("N건 거래, M개 값"). 기본은 거래가액 평가만(공정가치평가·손상검사 제외). 거래 10건 미만이면 "통계적 의미 제한". `--industry <KSIC 접두·대분류>`·`--regime`·`--firm X --as 외부평가|재무자문|any`·`--spac`·`--exclude-status`. 결과 rows의 status는 빼지 않고 열로. 내 가정 비교는 `casedb compare`, 엑셀은 `casedb export --csv` |
+| `/dart-valuation-backfill <rcept_no>` | 기존 사례 한 건의 v1.6 칸(β 방식·규모위험 근거·비교회사·수익가치·거래 단위 상대가치)을 원문에서 보강. 기존 값은 안 바꾸고 diff만 보고. SPAC 사례는 인용 전에 건별로 |
 | `/dart-valuation-batch <bgn> <end> [--grade full] [--limit N]` | 대상 큐(`dart_mcp.batch plan`) → 건마다 서브에이전트로 `/dart-valuation`, 실패는 기록하고 계속, 끝나고 무작위 20% 리뷰 → `_batch_<날짜>.md` |
 
 ### 가치평가 사례 규칙 (`/dart-valuation*`)

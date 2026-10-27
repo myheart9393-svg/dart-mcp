@@ -400,7 +400,27 @@
       },
       "note": "Un-leverd Beta (Hamada)"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2Year",
+     "frequency": "Weekly",
+     "index": null,
+     "source": "Bloomberg (표 출처: 감사보고서, Bloomberg 및 신한회계법인 Analysis)",
+     "cite": {
+      "section_id": "5",
+      "offset": 61403,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "'한국의 기업규모위험(Size Risk Premium) 연구결과'에 따라 3.75%를 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 60087,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -635,7 +655,27 @@
       },
       "note": "Un-leverd Beta (Hamada)"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2Year",
+     "frequency": "Weekly",
+     "index": null,
+     "source": "Bloomberg (표 출처: 감사보고서, Bloomberg 및 신한회계법인 Analysis)",
+     "cite": {
+      "section_id": "5",
+      "offset": 103699,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "'한국의 기업규모위험(Size Risk Premium) 연구결과'에 따라 3.75%를 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 102345,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -785,7 +825,298 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [
+     {
+      "name": "모나용평",
+      "value": {
+       "value": 0.31,
+       "unit": null,
+       "text": "0.31",
+       "cite": {
+        "section_id": "5",
+        "offset": 140433,
+        "file_id": "main"
+       }
+      },
+      "beta_l": {
+       "value": 0.76,
+       "unit": null,
+       "text": "0.76",
+       "cite": {
+        "section_id": "5",
+        "offset": 140396,
+        "file_id": "main"
+       }
+      },
+      "beta_u": {
+       "value": 0.31,
+       "unit": null,
+       "text": "0.31",
+       "cite": {
+        "section_id": "5",
+        "offset": 140433,
+        "file_id": "main"
+       }
+      },
+      "de": {
+       "value": 181.88,
+       "unit": "%",
+       "text": "181.88%",
+       "cite": {
+        "section_id": "5",
+        "offset": 140423,
+        "file_id": "main"
+       }
+      },
+      "tax_rate": null,
+      "note": "beta_l=Observed Beta(2Year Weekly Adjusted), beta_u=Un-levered Beta(Hamada), D/E=이자부부채/시가총액; Re-levered Beta 0.55(목표 D/E 99.49%). 법인세율은 각 회사 한계세율이라고만 기재(값 없음)"
+     },
+     {
+      "name": "그랜드코리아레저",
+      "value": {
+       "value": 0.41,
+       "unit": null,
+       "text": "0.41",
+       "cite": {
+        "section_id": "5",
+        "offset": 140515,
+        "file_id": "main"
+       }
+      },
+      "beta_l": {
+       "value": 0.43,
+       "unit": null,
+       "text": "0.43",
+       "cite": {
+        "section_id": "5",
+        "offset": 140481,
+        "file_id": "main"
+       }
+      },
+      "beta_u": {
+       "value": 0.41,
+       "unit": null,
+       "text": "0.41",
+       "cite": {
+        "section_id": "5",
+        "offset": 140515,
+        "file_id": "main"
+       }
+      },
+      "de": {
+       "value": 8.67,
+       "unit": "%",
+       "text": "8.67%",
+       "cite": {
+        "section_id": "5",
+        "offset": 140507,
+        "file_id": "main"
+       }
+      },
+      "tax_rate": null,
+      "note": "beta_l=Observed Beta(2Year Weekly Adjusted), beta_u=Un-levered Beta(Hamada), D/E=이자부부채/시가총액; Re-levered Beta 0.73(목표 D/E 99.49%). 법인세율은 각 회사 한계세율이라고만 기재(값 없음)"
+     },
+     {
+      "name": "이월드",
+      "value": {
+       "value": 0.35,
+       "unit": null,
+       "text": "0.35",
+       "cite": {
+        "section_id": "5",
+        "offset": 140590,
+        "file_id": "main"
+       }
+      },
+      "beta_l": {
+       "value": 0.56,
+       "unit": null,
+       "text": "0.56",
+       "cite": {
+        "section_id": "5",
+        "offset": 140554,
+        "file_id": "main"
+       }
+      },
+      "beta_u": {
+       "value": 0.35,
+       "unit": null,
+       "text": "0.35",
+       "cite": {
+        "section_id": "5",
+        "offset": 140590,
+        "file_id": "main"
+       }
+      },
+      "de": {
+       "value": 66.32,
+       "unit": "%",
+       "text": "66.32%",
+       "cite": {
+        "section_id": "5",
+        "offset": 140581,
+        "file_id": "main"
+       }
+      },
+      "tax_rate": null,
+      "note": "beta_l=Observed Beta(2Year Weekly Adjusted), beta_u=Un-levered Beta(Hamada), D/E=이자부부채/시가총액; Re-levered Beta 0.62(목표 D/E 99.49%). 법인세율은 각 회사 한계세율이라고만 기재(값 없음)"
+     },
+     {
+      "name": "강원랜드",
+      "value": {
+       "value": 0.64,
+       "unit": null,
+       "text": "0.64",
+       "cite": {
+        "section_id": "5",
+        "offset": 140670,
+        "file_id": "main"
+       }
+      },
+      "beta_l": {
+       "value": 0.65,
+       "unit": null,
+       "text": "0.65",
+       "cite": {
+        "section_id": "5",
+        "offset": 140634,
+        "file_id": "main"
+       }
+      },
+      "beta_u": {
+       "value": 0.64,
+       "unit": null,
+       "text": "0.64",
+       "cite": {
+        "section_id": "5",
+        "offset": 140670,
+        "file_id": "main"
+       }
+      },
+      "de": {
+       "value": 1.7,
+       "unit": "%",
+       "text": "1.70%",
+       "cite": {
+        "section_id": "5",
+        "offset": 140662,
+        "file_id": "main"
+       }
+      },
+      "tax_rate": null,
+      "note": "beta_l=Observed Beta(2Year Weekly Adjusted), beta_u=Un-levered Beta(Hamada), D/E=이자부부채/시가총액; Re-levered Beta 1.14(목표 D/E 99.49%). 법인세율은 각 회사 한계세율이라고만 기재(값 없음)"
+     },
+     {
+      "name": "아난티",
+      "value": {
+       "value": 0.32,
+       "unit": null,
+       "text": "0.32",
+       "cite": {
+        "section_id": "5",
+        "offset": 140748,
+        "file_id": "main"
+       }
+      },
+      "beta_l": {
+       "value": 0.74,
+       "unit": null,
+       "text": "0.74",
+       "cite": {
+        "section_id": "5",
+        "offset": 140711,
+        "file_id": "main"
+       }
+      },
+      "beta_u": {
+       "value": 0.32,
+       "unit": null,
+       "text": "0.32",
+       "cite": {
+        "section_id": "5",
+        "offset": 140748,
+        "file_id": "main"
+       }
+      },
+      "de": {
+       "value": 146.01,
+       "unit": "%",
+       "text": "146.01%",
+       "cite": {
+        "section_id": "5",
+        "offset": 140738,
+        "file_id": "main"
+       }
+      },
+      "tax_rate": null,
+      "note": "beta_l=Observed Beta(2Year Weekly Adjusted), beta_u=Un-levered Beta(Hamada), D/E=이자부부채/시가총액; Re-levered Beta 0.57(목표 D/E 99.49%). 법인세율은 각 회사 한계세율이라고만 기재(값 없음)"
+     },
+     {
+      "name": "서부T",
+      "value": {
+       "value": 0.33,
+       "unit": null,
+       "text": "0.33",
+       "cite": {
+        "section_id": "5",
+        "offset": 140828,
+        "file_id": "main"
+       }
+      },
+      "beta_l": {
+       "value": 0.81,
+       "unit": null,
+       "text": "0.81",
+       "cite": {
+        "section_id": "5",
+        "offset": 140789,
+        "file_id": "main"
+       }
+      },
+      "beta_u": {
+       "value": 0.33,
+       "unit": null,
+       "text": "0.33",
+       "cite": {
+        "section_id": "5",
+        "offset": 140828,
+        "file_id": "main"
+       }
+      },
+      "de": {
+       "value": 192.37,
+       "unit": "%",
+       "text": "192.37%",
+       "cite": {
+        "section_id": "5",
+        "offset": 140818,
+        "file_id": "main"
+       }
+      },
+      "tax_rate": null,
+      "note": "beta_l=Observed Beta(2Year Weekly Adjusted), beta_u=Un-levered Beta(Hamada), D/E=이자부부채/시가총액; Re-levered Beta 0.59(목표 D/E 99.49%). 법인세율은 각 회사 한계세율이라고만 기재(값 없음)"
+     }
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2Year",
+     "frequency": "Weekly",
+     "index": null,
+     "source": "Bloomberg (표 출처: 감사보고서, Bloomberg 및 신한회계법인 Analysis)",
+     "cite": {
+      "section_id": "5",
+      "offset": 140964,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "'한국의 기업규모위험(Size Risk Premium) 연구결과'중 가장 높은 4.73%를 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 139607,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -888,7 +1219,8 @@
   "원문 불일치: 요약표·3.4는 합병가액 1,149원/3,562원·비율 1:3.1000870이나, 종합평가의견 문단은 1,189원/3,554원·1:2.9890664으로 적고 2021년 재무제표·2022–2026 추정을 검토했다고 기재(추정: 이전 평가 문구 잔존). conclusion은 요약표 값을 사용.",
   "합병신주 기명식보통주 86,842,839주, 모집가액 1,149원, 모집총액 99,782,422,011원(3.4). 합병법인 보유 모노리스 2,203,503주에는 신주 미교부. 모노리스 주식매수선택권 2,481,000주는 대성파인텍 보통주 7,691,280주로 조정 승계 예정(4).",
   "외부평가 '근거 및 사유'·감사위원회 동의 여부는 이 증권신고서 평가 장에서 확인하지 못함 → null.",
-  "종속기업 2사(제주파크·인천파크) DCF는 피합병법인 수익가치의 비영업자산(종속기업투자주식 공정가치)으로 반영된 값이라 별도 원소로 분리(단위 천원)."
+  "종속기업 2사(제주파크·인천파크) DCF는 피합병법인 수익가치의 비영업자산(종속기업투자주식 공정가치)으로 반영된 값이라 별도 원소로 분리(단위 천원).",
+  "보강 2026-10-27: v1.6 칸(beta_method·size_premium_basis 원소 2–4, 인천파크 peers, relative_value) 추가. 기존 값 변경 없음. 원소 4 note의 '(peers 생략)'은 보강 전 문구(기존 값이라 그대로 둠). 원문 직접 호출(casebuild call)."
  ],
  "extracted_at": "2026-10-27T10:15:02+09:00",
  "extractor_version": "1.1",
@@ -926,18 +1258,13 @@
    "how": "find_tables/search/section"
   }
  ],
- "absent_reasons": [
-  {
-   "path": "valuations/4/dcf/peers",
-   "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 59956 '사를 유사기업으로 선택하여 유사기업 영업베타의 평균값으로 계산한 영업베타에 피합' — 추출 누락 의심"
-  },
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 5863 '재한다는 약점이 있습니다.\n\n3.4 상대가치 분석방법\n\n「자본시장과 금융투자업에' — 추출 누락 의심"
+ "relative_value": {
+  "applied": false,
+  "reason": "주권비상장법인인 피합병법인(모노리스)의 유사회사 선정기준을 충족하는 유사한 주권상장법인이 3사 미만이므로 상대가치를 산정하지 아니함(합병가액 표 'C. 상대가치 | 해당사항 없음 | 해당사항 없음'). 합병법인은 상장법인으로 기준시가 적용",
+  "cite": {
+   "section_id": "5",
+   "offset": 8141,
+   "file_id": "main"
   }
- ]
+ }
 }

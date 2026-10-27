@@ -835,12 +835,16 @@
    "field": "income_value",
    "reason": "추출 안 함",
    "basis": "키워드 감사 2026-10-27: section 5 offset 700 '4조 내지 제6조에 따라 자산가치와 수익가치를 각각 1과 1.5로 하여 가중산술' — 추출 누락 의심"
-  },
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 3974 '존재한다는 단점이 있습니다.(라) 상대가치 분석방법「자본시장과 금융투자업에 관' — 추출 누락 의심"
   }
- ]
+ ],
+ "relative_value": {
+  "applied": false,
+  "reason": "유사회사 기준(3사 이상)을 충족하는 상장법인이 없어 상대가치를 산정하지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 4743,
+   "file_id": "main"
+  },
+  "derived": true
+ }
 }

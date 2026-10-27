@@ -261,4 +261,8 @@ healthcheck 검사 항목 (각 PASS/WARN/FAIL/N/A):
 — 그 기관이 평가 주체인 원소만 쓴다(예: `--method DCF`에서 이촌 외부평가 9건 거래, WACC 중앙값 11.47%; v1.5까지는 같은 거래의 다른 기관 값이 섞여 11.38%·26개 값).
 새 사례를 넣은 뒤에는 `casedb derive`와 `casedb audit-null --write`도 돌린다.
 
+**보강(backfill) 상태(v1.6.1).** β 산정 방식·규모위험 근거·비교회사·본질가치 수익가치 점 값·거래 단위 상대가치는 v1.6 칸이다.
+비SPAC DCF 합병 17건(알테오젠 포함)은 원문에서 보강했고(서브에이전트, 건당 비용은 CHANGELOG), 상대가치는 정해진 사유 문구가 있는 36건을 규칙으로 채웠다(`relative_value.derived=true`).
+**SPAC 합병 사례는 일괄 보강하지 않았다 — 인용할 때 `/dart-valuation-backfill <접수번호>`로 건별 보강한다**(외부평가기관 하나가 표를 싣는 문서라 건당 약 1–2회 호출·8만 토큰).
+
 사용 예시·인용 표기법은 [docs/valuation_usage.md](docs/valuation_usage.md).

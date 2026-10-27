@@ -459,3 +459,36 @@ def test_null_audit_negation_marks_absent(monkeypatch):
     got = {it["field"]: it for it in nullaudit.audit_case(case)["items"]}
     assert got["size_premium"]["reason"] == "원문에 없음" and "미적용 명시" in got["size_premium"]["basis"]
     assert got["peers"]["reason"] == "추출 안 함" and got["relative"]["reason"] == "원문에 없음"
+
+
+# --------------------------------------------------------------------------- v1.6.1
+def test_size_premium_not_applied_and_specific_risk():
+    from dart_mcp.valuation import flatten_case, identity_checks
+
+    pf = lambda v: {"value": v, "unit": "%", "text": f"{v}%", "cite": None}  # noqa: E731
+    base = {"rf": pf(3.39), "mrp": pf(8.0), "beta_levered": {"value": 1.0683, "unit": None, "text": "1.0683", "cite": None},
+            "ke": pf(14.93), "wacc": pf(10.0)}
+    case = {"rcept_no": "X", "company": {"name": "A", "induty_code": None}, "source_grade": "full",
+            "deal": {"type": "merger", "board_date": "2026-06-30"}, "conclusion": {},
+            "valuations": [{"role": "외부평가", "purpose": "합병가액", "method": "DCF", "subject": "s", "dcf": {**base, "specific_risk": pf(3.0)}},
+                           {"role": "외부평가", "purpose": "합병가액", "method": "DCF", "subject": "s",
+                            "dcf": {**base, "ke": pf(11.94), "size_premium": pf(0.0), "size_premium_applied": False}}]}
+    rows = flatten_case(case)
+    assert rows[0]["specific_risk"] == 3.0 and rows[1]["size_premium"] is None and rows[1]["size_premium_not_applied"]
+    s = deal_stats(rows)
+    assert s["size_premium_not_applied"] == 1 and "size_premium" not in s["variables"] and s["variables"]["specific_risk"]["median"] == 3.0
+    ke = [x["status"] for x in identity_checks(case) if x["check"] == "b_ke"]
+    assert ke == ["pass", "pass"]  # Ke = rf + β×MRP + 고유위험 3.00
+
+
+def test_null_audit_skips_verified_and_uses_relative_value(monkeypatch):
+    from dart_mcp import nullaudit
+
+    monkeypatch.setattr(nullaudit, "_section_texts", lambda r, s: {"5": "상대가치 | 해당사항 없음"})
+    case = {"rcept_no": "X", "deal": {"type": "merger"}, "conclusion": {},
+            "valuations": [{"purpose": "합병가액", "method": "DCF", "dcf": {"size_premium": None, "peers": []}}],
+            "absent_reasons": [{"path": "valuations/0/dcf/size_premium", "field": "size_premium", "reason": "원문에 없음",
+                                "basis": "보강 확인 2026-10-27: 재무자문 원소"}],
+            "relative_value": {"applied": False, "reason": "3사 미만", "cite": None, "derived": True}}
+    paths = {it["path"] for it in nullaudit.audit_case(case)["items"]}
+    assert paths == {"valuations/0/dcf/peers"}  # 확인된 size_premium·채워진 relative_value는 다시 감사하지 않는다

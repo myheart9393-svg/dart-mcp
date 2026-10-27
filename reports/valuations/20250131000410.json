@@ -342,7 +342,28 @@
       },
       "note": "2 Years Weekly Beta(한국공인회계사회 배포, levered)"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": null,
+     "period": "2년",
+     "frequency": "주간(Weekly)",
+     "index": null,
+     "source": "한국공인회계사회 배포",
+     "cite": {
+      "section_id": "5",
+      "offset": 40135,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회에서 배포한 3분위 Micro 사이즈 프리미엄",
+     "cite": {
+      "section_id": "5",
+      "offset": 40357,
+      "file_id": "main"
+     }
+    },
+    "size_premium_applied": true
    },
    "relative": {
     "multiple_type": null,
@@ -472,5 +493,14 @@
   }
  ],
  "extracted_at": "2026-10-27T10:02:01+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "relative_value": {
+  "applied": false,
+  "reason": "증권의 발행 및 공시 등에 관한 규정 시행세칙 제7조 제1항 제1호에 따른 유사회사 요건을 충족하는 법인이 3사 미만이므로 프리모리스테라퓨틱스의 상대가치는 산정하지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 851,
+   "file_id": "main"
+  }
+ }
 }

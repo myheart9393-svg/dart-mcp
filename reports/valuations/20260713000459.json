@@ -331,7 +331,9 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -605,7 +607,9 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -870,7 +874,20 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": null,
+     "period": "2년",
+     "frequency": "월간",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "5",
+      "offset": 12712,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -1099,7 +1116,20 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": null,
+     "period": "2년",
+     "frequency": "월간",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "5",
+      "offset": 12712,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -1395,7 +1425,20 @@
       "value": null,
       "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": null,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "5",
+      "offset": 101476,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -1655,7 +1698,20 @@
       "value": null,
       "note": "동종기업(아시아·태평양 상장 FSC), 개별 베타 원문 없음"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": null,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "5",
+      "offset": 101476,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -2040,58 +2096,109 @@
  ],
  "absent_reasons": [
   {
+   "path": "valuations/3/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 17511–17810 한울 주요 가정 표(Unlevered Beta 0.49)에 β 관측기간·주기·지수·출처 서술 없음, §5 'beta|베타' 검색에서 한울 관련 서술 없음"
+  },
+  {
+   "path": "valuations/3/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 17705 한울 표 '사이즈 프리미엄 | -0.36%' — 근거(KICPA 분위 등) 문구 없음"
+  },
+  {
    "path": "valuations/3/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 17558 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.49 | 0.49' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 16500–17810 한울 가정 표에 동종기업 명단·개별 β 표 없음(Unlevered Beta 단일값만)"
+  },
+  {
+   "path": "valuations/5/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 17511–17810 한울 주요 가정 표(Unlevered Beta 0.49)에 β 관측기간·주기·지수·출처 서술 없음, §5 'beta|베타' 검색에서 한울 관련 서술 없음"
+  },
+  {
+   "path": "valuations/5/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 17705 한울 표 '사이즈 프리미엄 | -0.36%' — 근거(KICPA 분위 등) 문구 없음"
   },
   {
    "path": "valuations/5/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 17558 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.49 | 0.49' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 16500–17810 한울 가정 표에 동종기업 명단·개별 β 표 없음(Unlevered Beta 단일값만)"
+  },
+  {
+   "path": "valuations/7/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 한영 WACC 표 section 5 offset 71050–71500·12900–13300에 규모위험 행·문구 없음"
   },
   {
    "path": "valuations/7/dcf/size_premium",
    "field": "size_premium",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 17705 '| 10.1% | 10.1% |\n| 사이즈 프리미엄 | -0.36% | -0.36% |' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 한영 WACC 표 section 5 offset 71050–71500(Rf·MRP·βU·βL·Ke·Kd·t·D/E·WACC)에 규모위험 행 없음. 기존 감사 위치 17705는 한울 표"
   },
   {
    "path": "valuations/7/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 17558 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.49 | 0.49' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 12689 '유사회사로 선정된 기업' 서술만 있고 유사회사 명단·개별 β 표 없음"
+  },
+  {
+   "path": "valuations/9/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 한영 WACC 표 section 5 offset 71050–71500·12900–13300에 규모위험 행·문구 없음"
   },
   {
    "path": "valuations/9/dcf/size_premium",
    "field": "size_premium",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 17705 '| 10.1% | 10.1% |\n| 사이즈 프리미엄 | -0.36% | -0.36% |' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 한영 WACC 표 section 5 offset 71050–71500(Rf·MRP·βU·βL·Ke·Kd·t·D/E·WACC)에 규모위험 행 없음. 기존 감사 위치 17705는 한울 표"
   },
   {
    "path": "valuations/9/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 17558 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.49 | 0.49' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 12689 '유사회사로 선정된 기업' 서술만 있고 유사회사 명단·개별 β 표 없음"
+  },
+  {
+   "path": "valuations/11/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 삼일 WACC 표 section 5 offset 101784 '규모위험프리미엄 (SRP) | - | -' — 미적용, 근거 문구 없음"
   },
   {
    "path": "valuations/11/dcf/size_premium",
    "field": "size_premium",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 17705 '| 10.1% | 10.1% |\n| 사이즈 프리미엄 | -0.36% | -0.36% |' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 삼일 WACC 표 section 5 offset 101784 '규모위험프리미엄 (SRP) | - | -' (미적용). 기존 감사 위치 17705는 한울 표"
+  },
+  {
+   "path": "valuations/13/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 삼일 WACC 표 section 5 offset 101784 '규모위험프리미엄 (SRP) | - | -' — 미적용, 근거 문구 없음"
   },
   {
    "path": "valuations/13/dcf/size_premium",
    "field": "size_premium",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 17705 '| 10.1% | 10.1% |\n| 사이즈 프리미엄 | -0.36% | -0.36% |' — 추출 누락 의심"
-  },
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 281 '- 수익가치 | - | - |\n| 상대가치 | - | - |\n| 합병가액(1주' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 삼일 WACC 표 section 5 offset 101784 '규모위험프리미엄 (SRP) | - | -' (미적용). 기존 감사 위치 17705는 한울 표"
   }
- ]
+ ],
+ "relative_value": {
+  "applied": false,
+  "reason": "양사 모두 유가증권시장 상장법인으로 시행령 176조의5 ①1에 따라 기준주가를 합병가액으로 산출하여 자산가치·수익가치·상대가치 등은 별도로 기재하지 않음(합병가액 표 상대가치 '-')",
+  "cite": {
+   "section_id": "5",
+   "offset": 525,
+   "file_id": "main"
+  }
+ }
 }

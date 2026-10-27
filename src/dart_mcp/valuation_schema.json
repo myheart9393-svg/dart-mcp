@@ -83,6 +83,7 @@
     "relative_value": {"anyOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["applied"],
                        "properties": {"applied": {"type": ["boolean", "null"], "description": "거래 단위로 상대가치를 산정했는지"},
                                       "reason": {"type": ["string", "null"], "description": "미산정 사유 원문 요지(예: 유사회사 3사 미만)"},
+                                      "derived": {"type": "boolean", "description": "true = 규칙 분류(캐시 원문의 정해진 사유 문구)로 채움, LLM 추출 아님"},
                                       "cite": {"anyOf": [{"$ref": "#/$defs/cite"}, {"type": "null"}]}}}],
                        "description": "거래 단위 상대가치 산정 여부와 사유(합병·교환). 원소 relative와 별도"},
     "absent_reasons": {"type": "array", "description": "비어 있는 필드의 이유(값을 채우지 않는다)",
@@ -136,7 +137,10 @@
     },
     "peer": {
       "type": "object", "additionalProperties": false, "required": ["name"],
-      "properties": {"name": {"type": "string"}, "value": {"$ref": "#/$defs/num_or_null"}, "note": {"type": ["string", "null"]}}
+      "properties": {"name": {"type": "string"}, "value": {"$ref": "#/$defs/num_or_null"},
+                     "beta_l": {"$ref": "#/$defs/num_or_null"}, "beta_u": {"$ref": "#/$defs/num_or_null"},
+                     "de": {"$ref": "#/$defs/num_or_null"}, "tax_rate": {"$ref": "#/$defs/num_or_null"},
+                     "note": {"type": ["string", "null"]}}
     },
     "valuation": {
       "type": "object", "additionalProperties": false,
@@ -182,7 +186,12 @@
                        "g": {"$ref": "#/$defs/num_or_null"},
                        "specific_risk": {"anyOf": [{"$ref": "#/$defs/num"}, {"type": "null"}],
                                          "description": "회사 고유위험 프리미엄(규모위험과 별도로 가산한 경우만). 원문 라벨이 'Firm Specific Risk'여도 근거가 KICPA 규모위험이면 size_premium"},
-                       "size_premium_basis": {"type": ["string", "null"], "description": "규모위험 근거(예: KICPA Size Premium 5분위, Micro-Cap). 원문 문구"},
+                       "size_premium_applied": {"type": ["boolean", "null"],
+                                                "description": "false = 원문이 규모위험 미적용을 명시(값 0.00%여도 통계의 size_premium에서 뺀다)"},
+                       "size_premium_basis": {"anyOf": [{"type": ["string", "null"]},
+                                              {"type": "object", "additionalProperties": false, "required": ["text", "cite"],
+                                               "properties": {"text": {"type": "string"}, "cite": {"$ref": "#/$defs/cite"}}}],
+                                      "description": "규모위험 근거(예: KICPA Size Premium 5분위, Micro-Cap). 원문 문구 — {text, cite} 권장"},
                        "beta_method": {"anyOf": [{"type": "null"}, {"type": "object", "additionalProperties": false,
                                        "properties": {"adjusted": {"type": ["boolean", "null"], "description": "조정베타(Blume 등) 여부"},
                                                       "period": {"type": ["string", "null"], "description": "관측기간(예: 2년)"},

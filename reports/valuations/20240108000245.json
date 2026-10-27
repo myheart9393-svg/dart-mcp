@@ -349,7 +349,28 @@
       },
       "note": "Unlevered Beta(조정 2년 Weekly, 2022-12-31)"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "Weekly",
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 54306,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회에서 발표한 '한국의 기업규모위험 프리미엄 연구결과' 5분위 평균치",
+     "cite": {
+      "section_id": "5",
+      "offset": 53068,
+      "file_id": "main"
+     }
+    },
+    "size_premium_applied": true
    },
    "relative": null,
    "result": {
@@ -496,12 +517,14 @@
  ],
  "extracted_at": "2026-10-27T09:31:50+09:00",
  "extractor_version": "1.1",
- "absent_reasons": [
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: 원문이 미산정 명시(relative_value.applied=false로 보강 가능) — section 5 offset 295 'N/A | 8,840 |\n| 다. 상대가치(주3) | N/A | N/A |\n|'"
-  }
- ]
+ "relative_value": {
+  "applied": false,
+  "reason": "유사회사 기준(3사 이상)을 충족하는 상장법인이 없어 상대가치를 산정하지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 754,
+   "file_id": "main"
+  },
+  "derived": true
+ }
 }

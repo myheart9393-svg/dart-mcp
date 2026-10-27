@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.6.1 (2026-10-27)
+
+보강(backfill) 파일럿·2차와 규모위험 정리. 스키마: `dcf.size_premium_applied`, `size_premium_basis`에 {text, cite}, `peers[]`에 beta_l·beta_u·de·tax_rate, `relative_value.derived`.
+
+- **보강**: 비SPAC DCF 합병 17건(파일럿 10 + 2차 7). 파일럿 169칸 중 62칸 채움(36.7% — 재무자문 DCF는 WACC 점 값만 공시), 2차 31칸 중 31칸.
+  건당 평균 파일럿 6.2회·16,555자·약 10만 토큰·131초, 2차 1.1회·3,476자·약 7.8만 토큰·68초. 기존 숫자 값 변경 0. 독립 리뷰 4건 PASS.
+- **null 감사 정밀도**(파일럿): "추출 안 함" 60칸 중 실제 누락 13(21.7%) — 상대가치 10/10, 비교회사 3/39, 규모위험 0/10. 섹션 단위 검색이 같은 섹션의
+  다른 평가 주체 표를 집는 것이 주원인. 감사는 이제 보강이 확인한 칸을 다시 감사하지 않고, 거래 단위 relative_value를 인식한다(버그 2건 수정).
+- **규모위험 정리**: size_premium 72개 값 중 격자 밖이거나 라벨이 규모가 아닌 25개를 원문 근거로 분류 — 규모위험 22(라벨만 Firm Specific·FSRP),
+  고유위험·성장성 가산 2(휴맥스 이촌·보현 3.00% → specific_risk), 미적용 명시 0.00% 2(size_premium_applied=false), 판단 불가 2(SK이노베이션 삼정 '규모 및 국가위험' 0.00%, 그대로).
+  stats·compare·export는 적용 값만 쓰고 `size_premium_not_applied`를 센다. specific_risk는 별도 변수(compare `--specific`). Ke 항등식에 specific_risk 포함.
+- **상대가치 규칙 분류**: 거래 단위 relative_value가 없던 합병·교환 47건 중 캐시 원문의 정해진 사유 문구가 있는 36건(유사회사 3사 미만 25 · 기재하지 않음 11)을
+  "미산정 + 사유"로 채움(derived=true, cite 검증). 문구 없는 11건은 그대로.
+- **`/dart-valuation-backfill <rcept_no>`** 신규: 파일럿 절차, 재무자문 원소는 "원문에 없음"으로 빠르게. SPAC 사례는 인용할 때 건별 보강(README).
+
 ## v1.6.0 (2026-10-27)
 
 사례 DB를 실무 질의에 쓸 수 있게(새 추출 없음). 스키마: `deal.spac`·`spac_basis`, `dcf.specific_risk`·`size_premium_basis`·`beta_method`, `relative_value`, `absent_reasons[]`.

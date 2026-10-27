@@ -183,12 +183,14 @@
    "how": "section"
   }
  ],
- "absent_reasons": [
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 288 '- 수익가치 | - | - |\n| 상대가치 | - | - |\n| 합병가액(1주' — 추출 누락 의심"
-  }
- ]
+ "relative_value": {
+  "applied": false,
+  "reason": "기준시가 합병 등으로 상대가치를 별도로 기재하지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 538,
+   "file_id": "main"
+  },
+  "derived": true
+ }
 }

@@ -79,7 +79,10 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null,
+    "size_premium": null
    },
    "relative": null,
    "result": {
@@ -138,7 +141,10 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null,
+    "size_premium": null
    },
    "relative": null,
    "result": {
@@ -228,7 +234,8 @@
       }
      }
     }
-   }
+   },
+   "income_value": null
   },
   {
    "subject": "신우회계법인",
@@ -261,7 +268,10 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null,
+    "size_premium": null
    },
    "relative": null,
    "result": {
@@ -320,7 +330,10 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null,
+    "size_premium": null
    },
    "relative": null,
    "result": {
@@ -409,7 +422,8 @@
       }
      }
     }
-   }
+   },
+   "income_value": null
   },
   {
    "subject": "이촌회계법인",
@@ -645,7 +659,27 @@
       },
       "note": "Unlevered Beta"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 224004,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회의 '한국의 기업규모위험 프리미엄 연구결과(2025.06)'의 5분위 Size premium 중 2분위를 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 221481,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -767,7 +801,8 @@
      }
     }
    },
-   "note": "상대가치는 유사회사 3사 미만으로 산정하지 않음"
+   "note": "상대가치는 유사회사 3사 미만으로 산정하지 않음",
+   "income_value": null
   },
   {
    "subject": "합병당사회사(협의)",
@@ -1103,74 +1138,125 @@
   {
    "path": "valuations/0/dcf/size_premium",
    "field": "size_premium",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 220858 '(주3) | 0.634 |\n| 라. Size Premium(주4) | 0.06% |\n| 마.' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 안진 알테오젠 DCF는 section 5 offset 26955 '가중평균자본비용 (F) | 7.7%'만 제시하고 산정내역(β·규모위험·동종기업) 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
   },
   {
    "path": "valuations/0/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 221371 '베타 산정 표에 따른 유사동종기업의 Unlevered Beta와 목표자본구조에 따라 아래' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 안진 알테오젠 DCF는 section 5 offset 26955 '가중평균자본비용 (F) | 7.7%'만 제시하고 산정내역(β·규모위험·동종기업) 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/0/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 안진 알테오젠 DCF는 section 5 offset 26955 '가중평균자본비용 (F) | 7.7%'만 제시하고 산정내역(β·규모위험·동종기업) 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/0/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 안진 알테오젠 DCF는 section 5 offset 26955 '가중평균자본비용 (F) | 7.7%'만 제시하고 산정내역(β·규모위험·동종기업) 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
   },
   {
    "path": "valuations/1/dcf/size_premium",
    "field": "size_premium",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 220858 '(주3) | 0.634 |\n| 라. Size Premium(주4) | 0.06% |\n| 마.' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 안진 알테오젠바이오로직스 DCF는 section 5 offset 42401 민감도 표 WACC 8.7–10.7%만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
   },
   {
    "path": "valuations/1/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 221371 '베타 산정 표에 따른 유사동종기업의 Unlevered Beta와 목표자본구조에 따라 아래' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 안진 알테오젠바이오로직스 DCF는 section 5 offset 42401 민감도 표 WACC 8.7–10.7%만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/1/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 안진 알테오젠바이오로직스 DCF는 section 5 offset 42401 민감도 표 WACC 8.7–10.7%만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/1/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 안진 알테오젠바이오로직스 DCF는 section 5 offset 42401 민감도 표 WACC 8.7–10.7%만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/3/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 신우 알테오젠 DCF는 section 5 offset 55116 '기준 가중평균자본비용: 8.1543%'만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/3/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 신우 알테오젠 DCF는 section 5 offset 55116 '기준 가중평균자본비용: 8.1543%'만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/3/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 신우 알테오젠 DCF는 section 5 offset 55116 '기준 가중평균자본비용: 8.1543%'만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/3/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 신우 알테오젠 DCF는 section 5 offset 55116 '기준 가중평균자본비용: 8.1543%'만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/4/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 신우 알테오젠바이오로직스 DCF는 section 5 offset 71523 WACC 9.7546%만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/4/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 신우 알테오젠바이오로직스 DCF는 section 5 offset 71523 WACC 9.7546%만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/4/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 신우 알테오젠바이오로직스 DCF는 section 5 offset 71523 WACC 9.7546%만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
+  },
+  {
+   "path": "valuations/4/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: 신우 알테오젠바이오로직스 DCF는 section 5 offset 71523 WACC 9.7546%만 제시, 산정내역 없음. 본문 전체에서 'Beta'·'베타'·'규모위험'·'Size'는 이촌 WACC 표(section 5 offset 220834–224399)에만 있음"
   },
   {
    "path": "valuations/2/income_value",
    "field": "income_value",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: 원문이 미적용 명시 — section 5 offset 305 '904원 | 8,119원 |\n| - 수익가치 | (주3) | 67,746원 |'"
-  },
-  {
-   "path": "valuations/3/dcf/size_premium",
-   "field": "size_premium",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 220858 '(주3) | 0.634 |\n| 라. Size Premium(주4) | 0.06% |\n| 마.' — 추출 누락 의심"
-  },
-  {
-   "path": "valuations/3/dcf/peers",
-   "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 221371 '베타 산정 표에 따른 유사동종기업의 Unlevered Beta와 목표자본구조에 따라 아래' — 추출 누락 의심"
-  },
-  {
-   "path": "valuations/4/dcf/size_premium",
-   "field": "size_premium",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 220858 '(주3) | 0.634 |\n| 라. Size Premium(주4) | 0.06% |\n| 마.' — 추출 누락 의심"
-  },
-  {
-   "path": "valuations/4/dcf/peers",
-   "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 221371 '베타 산정 표에 따른 유사동종기업의 Unlevered Beta와 목표자본구조에 따라 아래' — 추출 누락 의심"
+   "basis": "보강 확인 2026-10-27: 안진 검토 요약표 'C. 수익가치 | 해당사항 없음 | 58,250원~71,667원' 범위만 (section 5 offset 5150 부근) — 점 값 없음"
   },
   {
    "path": "valuations/5/income_value",
    "field": "income_value",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: 원문이 미적용 명시 — section 5 offset 305 '904원 | 8,119원 |\n| - 수익가치 | (주3) | 67,746원 |'"
+   "basis": "보강 확인 2026-10-27: 신우 검토 요약표 'C. 수익가치 | N/A | 62,934원 ~77,516 원' 범위만 (section 5 offset 5700 부근) — 점 값 없음"
   },
   {
    "path": "valuations/8/income_value",
    "field": "income_value",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: 원문이 미적용 명시 — section 5 offset 305 '904원 | 8,119원 |\n| - 수익가치 | (주3) | 67,746원 |'"
-  },
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: 원문이 미산정 명시(relative_value.applied=false로 보강 가능) — section 5 offset 331 '(주3) | 67,746원 |\n| 상대가치 | 해당사항 없음 | 해당사항 없음'"
+   "basis": "보강 확인 2026-10-27: 이촌 평가표 '라. 수익가치 | 해당사항 없음 | 61,099 | 73,592' 최소·최대 범위만 (section 5.h11 offset 2979 = 1주당 수익가치 표) — 점 값 없음"
   }
- ]
+ ],
+ "relative_value": {
+  "applied": false,
+  "reason": "합병가액 표에서 상대가치는 양사 모두 '해당사항 없음'. 외부평가기관(이촌): 피합병법인의 유사회사 선정기준을 충족시키는 유사한 주권상장법인이 3사 미만이므로 상대가치를 산정하지 아니함(section 5 offset 82182)",
+  "cite": {
+   "section_id": "5",
+   "offset": 331,
+   "file_id": "main"
+  }
+ }
 }

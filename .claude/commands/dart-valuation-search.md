@@ -27,6 +27,7 @@ argument-hint: <조건 예: "2026년 합병 DCF">
    - **SPAC**: "SPAC 제외"·"일반 합병" → `--spac false`. 합병 질의에는 결과의 `spac` 분포를 요약에 쓴다(SPAC이 절반이라 섞이면 g·WACC가 기운다).
    - **내 가정 비교**("WACC 11%가 선례 대비 어디쯤"): `uv run python -m dart_mcp.casedb compare reports/valuations [같은 필터] --wacc 11 [--g --srp --beta-l …]`
      → 변수별 백분위와 최근접 선례 표. 엑셀로 달라면 `casedb export --csv`.
+   - 규모위험은 적용 값만(결과 `size_premium_not_applied` = 원문 미적용 명시 건수), 고유위험·성장성 가산은 `specific_risk` 변수.
    - 변수: wacc·g 외에 rf·mrp·size_premium·beta_u·beta_l·ke·kd·tax_rate·d_over_e(D/E, D/V만 있으면 환산)도 `variables`에 거래 단위로 나온다.
    - 업종은 `--industry <KSIC 접두>`. "반도체·전자" → 26, "제약·바이오" → 21(의약품)·70(연구개발업), "소프트웨어" → 582(58 출판업 안의
      소프트웨어 개발·공급업), "기계" → 29. 옮긴 접두를 맨 위 한 줄에 적는다. 결과의 `industries`(중분류 라벨별 거래 수)를 요약에 쓰고,

@@ -417,7 +417,28 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 21459,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "규모로 위험을 반영하는 Size Premium을 적용하는 것은 적절하지 않다고 판단하였습니다",
+     "cite": {
+      "section_id": "5",
+      "offset": 22421,
+      "file_id": "main"
+     }
+    },
+    "size_premium_applied": false
    },
    "relative": null,
    "result": {
@@ -569,7 +590,27 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 21459,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회의 Micro cap 기준 4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 21308,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -670,16 +711,7 @@
       "file_id": "main"
      }
     },
-    "size_premium": {
-     "value": 3.0,
-     "unit": "%",
-     "text": "3.00%",
-     "cite": {
-      "section_id": "5",
-      "offset": 23559,
-      "file_id": "main"
-     }
-    },
+    "size_premium": null,
     "ke": {
      "value": 14.93,
      "unit": "%",
@@ -721,7 +753,30 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 21459,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": null,
+    "specific_risk": {
+     "value": 3.0,
+     "unit": "%",
+     "text": "3.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23559,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -759,7 +814,7 @@
      }
     }
    },
-   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 EVCS사업부 기여분(원). 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 EVCS사업부 기여분(원). 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null). specific_risk 3.00%: 원문 행 '기업특유 위험프리미엄(Firm Specific Risk Premium)', 근거 신규사업(EVCS) — KICPA 규모위험 적용이 어렵다고 보고 신규사업 1~5% 범위의 중간값 3% 가산(2026-10-27 규모위험 정리로 size_premium에서 옮김)."
   },
   {
    "subject": "이촌회계법인",
@@ -873,7 +928,27 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 21459,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회의 Micro cap 기준 4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 21308,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -1025,7 +1100,27 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 21459,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회의 Micro cap 기준 4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 21308,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -1385,7 +1480,28 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 76427,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "해당 분야에서 우월적인 지위를 차지하고 있으므로, 규모 프리미엄을 가산하지 않았으며",
+     "cite": {
+      "section_id": "5",
+      "offset": 76983,
+      "file_id": "main"
+     }
+    },
+    "size_premium_applied": false
    },
    "relative": null,
    "result": {
@@ -1537,7 +1653,27 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 76427,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회 Micro cap 기준 4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77080,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -1638,16 +1774,7 @@
       "file_id": "main"
      }
     },
-    "size_premium": {
-     "value": 3.0,
-     "unit": "%",
-     "text": "3.00%",
-     "cite": {
-      "section_id": "5",
-      "offset": 77739,
-      "file_id": "main"
-     }
-    },
+    "size_premium": null,
     "ke": {
      "value": 14.93,
      "unit": "%",
@@ -1689,7 +1816,30 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 76427,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": null,
+    "specific_risk": {
+     "value": 3.0,
+     "unit": "%",
+     "text": "3.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77739,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -1727,7 +1877,7 @@
      }
     }
    },
-   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 EVCS사업부 기여분(원). 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null)."
+   "note": "FCFF 영구성장모형(mid-year). 결과는 주식회사 휴맥스 1주당 수익가치에 대한 EVCS사업부 기여분(원). 범위는 WACC ±1%p·영구성장률 민감도 최소·최대. 자본구조는 대용기업 평균 부채비율·자기자본비율(합 100%, D/V라 target_de null). specific_risk 3.00%: 원문 행 '규모 프리미엄(Size Premium)', 근거 전기차·전기차충전 사업의 성장성을 고려해 3% 가산 — 행 이름은 규모 프리미엄이나 근거는 규모가 아님(2026-10-27 규모위험 정리로 size_premium에서 옮김)."
   },
   {
    "subject": "보현회계법인",
@@ -1841,7 +1991,27 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 76427,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회 Micro cap 기준 4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77080,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -1993,7 +2163,27 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": null,
+     "frequency": null,
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 76427,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회 Micro cap 기준 4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 77080,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -2423,7 +2613,8 @@
   "원문 불일치: 보현 휴맥스 게이트웨이 민감도 본문은 최소 25,852원~최대 27,002원(기준값 26,290원)이나 수익가치 결과표는 25,801~26,951원(26,238원). 보현의 홀딩스 지분 게이트웨이·전장·EVCS 민감도 본문이 휴맥스 직접 평가 값과 동일하게 기재됨. 이촌 결과표 휴맥스 수익가치 합계 134,577백만원 vs 본문 134,557백만원. valuations.result.range는 결과표, sensitivity는 민감도 본문 값.",
   "보현 종합의견 본문은 기준시가 합병비율을 1 : 0.96467로 반올림 표기.",
   "대용기업(peers) 목록은 추출하지 않음(Bloomberg 동종기업 조정 베타, 섹션 5 각 사업부 수익가치 개요에 있음).",
-  "transaction_value는 합병신주 모집총액(2,341,313주 × 5,659원, 섹션 3.4). 특별위원회(각사 사외이사 등 3인)·법률전문가(광장·클라스한결) 검토는 섹션 4에 있음(미수록)."
+  "transaction_value는 합병신주 모집총액(2,341,313주 × 5,659원, 섹션 3.4). 특별위원회(각사 사외이사 등 3인)·법률전문가(광장·클라스한결) 검토는 섹션 4에 있음(미수록).",
+  "보강 2026-10-27: beta_method(Bloomberg 조정 베타; 기간·주기·지수 원문 없음)·size_premium_basis·relative_value 추가, peers는 회사별 β 표가 없어 원문에 없음. EVCS 3%는 원문상 KICPA 규모위험이 아닌 Firm Specific Risk 성격(이촌 ④)이나 기존 size_premium 값 유지."
  ],
  "extracted_at": "2026-10-26T16:05:59+09:00",
  "extractor_version": "1.1",
@@ -2457,68 +2648,83 @@
   {
    "path": "valuations/4/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 21459 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/5/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 21459 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/6/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 21459 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/7/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 21459 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/8/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 21459 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/11/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 76427 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/12/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 76427 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/13/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 76427 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/14/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 76427 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
    "path": "valuations/15/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 21443 '법인세율 22%를 적용하였습니다. Unlevered Beta는 Bloomberg 동종기' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset 76427 'Unlevered Beta는 Bloomberg 동종기업 조정 베타에 기초하여' — 사업부별 대용기업 평균 β만 기재, 회사별 β 표 없음(find_tables 베타|Beta|대용|유사 0건)"
   },
   {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 281 '- 수익가치 | - | - |\n| 상대가치 | - | - |\n| 합병가액(1주' — 추출 누락 의심"
+   "path": "valuations/6/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "2026-10-27 규모위험 정리: 원문 3.00%는 규모위험이 아니라 고유위험·성장성 가산 → specific_risk (cite section 5 offset 23559)"
+  },
+  {
+   "path": "valuations/13/dcf/size_premium",
+   "field": "size_premium",
+   "reason": "원문에 없음",
+   "basis": "2026-10-27 규모위험 정리: 원문 3.00%는 규모위험이 아니라 고유위험·성장성 가산 → specific_risk (cite section 5 offset 77739)"
   }
- ]
+ ],
+ "relative_value": {
+  "applied": false,
+  "reason": "자본시장법 시행령 제176조의5 제1항 제1호에 의거 기준주가를 합병가액으로 하여 합병비율을 산출하였으며, 자산가치 및 수익가치, 상대가치 등은 별도로 기재하지 않음(합병가액 표 상대가치 '-')",
+  "cite": {
+   "section_id": "5",
+   "offset": 522,
+   "file_id": "main"
+  }
+ }
 }

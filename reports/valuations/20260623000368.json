@@ -385,7 +385,29 @@
       },
       "note": "Unlevered Beta"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2 Year",
+     "frequency": "Weekly",
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 242983,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회가 제공하는 한국의 규모위험 프리미엄(Size Risk Premium) 연구결과를 참조하여 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 242123,
+      "file_id": "main"
+     }
+    },
+    "size_premium_applied": true,
+    "specific_risk": null
    },
    "relative": null,
    "result": {
@@ -508,12 +530,22 @@
    "how": "find_tables/search/section"
   }
  ],
+ "relative_value": {
+  "applied": false,
+  "reason": "유사회사 기준(3사 이상)을 충족하는 상장법인이 없어 상대가치를 산정하지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 827,
+   "file_id": "main"
+  },
+  "derived": true
+ },
  "absent_reasons": [
   {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: 원문이 미산정 명시(relative_value.applied=false로 보강 가능) — section 5 offset 266 '없음 | 32,347 |\n| 마. 상대가치(주3) | 해당사항 없음 | 해당사'"
+   "path": "valuations/2/dcf/specific_risk",
+   "field": "specific_risk",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 5 offset≈241760 Ke = Rf + (Rm-Rf)×β + Rs, 규모위험 외 고유위험 가산 없음"
   }
  ]
 }

@@ -71,7 +71,7 @@ def spac_sources(case: dict) -> str:
 
 
 # --------------------------------------------------------------------------- compare
-COMPARE_ARGS = {"wacc": "wacc", "g": "g", "srp": "size_premium", "rf": "rf", "mrp": "mrp", "beta_u": "beta_u",
+COMPARE_ARGS = {"wacc": "wacc", "g": "g", "srp": "size_premium", "specific": "specific_risk", "rf": "rf", "mrp": "mrp", "beta_u": "beta_u",
                 "beta_l": "beta_l", "ke": "ke", "kd": "kd", "tax": "tax_rate", "de": "d_over_e"}
 SMALL_N = 5
 
@@ -92,7 +92,8 @@ def percentile(xs: list[float], x: float) -> float:
 def compare(rows: list[dict], mine: dict[str, float], n: int = 3) -> dict:
     """내 값(변수 → 값) vs 선례 분포. 최근접은 내가 준 변수의 표준화 거리 sqrt(mean(z²)), 변수가 len(mine)−1개 이상 있는 거래만."""
     reps = {var: per_deal(rows, var) for var in mine}
-    out: dict[str, Any] = {"deals": len({r["rcept_no"] for r in rows}), "variables": {}, "nearest": []}
+    out: dict[str, Any] = {"deals": len({r["rcept_no"] for r in rows}), "variables": {}, "nearest": [],
+                           "size_premium_not_applied": len({r["rcept_no"] for r in rows if r.get("size_premium_not_applied")})}
     sd = {}
     for var, x in mine.items():
         xs = list(reps[var].values())
@@ -128,7 +129,7 @@ def compare(rows: list[dict], mine: dict[str, float], n: int = 3) -> dict:
 
 # --------------------------------------------------------------------------- export
 EXPORT_COLUMNS = ["사례ID", "회사", "거래유형", "이사회결의일", "상태", "SPAC", "업종(KSIC 대분류)", "업종(중분류)", "기관", "역할", "목적",
-                  "방법", "가중치", "WACC", "g", "rf", "mrp", "size_premium", "specific_risk", "beta_u", "beta_l", "ke", "kd", "세율",
+                  "방법", "가중치", "WACC", "g", "rf", "mrp", "size_premium", "규모위험 미적용", "specific_risk", "beta_u", "beta_l", "ke", "kd", "세율",
                   "D/E", "결과값", "결과 하한", "결과 상한", "결과 단위", "출처 접수번호", "출처 섹션", "출처 offset"]
 
 
@@ -154,7 +155,9 @@ def export_rows(cases: list[dict], keep: set[tuple[str, int]] | None = None) -> 
                 "기관": e.get("subject"), "역할": e.get("role"), "목적": e.get("purpose"), "방법": e.get("method"),
                 "가중치": f"{w['asset']:g}:{w['income']:g}" if w.get("asset") is not None and w.get("income") is not None else None,
                 "WACC": v(dcf.get("wacc")), "g": v(dcf.get("g")), "rf": v(dcf.get("rf")), "mrp": v(dcf.get("mrp")),
-                "size_premium": v(dcf.get("size_premium")), "specific_risk": v(dcf.get("specific_risk")),
+                "size_premium": None if dcf.get("size_premium_applied") is False else v(dcf.get("size_premium")),
+                "규모위험 미적용": True if dcf.get("size_premium_applied") is False else None,
+                "specific_risk": v(dcf.get("specific_risk")),
                 "beta_u": v(dcf.get("beta_unlevered")), "beta_l": v(dcf.get("beta_levered")), "ke": v(dcf.get("ke")),
                 "kd": v(dcf.get("kd")), "세율": v(dcf.get("tax_rate")), "D/E": d_over_e(dcf) if dcf else None,
                 "결과값": v(res.get("value")), "결과 하한": v((rng or {}).get("min")), "결과 상한": v((rng or {}).get("max")),

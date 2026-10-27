@@ -137,7 +137,9 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -217,7 +219,9 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -288,7 +292,9 @@
     "tax_rate": null,
     "target_de": null,
     "g": null,
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -347,7 +353,9 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -397,7 +405,9 @@
     "tax_rate": null,
     "target_de": null,
     "g": null,
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -528,7 +538,20 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간(Weekly)",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "4",
+      "offset": 57472,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -680,7 +703,20 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간(Weekly)",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "4",
+      "offset": 57472,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -751,7 +787,9 @@
     "tax_rate": null,
     "target_de": null,
     "g": null,
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -810,7 +848,9 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -869,7 +909,9 @@
       "file_id": "main"
      }
     },
-    "peers": []
+    "peers": [],
+    "beta_method": null,
+    "size_premium_basis": null
    },
    "relative": null,
    "result": {
@@ -1115,7 +1157,8 @@
   "SK이노베이션 수익가치는 지주회사 SOTP(별도 영업가치 + 종속기업 지분가치)라 주요 종속기업 DCF를 별도 원소로 둠(결과는 100% 기준 지분가치·수익가치, 백만원).",
   "원문 차이: 삼정 SK이노베이션 수익가치에 반영된 SK아이이테크놀로지 지분율 53.40%(VIII장 지분율 53.35%). 삼일 SK에너지 지분가치 3,530,770백만원 vs 삼정 3,463,056백만원.",
   "삼일은 WACC 구성요소(무위험이자율·베타·타인자본비용·자본구조)를 공시하지 않아 dcf 하위 값은 null. 대용기업(peers) 목록은 추출하지 않음.",
-  "transaction_value는 합병신주 모집총액(4,481,300주 × 125,862원, 섹션 2.4). 특별위원회(SK이노베이션 독립이사 6인·SK아이이테크놀로지 4인)·법률자문(김앤장·율촌) 검토는 섹션 3에 있음(미수록)."
+  "transaction_value는 합병신주 모집총액(4,481,300주 × 125,862원, 섹션 2.4). 특별위원회(SK이노베이션 독립이사 6인·SK아이이테크놀로지 4인)·법률자문(김앤장·율촌) 검토는 섹션 3에 있음(미수록).",
+  "보강 2026-10-27: beta_method(삼정 모회사·SK아이이 2건), relative_value 추가. 그 외 β 방식·규모위험 근거·동종기업 목록은 원문에 없음(absent_reasons). md 미재생성."
  ],
  "extracted_at": "2026-10-26T16:10:24+09:00",
  "extractor_version": "1.1",
@@ -1147,118 +1190,229 @@
  ],
  "absent_reasons": [
   {
+   "path": "valuations/7/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 22640·57661 WACC 표에 '규모 및 국가위험 프리미엄 0.00%' 행만 있고 근거(KICPA 분위 등) 문구 없음"
+  },
+  {
+   "path": "valuations/7/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 57400 '동종기업(Peer)으로 선정하여 동종기업 평균 … 조정베타' — 동종기업 목록·회사별 β 표는 공시하지 않음(WACC 표에 평균 Unlevered/Relevered Beta만)"
+  },
+  {
+   "path": "valuations/8/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 22640·57661 WACC 표에 '규모 및 국가위험 프리미엄 0.00%' 행만 있고 근거(KICPA 분위 등) 문구 없음"
+  },
+  {
+   "path": "valuations/8/dcf/peers",
+   "field": "peers",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 57400 '동종기업(Peer)으로 선정하여 동종기업 평균 … 조정베타' — 동종기업 목록·회사별 β 표는 공시하지 않음(WACC 표에 평균 Unlevered/Relevered Beta만)"
+  },
+  {
+   "path": "valuations/2/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 30784 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/2/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 30784 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
    "path": "valuations/2/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: section 4, 4.h1, 4.h2, 4.h3, 4.h4, 4.h5, 4.h6, 4.h7, 4.h8에 키워드 없음 — 원문에 없음 추정"
+   "basis": "보강 확인 2026-10-27: section 4 offset 30784 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/2/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 30784 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/3/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 49137 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/3/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 49137 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/3/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: section 4, 4.h1, 4.h2, 4.h3, 4.h4, 4.h5, 4.h6, 4.h7, 4.h8에 키워드 없음 — 원문에 없음 추정"
+   "basis": "보강 확인 2026-10-27: section 4 offset 49137 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/3/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 49137 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/4/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 37149 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/4/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 37149 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/4/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: section 4, 4.h1, 4.h2, 4.h3, 4.h4, 4.h5, 4.h6, 4.h7, 4.h8에 키워드 없음 — 원문에 없음 추정"
+   "basis": "보강 확인 2026-10-27: section 4 offset 37149 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/4/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 37149 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/5/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 39862 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/5/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 39862 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/5/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: section 4, 4.h1, 4.h2, 4.h3, 4.h4, 4.h5, 4.h6, 4.h7, 4.h8에 키워드 없음 — 원문에 없음 추정"
+   "basis": "보강 확인 2026-10-27: section 4 offset 39862 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/5/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 39862 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/6/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 42392 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/6/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 42392 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/6/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: section 4, 4.h1, 4.h2, 4.h3, 4.h4, 4.h5, 4.h6, 4.h7, 4.h8에 키워드 없음 — 원문에 없음 추정"
+   "basis": "보강 확인 2026-10-27: section 4 offset 42392 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/6/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 42392 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼일 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
-   "path": "valuations/7/dcf/peers",
-   "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "path": "valuations/9/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 67826 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
-   "path": "valuations/8/dcf/peers",
-   "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "path": "valuations/9/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 67826 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/9/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: section 4, 4.h1, 4.h2, 4.h3, 4.h4, 4.h5, 4.h6, 4.h7, 4.h8에 키워드 없음 — 원문에 없음 추정"
+   "basis": "보강 확인 2026-10-27: section 4 offset 67826 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/9/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 67826 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/10/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 73474 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/10/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 73474 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/10/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: section 4, 4.h1, 4.h2, 4.h3, 4.h4, 4.h5, 4.h6, 4.h7, 4.h8에 키워드 없음 — 원문에 없음 추정"
+   "basis": "보강 확인 2026-10-27: section 4 offset 73474 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/10/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 73474 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/11/dcf/beta_method",
+   "field": "beta_method",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 76329 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
+  },
+  {
+   "path": "valuations/11/dcf/size_premium_basis",
+   "field": "size_premium_basis",
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 76329 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/11/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: section 4, 4.h1, 4.h2, 4.h3, 4.h4, 4.h5, 4.h6, 4.h7, 4.h8에 키워드 없음 — 원문에 없음 추정"
+   "basis": "보강 확인 2026-10-27: section 4 offset 76329 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   },
   {
    "path": "valuations/11/dcf/peers",
    "field": "peers",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 22630 '| 8.00% | 8.00% |\n| Unlevered Beta | 0.59 | 0.67' — 추출 누락 의심"
-  },
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 4 offset 299 '- 수익가치 | - | - |\n| 상대가치 | - | - |\n| 합병가액(1주' — 추출 누락 의심"
+   "reason": "원문에 없음",
+   "basis": "보강 확인 2026-10-27: section 4 offset 76329 부근 영구현금흐름 표에 가중평균자본비용 값만 있음. 삼정 종속기업 평가에 β·규모위험·동종기업 서술 없음(grep 'Beta|베타|규모|Peer|CAPM' 적중은 offset 22603·57397 삼정 모회사·SK아이이 WACC 표뿐)"
   }
- ]
+ ],
+ "relative_value": {
+  "applied": false,
+  "reason": "양사 모두 유가증권시장 상장법인이라 시행령 176조의5 ①1에 따라 기준시가를 합병가액으로 하여 합병비율을 산출했으므로 자산가치·수익가치·상대가치는 별도로 기재하지 않음(합병가액 표 상대가치 '-').",
+  "cite": {
+   "section_id": "4",
+   "offset": 586,
+   "file_id": "main"
+  }
+ }
 }

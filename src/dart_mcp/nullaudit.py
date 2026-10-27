@@ -72,16 +72,18 @@ def targets(case: dict) -> list[dict]:
         if v.get("method") == "본질가치" and not (v.get("income_value") or {}).get("value"):
             out.append({"path": f"valuations/{i}/income_value", "field": "income_value", "node": v})
     t = case["deal"]["type"]
-    has_rel = any(v.get("method") == "상대가치" or v.get("relative") for v in case.get("valuations") or [])
+    has_rel = bool(case.get("relative_value")) or any(v.get("method") == "상대가치" or v.get("relative") for v in case.get("valuations") or [])
     if t in ("merger", "split_merger", "share_exchange") and not has_rel:
         out.append({"path": "relative", "field": "relative", "node": case})
     elif t == "split" and not has_rel:
-        out.append({"path": "relative", "field": "relative", "node": None, "na": "분할은 상대가치 비교 대상이 아니다(시행세칙 제7조는 합병가액)"})
+        out.append({"path": "relative", "field": "relative", "node": None, "na": f"키워드 감사 {DATE}: 분할은 상대가치 비교 대상이 아니다(시행세칙 제7조는 합병가액)"})
     return out
 
 
 def audit_case(case: dict) -> dict:
-    tg = targets(case)
+    # 사람·보강 작업이 확인한 사유(basis가 "키워드 감사"가 아닌 항목)가 있는 칸은 다시 감사하지 않는다
+    verified = {x["path"] for x in case.get("absent_reasons") or [] if not str(x.get("basis", "")).startswith("키워드 감사")}
+    tg = [t for t in targets(case) if t["path"] not in verified]
     if not tg:
         return {"rcept_no": case["rcept_no"], "items": [], "cached": True}
     secs = _cited_sections(case.get("valuations")) | _cited_sections(case.get("conclusion"))
@@ -137,8 +139,7 @@ def audit_cli(directory: Path, argv: list[str]) -> int:
             summary[it["field"]][key] += 1
             rows.append({"rcept_no": case["rcept_no"], **it})
         if write:
-            kept = [x for x in case.get("absent_reasons") or [] if not str(x.get("basis", "")).startswith("키워드 감사")
-                    and x.get("reason") != "해당 없음"]
+            kept = [x for x in case.get("absent_reasons") or [] if not str(x.get("basis", "")).startswith("키워드 감사")]
             case["absent_reasons"] = kept + [{k: it[k] for k in ("path", "field", "reason", "basis")} for it in res["items"] if it["reason"]]
             if not case["absent_reasons"]:
                 del case["absent_reasons"]

@@ -1409,12 +1409,16 @@
    "field": "peers",
    "reason": "추출 안 함",
    "basis": "키워드 감사 2026-10-27: section 5 offset 29893 '유사기업의 자본구조 차이를 제거한 Unlevered Beta의 평균에 목표자본구조를 반' — 추출 누락 의심"
-  },
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: 원문이 미산정 명시(relative_value.applied=false로 보강 가능) — section 5 offset 1087 '| 91.3667379 |\n| 마. 상대가치 | 해당사항 없음 | 해당사항 없음'"
   }
- ]
+ ],
+ "relative_value": {
+  "applied": false,
+  "reason": "유사회사 기준(3사 이상)을 충족하는 상장법인이 없어 상대가치를 산정하지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 56104,
+   "file_id": "main"
+  },
+  "derived": true
+ }
 }

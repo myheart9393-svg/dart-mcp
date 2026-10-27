@@ -409,7 +409,27 @@
       },
       "note": "Unlevered Beta"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "Weekly",
+     "index": null,
+     "source": "한국공인회계사회 베타조회서비스",
+     "cite": {
+      "section_id": "5",
+      "offset": 90429,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회에서 발표(2024.06.05)한 Size Premium Data … 규모위험 프리미엄(5분위수) 중에서 5분위에 해당하는 4.73%",
+     "cite": {
+      "section_id": "5",
+      "offset": 87203,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -562,12 +582,13 @@
    "how": "find_tables/search/section"
   }
  ],
- "absent_reasons": [
-  {
-   "path": "relative",
-   "field": "relative",
-   "reason": "추출 안 함",
-   "basis": "키워드 감사 2026-10-27: section 5 offset 5683 '한다는 단점이 있습니다.\n\n3.3. 상대가치 분석방법\n\n「자본시장과 금융투자업에' — 추출 누락 의심"
+ "relative_value": {
+  "applied": false,
+  "reason": "상대가치는 비교목적으로 분석하였으나 피합병법인과 한국거래소 업종분류에 따른 소분류 업종이 같은 상장법인이 3개 이상 존재하지 않아 가치를 산정하지 아니함(합병법인은 기준시가 적용으로 해당사항 없음)",
+  "cite": {
+   "section_id": "5",
+   "offset": 12477,
+   "file_id": "main"
   }
- ]
+ }
 }
