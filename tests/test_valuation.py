@@ -288,3 +288,39 @@ def test_deal_stats_counts_deals_not_values_and_default_purpose_filter():
     assert [r["rcept_no"] for r in filter_rows(rows, purposes={"공정가치평가"})] == ["C"]
     assert filter_rows(rows, date_from="2026-11-01") == []
     assert len(filter_rows(rows, regimes={"none"})) == 4 and filter_rows(rows, regimes={"기준시가"}) == []
+
+
+# --------------------------------------------------------------------------- 업종(KSIC)
+def test_industry_labels_and_filter():
+    from dart_mcp.industry import label, section
+
+    assert label("26429") == "26 전자부품·컴퓨터·영상·음향·통신장비" and label("21") == "21 의료용 물질·의약품"
+    assert label("99999") == "99" and label(None) is None and label("7") is None  # 매핑 없는 중분류는 코드만
+    assert section("70113") == "M 전문, 과학 및 기술 서비스업" and section("2221") == "C 제조업"
+    rows = [dict(_r("A", "외부평가", 8.0), induty_code="26429"), dict(_r("B", "외부평가", 9.0), induty_code="21210"),
+            dict(_r("C", "외부평가", 10.0), induty_code=None)]
+    assert [r["rcept_no"] for r in filter_rows(rows, industries={"26"})] == ["A"]
+    assert {r["rcept_no"] for r in filter_rows(rows, industries={"26", "212"})} == {"A", "B"}
+
+
+def test_fill_case_records_reason(monkeypatch):
+    from dart_mcp import industry
+
+    monkeypatch.setattr(industry, "lookup", lambda code, data_dir=None: (None, "기업개황 조회 실패(DartApiError: 013)"))
+    case = {"rcept_no": "X", "company": {"corp_code": "1", "induty_code": None}, "notes": ["기존"]}
+    res = industry.fill_case(case)
+    assert res["changed"] and case["company"]["induty_code"] is None
+    assert case["notes"][0] == "기존" and case["notes"][1].startswith("induty_code: null — 기업개황 조회 실패")
+    monkeypatch.setattr(industry, "lookup", lambda code, data_dir=None: ("26429", None))
+    assert industry.fill_case(case)["induty_code"] == "26429" and case["notes"] == ["기존"]  # 다시 채우면 사유 note는 지운다
+
+
+def test_asset_sum_warning_skips_split_and_catches_sign():
+    from dart_mcp.valuation import distribution_warnings
+
+    def case(adj, typ="merger"):
+        n = lambda v: {"value": v, "unit": "원", "text": str(v), "cite": None}
+        return {"deal": {"type": typ}, "valuations": [{"asset_value": {"equity_book": n(1000), "adjustments": n(adj), "total": n(900)}}]}
+    assert distribution_warnings(case(-100)) == []
+    assert any("조정항목" in w for w in distribution_warnings(case(100)))  # 차감을 양수로 넣은 경우
+    assert distribution_warnings(case(100, "split")) == []

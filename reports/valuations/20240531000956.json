@@ -1,0 +1,196 @@
+{
+ "rcept_no": "20240531000956",
+ "original_rcept_no": "20240430000985",
+ "related_rcept_nos": [
+  "20240430000985",
+  "20240510000942",
+  "20240522000342",
+  "20240531000905",
+  "20240530001227"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00117188",
+  "name": "효성",
+  "market": "유가증권",
+  "induty_code": "649"
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2024-02-23",
+  "regime": null,
+  "ratio_text": "분할회사 주주에게 1주당 0.1820515주(분할비율 0.1820515 x 1주의 금액비율 1) 배정, 분할회사 주식은 1주당 0.8179485주 비율로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2023년 12월 31일 별도재무상태표 기준 순자산 장부가액(자기주식 장부가액 합산) 비율로 분할비율 산정(외부평가기관 해당사항 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 260,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "효성",
+   "target": "주식회사 에이치에스효성",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 461995881282,
+     "unit": "원",
+     "text": "461,995,881,282원",
+     "cite": {
+      "section_id": "5",
+      "offset": 383,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 2495601874166,
+     "unit": "원",
+     "text": "2,495,601,874,166원",
+     "cite": {
+      "section_id": "5",
+      "offset": 501,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 42119409965,
+     "unit": "원",
+     "text": "42,119,409,965원",
+     "cite": {
+      "section_id": "5",
+      "offset": 534,
+      "file_id": "main"
+     }
+    },
+    "shares": null,
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.1820515,
+     "unit": null,
+     "text": "0.1820515",
+     "cite": {
+      "section_id": "5",
+      "offset": 476,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = 분할대상 사업부문 순자산 ÷ (분할 전 순자산 + 분할 전 자기주식 장부가액). adjustments는 분할 전 자기주식 장부가액(분모에 가산). 1주의 금액비율 5,000원÷5,000원 = 1을 곱해 배정비율 0.1820515주. result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 에이치에스효성",
+    "basis": "분할신주 모집(매출)가액(모집총액 ÷ 주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 123994,
+     "unit": "원",
+     "text": "123,994",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 368,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1820515,
+   "unit": null,
+   "text": "0.1820515",
+   "cite": {
+    "section_id": "5",
+    "offset": 476,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 461995881282,
+   "unit": "원",
+   "text": "461,995,881,282",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 378,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "2023.12.31 별도재무상태표 기준 순자산 장부가액 비율로 분할비율 0.1820515, 배정비율 0.1820515주. 신주배정은 최초 이사회(2024-02-23) 승인 분할계획서상 배정비율 기준",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20240102–20240630, listed_only=False): 분할/full, 기재정정, body_rcept_no=20240531000956(본 건, 최신 본문), original_rcept_no=20240430000985(최초 증권신고서(분할), attachment_rcept_no 동일), supersedes 20240510000942·20240522000342·20240531000905. 짝 주요사항보고서(회사분할결정) [첨부정정] 20240530001227(summary, 원본 20240223002160, 본문 20240510000878).",
+  "단순·인적분할로 외부평가기관 '해당사항 없음'(IV. 평가 및 신주배정 등). 가치평가(DCF·상대가치 등)는 없고 순자산 장부가액 비율만 있음. regime: 기준시가·본질가치 산정 없음 → null.",
+  "분할신설회사 에이치에스효성: 효성첨단소재 등 분할대상 자회사 관리 사업부문 및 물류사업부문. 유가증권시장 재상장 예정(2024-04-29 재상장 예비심사 승인 통보, 3.4 주1).",
+  "발행증권: 기명식보통주 3,725,927주, 액면 5,000원, 모집가액 123,994원, 모집총액 461,995,881,282원. 2023.12.31 재무상태표 기준이며 분할기일 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주3).",
+  "이사회 결의일 2024-02-23, 주주확정일 2024-04-30, 분할주주총회 2024-06-14, 분할기일 2024-07-01, 신주배정기준일 2024-06-28(III. 주요일정·3.4).",
+  "자사주 604,691주 소각(2024-05-20 등기, 발행주식총수 21,071,025주→20,466,334주), 나머지 556,930주 시간외대량매매 매각 예정(3.4 주5)."
+ ],
+ "extracted_at": "2026-10-27T09:46:38+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240531000956",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 249,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240531000956",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1786,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240531000956",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 분할에 관한 기본사항",
+   "chars_read": 3067,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240531000956",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 887,
+   "how": "section"
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "rcept_no": "20250618000181",
+ "original_rcept_no": "20250422000256",
+ "related_rcept_nos": [
+  "20250422000256",
+  "20250529000668",
+  "20250611000536"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01214044",
+  "name": "빗썸",
+  "market": "기타",
+  "induty_code": "4791"
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2025-04-21",
+  "regime": null,
+  "ratio_text": "분할회사 주주에게 1주당 0.44302361주(분할비율 0.44302361 x 1주의 금액비율 1) 배정, 분할회사 주식은 1주당 0.55697639주 비율로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2024년 12월 31일 재무상태표 기준 순자산 장부가액(자기주식 장부가액 합산) 비율로 분할비율 산정(외부평가기관 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 260,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "주식회사 빗썸",
+   "target": "주식회사 빗썸에이",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 620080760468,
+     "unit": "원",
+     "text": "620,080,760,468",
+     "cite": {
+      "section_id": "5",
+      "offset": 524,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 1399656230425,
+     "unit": "원",
+     "text": "1,399,656,230,425",
+     "cite": {
+      "section_id": "5",
+      "offset": 558,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 0,
+     "unit": "원",
+     "text": "0원",
+     "cite": {
+      "section_id": "5",
+      "offset": 595,
+      "file_id": "main"
+     }
+    },
+    "shares": null,
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.44302361,
+     "unit": null,
+     "text": "0.44302361",
+     "cite": {
+      "section_id": "5",
+      "offset": 602,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = 분할대상부문 순자산가액 ÷ (분할 전 순자산가액 + 분할 전 자기주식 장부가액 0원). adjustments는 분할 전 자기주식 장부가액(분모에 가산). 1주의 금액비율 5,000원÷5,000원 = 1을 곱해 배정비율 0.44302361. 분할존속회사 비율 0.55697639. result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 빗썸에이",
+    "basis": "분할신주 기명식보통주 모집(매출)가액(모집총액 ÷ 주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 330433,
+     "unit": "원",
+     "text": "330,433",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 363,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.44302361,
+   "unit": null,
+   "text": "0.44302361",
+   "cite": {
+    "section_id": "5",
+    "offset": 602,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 620080760468,
+   "unit": "원",
+   "text": "620,080,760,468",
+   "cite": {
+    "section_id": "5",
+    "offset": 524,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "2024.12.31 재무상태표 기준 순자산 장부가액 비율로 분할비율 0.44302361(존속 0.55697639). 신주배정은 최초 이사회 결의 시 승인된 분할계획서상 배정비율 기준",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20250119–20250718, listed_only=False): 분할/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), 원본 20250422000256, supersedes 20250422000256·20250529000668·20250611000536, attachment_rcept_no=20250422000256. 짝 주요사항보고서는 결과에 없음(related_rcept_nos 빈 목록).",
+  "단순·인적분할로 외부평가기관 '없음'(IV. 평가 및 신주배정 등). 가치평가(DCF·상대가치 등)는 없고 순자산 장부가액 비율만 있음. regime: 기준시가·본질가치 산정 없음 -> null.",
+  "분할존속회사 빗썸(가상자산 거래소 사업), 분할신설회사 빗썸에이(비거래소 사업). 양사 모두 비상장, 단기간 내 상장 계획 없음(III. 분할의 요령).",
+  "발행증권: 기명식보통주 1,876,567주, 액면 5,000원, 모집가액 330,433원, 모집총액 620,080,760,468원. 2024.12.31 재무상태표 기준이며 분할기일 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주3).",
+  "이사회 결의·계약일 2025-04-21, 주주확정일 2025-05-07, 주주총회 2025-07-11, 분할기일 2025-08-15, 신주배정기준일 2025-08-14(III. 주요일정·III. 분할의 요령).",
+  "분할신주 수량 1,876,567주(3.4)."
+ ],
+ "extracted_at": "2026-10-27T10:07:44+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20250618000181",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 265,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250618000181",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 964,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250618000181",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 분할에 관한 기본사항",
+   "chars_read": 2430,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250618000181",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 858,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250618000181",
+   "file_id": "main",
+   "section_id": "6",
+   "title": "III. 분할의 요령",
+   "chars_read": 2033,
+   "how": "section"
+  }
+ ]
+}

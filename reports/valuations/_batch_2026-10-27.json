@@ -1,0 +1,2399 @@
+{
+ "bgn_de": "20240101",
+ "end_de": "20251231",
+ "grade": "full",
+ "limit": 10,
+ "kinds": [
+  "merger",
+  "split",
+  "split_merger",
+  "share_exchange"
+ ],
+ "created_at": "2026-10-27T09:25:26+09:00",
+ "scan": {
+  "total_deals": 736,
+  "api_pages": 219
+ },
+ "items": [
+  {
+   "rcept_no": "20240102000144",
+   "body_rcept_no": "20240102000144",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240102",
+   "corp_code": "00366137",
+   "corp_name": "KG에코솔루션",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 16,
+   "chars": 54667,
+   "seconds": 285,
+   "done_at": "2026-10-27T09:32:18+09:00",
+   "industry": {
+    "induty_code": "302",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240109000342",
+   "body_rcept_no": "20240109000342",
+   "original_rcept_no": "20240102000393",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240109",
+   "corp_code": "00813389",
+   "corp_name": "베셀",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240102000393",
+    "20240102000394"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 5,
+   "chars": 7559,
+   "seconds": 131,
+   "done_at": "2026-10-27T09:29:42+09:00",
+   "industry": {
+    "induty_code": "222",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240108000006",
+   "body_rcept_no": "20240105000649",
+   "original_rcept_no": null,
+   "report_nm": "[첨부정정]증권신고서(분할)",
+   "rcept_dt": "20240108",
+   "corp_code": "00508344",
+   "corp_name": "SK디앤디",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20240105000649"
+   ],
+   "related_rcept_nos": [
+    "20240105000589"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 3941,
+   "seconds": 124,
+   "done_at": "2026-10-27T09:29:40+09:00",
+   "industry": {
+    "induty_code": "68122",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240108000245",
+   "body_rcept_no": "20240108000245",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240108",
+   "corp_code": "01090471",
+   "corp_name": "SFA넥셀",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 17,
+   "chars": 54662,
+   "seconds": 294,
+   "done_at": "2026-10-27T09:32:20+09:00",
+   "industry": {
+    "induty_code": "292",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240131000283",
+   "body_rcept_no": "20240131000283",
+   "original_rcept_no": "20240116000092",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240131",
+   "corp_code": "01283974",
+   "corp_name": "삐아",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240116000092",
+    "20240125000253",
+    "20240129000113"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 17,
+   "chars": 38228,
+   "seconds": 297,
+   "done_at": "2026-10-27T09:32:22+09:00",
+   "industry": {
+    "induty_code": "20423",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240215000683",
+   "body_rcept_no": "20240215000683",
+   "original_rcept_no": "20240117000174",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240215",
+   "corp_code": "01116265",
+   "corp_name": "카티스",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240117000174",
+    "20240126000260",
+    "20240206000419"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 21,
+   "chars": 56277,
+   "seconds": 316,
+   "done_at": "2026-10-27T09:35:54+09:00",
+   "industry": {
+    "induty_code": "620",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240129000200",
+   "body_rcept_no": "20240129000200",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240129",
+   "corp_code": "01540903",
+   "corp_name": "크리에이츠",
+   "corp_cls": "E",
+   "market": "기타",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240105000039",
+    "20240116000060",
+    "20240118000172"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 21,
+   "chars": 58106,
+   "seconds": 348,
+   "done_at": "2026-10-27T09:36:02+09:00",
+   "industry": {
+    "induty_code": "33999",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240308000811",
+   "body_rcept_no": "20240308000811",
+   "original_rcept_no": "20240201000647",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240308",
+   "corp_code": "00306454",
+   "corp_name": "한국정보인증",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240201000647",
+    "20240214001842",
+    "20240227007764"
+   ],
+   "related_rcept_nos": [
+    "20240502000330"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 21,
+   "chars": 54795,
+   "seconds": 316,
+   "done_at": "2026-10-27T09:38:18+09:00",
+   "industry": {
+    "induty_code": "58221",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240315000646",
+   "body_rcept_no": "20240315000646",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240315",
+   "corp_code": "01429220",
+   "corp_name": "피아이이",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240215001123",
+    "20240226004432",
+    "20240229001572",
+    "20240229002176",
+    "20240307000508"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 20,
+   "chars": 93693,
+   "seconds": 571,
+   "done_at": "2026-10-27T09:42:50+09:00",
+   "industry": {
+    "induty_code": "29299",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240327001174",
+   "body_rcept_no": "20240327001174",
+   "original_rcept_no": "20240315000536",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240327",
+   "corp_code": "01344363",
+   "corp_name": "다원넥스뷰",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240315000536",
+    "20240326001073"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 18,
+   "chars": 69870,
+   "seconds": 330,
+   "done_at": "2026-10-27T09:38:27+09:00",
+   "industry": {
+    "induty_code": "292",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240412000371",
+   "body_rcept_no": "20240412000371",
+   "original_rcept_no": "20240326001060",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240412",
+   "corp_code": "01601222",
+   "corp_name": "씨피시스템",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240326001060",
+    "20240404002014",
+    "20240408003589"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 10,
+   "chars": 45480,
+   "seconds": 272,
+   "done_at": "2026-10-27T10:34:32+09:00",
+   "industry": {
+    "induty_code": "222",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20240531000956",
+   "body_rcept_no": "20240531000956",
+   "original_rcept_no": "20240430000985",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20240531",
+   "corp_code": "00117188",
+   "corp_name": "효성",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20240430000985",
+    "20240510000942",
+    "20240522000342",
+    "20240531000905"
+   ],
+   "related_rcept_nos": [
+    "20240530001227"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 7,
+   "chars": 5989,
+   "seconds": 188,
+   "done_at": "2026-10-27T10:32:39+09:00",
+   "industry": {
+    "induty_code": "649",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20240711000131",
+   "body_rcept_no": "20240711000131",
+   "original_rcept_no": "20240531002705",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240711",
+   "corp_code": "01516766",
+   "corp_name": "아이비젼웍스",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240531002705",
+    "20240612000374",
+    "20240614000297"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 15,
+   "chars": 27001,
+   "seconds": 280,
+   "done_at": "2026-10-27T09:48:29+09:00",
+   "industry": {
+    "induty_code": "292",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240621000633",
+   "body_rcept_no": "20240621000633",
+   "original_rcept_no": "20240612000386",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240621",
+   "corp_code": "00116949",
+   "corp_name": "DN오토모티브",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240612000386"
+   ],
+   "related_rcept_nos": [
+    "20240904000289"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 11362,
+   "seconds": 216,
+   "done_at": "2026-10-27T09:47:40+09:00",
+   "industry": {
+    "induty_code": "28202",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240725000314",
+   "body_rcept_no": "20240725000314",
+   "original_rcept_no": "20240613000125",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240725",
+   "corp_code": "00909835",
+   "corp_name": "차이커뮤니케이션",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240613000125",
+    "20240624000126",
+    "20240701000566"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 13,
+   "chars": 40993,
+   "seconds": 272,
+   "done_at": "2026-10-27T09:48:26+09:00",
+   "industry": {
+    "induty_code": "71310",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240628000849",
+   "body_rcept_no": "20240628000849",
+   "original_rcept_no": "20240619000271",
+   "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+   "rcept_dt": "20240628",
+   "corp_code": "01381391",
+   "corp_name": "에스피소프트",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "share_exchange",
+   "deal_label": "주식교환·이전",
+   "source_grade": "full",
+   "supersedes": [
+    "20240619000271"
+   ],
+   "related_rcept_nos": [
+    "20240822000284"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 14,
+   "chars": 62895,
+   "seconds": 293,
+   "done_at": "2026-10-27T10:31:01+09:00",
+   "industry": {
+    "induty_code": "620",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20240703000505",
+   "body_rcept_no": "20240703000505",
+   "original_rcept_no": "20240624000277",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240703",
+   "corp_code": "00110547",
+   "corp_name": "링세오코리아",
+   "corp_cls": "E",
+   "market": "기타",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240624000277",
+    "20240625000170"
+   ],
+   "related_rcept_nos": [
+    "20240703000488"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 7,
+   "chars": 37001,
+   "seconds": 310,
+   "done_at": "2026-10-27T09:53:02+09:00",
+   "industry": {
+    "induty_code": "28302",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240722000067",
+   "body_rcept_no": "20240722000067",
+   "original_rcept_no": "20240626000457",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240722",
+   "corp_code": "01061327",
+   "corp_name": "클래시스",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240626000457",
+    "20240705000515",
+    "20240715000123"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 9,
+   "chars": 12268,
+   "seconds": 193,
+   "done_at": "2026-10-27T09:51:55+09:00",
+   "industry": {
+    "induty_code": "271",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240718000405",
+   "body_rcept_no": "20240718000405",
+   "original_rcept_no": "20240628000752",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20240718",
+   "corp_code": "00126566",
+   "corp_name": "한화에어로스페이스",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20240628000752",
+    "20240709000418"
+   ],
+   "related_rcept_nos": [
+    "20240718000388"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 5,
+   "chars": 2461,
+   "seconds": 152,
+   "done_at": "2026-10-27T10:30:38+09:00",
+   "industry": {
+    "induty_code": "31321",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20240726000291",
+   "body_rcept_no": "20240726000291",
+   "original_rcept_no": "20240701000612",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240726",
+   "corp_code": "00545929",
+   "corp_name": "제넥신",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240701000612",
+    "20240708000344",
+    "20240717000430"
+   ],
+   "related_rcept_nos": [
+    "20240730000136"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 20,
+   "chars": 49937,
+   "seconds": 305,
+   "done_at": "2026-10-27T09:54:05+09:00",
+   "industry": {
+    "induty_code": "70113",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240816000251",
+   "body_rcept_no": "20240816000248",
+   "original_rcept_no": "20240715000400",
+   "report_nm": "[첨부정정]증권신고서(주식의포괄적교환ㆍ이전)",
+   "rcept_dt": "20240816",
+   "corp_code": "01105153",
+   "corp_name": "두산로보틱스",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "share_exchange",
+   "deal_label": "주식교환·이전",
+   "source_grade": "full",
+   "supersedes": [
+    "20240715000400",
+    "20240806000309",
+    "20240816000248"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 8,
+   "chars": 13842,
+   "seconds": 181,
+   "done_at": "2026-10-27T09:54:55+09:00",
+   "industry": {
+    "induty_code": "2928",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240813000222",
+   "body_rcept_no": "20240813000222",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240813",
+   "corp_code": "01498576",
+   "corp_name": "유디엠텍",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240710000647",
+    "20240719000246",
+    "20240729000274",
+    "20240807000122"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 21,
+   "chars": 52026,
+   "seconds": 336,
+   "done_at": "2026-10-27T09:57:45+09:00",
+   "industry": {
+    "induty_code": "58222",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240905000404",
+   "body_rcept_no": "20240905000404",
+   "original_rcept_no": "20240816000249",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20240905",
+   "corp_code": "00252135",
+   "corp_name": "주성엔지니어링",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20240816000249",
+    "20240827000880"
+   ],
+   "related_rcept_nos": [
+    "20241029000184",
+    "20240502000569"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 5536,
+   "seconds": 132,
+   "done_at": "2026-10-27T09:54:24+09:00",
+   "industry": {
+    "induty_code": "29229",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240905000369",
+   "body_rcept_no": "20240905000369",
+   "original_rcept_no": "20240827000349",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240905",
+   "corp_code": "01090471",
+   "corp_name": "SFA넥셀",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240827000349"
+   ],
+   "related_rcept_nos": [
+    "20240828000315"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 5,
+   "chars": 9167,
+   "seconds": 142,
+   "done_at": "2026-10-27T09:54:57+09:00",
+   "industry": {
+    "induty_code": "292",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240923000309",
+   "body_rcept_no": "20240923000309",
+   "original_rcept_no": "20240830001462",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20240923",
+   "corp_code": "01448544",
+   "corp_name": "셀로맥스사이언스",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240830001462",
+    "20240910000703"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 14,
+   "chars": 55030,
+   "seconds": 215,
+   "done_at": "2026-10-27T09:56:41+09:00",
+   "industry": {
+    "induty_code": "10897",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20241008000272",
+   "body_rcept_no": "20241008000272",
+   "original_rcept_no": "20240830001977",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20241008",
+   "corp_code": "00140177",
+   "corp_name": "GS리테일",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20240830001977",
+    "20240910000580",
+    "20240923000260"
+   ],
+   "related_rcept_nos": [
+    "20241128001296"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 6379,
+   "seconds": 113,
+   "done_at": "2026-10-27T09:56:06+09:00",
+   "industry": {
+    "induty_code": "47122",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20241010000577",
+   "body_rcept_no": "20241010000577",
+   "original_rcept_no": "20240830002114",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20241010",
+   "corp_code": "01217795",
+   "corp_name": "엠에프씨",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240830002114",
+    "20240910000673",
+    "20240923000399",
+    "20241004000361"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 19,
+   "chars": 58673,
+   "seconds": 243,
+   "done_at": "2026-10-27T10:34:10+09:00",
+   "industry": {
+    "induty_code": "21100",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20240902000440",
+   "body_rcept_no": "20240902000436",
+   "original_rcept_no": null,
+   "report_nm": "[첨부정정]증권신고서(합병)",
+   "rcept_dt": "20240902",
+   "corp_code": "01286476",
+   "corp_name": "RF시스템즈",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240712000519",
+    "20240723000352",
+    "20240731000705",
+    "20240826000227",
+    "20240902000436"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 21,
+   "chars": 46127,
+   "seconds": 224,
+   "done_at": "2026-10-27T09:58:47+09:00",
+   "industry": {
+    "induty_code": "25924",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20240925000567",
+   "body_rcept_no": "20240925000567",
+   "original_rcept_no": "20240911000361",
+   "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+   "rcept_dt": "20240925",
+   "corp_code": "00643656",
+   "corp_name": "위메이드맥스",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "share_exchange",
+   "deal_label": "주식교환·이전",
+   "source_grade": "full",
+   "supersedes": [
+    "20240911000361"
+   ],
+   "related_rcept_nos": [
+    "20240925000452"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 15,
+   "chars": 59164,
+   "seconds": 210,
+   "done_at": "2026-10-27T09:59:05+09:00",
+   "industry": {
+    "induty_code": "5821",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20241030000518",
+   "body_rcept_no": "20241030000518",
+   "original_rcept_no": "20240913000648",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20241030",
+   "corp_code": "01179866",
+   "corp_name": "에스지헬스케어",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240913000648",
+    "20240925000588",
+    "20241002000541"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 12,
+   "chars": 74121,
+   "seconds": 223,
+   "done_at": "2026-10-27T09:59:07+09:00",
+   "industry": {
+    "induty_code": "27111",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20241106000283",
+   "body_rcept_no": "20241106000283",
+   "original_rcept_no": "20241002000543",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20241106",
+   "corp_code": "01718407",
+   "corp_name": "블랙야크아이앤씨",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20241002000543",
+    "20241015000363",
+    "20241023000308",
+    "20241106000279"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 17,
+   "chars": 45544,
+   "seconds": 206,
+   "done_at": "2026-10-27T10:33:51+09:00",
+   "industry": {
+    "induty_code": "152",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20241004000363",
+   "body_rcept_no": "20241004000363",
+   "original_rcept_no": "20241004000363",
+   "report_nm": "증권신고서(합병)",
+   "rcept_dt": "20241004",
+   "corp_code": "00995993",
+   "corp_name": "DXVX",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 19,
+   "chars": 64927,
+   "seconds": 223,
+   "done_at": "2026-10-27T10:00:34+09:00",
+   "industry": {
+    "induty_code": "729",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20241209000173",
+   "body_rcept_no": "20241209000173",
+   "original_rcept_no": "20241015000462",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20241209",
+   "corp_code": "01253636",
+   "corp_name": "에르코스",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20241015000462",
+    "20241024000312",
+    "20241104000294",
+    "20241113000230",
+    "20241113000248"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 21,
+   "chars": 65360,
+   "seconds": 217,
+   "done_at": "2026-10-27T10:01:36+09:00",
+   "industry": {
+    "induty_code": "107",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20241119000052",
+   "body_rcept_no": "20241119000052",
+   "original_rcept_no": "20241021000103",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20241119",
+   "corp_code": "00412348",
+   "corp_name": "LB세미콘",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20241021000103",
+    "20241030000315",
+    "20241108000086"
+   ],
+   "related_rcept_nos": [
+    "20250114000166"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 10246,
+   "seconds": 130,
+   "done_at": "2026-10-27T10:00:53+09:00",
+   "industry": {
+    "induty_code": "2612",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20241121000466",
+   "body_rcept_no": "20241121000466",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20241121",
+   "corp_code": "01105153",
+   "corp_name": "두산로보틱스",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240715000399",
+    "20240806000307",
+    "20240816000242",
+    "20240816000243",
+    "20241021000180",
+    "20241030000497",
+    "20241108000526",
+    "20241112000417",
+    "20241112000418"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 10,
+   "chars": 74997,
+   "seconds": 223,
+   "done_at": "2026-10-27T10:02:45+09:00",
+   "industry": {
+    "induty_code": "2928",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20241217000116",
+   "body_rcept_no": "20241217000116",
+   "original_rcept_no": "20241203000056",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20241217",
+   "corp_code": "01142260",
+   "corp_name": "에스엠씨지",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20241203000056",
+    "20241212000114",
+    "20241216000308"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 20,
+   "chars": 56548,
+   "seconds": 231,
+   "done_at": "2026-10-27T10:02:52+09:00",
+   "industry": {
+    "induty_code": "231",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250131000410",
+   "body_rcept_no": "20250131000410",
+   "original_rcept_no": "20241204000381",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250131",
+   "corp_code": "01025644",
+   "corp_name": "강스템바이오텍",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20241204000381"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 12,
+   "chars": 62645,
+   "seconds": 185,
+   "done_at": "2026-10-27T10:02:29+09:00",
+   "industry": {
+    "induty_code": "211",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250205000401",
+   "body_rcept_no": "20250205000401",
+   "original_rcept_no": "20241219000485",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250205",
+   "corp_code": "00450931",
+   "corp_name": "우양에이치씨",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20241219000485",
+    "20241231000309",
+    "20250110000383"
+   ],
+   "related_rcept_nos": [
+    "20250110000260"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 12,
+   "chars": 38442,
+   "seconds": 181,
+   "done_at": "2026-10-27T10:02:22+09:00",
+   "industry": {
+    "induty_code": "2512",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250131000287",
+   "body_rcept_no": "20250131000287",
+   "original_rcept_no": "20250109000369",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20250131",
+   "corp_code": "00957568",
+   "corp_name": "로아앤코",
+   "corp_cls": "E",
+   "market": "기타",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20250109000369"
+   ],
+   "related_rcept_nos": [
+    "20250124000401"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 7,
+   "chars": 5667,
+   "seconds": 90,
+   "done_at": "2026-10-27T10:01:18+09:00",
+   "industry": {
+    "induty_code": "71531",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250110000729",
+   "body_rcept_no": "20250110000729",
+   "original_rcept_no": "20250110000729",
+   "report_nm": "증권신고서(합병)",
+   "rcept_dt": "20250110",
+   "corp_code": "01307593",
+   "corp_name": "에이아이코리아",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 21,
+   "chars": 42070,
+   "seconds": 232,
+   "done_at": "2026-10-27T10:04:34+09:00",
+   "industry": {
+    "induty_code": "29271",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250311001172",
+   "body_rcept_no": "20250311001172",
+   "original_rcept_no": "20250110000826",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250311",
+   "corp_code": "00381756",
+   "corp_name": "티씨머티리얼즈",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250110000826",
+    "20250121000230",
+    "20250122000299",
+    "20250206000323",
+    "20250217001504",
+    "20250225000599"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 11,
+   "chars": 75705,
+   "seconds": 232,
+   "done_at": "2026-10-27T10:04:51+09:00",
+   "industry": {
+    "induty_code": "283",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250225003558",
+   "body_rcept_no": "20250225003558",
+   "original_rcept_no": "20250204000637",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250225",
+   "corp_code": "01157846",
+   "corp_name": "바이오포트",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250204000637",
+    "20250207000417",
+    "20250214001839"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 13,
+   "chars": 85708,
+   "seconds": 227,
+   "done_at": "2026-10-27T10:05:17+09:00",
+   "industry": {
+    "induty_code": "108",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250407003877",
+   "body_rcept_no": "20250407003877",
+   "original_rcept_no": "20250324000872",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250407",
+   "corp_code": "00245375",
+   "corp_name": "디비월드",
+   "corp_cls": "E",
+   "market": "기타",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250324000872"
+   ],
+   "related_rcept_nos": [
+    "20250324000633"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 11,
+   "chars": 30757,
+   "seconds": 199,
+   "done_at": "2026-10-27T10:05:15+09:00",
+   "industry": {
+    "induty_code": "91121",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250407002904",
+   "body_rcept_no": "20250407002904",
+   "original_rcept_no": "20250328001875",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250407",
+   "corp_code": "01467503",
+   "corp_name": "뉴키즈온",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250328001875"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 17,
+   "chars": 61232,
+   "seconds": 229,
+   "done_at": "2026-10-27T10:30:48+09:00",
+   "industry": {
+    "induty_code": "141",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20250519000332",
+   "body_rcept_no": "20250519000315",
+   "original_rcept_no": "20250403003512",
+   "report_nm": "[첨부정정]증권신고서(합병)",
+   "rcept_dt": "20250519",
+   "corp_code": "00199252",
+   "corp_name": "HLB",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250403003512",
+    "20250414002743",
+    "20250414002753",
+    "20250519000315",
+    "20250519000326"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 7,
+   "chars": 11505,
+   "seconds": 168,
+   "done_at": "2026-10-27T10:31:02+09:00",
+   "industry": {
+    "induty_code": "213",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20250416000474",
+   "body_rcept_no": "20250416000145",
+   "original_rcept_no": "20250407004009",
+   "report_nm": "[첨부정정]증권신고서(합병)",
+   "rcept_dt": "20250416",
+   "corp_code": "01011395",
+   "corp_name": "레몬",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250407004009",
+    "20250409002335",
+    "20250416000145"
+   ],
+   "related_rcept_nos": [
+    "20250416000058"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 16,
+   "chars": 37600,
+   "seconds": 281,
+   "done_at": "2026-10-27T10:09:44+09:00",
+   "industry": {
+    "induty_code": "20501",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250410002786",
+   "body_rcept_no": "20250410002786",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250410",
+   "corp_code": "01638387",
+   "corp_name": "케이지에이",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250213001738",
+    "20250224002768",
+    "20250227005499",
+    "20250304000344",
+    "20250311000146",
+    "20250402003494"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 22,
+   "chars": 48063,
+   "seconds": 320,
+   "done_at": "2026-10-27T10:10:41+09:00",
+   "industry": {
+    "induty_code": "29271",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250515002190",
+   "body_rcept_no": "20250515002110",
+   "original_rcept_no": "20250415000077",
+   "report_nm": "[첨부정정]증권신고서(주식의포괄적교환ㆍ이전)",
+   "rcept_dt": "20250515",
+   "corp_code": "00118026",
+   "corp_name": "동원산업",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "share_exchange",
+   "deal_label": "주식교환·이전",
+   "source_grade": "full",
+   "supersedes": [
+    "20250415000077",
+    "20250424000520",
+    "20250508000692",
+    "20250515002110"
+   ],
+   "related_rcept_nos": [
+    "20250515002971"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 5,
+   "chars": 10094,
+   "seconds": 158,
+   "done_at": "2026-10-27T10:08:23+09:00",
+   "industry": {
+    "induty_code": "64992",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250618000181",
+   "body_rcept_no": "20250618000181",
+   "original_rcept_no": "20250422000256",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20250618",
+   "corp_code": "01214044",
+   "corp_name": "빗썸",
+   "corp_cls": "E",
+   "market": "기타",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20250422000256",
+    "20250529000668",
+    "20250611000536"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 7,
+   "chars": 6550,
+   "seconds": 137,
+   "done_at": "2026-10-27T10:08:22+09:00",
+   "industry": {
+    "induty_code": "4791",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250604000107",
+   "body_rcept_no": "20250604000107",
+   "original_rcept_no": "20250515001476",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250604",
+   "corp_code": "01551042",
+   "corp_name": "애드포러스",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250515001476",
+    "20250526000407"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 15,
+   "chars": 50463,
+   "seconds": 256,
+   "done_at": "2026-10-27T10:33:51+09:00",
+   "industry": {
+    "induty_code": "713",
+    "reason": null
+   },
+   "review": "FAIL(a: target_dv→target_de 반영)"
+  },
+  {
+   "rcept_no": "20250611000196",
+   "body_rcept_no": "20250611000196",
+   "original_rcept_no": "20250521000480",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20250611",
+   "corp_code": "00445054",
+   "corp_name": "하나마이크론",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20250521000480",
+    "20250530001257"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 5,
+   "chars": 3390,
+   "seconds": 122,
+   "done_at": "2026-10-27T10:10:26+09:00",
+   "industry": {
+    "induty_code": "2611",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250528000460",
+   "body_rcept_no": "20250528000460",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250528",
+   "corp_code": "01693922",
+   "corp_name": "지슨",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250502000203",
+    "20250515002513",
+    "20250526000292"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 24,
+   "chars": 42243,
+   "seconds": 360,
+   "done_at": "2026-10-27T10:14:47+09:00",
+   "industry": {
+    "induty_code": "272",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250612000481",
+   "body_rcept_no": "20250612000481",
+   "original_rcept_no": "20250529000177",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250612",
+   "corp_code": "00442905",
+   "corp_name": "디에스엠",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250529000177",
+    "20250611000487"
+   ],
+   "related_rcept_nos": [
+    "20250612000410"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 19,
+   "chars": 74117,
+   "seconds": 351,
+   "done_at": "2026-10-27T10:15:57+09:00",
+   "industry": {
+    "induty_code": "30399",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250617000330",
+   "body_rcept_no": "20250617000330",
+   "original_rcept_no": "20250530002290",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250617",
+   "corp_code": "01428948",
+   "corp_name": "오아",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250530002290",
+    "20250602001195",
+    "20250602001208",
+    "20250613000245",
+    "20250617000323"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 19,
+   "chars": 47505,
+   "seconds": 276,
+   "done_at": "2026-10-27T10:15:12+09:00",
+   "industry": {
+    "induty_code": "47320",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250701000275",
+   "body_rcept_no": "20250701000275",
+   "original_rcept_no": "20250613000118",
+   "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+   "rcept_dt": "20250701",
+   "corp_code": "00230425",
+   "corp_name": "나노엔텍",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "share_exchange",
+   "deal_label": "주식교환·이전",
+   "source_grade": "full",
+   "supersedes": [
+    "20250613000118",
+    "20250624000332"
+   ],
+   "related_rcept_nos": [
+    "20250701000257"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 14,
+   "chars": 43529,
+   "seconds": 270,
+   "done_at": "2026-10-27T10:15:34+09:00",
+   "industry": {
+    "induty_code": "27199",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250818000102",
+   "body_rcept_no": "20250818000097",
+   "original_rcept_no": "20250702000253",
+   "report_nm": "[첨부정정]증권신고서(합병)",
+   "rcept_dt": "20250818",
+   "corp_code": "01205842",
+   "corp_name": "HD건설기계",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250702000253",
+    "20250711000253",
+    "20250722000157",
+    "20250818000097"
+   ],
+   "related_rcept_nos": [
+    "20250701000232"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 8,
+   "chars": 12046,
+   "seconds": 195,
+   "done_at": "2026-10-27T10:15:56+09:00",
+   "industry": {
+    "induty_code": "29241",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250813001455",
+   "body_rcept_no": "20250813001423",
+   "original_rcept_no": "20250717000404",
+   "report_nm": "[첨부정정]증권신고서(합병)",
+   "rcept_dt": "20250813",
+   "corp_code": "01319808",
+   "corp_name": "한일시멘트",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250717000404",
+    "20250728000396",
+    "20250813001423"
+   ],
+   "related_rcept_nos": [
+    "20250718000428"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 5,
+   "chars": 9817,
+   "seconds": 114,
+   "done_at": "2026-10-27T10:32:21+09:00",
+   "industry": {
+    "induty_code": "23311",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20250730000204",
+   "body_rcept_no": "20250730000204",
+   "original_rcept_no": "20250721000263",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250730",
+   "corp_code": "00127875",
+   "corp_name": "삼익제약",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250721000263"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 18,
+   "chars": 50595,
+   "seconds": 257,
+   "done_at": "2026-10-27T10:35:56+09:00",
+   "industry": {
+    "induty_code": "21212",
+    "reason": null
+   },
+   "review": "FAIL(a: adjustments 합계 반영)"
+  },
+  {
+   "rcept_no": "20250826000520",
+   "body_rcept_no": "20250826000520",
+   "original_rcept_no": "20250811000566",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20250826",
+   "corp_code": "00126937",
+   "corp_name": "삼양홀딩스",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20250811000566",
+    "20250821000541",
+    "20250821000582"
+   ],
+   "related_rcept_nos": [
+    "20250811000467"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 4,
+   "chars": 4033,
+   "seconds": 100,
+   "done_at": "2026-10-27T10:17:29+09:00",
+   "industry": {
+    "induty_code": "64992",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250911000349",
+   "body_rcept_no": "20250911000349",
+   "original_rcept_no": "20250822000255",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20250911",
+   "corp_code": "00877059",
+   "corp_name": "삼성바이오로직스",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20250822000255",
+    "20250902000231"
+   ],
+   "related_rcept_nos": [
+    "20250822000109"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 5,
+   "chars": 6527,
+   "seconds": 105,
+   "done_at": "2026-10-27T10:33:52+09:00",
+   "industry": {
+    "induty_code": "211",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20250922000165",
+   "body_rcept_no": "20250922000165",
+   "original_rcept_no": "20250828001443",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250922",
+   "corp_code": "01390344",
+   "corp_name": "HD현대중공업",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250828001443",
+    "20250908000224",
+    "20250917000279"
+   ],
+   "related_rcept_nos": [
+    "20250827000423"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 9756,
+   "seconds": 127,
+   "done_at": "2026-10-27T10:18:20+09:00",
+   "industry": {
+    "induty_code": "31113",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250910000001",
+   "body_rcept_no": "20250910000001",
+   "original_rcept_no": "20250829002123",
+   "report_nm": "[기재정정]증권신고서(분할)",
+   "rcept_dt": "20250910",
+   "corp_code": "00191472",
+   "corp_name": "KPX케미칼",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "split",
+   "deal_label": "분할",
+   "source_grade": "full",
+   "supersedes": [
+    "20250829002123"
+   ],
+   "related_rcept_nos": [
+    "20251127001286"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 5,
+   "chars": 4904,
+   "seconds": 93,
+   "done_at": "2026-10-27T10:18:39+09:00",
+   "industry": {
+    "induty_code": "20119",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250901000422",
+   "body_rcept_no": "20250901000422",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250901",
+   "corp_code": "01466373",
+   "corp_name": "알트",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250808000619",
+    "20250820000260",
+    "20250821000558",
+    "20250821000635"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 23,
+   "chars": 46886,
+   "seconds": 265,
+   "done_at": "2026-10-27T10:32:07+09:00",
+   "industry": {
+    "induty_code": "264",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20251022000269",
+   "body_rcept_no": "20251022000269",
+   "original_rcept_no": "20250912000518",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20251022",
+   "corp_code": "00924931",
+   "corp_name": "엔비알모션",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250912000518",
+    "20250915000260",
+    "20250918000290",
+    "20250923000129",
+    "20250923000210",
+    "20250926000534",
+    "20251014000385"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 16,
+   "chars": 40759,
+   "seconds": 259,
+   "done_at": "2026-10-27T10:22:46+09:00",
+   "industry": {
+    "induty_code": "259",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250926000402",
+   "body_rcept_no": "20250926000402",
+   "original_rcept_no": "20250915000163",
+   "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+   "rcept_dt": "20250926",
+   "corp_code": "00152862",
+   "corp_name": "코오롱",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "share_exchange",
+   "deal_label": "주식교환·이전",
+   "source_grade": "full",
+   "supersedes": [
+    "20250915000163",
+    "20250924000399"
+   ],
+   "related_rcept_nos": [
+    "20250910000279"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 14726,
+   "seconds": 143,
+   "done_at": "2026-10-27T10:21:04+09:00",
+   "industry": {
+    "induty_code": "64992",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20251024000215",
+   "body_rcept_no": "20251023000422",
+   "original_rcept_no": "20250917000396",
+   "report_nm": "[첨부정정]증권신고서(합병)",
+   "rcept_dt": "20251024",
+   "corp_code": "01450938",
+   "corp_name": "지에프아이",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250917000396",
+    "20250918000230",
+    "20250926000667",
+    "20251002000493",
+    "20251014000159",
+    "20251021000387",
+    "20251023000109",
+    "20251023000422"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 17,
+   "chars": 33085,
+   "seconds": 218,
+   "done_at": "2026-10-27T10:22:48+09:00",
+   "industry": {
+    "induty_code": "29192",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20250929000397",
+   "body_rcept_no": "20250929000397",
+   "original_rcept_no": "20250918000336",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20250929",
+   "corp_code": "00199252",
+   "corp_name": "HLB",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250918000336"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 10569,
+   "seconds": 115,
+   "done_at": "2026-10-27T10:21:02+09:00",
+   "industry": {
+    "induty_code": "213",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20251028000256",
+   "body_rcept_no": "20251028000256",
+   "original_rcept_no": "20250929000525",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20251028",
+   "corp_code": "00125664",
+   "corp_name": "삼미금속",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20250929000525",
+    "20251002000413",
+    "20251017000486"
+   ],
+   "related_rcept_nos": [],
+   "status": "ok",
+   "reason": null,
+   "calls": 16,
+   "chars": 66918,
+   "seconds": 281,
+   "done_at": "2026-10-27T10:32:57+09:00",
+   "industry": {
+    "induty_code": "25912",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20251113000428",
+   "body_rcept_no": "20251113000426",
+   "original_rcept_no": "20251020000124",
+   "report_nm": "[첨부정정]증권신고서(합병)",
+   "rcept_dt": "20251113",
+   "corp_code": "00341916",
+   "corp_name": "오스템임플란트",
+   "corp_cls": "E",
+   "market": "기타",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20251020000124",
+    "20251029000285",
+    "20251110000387",
+    "20251113000426"
+   ],
+   "related_rcept_nos": [
+    "20251001000772"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 11,
+   "chars": 45104,
+   "seconds": 206,
+   "done_at": "2026-10-27T10:24:39+09:00",
+   "industry": {
+    "induty_code": "27191",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20251118000164",
+   "body_rcept_no": "20251118000145",
+   "original_rcept_no": "20251031000330",
+   "report_nm": "[첨부정정]증권신고서(주식의포괄적교환ㆍ이전)",
+   "rcept_dt": "20251118",
+   "corp_code": "00377610",
+   "corp_name": "세아홀딩스",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "share_exchange",
+   "deal_label": "주식교환·이전",
+   "source_grade": "full",
+   "supersedes": [
+    "20251031000330",
+    "20251111000198",
+    "20251118000145"
+   ],
+   "related_rcept_nos": [
+    "20251031000228"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 6,
+   "chars": 10295,
+   "seconds": 136,
+   "done_at": "2026-10-27T10:24:30+09:00",
+   "industry": {
+    "induty_code": "241",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20251204000351",
+   "body_rcept_no": "20251204000351",
+   "original_rcept_no": "20251125000628",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20251204",
+   "corp_code": "00795135",
+   "corp_name": "코오롱인더",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20251125000628"
+   ],
+   "related_rcept_nos": [
+    "20251125000490"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 10,
+   "chars": 10681,
+   "seconds": 138,
+   "done_at": "2026-10-27T10:31:12+09:00",
+   "industry": {
+    "induty_code": "205",
+    "reason": null
+   },
+   "review": "PASS"
+  },
+  {
+   "rcept_no": "20251205000538",
+   "body_rcept_no": "20251205000538",
+   "original_rcept_no": null,
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20251205",
+   "corp_code": "00605522",
+   "corp_name": "아리바이오홀딩스",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20240819000311",
+    "20240902000456",
+    "20241008000567",
+    "20241008000571",
+    "20241010000628",
+    "20241018000345",
+    "20241029000298",
+    "20241122000549",
+    "20241122000555",
+    "20241218000434",
+    "20250328002346",
+    "20250328002379",
+    "20250331000003",
+    "20250331002325",
+    "20250331002341",
+    "20250708000366",
+    "20250708000372",
+    "20251017000504",
+    "20251017000554",
+    "20251205000426"
+   ],
+   "related_rcept_nos": [],
+   "status": "skip",
+   "reason": "existing: 20260623000368 (2026 기재정정본으로 기추출, 2026-09-29 철회)",
+   "calls": 4,
+   "chars": 0,
+   "done_at": "2026-10-27T10:24:28+09:00",
+   "seconds": 84
+  },
+  {
+   "rcept_no": "20251229000487",
+   "body_rcept_no": "20251229000487",
+   "original_rcept_no": "20251210000248",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20251229",
+   "corp_code": "00152686",
+   "corp_name": "코리아써키트",
+   "corp_cls": "Y",
+   "market": "유가증권",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20251210000248",
+    "20251219000296"
+   ],
+   "related_rcept_nos": [
+    "20251229000355"
+   ],
+   "status": "ok",
+   "reason": null,
+   "calls": 23,
+   "chars": 57375,
+   "seconds": 346,
+   "done_at": "2026-10-27T10:28:55+09:00",
+   "industry": {
+    "induty_code": "2622",
+    "reason": null
+   }
+  },
+  {
+   "rcept_no": "20251224000727",
+   "body_rcept_no": "20251224000727",
+   "original_rcept_no": "20251215000395",
+   "report_nm": "[기재정정]증권신고서(합병)",
+   "rcept_dt": "20251224",
+   "corp_code": "00350048",
+   "corp_name": "오성첨단소재",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [
+    "20251215000395"
+   ],
+   "related_rcept_nos": [
+    "20251215000401"
+   ],
+   "status": "skip",
+   "reason": "existing"
+  },
+  {
+   "rcept_no": "20251222000439",
+   "body_rcept_no": "20251222000439",
+   "original_rcept_no": "20251222000439",
+   "report_nm": "증권신고서(합병)",
+   "rcept_dt": "20251222",
+   "corp_code": "00871587",
+   "corp_name": "보원케미칼",
+   "corp_cls": "K",
+   "market": "코스닥",
+   "filing_type": "증권신고서",
+   "deal_type": "merger",
+   "deal_label": "합병",
+   "source_grade": "full",
+   "supersedes": [],
+   "related_rcept_nos": [],
+   "status": "skip",
+   "reason": "existing"
+  }
+ ]
+}

@@ -21,14 +21,20 @@ argument-hint: <rcept_no>
 - 원문 장문 복사 금지. `opinion_text`·`basis_text`는 300자 이내.
 - **목표자본구조**: D/E는 `target_de`, D/(D+E) 구성비율은 `target_dv`. 원문 표가 "부채비율"이라 적어도 "자기자본비율"과 합이 100%면
   D/V다(알에프텍 2026 실측). 원문 라벨이 아니라 정의로 고른다.
+  라벨끼리 엇갈리면(서술은 "D/E", WACC 표는 "타인자본비율") **Re-levered β 산식에 들어간 값**으로 정한다:
+  βl = βu×(1+(1−t)×x)가 맞으면 x는 D/E(애드포러스 2025 리뷰: 30.18%를 표는 D/V로 적었지만 β·WACC 검산은 D/E). note에 엇갈림을 적는다.
 - **범위(`R(lo, hi)`)는 숫자 크기 순서**: min ≤ max. 원문이 "29.83% ~ 11.74%"처럼 큰 값을 먼저 써도 `R(11.74, 29.83)`.
   어느 끝이 하단 공모가에 대응하는지는 note에 적는다. `validate`가 min > max를 오류로 잡는다(배치 1차에서 IPO 15건 발생).
+- **자산가치 `adjustments`는 원문 "조정항목(a − b)" 합계 한 값**(가산항목 한 줄이 아니다). 괄호 "(81,583,335)"는 음수:
+  `N("(81,583,335)", sid, off, "원", value=-81583335)`. 저장 전 equity_book + adjustments = total을 확인하고, 원문 표 자체가 안 맞으면
+  값은 원문대로 두고 note에 적는다(`validate`가 경고로 잡는다). 2026-10 배치 리뷰 실측: 부호 누락 2건, 가산항목만 넣은 1건.
 - **valuations[].purpose 필수**: 합병가액 · 분할·교환비율 · 양수도가액 · 공모가 · 공정가치평가(RCPS·파생상품 등 회계용) · 손상검사 · 기타.
   같은 문서라도 목적이 다르면 그대로 적는다(예: IPO 신고서의 RCPS 공정가치 평가 = 공정가치평가). 조회 기본값은 공정가치평가·손상검사를 뺀다.
 
 ## (0) 작성 도구 — cite는 손으로 적지 않는다
 - JSON은 `dart_mcp.casebuild`로 만든다(작업 폴더의 builder 스크립트, 커밋하지 않음):
   `B.RCEPT = "<body_rcept_no>"`, 숫자는 `N("<원문 표기>", "<section_id>", <그 표의 offset>, "<단위>")`, 범위는 `R(lo, hi)`,
+  `company`는 `B.company(corp_code, name, market)`(induty_code를 기업개황에서 채움 — 원문 cite 없는 조회용 필드),
   원소는 `val(subject, target, role, method, purpose=..., ...)`, 문자 필드 cite는 `C(section_id, "<원문 구절>", offset)`.
   N은 offset부터 4,000자 안에서 원문 표기를 **앞으로 먼저** 찾아 실제 위치를 cite로 쓰고, 없으면 예외를 낸다(원문에 없는 숫자 방지).
   anchor는 **그 주체의 표 offset**을 준다(바로 앞 다른 주체 표의 같은 숫자를 잡지 않게).

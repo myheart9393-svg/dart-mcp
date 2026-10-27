@@ -1,0 +1,572 @@
+{
+ "rcept_no": "20250617000330",
+ "original_rcept_no": "20250530002290",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01428948",
+  "name": "오아",
+  "market": "기타",
+  "induty_code": "47320"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "미래에셋비전기업인수목적2호 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계가 있는 경우 해당사항 없습니다.",
+  "board_date": "2024-12-17",
+  "regime": "기준시가",
+  "ratio_text": "오아(주) : 미래에셋비전기업인수목적2호(주) = 1:0.1627074"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률 시행령 제176조의5제3항의 규정에 의거 주권상장법인인 기업인수목적회사의 특례규정을 적용하여 피합병법인은 기준주가에 할인율을 반영한 평가가액을, 합병법인은 … 본질가치를 합병가액으로 하여 산출된 합병비율",
+  "firm": "삼화회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 07월 24일부터 2024년 12월 17일까지",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "자본시장과금융투자업에관한법률 제165조의4, 동법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "합병당사회사의 주당평가액은 합병법인 12,292원(액면 500원), 피합병법인 2,000원(액면 100원)으로 추정되었으며, 합병 당사회사가 협의한 합병비율 1: 0.1627074은 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 144539,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼화회계법인",
+   "target": "오아 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(aX1+bX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 4275,
+     "unit": "원",
+     "text": "4,275",
+     "cite": {
+      "section_id": "5",
+      "offset": 9480,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 21618423903,
+     "unit": "원",
+     "text": "21,618,423,903",
+     "cite": {
+      "section_id": "5",
+      "offset": 9410,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 16131489596,
+     "unit": "원",
+     "text": "16,131,489,596",
+     "cite": {
+      "section_id": "5",
+      "offset": 8726,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 5486934307,
+     "unit": "원",
+     "text": "5,486,934,307",
+     "cite": {
+      "section_id": "5",
+      "offset": 8760,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 5057372,
+     "unit": "주",
+     "text": "5,057,372",
+     "cite": {
+      "section_id": "5",
+      "offset": 9445,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 12292,
+     "unit": "원",
+     "text": "12,292",
+     "cite": {
+      "section_id": "5",
+      "offset": 7964,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 17637,
+    "unit": "원",
+    "text": "17,637",
+    "cite": {
+     "section_id": "5",
+     "offset": 8037,
+     "file_id": "main"
+    }
+   },
+   "note": "SPAC 특례(시행령 176조의5 ③): 비상장 합병법인은 SPAC과 협의한 본질가치(자산 1: 수익 1.5). 상대가치는 시행세칙 7조 유사회사 3사 미만(가전제품 및 부품 도매업 상장사 1개사)으로 산정하지 않음. 자산가치·수익가치 주식수 5,057,372주는 주식매수선택권 420,000주 행사 가정 포함"
+  },
+  {
+   "subject": "삼화회계법인",
+   "target": "오아 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년~2028년",
+    "base_date": null,
+    "wacc": {
+     "value": 12.78,
+     "unit": "%",
+     "text": "12.78%",
+     "cite": {
+      "section_id": "5",
+      "offset": 134954,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 132419,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 132481,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.69,
+     "unit": null,
+     "text": "0.6900",
+     "cite": {
+      "section_id": "5",
+      "offset": 133343,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7962,
+     "unit": null,
+     "text": "0.7962",
+     "cite": {
+      "section_id": "5",
+      "offset": 132543,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 132652,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.29,
+     "unit": "%",
+     "text": "13.29%",
+     "cite": {
+      "section_id": "5",
+      "offset": 132718,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 12.82,
+     "unit": "%",
+     "text": "12.82%",
+     "cite": {
+      "section_id": "5",
+      "offset": 134397,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 134910,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 19.46,
+     "unit": "%",
+     "text": "19.46%",
+     "cite": {
+      "section_id": "5",
+      "offset": 133930,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 16.29,
+     "unit": "%",
+     "text": "16.29%",
+     "cite": {
+      "section_id": "5",
+      "offset": 134885,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 45914,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "신일전자",
+      "value": {
+       "value": 0.4898,
+       "unit": null,
+       "text": "0.4898",
+       "cite": {
+        "section_id": "5",
+        "offset": 133085,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "위닉스",
+      "value": {
+       "value": 0.7599,
+       "unit": null,
+       "text": "0.7599",
+       "cite": {
+        "section_id": "5",
+        "offset": 133156,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "파세코",
+      "value": {
+       "value": 0.757,
+       "unit": null,
+       "text": "0.7570",
+       "cite": {
+        "section_id": "5",
+        "offset": 133225,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "쿠쿠홀딩스",
+      "value": {
+       "value": 0.7533,
+       "unit": null,
+       "text": "0.7533",
+       "cite": {
+        "section_id": "5",
+        "offset": 133296,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 17637,
+     "unit": "원",
+     "text": "17,637",
+     "cite": {
+      "section_id": "5",
+      "offset": 12458,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "본질가치 중 수익가치(FCFF 현금흐름할인법, 2024–2028 5년 추정 + 영구현금흐름). 영업가치 117,204,270,174원(추정기간 33,648,590,820원 + 영구 83,555,679,354원) + 비영업자산 11,605,966,040원 - 이자부부채 39,613,501,682원 = 89,196,734,532원 ÷ 5,057,372주. Rf=2023.12.31 10년 국채(Bloomberg), MRP=한공회 가이던스(2024.06) 평균, Rs=한공회 규모위험(2024.06), Kd=BB+ 5년 무보증 회사채. β는 동종기업 4사(신일전자·위닉스·파세코·쿠쿠홀딩스) 평균 영업베타를 목표 D/E 19.46%로 relever. 민감도 표는 천원 단위 자기자본가치라 result_range에 넣지 않음"
+  },
+  {
+   "subject": "삼화회계법인",
+   "target": "미래에셋비전기업인수목적2호 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1647,
+     "unit": "원",
+     "text": "1,647",
+     "cite": {
+      "section_id": "5",
+      "offset": 22970,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12107872194,
+     "unit": "원",
+     "text": "12,107,872,194",
+     "cite": {
+      "section_id": "5",
+      "offset": 22900,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 10063064206,
+     "unit": "원",
+     "text": "10,063,064,206",
+     "cite": {
+      "section_id": "5",
+      "offset": 22318,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 2044807988,
+     "unit": "원",
+     "text": "2,044,807,988",
+     "cite": {
+      "section_id": "5",
+      "offset": 22352,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7350000,
+     "unit": "주",
+     "text": "7,350,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 22935,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 20686,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "상장 SPAC: 기준주가(1개월 2,122원·1주일 2,092원·최근일 2,095원의 산술평균 2,103원, 기산일 2024-12-16)에 4.90% 할인한 2,000원. 자산가치 1,647원(전환사채 2,400,000주 전환 가정 7,350,000주 기준)"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "오아 주식회사",
+    "basis": "본질가치",
+    "value": {
+     "value": 12292,
+     "unit": "원",
+     "text": "12,292",
+     "cite": {
+      "section_id": "5",
+      "offset": 6932,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "미래에셋비전기업인수목적2호 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 6842,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1627074,
+   "unit": "주",
+   "text": "0.1627074",
+   "cite": {
+    "section_id": "5",
+    "offset": 7095,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 9899989092,
+   "unit": "원",
+   "text": "9,899,989,092",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 394,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "삼화회계법인: 합병비율 1: 0.1627074은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼화회계법인",
+   "target": "오아 주식회사",
+   "variables": "WACC 11.78–13.78% (0.5%p 간격), 영구성장률 0.00–2.00% (0.5%p 간격), 자기자본가치(단위 천원)",
+   "range": {
+    "min": {
+     "value": 76431900,
+     "unit": "천원",
+     "text": "76,431,900",
+     "cite": {
+      "section_id": "5",
+      "offset": 142802,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 106739805,
+     "unit": "천원",
+     "text": "106,739,805",
+     "cite": {
+      "section_id": "5",
+      "offset": 142541,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 리뷰 생략.",
+  "search_valuation_disclosures(20250118–20250717, listed_only=False): 합병/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), original_rcept_no 20250530002290, supersedes 20250530002290·20250602001195·20250602001208·20250613000245·20250617000323, attachment_rcept_no 20250617000323. related_rcept_nos 빈 목록(짝 주요사항보고서는 결과에 없음).",
+  "합병계약 변경체결 2025-03-31(1차)·2025-05-20(2차)·2025-06-17(3차)(section 4).",
+  "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 비상장 오아, 소멸(피합병법인)은 코스닥 상장 SPAC. 합병가액은 시행령 176조의5(오아 본질가치, SPAC 기준주가 할인).",
+  "company.market은 신고 당시(비상장) 기준 '기타'. 기업개황 corp_cls는 조회 시점 K(코스닥).",
+  "민감도 표 제목은 '1주당 수익가치'이나 단위 천원·중앙값 89,196,735로 자기자본가치 표다(원문 그대로, 환산하지 않음).",
+  "합병신주 805,401주, 모집가액 12,292원, 총액 9,899,989,092원(section 3.4). 주식매수청구가격 합병법인 12,446원·피합병법인 2,143원(section 3.3).",
+  "conclusion.transaction_value는 합병신주 모집총액(3.4)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250617000330",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 268,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250617000330",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 317,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250617000330",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 503,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250617000330",
+   "file_id": "main",
+   "section_id": "3.5",
+   "title": "V. 당사회사에 관한 사항 요약",
+   "chars_read": 346,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250617000330",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 6036,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250617000330",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 40035,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:14:38+09:00",
+ "extractor_version": "1.1"
+}

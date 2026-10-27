@@ -1,0 +1,685 @@
+{
+ "rcept_no": "20240925000567",
+ "original_rcept_no": "20240911000361",
+ "related_rcept_nos": [
+  "20240925000452",
+  "20240910000617"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00643656",
+  "name": "위메이드맥스",
+  "market": "코스닥",
+  "induty_code": "5821"
+ },
+ "deal": {
+  "type": "share_exchange",
+  "counterparty": "(주)매드엔진",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "(주)위메이드맥스와 (주)매드엔진의 최대주주가 모두 (주)위메이드(특수관계인 포함 지분율 64.41%·81.60%)로 최대주주가 동일한 특수관계인",
+  "board_date": "2024-09-10",
+  "regime": "기준시가",
+  "ratio_text": "(주)위메이드맥스:(주)매드엔진 = 1 : 260.8557326"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "주권상장법인인 완전모회사가 되는 회사와 주권비상장법인인 완전자회사가 되는 회사의 1주당 평가액을 산출하고 이를 기초로 주식교환비율의 적정성을 검토(자본시장법 제165조의4, 시행령 제176조의5·6, 증권발행공시규정 제5-13조, 시행세칙 제4조–제8조)",
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5·6",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당평가액 위메이드맥스 10,231원(액면 500원)·매드엔진 2,668,815원(액면 500원), 주식교환비율 1 : 260.8557326은 적정. 중요성의 관점에서 주식교환가액 산정방법에 위배되었다는 점이 발견되지 아니함. 의견서 제출일 2024-09-10",
+  "cite": {
+   "section_id": "5",
+   "offset": 92611,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)위메이드맥스",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 2573,
+     "unit": "원",
+     "text": "2,573",
+     "cite": {
+      "section_id": "5",
+      "offset": 7919,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": {
+     "value": 90108508859,
+     "unit": "원",
+     "text": "90,108,508,859",
+     "cite": {
+      "section_id": "5",
+      "offset": 10279,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -4427193407,
+     "unit": "원",
+     "text": "(4,427,193,407)",
+     "cite": {
+      "section_id": "5",
+      "offset": 10315,
+      "file_id": "main"
+     }
+    },
+    "shares": null,
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10231,
+     "unit": "원",
+     "text": "10,231",
+     "cite": {
+      "section_id": "5",
+      "offset": 7895,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 완전모회사: 시행령 176조의5 ①1호 기준주가(기산일 2024-09-09, 1개월 가중평균 9,813원·1주일 10,249원·최근일 종가 10,630원의 산술평균 10,231원). 할인·할증 미적용. 기준주가 > 자산가치 2,573원이라 교환가액 Max[A,B]=10,231원"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)매드엔진",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(나X1+다X 1.5 )÷ 2.5 ]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 259825,
+     "unit": "원",
+     "text": "259,825",
+     "cite": {
+      "section_id": "5",
+      "offset": 15144,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 51933916742,
+     "unit": "원",
+     "text": "51,933,916,742",
+     "cite": {
+      "section_id": "5",
+      "offset": 18921,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 49280415742,
+     "unit": "원",
+     "text": "49,280,415,742",
+     "cite": {
+      "section_id": "5",
+      "offset": 17858,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 2653501000,
+     "unit": "원",
+     "text": "2,653,501,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 17894,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 199880,
+     "unit": "주",
+     "text": "199,880",
+     "cite": {
+      "section_id": "5",
+      "offset": 18956,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "시행세칙 제7조 유사회사 요건(주당 법인세차감전계속사업이익·주당순자산 ±30% 등)을 충족하는 상장법인이 3사 미만이라 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 2668815,
+     "unit": "원",
+     "text": "2,668,815",
+     "cite": {
+      "section_id": "5",
+      "offset": 15120,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 4274809,
+    "unit": "원",
+    "text": "4,274,809",
+    "cite": {
+     "section_id": "5",
+     "offset": 15166,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 완전자회사. 분석기준일 2024-09-03. 자산가치는 2023.12.31 별도 자본총계에 주식선택권 행사 자본금 1,235,000원·주식매수선택권 행사가정 4,652,466,000원 가산, 종속기업 원웨이티켓스튜디오 차이 2,000,200,000원 차감, 주식수 199,880주(행사가정 포함). 최근 2년 거래((주)위메이드 양수 2023-06-07 주당 3,205,641원)는 가이드라인 문단30 적정가격 근거 부족으로 가치조정 미반영"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)매드엔진",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년부터 2028년까지 5개년도",
+    "base_date": "2024-09-03",
+    "wacc": {
+     "value": 11.47,
+     "unit": "%",
+     "text": "11.47%",
+     "cite": {
+      "section_id": "5",
+      "offset": 87526,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 84697,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 84760,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.9749,
+     "unit": null,
+     "text": "0.9749",
+     "cite": {
+      "section_id": "5",
+      "offset": 86108,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.1,
+     "unit": null,
+     "text": "1.1000",
+     "cite": {
+      "section_id": "5",
+      "offset": 84805,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 11.98,
+     "unit": "%",
+     "text": "11.98%",
+     "cite": {
+      "section_id": "5",
+      "offset": 84924,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 10.53,
+     "unit": "%",
+     "text": "10.53%",
+     "cite": {
+      "section_id": "5",
+      "offset": 87579,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 87295,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 16.22,
+     "unit": "%",
+     "text": "16.22%",
+     "cite": {
+      "section_id": "5",
+      "offset": 87492,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 13.96,
+     "unit": "%",
+     "text": "13.96%",
+     "cite": {
+      "section_id": "5",
+      "offset": 87600,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 89523,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "크래프톤",
+      "value": {
+       "value": 1.1666,
+       "unit": null,
+       "text": "1.1666",
+       "cite": {
+        "section_id": "5",
+        "offset": 85277,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.1754, D/E 0.0102, Relevered 1.3163)"
+     },
+     {
+      "name": "엔씨소프트",
+      "value": {
+       "value": 0.9282,
+       "unit": null,
+       "text": "0.9282",
+       "cite": {
+        "section_id": "5",
+        "offset": 85345,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.9880, D/E 0.0838, Relevered 1.0473)"
+     },
+     {
+      "name": "넷마블",
+      "value": {
+       "value": 0.8788,
+       "unit": null,
+       "text": "0.8788",
+       "cite": {
+        "section_id": "5",
+        "offset": 85413,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.1299, D/E 0.3611, Relevered 0.9916)"
+     },
+     {
+      "name": "펄어비스",
+      "value": {
+       "value": 0.9285,
+       "unit": null,
+       "text": "0.9285",
+       "cite": {
+        "section_id": "5",
+        "offset": 85480,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.9970, D/E 0.0959, Relevered 1.0476)"
+     },
+     {
+      "name": "카카오게임즈",
+      "value": {
+       "value": 0.8734,
+       "unit": null,
+       "text": "0.8734",
+       "cite": {
+        "section_id": "5",
+        "offset": 85551,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.2058, D/E 0.4810, Relevered 0.9855)"
+     },
+     {
+      "name": "컴투스",
+      "value": {
+       "value": 0.8127,
+       "unit": null,
+       "text": "0.8127",
+       "cite": {
+        "section_id": "5",
+        "offset": 85615,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.0708, D/E 0.4131, Relevered 0.9170)"
+     },
+     {
+      "name": "웹젠",
+      "value": {
+       "value": 1.0654,
+       "unit": null,
+       "text": "1.0654",
+       "cite": {
+        "section_id": "5",
+        "offset": 85672,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.0654, D/E 0.0000, Relevered 1.2021)"
+     },
+     {
+      "name": "더블유게임즈",
+      "value": {
+       "value": 0.7744,
+       "unit": null,
+       "text": "0.7744",
+       "cite": {
+        "section_id": "5",
+        "offset": 85740,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.7851, D/E 0.0180, Relevered 0.8738)"
+     },
+     {
+      "name": "네오위즈",
+      "value": {
+       "value": 0.7342,
+       "unit": null,
+       "text": "0.7342",
+       "cite": {
+        "section_id": "5",
+        "offset": 85804,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.7527, D/E 0.0327, Relevered 0.8284)"
+     },
+     {
+      "name": "조이시티",
+      "value": {
+       "value": 0.8807,
+       "unit": null,
+       "text": "0.8807",
+       "cite": {
+        "section_id": "5",
+        "offset": 85869,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.2568, D/E 0.5399, Relevered 0.9937)"
+     },
+     {
+      "name": "넥슨게임즈",
+      "value": {
+       "value": 1.3494,
+       "unit": null,
+       "text": "1.3494",
+       "cite": {
+        "section_id": "5",
+        "offset": 85929,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.3494, D/E 0.0000, Relevered 1.5225)"
+     },
+     {
+      "name": "데브시스터즈",
+      "value": {
+       "value": 0.9822,
+       "unit": null,
+       "text": "0.9822",
+       "cite": {
+        "section_id": "5",
+        "offset": 85990,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.9822, D/E 0.0000, Relevered 1.1082)"
+     },
+     {
+      "name": "위메이드",
+      "value": {
+       "value": 1.2996,
+       "unit": null,
+       "text": "1.2996",
+       "cite": {
+        "section_id": "5",
+        "offset": 86057,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.3748, D/E 0.0731, Relevered 1.4663)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4274809,
+     "unit": "원",
+     "text": "4,274,809",
+     "cite": {
+      "section_id": "5",
+      "offset": 89155,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 3821424,
+      "unit": "원",
+      "text": "3,821,424",
+      "cite": {
+       "section_id": "5",
+       "offset": 91714,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4875552,
+      "unit": "원",
+      "text": "4,875,552",
+      "cite": {
+       "section_id": "5",
+       "offset": 91786,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법). Ke = Rf + MRP×β (규모위험 프리미엄 없음). Rf는 Bloomberg 2023.12.31 10년 국채, MRP 8.0%는 한국공인회계사회 7~9% 밴드 평균. β는 동종기업 13사 평균 Unlevered 0.9749를 목표 D/E 16.22%로 재베타한 1.1000. Kd: 본문은 'BBB- 5년 무보증 회사채 수익률에 한계세율 20.9%를 적용한 8.33%'라 적고 WACC 산식은 10.53%×(1-20.9%) 사용 — kd에는 세전 10.53%. WACC 11.47% = {11.98%×86.04% + 10.53%×(1-20.9%)×13.96%}. 영업가치 808,260,334천원 + 비영업자산 46,188,501천원 − 이자부부채 0 = 854,448,835천원 ÷ 199,880주. range는 WACC 10.47–12.47%·g 0.50–1.50% 민감도 표 범위"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)위메이드맥스",
+    "basis": "기준주가",
+    "value": {
+     "value": 10231,
+     "unit": "원",
+     "text": "10,231",
+     "cite": {
+      "section_id": "5",
+      "offset": 6973,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)매드엔진",
+    "basis": "본질가치",
+    "value": {
+     "value": 2668815,
+     "unit": "원",
+     "text": "2,668,815",
+     "cite": {
+      "section_id": "5",
+      "offset": 7018,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 260.8557326,
+   "unit": null,
+   "text": "260.8557326",
+   "cite": {
+    "section_id": "5",
+    "offset": 7184,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 507870154844,
+   "unit": "원",
+   "text": "507,870,154,844",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 271,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인: 주식교환비율 1 : 260.8557326은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)매드엔진",
+   "variables": "WACC 10.47–12.47% (±1.0%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 3821424,
+     "unit": "원",
+     "text": "3,821,424",
+     "cite": {
+      "section_id": "5",
+      "offset": 91714,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 4875552,
+     "unit": "원",
+     "text": "4,875,552",
+     "cite": {
+      "section_id": "5",
+      "offset": 91786,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240428–20241025, listed_only=False): share_exchange/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), original_rcept_no=20240911000361(attachment_rcept_no 동일). 짝 주요사항보고서(주식교환·이전결정) 20240925000452(기재정정, 원본 20240910000617, summary).",
+  "외부평가 기간·감사위원회 동의는 증권신고서 본문에서 찾지 못해 null(의견서 제출일 2024-09-10, 분석기준일 2024-09-03).",
+  "교환신주 기명식보통주 49,640,324주(한도), 모집가액 10,231원, 모집총액 507,870,154,844원(3.4) = transaction_value. 지급 교부금 없음.",
+  "regime: 상장 완전모회사 기준주가 + 비상장 완전자회사 본질가치(자산1:수익1.5) — 2026.12.9 개정 전 기준시가·본질가치 체계.",
+  "매드엔진 매출은 전액 (주)위메이드(최대주주) 대상(나이트크로우 퍼블리싱 계약 수익분배금, section 11)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240925000567",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 4771,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240925000567",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 702,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240925000567",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 주식의 포괄적 교환ㆍ이전에 관한 기본사항",
+   "chars_read": 10677,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240925000567",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
+   "chars_read": 38342,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:58:24+09:00",
+ "extractor_version": "1.1"
+}

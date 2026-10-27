@@ -1,0 +1,659 @@
+{
+ "rcept_no": "20240902000436",
+ "original_rcept_no": "20240712000519",
+ "related_rcept_nos": [
+  "20240902000440",
+  "20240408000148",
+  "20240712000420",
+  "20240731000566"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01286476",
+  "name": "RF시스템즈",
+  "market": "코스닥",
+  "induty_code": "25924"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "교보12호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계 여부해당사항 없습니다.",
+  "board_date": "2024-04-08",
+  "regime": "기준시가",
+  "ratio_text": "교보12호기업인수목적(주) 보통주 1주당 알에프시스템즈(주) 보통주 0.3274930주 교부(알에프시스템즈 : 교보12호 = 1 : 0.3274930)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "주권비상장법인인 합병법인과 코스닥시장 주권상장법인인 피합병법인의 합병: 자본시장법 제165조의4, 시행령 제176조의5, 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 시행세칙 제4조 내지 제8조, 코스닥시장 상장규정 제2조를 적용해 1주당 합병가액 산출",
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 02월 17일 ~ 2024년 04월 07일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 6,107원(액면 100원)·피합병법인 2,000원(액면 100원), 합병비율 1 : 0.3274930은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "4",
+   "offset": 16414,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "알에프시스템즈(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 3,
+    "basis": "[(BX1+CX3)÷4] — 시행령 176조의5 ③ SPAC 특례로 협의(일반규정 1:1.5)"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2710,
+     "unit": "원",
+     "text": "2,710",
+     "cite": {
+      "section_id": "5",
+      "offset": 15447,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 31569995110,
+     "unit": "원",
+     "text": "31,569,995,110",
+     "cite": {
+      "section_id": "5",
+      "offset": 15375,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 26792115089,
+     "unit": "원",
+     "text": "26,792,115,089",
+     "cite": {
+      "section_id": "5",
+      "offset": 14566,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 4827880021,
+     "unit": "원",
+     "text": "4,827,880,021",
+     "cite": {
+      "section_id": "5",
+      "offset": 14602,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 11649210,
+     "unit": "주",
+     "text": "11,649,210",
+     "cite": {
+      "section_id": "5",
+      "offset": 15410,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "주권비상장법인인 합병법인의 유사회사 선정기준을 충족시키는 유사한 주권상장법인이 3사 미만이므로 상대가치를 산정하지 아니함"
+   },
+   "result": {
+    "value": {
+     "value": 6107,
+     "unit": "원",
+     "text": "6,107",
+     "cite": {
+      "section_id": "5",
+      "offset": 9897,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 7239,
+    "unit": "원",
+    "text": "7,239",
+    "cite": {
+     "section_id": "5",
+     "offset": 9960,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(스팩 소멸 합병). 자산가치 1 : 수익가치 3 가중(합병법인 희망 수익가치 비중 3–6, 피합병법인 희망 2–5 사이에서 협의). 비교목적 일반규정(1:1.5) 적용 시 본질가치 5,427원·합병비율 1:0.3685277. 자산가치 가산항목: 자기주식 39,400,000원, 전환사채 전환 자본금 55,555,500원·자본잉여금 2,059,712,759원, 중요한 순자산 증가액 2,623,211,762원(미전환 CB 장부가·주식매수선택권 행사 납입 예상액). 주식수는 10,623,655주 + CB 전환가정 555,555주 + 주식매수선택권 470,000주. 분석기준일 2024-04-01. 최근 2년 유상증자 등 거래가격은 외부평가업무 가이드라인 문단30에 따라 검토 자산가치 표의 원문 합계가 맞지 않음(자본총계+조정항목≠조정된 순자산가액, 원문 그대로 옮김 — 2026-10-27 일괄 검산)"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "알에프시스템즈(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년 12월 31일까지의 5년",
+    "base_date": null,
+    "wacc": {
+     "value": 9.38,
+     "unit": "%",
+     "text": "9.38%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139724,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 136386,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 136453,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.8533,
+     "unit": null,
+     "text": "0.8533",
+     "cite": {
+      "section_id": "5",
+      "offset": 138098,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.043365892,
+     "unit": null,
+     "text": "1.043365892",
+     "cite": {
+      "section_id": "5",
+      "offset": 136498,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 11.52,
+     "unit": "%",
+     "text": "11.52%",
+     "cite": {
+      "section_id": "5",
+      "offset": 136606,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 2.24,
+     "unit": "%",
+     "text": "2.24%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139471,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139762,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 28.16,
+     "unit": "%",
+     "text": "28.16%",
+     "cite": {
+      "section_id": "5",
+      "offset": 138080,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 21.97,
+     "unit": "%",
+     "text": "21.97%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139772,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 141778,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "이엠코리아",
+      "value": {
+       "value": 0.6739,
+       "unit": null,
+       "text": "0.6739",
+       "cite": {
+        "section_id": "5",
+        "offset": 137437,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.1902, D/E 85.03%, Relevered 0.8240)"
+     },
+     {
+      "name": "LIG넥스원",
+      "value": {
+       "value": 0.7911,
+       "unit": null,
+       "text": "0.7911",
+       "cite": {
+        "section_id": "5",
+        "offset": 137507,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.8344, D/E 7.12%, Relevered 0.9673)"
+     },
+     {
+      "name": "퍼스텍",
+      "value": {
+       "value": 0.9958,
+       "unit": null,
+       "text": "0.9958",
+       "cite": {
+        "section_id": "5",
+        "offset": 137570,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.0240, D/E 3.58%, Relevered 1.2176)"
+     },
+     {
+      "name": "한화시스템",
+      "value": {
+       "value": 1.3306,
+       "unit": null,
+       "text": "1.3306",
+       "cite": {
+        "section_id": "5",
+        "offset": 137639,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.3943, D/E 6.51%, Relevered 1.6269)"
+     },
+     {
+      "name": "아이쓰리시스템",
+      "value": {
+       "value": 1.0686,
+       "unit": null,
+       "text": "1.0686",
+       "cite": {
+        "section_id": "5",
+        "offset": 137706,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.0832, D/E 1.73%, Relevered 1.3067)"
+     },
+     {
+      "name": "한국항공우주",
+      "value": {
+       "value": 0.5916,
+       "unit": null,
+       "text": "0.5916",
+       "cite": {
+        "section_id": "5",
+        "offset": 137777,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.6481, D/E 12.42%, Relevered 0.7233)"
+     },
+     {
+      "name": "한화에어로스페이스",
+      "value": {
+       "value": 0.8212,
+       "unit": null,
+       "text": "0.8212",
+       "cite": {
+        "section_id": "5",
+        "offset": 137853,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.1411, D/E 52.92%, Relevered 1.0042)"
+     },
+     {
+      "name": "STX엔진",
+      "value": {
+       "value": 0.4381,
+       "unit": null,
+       "text": "0.4381",
+       "cite": {
+        "section_id": "5",
+        "offset": 137921,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.7544, D/E 91.25%, Relevered 0.5357)"
+     },
+     {
+      "name": "휴니드테크놀러지스",
+      "value": {
+       "value": 0.9297,
+       "unit": null,
+       "text": "0.9297",
+       "cite": {
+        "section_id": "5",
+        "offset": 137985,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.9297, D/E 0.00%, Relevered 1.1367)"
+     },
+     {
+      "name": "빅텍",
+      "value": {
+       "value": 0.8924,
+       "unit": null,
+       "text": "0.8924",
+       "cite": {
+        "section_id": "5",
+        "offset": 138049,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.0615, D/E 21.03%, Relevered 1.0912)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7239,
+     "unit": "원",
+     "text": "7,239",
+     "cite": {
+      "section_id": "5",
+      "offset": 141411,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 6212,
+      "unit": "원",
+      "text": "6,212",
+      "cite": {
+       "section_id": "5",
+       "offset": 146318,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 8718,
+      "unit": "원",
+      "text": "8,718",
+      "cite": {
+       "section_id": "5",
+       "offset": 146374,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법). Ke = Rf + (Rm-Rf)×β, Size risk premium 미반영(반영 시 Ke 11.52%→15.27%). Rf는 Bloomberg 2023-12-31 spot 국채수익률, MRP는 한국공인회계사회 가이던스. β는 동종 방산 10사 Unlevered 평균 0.8533을 목표 D/E 28.16%로 Hamada 재베타. Kd 2.24%는 합병법인 2023말 세전 가중평균차입이자율(신한은행 1,000,000천원). WACC 식 9.38% = 11.52%×78.03% + 2.24%×(1-20.90%)×21.97%. 영업가치 66,485,577천원 + 비영업자산 18,838,905천원 − 이자부부채 1,000,000천원 = 84,324,482천원 ÷ 11,649,210주. range는 WACC 8.38–10.38%·g 0.50–1.50% 민감도 표 범위"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "알에프시스템즈(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(BX1+CX1.5)÷2.5] — 비교목적 공시(일반규정)"
+   },
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 5427,
+     "unit": "원",
+     "text": "5,427",
+     "cite": {
+      "section_id": "5",
+      "offset": 9414,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "시행령 176조의5 ③2 나목·발행공시규정 5-13조 ④3호에 따른 비교목적 공시값. 실제 합병가액에는 쓰이지 않음(합병비율 1:0.3685277)"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "교보12호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1716,
+     "unit": "원",
+     "text": "1,716",
+     "cite": {
+      "section_id": "5",
+      "offset": 21788,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": null
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 21768,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기산일 2024-04-05, 1개월 가중평균 2,445원·1주일 2,573원·최근일 2,640원의 산술평균 2,553원에 21.65% 할인한 2,000원. 자산가치 1,716원보다 높아 합병가액은 Max[A, B]=2,000원. 시행령 제176조의5 제3항 기업인수목적회사 특례"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "알에프시스템즈(주)",
+    "basis": "본질가치(자산1:수익3)",
+    "value": {
+     "value": 6107,
+     "unit": "원",
+     "text": "6,107",
+     "cite": {
+      "section_id": "5",
+      "offset": 7362,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "교보12호기업인수목적(주)",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7337,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.327493,
+   "unit": null,
+   "text": "0.3274930",
+   "cite": {
+    "section_id": "5",
+    "offset": 7521,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 11959997656,
+   "unit": "원",
+   "text": "11,959,997,656",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 376,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인: 합병비율 1 : 0.3274930은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "알에프시스템즈(주)",
+   "variables": "WACC 8.38–10.38% (±1.0%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 6212,
+     "unit": "원",
+     "text": "6,212",
+     "cite": {
+      "section_id": "5",
+      "offset": 146318,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 8718,
+     "unit": "원",
+     "text": "8,718",
+     "cite": {
+      "section_id": "5",
+      "offset": 146374,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240405–20241002, listed_only=False): merger/full, 거래 rcept_no=20240902000440(첨부정정), body_rcept_no=20240902000436(본 건, 최신 기재정정), supersedes 20240712000519·20240723000352·20240731000705·20240826000227·20240902000436. 툴의 original_rcept_no는 null(꼬리표 없는 최초 제출본이 목록에 없음). 회사 공시목록(2023-01–2024-12)에서도 꼬리표 없는 증권신고서(합병)가 없어 가장 이른 20240712000519([첨부추가])를 original_rcept_no로 적었다.",
+  "짝 주요사항보고서(회사합병결정)는 피합병법인 교보12호기업인수목적(corp_code 01620713) 명의: 20240408000148(최초), 20240712000420·20240731000566(기재정정). summary 등급이라 이 실행에서는 추출하지 않음.",
+  "SPAC 소멸 합병: 존속(합병법인)은 비상장 알에프시스템즈(주), 소멸(피합병법인)은 코스닥 상장 교보12호기업인수목적(주). company.market은 합병상장 후 조회 시점 기준 '코스닥'.",
+  "합병계약 변경 3회(2024-07-12, 2024-07-31, 2024-08-26; section 4). 평가의견서 제출일 2024-04-08, 분석기준일 2024-04-01.",
+  "발행 합병신주 기명식보통주 1,958,408주, 모집가액 6,107원, 모집총액 11,959,997,656원(3.4) = transaction_value. 지급 교부금 없음.",
+  "평가 주체는 이촌회계법인 하나. 상대가치는 유사회사 3사 미만으로 미산정(소분류 '기타 금속 가공제품 제조업' 중 이엠코리아 1사만 제품 유사, 요건 미충족)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240902000436",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 223,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240902000436",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 424,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240902000436",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4840,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20240902000436",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 40640,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:58:09+09:00",
+ "extractor_version": "1.1"
+}

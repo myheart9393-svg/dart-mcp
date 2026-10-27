@@ -1,0 +1,714 @@
+{
+ "rcept_no": "20250901000422",
+ "original_rcept_no": null,
+ "related_rcept_nos": [
+  "20250516000369",
+  "20250901000323"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01466373",
+  "name": "알트",
+  "market": "기타",
+  "induty_code": "264"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "아이비케이에스제21호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "가. 계열회사 또는 자회사 등의 관계가 있는 경우해당사항 없습니다.",
+  "board_date": "2025-05-16",
+  "regime": "기준시가",
+  "ratio_text": "㈜에이엘티:아이비케이에스제21호기업인수목적㈜ = 1:0.3824823"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률 시행령 제176조의5, 증권의발행및공시등에관한규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조에 따라 주권비상장법인인 합병법인과 코스닥시장 주권상장법인인 피합병법인의 1주당 합병가액을 산출하고 합병비율의 적정성을 검토",
+  "firm": "회계법인 현",
+  "firm_type": "회계법인",
+  "period": "2025년 03월 15일 ~ 2025년 05월 16일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "외부평가업무 수행기준(2024.11)",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당평가액 합병법인 4,722~5,921원(액면 100원)·피합병법인 2,000원(액면 100원), 합병비율 0.3377807~0.4235493로 평가. 합의한 합병비율 1:0.3824823은 범위 내에 있어 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 48,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회계법인 현",
+   "target": "주식회사 에이엘티",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(aX1+bX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1521,
+     "unit": "원",
+     "text": "1,521",
+     "cite": {
+      "section_id": "5",
+      "offset": 9206,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 36270445428,
+     "unit": "원",
+     "text": "36,270,445,428",
+     "cite": {
+      "section_id": "5",
+      "offset": 9127,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 29124777517,
+     "unit": "원",
+     "text": "29,124,777,517",
+     "cite": {
+      "section_id": "5",
+      "offset": 8589,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 7145667911,
+     "unit": "원",
+     "text": "7,145,667,911",
+     "cite": {
+      "section_id": "5",
+      "offset": 8625,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 23840105,
+     "unit": "주",
+     "text": "23,840,105",
+     "cite": {
+      "section_id": "5",
+      "offset": 9163,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "주권비상장법인인 합병법인의 유사회사 선정기준을 충족시키는 유사한 주권상장법인이 없으므로 상대가치를 산정하지 아니함"
+   },
+   "result": {
+    "value": {
+     "value": 5229,
+     "unit": "원",
+     "text": "5,229",
+     "cite": {
+      "section_id": "5",
+      "offset": 7837,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 7700,
+    "unit": "원",
+    "text": "7,700",
+    "cite": {
+     "section_id": "5",
+     "offset": 7909,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(SPAC 소멸합병). 자산가치는 2024.12.31 감사받은 연결재무상태표 자본총계에 최근사업연도말 이후 자본금증가액 232,105,000원·자본잉여금증가액 6,913,562,911원(전환사채 전환 가정) 가산. 주식수는 액면분할(5,000→100원) 후 21,518,400주 + 전환가능 2,321,705주. 전환 전 주식수 기준 주당자산가치 1,353원. 분석기준일 2025-05-09"
+  },
+  {
+   "subject": "회계법인 현",
+   "target": "주식회사 에이엘티",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년부터 2029년까지 5개년도",
+    "base_date": null,
+    "wacc": {
+     "value": 10.56,
+     "unit": "%",
+     "text": "10.56%",
+     "cite": {
+      "section_id": "5",
+      "offset": 113187,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108281,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108343,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.4901,
+     "unit": null,
+     "text": "0.4901",
+     "cite": {
+      "section_id": "5",
+      "offset": 109958,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7345,
+     "unit": null,
+     "text": "0.7345",
+     "cite": {
+      "section_id": "5",
+      "offset": 108403,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108513,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.5,
+     "unit": "%",
+     "text": "12.50%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108585,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.46,
+     "unit": "%",
+     "text": "9.46%",
+     "cite": {
+      "section_id": "5",
+      "offset": 113059,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 113143,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 63.03,
+     "unit": "%",
+     "text": "63.03%",
+     "cite": {
+      "section_id": "5",
+      "offset": 110798,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 38.66,
+     "unit": "%",
+     "text": "38.66%",
+     "cite": {
+      "section_id": "5",
+      "offset": 113118,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 116083,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "삼성전자",
+      "value": {
+       "value": 1.0287,
+       "unit": null,
+       "text": "1.0287",
+       "cite": {
+        "section_id": "5",
+        "offset": 109081,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.0690, D/(D+E) 5.06%, 통신 및 방송 장비 제조업)"
+     },
+     {
+      "name": "가온그룹",
+      "value": {
+       "value": 0.1797,
+       "unit": null,
+       "text": "0.1797",
+       "cite": {
+        "section_id": "5",
+        "offset": 109199,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.8550, D/(D+E) 82.61%, 통신 및 방송 장비 제조업)"
+     },
+     {
+      "name": "알로이스",
+      "value": {
+       "value": 0.6239,
+       "unit": null,
+       "text": "0.6239",
+       "cite": {
+        "section_id": "5",
+        "offset": 109306,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.9090, D/(D+E) 36.62%, 통신 및 방송 장비 제조업)"
+     },
+     {
+      "name": "SK텔레콤",
+      "value": {
+       "value": 0.2556,
+       "unit": null,
+       "text": "0.2556",
+       "cite": {
+        "section_id": "5",
+        "offset": 109428,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.4260, D/(D+E) 47.54%, 전기 통신업)"
+     },
+     {
+      "name": "KT",
+      "value": {
+       "value": 0.2669,
+       "unit": null,
+       "text": "0.2669",
+       "cite": {
+        "section_id": "5",
+        "offset": 109549,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.4480, D/(D+E) 47.96%, 전기 통신업)"
+     },
+     {
+      "name": "LG유플러스",
+      "value": {
+       "value": 0.2502,
+       "unit": null,
+       "text": "0.2502",
+       "cite": {
+        "section_id": "5",
+        "offset": 109669,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.5340, D/(D+E) 60.65%, 전기 통신업)"
+     },
+     {
+      "name": "인스코비",
+      "value": {
+       "value": 0.3751,
+       "unit": null,
+       "text": "0.3751",
+       "cite": {
+        "section_id": "5",
+        "offset": 109776,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.4120, D/(D+E) 11.06%, 전기 통신업)"
+     },
+     {
+      "name": "아이즈비전",
+      "value": {
+       "value": 0.9409,
+       "unit": null,
+       "text": "0.9409",
+       "cite": {
+        "section_id": "5",
+        "offset": 109885,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.1020, D/(D+E) 17.79%, 전기 통신업)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7700,
+     "unit": "원",
+     "text": "7,700",
+     "cite": {
+      "section_id": "5",
+      "offset": 12811,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 6855,
+      "unit": "원",
+      "text": "6,855",
+      "cite": {
+       "section_id": "5",
+       "offset": 117853,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 8854,
+      "unit": "원",
+      "text": "8,854",
+      "cite": {
+       "section_id": "5",
+       "offset": 117909,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법, 추정 연결재무제표). Ke = Rf + (Rm-Rf)×β + SRP. Rf는 Bloomberg 2024.12.31 10년만기 국채, MRP는 한국공인회계사회 시장위험 프리미엄 가이던스(2024) 중위값, SRP는 한국공인회계사회 기업규모위험 프리미엄(2024) Micro-Cap. Kd 9.46%는 5년만기 무보증 공모 회사채 BBB- 수익률(세전). β는 동종기업 8사(통신 및 방송 장비 제조업 3사 + 전기 통신업 5사) Hamada 무부채베타 평균 0.4901을 목표 D/E 63.03%·세율 20.90%로 재베타. 영업가치 159,971,427천원 + 비영업자산 24,212,378천원 − 이자부부채 616,561천원 = 183,567,244천원 ÷ 23,840,105주. range는 WACC 9.56–11.56%·g 0.50–1.50% 민감도 표 범위"
+  },
+  {
+   "subject": "회계법인 현",
+   "target": "아이비케이에스제21호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1719,
+     "unit": "원",
+     "text": "1,719",
+     "cite": {
+      "section_id": "5",
+      "offset": 31898,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 10316900675,
+     "unit": "원",
+     "text": "10,316,900,675",
+     "cite": {
+      "section_id": "5",
+      "offset": 31826,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 8734611946,
+     "unit": "원",
+     "text": "8,734,611,946",
+     "cite": {
+      "section_id": "5",
+      "offset": 31289,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1582288729,
+     "unit": "원",
+     "text": "1,582,288,729",
+     "cite": {
+      "section_id": "5",
+      "offset": 31324,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 6000000,
+     "unit": "주",
+     "text": "6,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 31862,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 29764,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(피합병법인): 기산일 2025-05-15, 1개월 가중평균 2,245원·1주일 2,265원·최근일 2,210원의 산술평균 2,240원에 10.71% 할인한 2,000원. 자산가치 1,719원(전환사채 1,790,000,000원 전환 가정, 1,790,000주 가산)보다 높아 합병가액은 Max[A, B]=2,000원"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 에이엘티",
+    "basis": "본질가치",
+    "value": {
+     "value": 5229,
+     "unit": "원",
+     "text": "5,229",
+     "cite": {
+      "section_id": "5",
+      "offset": 6842,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "아이비케이에스제21호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 6750,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "합병법인 주당평가액 범위(평가의견서 종합의견)",
+    "subject": "회계법인 현",
+    "range": {
+     "min": {
+      "value": 4722,
+      "unit": "원",
+      "text": "4,722",
+      "cite": {
+       "section_id": "5",
+       "offset": 120613,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5921,
+      "unit": "원",
+      "text": "5,921",
+      "cite": {
+       "section_id": "5",
+       "offset": 120619,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "합병비율 적정성 범위(평가의견서 종합의견)",
+    "subject": "회계법인 현",
+    "range": {
+     "min": {
+      "value": 0.3377807,
+      "unit": null,
+      "text": "0.3377807",
+      "cite": {
+       "section_id": "5",
+       "offset": 120687,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.4235493,
+      "unit": null,
+      "text": "0.4235493",
+      "cite": {
+       "section_id": "5",
+       "offset": 120697,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.3824823,
+   "unit": null,
+   "text": "0.3824823",
+   "cite": {
+    "section_id": "5",
+    "offset": 7002,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 8419997250,
+   "unit": "원",
+   "text": "8,419,997,250",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 396,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "회계법인 현: 합병당사회사 간 합의한 합병비율 1:0.3824823은 평가된 합병비율 범위(0.3377807~0.4235493) 내에 있으므로 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "회계법인 현",
+   "target": "주식회사 에이엘티",
+   "variables": "WACC 9.56–11.56% (±1.0%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 6855,
+     "unit": "원",
+     "text": "6,855",
+     "cite": {
+      "section_id": "5",
+      "offset": 117853,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 8854,
+     "unit": "원",
+     "text": "8,854",
+     "cite": {
+      "section_id": "5",
+      "offset": 117909,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250404–20251001, listed_only=False): merger/full, correction_kind 기재정정, body_rcept_no=20250901000422(본 건, 최신 본문), attachment_rcept_no 20250808000619([첨부추가]), supersedes 20250808000619·20250820000260·20250821000558·20250821000635, original_rcept_no=null (도구 notes: 목록에 원본 없음). search_disclosures(알트 01466373, 2024-01-01–2025-10-27)에도 꼬리표 없는 최초 증권신고서(합병)는 없어 original_rcept_no=null.",
+  "짝 공시(related_rcept_nos)는 피합병 SPAC(01682740)의 주요사항보고서(회사합병결정) 최초 20250516000369와 최신 [첨부정정] 20250901000323(search_disclosures로 확인, summary 등급).",
+  "SPAC 소멸합병: 존속(합병법인)은 비상장 ㈜에이엘티(현 '알트', corp_cls K), 소멸(피합병법인)은 코스닥 상장 아이비케이에스제21호기업인수목적. company.market은 신고 당시(비상장) 기준 '기타'.",
+  "이사회 최초 결의 2025-05-16, 1차 변경 이사회·합병변경계약 2025-08-08(section 4). 평가의견서 제출일 2025-05-16, 분석기준일 2025-05-09.",
+  "발행 합병신주 기명식보통주 1,610,250주, 모집가액 5,229원, 모집총액 8,419,997,250원(3.4). 주식매수청구가격(회사제시) 합병법인 5,229원·피합병법인 2,181원(3.3).",
+  "평가의견서 종합의견의 합병법인 주당평가액 범위 4,722~5,921원의 산정 근거는 해당 문단에 명시되지 않음(민감도 표 범위는 수익가치 기준 6,855–8,854원).",
+  "외부평가기관 문구: 합병등 가액은 회사가 최종 산정, 외부평가기관은 특정 가액을 권고하거나 산정에 관여한 사실 없음(section 5 종합의견).",
+  "section 9(VI. 투자위험요소)에도 자기자본비용·타인자본비용 소제목(9.h9·9.h10)이 반복되나 같은 평가기관 값이라 section 5 표를 cite."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250901000422",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 266,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250901000422",
+   "file_id": "main",
+   "section_id": "3.2",
+   "title": "II. 형태",
+   "chars_read": 66,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250901000422",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 313,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250901000422",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 443,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250901000422",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 11118,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20250901000422",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 34680,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:21:25+09:00",
+ "extractor_version": "1.1"
+}

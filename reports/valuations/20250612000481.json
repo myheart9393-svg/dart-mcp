@@ -1,0 +1,924 @@
+{
+ "rcept_no": "20250612000481",
+ "original_rcept_no": "20250529000177",
+ "related_rcept_nos": [
+  "20250612000410"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00442905",
+  "name": "대성파인텍",
+  "market": "코스닥",
+  "induty_code": "30399"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "주식회사 모노리스",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "합병법인 (주)대성파인텍이 피합병법인 (주)모노리스 보통주 2,203,503주(7.29%)를 보유하고, 대성파인텍 최대주주 (주)석전자·계열회사 (주)대성엠텍도 모노리스 주식을 보유. 합병 후 최대주주는 (주)석전자의 100% 주주 이동석(모노리스 8.74% 보유)으로 변경",
+  "board_date": "2025-05-19",
+  "regime": "기준시가",
+  "ratio_text": "(주)대성파인텍 : (주)모노리스 = 1 : 3.1000870"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "신한회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 04월 15일 ~ 2025년 05월 18일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조 및 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 1,189원(액면 100원), 피합병법인 3,554원(액면 500원)으로 추정되어 합병비율 1:2.9890664은 적정하며 합병가액 산정방법에 위배된 점이 발견되지 않음(원문 그대로; 요약표의 1,149원·3,562원·1:3.1000870과 불일치)",
+  "cite": {
+   "section_id": "5",
+   "offset": 146751,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "신한회계법인",
+   "target": "주식회사 대성파인텍",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1394,
+     "unit": "원",
+     "text": "1,394",
+     "cite": {
+      "section_id": "5",
+      "offset": 11621,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 65846131288,
+     "unit": "원",
+     "text": "65,846,131,288",
+     "cite": {
+      "section_id": "5",
+      "offset": 11549,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 64781484134,
+     "unit": "원",
+     "text": "64,781,484,134",
+     "cite": {
+      "section_id": "5",
+      "offset": 10789,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1064647154,
+     "unit": "원",
+     "text": "1,064,647,154",
+     "cite": {
+      "section_id": "5",
+      "offset": 10825,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 47224987,
+     "unit": "주",
+     "text": "47,224,987",
+     "cite": {
+      "section_id": "5",
+      "offset": 11584,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1149,
+     "unit": "원",
+     "text": "1,149",
+     "cite": {
+      "section_id": "5",
+      "offset": 9381,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 합병법인. 기준시가 1,149원 = 1개월 가중평균 1,155원·1주일 1,191원·최근일 종가 1,102원 산술평균(기산일 2025-05-16, 이사회 결의일 2025-05-19 전일), 할인·할증 미적용. 기준시가(1,149원)가 자산가치(1,394원)보다 낮으나 과거 3개년 ROA(2024 0.9%, 2023 -2.7%, 2022 -3.9%)를 감안해 원칙대로 기준시가 적용. 자산가치 조정은 자기주식 가산만"
+  },
+  {
+   "subject": "신한회계법인",
+   "target": "주식회사 모노리스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(aX1+bX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1880,
+     "unit": "원",
+     "text": "1,880",
+     "cite": {
+      "section_id": "5",
+      "offset": 15789,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 58371356954,
+     "unit": "원",
+     "text": "58,371,356,954",
+     "cite": {
+      "section_id": "5",
+      "offset": 15717,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 69007879626,
+     "unit": "원",
+     "text": "69,007,879,626",
+     "cite": {
+      "section_id": "5",
+      "offset": 14910,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -10636522672,
+     "unit": "원",
+     "text": "(10,636,522,672)",
+     "cite": {
+      "section_id": "5",
+      "offset": 14946,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 31050536,
+     "unit": "주",
+     "text": "31,050,536",
+     "cite": {
+      "section_id": "5",
+      "offset": 15752,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3562,
+     "unit": "원",
+     "text": "3,562",
+     "cite": {
+      "section_id": "5",
+      "offset": 12276,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 4684,
+    "unit": "원",
+    "text": "4,684",
+    "cite": {
+     "section_id": "5",
+     "offset": 12348,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 피합병법인(별도재무제표). 상대가치는 유사회사 3사 미만으로 산정하지 않음. 자산가치 조정: 행사 확실한 주식선택권 834,000주 행사 가정(자본금 417,000,000원·자본잉여금 868,875,000원 가산), 시장성 없는 투자주식(종속기업) 순자산가액과 장부금액 차이 11,922,397,672원 차감. 최근 2년 주식양수도(2024-11-07 주당 5,300원)·유상증자(주당 7,000원)는 적정가격 근거 부족으로 가치조정 미반영"
+  },
+  {
+   "subject": "신한회계법인",
+   "target": "주식회사 모노리스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 1월 1일부터 2029년12월 31일까지의 5년",
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 9.76,
+     "unit": "%",
+     "text": "9.76%",
+     "cite": {
+      "section_id": "5",
+      "offset": 61994,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 59809,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 59860,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.39,
+     "unit": null,
+     "text": "0.39",
+     "cite": {
+      "section_id": "5",
+      "offset": 61306,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.39,
+     "unit": null,
+     "text": "0.39",
+     "cite": {
+      "section_id": "5",
+      "offset": 59903,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 60034,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 9.76,
+     "unit": "%",
+     "text": "9.76%",
+     "cite": {
+      "section_id": "5",
+      "offset": 60153,
+      "file_id": "main"
+     }
+    },
+    "kd": null,
+    "tax_rate": null,
+    "target_de": null,
+    "target_dv": null,
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 64163,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "모나용평",
+      "value": {
+       "value": 0.31,
+       "unit": null,
+       "text": "0.31",
+       "cite": {
+        "section_id": "5",
+        "offset": 60872,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "그랜드코리아레저",
+      "value": {
+       "value": 0.41,
+       "unit": null,
+       "text": "0.41",
+       "cite": {
+        "section_id": "5",
+        "offset": 60954,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "이월드",
+      "value": {
+       "value": 0.35,
+       "unit": null,
+       "text": "0.35",
+       "cite": {
+        "section_id": "5",
+        "offset": 61029,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "강원랜드",
+      "value": {
+       "value": 0.64,
+       "unit": null,
+       "text": "0.64",
+       "cite": {
+        "section_id": "5",
+        "offset": 61109,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "아난티",
+      "value": {
+       "value": 0.32,
+       "unit": null,
+       "text": "0.32",
+       "cite": {
+        "section_id": "5",
+        "offset": 61187,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "서부T",
+      "value": {
+       "value": 0.33,
+       "unit": null,
+       "text": "0.33",
+       "cite": {
+        "section_id": "5",
+        "offset": 61267,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4684,
+     "unit": "원",
+     "text": "4,684",
+     "cite": {
+      "section_id": "5",
+      "offset": 63516,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF, 연중 발생 가정). 추정기간 영업가치 (16,537,983)천원 + 영구현금흐름 21,476,412천원(이월결손금 공제 현재가치 2,452,589천원 포함) = 영업가치 4,938,429천원, 비영업자산 142,335,714천원(종속기업투자주식 DCF 공정가치 126,573,199천원 포함) 가산, 이자부부채 1,829,299천원 차감 → 수익가치 145,444,845천원. 목표자본구조 무차입(WACC = Ke × 100.00%) → kd·tax·목표자본구조 수치 없음(null). 유사기업 6사(유원지·오락 2사 + 숙박·레저 시설 4사), 2Year Weekly Adjusted Beta, 유사기업 평균 D/E 99.49%. 민감도 표는 원문 단위 '천원'의 수익가치 총액이라 result_range에 넣지 않고 sensitivity에만 기재"
+  },
+  {
+   "subject": "신한회계법인",
+   "target": "모노리스제주파크 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": null,
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 8.01,
+     "unit": "%",
+     "text": "8.01%",
+     "cite": {
+      "section_id": "5",
+      "offset": 105096,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102075,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102126,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.39,
+     "unit": null,
+     "text": "0.39",
+     "cite": {
+      "section_id": "5",
+      "offset": 103602,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7,
+     "unit": null,
+     "text": "0.70",
+     "cite": {
+      "section_id": "5",
+      "offset": 102169,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102292,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.24,
+     "unit": "%",
+     "text": "12.24%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102411,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.77,
+     "unit": "%",
+     "text": "4.77%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104567,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 105053,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 99.49,
+     "unit": "%",
+     "text": "99.49%",
+     "cite": {
+      "section_id": "5",
+      "offset": 103593,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 49.87,
+     "unit": "%",
+     "text": "49.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 105028,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 107262,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "모나용평",
+      "value": {
+       "value": 0.31,
+       "unit": null,
+       "text": "0.31",
+       "cite": {
+        "section_id": "5",
+        "offset": 103168,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "그랜드코리아레저",
+      "value": {
+       "value": 0.41,
+       "unit": null,
+       "text": "0.41",
+       "cite": {
+        "section_id": "5",
+        "offset": 103250,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "이월드",
+      "value": {
+       "value": 0.35,
+       "unit": null,
+       "text": "0.35",
+       "cite": {
+        "section_id": "5",
+        "offset": 103325,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "강원랜드",
+      "value": {
+       "value": 0.64,
+       "unit": null,
+       "text": "0.64",
+       "cite": {
+        "section_id": "5",
+        "offset": 103405,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "아난티",
+      "value": {
+       "value": 0.32,
+       "unit": null,
+       "text": "0.32",
+       "cite": {
+        "section_id": "5",
+        "offset": 103483,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     },
+     {
+      "name": "서부T",
+      "value": {
+       "value": 0.33,
+       "unit": null,
+       "text": "0.33",
+       "cite": {
+        "section_id": "5",
+        "offset": 103563,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-leverd Beta (Hamada)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 75273790,
+     "unit": "천원",
+     "text": "75,273,790",
+     "cite": {
+      "section_id": "5",
+      "offset": 106484,
+      "file_id": "main"
+     }
+    },
+    "unit": "천원",
+    "range": null
+   },
+   "note": "피합병법인 모노리스의 100% 종속기업(비영업자산 중 종속기업투자주식) 공정가치 DCF. 장부가액 40,592,638천원 → 공정가치 75,273,790천원(조정 34,681,153천원). 영업가치 112,493,196천원(추정기간 23,798,747 + 영구 88,694,449), 비영업자산 없음, 이자부부채 37,219,406천원. kd는 2024-12-31 가중평균차입이자율. 자기자본비율 50.13%·타인자본비율 49.87%(D/V), 대용기업 평균 D/E 99.49%"
+  },
+  {
+   "subject": "신한회계법인",
+   "target": "모노리스인천파크 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": null,
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 9.42,
+     "unit": "%",
+     "text": "9.42%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142306,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139301,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139352,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.39,
+     "unit": null,
+     "text": "0.39",
+     "cite": {
+      "section_id": "5",
+      "offset": 140867,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7,
+     "unit": null,
+     "text": "0.70",
+     "cite": {
+      "section_id": "5",
+      "offset": 139395,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.73,
+     "unit": "%",
+     "text": "4.73%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139517,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.22,
+     "unit": "%",
+     "text": "13.22%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139676,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 7.08,
+     "unit": "%",
+     "text": "7.08%",
+     "cite": {
+      "section_id": "5",
+      "offset": 141762,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142263,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 99.49,
+     "unit": "%",
+     "text": "99.49%",
+     "cite": {
+      "section_id": "5",
+      "offset": 140858,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 49.87,
+     "unit": "%",
+     "text": "49.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142238,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 144411,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 51299409,
+     "unit": "천원",
+     "text": "51,299,409",
+     "cite": {
+      "section_id": "5",
+      "offset": 143630,
+      "file_id": "main"
+     }
+    },
+    "unit": "천원",
+    "range": null
+   },
+   "note": "피합병법인 모노리스의 100% 종속기업(공사 진행 중, 2027년 매출 개시 추정) 공정가치 DCF. 장부가액 21,500,000천원 → 51,299,409천원(조정 29,799,409천원). 영업가치 48,776,350천원(추정기간 (63,076,373) + 영구 111,852,722), 비영업자산 2,523,059천원, 이자부부채 없음. Size Premium은 공사 미완료를 고려해 연구결과 중 최고치 4.73%. kd는 NICE BizLINE BBB+ 회사채(무보증 5년) 7.08%(차입금 없음). 유사기업 6사는 제주파크와 같은 표(peers 생략)"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 대성파인텍",
+    "basis": "기준시가",
+    "value": {
+     "value": 1149,
+     "unit": "원",
+     "text": "1,149",
+     "cite": {
+      "section_id": "5",
+      "offset": 7480,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "주식회사 모노리스",
+    "basis": "본질가치",
+    "value": {
+     "value": 3562,
+     "unit": "원",
+     "text": "3,562",
+     "cite": {
+      "section_id": "5",
+      "offset": 7525,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 3.100087,
+   "unit": null,
+   "text": "3.1000870",
+   "cite": {
+    "section_id": "5",
+    "offset": 7675,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "신한회계법인: 합병비율 적정(종합의견 문단은 1,189원·3,554원·1:2.9890664으로 기재)",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "신한회계법인",
+   "target": "주식회사 모노리스",
+   "variables": "WACC 8.76–10.76% (±1.0%p), 영구성장률 0.50–1.50% (0.5%p 간격), 수익가치(천원)",
+   "range": {
+    "min": {
+     "value": 141999423,
+     "unit": "천원",
+     "text": "141,999,423",
+     "cite": {
+      "section_id": "5",
+      "offset": 145669,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 150371950,
+     "unit": "천원",
+     "text": "150,371,950",
+     "cite": {
+      "section_id": "5",
+      "offset": 145749,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20250113–20250712, listed_only=False): merger/full. 원본 20250529000177 → 기재정정 20250611000487 → 기재정정 20250612000481(본 건, body_rcept_no; attachment_rcept_no 20250529000177). 본 건보다 최신 본문 정정 없음. 짝 주요사항보고서 20250612000410(기재정정, summary; 원본 20250519000270).",
+  "평가 장은 '5 II. 합병 가액 및 그 산출근거'(149,663자). 평가계약일 2025-04-14, 평가기간 2025-04-15 ~ 2025-05-18, 의견서 제출일 2025-05-19, 분석기준일 2025-05-12, 기준재무제표 2024-12-31, 기준시가 기산일 2025-05-16.",
+  "원문 불일치: 요약표·3.4는 합병가액 1,149원/3,562원·비율 1:3.1000870이나, 종합평가의견 문단은 1,189원/3,554원·1:2.9890664으로 적고 2021년 재무제표·2022–2026 추정을 검토했다고 기재(추정: 이전 평가 문구 잔존). conclusion은 요약표 값을 사용.",
+  "합병신주 기명식보통주 86,842,839주, 모집가액 1,149원, 모집총액 99,782,422,011원(3.4). 합병법인 보유 모노리스 2,203,503주에는 신주 미교부. 모노리스 주식매수선택권 2,481,000주는 대성파인텍 보통주 7,691,280주로 조정 승계 예정(4).",
+  "외부평가 '근거 및 사유'·감사위원회 동의 여부는 이 증권신고서 평가 장에서 확인하지 못함 → null.",
+  "종속기업 2사(제주파크·인천파크) DCF는 피합병법인 수익가치의 비영업자산(종속기업투자주식 공정가치)으로 반영된 값이라 별도 원소로 분리(단위 천원)."
+ ],
+ "extracted_at": "2026-10-27T10:15:02+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20250612000481",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 2040,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250612000481",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 720,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250612000481",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 12603,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250612000481",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 58754,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

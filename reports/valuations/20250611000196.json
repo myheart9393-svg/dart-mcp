@@ -1,0 +1,176 @@
+{
+ "rcept_no": "20250611000196",
+ "original_rcept_no": "20250521000480",
+ "related_rcept_nos": [
+  "20250521000480",
+  "20250530001257"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00445054",
+  "name": "하나마이크론",
+  "market": "코스닥",
+  "induty_code": "2611"
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2025-01-17",
+  "regime": null,
+  "ratio_text": "분할회사 주주에게 1주당 0.6747299주(분할비율 0.6747299 x 1주의 금액비율 1) 배정, 분할회사 주식은 1주당 0.3252701주 비율로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2024년 09월 30일 재무상태표 기준 분할신설회사 순자산 장부가액 ÷ 분할전 순자산 장부가액으로 분할비율 산정(외부평가기관 해당사항 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 260,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "하나반도체홀딩스 주식회사(분할존속, 구 하나마이크론)",
+   "target": "하나마이크론 주식회사(분할신설)",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 277644781532,
+     "unit": "원",
+     "text": "277,644,781,532",
+     "cite": {
+      "section_id": "5",
+      "offset": 448,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 411490248224,
+     "unit": "원",
+     "text": "411,490,248,224",
+     "cite": {
+      "section_id": "5",
+      "offset": 564,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2024-09-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.6747299,
+     "unit": null,
+     "text": "0.6747299",
+     "cite": {
+      "section_id": "5",
+      "offset": 541,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = 분할대상사업부문 순자산 ÷ 분할전 순자산(장부가액, 소수점 8자리에서 반올림). 1주의 금액비율 500원÷500원 = 1을 곱해 배정비율 0.6747299. 분할존속회사 병합비율 0.3252701. result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "하나마이크론 주식회사(분할신설)",
+    "basis": "분할신주 기명식보통주 모집(매출)가액(모집총액 ÷ 주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 6209,
+     "unit": "원",
+     "text": "6,209",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 367,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.6747299,
+   "unit": null,
+   "text": "0.6747299",
+   "cite": {
+    "section_id": "5",
+    "offset": 541,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 277644781532,
+   "unit": "원",
+   "text": "277,644,781,532",
+   "cite": {
+    "section_id": "5",
+    "offset": 448,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "2024.09.30 재무상태표 기준 순자산 장부가액 비율로 분할비율 0.6747299(존속 0.3252701). 신주배정은 최초 이사회 결의 시 승인된 분할계획서상 배정비율 기준",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20250112–20250711, listed_only=False): 분할/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), 원본 20250521000480, supersedes 20250521000480·20250530001257, attachment_rcept_no=20250521000480. 짝 주요사항보고서는 결과에 없음(related_rcept_nos 결과 빈 목록).",
+  "단순·인적분할로 외부평가기관 '해당사항 없음'(IV. 평가 및 신주배정 등). DCF·상대가치 등 가치평가는 없고 순자산 장부가액 비율만 있음. regime: 기준시가·본질가치 산정 없음 -> null.",
+  "분할존속회사 하나반도체홀딩스(투자·관리 사업부문: 종속기업투자주식·투자부동산 등), 분할신설회사 하나마이크론(반도체 패키징·테스트). 분할신설회사 주권 재상장 예정(2025-05-14 재상장 예비심사 승인 통보, 3.4 주1).",
+  "발행증권: 기명식보통주 44,715,666주, 액면 500원, 모집가액 6,209원, 모집총액 277,644,781,532원. 2024.09.30 재무상태표 기준이며 분할기일 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주3).",
+  "이사회 결의일 2025-01-17, 주주확정일 2025-06-05, 주주총회 2025-07-16, 분할기일 2025-08-01(III. 주요일정).",
+  "분할신주 수량 44,715,666주(3.4)."
+ ],
+ "extracted_at": "2026-10-27T10:10:00+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20250611000196",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 251,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250611000196",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1210,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250611000196",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 1929,
+   "how": "section"
+  }
+ ]
+}

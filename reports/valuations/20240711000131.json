@@ -1,0 +1,568 @@
+{
+ "rcept_no": "20240711000131",
+ "original_rcept_no": "20240531002705",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01516766",
+  "name": "아이비젼웍스",
+  "market": "코스닥",
+  "induty_code": "292"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "하나금융24호기업인수목적(주)",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2024-01-17",
+  "regime": "기준시가",
+  "ratio_text": "합병비율: (주)아이비젼웍스 : 하나금융24호기업인수목적(주) = 1: 0.5370569"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "시행령 제176조의5제3항 기업인수목적회사 특례: 피합병법인은 기준주가에 할인율을 반영한 평가가액, 합병법인은 SPAC과 협의하여 정한 증권의발행및공시등에관한규정 제5-13조 및 시행세칙 제4조 내지 제8조의 본질가치(자산:수익 1:1.5)를 합병가액으로 함",
+  "firm": "한미회계법인",
+  "firm_type": "회계법인",
+  "period": "2023년 11월 07일 ~ 2024년 01월 16일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당평가액 합병법인 3,724원(액면 100원)·피합병법인 2,000원(액면 100원), 합의 합병비율 1:0.5370569는 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 153339,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한미회계법인",
+   "target": "(주)아이비젼웍스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(aX1+bX1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 440,
+     "unit": "원",
+     "text": "440",
+     "cite": {
+      "section_id": "5",
+      "offset": 10129,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 13645192169,
+     "unit": "원",
+     "text": "13,645,192,169",
+     "cite": {
+      "section_id": "5",
+      "offset": 10055,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 2658235103,
+     "unit": "원",
+     "text": "2,658,235,103",
+     "cite": {
+      "section_id": "5",
+      "offset": 9203,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 10986957066,
+     "unit": "원",
+     "text": "10,986,957,066",
+     "cite": {
+      "section_id": "5",
+      "offset": 9238,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 31010290,
+     "unit": "주",
+     "text": "31,010,290",
+     "cite": {
+      "section_id": "5",
+      "offset": 10091,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3724,
+     "unit": "원",
+     "text": "3,724",
+     "cite": {
+      "section_id": "5",
+      "offset": 8392,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 5914,
+    "unit": "원",
+    "text": "5,914",
+    "cite": {
+     "section_id": "5",
+     "offset": 8462,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(스팩 소멸방식). 시행령 제176조의5 제3항 SPAC 특례로 SPAC과 협의해 정한 방법(시행세칙 제4조 본질가치, 자산:수익 1:1.5). 상대가치는 유사회사 요건 미충족으로 미산정. 자산가치 조정: 최근사업연도말 이후 자본금증가 206,260,000원·자본잉여금증가 862,748,680원·중요한 순자산증가 9,917,948,386원 가산. 발행주식수 31,010,290주(보통주 29,562,600주+주식매수선택권 1,447,690주)."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "(주)아이비젼웍스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년 1월 1일부터 2027년12월 31일까지의 5년",
+    "base_date": "2022-12-31",
+    "wacc": {
+     "value": 11.42,
+     "unit": "%",
+     "text": "11.42%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142838,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139037,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139099,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 1.03,
+     "unit": null,
+     "text": "1.03",
+     "cite": {
+      "section_id": "5",
+      "offset": 139920,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.1959,
+     "unit": null,
+     "text": "1.1959",
+     "cite": {
+      "section_id": "5",
+      "offset": 139143,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 13.3,
+     "unit": "%",
+     "text": "13.30%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139252,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 2.67,
+     "unit": "%",
+     "text": "2.67%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142295,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142630,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 20.26,
+     "unit": "%",
+     "text": "20.26%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139911,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 16.85,
+     "unit": "%",
+     "text": "16.85%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142769,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 57487,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "이노메트리",
+      "value": {
+       "value": 1.24,
+       "unit": null,
+       "text": "1.24",
+       "cite": {
+        "section_id": "5",
+        "offset": 139636,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada), D/E 1.16%"
+     },
+     {
+      "name": "엔시스",
+      "value": {
+       "value": 1.21,
+       "unit": null,
+       "text": "1.21",
+       "cite": {
+        "section_id": "5",
+        "offset": 139715,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada), D/E 10.51%"
+     },
+     {
+      "name": "브이원텍",
+      "value": {
+       "value": 0.87,
+       "unit": null,
+       "text": "0.87",
+       "cite": {
+        "section_id": "5",
+        "offset": 139796,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada), D/E 41.17%"
+     },
+     {
+      "name": "자비스",
+      "value": {
+       "value": 0.8,
+       "unit": null,
+       "text": "0.80",
+       "cite": {
+        "section_id": "5",
+        "offset": 139876,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada), D/E 28.20%"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 5914,
+     "unit": "원",
+     "text": "5,914",
+     "cite": {
+      "section_id": "5",
+      "offset": 11320,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 5349,
+      "unit": "원",
+      "text": "5,349",
+      "cite": {
+       "section_id": "5",
+       "offset": 148835,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 6600,
+      "unit": "원",
+      "text": "6,600",
+      "cite": {
+       "section_id": "5",
+       "offset": 148891,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 할인). 추정기간 영업가치 28,475,469천원 + 영구현금흐름 154,529,924천원 + 비영업자산 4,507,767천원 - 이자부부채 4,118,002천원 = 183,395,158천원, 주식수 31,010,290주. β: Bloomberg 2Year Weekly Adjusted Beta(2022-12-31), 동종기업 4사(이노메트리·엔시스·브이원텍·자비스, 펨트론은 베타 산정에서 제외) 평균 D/E 20.26%로 relever. 세율: WACC 산식·베타 주석은 20.90%(20.9%), WACC 구성표는 '마. Tax rate 20.09%'로 원문 표기가 다름(산식 값 기록). kd는 2022말 금융기관 차입금 가중평균차입이자율. 규모위험 프리미엄 원문 없음. range는 WACC 10.92–11.92%·영구성장률 0.50–1.50% 민감도 표 범위."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "하나금융24호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1694,
+     "unit": "원",
+     "text": "1,694",
+     "cite": {
+      "section_id": "5",
+      "offset": 36987,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 17278330965,
+     "unit": "원",
+     "text": "17,278,330,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 36914,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 15082330965,
+     "unit": "원",
+     "text": "15,082,330,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 36376,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 2196000000,
+     "unit": "원",
+     "text": "2,196,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 36412,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 10200000,
+     "unit": "주",
+     "text": "10,200,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 36950,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 33340,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 1개월 가중평균 2,246원(2023-12-18–2024-01-16)·1주일 2,327원·최근일 2,345원의 산술평균 2,306원에 (13.27%) 할인한 2,000원. 자산가치 1,694원(전환사채 2,196,000,000원 전환가정, 행사가능 2,196,000주 가산)보다 높아 합병가액 Max[A, B]=2,000원."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)아이비젼웍스",
+    "basis": "본질가치(자산:수익 1:1.5)",
+    "value": {
+     "value": 3724,
+     "unit": "원",
+     "text": "3,724",
+     "cite": {
+      "section_id": "5",
+      "offset": 7372,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "하나금융24호기업인수목적(주)",
+    "basis": "기준주가에 할인율 (13.27%) 반영",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7280,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.5370569,
+   "unit": null,
+   "text": "0.5370569",
+   "cite": {
+    "section_id": "5",
+    "offset": 7530,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 16007997572,
+   "unit": "원",
+   "text": "16,007,997,572",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 407,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "한미회계법인: 합병비율 1:0.5370569는 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한미회계법인",
+   "target": "(주)아이비젼웍스",
+   "variables": "WACC 10.92–11.92% (±0.5%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 5349,
+     "unit": "원",
+     "text": "5,349",
+     "cite": {
+      "section_id": "5",
+      "offset": 148835,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 6600,
+     "unit": "원",
+     "text": "6,600",
+     "cite": {
+      "section_id": "5",
+      "offset": 148891,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20240212–20240810, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, original_rcept_no=20240531002705(=attachment_rcept_no), supersedes 20240531002705·20240612000374·20240614000297. 조회 창 안에 본 건보다 최신 본문 정정 없음.",
+  "짝 주요사항보고서(회사합병결정)는 related_rcept_nos에 없음(SPAC 명의일 수 있음, 미확인).",
+  "company.market '코스닥'은 조회 시점 상태. 신고 당시 아이비젼웍스는 주권비상장법인(존속), SPAC은 코스닥 상장(소멸).",
+  "'회사와의 관계'·감사위원회 동의는 본문에서 찾지 못해 null. 외부평가 계약 2023-11-07, 평가기간 2023-11-07–2024-01-16, 의견서 제출일 2024-01-17.",
+  "합병변경계약 1–4차(2024-05-14 ~ 2024-06-14). 주주총회 2024-07-12, 합병기일 2024-08-14. 주식매수청구가격 합병법인 3,724원·피합병법인 2,113원(3.3).",
+  "합병신주 기명식보통주 4,298,603주, 모집가액 3,724원, 모집총액 16,007,997,572원(3.4)."
+ ],
+ "extracted_at": "2026-10-27T09:47:59+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240711000131",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 314,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240711000131",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 455,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240711000131",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4034,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240711000131",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 22198,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

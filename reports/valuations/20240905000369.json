@@ -1,0 +1,192 @@
+{
+ "rcept_no": "20240905000369",
+ "original_rcept_no": "20240827000349",
+ "related_rcept_nos": [
+  "20240828000315",
+  "20240827000051"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01090471",
+  "name": "씨아이에스",
+  "market": "코스닥",
+  "induty_code": "292"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "에스엔유프리시젼 주식회사",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "합병당사회사 씨아이에스(주)·에스엔유프리시젼(주)의 최대주주가 모두 (주)에스에프에이(존속회사 지분율 32.29%, 소멸회사 지분율 37.19%)",
+  "board_date": "2024-08-27",
+  "regime": "기준시가",
+  "ratio_text": "씨아이에스(주) : 에스엔유프리시젼(주) = 1 : 0.1994714"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "코스닥시장 상장법인 간 합병으로 기준시가를 합병가액으로 산정해 외부평가 받지 않음",
+  "basis_text": "코스닥시장 상장법인 간의 합병으로 자본시장법 제165조의4 및 동법 시행령 제176조의5 제1항 제1호에 의거하여 합병가액을 산정한 후, 이를 기초로 합병비율을 산출하였으므로, 외부평가기관의 평가는 받지 않았습니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5 제1항 제1호"
+  ],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 5430,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회사(합병당사회사)",
+   "target": "씨아이에스(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10810,
+     "unit": "원",
+     "text": "10,810",
+     "cite": {
+      "section_id": "5",
+      "offset": 2108,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥시장 상장법인: 시행령 176조의5 ①1호 기준시가(최근 1개월 가중산술평균종가 10,652원·최근 1주일 11,247원·최근일 종가 10,530원의 산술평균). 할인·할증 미적용. 기산일 2024-08-26"
+  },
+  {
+   "subject": "회사(합병당사회사)",
+   "target": "에스엔유프리시젼(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2156,
+     "unit": "원",
+     "text": "2,156",
+     "cite": {
+      "section_id": "5",
+      "offset": 4036,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥시장 상장법인: 시행령 176조의5 ①1호 기준시가(최근 1개월 가중산술평균종가 2,032원·최근 1주일 2,241원·최근일 종가 2,195원의 산술평균). 할인·할증 미적용. 기산일 2024-08-26"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "씨아이에스(주)",
+    "basis": "기준시가",
+    "value": {
+     "value": 10810,
+     "unit": "원",
+     "text": "10,810",
+     "cite": {
+      "section_id": "5",
+      "offset": 177,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "에스엔유프리시젼(주)",
+    "basis": "기준시가",
+    "value": {
+     "value": 2156,
+     "unit": "원",
+     "text": "2,156",
+     "cite": {
+      "section_id": "5",
+      "offset": 186,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1994714,
+   "unit": null,
+   "text": "0.1994714",
+   "cite": {
+    "section_id": "5",
+    "offset": 342,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 73779514770,
+   "unit": "원",
+   "text": "73,779,514,770",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 274,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "코스닥 상장법인 간 합병으로 기준시가(할인·할증 없음)를 합병가액으로 하여 합병비율 1 : 0.1994714 산출. 외부평가의견 없음",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20240408–20241005, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, 원본 20240827000349(감사보고서 첨부는 원본). 짝 주요사항보고서(회사합병결정) 20240827000051(summary, 첨부정정 20240828000315).",
+  "동일 최대주주((주)에스에프에이) 아래 두 회사 간 합병이나 할인·할증 미적용(시행령상 계열회사 간 합병은 10% 범위).",
+  "합병신주 기명식보통주 6,825,117주, 모집가액 10,810원, 모집총액 73,779,514,770원(3.4) = transaction_value. 지급 교부금 없음(단주는 현금 지급).",
+  "합병신주 배정기준일 2024-11-29. 자산·수익·상대가치·DCF 가정은 원문 없음(기준시가 체계)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240905000369",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 679,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240905000369",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3036,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240905000369",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 5452,
+   "how": "section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:54:26+09:00",
+ "extractor_version": "1.1"
+}

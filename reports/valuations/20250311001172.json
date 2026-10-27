@@ -1,0 +1,554 @@
+{
+ "rcept_no": "20250311001172",
+ "original_rcept_no": "20250110000826",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00381756",
+  "name": "티씨머티리얼즈",
+  "market": "코스닥",
+  "induty_code": "283"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "대신밸런스제15호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "가. 계열회사 또는 자회사 등의 관계가 있는 경우\n해당사항 없습니다.",
+  "board_date": "2024-10-18",
+  "regime": "기준시가",
+  "ratio_text": "대신밸런스제15호기업인수목적(주)의 보통주(액면가 100원) 1주당 합병법인인 티씨머티리얼즈(주)의 보통주(액면금액 500원) 0.5534034주 를 교부"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "상장예비심사청구서를 비롯한 합병계약서 등 합병가액 및 합병비율을 기재한 모든 공시서류 등은 한경회계법인의 합병가액 외부평가 결과를 기초로 작성하였습니다.",
+  "firm": "한경회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 07월 24일 ~ 2024년 10월 17일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "자본시장법 제165조의4, 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당평가액 합병법인 3,614원(액면 500원), 피합병법인 2,000원(액면 100원)으로 추정, 합병비율 1:0.5534034는 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 147211,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한경회계법인",
+   "target": "티씨머티리얼즈 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 각각 1과 1.5로 가중산술평균(시행령 176조의5 ③, SPAC과 협의하여 정하는 가격; 증발공 시행세칙 제4조)"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1595,
+     "unit": "원",
+     "text": "1,595원",
+     "cite": {
+      "section_id": "5",
+      "offset": 17519,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 48379192938,
+     "unit": "원",
+     "text": "48,379,192,938",
+     "cite": {
+      "section_id": "5",
+      "offset": 17448,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 43382346444,
+     "unit": "원",
+     "text": "43,382,346,444",
+     "cite": {
+      "section_id": "5",
+      "offset": 16880,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 4996846494,
+     "unit": "원",
+     "text": "4,996,846,494",
+     "cite": {
+      "section_id": "5",
+      "offset": 16916,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 30334623,
+     "unit": "주",
+     "text": "30,334,623",
+     "cite": {
+      "section_id": "5",
+      "offset": 17483,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년12월 31일까지의 5년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 12.2,
+     "unit": "%",
+     "text": "12.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139902,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 135783,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 135845,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": null,
+    "beta_levered": {
+     "value": 1.159,
+     "unit": null,
+     "text": "1.159",
+     "cite": {
+      "section_id": "5",
+      "offset": 135889,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 136020,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 16.2,
+     "unit": "%",
+     "text": "16.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 136200,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.54,
+     "unit": "%",
+     "text": "5.54%",
+     "cite": {
+      "section_id": "5",
+      "offset": 138942,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139694,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 51.18,
+     "unit": "%",
+     "text": "51.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137989,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 33.85,
+     "unit": "%",
+     "text": "33.85%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139833,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 143032,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "가온전선",
+      "value": {
+       "value": 0.457,
+       "unit": null,
+       "text": "0.457",
+       "cite": {
+        "section_id": "5",
+        "offset": 136961,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, Observed 0.944, D/E 138.64%)"
+     },
+     {
+      "name": "대원전선",
+      "value": {
+       "value": 0.818,
+       "unit": null,
+       "text": "0.818",
+       "cite": {
+        "section_id": "5",
+        "offset": 137037,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, Observed 1.047, D/E 35.44%)"
+     },
+     {
+      "name": "대한광통신",
+      "value": {
+       "value": 0.564,
+       "unit": null,
+       "text": "0.564",
+       "cite": {
+        "section_id": "5",
+        "offset": 137116,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, Observed 1.050, D/E 108.89%)"
+     },
+     {
+      "name": "대한전선",
+      "value": {
+       "value": 0.961,
+       "unit": null,
+       "text": "0.961",
+       "cite": {
+        "section_id": "5",
+        "offset": 137196,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, Observed 1.208, D/E 33.41%)"
+     },
+     {
+      "name": "센서뷰",
+      "value": {
+       "value": 1.439,
+       "unit": null,
+       "text": "1.439",
+       "cite": {
+        "section_id": "5",
+        "offset": 137272,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, Observed 1.574, D/E 10.43%)"
+     },
+     {
+      "name": "일진전기",
+      "value": {
+       "value": 0.67,
+       "unit": null,
+       "text": "0.670",
+       "cite": {
+        "section_id": "5",
+        "offset": 137350,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, Observed 0.915, D/E 47.60%)"
+     }
+    ]
+   },
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "유사회사 요건을 충족하는 법인이 없으므로 비교목적으로 공시되는 합병법인의 상대가치는 산정하지 아니하였습니다"
+   },
+   "result": {
+    "value": {
+     "value": 3614,
+     "unit": "원",
+     "text": "3,614",
+     "cite": {
+      "section_id": "5",
+      "offset": 13813,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 4961,
+    "unit": "원",
+    "text": "4,961",
+    "cite": {
+     "section_id": "5",
+     "offset": 18739,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(SPAC 합병, 시행령 176조의5 ③ 특례). 분석기준일 2024-10-11, 평가기준일 2023-12-31. 자산가치: 2023말 자본총계 + 2024-06-18 유상증자(자본금 394,011,500·주발초 1,602,848,634) + 전환우선주 보통주 전환 2,999,986,360 가산. 3.3 합병가액 표의 자산가치는 '1.595'로 오기(3.1 요약표·3.3.1 산정표는 1,595). 수익가치 FCFF DCF(천원): 추정기간 현가 46,781,958 + 영구 현가 115,395,406 = 영업가치 162,177,364, 비영업자산 1,589,502, 이자부부채 13,288,594 → 150,478,272천원 ÷ 30,334,623주 = 4,961원. Rf는 Bloomberg 2023-12-31 10년 국채, MRP는 한공회 가이던스, Firm Specific Risk Premium 3.75%는 한공회 Size Risk Premium(size_premium에 기재). β 1.159는 동종 6사(절연선 및 케이블 제조업) Unlevered β 평균을 목표 D/E 51.18%로 relever한 값; 평균 Unlevered β 수치는 원문 표에 없음 → null. Kd는 합병법인 차입금 가중평균이자율. 세율은 WACC 산식 표기 20.90%(구성 표의 Tax rate는 '20.09%'로 표기 — 원문 불일치). E/V 66.15%, D/V 33.85%. 영구성장률 1.00%(EIU 2028 실질GDP 2.80%·CPI 1.80% 고려). 상대가치 미산정."
+  },
+  {
+   "subject": "한경회계법인",
+   "target": "대신밸런스제15호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1741,
+     "unit": "원",
+     "text": "1,741",
+     "cite": {
+      "section_id": "5",
+      "offset": 12604,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 14796909062,
+     "unit": "원",
+     "text": "14,796,909,062",
+     "cite": {
+      "section_id": "5",
+      "offset": 12532,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 13756378478,
+     "unit": "원",
+     "text": "13,756,378,478",
+     "cite": {
+      "section_id": "5",
+      "offset": 11995,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1040530584,
+     "unit": "원",
+     "text": "1,040,530,584",
+     "cite": {
+      "section_id": "5",
+      "offset": 12031,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 8500000,
+     "unit": "주",
+     "text": "8,500,000주",
+     "cite": {
+      "section_id": "5",
+      "offset": 12567,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 10574,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC. 기산일 2024-10-17(이사회·합병계약 2024-10-18 전일). 1개월 가중평균 2,346원·1주일 2,367원·최근일 2,370원 산술평균 2,361원에 15.29% 할인 → 2,000원. 자산가치 1,741원(전환사채 1,465,000,000원 전환 가정, 1,465,000주 가산해 8,500,000주)보다 높아 기준주가 할인가액 적용."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "티씨머티리얼즈 주식회사",
+    "basis": "본질가치(자산:수익=1:1.5)",
+    "value": {
+     "value": 3614,
+     "unit": "원",
+     "text": "3,614",
+     "cite": {
+      "section_id": "5",
+      "offset": 8318,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "대신밸런스제15호기업인수목적 주식회사",
+    "basis": "기준주가 15.29% 할인",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 8190,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.5534034,
+   "unit": null,
+   "text": "0.5534034",
+   "cite": {
+    "section_id": "5",
+    "offset": 8474,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 14069995888,
+   "unit": "원",
+   "text": "14,069,995,888",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 385,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "한경회계법인: 합병가액 티씨머티리얼즈 3,614원·대신밸런스제15호스팩 2,000원, 합병비율 1:0.5534034 적정. 합병신주 기명식보통주 3,893,192주(모집총액 14,069,995,888원)",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한경회계법인",
+   "target": "티씨머티리얼즈 주식회사",
+   "variables": "WACC 11.20–13.20% (±1%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 4326,
+     "unit": "원",
+     "text": "4,326",
+     "cite": {
+      "section_id": "5",
+      "offset": 144472,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 5792,
+     "unit": "원",
+     "text": "5,792",
+     "cite": {
+      "section_id": "5",
+      "offset": 144528,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20241011–20250410, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), 원본 20250110000826, attachment_rcept_no 20250225000599, supersedes 20250110000826·20250121000230·20250122000299·20250206000323·20250217001504·20250225000599. related_rcept_nos 없음(짝 주요사항보고서 미검출).",
+  "SPAC 합병(비상장 티씨머티리얼즈 존속, 코스닥 상장 대신밸런스제15호기업인수목적 소멸). 이사회·최초 합병계약 2024-10-18, 변경계약 2025-01-10·2025-02-17. company.market은 검색 결과 기준(조회 시점 코스닥); 공시 당시 합병법인은 비상장.",
+  "평가계약 2024-07-23, 의견서 제출일 2024-10-18. 외부평가 감사위원회 동의는 본문에서 확인하지 않음 → null.",
+  "합병법인 표(3.3) 자산가치 '1.595' 오기, WACC 구성표 Tax rate '20.09%'와 산식 20.90% 불일치 — 원문 그대로 두고 산식 값 사용.",
+  "평가 장: section 5 'II. 합병 가액 및 그 산출근거'."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250311001172",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 249,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250311001172",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 433,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250311001172",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 20969,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250311001172",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 54054,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:04:25+09:00",
+ "extractor_version": "1.1"
+}

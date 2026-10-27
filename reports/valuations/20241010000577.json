@@ -1,0 +1,661 @@
+{
+ "rcept_no": "20241010000577",
+ "original_rcept_no": "20240830002114",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01217795",
+  "name": "엠에프씨",
+  "market": "코스닥",
+  "induty_code": "21100"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "하나금융21호기업인수목적(주)",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계 여부해당사항 없습니다.",
+  "board_date": "2024-02-07",
+  "regime": "기준시가",
+  "ratio_text": "엠에프씨(주) : 하나금융21호기업인수목적(주) = 1: 0.2305476"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 01월 04일부터 2024년 02월 06일까지",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 8,675원(액면 500원), 피합병법인 2,000원(액면 100원)으로 합병비율 1 : 0.2305476은 적정하며, 중요성의 관점에서 합병가액 산정방법에 위배되어 산정된 점이 발견되지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 194015,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "엠에프씨(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 3,
+    "basis": "자산가치와 수익가치를 각각 1과 3의 비율로 가중산술평균(SPAC 협의 특례)"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2942,
+     "unit": "원",
+     "text": "2,942",
+     "cite": {
+      "section_id": "5",
+      "offset": 14569,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 21721547946,
+     "unit": "원",
+     "text": "21,721,547,946",
+     "cite": {
+      "section_id": "5",
+      "offset": 14498,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": -1957735380,
+     "unit": "원",
+     "text": "(1,957,735,380)",
+     "cite": {
+      "section_id": "5",
+      "offset": 13700,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 23679283326,
+     "unit": "원",
+     "text": "23,679,283,326",
+     "cite": {
+      "section_id": "5",
+      "offset": 13737,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7383385,
+     "unit": "주",
+     "text": "7,383,385",
+     "cite": {
+      "section_id": "5",
+      "offset": 14533,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": {
+    "forecast_years": "2023년 1월 1일부터 2028년 12월 31일까지의 6년",
+    "base_date": "2024-01-31",
+    "wacc": {
+     "value": 9.79,
+     "unit": "%",
+     "text": "9.79%",
+     "cite": {
+      "section_id": "5",
+      "offset": 186962,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 182144,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 182211,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.8299,
+     "unit": null,
+     "text": "0.8299",
+     "cite": {
+      "section_id": "5",
+      "offset": 183893,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.9813,
+     "unit": null,
+     "text": "0.9813",
+     "cite": {
+      "section_id": "5",
+      "offset": 182256,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 11.59,
+     "unit": "%",
+     "text": "11.59%",
+     "cite": {
+      "section_id": "5",
+      "offset": 182359,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 2.54,
+     "unit": "%",
+     "text": "2.54%",
+     "cite": {
+      "section_id": "5",
+      "offset": 186709,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 187000,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 23.05,
+     "unit": "%",
+     "text": "23.05%",
+     "cite": {
+      "section_id": "5",
+      "offset": 186906,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 18.73,
+     "unit": "%",
+     "text": "18.73%",
+     "cite": {
+      "section_id": "5",
+      "offset": 187010,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 189233,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "경보제약",
+      "value": {
+       "value": 0.8964,
+       "unit": null,
+       "text": "0.8964",
+       "cite": {
+        "section_id": "5",
+        "offset": 183188,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "엔지켐생명과학",
+      "value": {
+       "value": 0.8118,
+       "unit": null,
+       "text": "0.8118",
+       "cite": {
+        "section_id": "5",
+        "offset": 183257,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "애니젠",
+      "value": {
+       "value": 0.736,
+       "unit": null,
+       "text": "0.7360",
+       "cite": {
+        "section_id": "5",
+        "offset": 183320,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "하이텍팜",
+      "value": {
+       "value": 1.0676,
+       "unit": null,
+       "text": "1.0676",
+       "cite": {
+        "section_id": "5",
+        "offset": 183385,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "그린생명과학",
+      "value": {
+       "value": 0.8942,
+       "unit": null,
+       "text": "0.8942",
+       "cite": {
+        "section_id": "5",
+        "offset": 183450,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "종근당바이오",
+      "value": {
+       "value": 0.5429,
+       "unit": null,
+       "text": "0.5429",
+       "cite": {
+        "section_id": "5",
+        "offset": 183520,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "국전약품",
+      "value": {
+       "value": 0.5519,
+       "unit": null,
+       "text": "0.5519",
+       "cite": {
+        "section_id": "5",
+        "offset": 183586,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "에스티팜",
+      "value": {
+       "value": 0.9372,
+       "unit": null,
+       "text": "0.9372",
+       "cite": {
+        "section_id": "5",
+        "offset": 183654,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "대봉엘에스",
+      "value": {
+       "value": 0.7728,
+       "unit": null,
+       "text": "0.7728",
+       "cite": {
+        "section_id": "5",
+        "offset": 183720,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "에스텍파마",
+      "value": {
+       "value": 1.033,
+       "unit": null,
+       "text": "1.0330",
+       "cite": {
+        "section_id": "5",
+        "offset": 183780,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "화일약품",
+      "value": {
+       "value": 0.8854,
+       "unit": null,
+       "text": "0.8854",
+       "cite": {
+        "section_id": "5",
+        "offset": 183844,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     }
+    ]
+   },
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "주권비상장법인인 합병법인의 유사회사 선정기준을 충족시키는 유사한 주권상장법인이 3사 미만이므로 상대가치를 산정하지 아니하였습니다"
+   },
+   "result": {
+    "value": {
+     "value": 8675,
+     "unit": "원",
+     "text": "8,675",
+     "cite": {
+      "section_id": "5",
+      "offset": 9967,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 10586,
+    "unit": "원",
+    "text": "10,586",
+    "cite": {
+     "section_id": "5",
+     "offset": 10030,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(SPAC 합병, 시행령 176조의5 ③ 특례로 SPAC과 협의해 자산:수익 1:3 가중). 원문 표 산식 표기는 '(BX1+CX8)÷9'(원문 그대로, 본문은 1과 3). 수익가치는 FCFF DCF(현가계수 2028년 0.5983), 영업가치 78,995,108천원+비영업자산 4,721,446천원-이자부부채 5,559,050천원 = 자기자본 78,157,504천원 ÷ 7,383,385주(전환사채 전환 반영). Rf는 2022-12-31 spot 국채, Size premium 미반영(반영 시 Ke 15.34%). kd는 세전 가중평균차입이자율. 목표자본구조는 동종기업 평균 D/E 23.05%(D/V 18.73%). 최근 2년 주식거래가는 가치조정 미반영. 상대가치 미산정."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "엠에프씨(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(BX1+CX1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2942,
+     "unit": "원",
+     "text": "2,942",
+     "cite": {
+      "section_id": "5",
+      "offset": 9516,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7528,
+     "unit": "원",
+     "text": "7,528",
+     "cite": {
+      "section_id": "5",
+      "offset": 9484,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 10586,
+    "unit": "원",
+    "text": "10,586",
+    "cite": {
+     "section_id": "5",
+     "offset": 9547,
+     "file_id": "main"
+    }
+   },
+   "note": "비교목적 공시(시행령 176조의5 ③2호 나목·증발공 5-13조 ④3호): 일반규정 1:1.5 가중 시 합병가액 7,528원, 합병비율 1 : 0.2656748. 채택되지 않음."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "하나금융21호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1667,
+     "unit": "원",
+     "text": "1,667",
+     "cite": {
+      "section_id": "5",
+      "offset": 24863,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 14673990642,
+     "unit": "원",
+     "text": "14,673,990,642",
+     "cite": {
+      "section_id": "5",
+      "offset": 24792,
+      "file_id": "main"
+     }
+    },
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 8800000,
+     "unit": "주",
+     "text": "8,800,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 24827,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 21541,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC. 기산일 2024-02-06(이사회·합병계약 2024-02-07 전일). 1개월 가중평균 2,158원·1주일 2,194원·최근일 2,180원 산술평균 2,177원에 8.14% 할인 → 2,000원. 자산가치 1,667원보다 높아 기준주가 적용(Max[A,B])."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "엠에프씨(주)",
+    "basis": "본질가치(자산:수익=1:3)",
+    "value": {
+     "value": 8675,
+     "unit": "원",
+     "text": "8,675",
+     "cite": {
+      "section_id": "5",
+      "offset": 7344,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "하나금융21호기업인수목적(주)",
+    "basis": "기준주가 8.14% 할인",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7320,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2305476,
+   "unit": null,
+   "text": "0.2305476",
+   "cite": {
+    "section_id": "5",
+    "offset": 7504,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 14819996975,
+   "unit": "원",
+   "text": "14,819,996,975",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 396,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인: 합병가액 엠에프씨 8,675원·하나금융21호스팩 2,000원, 합병비율 1 : 0.2305476 적정. 합병신주 기명식보통주 1,708,357주(모집총액 14,819,996,975원)",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "엠에프씨(주)",
+   "variables": "WACC 8.79–10.79% (±1%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 8672,
+     "unit": "원",
+     "text": "8,672",
+     "cite": {
+      "section_id": "5",
+      "offset": 191382,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 13304,
+     "unit": "원",
+     "text": "13,304",
+     "cite": {
+      "section_id": "5",
+      "offset": 191440,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20240513–20241109, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), 원본 20240830002114(attachment_rcept_no도 원본), supersedes 20240830002114·20240910000673·20240923000399·20241004000361. related 없음.",
+  "SPAC 합병(비상장 엠에프씨가 존속, 코스닥 상장 하나금융21호기업인수목적 소멸). 합병변경계약 1–4차(2024-06-10·08-05·09-23·10-04), 합병기일 2024-12-10.",
+  "외부평가 '근거 및 사유'·감사위원회 동의는 본 증권신고서 본문에서 확인하지 않음 → null. 평가 기간은 4장 진행경과 기재.",
+  "평가의견서 제출일 2024-02-07, 분석기준일 2024-01-31, 자산가치 기준 재무제표 2022-12-31. 정정본 5장에 유사회사 11개사 PBR·EV/EBITDA·PER 표(2024-08-29 기준)가 추가되어 있으나 합병가액 산정에는 쓰지 않음(참고 공시) → relative에 넣지 않음.",
+  "평가 장: section 5 'II. 합병 가액 및 그 산출근거'."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20241010000577",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 223,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241010000577",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 444,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241010000577",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 7272,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241010000577",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 50734,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:58:05+09:00",
+ "extractor_version": "1.1"
+}

@@ -1,0 +1,613 @@
+{
+ "rcept_no": "20240215000683",
+ "original_rcept_no": "20240117000174",
+ "related_rcept_nos": [
+  "20240117000174",
+  "20240126000260",
+  "20240206000419"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01116265",
+  "name": "카티스",
+  "market": "코스닥",
+  "induty_code": "620"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "케이비제22호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": "기업인수목적회사(코스닥 상장 SPAC)와 비상장법인 간 합병. 비상장 ㈜카티스가 존속, SPAC은 소멸(우회상장 성격)",
+  "board_date": "2023-06-01",
+  "regime": "기준시가",
+  "ratio_text": "케이비제22호기업인수목적㈜의 기명식 보통주식 1주당 ㈜카티스의 기명식 보통주식 0.5953922주"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장법 시행령 제176조의5 제3항 기업인수목적회사 특례: 피합병법인은 기준주가에 할인율 반영, 합병법인은 협의한 본질가치",
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2023년 04월 11일부터 2023년 05월 31일까지",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조 및 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "종합의견: 주당 평가액 합병법인 3,658원·피합병법인 2,000원, 합병비율 1 : 0.5467959 적정(원문 종합의견 문단 표기 그대로 — 본문 평가 요약표·IV장은 3,359원·0.5953922로 불일치)",
+  "cite": {
+   "section_id": "5",
+   "offset": 131773,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 카티스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(나X1+다X1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1305,
+     "unit": "원",
+     "text": "1,305",
+     "cite": {
+      "section_id": "5",
+      "offset": 11878,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 19329183116,
+     "unit": "원",
+     "text": "19,329,183,116",
+     "cite": {
+      "section_id": "5",
+      "offset": 11806,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 17972812080,
+     "unit": "원",
+     "text": "17,972,812,080",
+     "cite": {
+      "section_id": "5",
+      "offset": 10970,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 71571036,
+     "unit": "원",
+     "text": "71,571,036",
+     "cite": {
+      "section_id": "5",
+      "offset": 11006,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 14815000,
+     "unit": "주",
+     "text": "14,815,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 11841,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "유사회사 선정기준(시행세칙 제7조)을 충족하는 유사한 주권상장법인이 없어 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 3359,
+     "unit": "원",
+     "text": "3,359",
+     "cite": {
+      "section_id": "5",
+      "offset": 8503,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 4729,
+    "unit": "원",
+    "text": "4,729",
+    "cite": {
+     "section_id": "5",
+     "offset": 8543,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(SPAC 합병 상대). 시행령 176조의5 ①2호 나목·시행세칙 제4조: 자산가치 1·수익가치 1.5 가중. 분석기준일 2023-05-24. 자산가치 조정 B(71,571,036원)는 시장성 있는 주식 평가차이(가산 88,609,780원·차감 17,038,744원)이며 자기주식 1,284,800,000원은 표상 별도 가산되어 C=19,329,183,116원(원문 표 그대로). 최근 2년 주식양수도(주당 1,000원, 주주 간 합의)는 외부평가업무 가이드라인 문단30에 따른 가치조정 미반영. 자산가치 표의 원문 합계가 맞지 않음(자본총계+조정항목≠조정된 순자산가액, 원문 그대로 옮김 — 2026-10-27 일괄 검산)"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 카티스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년 1월 1일부터 2027년 12월 31일까지의 5년",
+    "base_date": null,
+    "wacc": {
+     "value": 13.6575,
+     "unit": "%",
+     "text": "13.6575%",
+     "cite": {
+      "section_id": "5",
+      "offset": 118971,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 116647,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 10.97,
+     "unit": "%",
+     "text": "10.97%",
+     "cite": {
+      "section_id": "5",
+      "offset": 116710,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.9072,
+     "unit": null,
+     "text": "0.9072",
+     "cite": {
+      "section_id": "5",
+      "offset": 117416,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.919,
+     "unit": null,
+     "text": "0.9190",
+     "cite": {
+      "section_id": "5",
+      "offset": 116775,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 13.81,
+     "unit": "%",
+     "text": "13.81%",
+     "cite": {
+      "section_id": "5",
+      "offset": 116878,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.14,
+     "unit": "%",
+     "text": "5.14%",
+     "cite": {
+      "section_id": "5",
+      "offset": 118719,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119018,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 1.64,
+     "unit": "%",
+     "text": "1.64%",
+     "cite": {
+      "section_id": "5",
+      "offset": 117938,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 1.6121,
+     "unit": "%",
+     "text": "1.6121%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119027,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0000%",
+     "cite": {
+      "section_id": "5",
+      "offset": 121107,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "아이디스",
+      "value": {
+       "value": 0.9226,
+       "unit": null,
+       "text": "0.9226",
+       "cite": {
+        "section_id": "5",
+        "offset": 117203,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 22%)"
+     },
+     {
+      "name": "슈프리마",
+      "value": {
+       "value": 0.9225,
+       "unit": null,
+       "text": "0.9225",
+       "cite": {
+        "section_id": "5",
+        "offset": 117257,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 22%)"
+     },
+     {
+      "name": "현대에이치티",
+      "value": {
+       "value": 0.8537,
+       "unit": null,
+       "text": "0.8537",
+       "cite": {
+        "section_id": "5",
+        "offset": 117312,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 22%)"
+     },
+     {
+      "name": "파이오링크",
+      "value": {
+       "value": 0.93,
+       "unit": null,
+       "text": "0.9300",
+       "cite": {
+        "section_id": "5",
+        "offset": 117366,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 22%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4729,
+     "unit": "원",
+     "text": "4,729",
+     "cite": {
+      "section_id": "5",
+      "offset": 120689,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4128,
+      "unit": "원",
+      "text": "4,128",
+      "cite": {
+       "section_id": "5",
+       "offset": 123539,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 5547,
+      "unit": "원",
+      "text": "5,547",
+      "cite": {
+       "section_id": "5",
+       "offset": 123595,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 할인, 기중 현금흐름 가정). 영업가치 77,796,267천원 + 비영업자산 3,750,139천원 - 이자부부채 11,490,000천원 = 자기자본가치 70,056,406천원 ÷ 14,815,000주. Rf는 2022-12-31 기준 10년 국채, MRP는 Bloomberg 1년 평균. kd는 세전 가중평균차입이자율(WACC 산식에는 5.1434%, Ke 13.8146%). 목표자본구조는 동종기업 평균 D/E 1.64%(산식상 E/V 98.3879%·D/V 1.6121%). 규모위험 프리미엄 없음. base_date는 원문에 평가기준일 명시 없어 null(Rf·Kd는 2022-12-31 기준). range는 WACC 12.6575–14.6575%·영구성장률 0–2% 민감도 범위."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 카티스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [],
+    "multiple": {
+     "value": 18.6,
+     "unit": "배",
+     "text": "18.6",
+     "cite": {
+      "section_id": "5",
+      "offset": 21950,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 5661,
+     "unit": "백만원",
+     "text": "5,661",
+     "cite": {
+      "section_id": "5",
+      "offset": 21928,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 25.0,
+      "unit": "%",
+      "text": "25.0%",
+      "cite": {
+       "section_id": "5",
+       "offset": 22080,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 25.0,
+      "unit": "%",
+      "text": "25.0%",
+      "cite": {
+       "section_id": "5",
+       "offset": 22080,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 5320,
+     "unit": "원",
+     "text": "5,320원",
+     "cite": {
+      "section_id": "5",
+      "offset": 22130,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "참고용(합병가액 미반영). 시행세칙 7조 유사회사는 없으나 상장회사와의 비교 목적으로 물리보안 상장사(에스원 13.5·슈프리마 10.5·아이디스 31.7배) 평균 PER 18.6배를 2023-09-30 기준 직전 12개월 당기순이익에 적용: 주당 7,093원, 신규상장 할인율 25% 적용 시 5,320원. 합병가액에는 반영하지 않음(참고)."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "케이비제22호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1662,
+     "unit": "원",
+     "text": "1,662",
+     "cite": {
+      "section_id": "5",
+      "offset": 22495,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 23404,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "상장 SPAC(소멸). 시행령 176조의5 ①1호: 기산일 2023-05-31, 1개월 가중평균 2,086원·1주일 2,122원·최근일 2,130원 산술평균 2,113원에 5.35% 할인 → 2,000원. 자산가치 1,662원보다 높아 기준주가 할인 평가가액을 합병가액으로(Max[가, 나])."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 카티스",
+    "basis": "본질가치",
+    "value": {
+     "value": 3359,
+     "unit": "원",
+     "text": "3,359",
+     "cite": {
+      "section_id": "5",
+      "offset": 7631,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "케이비제22호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율(5.35%)을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7607,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.5953922,
+   "unit": null,
+   "text": "0.5953922",
+   "cite": {
+    "section_id": "5",
+    "offset": 7794,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 10439999046,
+   "unit": "원",
+   "text": "10,439,999,046",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 341,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인: 합병가액 카티스 3,359원·SPAC 2,000원, 합병비율 1 : 0.5953922(평가 요약표). 종합의견 문단은 3,658원·1 : 0.5467959를 적정으로 기재",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "주식회사 카티스",
+   "variables": "WACC 12.6575–14.6575% (±1.0%p), 영구성장률 0–2.00% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 4128,
+     "unit": "원",
+     "text": "4,128",
+     "cite": {
+      "section_id": "5",
+      "offset": 123539,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 5547,
+     "unit": "원",
+     "text": "5,547",
+     "cite": {
+      "section_id": "5",
+      "offset": 123595,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 리뷰 생략(배치).",
+  "search_valuation_disclosures(20230918–20240316, listed_only=False, 2페이지): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문 정정), 원본 20240117000174(감사보고서 첨부 attachment_rcept_no), supersedes 20240126000260·20240206000419. 같은 corp_code의 주요사항보고서(summary)는 이 기간 검색 결과에 없음(최초 이사회 2023-06-01 → 짝 주요사항보고서는 2023-06 제출 추정: 별도 확인 필요).",
+  "SPAC 합병: 존속법인은 비상장 ㈜카티스, 소멸법인은 코스닥 상장 케이비제22호기업인수목적㈜. 이사회 합병결의 2023-06-01, 변경결의 5차(2023-10-31·12-01, 2024-01-26·02-06·02-15), 합병기일 2024-04-18.",
+  "불일치: 4. 합병비율의 적정성에 대한 종합의견 문단은 합병법인 3,658원·합병비율 1 : 0.5467959로 기재, 평가 요약표(3.1)·3.2.1·IV. 평가 및 신주배정 등은 3,359원·0.5953922. conclusion은 요약표·IV장 값을 따름(종합의견 문단은 변경 전 값이 남은 것으로 보임 — 추정).",
+  "외부평가 기간: I장은 2023년 04월 11일부터 2023년 05월 31일까지, II장 표지는 2023년 4월 11일 ~ 2023년 6월 1일(제출일 2023-06-01). 감사위원회 동의 원문 없음 → null.",
+  "추정재무·PER 비교는 2023-09-30·EIU 2023.12 자료를 사용(정정 과정에서 갱신된 것으로 보임 — 추정), 분석기준일은 2023-05-24로 기재.",
+  "합병신주 기명식보통주 3,107,947주, 액면 100원, 모집가액 3,359원, 모집총액 10,439,999,046원(3.4). 교부금 없음."
+ ],
+ "extracted_at": "2026-10-27T09:35:01+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240215000683",
+   "file_id": "main",
+   "section_id": "12",
+   "title": "IX. 기타 투자자보호에 필요한 사항",
+   "chars_read": 2424,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240215000683",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 389,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240215000683",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4551,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240215000683",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 48913,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

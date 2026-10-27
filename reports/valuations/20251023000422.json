@@ -1,0 +1,648 @@
+{
+ "rcept_no": "20251023000422",
+ "original_rcept_no": "20250917000396",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01450938",
+  "name": "지에프아이",
+  "market": "기타",
+  "induty_code": "29192"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "대신밸런스제18호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계가 있는 경우 해당사항 없습니다.",
+  "board_date": "2025-06-13",
+  "regime": "기준시가",
+  "ratio_text": "대신밸런스제18호기업인수목적(주) 보통주 1주당 (주)지에프아이 보통주 0.1589320주 교부(1 : 0.1589320)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장법 제165조의4, 동법 시행령 제176조의5, 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조에 따라 주권상장법인(SPAC)과 주권비상장법인 간 합병비율의 적정성 검토",
+  "firm": "회계법인더올",
+  "firm_type": "회계법인",
+  "period": "2025년 3월 4일 ~ 2025년 6월 12일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "외부평가업무 수행기준(2024.11)",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 10,704–15,717원(액면 100원)·피합병법인 2,000원(액면 100원), 합병비율 범위 0.1272507–0.1868460. 합의한 합병비율 1 : 0.1589320은 범위 내에 있어 적정. 합병가액 산정방법에 위배된 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 128850,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회계법인더올",
+   "target": "(주)지에프아이",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(나X1+다X1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 5549,
+     "unit": "원",
+     "text": "5,549",
+     "cite": {
+      "section_id": "5",
+      "offset": 139293,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 35651251456,
+     "unit": "원",
+     "text": "35,651,251,456",
+     "cite": {
+      "section_id": "5",
+      "offset": 139222,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 32421618956,
+     "unit": "원",
+     "text": "32,421,618,956",
+     "cite": {
+      "section_id": "5",
+      "offset": 138392,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 3229632500,
+     "unit": "원",
+     "text": "3,229,632,500",
+     "cite": {
+      "section_id": "5",
+      "offset": 138428,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 6425000,
+     "unit": "주",
+     "text": "6,425,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 139257,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "주권비상장법인인 합병법인의 유사회사 선정기준(시행세칙 제7조)을 충족시키는 유사한 주권상장법인이 없어 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 12584,
+     "unit": "원",
+     "text": "12,584",
+     "cite": {
+      "section_id": "5",
+      "offset": 137685,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 17274,
+    "unit": "원",
+    "text": "17,274",
+    "cite": {
+     "section_id": "5",
+     "offset": 137744,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(SPAC 합병). 자산가치는 2024.12.31 감사받은 별도재무제표 자본총계에 시장성 없는 투자주식 순자산 차이 404,632,500원·자기주식 2,925,000,000원 가산, (주)이지스세이프티(청산) 100,000,000원 차감. 주식매수선택권 200,000주는 가득조건 미충족으로 미반영. 평가의견서상 합병법인 주당 평가액 범위 10,704–15,717원(범위 산정 근거는 읽은 구간에 없음)"
+  },
+  {
+   "subject": "회계법인더올",
+   "target": "(주)지에프아이",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년부터 2029년까지 5개년도",
+    "base_date": null,
+    "wacc": {
+     "value": 8.9829,
+     "unit": "%",
+     "text": "8.9829%",
+     "cite": {
+      "section_id": "5",
+      "offset": 242029,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 239599,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 239662,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.557,
+     "unit": null,
+     "text": "0.557",
+     "cite": {
+      "section_id": "5",
+      "offset": 240499,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.9841,
+     "unit": null,
+     "text": "0.9841",
+     "cite": {
+      "section_id": "5",
+      "offset": 239707,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.73,
+     "unit": "%",
+     "text": "4.73%",
+     "cite": {
+      "section_id": "5",
+      "offset": 239811,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.4738,
+     "unit": "%",
+     "text": "15.4738%",
+     "cite": {
+      "section_id": "5",
+      "offset": 242040,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 2.9026,
+     "unit": "%",
+     "text": "2.9026%",
+     "cite": {
+      "section_id": "5",
+      "offset": 242062,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 242075,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 97.07,
+     "unit": "%",
+     "text": "97.07%",
+     "cite": {
+      "section_id": "5",
+      "offset": 241974,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 49.2562,
+     "unit": "%",
+     "text": "49.2562%",
+     "cite": {
+      "section_id": "5",
+      "offset": 242084,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 244233,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "아모그린텍",
+      "value": {
+       "value": 0.78,
+       "unit": null,
+       "text": "0.780",
+       "cite": {
+        "section_id": "5",
+        "offset": 240189,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.218, 부채비율(D/E) 71.07%, Relevered 1.378)"
+     },
+     {
+      "name": "상신이디피",
+      "value": {
+       "value": 0.62,
+       "unit": null,
+       "text": "0.620",
+       "cite": {
+        "section_id": "5",
+        "offset": 240252,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.242, 부채비율(D/E) 126.88%, Relevered 1.096)"
+     },
+     {
+      "name": "엔케이",
+      "value": {
+       "value": 0.595,
+       "unit": null,
+       "text": "0.595",
+       "cite": {
+        "section_id": "5",
+        "offset": 240309,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.625, 부채비율(D/E) 6.47%, Relevered 1.051)"
+     },
+     {
+      "name": "서진시스템",
+      "value": {
+       "value": 0.315,
+       "unit": null,
+       "text": "0.315",
+       "cite": {
+        "section_id": "5",
+        "offset": 240374,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.442, 부채비율(D/E) 54.66%, Relevered 0.557)"
+     },
+     {
+      "name": "신흥에스이씨",
+      "value": {
+       "value": 0.474,
+       "unit": null,
+       "text": "0.474",
+       "cite": {
+        "section_id": "5",
+        "offset": 240439,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.263, 부채비율(D/E) 226.26%, Relevered 0.838)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 17274,
+     "unit": "원",
+     "text": "17,274",
+     "cite": {
+      "section_id": "5",
+      "offset": 243776,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 14140,
+      "unit": "원",
+      "text": "14,140",
+      "cite": {
+       "section_id": "5",
+       "offset": 246922,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 22496,
+      "unit": "원",
+      "text": "22,496",
+      "cite": {
+       "section_id": "5",
+       "offset": 246980,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, 현금흐름할인모형). Ke = Rf + (Rm-Rf)×β + SRP: Rf는 Bloomberg 2024.12.31 10년 국채, MRP는 한국공인회계사회 가이던스 7–9% 중앙값, SRP는 한국공인회계사회 기업규모위험 프리미엄. β는 ESS 관련 동종기업 5사 Unlevered 평균 0.557을 목표 D/E 97.07%로 재베타(0.984, Ke 표 0.9841). Kd는 2024.12.31 이자부부채(기업은행 2,325,000천원) 세전 가중평균차입이자율(표 2.90%). WACC 식: 8.9829% = 15.4738%×50.7438% + 2.9026%×(1-20.9%)×49.2562% (영구가치 표 할인율 8.983%). 영업가치 100,136,602천원 + 비영업자산 13,176,189천원 − 이자부부채 2,325,000천원 = 110,987,791천원 ÷ 6,425,000주. range는 WACC 7.98–9.98%·g 0.0–2.0% 민감도 표 범위"
+  },
+  {
+   "subject": "회계법인더올",
+   "target": "대신밸런스제18호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1710,
+     "unit": "원",
+     "text": "1,710",
+     "cite": {
+      "section_id": "5",
+      "offset": 13304,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 15222800788,
+     "unit": "원",
+     "text": "15,222,800,788",
+     "cite": {
+      "section_id": "5",
+      "offset": 13233,
+      "file_id": "main"
+     }
+    },
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 8900000,
+     "unit": "주",
+     "text": "8,900,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 13268,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 137661,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기산일 2025-06-12, 1개월 가중평균 2,131원·1주일 2,171원·최근일 2,185원의 산술평균 2,162원에 7.50% 할인한 2,000원(라×(1-마)). 자산가치 1,710원보다 높아 합병가액 Max[가, 나] = 2,000원. 시행령 제176조의5 제1항 제1호. 기준주가 표는 section 5 앞부분(회사 산출근거 구간) cite"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)지에프아이",
+    "basis": "본질가치",
+    "value": {
+     "value": 12584,
+     "unit": "원",
+     "text": "12,584",
+     "cite": {
+      "section_id": "5",
+      "offset": 137685,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "대신밸런스제18호기업인수목적(주)",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 137661,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "합병법인 주당 평가액 범위(외부평가)",
+    "subject": "회계법인더올",
+    "range": {
+     "min": {
+      "value": 10704,
+      "unit": "원",
+      "text": "10,704",
+      "cite": {
+       "section_id": "5",
+       "offset": 130864,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15717,
+      "unit": "원",
+      "text": "15,717",
+      "cite": {
+       "section_id": "5",
+       "offset": 130873,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "합병비율 범위(외부평가)",
+    "subject": "회계법인더올",
+    "range": {
+     "min": {
+      "value": 0.1272507,
+      "unit": null,
+      "text": "0.1272507",
+      "cite": {
+       "section_id": "5",
+       "offset": 130936,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.186846,
+      "unit": null,
+      "text": "0.1868460",
+      "cite": {
+       "section_id": "5",
+       "offset": 130948,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.158932,
+   "unit": null,
+   "text": "0.1589320",
+   "cite": {
+    "section_id": "5",
+    "offset": 137859,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 15820000768,
+   "unit": "원",
+   "text": "15,820,000,768",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 381,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "회계법인더올: 합의한 합병비율 1 : 0.1589320은 평가 범위(0.1272507–0.1868460) 내에 있어 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "회계법인더올",
+   "target": "(주)지에프아이",
+   "variables": "WACC 7.98–9.98% (±1%p), 영구성장률 0.0–2.0% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 14140,
+     "unit": "원",
+     "text": "14,140",
+     "cite": {
+      "section_id": "5",
+      "offset": 246922,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 22496,
+     "unit": "원",
+     "text": "22,496",
+     "cite": {
+      "section_id": "5",
+      "offset": 246980,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250526–20251122, listed_only=False): merger/full, 거래 대표 rcept 20251024000215([첨부정정]증권신고서(합병)), original_rcept_no=20250917000396, body_rcept_no=20251023000422(본 건, 5차 기재정정), attachment_rcept_no=20251024000215. supersedes 20250917000396·20250918000230·20250926000667·20251002000493·20251014000159·20251021000387·20251023000109·20251023000422. 본 건보다 최신 본문 정정 없음.",
+  "짝 공시: SPAC 측 [첨부정정]주요사항보고서(회사합병결정) 20251024000176(대신밸런스제18호기업인수목적, summary, 원본 20250613000302, body 20251002000243) — 검색 결과의 related_rcept_nos에는 연결되지 않음. 필요하면 별도 /dart-valuation.",
+  "SPAC 합병: 존속(합병법인)은 비상장 (주)지에프아이(2차전지 소화안전 제품), 소멸(피합병법인)은 코스닥 상장 대신밸런스제18호기업인수목적. company.market은 신고 당시(비상장) 기준 '기타'(검색 결과 corp_cls는 조회 시점 K).",
+  "평가 장은 section 5 'II. 합병 가액 및 그 산출근거'(250,121자). 앞부분(0–128,000)은 회사의 산출근거, 5.h38 '나. 외부평가'(offset 128,004–) 이후는 회계법인더올 평가의견서 요약으로 같은 숫자가 반복된다. cite는 가능하면 외부평가 구간. 평가 주체는 회계법인더올 하나.",
+  "합병계약: 최초 2025-06-13, 1차 변경 2025-09-09, 2차 변경 2025-09-17(section 4). 평가의견서 제출일 2025-09-17. 주식매수청구가격(회사제시) 합병법인 12,584원·피합병법인 2,056원, 합병기일 2025-12-24(3.3). 합병신주 기명식보통주 1,257,152주, 모집가액 12,584원, 모집총액 15,820,000,768원(3.4).",
+  "합병법인 합병가액은 '외부평가업무 가이드라인' 문단30에 따라 최근 주식거래 현황 등을 고려해 산정했다고 적혀 있으나(주2) 결과는 본질가치 12,584원과 같다."
+ ],
+ "extracted_at": "2026-10-27T10:21:58+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20251023000422",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 247,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251023000422",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 317,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20251023000422",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 429,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251023000422",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3034,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20251023000422",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 23503,
+   "how": "find_tables/search/section"
+  },
+  {
+   "rcept_no": "20251023000422",
+   "file_id": "main",
+   "section_id": "5.h1",
+   "title": "가. 합병등 가액",
+   "chars_read": 5555,
+   "how": "section"
+  }
+ ]
+}

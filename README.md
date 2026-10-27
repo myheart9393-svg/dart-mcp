@@ -242,7 +242,7 @@ healthcheck 검사 항목 (각 PASS/WARN/FAIL/N/A):
 2. `/dart-valuation-batch <전월 1일> <전월 말일> --grade full` → 건마다 서브에이전트로 `/dart-valuation`. 실패는 `_batch_<날짜>.md`에 남고 배치는 계속된다.
 3. 배치 끝의 **무작위 20% 리뷰**(`/dart-valuation-review`) FAIL은 고쳐서 다시 리뷰한다.
 4. `uv run python -m dart_mcp.valuation validate reports/valuations` → `errors`가 0이어야 한다. `warnings`(WACC 0–30% 밖, g ≥ WACC, g > 5%,
-   적용 멀티플 ≤ 0, 할인율 0–70% 밖)는 FAIL이 아니다 — 해당 cite를 원문과 대조해 원문이 맞으면 그대로 둔다.
+   적용 멀티플 ≤ 0, 할인율 0–70% 밖, 자본총계+조정항목≠조정 순자산)는 FAIL이 아니다 — 해당 cite를 원문과 대조해 원문이 맞으면 그대로 둔다.
 5. `reports/valuations/`(사례 JSON·md·review·`_batch`·`_scan`)를 커밋한다.
 
 > **합병가액 체계 변경 주의.** 2026.9.8 개정 자본시장법으로 **2026.12.9 이후 이사회 결의분부터** 합병가액이 기준시가 체계에서
@@ -250,5 +250,8 @@ healthcheck 검사 항목 (각 PASS/WARN/FAIL/N/A):
 > 합병·분할·주식교환 통계는 `stats --regime 기준시가` / `--regime "공정가액(2026.12.9 개정)"`으로 **따로** 낸다.
 > 두 체계가 섞인 조회면 `stats` 결과에 `warning`이 붙는다. regime이 null인 사례(원문으로 판단 불가)는 `--regime none`.
 > 2026-12 결의분부터는 추출 시 원문에서 적용 체계를 확인해 regime을 채운다(이사회 결의일만으로 추정하지 않는다).
+
+업종: 새 사례는 `batch record … ok`가 induty_code를 채운다. 기존 사례는 `uv run python -m dart_mcp.industry fill reports/valuations`(비어 있는 것만, 30일 캐시),
+분포는 `... industry dist reports/valuations`. 조회는 `stats --industry <KSIC 접두>`.
 
 사용 예시·인용 표기법은 [docs/valuation_usage.md](docs/valuation_usage.md).

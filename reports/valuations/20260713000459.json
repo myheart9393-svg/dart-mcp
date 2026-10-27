@@ -11,7 +11,7 @@
   "corp_code": "00113526",
   "name": "대한항공",
   "market": "유가증권",
-  "induty_code": null
+  "induty_code": "511"
  },
  "deal": {
   "type": "merger",

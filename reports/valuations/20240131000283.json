@@ -1,0 +1,729 @@
+{
+ "rcept_no": "20240131000283",
+ "original_rcept_no": "20240116000092",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01283974",
+  "name": "삐아",
+  "market": "기타",
+  "induty_code": "20423"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "신영해피투모로우제7호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계 여부 해당사항 없습니다.",
+  "board_date": "2023-09-15",
+  "regime": "기준시가",
+  "ratio_text": "㈜삐아 : 신영해피투모로우제7호기업인수목적㈜ = 1:0.2727025"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률 시행령 제176조의5제3항의 규정에 의거 주권상장법인인 기업인수목적회사의 특례규정을 적용하여 피합병법인은 기준 주가에 할인율을 반영한 평가가액을, 합병법인은 … 본질가치를 합병가액으로 하여 산출된 합병비율",
+  "firm": "한미회계법인",
+  "firm_type": "회계법인",
+  "period": "2023년 08월 04일 ~ 2023년 09월 14일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "합병당사회사의 주당 평가액은 합병법인 7,334원(액면 500원), 피합병법인 2,000원(액면 100원)으로 추정되었으며, 합병비율 1 : 0.2727025은 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 105119,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 삐아",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(나X1+다X1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1656,
+     "unit": "원",
+     "text": "1,656",
+     "cite": {
+      "section_id": "5",
+      "offset": 12647,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 14372420586,
+     "unit": "원",
+     "text": "14,372,420,586",
+     "cite": {
+      "section_id": "5",
+      "offset": 12576,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 18698882540,
+     "unit": "원",
+     "text": "18,698,882,540",
+     "cite": {
+      "section_id": "5",
+      "offset": 11736,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -4326461954,
+     "unit": "원",
+     "text": "(4,326,461,954)",
+     "cite": {
+      "section_id": "5",
+      "offset": 11773,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 8678203,
+     "unit": "주",
+     "text": "8,678,203",
+     "cite": {
+      "section_id": "5",
+      "offset": 12611,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7334,
+     "unit": "원",
+     "text": "7,334",
+     "cite": {
+      "section_id": "5",
+      "offset": 8309,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 11120,
+    "unit": "원",
+    "text": "11,120",
+    "cite": {
+     "section_id": "5",
+     "offset": 8349,
+     "file_id": "main"
+    }
+   },
+   "note": "SPAC 특례(시행령 176조의5 ③): 비상장 합병법인은 SPAC과 협의한 본질가치(자산 1: 수익 1.5). 상대가치는 시행세칙 7조 유사회사 3사 미만으로 산정하지 않음. 자산가치는 주식선택권 행사 후 8,678,203주 기준(행사 전 1,689원). 분석기준일 2023-09-08"
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 삐아",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년~2027년",
+    "base_date": null,
+    "wacc": {
+     "value": 14.49,
+     "unit": "%",
+     "text": "14.49%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99711,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.735,
+     "unit": "%",
+     "text": "3.735%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99421,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.000%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99456,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": null,
+    "beta_levered": {
+     "value": 0.9622,
+     "unit": null,
+     "text": "0.9622",
+     "cite": {
+      "section_id": "5",
+      "offset": 99490,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99524,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.78,
+     "unit": "%",
+     "text": "14.78%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99563,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.97,
+     "unit": "%",
+     "text": "9.97%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99591,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99666,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 4.51,
+     "unit": "%",
+     "text": "4.51%",
+     "cite": {
+      "section_id": "5",
+      "offset": 101189,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 4.31,
+     "unit": "%",
+     "text": "4.31%",
+     "cite": {
+      "section_id": "5",
+      "offset": 99646,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 64083,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "애경산업",
+      "value": {
+       "value": 1.01,
+       "unit": null,
+       "text": "1.01",
+       "cite": {
+        "section_id": "5",
+        "offset": 100158,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "클리오",
+      "value": {
+       "value": 0.97,
+       "unit": null,
+       "text": "0.97",
+       "cite": {
+        "section_id": "5",
+        "offset": 100204,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "아이패밀리에스씨",
+      "value": {
+       "value": 0.8,
+       "unit": null,
+       "text": "0.80",
+       "cite": {
+        "section_id": "5",
+        "offset": 100258,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "잉글우드랩",
+      "value": {
+       "value": 0.91,
+       "unit": null,
+       "text": "0.91",
+       "cite": {
+        "section_id": "5",
+        "offset": 100309,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "잇츠한불",
+      "value": {
+       "value": 0.97,
+       "unit": null,
+       "text": "0.97",
+       "cite": {
+        "section_id": "5",
+        "offset": 100358,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "네오팜",
+      "value": {
+       "value": 0.91,
+       "unit": null,
+       "text": "0.91",
+       "cite": {
+        "section_id": "5",
+        "offset": 100404,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11120,
+     "unit": "원",
+     "text": "11,120",
+     "cite": {
+      "section_id": "5",
+      "offset": 63328,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9933,
+      "unit": "원",
+      "text": "9,933",
+      "cite": {
+       "section_id": "5",
+       "offset": 65416,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 12701,
+      "unit": "원",
+      "text": "12,701",
+      "cite": {
+       "section_id": "5",
+       "offset": 65475,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "본질가치 중 수익가치(FCFF 현금흐름할인법). 영업가치 86,817,517천원+비영업자산 10,187,200천원-이자부부채 506,566천원=자기자본가치 96,498,151천원. 유사기업 평균 Unlevered Beta 값은 원문 표에 없어 null. Rf=5년 국고채, MRP=한공회 7~9% 중간값, Size Premium=Micro Cap, Kd=BBB0 5년 무보증 회사채. 2023년 추정에 반기 실적 포함. range는 WACC 13.49–15.49%·g 0–2% 민감도 표"
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 삐아",
+   "role": "외부평가",
+   "purpose": "기타",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "클리오",
+      "value": {
+       "value": 32.0,
+       "unit": "배",
+       "text": "32.0",
+       "cite": {
+        "section_id": "5",
+        "offset": 24343,
+        "file_id": "main"
+       }
+      },
+      "note": "PER"
+     },
+     {
+      "name": "아이패밀리에스씨",
+      "value": {
+       "value": 21.6,
+       "unit": "배",
+       "text": "21.6",
+       "cite": {
+        "section_id": "5",
+        "offset": 24350,
+        "file_id": "main"
+       }
+      },
+      "note": "PER"
+     },
+     {
+      "name": "잉글우드랩",
+      "value": {
+       "value": 19.8,
+       "unit": "배",
+       "text": "19.8",
+       "cite": {
+        "section_id": "5",
+        "offset": 24357,
+        "file_id": "main"
+       }
+      },
+      "note": "PER"
+     },
+     {
+      "name": "네오팜",
+      "value": {
+       "value": 11.1,
+       "unit": "배",
+       "text": "11.1",
+       "cite": {
+        "section_id": "5",
+        "offset": 24364,
+        "file_id": "main"
+       }
+      },
+      "note": "PER"
+     },
+     {
+      "name": "애경산업",
+      "value": {
+       "value": 12.9,
+       "unit": "배",
+       "text": "12.9",
+       "cite": {
+        "section_id": "5",
+        "offset": 24371,
+        "file_id": "main"
+       }
+      },
+      "note": "PER"
+     }
+    ],
+    "multiple": {
+     "value": 19.5,
+     "unit": "배",
+     "text": "19.5",
+     "cite": {
+      "section_id": "5",
+      "offset": 24389,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 5073,
+     "unit": "백만원",
+     "text": "5,073",
+     "cite": {
+      "section_id": "5",
+      "offset": 24942,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 25.0,
+      "unit": "%",
+      "text": "25.00%",
+      "cite": {
+       "section_id": "5",
+       "offset": 25085,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 25.0,
+      "unit": "%",
+      "text": "25.00%",
+      "cite": {
+       "section_id": "5",
+       "offset": 25085,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": null
+   },
+   "result": {
+    "value": {
+     "value": 11386,
+     "unit": "원",
+     "text": "11,386원",
+     "cite": {
+      "section_id": "5",
+      "offset": 25061,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "참고용(합병가액 미반영): 시행세칙 7조 충족 유사회사가 없어 비교 목적으로 화장품 상장사 평균 PER 19.5배 적용, 당기순이익 5,073백만원(2023.6.30 기준 LTM). 신규 상장 할인율 25% 적용 시 8,539원"
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "신영해피투모로우제7호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1703,
+     "unit": "원",
+     "text": "1,703",
+     "cite": {
+      "section_id": "5",
+      "offset": 28889,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 9874800271,
+     "unit": "원",
+     "text": "9,874,800,271",
+     "cite": {
+      "section_id": "5",
+      "offset": 28819,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 8556111978,
+     "unit": "원",
+     "text": "8,556,111,978",
+     "cite": {
+      "section_id": "5",
+      "offset": 27996,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1318688293,
+     "unit": "원",
+     "text": "1,318,688,293",
+     "cite": {
+      "section_id": "5",
+      "offset": 28032,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 5800000,
+     "unit": "주",
+     "text": "5,800,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 28853,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 25481,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "상장 SPAC: 기준주가(1개월 2,388원·1주일 2,472원·최근일 2,425원의 산술평균 2,428원, 기산일 2023-09-14)에 17.63% 할인한 2,000원. 자산가치 1,703원(전환증권 행사 시 5,800,000주)보다 높아 합병가액은 Max(A, B)=2,000원"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 삐아",
+    "basis": "본질가치",
+    "value": {
+     "value": 7334,
+     "unit": "원",
+     "text": "7,334",
+     "cite": {
+      "section_id": "5",
+      "offset": 7324,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "신영해피투모로우제7호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7300,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2727025,
+   "unit": "주",
+   "text": "0.2727025",
+   "cite": {
+    "section_id": "5",
+    "offset": 7500,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "한미회계법인: 합병비율 1 : 0.2727025은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 삐아",
+   "variables": "WACC 13.49–15.49% (±1%p), 영구성장률 0.00–2.00% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 9933,
+     "unit": "원",
+     "text": "9,933",
+     "cite": {
+      "section_id": "5",
+      "offset": 65416,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 12701,
+     "unit": "원",
+     "text": "12,701",
+     "cite": {
+      "section_id": "5",
+      "offset": 65475,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "기재정정본(20240131000283) 기준(search_valuation_disclosures body_rcept_no). 최초 제출본 20240116000092, 중간 정정 20240125000253·20240129000113. 합병변경계약 2024.01.12·01.25·01.29(section 4).",
+  "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 비상장 삐아, 소멸(피합병법인)은 코스닥 상장 SPAC. 합병가액은 시행령 176조의5(삐아 본질가치, SPAC 기준주가 할인).",
+  "company.market은 신고 당시(비상장) 기준 '기타'. 현재 기업개황 corp_cls는 K(코스닥).",
+  "외부평가 기간: 평가의견서 표지 '2023년 08월 04일 ~ 2023년 09월 14일'(section 5 첫머리), section 4 본문은 '2023년 08월 04일 ~ 2023년 9월 15일'로 다름. 의견서 제출일 2023-09-15.",
+  "PER 상대가치(11,386원, 할인 후 8,539원)는 비교 참고용으로 purpose='기타'. 유사회사 시가총액 기준일 2024-01-19.",
+  "피합병법인 합병가액 산정에서 액면 환산 시 합병비율 1 : 1.3635124(section 5 요약표 주5).",
+  "합병신주 1,173,984주, 모집가액 7,334원, 총액 8,609,998,656원(section 3.4)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240131000283",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 223,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240131000283",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 444,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240131000283",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4035,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240131000283",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 33526,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:31:48+09:00",
+ "extractor_version": "1.1"
+}

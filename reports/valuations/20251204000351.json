@@ -1,0 +1,201 @@
+{
+ "rcept_no": "20251204000351",
+ "original_rcept_no": "20251125000628",
+ "related_rcept_nos": [
+  "20251125000490"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00795135",
+  "name": "코오롱인더스트리",
+  "market": "유가증권",
+  "induty_code": "205"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "코오롱이앤피(주)",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "코오롱이앤피(주)는 합병회사인 코오롱인더스트리(주)의 연결 자회사로서 증권신고서 제출일 현재 합병존속회사가 지분의 66.68%를 보유",
+  "board_date": "2025-11-24",
+  "regime": "기준시가",
+  "ratio_text": "코오롱이앤피(주) 보통주(액면 1,000원) 1주당 코오롱인더스트리(주) 보통주(액면 5,000원) 0.1919531주 교부(1 : 0.1919531)"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "유가증권시장 주권상장법인 간 합병으로 시행령 제176조의5 제1항 제1호에 따라 합병가액을 산정하여 같은 조 제8항의 외부평가기관 평가가 요구되지 않음",
+  "basis_text": "자본시장법 제165조의4 및 시행령 제176조의5 제1항 제1호(주권상장법인 간 합병, 기준시가)",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5 제1항 제1호",
+   "자본시장법 시행령 제176조의5 제8항"
+  ],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 5745,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "코오롱인더스트리(주)",
+   "target": "코오롱인더스트리(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 41979,
+     "unit": "원",
+     "text": "41,979",
+     "cite": {
+      "section_id": "5",
+      "offset": 2289,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "유가증권시장 상장법인 간 합병(시행령 제176조의5 제1항 제1호). 기산일 2025-11-23(이사회 결의일 2025-11-24 전일): 1개월 가중산술평균종가 40,962원·1주일 43,925원·최근일 종가 41,050원의 산술평균 41,979원, 할인·할증 없음. 자산가치·수익가치·상대가치 미기재"
+  },
+  {
+   "subject": "코오롱인더스트리(주)",
+   "target": "코오롱이앤피(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 8058,
+     "unit": "원",
+     "text": "8,058",
+     "cite": {
+      "section_id": "5",
+      "offset": 4251,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2025-11-23: 1개월 가중산술평균종가 8,337원·1주일 7,958원·최근일 종가 7,880원의 산술평균 8,058원, 할인·할증 없음. 평가 주체는 신고서 제출 회사(합병존속회사)로 기재(원문은 산정 주체를 별도로 밝히지 않음)"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "코오롱인더스트리(주)",
+    "basis": "기준주가(할인·할증 없음)",
+    "value": {
+     "value": 41979,
+     "unit": "원",
+     "text": "41,979",
+     "cite": {
+      "section_id": "5",
+      "offset": 179,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "코오롱이앤피(주)",
+    "basis": "기준주가(할인·할증 없음)",
+    "value": {
+     "value": 8058,
+     "unit": "원",
+     "text": "8,058",
+     "cite": {
+      "section_id": "5",
+      "offset": 188,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1919531,
+   "unit": null,
+   "text": "0.1919531",
+   "cite": {
+    "section_id": "5",
+    "offset": 344,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 102014259354,
+   "unit": "원",
+   "text": "102,014,259,354",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 276,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": null,
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250707–20260103, listed_only=False): merger/full, original_rcept_no=20251125000628(증권신고서(합병)), body_rcept_no=20251204000351(본 건, 기재정정), attachment_rcept_no=20251125000628. search_disclosures(2025-11-01–2026-10-27)로 확인한 결과 본 건 이후 증권신고서 정정 없음(이후 2025-12-16 투자설명서, 2026-04-02 증권발행실적보고서(합병등)).",
+  "짝 공시: [첨부정정]주요사항보고서(회사합병결정) 20251125000490(summary, 원본 20251124000173). 2026-04-13 [기재정정]주요사항보고서(회사합병결정) 20260413002895도 있음. 기준시가 합병이라 평가의견서가 없어 별도 추출 실익 낮음.",
+  "평가 장은 section 5 'II. 합병 가액 및 그 산출근거'(5,768자, 통째 읽음). 상장사 간 합병으로 기준주가만 산정, 자산·수익·상대가치 미기재. 외부평가 없음.",
+  "합병신주 기명식보통주 2,430,126주, 액면 5,000원, 모집가액 41,979원, 모집총액 102,014,259,354원(3.4). 존속회사 보유 ENP 주식·ENP 자기주식에는 신주 미교부.",
+  "원문 오기: 코오롱인더스트리 1개월 종가 표 설명에 기산일이 '2026년 11월 23일'로 적혀 있으나 위 산정표는 2025년 11월 23일."
+ ],
+ "extracted_at": "2026-10-27T10:24:22+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20251204000351",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 1154,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20251204000351",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 729,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251204000351",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3030,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20251204000351",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 5768,
+   "how": "section"
+  }
+ ]
+}

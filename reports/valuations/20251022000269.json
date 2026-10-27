@@ -1,0 +1,596 @@
+{
+ "rcept_no": "20251022000269",
+ "original_rcept_no": "20250912000518",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00924931",
+  "name": "엔비알모션",
+  "market": "코스닥",
+  "induty_code": "259"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "미래에셋비전기업인수목적3호㈜",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열·임원겸직·대주주 특수관계·경쟁/보완관계·당사회사간 거래 모두 해당사항 없음(VIII. 당사회사간의 이해관계 등)",
+  "board_date": "2025-05-19",
+  "regime": "기준시가",
+  "ratio_text": "㈜엔비알모션: 미래에셋비전기업인수목적3호㈜ = 1: 0.2348245"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "현대회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 04월 01일 ~ 2025년 05월 18일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2024.11)"
+  ],
+  "opinion_text": "합병당사회사의 주당평가액은 합병법인 9,712~15,905원, 피합병법인 2,000원의 범위로 평가되었고 합병비율은 0.1854427~0.2828854로 평가되었다. 합의 합병비율 1:0.2348245는 이 범위 내에 있어 적정한 것으로 판단된다.",
+  "cite": {
+   "section_id": "5",
+   "offset": 66186,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "현대회계법인",
+   "target": "엔비알모션㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 3107,
+     "unit": "원",
+     "text": "3,107",
+     "cite": {
+      "section_id": "5",
+      "offset": 134902,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 8517,
+     "unit": "원",
+     "text": "8,517",
+     "cite": {
+      "section_id": "5",
+      "offset": 65408,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9712,
+      "unit": "원",
+      "text": "9,712",
+      "cite": {
+       "section_id": "5",
+       "offset": 65995,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15905,
+      "unit": "원",
+      "text": "15,905",
+      "cite": {
+       "section_id": "5",
+       "offset": 66001,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 12124,
+    "unit": "원",
+    "text": "12,124",
+    "cite": {
+     "section_id": "5",
+     "offset": 130653,
+     "file_id": "main"
+    }
+   },
+   "note": "본질가치 = (자산가치x1 + 수익가치x1.5)÷2.5. 유사회사 요건 충족 상장사 3사 미만으로 상대가치 미산정. range는 평가의견의 '합병법인 주당평가액' 9,712~15,905원(원문 표기 그대로; 수치는 수익가치 민감도 표의 최소·최대와 같다). 합의 합병가액 8,517원은 이 범위 밖이나 원문은 합병비율 범위 0.1854427~0.2828854 안이라 적정하다고 판단."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "엔비알모션㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년–2029년(5개년)",
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 9.9,
+     "unit": "%",
+     "text": "9.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 129199,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126617,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126644,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.6159,
+     "unit": null,
+     "text": "0.6159",
+     "cite": {
+      "section_id": "5",
+      "offset": 127924,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.1139,
+     "unit": null,
+     "text": "1.1139",
+     "cite": {
+      "section_id": "5",
+      "offset": 126665,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126688,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.53,
+     "unit": "%",
+     "text": "15.53%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126724,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.53,
+     "unit": "%",
+     "text": "5.53%",
+     "cite": {
+      "section_id": "5",
+      "offset": 128703,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 129160,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 102.21,
+     "unit": "%",
+     "text": "102.21%",
+     "cite": {
+      "section_id": "5",
+      "offset": 127030,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 50.55,
+     "unit": "%",
+     "text": "50.55%",
+     "cite": {
+      "section_id": "5",
+      "offset": 129135,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 131418,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "씨에스베어링",
+      "value": {
+       "value": 0.7799,
+       "unit": null,
+       "text": "0.7799",
+       "cite": {
+        "section_id": "5",
+        "offset": 127670,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (2 Years Weekly Adjusted, 2024-12-31)"
+     },
+     {
+      "name": "포메탈",
+      "value": {
+       "value": 0.8721,
+       "unit": null,
+       "text": "0.8721",
+       "cite": {
+        "section_id": "5",
+        "offset": 127721,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (2 Years Weekly Adjusted, 2024-12-31)"
+     },
+     {
+      "name": "케이피에프",
+      "value": {
+       "value": 0.2531,
+       "unit": null,
+       "text": "0.2531",
+       "cite": {
+        "section_id": "5",
+        "offset": 127778,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (2 Years Weekly Adjusted, 2024-12-31)"
+     },
+     {
+      "name": "와이엠",
+      "value": {
+       "value": 0.3267,
+       "unit": null,
+       "text": "0.3267",
+       "cite": {
+        "section_id": "5",
+        "offset": 127831,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (2 Years Weekly Adjusted, 2024-12-31)"
+     },
+     {
+      "name": "대동기어",
+      "value": {
+       "value": 0.8478,
+       "unit": null,
+       "text": "0.8478",
+       "cite": {
+        "section_id": "5",
+        "offset": 127885,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (2 Years Weekly Adjusted, 2024-12-31)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 12124,
+     "unit": "원",
+     "text": "12,124",
+     "cite": {
+      "section_id": "5",
+      "offset": 130653,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형(현금흐름 기중 발생 가정). 추정기간 현가 33,115백만원, 영구현금흐름 현가 105,865백만원, 영업가치 138,980백만원, 비영업자산 2,011백만원, 기업가치 140,991백만원, 이자부부채 24,631백만원, 자기자본가치 116,360백만원, 희석주식수 9,597,490주. 목표자본구조는 대용베타 비교기업 평균 D/E 102.21%(E/V 49.45%, D/V 50.55%). MRP는 KICPA 가이던스 7~9% 중위값, Rs는 KICPA 기업규모위험프리미엄 3분위, Kd는 2024년 가중평균차입이자율."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "미래에셋비전기업인수목적3호㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1631,
+     "unit": "원",
+     "text": "1,631",
+     "cite": {
+      "section_id": "5",
+      "offset": 65446,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12228790557,
+     "unit": "원",
+     "text": "12,228,790,557",
+     "cite": {
+      "section_id": "5",
+      "offset": 4532,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 10043695761,
+     "unit": "원",
+     "text": "10,043,695,761",
+     "cite": {
+      "section_id": "5",
+      "offset": 3923,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 2185094796,
+     "unit": "원",
+     "text": "2,185,094,796",
+     "cite": {
+      "section_id": "5",
+      "offset": 3957,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7500000,
+     "unit": "주",
+     "text": "7,500,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 4567,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 65318,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2025-05-16(이사회 2025-05-19 전일). 1개월 2,146원·1주일 2,148원·최근일 2,155원 산술평균 기준주가 2,150원에 6.96% 할인 = 2,000원 > 자산가치 1,631원이므로 2,000원. 자산가치는 전환사채(전환가 1,000원, 2,580,000주) 전환 가정. 자산가치 상세(total·shares)는 섹션 5 앞부분 표(합병당사회사 산정 구간) cite."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "엔비알모션㈜",
+    "basis": "본질가치(합병가액)",
+    "value": {
+     "value": 8517,
+     "unit": "원",
+     "text": "8,517",
+     "cite": {
+      "section_id": "5",
+      "offset": 537,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "미래에셋비전기업인수목적3호㈜",
+    "basis": "기준주가에 할인율을 반영한 평가가액(합병가액)",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 447,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가 합병법인 주당평가액 범위(원문 표기)",
+    "subject": "현대회계법인",
+    "range": {
+     "min": {
+      "value": 9712,
+      "unit": "원",
+      "text": "9,712",
+      "cite": {
+       "section_id": "5",
+       "offset": 65995,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15905,
+      "unit": "원",
+      "text": "15,905",
+      "cite": {
+       "section_id": "5",
+       "offset": 66001,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가 합병비율 범위",
+    "subject": "현대회계법인",
+    "range": {
+     "min": {
+      "value": 0.1854427,
+      "unit": null,
+      "text": "0.1854427",
+      "cite": {
+       "section_id": "5",
+       "offset": 66069,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.2828854,
+      "unit": null,
+      "text": "0.2828854",
+      "cite": {
+       "section_id": "5",
+       "offset": 66079,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.2348245,
+   "unit": null,
+   "text": "0.2348245",
+   "cite": {
+    "section_id": "5",
+    "offset": 698,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "외부평가기관(현대회계법인)은 합의 합병비율 1:0.2348245가 평가 합병비율 범위 안에 있어 적정하다고 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "현대회계법인",
+   "target": "엔비알모션㈜",
+   "variables": "WACC 8.90%~10.90%, 영구성장률 0.5%~1.5% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 9712,
+     "unit": "원",
+     "text": "9,712",
+     "cite": {
+      "section_id": "5",
+      "offset": 133752,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 15905,
+     "unit": "원",
+     "text": "15,905",
+     "cite": {
+      "section_id": "5",
+      "offset": 133809,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20250524–20251121, listed_only=False, 2페이지)에서 확인: merger/full, correction_kind 기재정정, body_rcept_no=본 건(최신), 원본 20250912000518, attachment_rcept_no 20250923000210, supersedes 20250912000518·20250915000260·20250918000290·20250923000129·20250923000210·20250926000534·20251014000385, related_rcept_nos 없음.",
+  "SPAC(미래에셋비전기업인수목적3호, 코스닥 상장) 소멸 · 비상장 엔비알모션 존속 합병상장. company.market은 조회 시점 corp_cls(K) 기준 '코스닥'.",
+  "섹션 5 앞부분(합병당사회사 산정, 표 출처 '현대회계법인 분석결과')과 외부평가 구간(나. 외부평가 이하)의 값이 같아 주체를 외부평가기관 현대회계법인 하나로 두고 외부평가 구간 표를 cite.",
+  "외부평가 의견의 '합병법인 주당평가액 9,712~15,905원'은 수익가치 민감도 최소·최대와 같은 수치이며, 합의 합병가액 8,517원은 그 범위 밖이다(원문 그대로 기록, 해석하지 않음).",
+  "외부평가 계약 2025-03-31, 전담인력 공인회계사 4명, 제출일 2025-05-19. 분석기준일 2025-05-12(시행세칙 8조). 감사위원회 동의·'근거 및 사유' 원문은 확인 못함(null).",
+  "합병신주 기명식보통주 1,155,336주(액면 1,000원), 모집가액 8,517원, 총액 9,839,996,712원(섹션 3.4). 이사회 2025-05-19, 합병계약 변경 2025-09-04·2025-09-25(섹션 4).",
+  "합병법인 최근 2년 유상증자(주당 3,000~30,000원)는 공정가액이 아니라고 보아 가치조정 미반영(외부평가 가이드라인 문단30 검토)."
+ ],
+ "extracted_at": "2026-10-27T10:21:44+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20251022000269",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 268,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251022000269",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 500,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251022000269",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 1949,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20251022000269",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 38042,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

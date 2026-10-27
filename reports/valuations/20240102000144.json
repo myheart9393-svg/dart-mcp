@@ -1,0 +1,590 @@
+{
+ "rcept_no": "20240102000144",
+ "original_rcept_no": "20231220000524",
+ "related_rcept_nos": [
+  "20231218000304"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00366137",
+  "name": "케이지이티에스",
+  "market": "코스닥",
+  "induty_code": "302"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "케이지스틸홀딩스(주)",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "합병법인 케이지이티에스(주)가 피합병법인 케이지스틸홀딩스(주) 보통주 41,630주(51.91%)를 보유한 최대주주(기업집단 KG 계열회사)",
+  "board_date": "2023-12-18",
+  "regime": "기준시가",
+  "ratio_text": "1: 169.6135118 (케이지스틸홀딩스(주) 보통주 : 케이지이티에스(주) 보통주)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "광교회계법인",
+  "firm_type": "회계법인",
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조"
+  ],
+  "opinion_text": "주당평가액 합병법인 26,799원(액면 500원), 피합병법인 4,545,490원(액면 5,000원)으로 산정되어 합병당사회사 간 합의한 합병비율 1:169.6135118은 적정하며, 합병가액 산정방법에 위배되어 산정된 점이 발견되지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 32700,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "광교회계법인",
+   "target": "케이지이티에스(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 26799,
+     "unit": "원",
+     "text": "26,799",
+     "cite": {
+      "section_id": "5",
+      "offset": 4394,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 964767651331,
+     "unit": "원",
+     "text": "964,767,651,331",
+     "cite": {
+      "section_id": "5",
+      "offset": 4324,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 516957235372,
+     "unit": "원",
+     "text": "516,957,235,372",
+     "cite": {
+      "section_id": "5",
+      "offset": 3270,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 447810415959,
+     "unit": "원",
+     "text": "447,810,415,959",
+     "cite": {
+      "section_id": "5",
+      "offset": 3307,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 36000000,
+     "unit": "주",
+     "text": "36,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 4357,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 26799,
+     "unit": "원",
+     "text": "26,799",
+     "cite": {
+      "section_id": "5",
+      "offset": 211,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 합병법인. 기준시가 10,827원(1개월 가중평균종가 11,096원·1주일 10,674원·최근일 종가 10,710원 산술평균, 기산일 2023-12-15)이 자산가치보다 낮아 시행령 176조의5 ①2호 가목에 따라 자산가치 26,799원을 합병가액으로 산정. 자산가치 조정: 케이지스틸홀딩스 지분 순자산 차이 77,010,415,959원·케이지모빌리티 시가 차이 376,200,000,000원 가산, 배당 5,400,000,000원 차감"
+  },
+  {
+   "subject": "광교회계법인",
+   "target": "케이지스틸홀딩스(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(A x 1 + B x 1.5) ÷ 2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 4495093,
+     "unit": "원",
+     "text": "4,495,093",
+     "cite": {
+      "section_id": "5",
+      "offset": 11928,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 360506431807,
+     "unit": "원",
+     "text": "360,506,431,807",
+     "cite": {
+      "section_id": "5",
+      "offset": 11859,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 216418818645,
+     "unit": "원",
+     "text": "216,418,818,645",
+     "cite": {
+      "section_id": "5",
+      "offset": 10853,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 144087613162,
+     "unit": "원",
+     "text": "144,087,613,162",
+     "cite": {
+      "section_id": "5",
+      "offset": 10890,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 80200,
+     "unit": "주",
+     "text": "80,200",
+     "cite": {
+      "section_id": "5",
+      "offset": 11895,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4545490,
+     "unit": "원",
+     "text": "4,545,490",
+     "cite": {
+      "section_id": "5",
+      "offset": 8903,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 4579088,
+    "unit": "원",
+    "text": "4,579,088",
+    "cite": {
+     "section_id": "5",
+     "offset": 8951,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 피합병법인(지주회사). 상대가치는 유사회사 요건 충족 상장법인 3사 미만으로 산정하지 않음. 자산가치 조정은 보유 케이지스틸(주) 40,000,000주 분석기준일 종가 8,600원 반영(144,087,613,162원 가산). 최근 2년 주식양수도(2022-11-07 주당 4,961,550원, 계열사 간)·상증법 보충적 평가(5,222,684원)는 가치조정 미반영"
+  },
+  {
+   "subject": "광교회계법인",
+   "target": "케이지스틸홀딩스(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년 1월 1일부터 2027년 12월 31일까지의 5년",
+    "base_date": "2022-12-31",
+    "wacc": {
+     "value": 8.88,
+     "unit": "%",
+     "text": "8.88%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32077,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.67,
+     "unit": "%",
+     "text": "3.67%",
+     "cite": {
+      "section_id": "5",
+      "offset": 28970,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 29045,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.5997,
+     "unit": null,
+     "text": "0.5997",
+     "cite": {
+      "section_id": "5",
+      "offset": 30382,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.0204,
+     "unit": null,
+     "text": "1.0204",
+     "cite": {
+      "section_id": "5",
+      "offset": 29150,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 0.6,
+     "unit": "%",
+     "text": "0.60%",
+     "cite": {
+      "section_id": "5",
+      "offset": 29284,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.44,
+     "unit": "%",
+     "text": "12.44%",
+     "cite": {
+      "section_id": "5",
+      "offset": 29416,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 6.81,
+     "unit": "%",
+     "text": "6.81%",
+     "cite": {
+      "section_id": "5",
+      "offset": 31737,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 26.4,
+     "unit": "%",
+     "text": "26.4%",
+     "cite": {
+      "section_id": "5",
+      "offset": 31801,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 92.12,
+     "unit": "%",
+     "text": "92.12%",
+     "cite": {
+      "section_id": "5",
+      "offset": 30373,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 47.95,
+     "unit": "%",
+     "text": "47.95%",
+     "cite": {
+      "section_id": "5",
+      "offset": 31957,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 0.0,
+     "unit": "%",
+     "text": "0.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23262,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "케이지스틸",
+      "value": {
+       "value": 0.6205,
+       "unit": null,
+       "text": "0.6205",
+       "cite": {
+        "section_id": "5",
+        "offset": 29954,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada)"
+     },
+     {
+      "name": "세아제강",
+      "value": {
+       "value": 0.5972,
+       "unit": null,
+       "text": "0.5972",
+       "cite": {
+        "section_id": "5",
+        "offset": 30048,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada)"
+     },
+     {
+      "name": "대한제강",
+      "value": {
+       "value": 0.7985,
+       "unit": null,
+       "text": "0.7985",
+       "cite": {
+        "section_id": "5",
+        "offset": 30141,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada)"
+     },
+     {
+      "name": "현대비앤지스틸",
+      "value": {
+       "value": 0.3397,
+       "unit": null,
+       "text": "0.3397",
+       "cite": {
+        "section_id": "5",
+        "offset": 30239,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada)"
+     },
+     {
+      "name": "포스코스틸리온",
+      "value": {
+       "value": 0.6429,
+       "unit": null,
+       "text": "0.6429",
+       "cite": {
+        "section_id": "5",
+        "offset": 30335,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4579088,
+     "unit": "원",
+     "text": "4,579,088",
+     "cite": {
+      "section_id": "5",
+      "offset": 14204,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4578603,
+      "unit": "원",
+      "text": "4,578,603",
+      "cite": {
+       "section_id": "5",
+       "offset": 24750,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4579472,
+      "unit": "원",
+      "text": "4,579,472",
+      "cite": {
+       "section_id": "5",
+       "offset": 24822,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 할인). 지주회사라 영업가치(-377,461천원)에 영업목적 투자주식(케이지스틸 시가 344,000,000천원)·비영업자산 18,188,297천원 가산, 이자발생부채 568,000천원 차감, 배당금수취액 6,000,000천원 가산. 배당금수익은 영업수익에서 제외. kd는 세전(A- 5년 무보증 회사채), 세후 5.01%. 목표자본구조: 동종기업 부채비율(D/E) 평균 92.12%, 타인자본비율(D/V) 47.95%. range는 WACC 8.38–9.38%·영구성장률 -0.50–0.50% 민감도 표 범위"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "케이지이티에스(주)",
+    "basis": "자산가치(기준시가 미달)",
+    "value": {
+     "value": 26799,
+     "unit": "원",
+     "text": "26,799",
+     "cite": {
+      "section_id": "5",
+      "offset": 211,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "케이지스틸홀딩스(주)",
+    "basis": "본질가치",
+    "value": {
+     "value": 4545490,
+     "unit": "원",
+     "text": "4,545,490",
+     "cite": {
+      "section_id": "5",
+      "offset": 188,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 169.6135118,
+   "unit": null,
+   "text": "169.6135118",
+   "cite": {
+    "section_id": "5",
+    "offset": 345,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "광교회계법인: 합의한 합병비율 1:169.6135118은 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "광교회계법인",
+   "target": "케이지스틸홀딩스(주)",
+   "variables": "WACC 8.38–9.38% (±0.5%p), 영구성장률 -0.50–0.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 4578603,
+     "unit": "원",
+     "text": "4,578,603",
+     "cite": {
+      "section_id": "5",
+      "offset": 24750,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 4579472,
+     "unit": "원",
+     "text": "4,579,472",
+     "cite": {
+      "section_id": "5",
+      "offset": 24822,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20230805–20240201, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, 원본 20231220000524(감사보고서 첨부는 원본). 짝 주요사항보고서 20231218000304(summary). 2024.04까지 이후 증권신고서 정정 없음(2024-03-28 주요사항보고서 기재정정 20240328001485만 있음).",
+  "합병법인 상호는 신고 당시 케이지이티에스(주), 현재 KG에코솔루션(corp_code 00366137).",
+  "외부평가 '근거 및 사유'·'외부평가 기간'·감사위원회 동의는 이 증권신고서 본문에 없음 → null. 짝 주요사항보고서(20231218000304)의 외부평가 5행 참조 필요.",
+  "평가기준일 2022-12-31, 기준시가 기산일 2023-12-15, 이사회 결의·합병계약 2023-12-18. 외부평가기관은 IV. 평가 및 신주배정 등(3.4)에 광교회계법인으로 기재.",
+  "합병신주 기명식보통주 13,603,002주, 모집가액 26,799원, 모집총액 364,546,850,598원(3.4). 합병교부금 없음(단주 매각대금만).",
+  "4장 진행 경과 표의 '2020년 11월 16일 ~2020년 12월 15일' 주가 산출 기간은 원문 표기 그대로(5장 기준시가 산정 기간은 2023년 11월 16일 ~ 2023년 12월 15일)."
+ ],
+ "extracted_at": "2026-10-27T09:31:42+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240102000144",
+   "file_id": "main",
+   "section_id": "12",
+   "title": "IX. 기타 투자자보호에 필요한 사항",
+   "chars_read": 7267,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240102000144",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 396,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240102000144",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 7356,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240102000144",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 38636,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20240102000144",
+   "file_id": "main",
+   "section_id": "9",
+   "title": "VI. 투자위험요소",
+   "chars_read": 1012,
+   "how": "search"
+  }
+ ]
+}

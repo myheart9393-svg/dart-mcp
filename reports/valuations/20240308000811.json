@@ -1,0 +1,576 @@
+{
+ "rcept_no": "20240308000811",
+ "original_rcept_no": "20240201000647",
+ "related_rcept_nos": [
+  "20240227007369"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00306454",
+  "name": "한국정보인증",
+  "market": "코스닥",
+  "induty_code": "58221"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "(주)디지털존",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "한국정보인증(주) | (주)디지털존 최대주주 | 보통주 | - | - | 2,428,489 | 80.96",
+  "board_date": "2024-01-30",
+  "regime": "기준시가",
+  "ratio_text": "1 :1.3099695한국정보인증(주) : (주)디지털존"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "회계법인 세일원",
+  "firm_type": "회계법인",
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조 및 시행세칙 제4조 내지 제8조",
+   "외부평가업무 가이드라인(2009.6)"
+  ],
+  "opinion_text": "주당 평가액은 합병법인 5,332원(액면 500원)과 피합병법인 6,984원(액면 500원)으로 산정되었으며, 합의한 합병비율 1 : 1.3099695은 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 83892,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회계법인 세일원",
+   "target": "한국정보인증(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 3642,
+     "unit": "원",
+     "text": "3,642",
+     "cite": {
+      "section_id": "5",
+      "offset": 4895,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 152170202469,
+     "unit": "원",
+     "text": "152,170,202,469",
+     "cite": {
+      "section_id": "5",
+      "offset": 4828,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 171484774923,
+     "unit": "원",
+     "text": "171,484,774,923",
+     "cite": {
+      "section_id": "5",
+      "offset": 3600,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -19314572454,
+     "unit": "원",
+     "text": "(19,314,572,454)",
+     "cite": {
+      "section_id": "5",
+      "offset": 3635,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 41776331,
+     "unit": "주",
+     "text": "41,776,331",
+     "cite": {
+      "section_id": "5",
+      "offset": 4860,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 5332,
+     "unit": "원",
+     "text": "5,332",
+     "cite": {
+      "section_id": "5",
+      "offset": 1156,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "주권상장법인(코스닥): 기산일 2024-01-29 기준 1개월 가중산술평균종가 5,326원·1주일 5,389원·기산일 종가 5,280원의 산술평균 5,332원. 기준시가가 자산가치(3,642원)보다 높아 기준시가를 합병가액으로 산정. 계열회사 간 합병 할인·할증 미적용"
+  },
+  {
+   "subject": "회계법인 세일원",
+   "target": "(주)디지털존",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(Ax1+Bx1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2692,
+     "unit": "원",
+     "text": "2,692",
+     "cite": {
+      "section_id": "5",
+      "offset": 14907,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 8152556552,
+     "unit": "원",
+     "text": "8,152,556,552",
+     "cite": {
+      "section_id": "5",
+      "offset": 14837,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 9655317772,
+     "unit": "원",
+     "text": "9,655,317,772",
+     "cite": {
+      "section_id": "5",
+      "offset": 13706,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -1502761220,
+     "unit": "원",
+     "text": "(1,502,761,220)",
+     "cite": {
+      "section_id": "5",
+      "offset": 13741,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 3028505,
+     "unit": "주",
+     "text": "3,028,505",
+     "cite": {
+      "section_id": "5",
+      "offset": 14872,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6984,
+     "unit": "원",
+     "text": "6,984",
+     "cite": {
+      "section_id": "5",
+      "offset": 10561,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 9846,
+    "unit": "원",
+    "text": "9,846",
+    "cite": {
+     "section_id": "5",
+     "offset": 10601,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 피합병법인: 시행세칙 제4조 본질가치(자산 1: 수익 1.5). 상대가치는 시행세칙 7조 유사회사 3사 미만으로 산정하지 않음. 최근 2년 유상증자·주식양수도·자체평가(상증세법) 내역은 가이드라인 문단30상 적정가격 근거 부족으로 가치 조정 미반영. 발행주식수는 인적분할 감소(419,868주) 차감, 주식선택권 28,941주 가산"
+  },
+  {
+   "subject": "회계법인 세일원",
+   "target": "(주)디지털존",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년~2027년",
+    "base_date": "2022-12-31",
+    "wacc": {
+     "value": 13.5,
+     "unit": "%",
+     "text": "13.50%",
+     "cite": {
+      "section_id": "5",
+      "offset": 81196,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 80870,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 80903,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.845,
+     "unit": null,
+     "text": "0.845",
+     "cite": {
+      "section_id": "5",
+      "offset": 80937,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.06,
+     "unit": null,
+     "text": "1.06",
+     "cite": {
+      "section_id": "5",
+      "offset": 80969,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 81000,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.56,
+     "unit": "%",
+     "text": "15.56%",
+     "cite": {
+      "section_id": "5",
+      "offset": 81037,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 8.92,
+     "unit": "%",
+     "text": "8.92%",
+     "cite": {
+      "section_id": "5",
+      "offset": 81064,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 81142,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 31.92,
+     "unit": "%",
+     "text": "31.92%",
+     "cite": {
+      "section_id": "5",
+      "offset": 81799,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 81117,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 43381,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "드림시큐리티",
+      "value": {
+       "value": 0.423,
+       "unit": null,
+       "text": "0.423",
+       "cite": {
+        "section_id": "5",
+        "offset": 82993,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "라온시큐어",
+      "value": {
+       "value": 1.026,
+       "unit": null,
+       "text": "1.026",
+       "cite": {
+        "section_id": "5",
+        "offset": 83063,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "시큐브",
+      "value": {
+       "value": 0.839,
+       "unit": null,
+       "text": "0.839",
+       "cite": {
+        "section_id": "5",
+        "offset": 83126,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "아톤",
+      "value": {
+       "value": 0.978,
+       "unit": null,
+       "text": "0.978",
+       "cite": {
+        "section_id": "5",
+        "offset": 83193,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "인포바인",
+      "value": {
+       "value": 0.795,
+       "unit": null,
+       "text": "0.795",
+       "cite": {
+        "section_id": "5",
+        "offset": 83258,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "포시에스",
+      "value": {
+       "value": 0.46,
+       "unit": null,
+       "text": "0.460",
+       "cite": {
+        "section_id": "5",
+        "offset": 83317,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "한국전자인증",
+      "value": {
+       "value": 1.364,
+       "unit": null,
+       "text": "1.364",
+       "cite": {
+        "section_id": "5",
+        "offset": 83386,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "한국정보인증",
+      "value": {
+       "value": 0.879,
+       "unit": null,
+       "text": "0.879",
+       "cite": {
+        "section_id": "5",
+        "offset": 83456,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 9846,
+     "unit": "원",
+     "text": "9,846",
+     "cite": {
+      "section_id": "5",
+      "offset": 42964,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "본질가치 중 수익가치(FCFF 현금흐름할인법, 연중 균등 발생 가정). 영업가치 21,287,683천원+비영업자산 10,812,145천원-이자부부채 2,282,000천원=자기자본가치 29,817,828천원 / 3,028,505주. 영구가치 13,322,163천원. Rf=2022년말 10년 국고채, MRP=한공회 8.00%, Size Premium=한공회 Micro 3.35%, Kd=BBB+ 5년 무보증 회사채. 유사 8개사 평균 D/E 31.92% → 자기자본비율 75.80%·타인자본비율 24.20%. 베타는 한공회 2년 Weekly Beta(2022-12-31)"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "한국정보인증(주)",
+    "basis": "기준시가",
+    "value": {
+     "value": 5332,
+     "unit": "원",
+     "text": "5,332",
+     "cite": {
+      "section_id": "5",
+      "offset": 179,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)디지털존",
+    "basis": "본질가치",
+    "value": {
+     "value": 6984,
+     "unit": "원",
+     "text": "6,984",
+     "cite": {
+      "section_id": "5",
+      "offset": 238,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 1.3099695,
+   "unit": "주",
+   "text": "1.3099695",
+   "cite": {
+    "section_id": "5",
+    "offset": 385,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 3988725236,
+   "unit": "원",
+   "text": "3,988,725,236",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 265,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "회계법인 세일원: 합병비율 1 : 1.3099695은 적정, 법령상 합병가액 산정방법에 위배된 점 발견되지 않음",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20231010–20240407, listed_only=False): merger/full, 기재정정, body_rcept_no=본 건(20240308000811), 원본 20240201000647, supersedes 20240201000647·20240214001842·20240227007764, 감사보고서 첨부는 원본(attachment_rcept_no).",
+  "짝 주요사항보고서(회사합병결정) 20240227007369(summary, 원본 20240130000461) — 이 실행은 증권신고서만 추출.",
+  "평가 장: section 5 'II. 합병 가액 및 그 산출근거'(외부평가기관 평가의견서 전문 수록). 외부평가 근거 원문·평가기간은 본문에서 찾지 못해 null.",
+  "특수관계인간 합병: 한국정보인증이 디지털존 지분 80.96% 보유(최대주주). 소규모합병(존속)·벤처기업 간이합병(소멸, 벤처기업법 15조의10).",
+  "평가기준일 2022-12-31(원문: 주요사항보고서 제출일이 속하는 사업연도의 최근 결산 사업연도말). 디지털존은 2023-09-04 인적분할, 분할존속부문만 평가.",
+  "합병신주 748,073주, 모집가액 5,332원, 총액 3,988,725,236원(section 3.4) — transaction_value는 합병신주 발행총액.",
+  "목표자본구조: D/E 31.92%(target_de), 타인자본비율 24.20%(target_dv, 자기자본비율 75.80%와 합 100%)."
+ ],
+ "extracted_at": "2026-10-27T09:37:06+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240308000811",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 544,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240308000811",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 10006,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20240308000811",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 33150,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

@@ -1,0 +1,194 @@
+{
+ "rcept_no": "20240105000649",
+ "original_rcept_no": "20231206000597",
+ "related_rcept_nos": [
+  "20231206000597",
+  "20231215000412",
+  "20240108000006",
+  "20240105000589"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00508344",
+  "name": "SK디앤디",
+  "market": "유가증권",
+  "induty_code": "68122"
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2023-09-15",
+  "regime": null,
+  "ratio_text": "분할회사 주주에게 1주당 1.1518695주(분할비율 0.2303739 x 1주의 금액비율 5) 배정, 분할회사 주식은 1주당 0.7696261주 비율로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2023년 6월 30일 재무상태표 기준 순자산 장부가액(자기주식 장부가액 합산) 비율로 분할비율 산정(외부평가기관 해당사항 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 260,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "SK디앤디",
+   "target": "에스케이이터닉스 주식회사",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 193643219583,
+     "unit": "원",
+     "text": "193,643,219,583원",
+     "cite": {
+      "section_id": "5",
+      "offset": 384,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 840542913701,
+     "unit": "원",
+     "text": "840,542,913,701원",
+     "cite": {
+      "section_id": "5",
+      "offset": 433,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 17664000,
+     "unit": "원",
+     "text": "17,664,000원",
+     "cite": {
+      "section_id": "5",
+      "offset": 463,
+      "file_id": "main"
+     }
+    },
+    "shares": null,
+    "base_date": "2023-06-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.2303739,
+     "unit": null,
+     "text": "0.2303739",
+     "cite": {
+      "section_id": "5",
+      "offset": 479,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = (분할신설회사 순자산 장부가액 + 신설회사 자기주식 0원) ÷ (분할 전 순자산 장부가액 + 분할 전 자기주식 장부가액). adjustments는 분할 전 자기주식 장부가액(분모에 가산). 1주의 금액비율 1,000원÷200원 = 5를 곱해 배정비율 1.1518695(보통·전환우선 동일). result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "에스케이이터닉스 주식회사",
+    "basis": "분할신주(보통·우선) 모집(매출)가액(모집총액 ÷ 주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 6802,
+     "unit": "원",
+     "text": "6,802",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 367,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2303739,
+   "unit": null,
+   "text": "0.2303739",
+   "cite": {
+    "section_id": "5",
+    "offset": 479,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 193643219583,
+   "unit": "원",
+   "text": "193,643,219,583원",
+   "cite": {
+    "section_id": "5",
+    "offset": 384,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "2023.6.30 재무상태표 기준 순자산 장부가액 비율로 분할비율 0.2303739, 배정비율 1.1518695. 신주배정은 최초 이사회(2023-09-15) 승인 분할계획서상 배정비율 기준",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20230808–20240204, listed_only=False): 분할/full, 최신 건 [첨부정정]증권신고서(분할) 20240108000006(첨부정정이라 본문 없음), body_rcept_no=20240105000649(본 건, 기재정정), 원본 20231206000597, supersedes 20231215000412. 짝 주요사항보고서 [기재정정]주요사항보고서(회사분할결정) 20240105000589(summary, 원본 20230915000071).",
+  "단순·인적분할로 외부평가기관 '해당사항 없음'(IV. 평가 및 신주배정 등). 가치평가(DCF·상대가치 등)는 없고 순자산 장부가액 비율만 있음. regime: 기준시가·본질가치 산정 없음 → null.",
+  "분할신설회사 에스케이이터닉스: 신재생에너지/ESS 사업부문(제주 위미 태양광·이천 연료전지 발전사업 제외). 유가증권시장 재상장 예정(2023-12-06 재상장 예비심사 승인).",
+  "발행증권: 기명식보통주 25,560,170주·기명식우선주 2,303,735주, 액면 200원, 모집가액 6,802원, 모집총액 보통 173,867,419,604원·우선 15,670,649,291원. 2023.6.30 재무상태표 기준이며 분할기일 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주3).",
+  "이사회 결의일 2023-09-15, 주주확정일 2023-12-01, 분할주주총회 2024-02-02, 분할기일 2024-03-01, 신주배정기준일 2024-02-29(III. 주요일정·II장)."
+ ],
+ "extracted_at": "2026-10-27T09:29:09+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240105000649",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 253,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240105000649",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1333,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240105000649",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 분할에 관한 기본사항",
+   "chars_read": 1752,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240105000649",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 603,
+   "how": "section"
+  }
+ ]
+}

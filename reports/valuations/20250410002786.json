@@ -1,0 +1,568 @@
+{
+ "rcept_no": "20250410002786",
+ "original_rcept_no": "20250213001738",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01638387",
+  "name": "케이지에이",
+  "market": "기타",
+  "induty_code": "29271"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "삼성기업인수목적9호㈜",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "가. 계열회사 또는 자회사 등의 관계가 있는 경우\n해당사항 없습니다.",
+  "board_date": "2024-10-23",
+  "regime": "기준시가",
+  "ratio_text": "합병비율: 케이지에이㈜: 삼성기업인수목적9호㈜ = 1:0.3309614 (삼성기업인수목적9호㈜의기명식 보통주식 1주당 케이지에이㈜의 기명식 보통주식 0.3309614 주)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과 금융투자업에 관한 법률 제165조의4, 동법 시행령 제176조의5(기업인수목적회사 특례), 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조를 적용하여 1주당 합병가액을 산출하고 합병비율의 적정성을 검토",
+  "firm": "회계법인 더올",
+  "firm_type": "회계법인",
+  "period": "2024년 8월 29일 ~ 2024년 10월 22일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 6,043원(액면 500원)·피합병법인 2,000원(액면 100원), 합병비율 1:0.3309614는 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 45,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회계법인 더올",
+   "target": "케이지에이 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(나X1+다X1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2189,
+     "unit": "원",
+     "text": "2,189",
+     "cite": {
+      "section_id": "5",
+      "offset": 13830,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 20149009907,
+     "unit": "원",
+     "text": "20,149,009,907",
+     "cite": {
+      "section_id": "5",
+      "offset": 13759,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 13548983457,
+     "unit": "원",
+     "text": "13,548,983,457",
+     "cite": {
+      "section_id": "5",
+      "offset": 12991,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 6600026450,
+     "unit": "원",
+     "text": "6,600,026,450",
+     "cite": {
+      "section_id": "5",
+      "offset": 13027,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 9204195,
+     "unit": "주",
+     "text": "9,204,195",
+     "cite": {
+      "section_id": "5",
+      "offset": 13794,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "주권비상장법인인 합병법인의 유사회사 선정기준을 충족시키는 유사한 주권상장법인이 없으므로 상대가치를 산정하지 아니함"
+   },
+   "result": {
+    "value": {
+     "value": 6043,
+     "unit": "원",
+     "text": "6,043",
+     "cite": {
+      "section_id": "5",
+      "offset": 9335,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 8612,
+    "unit": "원",
+    "text": "8,612",
+    "cite": {
+     "section_id": "5",
+     "offset": 9375,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(합병법인). 본질가치 = (자산가치 2,189원×1 + 수익가치 8,612원×1.5)÷2.5 = 6,043원 = 합병가액. 자산가치는 2023.12.31 자본총계에 최근사업연도말 이후 자본금 증가 132,175,000원·자본잉여금 증가 6,467,851,450원(2024-08-17 RCPS 발행) 가산. 주식매수선택권 270,000주는 가득조건 미충족으로 미반영. 분석기준일 2024-10-16. 최근 2년 유상증자(4,167원·RCPS 8,322원)·구주거래(4,167–8,322원)는 외부평가업무 가이드라인 문단30 검토 결과 가치조정 대상 아님으로 판단"
+  },
+  {
+   "subject": "회계법인 더올",
+   "target": "케이지에이 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년 12월 31일까지의 5년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 11.42,
+     "unit": "%",
+     "text": "11.42%",
+     "cite": {
+      "section_id": "5",
+      "offset": 128996,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126757,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126820,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 1.047,
+     "unit": null,
+     "text": "1.047",
+     "cite": {
+      "section_id": "5",
+      "offset": 127469,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.156,
+     "unit": null,
+     "text": "1.156",
+     "cite": {
+      "section_id": "5",
+      "offset": 126865,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 12.42,
+     "unit": "%",
+     "text": "12.42%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126967,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.78,
+     "unit": "%",
+     "text": "4.78%",
+     "cite": {
+      "section_id": "5",
+      "offset": 128806,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 129068,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 13.13,
+     "unit": "%",
+     "text": "13.13%",
+     "cite": {
+      "section_id": "5",
+      "offset": 128965,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 11.6028,
+     "unit": "%",
+     "text": "11.6028%",
+     "cite": {
+      "section_id": "5",
+      "offset": 129077,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52909,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "피엔티",
+      "value": {
+       "value": 1.089,
+       "unit": null,
+       "text": "1.089",
+       "cite": {
+        "section_id": "5",
+        "offset": 127300,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.297, 부채비율 D/E 24.85%, Relevered 1.202)"
+     },
+     {
+      "name": "씨아이에스",
+      "value": {
+       "value": 0.933,
+       "unit": null,
+       "text": "0.933",
+       "cite": {
+        "section_id": "5",
+        "offset": 127361,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.968, 부채비율 D/E 4.84%, Relevered 1.030)"
+     },
+     {
+      "name": "지아이텍",
+      "value": {
+       "value": 1.119,
+       "unit": null,
+       "text": "1.119",
+       "cite": {
+        "section_id": "5",
+        "offset": 127421,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.205, 부채비율 D/E 9.69%, Relevered 1.235)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 8612,
+     "unit": "원",
+     "text": "8,612",
+     "cite": {
+      "section_id": "5",
+      "offset": 14759,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 6760,
+      "unit": "원",
+      "text": "6,760",
+      "cite": {
+       "section_id": "5",
+       "offset": 133131,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 11351,
+      "unit": "원",
+      "text": "11,351",
+      "cite": {
+       "section_id": "5",
+       "offset": 133185,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법, 기중 현금흐름 가정). Ke = Rf + (Rm-Rf)×β (CAPM), 규모위험 프리미엄 항목 없음. Rf는 Bloomberg 2023.12.31 10년 만기 국채수익률, MRP는 한국공인회계사회 가이던스 7~9% 중앙값. β는 동종기업 3사(피엔티·씨아이에스·지아이텍) 2 Year Weekly Adjusted Beta를 Hamada로 unlever(평균 1.047) 후 목표 D/E 13.13%로 relever(1.156). Kd 4.78%는 2023.12.31 이자부부채 가중평균차입이자율. 산식 11.4193% = {12.4222% × 88.3972% + 4.7785% × (1-20.9%) × 11.6028%} (E/V 88.3972%, D/V 11.6028%). 추정기간 PV 25,593,732,756원 + 영구현금흐름 PV 65,126,705,563원 = 영업가치 90,720,438,319원, 비영업자산 569,515,242원 가산, 이자부부채 12,024,990,000원 차감 → 자기자본가치 79,264,963,561원 ÷ 9,204,195주. 2024년 추정액에 2024년 실적 포함. range는 WACC 10.42–12.42%·g 0.0–2.0% 민감도 표 범위"
+  },
+  {
+   "subject": "회계법인 더올",
+   "target": "삼성기업인수목적9호 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1632,
+     "unit": "원",
+     "text": "1,632",
+     "cite": {
+      "section_id": "5",
+      "offset": 26900,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 24637903302,
+     "unit": "원",
+     "text": "24,637,903,302",
+     "cite": {
+      "section_id": "5",
+      "offset": 26828,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 21382073225,
+     "unit": "원",
+     "text": "21,382,073,225",
+     "cite": {
+      "section_id": "5",
+      "offset": 26017,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 3255830077,
+     "unit": "원",
+     "text": "3,255,830,077",
+     "cite": {
+      "section_id": "5",
+      "offset": 26053,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 15100000,
+     "unit": "주",
+     "text": "15,100,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 26863,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 23589,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(피합병법인, 소멸). 기산일 2024-10-22, 1개월 가중평균 2,046원·1주일 2,016원·최근일 2,025원의 산술평균 기준주가 2,029원에 1.44% 할인한 2,000원. 자산가치 1,632원(2023.12.31 감사 재무제표, 전환사채 전환가정 4,050,000주·3,255,830,077원 반영; 전환 전 11,050,000주 기준이면 2,230원)보다 높아 Max[가, 나] = 2,000원 적용"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "케이지에이 주식회사",
+    "basis": "본질가치",
+    "value": {
+     "value": 6043,
+     "unit": "원",
+     "text": "6,043",
+     "cite": {
+      "section_id": "5",
+      "offset": 8433,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "삼성기업인수목적9호 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 8409,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.3309614,
+   "unit": null,
+   "text": "0.3309614",
+   "cite": {
+    "section_id": "5",
+    "offset": 8604,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 22099994289,
+   "unit": "원",
+   "text": "22,099,994,289",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 378,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "회계법인 더올: 합병비율 1:0.3309614는 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "회계법인 더올",
+   "target": "케이지에이 주식회사",
+   "variables": "WACC 10.42–12.42% (1%p 간격), 영구성장률 0.0–2.0% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 6760,
+     "unit": "원",
+     "text": "6,760",
+     "cite": {
+      "section_id": "5",
+      "offset": 133131,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 11351,
+     "unit": "원",
+     "text": "11,351",
+     "cite": {
+      "section_id": "5",
+      "offset": 133185,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20241111–20250510, listed_only=False, 2페이지): merger/full, correction_kind=기재정정, body_rcept_no=본 건(20250410002786), attachment_rcept_no 20250304000344, supersedes 20250213001738·20250224002768·20250227005499·20250304000344·20250311000146·20250402003494. 검색 결과의 original_rcept_no는 null이었으나, 본 건 정정 연혁표(section 0)가 최초 제출일 2025-02-13 '증권신고서(합병) 최초 제출'로 적고 있고 DART 목록상 같은 날 접수본이 20250213001738([첨부추가]증권신고서(합병))뿐이어서 이를 original로 적음. 본 건 이후 본문 정정 없음(발행공시 목록 2026-10-27 조회).",
+  "SPAC 합병: 존속(합병법인)은 비상장 케이지에이 주식회사(company.market은 신고 당시 기준 '기타', 현재 corp_cls K), 소멸(피합병법인)은 코스닥 상장 삼성기업인수목적9호 주식회사.",
+  "이사회 합병결의·합병계약 2024-10-23, 합병계약 변경체결 1차 2025-02-13·2차 2025-04-02·3차 2025-04-10(section 4). 평가의견서 제출일 2024-10-23, 평가기간 2024-08-29~2024-10-22.",
+  "합병신주 기명식보통주 3,657,123주, 액면 500원, 모집가액 6,043원, 모집총액 22,099,994,289원(3.4).",
+  "평가기준일 2023-12-31(DCF·자산가치 재무제표), 분석기준일 2024-10-16. 짝 주요사항보고서(합병결정)는 검색 결과에 없음."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250410002786",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 1462,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250410002786",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 268,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250410002786",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 488,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250410002786",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4253,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250410002786",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 41592,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:10:01+09:00",
+ "extractor_version": "1.1"
+}

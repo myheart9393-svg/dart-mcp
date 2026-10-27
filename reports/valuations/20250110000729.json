@@ -1,0 +1,605 @@
+{
+ "rcept_no": "20250110000729",
+ "original_rcept_no": "20250110000729",
+ "related_rcept_nos": [
+  "20250110000285"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01307593",
+  "name": "에이아이코리아",
+  "market": "기타",
+  "induty_code": "29271"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "한국제14호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계 여부: 해당사항 없습니다.",
+  "board_date": "2024-09-30",
+  "regime": "기준시가",
+  "ratio_text": "㈜에이아이코리아 : 한국제14호기업인수목적㈜ = 1:0.2092101"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장법 165조의4·시행령 제176조의5, 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 시행세칙 제4조 내지 제8조를 적용하여 주권상장법인인 피합병법인과 주권비상장법인인 합병법인의 1주당 합병가액을 산출하고 합병비율의 적정성을 검토",
+  "firm": "한울회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 8월 16일 ~ 2024년 9월 30일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)"
+  ],
+  "opinion_text": "주당 평가액 합병법인 9,560원(액면 500원)·피합병법인 2,000원(액면 100원), 합병당사회사가 협의한 합병비율 1 : 0.2092101은 적정한 것으로 판단",
+  "cite": {
+   "section_id": "4",
+   "offset": 67,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한울회계법인",
+   "target": "주식회사 에이아이코리아",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(나*1+다*1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 4221,
+     "unit": "원",
+     "text": "4,221",
+     "cite": {
+      "section_id": "4",
+      "offset": 16911,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 30077135892,
+     "unit": "원",
+     "text": "30,077,135,892",
+     "cite": {
+      "section_id": "4",
+      "offset": 16841,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 29524322516,
+     "unit": "원",
+     "text": "29,524,322,516",
+     "cite": {
+      "section_id": "4",
+      "offset": 15997,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 552813376,
+     "unit": "원",
+     "text": "552,813,376",
+     "cite": {
+      "section_id": "4",
+      "offset": 16033,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7124839,
+     "unit": "주",
+     "text": "7,124,839",
+     "cite": {
+      "section_id": "4",
+      "offset": 16876,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "시행세칙 제7조 유사회사 요건(소분류 '특수 목적용 기계 제조업' 160개사 중 주당 법인세차감전이익·순자산 ±30% 등)을 충족하는 주권상장법인이 3사 미만이라 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 9560,
+     "unit": "원",
+     "text": "9,560",
+     "cite": {
+      "section_id": "4",
+      "offset": 9773,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 13119,
+    "unit": "원",
+    "text": "13,119",
+    "cite": {
+     "section_id": "4",
+     "offset": 9813,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(SPAC 합병 상장). 시행령 176조의5 ①2호 나목·시행세칙 제4조 본질가치(자산 1·수익 1.5). 자산가치: 2023-12-31 감사받은 자본총계 + 시장성 없는 투자주식 순자산 차이 3,172,814,637원·주식선택권 행사 600,000,000원 가산, 실질가치 없는 무형자산 3,039,600,840원 등 차감; 주식수는 주식선택권 200,000주 포함. 최근 2년 유상증자 없음, 자본거래(주식매수선택권·액면분할)는 가이드라인 문단30 검토."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "주식회사 에이아이코리아",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년 12월 31일까지의 5년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 12.92,
+     "unit": "%",
+     "text": "12.92%",
+     "cite": {
+      "section_id": "4",
+      "offset": 145891,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "4",
+      "offset": 143366,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 143430,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 1.25,
+     "unit": null,
+     "text": "1.250",
+     "cite": {
+      "section_id": "4",
+      "offset": 144543,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.39093,
+     "unit": null,
+     "text": "1.39093",
+     "cite": {
+      "section_id": "4",
+      "offset": 143474,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 14.3,
+     "unit": "%",
+     "text": "14.30%",
+     "cite": {
+      "section_id": "4",
+      "offset": 143578,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.36,
+     "unit": "%",
+     "text": "4.36%",
+     "cite": {
+      "section_id": "4",
+      "offset": 145660,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 23.1,
+     "unit": "%",
+     "text": "23.10%",
+     "cite": {
+      "section_id": "4",
+      "offset": 145953,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 16.19,
+     "unit": "%",
+     "text": "16.19%",
+     "cite": {
+      "section_id": "4",
+      "offset": 145860,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 12.63,
+     "unit": "%",
+     "text": "12.63%",
+     "cite": {
+      "section_id": "4",
+      "offset": 145963,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 147885,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "씨아이에스",
+      "value": {
+       "value": 1.177,
+       "unit": null,
+       "text": "1.177",
+       "cite": {
+        "section_id": "4",
+        "offset": 144244,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Hamada, Bloomberg 2 Year Weekly Adjusted Beta, 2023-12-31)"
+     },
+     {
+      "name": "아바코",
+      "value": {
+       "value": 1.126,
+       "unit": null,
+       "text": "1.126",
+       "cite": {
+        "section_id": "4",
+        "offset": 144297,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Hamada, Bloomberg 2 Year Weekly Adjusted Beta, 2023-12-31)"
+     },
+     {
+      "name": "엠플러스",
+      "value": {
+       "value": 0.908,
+       "unit": null,
+       "text": "0.908",
+       "cite": {
+        "section_id": "4",
+        "offset": 144351,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Hamada, Bloomberg 2 Year Weekly Adjusted Beta, 2023-12-31)"
+     },
+     {
+      "name": "코윈테크",
+      "value": {
+       "value": 0.943,
+       "unit": null,
+       "text": "0.943",
+       "cite": {
+        "section_id": "4",
+        "offset": 144405,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Hamada, Bloomberg 2 Year Weekly Adjusted Beta, 2023-12-31)"
+     },
+     {
+      "name": "필에너지",
+      "value": {
+       "value": 2.394,
+       "unit": null,
+       "text": "2.394",
+       "cite": {
+        "section_id": "4",
+        "offset": 144458,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Hamada, Bloomberg 2 Year Weekly Adjusted Beta, 2023-12-31)"
+     },
+     {
+      "name": "필옵틱스",
+      "value": {
+       "value": 0.952,
+       "unit": null,
+       "text": "0.952",
+       "cite": {
+        "section_id": "4",
+        "offset": 144512,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Hamada, Bloomberg 2 Year Weekly Adjusted Beta, 2023-12-31)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 13119,
+     "unit": "원",
+     "text": "13,119",
+     "cite": {
+      "section_id": "4",
+      "offset": 147472,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 11653,
+      "unit": "원",
+      "text": "11,653",
+      "cite": {
+       "section_id": "4",
+       "offset": 150742,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 15161,
+      "unit": "원",
+      "text": "15,161",
+      "cite": {
+       "section_id": "4",
+       "offset": 150802,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF, 기중 현금흐름 가정). Ke = Rf + (Rm-Rf)×β (규모위험 프리미엄 없음). Rf는 Bloomberg 2023-12-31 10년 국채, MRP는 한공회 가이던스. β: 특수 목적용 기계 제조업 9사 중 6사 평균 Unlevered 1.250, 목표자본구조(동종기업 평균 D/E 16.19%) 재베타 1.391(Ke 표 1.39093). Kd 4.36%는 2023말 이자부부채 세전 가중평균차입이자율. E/V 87.37%·D/V 12.63%. 영업가치 92,976,388,976 + 비영업자산 12,661,245,093 − 이자부부채 12,169,390,000 = 93,468,244,069원 ÷ 7,124,839주. range는 WACC 11.92–13.92%·g 0–2% 민감도 표 범위"
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "한국제14호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1709,
+     "unit": "원",
+     "text": "1,709",
+     "cite": {
+      "section_id": "4",
+      "offset": 33889,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 9568111067,
+     "unit": "원",
+     "text": "9,568,111,067",
+     "cite": {
+      "section_id": "4",
+      "offset": 33820,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 806423600,
+     "unit": "원",
+     "text": "806,423,600",
+     "cite": {
+      "section_id": "4",
+      "offset": 32982,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 8761687467,
+     "unit": "원",
+     "text": "8,761,687,467",
+     "cite": {
+      "section_id": "4",
+      "offset": 33015,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 5600000,
+     "unit": "주",
+     "text": "5,600,000",
+     "cite": {
+      "section_id": "4",
+      "offset": 33854,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-02-20"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "4",
+      "offset": 30343,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(소멸): 시행령 176조의5 ③ 기업인수목적회사 특례. 기산일 2024-09-27, 1개월 가중평균 2,145원·1주일 2,202원·최근일 2,235원의 산술평균 2,194원에 8.84% 할인한 2,000원. 자산가치 1,709원(2024-02-20 감사 자본총계 + 이후 유상증자 자본금·자본잉여금 증가, 전환사채 전환가정 629,340,514원 가산)보다 높아 Max[가, 나]=2,000원"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 에이아이코리아",
+    "basis": "본질가치",
+    "value": {
+     "value": 9560,
+     "unit": "원",
+     "text": "9,560",
+     "cite": {
+      "section_id": "4",
+      "offset": 8707,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "한국제14호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "4",
+      "offset": 8608,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2092101,
+   "unit": null,
+   "text": "0.2092101",
+   "cite": {
+    "section_id": "4",
+    "offset": 8871,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 9620228000,
+   "unit": "원",
+   "text": "9,620,228,000",
+   "cite": {
+    "section_id": "2.4",
+    "offset": 390,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "한울회계법인: 합병비율 1 : 0.2092101은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한울회계법인",
+   "target": "주식회사 에이아이코리아",
+   "variables": "WACC 11.92–13.92% (±1%p), 영구성장률 0.00–2.00% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 11653,
+     "unit": "원",
+     "text": "11,653",
+     "cite": {
+      "section_id": "4",
+      "offset": 150742,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 15161,
+     "unit": "원",
+     "text": "15,161",
+     "cite": {
+      "section_id": "4",
+      "offset": 150802,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240813–20250209, listed_only=False): merger/full, 정정 없음(original=body=attachment=본 건), related 없음. 회사 공시목록(2024-09-01~2025-12-31)에도 증권신고서 정정 없음(2025-01-22 투자설명서, 2025-04-16 증권발행실적보고서). 짝 주요사항보고서는 SPAC(한국제14호기업인수목적, corp 01814312) 명의 [기재정정] 20250110000285(summary, 원본 20240930000497) — 별도 /dart-valuation 대상.",
+  "SPAC 합병: 존속(합병법인)은 비상장 ㈜에이아이코리아(2차전지 전해액 중앙공급시스템, 현재 코스닥), 소멸(피합병법인)은 코스닥 상장 SPAC. company.market은 신고 당시(비상장) 기준 '기타'.",
+  "합병계약 체결 2024-09-30, 변경체결(1차) 2025-01-10(section 3; 일정표에는 '2024.01.10'로 오기). 의견서 제출일 2024-09-30, 평가계약 2024-08-16.",
+  "발행 합병신주 기명식보통주 1,006,300주, 액면 500원, 모집가액 9,560원, 모집총액 9,620,228,000원(2.4) = transaction_value. 교부금 없음.",
+  "액면 차이(합병법인 500원·피합병법인 100원): 액면 동일 환산 시 합병비율 1 : 1.0460506(요약표 주5).",
+  "regime: 시행령 176조의5 ③ 기업인수목적회사 특례(SPAC 기준주가 할인 + 비상장 본질가치) — 2026.12.9 개정 전 체계라 '기준시가'."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250110000729",
+   "file_id": "main",
+   "section_id": "10",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 231,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250110000729",
+   "file_id": "main",
+   "section_id": "2.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 437,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250110000729",
+   "file_id": "main",
+   "section_id": "3",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 6797,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20250110000729",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 34605,
+   "how": "search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:04:03+09:00",
+ "extractor_version": "1.1"
+}

@@ -1,0 +1,887 @@
+{
+ "rcept_no": "20251028000256",
+ "original_rcept_no": "20250929000525",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00125664",
+  "name": "삼미금속",
+  "market": "코넥스",
+  "induty_code": "25912"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "아이비케이에스제22호기업인수목적㈜",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열·임원겸직·대주주 특수관계·경쟁/보완관계·당사회사간 거래 모두 해당사항 없음(VIII. 당사회사간의 이해관계 등)",
+  "board_date": "2025-05-30",
+  "regime": "기준시가",
+  "ratio_text": "삼미금속㈜:아이비케이에스제22호기업인수목적㈜ = 1:0.5474952"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "삼덕회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 03월 04일 ~ 2025년 05월 30일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "삼덕회계법인 자본시장법에 따른외부평가업무 품질관리규정"
+  ],
+  "opinion_text": "합병당사회사의 주당평가액은 합병법인 3,004원~4,604원, 피합병법인 2,000원의 범위로 평가되었으며 합병비율은 0.4344049~0.6657790로 평가되었다. 합의한 합병비율 1:0.5474952은 동 범위 내에 있으므로 적정한 것으로 판단된다.",
+  "cite": {
+   "section_id": "5",
+   "offset": 52142,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회계법인현",
+   "target": "삼미금속㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 3730,
+     "unit": "원",
+     "text": "3,730",
+     "cite": {
+      "section_id": "5",
+      "offset": 21043,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 73739322950,
+     "unit": "원",
+     "text": "73,739,322,950",
+     "cite": {
+      "section_id": "5",
+      "offset": 20971,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 73820906285,
+     "unit": "원",
+     "text": "73,820,906,285",
+     "cite": {
+      "section_id": "5",
+      "offset": 20454,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -81583335,
+     "unit": "원",
+     "text": "(81,583,335)",
+     "cite": {
+      "section_id": "5",
+      "offset": 20489,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 19766609,
+     "unit": "주",
+     "text": "19,766,609",
+     "cite": {
+      "section_id": "5",
+      "offset": 21006,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3839,
+     "unit": "원",
+     "text": "3,839",
+     "cite": {
+      "section_id": "5",
+      "offset": 17644,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 3911,
+    "unit": "원",
+    "text": "3,911",
+    "cite": {
+     "section_id": "5",
+     "offset": 21598,
+     "file_id": "main"
+    }
+   },
+   "note": "산정법인(회사가 합병가액 산출을 의뢰한 외부 전문기관, 계약 2025-04-15, 수행 2025-04-15~05-15). 미채택: 회사는 더 보수적인 평가법인(삼덕) 값을 채택. 본질가치 = (자산가치x1 + 수익가치x1.5)÷2.5, 기준시가 3,883원 대비 (-)1.13%. 유사회사 3사 미만으로 상대가치 미산정. 자산가치 조정은 실질가치 없는 무형자산(소프트웨어) 차감."
+  },
+  {
+   "subject": "회계법인현",
+   "target": "삼미금속㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년–2029년(5개년)",
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 8.87,
+     "unit": "%",
+     "text": "8.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 23990,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24080,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24154,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": null,
+    "beta_levered": {
+     "value": 0.947,
+     "unit": null,
+     "text": "0.947",
+     "cite": {
+      "section_id": "5",
+      "offset": 24211,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 10.45,
+     "unit": "%",
+     "text": "10.45%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24271,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.55,
+     "unit": "%",
+     "text": "9.55%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24319,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 24377,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "target_dv": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 5676,
+      "file_id": "main"
+     }
+    },
+    "peers": []
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3911,
+     "unit": "원",
+     "text": "3,911",
+     "cite": {
+      "section_id": "5",
+      "offset": 21598,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형, 현금흐름 기중 발생 가정. 추정기간 현가 33,992백만원, 영구현금흐름 현가 105,583백만원, 비영업자산 13백만원, 기업가치 139,588백만원, 순차입금 62,280백만원, 지분가치 77,308백만원. β 0.947은 Bloomberg 2yr weekly beta(국내 상장 유사회사 5개사 평균, 원문 '목표 자본구조는 유사기업 평균자본구조'이나 수치 없음). Kd 세전 9.55%(BBB- 5년 회사채, 회사 신용등급 BB-), 세후 7.55%. 민감도 표 원문 없음."
+  },
+  {
+   "subject": "회계법인현",
+   "target": "아이비케이에스제22호기업인수목적㈜",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1692,
+     "unit": "원",
+     "text": "1,692",
+     "cite": {
+      "section_id": "5",
+      "offset": 11470,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": null
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 11446,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2025-05-29. 기준시가 2,229원에 (-)10.27% 할인한 2,000원 > 자산가치 1,692원(전환증권 행사 시 6,000,000주 기준)이므로 2,000원(Max). 같은 산정법인 요약표((1) 평가비율 산출 요약)에는 피합병법인 기준시가 2,190원·(-)8.66%로 적혀 있어 원문 내 불일치."
+  },
+  {
+   "subject": "삼덕회계법인",
+   "target": "삼미금속㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 3730,
+     "unit": "원",
+     "text": "3,730",
+     "cite": {
+      "section_id": "5",
+      "offset": 73659,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 73739322950,
+     "unit": "원",
+     "text": "73,739,322,950",
+     "cite": {
+      "section_id": "5",
+      "offset": 73587,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 73820906285,
+     "unit": "원",
+     "text": "73,820,906,285",
+     "cite": {
+      "section_id": "5",
+      "offset": 73070,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -81583335,
+     "unit": "원",
+     "text": "(81,583,335)",
+     "cite": {
+      "section_id": "5",
+      "offset": 73105,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 19766609,
+     "unit": "주",
+     "text": "19,766,609",
+     "cite": {
+      "section_id": "5",
+      "offset": 73622,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3653,
+     "unit": "원",
+     "text": "3,653",
+     "cite": {
+      "section_id": "5",
+      "offset": 65549,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 3004,
+      "unit": "원",
+      "text": "3,004",
+      "cite": {
+       "section_id": "5",
+       "offset": 51970,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4604,
+      "unit": "원",
+      "text": "4,604",
+      "cite": {
+       "section_id": "5",
+       "offset": 51979,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 3602,
+    "unit": "원",
+    "text": "3,602",
+    "cite": {
+     "section_id": "5",
+     "offset": 74612,
+     "file_id": "main"
+    }
+   },
+   "note": "외부평가기관 자체 산정, 회사가 채택한 합병가액. 기준시가 3,883원 대비 (-)5.92%. 코넥스 상장사로 거래량이 미미해 시행령 176조의5 ②2호 본질가치 적용. range는 평가의견의 합병법인 주당평가액 범위(합병비율 0.4344049~0.6657790)."
+  },
+  {
+   "subject": "삼덕회계법인",
+   "target": "삼미금속㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년–2029년(5개년)",
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 6.27,
+     "unit": "%",
+     "text": "6.27%",
+     "cite": {
+      "section_id": "5",
+      "offset": 201449,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 198614,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 198669,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.4364,
+     "unit": null,
+     "text": "0.4364",
+     "cite": {
+      "section_id": "5",
+      "offset": 200105,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.9352,
+     "unit": null,
+     "text": "0.9352",
+     "cite": {
+      "section_id": "5",
+      "offset": 198735,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 10.35,
+     "unit": "%",
+     "text": "10.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 198839,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.36,
+     "unit": "%",
+     "text": "4.36%",
+     "cite": {
+      "section_id": "5",
+      "offset": 201222,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 201487,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 144.53,
+     "unit": "%",
+     "text": "144.53%",
+     "cite": {
+      "section_id": "5",
+      "offset": 200095,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 59.11,
+     "unit": "%",
+     "text": "59.11%",
+     "cite": {
+      "section_id": "5",
+      "offset": 201496,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 116095,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "(주)케이피에프",
+      "value": {
+       "value": 0.2014,
+       "unit": null,
+       "text": "0.2014",
+       "cite": {
+        "section_id": "5",
+        "offset": 199588,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta(Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "(주)풍강",
+      "value": {
+       "value": 0.5568,
+       "unit": null,
+       "text": "0.5568",
+       "cite": {
+        "section_id": "5",
+        "offset": 199659,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta(Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "(주)와이엠",
+      "value": {
+       "value": 0.3068,
+       "unit": null,
+       "text": "0.3068",
+       "cite": {
+        "section_id": "5",
+        "offset": 199726,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta(Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "한일단조공업(주)",
+      "value": {
+       "value": 0.3075,
+       "unit": null,
+       "text": "0.3075",
+       "cite": {
+        "section_id": "5",
+        "offset": 199797,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta(Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "(주)포메탈",
+      "value": {
+       "value": 0.8643,
+       "unit": null,
+       "text": "0.8643",
+       "cite": {
+        "section_id": "5",
+        "offset": 199862,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta(Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "한국무브넥스(주)",
+      "value": {
+       "value": 0.3235,
+       "unit": null,
+       "text": "0.3235",
+       "cite": {
+        "section_id": "5",
+        "offset": 199933,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta(Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "태양금속공업(주)",
+      "value": {
+       "value": 0.2856,
+       "unit": null,
+       "text": "0.2856",
+       "cite": {
+        "section_id": "5",
+        "offset": 200004,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta(Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "대창단조(주)",
+      "value": {
+       "value": 0.645,
+       "unit": null,
+       "text": "0.6450",
+       "cite": {
+        "section_id": "5",
+        "offset": 200070,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta(Hamada, 법인세율 20.9%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3602,
+     "unit": "원",
+     "text": "3,602",
+     "cite": {
+      "section_id": "5",
+      "offset": 74612,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형(연중 균등 발생). 기업가치 135,097,259천원, 이자부부채 63,901,894천원, 자기자본가치 71,195,365천원, 주식수 19,766,609주(단위 천원). β: 유사회사 8개사(기타 금속 가공제품 제조업 4사 + 자동차 신품 부품 제조업 4사) Unlevered 평균 0.4364를 목표 D/E 144.53%로 relever. Kd는 합병법인 2024년말 가중평균차입이자율 4.36%(세전). 자기자본 비중 40.89%. 산정법인(8.87%)과 WACC 차이는 주로 Kd·자본구조."
+  },
+  {
+   "subject": "삼덕회계법인",
+   "target": "아이비케이에스제22호기업인수목적㈜",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1692,
+     "unit": "원",
+     "text": "1,692",
+     "cite": {
+      "section_id": "5",
+      "offset": 68824,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": null
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 62179,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2025-05-29. 기준시가 2,229원에 (-)10.27% 할인. 자산가치는 전환증권 행사 시 발행주식총수 6,000,000주 기준(행사 전 4,430,000주 기준 1,991원)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "삼미금속㈜",
+    "basis": "본질가치(합병가액)",
+    "value": {
+     "value": 3653,
+     "unit": "원",
+     "text": "3,653",
+     "cite": {
+      "section_id": "5",
+      "offset": 185,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "아이비케이에스제22호기업인수목적㈜",
+    "basis": "기준시가에 할인율을 반영한 평가가액(합병가액)",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 62179,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가 합병법인 주당평가액 범위",
+    "subject": "삼덕회계법인",
+    "range": {
+     "min": {
+      "value": 3004,
+      "unit": "원",
+      "text": "3,004",
+      "cite": {
+       "section_id": "5",
+       "offset": 51970,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4604,
+      "unit": "원",
+      "text": "4,604",
+      "cite": {
+       "section_id": "5",
+       "offset": 51979,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가 합병비율 범위",
+    "subject": "삼덕회계법인",
+    "range": {
+     "min": {
+      "value": 0.4344049,
+      "unit": null,
+      "text": "0.4344049",
+      "cite": {
+       "section_id": "5",
+       "offset": 52048,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.665779,
+      "unit": null,
+      "text": "0.6657790",
+      "cite": {
+       "section_id": "5",
+       "offset": 52058,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.5474952,
+   "unit": null,
+   "text": "0.5474952",
+   "cite": {
+    "section_id": "5",
+    "offset": 594,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 8859997159,
+   "unit": "원",
+   "text": "8,859,997,159",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 398,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "외부평가기관(삼덕회계법인)은 합의 합병비율 1:0.5474952이 적정하다고 판단. 회사는 산정법인(회계법인현) 1:0.5210233 대신 더 보수적인 삼덕 값을 채택",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼덕회계법인",
+   "target": "삼미금속㈜",
+   "variables": "WACC ±0.5%p(5.77%~6.77%), 영구성장률 ±0.5%p(0.50%~1.50%) — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 2520,
+     "unit": "원",
+     "text": "2,520",
+     "cite": {
+      "section_id": "5",
+      "offset": 118116,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 5186,
+     "unit": "원",
+     "text": "5,186",
+     "cite": {
+      "section_id": "5",
+      "offset": 118172,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250601–20251127, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신), original_rcept_no=20250929000525(attachment_rcept_no 동일), supersedes 20250929000525·20251002000413·20251017000486. 같은 거래의 주요사항보고서 [첨부정정] 20251028000263(summary, body 20251017000501)은 별도 행으로 나와 related_rcept_nos에는 없음.",
+  "SPAC 합병상장: 코넥스 상장 삼미금속㈜(존속, 합병법인)이 코스닥 상장 SPAC 아이비케이에스제22호기업인수목적㈜(소멸, 피합병법인)를 흡수합병. company.market은 신고 당시 코넥스.",
+  "평가 주체 2곳: 산정법인 회계법인현(회사 의뢰, 1:0.5210233, 합병법인 3,839원, 미채택)과 외부평가기관 삼덕회계법인(계약 2025-03-03, 평가기간 2025-03-04~05-30, 1:0.5474952, 3,653원, 채택).",
+  "이사회: 최초 2025-05-30, 1차 변경 2025-09-26, 2차 변경 2025-10-17(섹션 4). 합병신주 기명식보통주 2,425,403주(액면 1,000원) × 3,653원 = 8,859,997,159원(섹션 3.4).",
+  "원문 내 불일치: 산정법인 '(1) 평가비율 산출 요약' 표는 피합병법인 기준시가 2,190원·할인율 (-)8.66%, 최종 요약표와 산정법인 세부표는 2,229원·(-)10.27%(합병가액은 둘 다 2,000원).",
+  "외부평가 '근거 및 사유' 원문 칸은 섹션 5에서 찾지 못해 basis_text=null. 감사위원회 동의 여부 원문 없음.",
+  "회계법인현의 민감도 분석 표는 원문 없음. 삼덕 민감도 중앙값(WACC 6.27%, g 1.00%) 3,602원."
+ ],
+ "extracted_at": "2026-10-27T10:25:23+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20251028000256",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 268,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251028000256",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 445,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251028000256",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 7904,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20251028000256",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 58301,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

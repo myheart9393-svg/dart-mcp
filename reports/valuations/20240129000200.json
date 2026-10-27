@@ -1,0 +1,669 @@
+{
+ "rcept_no": "20240129000200",
+ "original_rcept_no": "20231226000277",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01540903",
+  "name": "크리에이츠",
+  "market": "기타",
+  "induty_code": "33999"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "엔에이치기업인수목적20호 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계 여부해당사항 없습니다.",
+  "board_date": "2023-08-24",
+  "regime": "기준시가",
+  "ratio_text": "(주)크리에이츠 : 엔에이치기업인수목적20호(주) = 1 : 0.4005468"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "합병당사회사가 제시한 합병비율이 자본시장과금융투자업에관한법률 시행령 제176조의5, 그리고 증권의발행및공시등에관한규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조에서 규정하고 있는 합병가액 산정방법에 따라 산정되었는지에 대하여 검토하였습니다.",
+  "firm": "회계법인동행",
+  "firm_type": "회계법인",
+  "period": "2023년 7월 2일~ 2023년 8월 23일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 24,966원(액면 200원)·피합병법인 10,000원(액면 500원), 합병비율 1 : 0.4005468은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 2936,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회계법인동행",
+   "target": "(주)크리에이츠",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(나X1+다X1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 6580,
+     "unit": "원",
+     "text": "6,580",
+     "cite": {
+      "section_id": "5",
+      "offset": 16523,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 79266352753,
+     "unit": "원",
+     "text": "79,266,352,753",
+     "cite": {
+      "section_id": "5",
+      "offset": 16443,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 71593752255,
+     "unit": "원",
+     "text": "71,593,752,255",
+     "cite": {
+      "section_id": "5",
+      "offset": 15569,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 7672600498,
+     "unit": "원",
+     "text": "7,672,600,498",
+     "cite": {
+      "section_id": "5",
+      "offset": 15606,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 12047400,
+     "unit": "주",
+     "text": "12,047,400",
+     "cite": {
+      "section_id": "5",
+      "offset": 16486,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "Topgolf Callaway Brands Corp.",
+      "value": {
+       "value": 25.49,
+       "unit": "배",
+       "text": "25.49",
+       "cite": {
+        "section_id": "5",
+        "offset": 25626,
+        "file_id": "main"
+       }
+      },
+      "note": "PER"
+     },
+     {
+      "name": "Garmin Ltd",
+      "value": {
+       "value": 19.09,
+       "unit": "배",
+       "text": "19.09",
+       "cite": {
+        "section_id": "5",
+        "offset": 25634,
+        "file_id": "main"
+       }
+      },
+      "note": "PER"
+     },
+     {
+      "name": "㈜뷰웍스",
+      "value": {
+       "value": 12.6,
+       "unit": "배",
+       "text": "12.60",
+       "cite": {
+        "section_id": "5",
+        "offset": 25642,
+        "file_id": "main"
+       }
+      },
+      "note": "PER"
+     }
+    ],
+    "multiple": {
+     "value": 19.06,
+     "unit": "배",
+     "text": "19.06",
+     "cite": {
+      "section_id": "5",
+      "offset": 26100,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 17055446548,
+     "unit": "원",
+     "text": "17,055,446,548",
+     "cite": {
+      "section_id": "5",
+      "offset": 26073,
+      "file_id": "main"
+     }
+    },
+    "discount_range": null,
+    "not_applied_reason": "시행세칙 제7조 유사회사 요건(소분류 업종 동일·주당 법인세차감전이익·순자산 ±30% 등)을 충족하는 3사 이상이 없어 상대가치 미산정. 골프·이미징 유사사업 3사 평균 PER 19.06배 적용 1주당 평가액 26,986원을 '참고로'만 제시"
+   },
+   "result": {
+    "value": {
+     "value": 24966,
+     "unit": "원",
+     "text": "24,966",
+     "cite": {
+      "section_id": "5",
+      "offset": 11662,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 37223,
+    "unit": "원",
+    "text": "37,223",
+    "cite": {
+     "section_id": "5",
+     "offset": 11703,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인. 자산가치는 2022.12.31 감사받은 연결재무제표 자본총계에 자기주식 5,184,000,000원·주식선택권 행사가액 3,923,651,100원 가산, (주)모아이스 순자산 차이 1,435,050,602원 차감. 주식수는 액면분할(500→200원) 후 11,349,692주 + 주식선택권 697,708주. 참고 PER 평가 1주당 26,986원(TTM 2023.9.30 조정 당기순이익, 주식보상비용 4,669,142천원 조정). 최근 2년 유상증자·주식 양수도(주당 14,400–16,600원 등, 액면분할 후)는 가이드라인 문단30의 적정가격으로 볼 근거가 없어 가치조정 미반영"
+  },
+  {
+   "subject": "회계법인동행",
+   "target": "(주)크리에이츠",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년 1월 1일부터 2027년 12월 31일까지의 5년",
+    "base_date": null,
+    "wacc": {
+     "value": 10.78,
+     "unit": "%",
+     "text": "10.78%",
+     "cite": {
+      "section_id": "5",
+      "offset": 167832,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 167527,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 10.97,
+     "unit": "%",
+     "text": "10.97%",
+     "cite": {
+      "section_id": "5",
+      "offset": 167561,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": null,
+    "beta_levered": {
+     "value": 0.812,
+     "unit": null,
+     "text": "0.812",
+     "cite": {
+      "section_id": "5",
+      "offset": 167595,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 0.6,
+     "unit": "%",
+     "text": "0.60%",
+     "cite": {
+      "section_id": "5",
+      "offset": 167633,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.24,
+     "unit": "%",
+     "text": "13.24%",
+     "cite": {
+      "section_id": "5",
+      "offset": 167672,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 7.43,
+     "unit": "%",
+     "text": "7.43%",
+     "cite": {
+      "section_id": "5",
+      "offset": 167700,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 23.1,
+     "unit": "%",
+     "text": "23.10%",
+     "cite": {
+      "section_id": "5",
+      "offset": 167780,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 48.61,
+     "unit": "%",
+     "text": "48.61%",
+     "cite": {
+      "section_id": "5",
+      "offset": 168354,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 32.71,
+     "unit": "%",
+     "text": "32.71%",
+     "cite": {
+      "section_id": "5",
+      "offset": 168436,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 173393,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "까스텔바작",
+      "value": {
+       "value": 0.699,
+       "unit": null,
+       "text": "0.699",
+       "cite": {
+        "section_id": "5",
+        "offset": 169390,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.315, 한계세율 20.90%, 부채비율 52.68%)"
+     },
+     {
+      "name": "남화산업",
+      "value": {
+       "value": 0.774,
+       "unit": null,
+       "text": "0.774",
+       "cite": {
+        "section_id": "5",
+        "offset": 169451,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.774, 한계세율 20.90%, 부채비율 0.00%)"
+     },
+     {
+      "name": "크리스에프앤씨",
+      "value": {
+       "value": 0.35,
+       "unit": null,
+       "text": "0.350",
+       "cite": {
+        "section_id": "5",
+        "offset": 169524,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.599, 한계세율 23.10%, 부채비율 48.10%)"
+     },
+     {
+      "name": "골프존",
+      "value": {
+       "value": 0.741,
+       "unit": null,
+       "text": "0.741",
+       "cite": {
+        "section_id": "5",
+        "offset": 169593,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.796, 한계세율 23.10%, 부채비율 8.80%)"
+     },
+     {
+      "name": "골프존뉴딘홀딩스",
+      "value": {
+       "value": 0.346,
+       "unit": null,
+       "text": "0.346",
+       "cite": {
+        "section_id": "5",
+        "offset": 169667,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.662, 한계세율 23.10%, 부채비율 54.33%)"
+     },
+     {
+      "name": "휠라홀딩스",
+      "value": {
+       "value": 0.638,
+       "unit": null,
+       "text": "0.638",
+       "cite": {
+        "section_id": "5",
+        "offset": 169743,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.862, 한계세율 26.40%, 부채비율 32.34%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 37223,
+     "unit": "원",
+     "text": "37,223",
+     "cite": {
+      "section_id": "5",
+      "offset": 172588,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 33913,
+      "unit": "원",
+      "text": "33,913",
+      "cite": {
+       "section_id": "5",
+       "offset": 175380,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 41286,
+      "unit": "원",
+      "text": "41,286",
+      "cite": {
+       "section_id": "5",
+       "offset": 175440,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법, 기중 현금흐름 가정). Ke = Rf + MRP×β + Size Risk Premium(한국공인회계사회). Rf·MRP는 Bloomberg 2022년 12월말 기준. Kd 7.43%는 A- 10년만기 무보증 회사채수익률(세전, WACC 식에서 (1-t) 적용). 주석(주5·주6)은 '피합병법인의' 신용등급·목표자본구조라 적었으나 본문은 합병법인의 신용등급(A-)이라 함. 목표자본구조는 유사 동종기업 6사 평균 D/E 48.61%, E/V 67.29%·D/V 32.71%. 평균 Unlevered Beta 값은 원문 표에 없어 null(Hamada 재베타 0.812). 영업가치 416,999,434천원 + 비영업자산 47,717,878천원 − 이자부부채 15,016,643천원 − 비지배지분 1,255,118천원 = 448,445,552천원 ÷ 12,047,400주. 평가기준일은 원문에 명시 없음(비영업자산·이자부부채 장부금액은 2022.12.31 연결감사보고서 기준). range는 WACC 10.28–11.28%·g 0.50–1.50% 민감도 표 범위"
+  },
+  {
+   "subject": "회계법인동행",
+   "target": "엔에이치기업인수목적20호(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 8380,
+     "unit": "원",
+     "text": "8,380",
+     "cite": {
+      "section_id": "5",
+      "offset": 30032,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 50277010052,
+     "unit": "원",
+     "text": "50,277,010,052",
+     "cite": {
+      "section_id": "5",
+      "offset": 29961,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 46105528509,
+     "unit": "원",
+     "text": "46,105,528,509",
+     "cite": {
+      "section_id": "5",
+      "offset": 29097,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 4171481543,
+     "unit": "원",
+     "text": "4,171,481,543",
+     "cite": {
+      "section_id": "5",
+      "offset": 29133,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 6000000,
+     "unit": "주",
+     "text": "6,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 29996,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10000,
+     "unit": "원",
+     "text": "10,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 26606,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기산일 2023-08-23, 1개월 가중평균 9,981원·1주일 9,979원·최근일 9,980원의 산술평균 9,980원에 0.20% 할증한 10,000원(원문 표 산식 표기 '라×(1-마)'). 자산가치 8,380원(전환사채 전환가정 4,171,481,543원 가산, 6,000,000주)보다 높아 합병가액은 Max[가, 나]=10,000원. 시행령 제176조의5 제3항 기업인수목적회사 특례"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)크리에이츠",
+    "basis": "본질가치",
+    "value": {
+     "value": 24966,
+     "unit": "원",
+     "text": "24,966",
+     "cite": {
+      "section_id": "5",
+      "offset": 10758,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "엔에이치기업인수목적20호(주)",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 10000,
+     "unit": "원",
+     "text": "10,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 10645,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.4005468,
+   "unit": null,
+   "text": "0.4005468",
+   "cite": {
+    "section_id": "5",
+    "offset": 10937,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "회계법인동행: 합병비율 1 : 0.4005468은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "회계법인동행",
+   "target": "(주)크리에이츠",
+   "variables": "WACC 10.28–11.28% (±0.5%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 33913,
+     "unit": "원",
+     "text": "33,913",
+     "cite": {
+      "section_id": "5",
+      "offset": 175380,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 41286,
+     "unit": "원",
+     "text": "41,286",
+     "cite": {
+      "section_id": "5",
+      "offset": 175440,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20230901–20240228, listed_only=False): merger/full, body_rcept_no=20240129000200(본 건, 기재정정), original_rcept_no=20231226000277(attachment_rcept_no 동일), supersedes 20231226000277·20240105000039·20240116000060·20240118000172. 짝 주요사항보고서는 결과에 없음(related_rcept_nos 빈 목록).",
+  "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 비상장 (주)크리에이츠, 소멸(피합병법인)은 코스닥 상장 엔에이치기업인수목적20호. company.market은 신고 당시(비상장) 기준 '기타'.",
+  "합병계약 변경체결 4회(2023-10-30, 2023-12-05, 2024-01-18, 2024-01-29; section 4). 의견서 제출일 2023-12-26.",
+  "발행 합병신주 기명식보통주 2,042,788주, 모집가액 24,966원, 모집총액 51,000,245,208원(3.4). 주식매수청구가격(회사제시) 합병법인 24,966원·피합병법인 10,580원(3.3).",
+  "합병가액 요약표·평가의견서 결론이 section 5 앞부분과 끝(offset 178038 부근)에 반복된다. 평가 주체는 회계법인동행 하나."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240129000200",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 223,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240129000200",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 315,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240129000200",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 392,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240129000200",
+   "file_id": "main",
+   "section_id": "3.5",
+   "title": "V. 당사회사에 관한 사항 요약",
+   "chars_read": 415,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240129000200",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 2520,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240129000200",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 54241,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:35:25+09:00",
+ "extractor_version": "1.1"
+}

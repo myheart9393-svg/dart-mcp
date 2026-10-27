@@ -1,0 +1,192 @@
+{
+ "rcept_no": "20240621000633",
+ "original_rcept_no": "20240612000386",
+ "related_rcept_nos": [
+  "20240612000331"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00116949",
+  "name": "디엔오토모티브",
+  "market": "유가증권",
+  "induty_code": "28202"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "동아타이어공업 주식회사",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "공시대상기업집단 'DN그룹' 대표회사(디엔오토모티브)와 소속회사(동아타이어공업)로 상호 계열회사. 디엔오토모티브가 동아타이어공업 지분 12.66%(1,738,609주) 보유",
+  "board_date": "2024-06-12",
+  "regime": "기준시가",
+  "ratio_text": "(주)디엔오토모티브 보통주 : 동아타이어공업(주) 보통주 = 1 : 0.1558169"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "유가증권시장 주권상장법인 간 합병으로 기준시가를 합병가액으로 산정해 외부평가 받지 않음",
+  "basis_text": "유가증권시장 주권상장법인 간의 합병으로 자본시장법 제165조의4 및 동법 시행령 제176조의5 제1항 제1호에 의거하여 합병가액을 산정한 후, 이를 기초로 합병비율을 산출하였으므로, 외부평가기관의 평가는 받지 않았습니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5 제1항 제1호"
+  ],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 5362,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "(주)디엔오토모티브·동아타이어공업(주)(합병당사회사)",
+   "target": "(주)디엔오토모티브",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 80583,
+     "unit": "원",
+     "text": "80,583",
+     "cite": {
+      "section_id": "5",
+      "offset": 2123,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "유가증권시장 상장법인: 시행령 176조의5 ①1호 기준시가(최근 1개월 가중산술평균종가 80,624원·최근 1주일 80,624원·최근일 종가 80,500원의 산술평균). 할인·할증 미적용. 기산일 2024-06-11"
+  },
+  {
+   "subject": "(주)디엔오토모티브·동아타이어공업(주)(합병당사회사)",
+   "target": "동아타이어공업(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 12556,
+     "unit": "원",
+     "text": "12,556",
+     "cite": {
+      "section_id": "5",
+      "offset": 3960,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "유가증권시장 상장법인: 시행령 176조의5 ①1호 기준시가(최근 1개월 가중산술평균종가 12,485원·최근 1주일 12,574원·최근일 종가 12,610원의 산술평균). 할인·할증 미적용. 기산일 2024-06-11"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)디엔오토모티브",
+    "basis": "기준시가",
+    "value": {
+     "value": 80583,
+     "unit": "원",
+     "text": "80,583",
+     "cite": {
+      "section_id": "5",
+      "offset": 180,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "동아타이어공업(주)",
+    "basis": "기준시가",
+    "value": {
+     "value": 12556,
+     "unit": "원",
+     "text": "12,556",
+     "cite": {
+      "section_id": "5",
+      "offset": 189,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1558169,
+   "unit": "주",
+   "text": "0.1558169",
+   "cite": {
+    "section_id": "5",
+    "offset": 347,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 172413479285,
+   "unit": "원",
+   "text": "172,413,479,285",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 283,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "상장법인 간 합병으로 기준시가(할인·할증 없음)를 합병가액으로 하여 합병비율 1 : 0.1558169 산출. 외부평가의견 없음",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20240123–20240721, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, 원본 20240612000386(감사보고서 첨부는 원본). 짝 주요사항보고서(회사합병결정) 20240612000331(summary).",
+  "계열회사 간 합병이나 할인·할증 미적용(시행령상 계열회사 간 합병은 10% 범위).",
+  "합병신주 기명식보통주 2,139,586주, 모집가액 80,583원, 모집총액 172,413,479,285원(3.4) = transaction_value. 합병교부금 없음(단주 매각대금만). 합병 효력발생 조건으로 액면분할(1:5) 결의, 분할 반영 합병신주 10,697,930주.",
+  "합병 목적: 디엔오토모티브가 2022년 사업형 지주회사 전환 후 자회사 아닌 계열사 지분 보유 유예기간(2년) 내 행위제한 준수(4장).",
+  "합병기일 2024-09-07, 신주배정기준일 2024-09-06, 합병신주상장 예정일 2024-10-07. 자산·수익·상대가치·DCF 가정은 원문 없음(기준시가 체계)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240621000633",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1021,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240621000633",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4957,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240621000633",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 5384,
+   "how": "section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:47:06+09:00",
+ "extractor_version": "1.1"
+}

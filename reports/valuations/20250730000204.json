@@ -1,0 +1,671 @@
+{
+ "rcept_no": "20250730000204",
+ "original_rcept_no": "20250721000263",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00127875",
+  "name": "삼익제약",
+  "market": "기타",
+  "induty_code": "21212"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "하나28호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": null,
+  "board_date": "2025-05-13",
+  "regime": "기준시가",
+  "ratio_text": "삼익제약(주): 하나28호기업인수목적(주) = 1:0.2809383"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "합병 당사회사가 제시한 합병비율이 자본시장법 시행령 제176조의5, 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조에서 규정하고 있는 합병가액 산정방법에 따라 산정되었는지에 대하여 검토",
+  "firm": "이정회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 03월 13일 ~ 2025년 05월 13일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당평가액 합병법인 6,639–7,778원(액면 100원), 피합병법인 2,000원(액면 100원), 합병비율 범위 0.2571355–0.3012502. 합의한 합병비율 1 : 0.2809383은 범위 내에 있어 적정",
+  "cite": {
+   "section_id": "5",
+   "offset": 3761,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이정회계법인",
+   "target": "삼익제약 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(aX1+bX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 7233,
+     "unit": "원",
+     "text": "7,233",
+     "cite": {
+      "section_id": "5",
+      "offset": 14171,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 53158700330,
+     "unit": "원",
+     "text": "53,158,700,330",
+     "cite": {
+      "section_id": "5",
+      "offset": 14099,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 51592499917,
+     "unit": "원",
+     "text": "51,592,499,917",
+     "cite": {
+      "section_id": "5",
+      "offset": 13263,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1566200413,
+     "unit": "원",
+     "text": "1,566,200,413",
+     "cite": {
+      "section_id": "5",
+      "offset": 13299,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7349500,
+     "unit": "주",
+     "text": "7,349,500",
+     "cite": {
+      "section_id": "5",
+      "offset": 14135,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7119,
+     "unit": "원",
+     "text": "7,119",
+     "cite": {
+      "section_id": "5",
+      "offset": 12147,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 6639,
+      "unit": "원",
+      "text": "6,639",
+      "cite": {
+       "section_id": "5",
+       "offset": 1684,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 7778,
+      "unit": "원",
+      "text": "7,778",
+      "cite": {
+       "section_id": "5",
+       "offset": 1692,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 7044,
+    "unit": "원",
+    "text": "7,044",
+    "cite": {
+     "section_id": "5",
+     "offset": 12219,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(합병법인). 자산가치는 2024.12.31 감사받은 별도재무제표 자본총계에 조정항목 1,566,200,413원 가산(시장성 없는 투자주식 순자산가액 차이 504,200,413원 + 가득된 주식매수선택권 행사 예상 납입액 1,062,000,000원), 주식수 7,149,500주 + 행사 가정 200,000주. 상대가치는 유사회사 요건 충족 상장법인 3사 미만으로 미산정. 분석기준일 2025-05-02. result.range는 평가의견서 결론의 주당평가액 범위 6,639–7,778원(원문 값)."
+  },
+  {
+   "subject": "이정회계법인",
+   "target": "삼익제약 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 1월 1일부터 2029년 12월 31일까지의 5년간",
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 10.81,
+     "unit": "%",
+     "text": "10.81%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142751,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 132751,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 132814,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.6227,
+     "unit": null,
+     "text": "0.6227",
+     "cite": {
+      "section_id": "5",
+      "offset": 134493,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.7415,
+     "unit": null,
+     "text": "0.7415",
+     "cite": {
+      "section_id": "5",
+      "offset": 132858,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 132973,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.55,
+     "unit": "%",
+     "text": "12.55%",
+     "cite": {
+      "section_id": "5",
+      "offset": 133145,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.55,
+     "unit": "%",
+     "text": "4.55%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142200,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142707,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 24.13,
+     "unit": "%",
+     "text": "24.13%",
+     "cite": {
+      "section_id": "5",
+      "offset": 134484,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 19.44,
+     "unit": "%",
+     "text": "19.44%",
+     "cite": {
+      "section_id": "5",
+      "offset": 142682,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 145337,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "한국파마",
+      "value": {
+       "value": 0.982,
+       "unit": null,
+       "text": "0.982",
+       "cite": {
+        "section_id": "5",
+        "offset": 133893,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.089, D/E 13.72%, Relevered 1.170)"
+     },
+     {
+      "name": "위더스제약",
+      "value": {
+       "value": 0.615,
+       "unit": null,
+       "text": "0.615",
+       "cite": {
+        "section_id": "5",
+        "offset": 133972,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.741, D/E 25.90%, Relevered 0.732)"
+     },
+     {
+      "name": "하나제약",
+      "value": {
+       "value": 0.494,
+       "unit": null,
+       "text": "0.494",
+       "cite": {
+        "section_id": "5",
+        "offset": 134051,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.553, D/E 15.45%, Relevered 0.589)"
+     },
+     {
+      "name": "동구바이오제약",
+      "value": {
+       "value": 0.488,
+       "unit": null,
+       "text": "0.488",
+       "cite": {
+        "section_id": "5",
+        "offset": 134133,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.745, D/E 66.75%, Relevered 0.581)"
+     },
+     {
+      "name": "유나이티드",
+      "value": {
+       "value": 0.78,
+       "unit": null,
+       "text": "0.780",
+       "cite": {
+        "section_id": "5",
+        "offset": 134212,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.815, D/E 5.84%, Relevered 0.929)"
+     },
+     {
+      "name": "삼아제약",
+      "value": {
+       "value": 0.422,
+       "unit": null,
+       "text": "0.422",
+       "cite": {
+        "section_id": "5",
+        "offset": 134291,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.463, D/E 12.64%, Relevered 0.503)"
+     },
+     {
+      "name": "환인제약",
+      "value": {
+       "value": 0.632,
+       "unit": null,
+       "text": "0.632",
+       "cite": {
+        "section_id": "5",
+        "offset": 134366,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.633, D/E 0.23%, Relevered 0.752)"
+     },
+     {
+      "name": "팜젠사이언스",
+      "value": {
+       "value": 0.568,
+       "unit": null,
+       "text": "0.568",
+       "cite": {
+        "section_id": "5",
+        "offset": 134446,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.804, D/E 52.50%, Relevered 0.677)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7044,
+     "unit": "원",
+     "text": "7,044",
+     "cite": {
+      "section_id": "5",
+      "offset": 16716,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 6242,
+      "unit": "원",
+      "text": "6,242",
+      "cite": {
+       "section_id": "5",
+       "offset": 146826,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 8141,
+      "unit": "원",
+      "text": "8,141",
+      "cite": {
+       "section_id": "5",
+       "offset": 146882,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법, 연중 발생 가정). Ke = Rf + MRP×β + FSRP(Size Risk Premium 3.75%, 한국공인회계사회). Rf는 Bloomberg 2024.12.31 10년 국채, MRP는 한국공인회계사회 가이던스. Kd는 신용등급 A0 5년 무보증 공모 회사채 수익률(금융투자협회). 목표자본구조는 동종기업 8사 평균 D/E 24.13%(E/V 80.56%·D/V 19.44%), Hamada 재베타. 영업가치 36,780,751천원(추정기간 3,485,722 + 영구 33,295,029) + 비영업자산 15,051,713천원 − 이자부부채 64,698천원 = 51,767,766천원 ÷ 7,349,500주. range는 WACC 9.81–11.81%·g 0.50–1.50% 민감도 표 범위. 본문 한 곳은 영구현금흐름 기준연도를 '2028년'으로 적었으나 주석은 2029년."
+  },
+  {
+   "subject": "이정회계법인",
+   "target": "하나28호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1703,
+     "unit": "원",
+     "text": "1,703",
+     "cite": {
+      "section_id": "5",
+      "offset": 30153,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 10000000,
+     "unit": "주",
+     "text": "10,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 34870,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 30128,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(피합병법인): 기산일 2025-05-12, 1개월 가중평균 2,029원·1주일 2,043원·최근일 2,045원의 산술평균 2,039원에 1.91% 할인한 2,000원. 자산가치 1,703원(전환사채 2,798백만원 전환 가정, 주식수 7,202,000→10,000,000주; 전환 전 2,364원)보다 높아 합병가액은 Max[A, B]=2,000원."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "삼익제약 주식회사",
+    "basis": "본질가치",
+    "value": {
+     "value": 7119,
+     "unit": "원",
+     "text": "7,119",
+     "cite": {
+      "section_id": "5",
+      "offset": 11278,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "하나28호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 11188,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "삼익제약 주당평가액 범위",
+    "subject": "이정회계법인",
+    "range": {
+     "min": {
+      "value": 6639,
+      "unit": "원",
+      "text": "6,639",
+      "cite": {
+       "section_id": "5",
+       "offset": 1684,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 7778,
+      "unit": "원",
+      "text": "7,778",
+      "cite": {
+       "section_id": "5",
+       "offset": 1692,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "합병비율 범위",
+    "subject": "이정회계법인",
+    "range": {
+     "min": {
+      "value": 0.2571355,
+      "unit": null,
+      "text": "0.2571355",
+      "cite": {
+       "section_id": "5",
+       "offset": 1760,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.3012502,
+      "unit": null,
+      "text": "0.3012502",
+      "cite": {
+       "section_id": "5",
+       "offset": 1770,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.2809383,
+   "unit": null,
+   "text": "0.2809383",
+   "cite": {
+    "section_id": "5",
+    "offset": 11437,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 14403993723,
+   "unit": "원",
+   "text": "14,403,993,723",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 389,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이정회계법인: 합병당사회사 간 합의한 합병비율 1 : 0.2809383은 평가 범위(0.2571355–0.3012502) 내에 있어 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이정회계법인",
+   "target": "삼익제약 주식회사",
+   "variables": "WACC 9.81–11.81% (±1%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 6242,
+     "unit": "원",
+     "text": "6,242",
+     "cite": {
+      "section_id": "5",
+      "offset": 146826,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 8141,
+     "unit": "원",
+     "text": "8,141",
+     "cite": {
+      "section_id": "5",
+      "offset": 146882,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250301–20250829, listed_only=False): merger/full, body_rcept_no=20250730000204(본 건, 기재정정), original_rcept_no=20250721000263(attachment_rcept_no 동일), supersedes 20250721000263. related_rcept_nos 빈 목록(짝 주요사항보고서는 SPAC 하나28호기업인수목적이 제출: [기재정정]주요사항보고서(회사합병결정) 20250730000167, 원본 20250513000485).",
+  "SPAC 합병: 존속(합병법인)은 비상장 삼익제약, 소멸(피합병법인)은 코스닥 상장 하나28호기업인수목적. company.market은 신고 당시(비상장) 기준 '기타'.",
+  "합병비율 산출은 삼도회계법인(계약 2025-03-17, 수행 2025-03-17–2025-05-12)에 의뢰, 이정회계법인이 외부평가(적정성 검토). 의견서 제출일 2025-05-13.",
+  "합병신주 기명식보통주 2,023,317주(액면 100원), 모집가액 7,119원, 모집총액 14,403,993,723원(IV. 평가 및 신주배정 등) → conclusion.transaction_value.",
+  "최대주주 이충환(27.97%, 특수관계인 포함 81.32%), 합병 후 예상 63.38%(전환사채 전환 시 58.38%) (section 4).",
+  "section 5에 최근 2년 주식 양수도·비상장주식 거래사이트 가격 검토 구간(.h3·.h4)이 있으나 읽지 않음."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250730000204",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 437,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250730000204",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 6351,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250730000204",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 43807,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:19:07+09:00",
+ "extractor_version": "1.1"
+}

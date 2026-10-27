@@ -1,0 +1,471 @@
+{
+ "rcept_no": "20250131000410",
+ "original_rcept_no": "20241204000381",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01025644",
+  "name": "강스템바이오텍",
+  "market": "코스닥",
+  "induty_code": "211"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "(주)프리모리스테라퓨틱스",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "2023년 02월 세포를 이용한 치료제 및 치료기술 연구개발 전문업체인 (주)프리모리스테라퓨틱스의 최대주주 지위를 확보하였습니다",
+  "board_date": "2024-11-28",
+  "regime": "기준시가",
+  "ratio_text": "[보통주] 강스템바이오텍 보통주 : 프리모리스테라퓨틱스 보통주 = 1 : 17.8708531, [전환우선주] 강스템바이오텍 보통주 : 프리모리스테라퓨틱스 상환전환우선주 = 1 : 84.6310088"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "성현회계법인",
+  "firm_type": "회계법인",
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(금융감독원) 문단 30",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당평가액 강스템바이오텍 2,532원(액면 500원), 프리모리스테라퓨틱스 45,249원(액면 5,000원). 보통주 합병비율 1 : 17.8708531, 상환전환우선주 합병비율 1 : 84.6310088은 적정",
+  "cite": {
+   "section_id": "5",
+   "offset": 41549,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "성현회계법인",
+   "target": "(주)강스템바이오텍",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 950,
+     "unit": "원",
+     "text": "950",
+     "cite": {
+      "section_id": "5",
+      "offset": 5251,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 53211426676,
+     "unit": "원",
+     "text": "53,211,426,676",
+     "cite": {
+      "section_id": "5",
+      "offset": 5185,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 53211426676,
+     "unit": "원",
+     "text": "53,211,426,676",
+     "cite": {
+      "section_id": "5",
+      "offset": 4108,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": {
+     "value": 56005424,
+     "unit": "주",
+     "text": "56,005,424",
+     "cite": {
+      "section_id": "5",
+      "offset": 5216,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2532,
+     "unit": "원",
+     "text": "2,532",
+     "cite": {
+      "section_id": "5",
+      "offset": 2259,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 존속법인. 기산일 2024-11-27(이사회 2024-11-28·합병계약 체결예정일 2024-12-04 중 앞선 날의 전영업일). 1개월 가중평균 2,426원·1주일 2,648원·기산일 종가 2,520원 산술평균 2,532원, 할인·할증 미적용. 자산가치 950원(조정항목 없음)보다 높아 기준시가 적용(Max[가, 나])."
+  },
+  {
+   "subject": "성현회계법인",
+   "target": "(주)프리모리스테라퓨틱스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 1과 1.5의 비율로 가중산술평균(증발공 시행세칙 제4조)"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": -3463,
+     "unit": "원",
+     "text": "(3,463)",
+     "cite": {
+      "section_id": "5",
+      "offset": 11313,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": -965912751,
+     "unit": "원",
+     "text": "(965,912,751)",
+     "cite": {
+      "section_id": "5",
+      "offset": 11247,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": -5966112751,
+     "unit": "원",
+     "text": "(5,966,112,751)",
+     "cite": {
+      "section_id": "5",
+      "offset": 10129,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 5000200000,
+     "unit": "원",
+     "text": "5,000,200,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 10164,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 278924,
+     "unit": "주",
+     "text": "278,924",
+     "cite": {
+      "section_id": "5",
+      "offset": 11281,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": {
+    "forecast_years": "2024년 4월 1일부터 2041년 12월 31일까지 17년 9개월",
+    "base_date": "2024-03-31",
+    "wacc": {
+     "value": 15.39,
+     "unit": "%",
+     "text": "15.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 39948,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.64,
+     "unit": "%",
+     "text": "3.64%",
+     "cite": {
+      "section_id": "5",
+      "offset": 39660,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 9.0,
+     "unit": "%",
+     "text": "9.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 39693,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": null,
+    "beta_levered": {
+     "value": 1.09,
+     "unit": null,
+     "text": "1.09",
+     "cite": {
+      "section_id": "5",
+      "offset": 39725,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 39756,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 16.8,
+     "unit": "%",
+     "text": "16.80%",
+     "cite": {
+      "section_id": "5",
+      "offset": 39793,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.99,
+     "unit": "%",
+     "text": "4.99%",
+     "cite": {
+      "section_id": "5",
+      "offset": 39820,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 39898,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 12.34,
+     "unit": "%",
+     "text": "12.34%",
+     "cite": {
+      "section_id": "5",
+      "offset": 40847,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 10.99,
+     "unit": "%",
+     "text": "10.99%",
+     "cite": {
+      "section_id": "5",
+      "offset": 39873,
+      "file_id": "main"
+     }
+    },
+    "g": null,
+    "peers": [
+     {
+      "name": "강스템바이오텍",
+      "value": {
+       "value": 1.2,
+       "unit": null,
+       "text": "1.20",
+       "cite": {
+        "section_id": "5",
+        "offset": 40258,
+        "file_id": "main"
+       }
+      },
+      "note": "2 Years Weekly Beta(한국공인회계사회 배포, levered)"
+     },
+     {
+      "name": "바이오솔루션",
+      "value": {
+       "value": 1.18,
+       "unit": null,
+       "text": "1.18",
+       "cite": {
+        "section_id": "5",
+        "offset": 40276,
+        "file_id": "main"
+       }
+      },
+      "note": "2 Years Weekly Beta(한국공인회계사회 배포, levered)"
+     },
+     {
+      "name": "에스바이오메딕스",
+      "value": {
+       "value": 0.78,
+       "unit": null,
+       "text": "0.78",
+       "cite": {
+        "section_id": "5",
+        "offset": 40296,
+        "file_id": "main"
+       }
+      },
+      "note": "2 Years Weekly Beta(한국공인회계사회 배포, levered)"
+     },
+     {
+      "name": "테고사이언스",
+      "value": {
+       "value": 1.2,
+       "unit": null,
+       "text": "1.20",
+       "cite": {
+        "section_id": "5",
+        "offset": 40314,
+        "file_id": "main"
+       }
+      },
+      "note": "2 Years Weekly Beta(한국공인회계사회 배포, levered)"
+     }
+    ]
+   },
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "증권의발행및공시등에관한규정 시행세칙제7조에 따른 유사회사 요건을 충족하는 법인이 3사 미만이므로"
+   },
+   "result": {
+    "value": {
+     "value": 45249,
+     "unit": "원",
+     "text": "45,249",
+     "cite": {
+      "section_id": "5",
+      "offset": 6940,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 77723,
+    "unit": "원",
+    "text": "77,723",
+    "cite": {
+     "section_id": "5",
+     "offset": 6983,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 소멸법인(강스템바이오텍이 보통주 72.0% 보유한 최대주주). 수익가치는 FCFF DCF: 추정기간 영업가치 23,337백만원 + 영구가치 0 (2041년 이후 영구현금흐름 가치 '0'으로 추정) + 비영업자산 36 − 이자부부채 1,694 = 21,679백만원 ÷ 278,924주. 1주당 수익가치는 요약표 77,723원, DCF 상세표 77,724원(반올림 차이). 자산가치는 RCPS 장부가 5,000,200,000원 가산·전환 가정 주식수 157,864주 포함(전환 확실 판단). WACC 표는 Rf(2023년 12월말, Bloomberg)+MRP(한공회 최대수)×Levered Beta(벤치마크 4사 2년 주베타 평균, 언레버링 없음)+Size Premium(한공회 3분위 Micro). kd는 회사 평가기준일 차입금 이자율. 자본구성 = 벤치마크 4사 2023년말 이자부부채/시가총액 평균 12.34%(D/E), 부채/(부채+시가총액) 10.99%(D/V), 자기자본비율 89.01%. 법인세는 이월결손금 반영(과세표준 구간별 세율), WACC 산식 세율 20.90%. 상대가치 미산정. 최근 2년 유상증자 주당 170,000원·주식양수도 100,000원·2022-09-30 DCF 평가 172,052원은 가치조정 미반영."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)강스템바이오텍",
+    "basis": "기준시가",
+    "value": {
+     "value": 2532,
+     "unit": "원",
+     "text": "2,532",
+     "cite": {
+      "section_id": "5",
+      "offset": 194,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)프리모리스테라퓨틱스",
+    "basis": "본질가치(자산:수익=1:1.5)",
+    "value": {
+     "value": 45249,
+     "unit": "원",
+     "text": "45,249",
+     "cite": {
+      "section_id": "5",
+      "offset": 247,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 17.8708531,
+   "unit": null,
+   "text": "17.8708531",
+   "cite": {
+    "section_id": "5",
+    "offset": 405,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 5818057452,
+   "unit": "원",
+   "text": "5,818,057,452",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 378,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "성현회계법인: 합병가액 강스템바이오텍 2,532원·프리모리스테라퓨틱스 45,249원, 보통주 합병비율 1 : 17.8708531, 상환전환우선주 1 : 84.6310088 적정. 합병신주 기명식보통주 2,297,811주(모집총액 5,818,057,452원)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20240903–20250302, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), 원본 20241204000381, attachment_rcept_no 20241204000381, supersedes 20241204000381. related 없음(같은 날 [첨부정정]주요사항보고서(회사합병결정) 20250131000359는 별도 summary 건).",
+  "정정 전 값(섹션 0 정정 대조표, offset≈59596): 프리모리스테라퓨틱스 본질가치 52,663원·자산가치 (3,763)원·수익가치 90,280원 → 정정 후 45,249원·(3,463)원·77,723원.",
+  "외부평가 '근거 및 사유'·평가기간·감사위원회 동의는 본 증권신고서 본문(섹션 4·5)에서 찾지 못함 → null. 외부평가기관 명칭은 IV. 평가 및 신주배정 등(3.4)에도 기재.",
+  "평가기준일은 원문 3.3.1(1)에 '최근 결산 사업연도말인 2024년 3월 31일'로 기재(자산가치는 2023-12-31 재무상태표 기준). 민감도 표 원문 없음.",
+  "합병기일: 최초 2025-03-05 → 2025-01-24 정정 합병계약으로 2025-04-30.",
+  "평가 장: section 5 'II. 합병 가액 및 그 산출근거'."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250131000410",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 637,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250131000410",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 9863,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250131000410",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 45818,
+   "how": "section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:02:01+09:00",
+ "extractor_version": "1.1"
+}

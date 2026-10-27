@@ -1,0 +1,587 @@
+{
+ "rcept_no": "20240813000222",
+ "original_rcept_no": "20240710000647",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01498576",
+  "name": "유디엠텍",
+  "market": "기타",
+  "induty_code": "58222"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "대신밸런스제13호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계가 있는 경우해당사항 없습니다.",
+  "board_date": "2023-11-16",
+  "regime": "기준시가",
+  "ratio_text": "대신밸런스제13호기업인수목적(주) 보통주(액면가 100원) 1주당 (주)유디엠텍 보통주(액면 100원) 1.3333333주 교부 (합병가액 (주)유디엠텍 1,500원, 대신밸런스제13호기업인수목적(주) 2,000원)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률165조의4, 동법 시행령 제176조의5, 증권의발행및공시등에관한규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조를 적용하여 주권상장법인인 피합병법인과 주권비상장법인인 합병법인의 1주당 합병가액을 산출하고 합병비율의 적정성을 검토",
+  "firm": "회계법인 창천",
+  "firm_type": "회계법인",
+  "period": "2023년 10월 05일 ~ 2023년 11월 15일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당평가액 합병법인 (주)유디엠텍 1,500원(액면 100원)·피합병법인 대신밸런스제13호기업인수목적(주) 2,000원(액면 100원), 합의한 합병비율 1 : 1.3333333은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 507,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회계법인 창천",
+   "target": "(주)유디엠텍",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(aX1.0+bX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 154,
+     "unit": "원",
+     "text": "154",
+     "cite": {
+      "section_id": "5",
+      "offset": 18269,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 5134164679,
+     "unit": "원",
+     "text": "5,134,164,679",
+     "cite": {
+      "section_id": "5",
+      "offset": 18199,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": -6075957361,
+     "unit": "원",
+     "text": "(6,075,957,361)",
+     "cite": {
+      "section_id": "5",
+      "offset": 17425,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 11210122040,
+     "unit": "원",
+     "text": "11,210,122,040",
+     "cite": {
+      "section_id": "5",
+      "offset": 17462,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 33422300,
+     "unit": "주",
+     "text": "33,422,300",
+     "cite": {
+      "section_id": "5",
+      "offset": 18233,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "주권비상장법인인 합병법인의 유사회사 선정기준(시행세칙 제7조)을 충족하는 주권상장법인이 3사 미만이므로 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 1500,
+     "unit": "원",
+     "text": "1,500",
+     "cite": {
+      "section_id": "5",
+      "offset": 13839,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 2398,
+    "unit": "원",
+    "text": "2,398",
+    "cite": {
+     "section_id": "5",
+     "offset": 13911,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(합병법인). 본질가치 = 자산가치 154원×1 + 수익가치 2,398원×1.5 를 2.5로 나눈 1,500원 = 합병가액. 자산가치는 2022.12.31 자본총계(자본잠식)에 분석기준일(2023-11-09)까지 RCPS 보통주 전환·유상증자(586,166주, 주당 1,706원)·주식선택권 행사가정 등 중요한 순자산 증가액 11,210,122,040원 가산. 주식수 33,422,300주(액면분할 500→100원 후, 주식선택권 929,500주 행사가정 포함). 최근 2년 주식 양수도(무상출연)·유상증자 가격은 가치조정 검토 대상 아님으로 판단"
+  },
+  {
+   "subject": "회계법인 창천",
+   "target": "(주)유디엠텍",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년 1월 1일부터 2027년 12월 31일까지5년",
+    "base_date": "2022-12-31",
+    "wacc": {
+     "value": 11.77,
+     "unit": "%",
+     "text": "11.77%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139452,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 135374,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 135441,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 1.0322,
+     "unit": null,
+     "text": "1.0322",
+     "cite": {
+      "section_id": "5",
+      "offset": 136997,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.201,
+     "unit": null,
+     "text": "1.2010",
+     "cite": {
+      "section_id": "5",
+      "offset": 137006,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 13.34,
+     "unit": "%",
+     "text": "13.34%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139329,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.27,
+     "unit": "%",
+     "text": "5.27%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139074,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": null,
+    "target_de": {
+     "value": 20.68,
+     "unit": "%",
+     "text": "20.68%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139419,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 17.1,
+     "unit": "%",
+     "text": "17.1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 137351,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 64099,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "티라유텍",
+      "value": {
+       "value": 1.0005,
+       "unit": null,
+       "text": "1.0005",
+       "cite": {
+        "section_id": "5",
+        "offset": 136702,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.2339, D/E 25.90%, 법인세율 9.9%)"
+     },
+     {
+      "name": "라온피플",
+      "value": {
+       "value": 0.8092,
+       "unit": null,
+       "text": "0.8092",
+       "cite": {
+        "section_id": "5",
+        "offset": 136767,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 0.9894, D/E 28.15%, 법인세율 20.9%)"
+     },
+     {
+      "name": "링크제니시스",
+      "value": {
+       "value": 1.3184,
+       "unit": null,
+       "text": "1.3184",
+       "cite": {
+        "section_id": "5",
+        "offset": 136829,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.3311, D/E 1.22%, 법인세율 20.9%)"
+     },
+     {
+      "name": "MDS테크",
+      "value": {
+       "value": 1.1909,
+       "unit": null,
+       "text": "1.1909",
+       "cite": {
+        "section_id": "5",
+        "offset": 136895,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.2865, D/E 10.14%, 법인세율 20.9%)"
+     },
+     {
+      "name": "바이브컴퍼니",
+      "value": {
+       "value": 0.8417,
+       "unit": null,
+       "text": "0.8417",
+       "cite": {
+        "section_id": "5",
+        "offset": 136961,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Observed 1.2106, D/E 48.64%, 법인세율 9.9%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2398,
+     "unit": "원",
+     "text": "2,398",
+     "cite": {
+      "section_id": "5",
+      "offset": 21436,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 2063,
+      "unit": "원",
+      "text": "2,063",
+      "cite": {
+       "section_id": "5",
+       "offset": 78590,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 2844,
+      "unit": "원",
+      "text": "2,844",
+      "cite": {
+       "section_id": "5",
+       "offset": 78646,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인모형, 기중 현금흐름 균등발생 가정). Ke = Rf + (Rm−Rf)×β (CAPM). Rf는 Bloomberg 2022.12.31 10년 만기 국채, MRP는 한국공인회계사회 가이던스. Size risk premium 미반영(반영 시 Ke 16.69%·WACC 14.55%·주당 수익가치 1,788원·합병비율 1.7636684). Kd 5.27%는 합병법인 장기차입금 가중평균차입이자율(세전), 세후 Kd(1-t) 4.17%. WACC 산식의 법인세율은 원문에 별도 표기 없음(Hamada 언레버 계산은 20.9%). 목표자본구조는 동종기업 5사 평균 D/E 20.68%(D/V 17.1%를 E/V 82.9%로 나눈 값). 추정기간 PV 11,301,810,998원 + 영구현금흐름 PV 67,262,474,183원 = 영업가치 78,564,285,181원, 비영업자산 4,571,772,146원 가산, 이자부부채 2,984,662,834원 차감 → 지분가치 80,151,394,492원 ÷ 33,422,300주. range는 WACC 10.77–12.77%·g 0.50–1.50% 민감도 표 범위"
+  },
+  {
+   "subject": "회계법인 창천",
+   "target": "대신밸런스제13호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1702,
+     "unit": "원",
+     "text": "1,702",
+     "cite": {
+      "section_id": "5",
+      "offset": 12380,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 11576296918,
+     "unit": "원",
+     "text": "11,576,296,918",
+     "cite": {
+      "section_id": "5",
+      "offset": 12309,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 10728578004,
+     "unit": "원",
+     "text": "10,728,578,004",
+     "cite": {
+      "section_id": "5",
+      "offset": 11544,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 847718914,
+     "unit": "원",
+     "text": "847,718,914",
+     "cite": {
+      "section_id": "5",
+      "offset": 11580,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 6800000,
+     "unit": "주",
+     "text": "6,800,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 12344,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 9130,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(피합병법인, 소멸). 기산일 2023-11-15, 1개월 가중평균 2,220원·1주일 2,240원·최근일 2,285원의 산술평균 2,248원에 11.03% 할인한 2,000원. 자산가치 1,702원(전환증권 행사 시 6,800,000주 기준, 행사 전 5,640,000주 기준 1,902원)보다 높아 합병가액은 Max[A, B]=2,000원"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)유디엠텍",
+    "basis": "본질가치",
+    "value": {
+     "value": 1500,
+     "unit": "원",
+     "text": "1,500",
+     "cite": {
+      "section_id": "5",
+      "offset": 8104,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "대신밸런스제13호기업인수목적(주)",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7976,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 1.3333333,
+   "unit": null,
+   "text": "1.3333333",
+   "cite": {
+    "section_id": "5",
+    "offset": 8258,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 11279998500,
+   "unit": "원",
+   "text": "11,279,998,500",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 382,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "회계법인 창천: 합병당사회사가 합의한 합병비율 1 : 1.3333333은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "회계법인 창천",
+   "target": "(주)유디엠텍",
+   "variables": "WACC 10.77–12.77% (±1%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 2063,
+     "unit": "원",
+     "text": "2,063",
+     "cite": {
+      "section_id": "5",
+      "offset": 78590,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 2844,
+     "unit": "원",
+     "text": "2,844",
+     "cite": {
+      "section_id": "5",
+      "offset": 78646,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240316–20240912, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(20240813000222), original_rcept_no=null(목록에 원본 없음), supersedes 20240710000647·20240719000246·20240729000274·20240807000122, attachment_rcept_no 20240710000647. original_rcept_no는 정정신고 연혁표(section 0)의 '2024년 07월 10일 증권신고서(합병) 최초 제출'=20240710000647(현재 DART 목록명 [첨부추가])로 채움. 본 건 이후 본문 정정 없음(2024-08-26 투자설명서). 짝 주요사항보고서(회사합병결정, SPAC 제출 추정)는 결과에 없음.",
+  "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 비상장 (주)유디엠텍, 소멸(피합병법인)은 코스닥 상장 대신밸런스제13호기업인수목적(주). company.market은 신고 당시(비상장) 기준 '기타'.",
+  "4차 정정(2024-08-13)에서 합병비율 변경(5차 변경 합병계약): 정정 전 신주배정조건은 SPAC 1주당 유디엠텍 1.0565240주(section 0 정정대조표 주13), 정정 후 1.3333333주. 합병신주 기명식보통주 7,519,999주, 모집가액 1,500원, 모집총액 11,279,998,500원(3.4).",
+  "평가의견서 표지는 평가기간 2023-10-05~2023-11-15·제출일자 2023-11-16이나, 본문 DCF 표에 2023년 실적·2024년 1분기 실적 열이 포함되어 있다(원문 그대로 둠).",
+  "평가 주체는 회계법인 창천 하나. 평가기준일 2022-12-31(DCF), 분석기준일 2023-11-09(자산가치). 이사회 합병결의 2023-11-16."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240813000222",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 4527,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20240813000222",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 240,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240813000222",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 430,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240813000222",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 6155,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240813000222",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 40674,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:57:15+09:00",
+ "extractor_version": "1.1"
+}

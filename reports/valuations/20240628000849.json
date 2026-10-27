@@ -1,0 +1,534 @@
+{
+ "rcept_no": "20240628000849",
+ "original_rcept_no": "20240619000271",
+ "related_rcept_nos": [
+  "20240628000663"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01381391",
+  "name": "에스피소프트",
+  "market": "코스닥",
+  "induty_code": "620"
+ },
+ "deal": {
+  "type": "share_exchange",
+  "counterparty": "주식회사 유호스트",
+  "counterparty_listed": false,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2024-06-14",
+  "regime": "기준시가",
+  "ratio_text": "(주)에스피소프트 : (주)유호스트 = 1 : 2.3260536"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "한울회계법인",
+  "firm_type": "회계법인",
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.06)",
+   "가치평가서비스 수행기준(2008.08)",
+   "자본시장법 시행령 제176조의5·제176조의6",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조 및 시행세칙 제4조–제8조"
+  ],
+  "opinion_text": "주당 평가액은 에스피소프트 17,369원(액면 100원), 유호스트 40,402원(액면 500원)으로 추정되며 교환비율 2.3260536은 적정. 시행령 176조의5 및 발행공시규정상 산정방법에 위배된 점이 발견되지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 142684,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한울회계법인",
+   "target": "(주)에스피소프트",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 2025,
+     "unit": "원",
+     "text": "2,025",
+     "cite": {
+      "section_id": "5",
+      "offset": 7117,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 17369,
+     "unit": "원",
+     "text": "17,369",
+     "cite": {
+      "section_id": "5",
+      "offset": 8727,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장법인: 시행령 176조의5 ①1호 기준주가(기산일 2024-06-13, 최근 1개월 가중산술평균종가 17,643원·최근 1주일 17,105원·최근일 종가 17,360원의 산술평균). 할인·할증 미적용. 자산가치 2,025원 < 기준주가라 기준주가 적용"
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)유호스트",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 각각 1과 1.5의 비율로 가중산술평균"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 10486,
+     "unit": "원",
+     "text": "10,486",
+     "cite": {
+      "section_id": "5",
+      "offset": 20707,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 7796558435,
+     "unit": "원",
+     "text": "7,796,558,435",
+     "cite": {
+      "section_id": "5",
+      "offset": 20638,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 7354461585,
+     "unit": "원",
+     "text": "7,354,461,585",
+     "cite": {
+      "section_id": "5",
+      "offset": 19616,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 442096850,
+     "unit": "원",
+     "text": "442,096,850",
+     "cite": {
+      "section_id": "5",
+      "offset": 19650,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 743543,
+     "unit": "주",
+     "text": "743,543",
+     "cite": {
+      "section_id": "5",
+      "offset": 20672,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 40402,
+     "unit": "원",
+     "text": "40,402",
+     "cite": {
+      "section_id": "5",
+      "offset": 7097,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 60346,
+    "unit": "원",
+    "text": "60,346",
+    "cite": {
+     "section_id": "5",
+     "offset": 24432,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장법인: 시행세칙 제4조–제6조 본질가치. 자산가치는 2023년말 K-GAAP 재무상태표를 K-IFRS로 전환한 자본총계에 주식매수선택권 34,450주 행사 가정 순자산 증가를 가산. 상대가치는 유사회사 3사 미만으로 산정하지 않음. 최근 2년 유상증자·주식양수도 가격은 가이드라인 문단30 검토 후 가치조정 미반영"
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)유호스트",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년부터 2028년까지 5개년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 10.28,
+     "unit": "%",
+     "text": "10.28%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139930,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126452,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126518,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.8,
+     "unit": null,
+     "text": "0.800",
+     "cite": {
+      "section_id": "5",
+      "offset": 127249,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.938,
+     "unit": null,
+     "text": "0.938",
+     "cite": {
+      "section_id": "5",
+      "offset": 126584,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 10.68,
+     "unit": "%",
+     "text": "10.68%",
+     "cite": {
+      "section_id": "5",
+      "offset": 126714,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 10.53,
+     "unit": "%",
+     "text": "10.53%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139527,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 140078,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 20.54,
+     "unit": "%",
+     "text": "20.54%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139817,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 17.04,
+     "unit": "%",
+     "text": "17.04%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139900,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 51432,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "㈜티라유텍",
+      "value": {
+       "value": 1.07,
+       "unit": null,
+       "text": "1.070",
+       "cite": {
+        "section_id": "5",
+        "offset": 127060,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta(Hamada, KICPA 2Y Weekly 조정베타, 2023-12-31)"
+     },
+     {
+      "name": "㈜가비아",
+      "value": {
+       "value": 0.746,
+       "unit": null,
+       "text": "0.746",
+       "cite": {
+        "section_id": "5",
+        "offset": 127137,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta(Hamada, KICPA 2Y Weekly 조정베타, 2023-12-31)"
+     },
+     {
+      "name": "솔트웨어㈜",
+      "value": {
+       "value": 0.585,
+       "unit": null,
+       "text": "0.585",
+       "cite": {
+        "section_id": "5",
+        "offset": 127209,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta(Hamada, KICPA 2Y Weekly 조정베타, 2023-12-31)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 60346,
+     "unit": "원",
+     "text": "60,346",
+     "cite": {
+      "section_id": "5",
+      "offset": 24432,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 55508,
+      "unit": "원",
+      "text": "55,508",
+      "cite": {
+       "section_id": "5",
+       "offset": 57286,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 66350,
+      "unit": "원",
+      "text": "66,350",
+      "cite": {
+       "section_id": "5",
+       "offset": 57382,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 할인(기중 균등발생), 영업가치 37,837,565,071원 + 비영업자산 7,032,505,645원, 이자부부채 없음 → 수익가치 44,870,070,716원 / 743,543주. Kd는 신용등급 BBB- 5년 무보증 공모사채 수익률(세후 8.33%). Kd 문단은 한계법인세율을 '20.09%'로 적었으나 WACC 산식은 20.90%를 사용 — tax_rate는 산식 값. 규모위험프리미엄 원문 없음. range는 WACC 9.28–11.28%·g 0.50–1.50% 민감도"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)에스피소프트",
+    "basis": "기준주가",
+    "value": {
+     "value": 17369,
+     "unit": "원",
+     "text": "17,369",
+     "cite": {
+      "section_id": "5",
+      "offset": 7054,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)유호스트",
+    "basis": "본질가치",
+    "value": {
+     "value": 40402,
+     "unit": "원",
+     "text": "40,402",
+     "cite": {
+      "section_id": "5",
+      "offset": 7097,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 2.3260536,
+   "unit": "주",
+   "text": "2.3260536",
+   "cite": {
+    "section_id": "5",
+    "offset": 7250,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 28648220172,
+   "unit": "원",
+   "text": "28,648,220,172",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 270,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "한울회계법인: 에스피소프트 기준주가 17,369원, 유호스트 본질가치 40,402원, 교환비율 1 : 2.3260536 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한울회계법인",
+   "target": "(주)유호스트",
+   "variables": "WACC 9.28–11.28% (±1.0%p) × 영구성장률 0.50–1.50%, 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 55508,
+     "unit": "원",
+     "text": "55,508",
+     "cite": {
+      "section_id": "5",
+      "offset": 57286,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 66350,
+     "unit": "원",
+     "text": "66,350",
+     "cite": {
+      "section_id": "5",
+      "offset": 57382,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20240130–20240728, listed_only=False): share_exchange/full, correction_kind=기재정정, body_rcept_no=본 건, 원본 20240619000271(감사보고서 첨부는 원본). 짝 주요사항보고서(주식교환결정) 기재정정 20240628000663(summary, 원본 20240614000313) — 별도 /dart-valuation 대상.",
+  "기재정정(2024-06-28)으로 유호스트 수익가치 61,106원 → 60,346원, 본질가치 40,858원 → 40,402원, 교환비율 2.3523067 → 2.3260536, 교환신주 1,668,004주 → 1,649,388주로 변경(정정 대조표, section 0 offset 8004). 본 사례는 정정 후 값.",
+  "외부평가 근거 및 사유·평가기간·감사위원회 동의는 증권신고서 본문에 없음(주요사항보고서 기재 사항) → null.",
+  "분석기준일 2024-06-07(주요사항보고서 제출일 5영업일 전), 평가의견서 제출일 2024-06-14. 에스피소프트 소규모 주식교환·유호스트 간이주식교환(총주주 동의). 교환일 2024-08-16, 신주 상장예정 2024-08-26. 별도 교부금 없음.",
+  "목표자본구조 D/E 20.54%(동종기업 평균), E/V 82.96%·D/V 17.04%. 원문 β 주석은 '완전모회사가 되는 회사의 목표자본구조'라 적음.",
+  "당사회사 간 특수관계 여부는 원문에 명시 없음 → related_party null."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240628000849",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 2424,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240628000849",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 328,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240628000849",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 주식의 포괄적 교환ㆍ이전에 관한 기본사항",
+   "chars_read": 12984,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240628000849",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
+   "chars_read": 30827,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20240628000849",
+   "file_id": "main",
+   "section_id": "5.h22",
+   "title": "(3) 가중평균자본비용",
+   "chars_read": 3222,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240628000849",
+   "file_id": "main",
+   "section_id": "5.h8",
+   "title": "(2) 민감도 분석결과",
+   "chars_read": 4484,
+   "how": "section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:51:25+09:00",
+ "extractor_version": "1.1"
+}

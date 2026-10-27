@@ -1,0 +1,285 @@
+{
+ "rcept_no": "20251113000426",
+ "original_rcept_no": "20251020000124",
+ "related_rcept_nos": [
+  "20251001000772"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00341916",
+  "name": "오스템임플란트",
+  "market": "기타",
+  "induty_code": "27191"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "오스템글로벌(주)",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "합병회사인 오스템임플란트(주)는 피합병회사인 오스템글로벌(주)의 지분 98.96% 보유, 피합병회사는 합병회사의 연결 대상 종속회사",
+  "board_date": "2025-08-29",
+  "regime": "기준시가",
+  "ratio_text": "오스템임플란트(주) : 오스템글로벌(주) = 1 : 0.0127869"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "주권비상장법인 간 합병으로 자본시장법 제165조의4·시행령 제176조의5의 외부평가 대상이 아니나 자발적으로 외부평가를 받음",
+  "basis_text": "본 합병은 주권비상장법인간의 합병이기에 외부평가기관의 평가가 요구되지 않지만, 적절한 합병가액 산정을 위해 자발적으로 외부평가기관의 평가를 받았습니다.",
+  "firm": "보현회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 07월 23일 ~ 2025년 08월 18일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "법인세법 제52조",
+   "법인세법 시행령 제89조",
+   "상증법 제63조",
+   "상증법 시행령 제54조"
+  ],
+  "opinion_text": "합병당사회사가 협의한 합병비율 1 : 0.0127869 는 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니하였습니다.",
+  "cite": {
+   "section_id": "5",
+   "offset": 892,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "보현회계법인",
+   "target": "오스템임플란트(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 2,
+    "income": 3,
+    "basis": "1주당 순손익가치와 1주당 순자산가치를 3:2의 비율로 가중평균(상증법 시행령 제54조)"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 693677,
+     "unit": "원",
+     "text": "693,677",
+     "cite": {
+      "section_id": "5",
+      "offset": 2858,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 1080505862965,
+     "unit": "원",
+     "text": "1,080,505,862,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 2713,
+      "file_id": "main"
+     }
+    },
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 1557648,
+     "unit": "주",
+     "text": "1,557,648",
+     "cite": {
+      "section_id": "5",
+      "offset": 2816,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-06-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 864710,
+     "unit": "원",
+     "text": "864,710",
+     "cite": {
+      "section_id": "5",
+      "offset": 2049,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 944150,
+    "unit": "원",
+    "text": "944,150",
+    "cite": {
+     "section_id": "5",
+     "offset": 2554,
+     "file_id": "main"
+    }
+   },
+   "note": "상증법상 비상장주식 보충적 평가(법인세법 제52조·시행령 제89조 시가 부재). 1주당 순손익액 가중평균 94,415원 ÷ 순손익가치환원율 10% = 944,150원, 순자산가치 693,677원을 3:2 가중평균 후 자기주식 보유분을 반영해 864,710원(자기주식 반영 산식·수치는 원문에 없음). 영업권 평가액 0(초과수익 없음). 합병비율 목적이라 최대주주 할증 미적용. 합병당사회사가 합의한 가액을 외부평가기관이 검토."
+  },
+  {
+   "subject": "보현회계법인",
+   "target": "오스템글로벌(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 11057,
+     "unit": "원",
+     "text": "11,057",
+     "cite": {
+      "section_id": "5",
+      "offset": 21159,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 268966339604,
+     "unit": "원",
+     "text": "268,966,339,604",
+     "cite": {
+      "section_id": "5",
+      "offset": 21017,
+      "file_id": "main"
+     }
+    },
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 24324388,
+     "unit": "주",
+     "text": "24,324,388",
+     "cite": {
+      "section_id": "5",
+      "offset": 21116,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-06-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11057,
+     "unit": "원",
+     "text": "11,057",
+     "cite": {
+      "section_id": "5",
+      "offset": 2022,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "부동산 등 비율 80% 초과(상증법 시행령 제54조 제4항)로 순자산가치로만 평가. 참고로 1주당 순손익가치 2,070원(1주당 순손익액 207원 ÷ 10%)은 미반영. 부동산(송도·마곡사옥)은 2개 감정평가법인 평가액 평균. 영업권 평가액 0."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "오스템임플란트(주)",
+    "basis": "상증법상 평가액",
+    "value": {
+     "value": 864710,
+     "unit": "원",
+     "text": "864,710",
+     "cite": {
+      "section_id": "5",
+      "offset": 404,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "오스템글로벌(주)",
+    "basis": "상증법상 평가액",
+    "value": {
+     "value": 11057,
+     "unit": "원",
+     "text": "11,057",
+     "cite": {
+      "section_id": "5",
+      "offset": 377,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.0127869,
+   "unit": null,
+   "text": "0.0127869",
+   "cite": {
+    "section_id": "5",
+    "offset": 445,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 2775719100,
+   "unit": "원",
+   "text": "2,775,719,100",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 267,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "본 평가인의 검토결과 이러한 합병비율은 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니하였습니다.",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250616–20251213, listed_only=False): merger/full, 대표 rcept 20251113000428(첨부정정), body_rcept_no=20251113000426(본 건, 최신 본문 기재정정), original_rcept_no=20251020000124, supersedes 20251020000124·20251029000285·20251110000387·20251113000426, related_rcept_nos=20251001000772. 짝 주요사항보고서가 있으면 별도 /dart-valuation 대상(summary).",
+  "합병당사회사 모두 주권비상장법인(오스템임플란트 corp_cls E). regime은 상증법 보충적 평가(본질가치·순자산가치) 체계라 '기준시가'로 분류.",
+  "외부평가기관 보현회계법인은 합병당사회사가 합의한 주당평가액을 검토(평가기준일 2025-06-30, 의견서 제출일 2025-08-18). DCF·할인율·g·β·멀티플 해당 없음.",
+  "소규모합병(신주 3,210주, 발행주식총수 1,557,648주의 약 0.21%, 상법 제527조의3) 겸 간이합병(지분 98.96%, 상법 제527조의2). 합병회사 주식매수청구권 없음.",
+  "transaction_value는 합병신주 기명식보통주 3,210주 × 모집가액 864,710원 = 모집총액 2,775,719,100원(3.4). 합병회사 보유 피합병회사 주식에는 신주 미교부.",
+  "이사회 결의일 2025-08-29, 합병계약일 2025-09-01, 변경계약 2025-09-30, 합병기일 2026-01-01(3.3 주요일정)."
+ ],
+ "extracted_at": "2026-10-27T10:24:10+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20251113000426",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 2048,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251113000426",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 654,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251113000426",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3994,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20251113000426",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 38408,
+   "how": "search/section"
+  }
+ ]
+}

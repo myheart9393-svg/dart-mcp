@@ -1,0 +1,545 @@
+{
+ "rcept_no": "20240412000371",
+ "original_rcept_no": "20240326001060",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01601222",
+  "name": "씨피시스템",
+  "market": "코스닥",
+  "induty_code": "222"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "씨피시스템 주식회사",
+  "counterparty_listed": false,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2023-10-20",
+  "regime": "기준시가",
+  "ratio_text": "유진기업인수목적8호(주) : 씨피시스템(주) = 1: 655.6685000(씨피시스템(주)의 기명식 보통주식 1주당 유진기업인수목적8호(주)의 기명식 보통주식 655.6685000주"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률시행령 제176조의5 제1항의 규정에 의거 주권상장법인인 합병법인은 기준주가에 할인율을 반영한 평가가액을, 피합병법인은 … 본질가치(자산가치와 수익가치를 1과 1.5의 비율로 가중산술평균한 가액)를 합병가액으로 하여 산출된 합병비율",
+  "firm": "회계법인 창천",
+  "firm_type": "회계법인",
+  "period": "2023년 8월 7일부터 2023년 10월 19일까지",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장과금융투자업에관한법률시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "합병당사회사가 합의한 합병비율 1 : 655.6685000은 적정한 것으로 판단되며, 중요성의 관점에서 자본시장법 시행령 제176조의5, 증권의발행및공시등에관한규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조의 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 102391,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회계법인 창천",
+   "target": "씨피시스템 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(aX1.0+bX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 620666,
+     "unit": "원",
+     "text": "620,666",
+     "cite": {
+      "section_id": "5",
+      "offset": 13529,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 31033287234,
+     "unit": "원",
+     "text": "31,033,287,234",
+     "cite": {
+      "section_id": "5",
+      "offset": 17355,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 24564078471,
+     "unit": "원",
+     "text": "24,564,078,471",
+     "cite": {
+      "section_id": "5",
+      "offset": 16524,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 6469208763,
+     "unit": "원",
+     "text": "6,469,208,763",
+     "cite": {
+      "section_id": "5",
+      "offset": 16560,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 50000,
+     "unit": "주",
+     "text": "50,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 17390,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1311337,
+     "unit": "원",
+     "text": "1,311,337",
+     "cite": {
+      "section_id": "5",
+      "offset": 13483,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 1771785,
+    "unit": "원",
+    "text": "1,771,785",
+    "cite": {
+     "section_id": "5",
+     "offset": 13563,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 피합병법인: 본질가치(자산 1: 수익 1.5). 상대가치는 유사회사 3사 미만이라 산정하지 않음. 분석기준일 2023-10-13. 외부평가업무 가이드라인 문단30 검토: 최근 2년 주식거래(상증법 평가 551,241원 등)·CB 전환(600,000원)은 가치조정 대상 아님"
+  },
+  {
+   "subject": "회계법인 창천",
+   "target": "씨피시스템 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년~2027년",
+    "base_date": null,
+    "wacc": {
+     "value": 11.31,
+     "unit": "%",
+     "text": "11.31%",
+     "cite": {
+      "section_id": "5",
+      "offset": 100794,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 95920,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 95987,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.9857,
+     "unit": null,
+     "text": "0.9857",
+     "cite": {
+      "section_id": "5",
+      "offset": 97513,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.2332,
+     "unit": null,
+     "text": "1.2332",
+     "cite": {
+      "section_id": "5",
+      "offset": 96053,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 13.6,
+     "unit": "%",
+     "text": "13.60%",
+     "cite": {
+      "section_id": "5",
+      "offset": 96158,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 6.22,
+     "unit": "%",
+     "text": "6.22%",
+     "cite": {
+      "section_id": "5",
+      "offset": 100440,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": null,
+    "target_de": {
+     "value": 47.88,
+     "unit": "%",
+     "text": "47.88 %",
+     "cite": {
+      "section_id": "5",
+      "offset": 100760,
+      "file_id": "main"
+     }
+    },
+    "target_dv": null,
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 54449,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "뉴파워프라즈마",
+      "value": {
+       "value": 0.5488,
+       "unit": null,
+       "text": "0.5488",
+       "cite": {
+        "section_id": "5",
+        "offset": 97230,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta (Hamada)"
+     },
+     {
+      "name": "예스티",
+      "value": {
+       "value": 1.074,
+       "unit": null,
+       "text": "1.0740",
+       "cite": {
+        "section_id": "5",
+        "offset": 97292,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta (Hamada)"
+     },
+     {
+      "name": "이엠코리아",
+      "value": {
+       "value": 1.3342,
+       "unit": null,
+       "text": "1.3342",
+       "cite": {
+        "section_id": "5",
+        "offset": 97350,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta (Hamada)"
+     },
+     {
+      "name": "한솔아이원스",
+      "value": {
+       "value": 0.8361,
+       "unit": null,
+       "text": "0.8361",
+       "cite": {
+        "section_id": "5",
+        "offset": 97416,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta (Hamada)"
+     },
+     {
+      "name": "흥국",
+      "value": {
+       "value": 1.0089,
+       "unit": null,
+       "text": "1.0089",
+       "cite": {
+        "section_id": "5",
+        "offset": 97477,
+        "file_id": "main"
+       }
+      },
+      "note": "Unleveraged Beta (Hamada)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 1771785,
+     "unit": "원",
+     "text": "1,771,785",
+     "cite": {
+      "section_id": "5",
+      "offset": 52828,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 1632969,
+      "unit": "원",
+      "text": "1,632,969",
+      "cite": {
+       "section_id": "5",
+       "offset": 56260,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1940016,
+      "unit": "원",
+      "text": "1,940,016",
+      "cite": {
+       "section_id": "5",
+       "offset": 56332,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "본질가치 중 수익가치(FCFF, 기중 현금흐름 균등발생 가정). 영구현금흐름 현가 62,406백만원 포함 영업가치 82,588, 비영업자산 8,040, 이자부부채 2,038 → 지분가치 88,589백만원 ÷ 50,000주. Rf=2022-12-31 10년 국채(Bloomberg), MRP=한공회 2023-06-07 가이던스 평균, β=동종 5사 Unleveraged 평균 0.9857을 목표 D/E 47.88%로 relever. Kd=신용등급 A0 5년 무보증 공모사채 수익률 6.22%(세전), 세후 Kd(1-t)=4.92%(원문 WACC 표). 한계세율은 원문에 명시되지 않아 tax_rate null. Size risk premium 미반영 — 반영 시 Ke 16.95%, WACC 13.77%, 주당수익가치 1,409,325원, 합병비율 1:546.9305(원문 비교표). range는 WACC 10.81–11.81%·g 0.50–1.50% 민감도 표"
+  },
+  {
+   "subject": "회계법인 창천",
+   "target": "유진기업인수목적8호 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1647,
+     "unit": "원",
+     "text": "1,647",
+     "cite": {
+      "section_id": "5",
+      "offset": 12029,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12352209953,
+     "unit": "원",
+     "text": "12,352,209,953",
+     "cite": {
+      "section_id": "5",
+      "offset": 11958,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11019426230,
+     "unit": "원",
+     "text": "11,019,426,230",
+     "cite": {
+      "section_id": "5",
+      "offset": 11160,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1332783723,
+     "unit": "원",
+     "text": "1,332,783,723",
+     "cite": {
+      "section_id": "5",
+      "offset": 11196,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7500000,
+     "unit": "주",
+     "text": "7,500,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 11993,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 9741,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(합병법인·존속): 기준주가 2,343원(1개월 2,319·1주일 2,339·최근일 2,370원, 기산일 2023-10-19)에 14.63% 할인한 2,000원. 자산가치 1,647원(CB 1,580,000주 전환 가정 7,500,000주; 전환 전 5,920,000주 기준 1,861원)보다 높아 합병가액 Max[A, B]=2,000원"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "유진기업인수목적8호 주식회사",
+    "basis": "기준주가에 할인율(14.63%)을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7817,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "씨피시스템 주식회사",
+    "basis": "본질가치",
+    "value": {
+     "value": 1311337,
+     "unit": "원",
+     "text": "1,311,337",
+     "cite": {
+      "section_id": "5",
+      "offset": 7945,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 655.6685,
+   "unit": "주",
+   "text": "655.6685000",
+   "cite": {
+    "section_id": "5",
+    "offset": 8119,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "회계법인 창천: 합병비율 1:655.6685000은 적정하며 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "회계법인 창천",
+   "target": "씨피시스템 주식회사",
+   "variables": "WACC 10.81–11.81% (±0.5%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 1632969,
+     "unit": "원",
+     "text": "1,632,969",
+     "cite": {
+      "section_id": "5",
+      "offset": 56260,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1940016,
+     "unit": "원",
+     "text": "1,940,016",
+     "cite": {
+      "section_id": "5",
+      "offset": 56332,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "기재정정본(20240412000371) 기준 — search_valuation_disclosures의 body_rcept_no와 같음. 최초 제출본 20240326001060, 중간 정정 20240404002014·20240408003589.",
+  "짝 주요사항보고서(회사합병결정): 최신 기재정정 20240408002615(이전 20240110000548·20240221002146·20240326000899). search_valuation_disclosures에서 related로 연결되지 않아 related_rcept_nos는 비움.",
+  "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 코스닥 상장 유진기업인수목적8호, 소멸(피합병법인)은 비상장 씨피시스템. 합병 후 존속법인 사명이 씨피시스템(주)로 변경 예정(section 4) — company는 신고인 corp_code 01601222(현재 사명 씨피시스템).",
+  "외부평가계약 2023-07-21, 평가기간 2023-08-07 ~ 2023-10-19, 이사회 결의·합병계약 2023-10-20(section 4).",
+  "합병신주 32,783,425주, 모집가액 2,000원, 총액 65,566,850,000원(section 3.4). 피합병법인 액면가 10,000원, 합병법인 100원.",
+  "회사와의 관계(계열 여부) 문구는 읽은 구간에 없어 related_party·relation_text는 null. 외부평가기관 독립성: 특수관계 없음(section 5 2.2.2)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240412000371",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 448,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240412000371",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 2829,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240412000371",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 42203,
+   "how": "search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:47:54+09:00",
+ "extractor_version": "1.1"
+}

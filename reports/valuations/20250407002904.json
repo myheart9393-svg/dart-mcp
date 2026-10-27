@@ -1,0 +1,562 @@
+{
+ "rcept_no": "20250407002904",
+ "original_rcept_no": "20250328001875",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01467503",
+  "name": "뉴키즈온",
+  "market": "기타",
+  "induty_code": "141"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "케이비제28호기업인수목적㈜",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "가. 계열회사 또는 자회사 등의 관계 여부\n\n해당사항 없습니다.",
+  "board_date": "2024-10-31",
+  "regime": "기준시가",
+  "ratio_text": "합병비율: ㈜뉴키즈온 : 케이비제28호기업인수목적㈜ = 1 : 0.1832341(케이비제28호기업인수목적㈜ 기명식 보통주식 1주당㈜뉴키즈온 기명식 보통주식 0.1832341주)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과 금융투자업에 관한 법률 165조의4, 동법 시행령 제176조의5, 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조, 코스닥시장 상장규정 제2조를 적용하여 1주당 합병가액을 산출하고 합병비율의 적정성을 검토",
+  "firm": "이정회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 07월 05일 ~ 2024년 10월 31일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "이정회계법인 자본시장법에 따른 외부평가업무 품질관리규정",
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당평가액 합병법인 10,915원(액면 100원)·피합병법인 2,000원(액면 100원), 협의한 합병비율 1:0.1832341은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 48,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이정회계법인",
+   "target": "주식회사 뉴키즈온",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(aX1+bX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 4422,
+     "unit": "원",
+     "text": "4,422",
+     "cite": {
+      "section_id": "5",
+      "offset": 11311,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 31470529459,
+     "unit": "원",
+     "text": "31,470,529,459",
+     "cite": {
+      "section_id": "5",
+      "offset": 11238,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 18525906150,
+     "unit": "원",
+     "text": "18,525,906,150",
+     "cite": {
+      "section_id": "5",
+      "offset": 10396,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 12944623309,
+     "unit": "원",
+     "text": "12,944,623,309",
+     "cite": {
+      "section_id": "5",
+      "offset": 10432,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7116346,
+     "unit": "주",
+     "text": "7,116,346",
+     "cite": {
+      "section_id": "5",
+      "offset": 11274,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "유사회사 선정기준을 충족시키는 유사한 주권상장법인이 3사 미만이므로 상대가치를 산정하지 아니함(시행세칙 제7조)"
+   },
+   "result": {
+    "value": {
+     "value": 10915,
+     "unit": "원",
+     "text": "10,915",
+     "cite": {
+      "section_id": "5",
+      "offset": 9182,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 15243,
+    "unit": "원",
+    "text": "15,243",
+    "cite": {
+     "section_id": "5",
+     "offset": 9255,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(합병법인). 본질가치 = (자산가치 4,422원×1 + 수익가치 15,243원×1.5)÷2.5 = 10,915원 = 합병가액. 자산가치는 2023.12.31 연결 자본총계에 2024년 9월 RCPS 보통주 전환 및 주식매수선택권(128,000주, 행사가 6,265원) 행사 가정 순자산 증가 13,007,834,480원 가산, 비지배지분 63,211,171원 차감. 분석기준일 2024-10-24. 최근 2년 주식거래(외부평가업무 가이드라인 문단30)는 검토했으나 가치조정 근거 없음으로 반영 안 함"
+  },
+  {
+   "subject": "이정회계법인",
+   "target": "주식회사 뉴키즈온",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년부터 2028년까지 5개년도",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 9.84,
+     "unit": "%",
+     "text": "9.84%",
+     "cite": {
+      "section_id": "5",
+      "offset": 122319,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 118777,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 118840,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.8629,
+     "unit": null,
+     "text": "0.8629",
+     "cite": {
+      "section_id": "5",
+      "offset": 119615,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.3247,
+     "unit": null,
+     "text": "1.3247",
+     "cite": {
+      "section_id": "5",
+      "offset": 118884,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 13.77,
+     "unit": "%",
+     "text": "13.77%",
+     "cite": {
+      "section_id": "5",
+      "offset": 122168,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.09,
+     "unit": "%",
+     "text": "5.09%",
+     "cite": {
+      "section_id": "5",
+      "offset": 122191,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 122111,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 67.65,
+     "unit": "%",
+     "text": "67.65%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119606,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 40.35,
+     "unit": "%",
+     "text": "40.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 122250,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 54982,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "한세엠케이",
+      "value": {
+       "value": 0.3918,
+       "unit": null,
+       "text": "0.3918",
+       "cite": {
+        "section_id": "5",
+        "offset": 119389,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 0.985, 부채비율 D/E 191.39%, Re-levered 0.6015, 소분류 섬유, 의복, 신발 및 가죽제품 소매업)"
+     },
+     {
+      "name": "토박스코리아",
+      "value": {
+       "value": 1.061,
+       "unit": null,
+       "text": "1.0610",
+       "cite": {
+        "section_id": "5",
+        "offset": 119484,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 1.145, 부채비율 D/E 10.01%, Re-levered 1.6288, 소분류 섬유, 의복, 신발 및 가죽제품 소매업)"
+     },
+     {
+      "name": "아가방컴퍼니",
+      "value": {
+       "value": 1.136,
+       "unit": null,
+       "text": "1.1360",
+       "cite": {
+        "section_id": "5",
+        "offset": 119566,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 1.150, 부채비율 D/E 1.56%, Re-levered 1.7439, 소분류 생활용품 도매업)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 15243,
+     "unit": "원",
+     "text": "15,243",
+     "cite": {
+      "section_id": "5",
+      "offset": 14143,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 12866,
+      "unit": "원",
+      "text": "12,866",
+      "cite": {
+       "section_id": "5",
+       "offset": 129062,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 18586,
+      "unit": "원",
+      "text": "18,586",
+      "cite": {
+       "section_id": "5",
+       "offset": 129122,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법, 연중 발생 가정). Ke = Rf + (Rm-Rf)×β (CAPM), Size Risk Premium은 미반영(원문에 사유 기재). Rf는 Bloomberg 2023.12.31 10년 만기 국채수익률, MRP는 한국공인회계사회 가이던스. β는 유사기업 3사(한세엠케이·토박스코리아·아가방컴퍼니) 2Year Weekly Adjusted Beta를 Hamada로 unlever(평균 0.8629) 후 목표 D/E 67.65%로 relever(1.3247). 원문 본문은 '4개의 유사기업'이라 적었으나 표는 3사. Kd 5.09%는 2023.12.31 차입금 가중평균차입이자율. 세율: WACC 산식은 20.90%, 결과표 'Tax rate' 행은 20.09%로 표기(원문 불일치), tax_rate에는 산식·베타 주석의 20.9% 계열 값을 넣음. 목표자본구조 E/V 59.65%·D/V 40.35%. 추정기간 PV 21,089,165천원 + 영구현금흐름 PV 94,515,607천원 = 영업가치 115,604,773천원, 비영업자산 1,168,045천원 가산, 이자부부채 8,300,766천원 차감 → 자기자본가치 108,472,051천원 ÷ 7,116,346주. 2024년 온기 추정치는 2024년 감사받은 재무제표 실적 반영(기재정정본 주1). range는 WACC 8.84–10.84%·g 0.50–1.50% 민감도 표 범위"
+  },
+  {
+   "subject": "이정회계법인",
+   "target": "케이비제28호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1694,
+     "unit": "원",
+     "text": "1,694",
+     "cite": {
+      "section_id": "5",
+      "offset": 26077,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12196592800,
+     "unit": "원",
+     "text": "12,196,592,800",
+     "cite": {
+      "section_id": "5",
+      "offset": 26005,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 501592800,
+     "unit": "원",
+     "text": "501,592,800",
+     "cite": {
+      "section_id": "5",
+      "offset": 25467,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 11695000000,
+     "unit": "원",
+     "text": "11,695,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 25500,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7200000,
+     "unit": "주",
+     "text": "7,200,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 26041,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-01-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 22293,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(피합병법인, 소멸). 기산일 2024-10-30, 1개월 가중평균 2,098원·1주일 2,095원·최근일 2,095원의 산술평균 기준주가 2,096원에 4.58% 할인한 2,000원. 자산가치 1,694원(설립일 2024-01-30 감사 재무제표, 상장 유상증자 5,000,000주 및 전환사채 전환 가정 반영)보다 높아 Max[A, B] = 2,000원 적용"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 뉴키즈온",
+    "basis": "본질가치",
+    "value": {
+     "value": 10915,
+     "unit": "원",
+     "text": "10,915",
+     "cite": {
+      "section_id": "5",
+      "offset": 8132,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "케이비제28호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 8042,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1832341,
+   "unit": null,
+   "text": "0.1832341",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 143,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 11009993245,
+   "unit": "원",
+   "text": "11,009,993,245",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 333,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이정회계법인: 합병 당사회사가 협의한 합병비율 1:0.1832341은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이정회계법인",
+   "target": "주식회사 뉴키즈온",
+   "variables": "WACC 8.84–10.84% (1%p 간격), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 12866,
+     "unit": "원",
+     "text": "12,866",
+     "cite": {
+      "section_id": "5",
+      "offset": 129062,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 18586,
+     "unit": "원",
+     "text": "18,586",
+     "cite": {
+      "section_id": "5",
+      "offset": 129122,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20241108–20250507, listed_only=False, 2페이지): merger/full, correction_kind=기재정정, body_rcept_no=본 건(20250407002904), original_rcept_no=20250328001875(2025-03-28 최초 제출), supersedes 20250328001875, attachment_rcept_no 20250328001875. 본 건 이후 본문 정정 없음. 짝 주요사항보고서는 결과에 없음.",
+  "SPAC 합병: 존속(합병법인)은 비상장 주식회사 뉴키즈온(company.market은 신고 당시 기준 '기타', 현재 corp_cls K), 소멸(피합병법인)은 코스닥 상장 케이비제28호기업인수목적 주식회사.",
+  "이사회 합병결의·합병계약 2024-10-31, 합병계약 변경계약 2025-02-20(section 4). 평가의견서 본문 2.2는 '2024년 10월 17일에 이사회 결의를 거쳐' 제출 계획이라고 적어 결의일 표기가 엇갈림 — board_date는 section 4 일정표(2024-10-31). 3.2.2.1에는 '2024년 01월 31일'이라는 오기도 있음.",
+  "합병신주 기명식보통주 1,008,703주, 모집가액 10,915원, 모집총액 11,009,993,245원(3.4).",
+  "평가기준일 2023-12-31(DCF·자산가치 재무제표), 분석기준일 2024-10-24, 의견서 제출일 2024-10-31. 의견서가 '외부평가업무 수행기준(2024.11)'과 2024년 감사 실적을 언급해 기재정정 시 보완된 것으로 보임(추정)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250407002904",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 241,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250407002904",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 381,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250407002904",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 6050,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250407002904",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 54560,
+   "how": "search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:05:11+09:00",
+ "extractor_version": "1.1"
+}

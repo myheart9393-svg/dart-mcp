@@ -1,0 +1,181 @@
+{
+ "rcept_no": "20250922000165",
+ "original_rcept_no": "20250828001443",
+ "related_rcept_nos": [
+  "20250827000423"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01390344",
+  "name": "HD현대중공업",
+  "market": "유가증권",
+  "induty_code": "31113"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "HD현대미포(주)",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "합병회사 HD현대중공업(주)와 피합병회사 HD현대미포(주)는 HD현대 그룹 기업집단 소속 계열회사(양사 최대주주 HD한국조선해양(주), 보통주 74.15%·42.40%)",
+  "board_date": "2025-08-27",
+  "regime": "기준시가",
+  "ratio_text": "HD현대중공업 주식회사 : HD현대미포 주식회사 = 1 : 0.4059146"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "유가증권시장 주권상장법인 간 합병으로 기준시가를 합병가액으로 산정해 외부평가 받지 않음",
+  "basis_text": "본 합병은 유가증권시장 주권상장법인 간의 합병으로 자본시장과 금융투자업에 관한 법률 제165조의4 및 동법 시행령 제176조의5 제1항 제1호에 의거하여 합병가액을 산정한 후, 이를 기초로 합병비율을 산출하였으므로, 외부평가기관의 평가는 받지 않았습니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5 제1항 제1호"
+  ],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 5931,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "회사(합병당사회사)",
+   "target": "HD현대중공업(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 470833,
+     "unit": "원",
+     "text": "470,833",
+     "cite": {
+      "section_id": "5",
+      "offset": 2323,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "유가증권시장 상장. 시행령 176조의5 ①1호 기준시가(최근 1개월 가중산술평균종가 471,665원·최근 1주일 472,834원·최근일 종가 468,000원의 산술평균). 할인·할증 미적용. 기산일 2025-08-26"
+  },
+  {
+   "subject": "회사(합병당사회사)",
+   "target": "HD현대미포(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 191118,
+     "unit": "원",
+     "text": "191,118",
+     "cite": {
+      "section_id": "5",
+      "offset": 4362,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "유가증권시장 상장. 시행령 176조의5 ①1호 기준시가(최근 1개월 가중산술평균종가 196,446원·최근 1주일 188,409원·최근일 종가 188,500원의 산술평균). 할인·할증 미적용. 기산일 2025-08-26"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "HD현대중공업(주)",
+    "basis": "기준시가",
+    "value": {
+     "value": 470833,
+     "unit": "원",
+     "text": "470,833",
+     "cite": {
+      "section_id": "5",
+      "offset": 179,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "HD현대미포(주)",
+    "basis": "기준시가",
+    "value": {
+     "value": 191118,
+     "unit": "원",
+     "text": "191,118",
+     "cite": {
+      "section_id": "5",
+      "offset": 189,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.4059146,
+   "unit": null,
+   "text": "0.4059146",
+   "cite": {
+    "section_id": "5",
+    "offset": 350,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "상장법인 간 합병으로 기준주가를 합병가액으로 하여 합병비율 1 : 0.4059146 산출(외부평가 없음)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20250425–20251022, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, 원본 20250828001443(감사보고서 첨부는 원본), supersedes 20250828001443·20250908000224·20250917000279. 짝 주요사항보고서 20250827000423(summary).",
+  "합병신주 기명식보통주 16,189,618주, 모집가액 470,833원, 모집총액 7,622,606,411,794원(3.4). 교부금 없음(단주는 현금 지급).",
+  "기준시가 기산일 2025-08-26(이사회 결의·합병계약 체결 2025-08-27의 전일). DCF·WACC 등 가정은 원문 없음(기준시가 체계)."
+ ],
+ "extracted_at": "2026-10-27T10:17:48+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20250922000165",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 777,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250922000165",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3026,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250922000165",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 5953,
+   "how": "section"
+  }
+ ]
+}

@@ -1,0 +1,194 @@
+{
+ "rcept_no": "20240905000404",
+ "original_rcept_no": "20240816000249",
+ "related_rcept_nos": [
+  "20240816000249",
+  "20240827000880",
+  "20240920000316",
+  "20240502000569"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00252135",
+  "name": "주성엔지니어링",
+  "market": "코스닥",
+  "induty_code": "29229"
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2024-05-02",
+  "regime": null,
+  "ratio_text": "분할회사 주주에게 보통주 1주당 분할신설회사 보통주 0.3493450주(분할비율 0.3493450 x 1주의 금액비율 1) 배정, 분할회사 주식은 1주당 0.6506550주 비율로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2023년 12월 31일 재무상태표 기준 순자산 장부가액(분할전 자기주식 장부금액 합산) 비율로 분할비율 산정(외부평가기관 해당사항 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 311,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "주성엔지니어링(분할회사, 분할 후 주성홀딩스)",
+   "target": "주성엔지니어링 주식회사(분할신설회사)",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 185318,
+     "unit": "백만원",
+     "text": "185,318",
+     "cite": {
+      "section_id": "5",
+      "offset": 473,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 513679,
+     "unit": "백만원",
+     "text": "513,679",
+     "cite": {
+      "section_id": "5",
+      "offset": 583,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 16794,
+     "unit": "백만원",
+     "text": "16,794",
+     "cite": {
+      "section_id": "5",
+      "offset": 606,
+      "file_id": "main"
+     }
+    },
+    "shares": null,
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.349345,
+     "unit": null,
+     "text": "0.3493450",
+     "cite": {
+      "section_id": "5",
+      "offset": 560,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = 분할대상사업부문 순자산 ÷ (분할전 순자산 + 분할전 자기주식). adjustments는 분할전 자기주식 장부금액(분모에 가산). 1주의 금액비율 500원÷500원 = 1을 곱해 배정비율 0.3493450. result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주성엔지니어링 주식회사(분할신설회사)",
+    "basis": "분할신주 모집(매출)가액(모집총액 ÷ 주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 10857,
+     "unit": "원",
+     "text": "10,857",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 418,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.349345,
+   "unit": null,
+   "text": "0.3493450",
+   "cite": {
+    "section_id": "5",
+    "offset": 560,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 179293262294,
+   "unit": "원",
+   "text": "179,293,262,294",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 427,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "2023.12.31 재무상태표 기준 순자산 장부가액 비율로 분할비율·배정비율 0.3493450. 신주배정은 최초 이사회(2024-05-02) 승인 분할계획서상 배정비율 기준",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20240408–20241005, listed_only=False): 분할/full, correction_kind=기재정정, body_rcept_no=본 건, 원본 20240816000249, supersedes 20240816000249·20240827000880, attachment_rcept_no 20240816000249. 짝 주요사항보고서(회사분할결정) [첨부정정] 20240920000316(summary, 원본 20240502000574, body 20240704000155; 같은 날 같은 보고서명 원본 2건이라 연결 불확실 표시) 및 20240502000569.",
+  "단순·인적분할로 외부평가기관 '해당사항 없음'(IV. 평가 및 신주배정 등). 가치평가(DCF·상대가치 등)는 없고 순자산 장부가액 비율만 있음. regime: 기준시가·본질가치 산정 없음 → null.",
+  "분할신설회사 주성엔지니어링: 반도체장비 연구개발 및 제조, 판매 사업부문, 코스닥 재상장 예정(2024-08-12 재상장 예비심사 승인). 분할존속회사는 주성홀딩스로 상호 변경, 투자·관리 사업부문.",
+  "발행증권: 기명식보통주 16,512,952주, 액면 500원, 모집가액 10,857원, 모집총액 179,293,262,294원(분할계획서상 자본총계). 2023.12.31 재무상태표 기준이며 분할기일 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주3).",
+  "이사회 결의일 2024-05-02, 주주확정일 2024-09-02, 분할주주총회 2024-10-08, 분할기일 2024-11-01(III. 주요일정)."
+ ],
+ "extracted_at": "2026-10-27T09:54:02+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240905000404",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 253,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240905000404",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1293,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240905000404",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 분할에 관한 기본사항",
+   "chars_read": 3038,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240905000404",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 952,
+   "how": "section"
+  }
+ ]
+}

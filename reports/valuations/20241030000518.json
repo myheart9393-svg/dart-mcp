@@ -1,0 +1,570 @@
+{
+ "rcept_no": "20241030000518",
+ "original_rcept_no": "20240913000648",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01179866",
+  "name": "에스지헬스케어",
+  "market": "코스닥",
+  "induty_code": "27111"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "하나금융22호기업인수목적(주)",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2024-04-30",
+  "regime": "기준시가",
+  "ratio_text": "하나금융22호기업인수목적(주)의 기명식 보통주식 1주당 (주)에스지헬스케어의 기명식 보통주식 0.3285691주"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "주권비상장법인인 합병법인과 코스닥시장 주권상장법인인 피합병법인의 합병: 자본시장법 제165조의4, 시행령 제176조의5(제3항 기업인수목적회사 특례), 증권의발행및공시등에관한규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조에 따라 1주당 합병가액 산출·합병비율 적정성 검토",
+  "firm": "삼도회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 02월 13일부터 2024년 04월 29일까지",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장과 금융투자업에 관한 법률 제165조의4",
+   "동법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 6,087원(액면 100원)·피합병법인 2,000원(액면 100원), 합병비율 1 : 0.3285691은 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 109397,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼도회계법인",
+   "target": "(주)에스지헬스케어",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 4,
+    "basis": "[(BX1+CX4)÷5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1468,
+     "unit": "원",
+     "text": "1,468",
+     "cite": {
+      "section_id": "5",
+      "offset": 15413,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 13358108716,
+     "unit": "원",
+     "text": "13,358,108,716",
+     "cite": {
+      "section_id": "5",
+      "offset": 15346,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 13344026715,
+     "unit": "원",
+     "text": "13,344,026,715",
+     "cite": {
+      "section_id": "5",
+      "offset": 14570,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 14082001,
+     "unit": "원",
+     "text": "14,082,001",
+     "cite": {
+      "section_id": "5",
+      "offset": 14606,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 9100000,
+     "unit": "주",
+     "text": "9,100,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 15377,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6087,
+     "unit": "원",
+     "text": "6,087",
+     "cite": {
+      "section_id": "5",
+      "offset": 10289,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 7243,
+    "unit": "원",
+    "text": "7,243",
+    "cite": {
+     "section_id": "5",
+     "offset": 10352,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(스팩 소멸방식). 시행령 제176조의5 제3항 기업인수목적회사 특례: 자산가치:수익가치 1:4로 SPAC과 협의(합병법인 제시 수익가치 비중 4~7, 피합병법인 제시 3~6 중 최소 1:4). 일반규정 1:1.5 적용 시 비교공시 4,932원·합병비율 0.4055150. 상대가치는 유사회사 3사 미만으로 미산정. 분석기준일 2024-04-24. 자산가치 조정: 시장성 없는 투자주식 순자산가액 차이 가산 8,994,759원·차감 (5,087,242)원."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "(주)에스지헬스케어",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년 12월 31일까지의 5년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 12.87,
+     "unit": "%",
+     "text": "12.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 103226,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102967,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102996,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.787,
+     "unit": null,
+     "text": "0.787",
+     "cite": {
+      "section_id": "5",
+      "offset": 101135,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.864,
+     "unit": null,
+     "text": "0.864",
+     "cite": {
+      "section_id": "5",
+      "offset": 103024,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 103052,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.44,
+     "unit": "%",
+     "text": "13.44%",
+     "cite": {
+      "section_id": "5",
+      "offset": 103091,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 10.53,
+     "unit": "%",
+     "text": "10.53%",
+     "cite": {
+      "section_id": "5",
+      "offset": 103114,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 103181,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 12.43,
+     "unit": "%",
+     "text": "12.43%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102869,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 11.06,
+     "unit": "%",
+     "text": "11.06%",
+     "cite": {
+      "section_id": "5",
+      "offset": 103160,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 105305,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "디알젬",
+      "value": {
+       "value": 0.781,
+       "unit": null,
+       "text": "0.781",
+       "cite": {
+        "section_id": "5",
+        "offset": 100978,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada), Observed 0.867, 부채비율(D/E) 13.93%, Relevered 0.858"
+     },
+     {
+      "name": "레이언스",
+      "value": {
+       "value": 0.933,
+       "unit": null,
+       "text": "0.933",
+       "cite": {
+        "section_id": "5",
+        "offset": 101037,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada), Observed 0.952, 부채비율(D/E) 2.61%, Relevered 1.025"
+     },
+     {
+      "name": "제노레이",
+      "value": {
+       "value": 0.646,
+       "unit": null,
+       "text": "0.646",
+       "cite": {
+        "section_id": "5",
+        "offset": 101097,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada), Observed 0.752, 부채비율(D/E) 20.76%, Relevered 0.709"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7243,
+     "unit": "원",
+     "text": "7,243",
+     "cite": {
+      "section_id": "5",
+      "offset": 104927,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 6224,
+      "unit": "원",
+      "text": "6,224",
+      "cite": {
+       "section_id": "5",
+       "offset": 106763,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 8562,
+      "unit": "원",
+      "text": "8,562",
+      "cite": {
+       "section_id": "5",
+       "offset": 106819,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 할인). 영업가치 71,981,536,505원(추정기간 13,247,283,400 + 영구 58,734,253,105) + 비영업자산 2,689,773,015원 - 이자부부채 8,763,248,296원 = 65,908,061,223원, 발행주식 9,100,000주. Size Risk Premium은 한공회 '한국의 기업규모위험 연구결과'. Kd: 신용등급 BB+이나 금융투자협회 관측 최하위 BBB- 5년 무보증 회사채 수익률 적용. β: Bloomberg 2 Year Weekly Adjusted Beta(2023-12-31), 의료용 기기 제조업 동종 3사, Hamada. Ke 표에는 β를 86.41%로 표기. 목표자본구조 D/E 12.43%(동종기업 평균), 자기자본비율 88.94%·타인자본비율 11.06%. 영구성장률 1%. range는 WACC 11.87–13.87%·영구성장률 0.50–1.50% 민감도 표 범위."
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "하나금융22호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1718,
+     "unit": "원",
+     "text": "1,718",
+     "cite": {
+      "section_id": "5",
+      "offset": 26663,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12371994946,
+     "unit": "원",
+     "text": "12,371,994,946",
+     "cite": {
+      "section_id": "5",
+      "offset": 26592,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11248304205,
+     "unit": "원",
+     "text": "11,248,304,205",
+     "cite": {
+      "section_id": "5",
+      "offset": 25830,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1123690741,
+     "unit": "원",
+     "text": "1,123,690,741",
+     "cite": {
+      "section_id": "5",
+      "offset": 25866,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7200000,
+     "unit": "주",
+     "text": "7,200,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 26627,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 23405,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기산일 2024-04-29(이사회·계약 2024-04-30의 전일), 1개월 가중평균 2,267원·1주일 2,337원·최근일 2,395원의 산술평균 2,333원에 14.27% 할인한 2,000원. 자산가치 1,718원(전환사채 전환가정 1,123,690,741원 가산, 주식수 6,010,000+1,190,000=7,200,000주)보다 높아 합병가액 Max[A, B]=2,000원."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)에스지헬스케어",
+    "basis": "본질가치(자산:수익 1:4, SPAC 특례 협의)",
+    "value": {
+     "value": 6087,
+     "unit": "원",
+     "text": "6,087",
+     "cite": {
+      "section_id": "5",
+      "offset": 7934,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "하나금융22호기업인수목적(주)",
+    "basis": "기준주가에 할인율 14.27% 반영",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7942,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)에스지헬스케어",
+    "basis": "비교목적 공시: 일반규정 자산:수익 1:1.5 적용 시",
+    "value": {
+     "value": 4932,
+     "unit": "원",
+     "text": "4,932",
+     "cite": {
+      "section_id": "5",
+      "offset": 9715,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.3285691,
+   "unit": null,
+   "text": "0.3285691",
+   "cite": {
+    "section_id": "5",
+    "offset": 7970,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 12019998900,
+   "unit": "원",
+   "text": "12,019,998,900",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 407,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "삼도회계법인: 합병비율 1 : 0.3285691은 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼도회계법인",
+   "target": "(주)에스지헬스케어",
+   "variables": "WACC 11.87–13.87% (±1%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 6224,
+     "unit": "원",
+     "text": "6,224",
+     "cite": {
+      "section_id": "5",
+      "offset": 106763,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 8562,
+     "unit": "원",
+     "text": "8,562",
+     "cite": {
+      "section_id": "5",
+      "offset": 106819,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20240602–20241129, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, original_rcept_no=20240913000648(증권신고서(합병)), attachment_rcept_no=20240913000648, supersedes 20240913000648·20240925000588·20241002000541.",
+  "related_rcept_nos 비어 있음: 짝 주요사항보고서(회사합병결정)는 조회 결과에 연결되지 않음.",
+  "company.market '코스닥'은 조회 시점 상태. 신고 당시 에스지헬스케어는 주권비상장법인(존속), SPAC은 코스닥 상장(소멸).",
+  "외부평가 계약 2024-02-13, 평가기간 2024-02-13–2024-04-29, 의견서 제출일 2024-04-30. 합병변경계약 1차 2024-09-13, 2차 2024-10-02. 합병가액·비율은 최초 평가(2024-04) 그대로. 감사위원회 동의·회사와의 관계는 본문에서 찾지 못해 null.",
+  "가이드라인 문단30 검토: 최근 3년 유상증자(2021-08 RCPS 3,846원, 액면분할 후)·구주 양수도(2024-04-26 보통주 5,000–5,070원 등) 제시. 비상장주식 거래사이트 시세 없음.",
+  "합병신주 기명식보통주 1,974,700주, 모집가액 6,087원, 모집총액 12,019,998,900원(3.4). 주주총회 2024-11-01, 합병기일 2024-12-04(4장)."
+ ],
+ "extracted_at": "2026-10-27T09:58:27+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20241030000518",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 455,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241030000518",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 21971,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241030000518",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 51695,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

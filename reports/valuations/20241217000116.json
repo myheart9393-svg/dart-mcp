@@ -1,0 +1,522 @@
+{
+ "rcept_no": "20241217000116",
+ "original_rcept_no": "20241203000056",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01142260",
+  "name": "에스엠씨지",
+  "market": "기타",
+  "induty_code": "231"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "키움제7호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계 여부 해당사항 없습니다.",
+  "board_date": "2024-07-16",
+  "regime": "기준시가",
+  "ratio_text": "(주)에스엠씨지 : 키움제7호기업인수목적(주) = 1 : 0.6451613"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "합병 당사회사가 제시한 합병비율이 자본시장과 금융투자업에 관한 법률시행령 제176조의 5, 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조에서 규정하고 있는 합병가액 산정방법에 따라 산정되었는지에 대하여 검토",
+  "firm": "삼덕회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 5월 14일 ~ 2024년 7월 15일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 3,100원·피합병법인 2,000원(액면 각 100원), 합병비율 1 : 0.6451613은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 3077,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼덕회계법인",
+   "target": "(주)에스엠씨지",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(BX1+CX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1427,
+     "unit": "원",
+     "text": "1,427",
+     "cite": {
+      "section_id": "5",
+      "offset": 17145,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 23582268468,
+     "unit": "원",
+     "text": "23,582,268,468",
+     "cite": {
+      "section_id": "5",
+      "offset": 17073,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 7339525749,
+     "unit": "원",
+     "text": "7,339,525,749",
+     "cite": {
+      "section_id": "5",
+      "offset": 16292,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": {
+     "value": 16524918,
+     "unit": "주",
+     "text": "16,524,918",
+     "cite": {
+      "section_id": "5",
+      "offset": 17108,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "유리 및 유리제품 제조업 상장 4사(KCC글라스·국영지앤엠·금비·원익QnC)가 시행세칙 유사회사 요건 미충족 → 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 3100,
+     "unit": "원",
+     "text": "3,100",
+     "cite": {
+      "section_id": "5",
+      "offset": 12075,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 4215,
+    "unit": "원",
+    "text": "4,215",
+    "cite": {
+     "section_id": "5",
+     "offset": 12138,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인. 자산가치는 2023.12.31 감사받은 개별재무제표 자본총계에 2024년 전환상환우선주 보통주 전환(자본금 585,490,000원·자본잉여금 14,887,252,719원 증가)과 주식선택권 행사 가정(770,000,000원) 가산. 주식수는 전환주식 5,854,918주·주식선택권 770,000주 포함 16,524,918주(행사 전 15,754,918주·1,497원). 원문 표의 'B. 조정항목' 행 값은 '-'로 기재되어 adjustments는 null."
+  },
+  {
+   "subject": "삼덕회계법인",
+   "target": "(주)에스엠씨지",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년 12월 31일까지의 5년",
+    "base_date": null,
+    "wacc": {
+     "value": 10.78,
+     "unit": "%",
+     "text": "10.78%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104508,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104226,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104261,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.6392,
+     "unit": null,
+     "text": "0.6392",
+     "cite": {
+      "section_id": "5",
+      "offset": 117834,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.8167,
+     "unit": null,
+     "text": "0.8167",
+     "cite": {
+      "section_id": "5",
+      "offset": 104293,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104332,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.06,
+     "unit": "%",
+     "text": "13.06%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104363,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.44,
+     "unit": "%",
+     "text": "5.44%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104390,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104468,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 35.1,
+     "unit": "%",
+     "text": "35.1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 105876,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 25.98,
+     "unit": "%",
+     "text": "25.98%",
+     "cite": {
+      "section_id": "5",
+      "offset": 104443,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 45238,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "펌텍코리아",
+      "value": {
+       "value": 0.6302,
+       "unit": null,
+       "text": "0.6302",
+       "cite": {
+        "section_id": "5",
+        "offset": 117542,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Bloomberg 2년 주간, 2023-12-31 기준)"
+     },
+     {
+      "name": "한국콜마",
+      "value": {
+       "value": 0.4836,
+       "unit": null,
+       "text": "0.4836",
+       "cite": {
+        "section_id": "5",
+        "offset": 117609,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Bloomberg 2년 주간, 2023-12-31 기준)"
+     },
+     {
+      "name": "코디",
+      "value": {
+       "value": 0.4337,
+       "unit": null,
+       "text": "0.4337",
+       "cite": {
+        "section_id": "5",
+        "offset": 117668,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Bloomberg 2년 주간, 2023-12-31 기준)"
+     },
+     {
+      "name": "코스맥스",
+      "value": {
+       "value": 0.5714,
+       "unit": null,
+       "text": "0.5714",
+       "cite": {
+        "section_id": "5",
+        "offset": 117734,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Bloomberg 2년 주간, 2023-12-31 기준)"
+     },
+     {
+      "name": "아모레퍼시픽",
+      "value": {
+       "value": 1.0772,
+       "unit": null,
+       "text": "1.0772",
+       "cite": {
+        "section_id": "5",
+        "offset": 117802,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Bloomberg 2년 주간, 2023-12-31 기준)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4215,
+     "unit": "원",
+     "text": "4,215",
+     "cite": {
+      "section_id": "5",
+      "offset": 20372,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "수익가치(시행세칙 제6조, 현금흐름할인모형). Ke = Rf + MRP×β + Firm Specific Risk(Size Premium, 한국공인회계사회 Micro-Cap). Rf는 2023년 12월말 Bloomberg 국고채 수익률, MRP는 한국공인회계사회 8%. Kd 5.44%는 합병법인 2023년말 가중평균차입이자율. 목표자본구조는 대용기업 5사 평균 D/E 35.1%, E/V 74.02%·D/V 25.98%. 영업가치 98,930,825,541원(추정기간 27,052,849,702 + 영구 71,877,975,839) + 비영업자산 3,050,861,824 − 이자부부채 32,326,718,139 = 69,654,969,226원 ÷ 16,524,918주. 원문 불일치: 본문은 대용기업 Unlevered Beta 평균을 '0.392'라 적었으나 표 평균은 0.6392(표 값 사용). 3.3.3.3.1 수익가치 산정 결과 요약 표는 1주당 수익가치를 4,507원으로 적었으나 요약표·3.2.1 산정내역은 4,215원(주식가치÷주식수와 일치하는 4,215원 사용). 평가기준일은 원문에 명시 없음(분석기준일 2024-07-09). 민감도 분석 원문 없음."
+  },
+  {
+   "subject": "삼덕회계법인",
+   "target": "키움제7호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1737,
+     "unit": "원",
+     "text": "1,737",
+     "cite": {
+      "section_id": "5",
+      "offset": 26990,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 9553052788,
+     "unit": "원",
+     "text": "9,553,052,788",
+     "cite": {
+      "section_id": "5",
+      "offset": 26920,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 8341545807,
+     "unit": "원",
+     "text": "8,341,545,807",
+     "cite": {
+      "section_id": "5",
+      "offset": 26169,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1211506981,
+     "unit": "원",
+     "text": "1,211,506,981",
+     "cite": {
+      "section_id": "5",
+      "offset": 26220,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 5500000,
+     "unit": "주",
+     "text": "5,500,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 26954,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 24627,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기산일 2024-07-15, 1개월 가중평균 2,353원·1주일 2,420원·최근일 2,450원의 산술평균 2,408원에 16.93% 할인한 2,000원. 자산가치 1,737원(전환사채 전환 가정 1,211,506,981원 가산, 1,395,000주 포함 5,500,000주)보다 높아 합병가액 Max[A, B]=2,000원. 시행령 제176조의5 제3항 기업인수목적회사 특례."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)에스엠씨지",
+    "basis": "본질가치",
+    "value": {
+     "value": 3100,
+     "unit": "원",
+     "text": "3,100",
+     "cite": {
+      "section_id": "5",
+      "offset": 10943,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "키움제7호기업인수목적(주)",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 10919,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.6451613,
+   "unit": null,
+   "text": "0.6451613",
+   "cite": {
+    "section_id": "5",
+    "offset": 11110,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "삼덕회계법인: 합병비율 1 : 0.6451613은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240720–20250116, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=20241217000116(본 건), original_rcept_no=20241203000056(attachment_rcept_no 동일), supersedes 20241203000056·20241212000114·20241216000308. 짝 주요사항보고서는 결과에 없음(related_rcept_nos 빈 목록).",
+  "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 비상장 (주)에스엠씨지(유리 화장품 용기), 소멸(피합병법인)은 코스닥 상장 키움제7호기업인수목적. company.market은 신고 당시(비상장) 기준 '기타'.",
+  "이사회 결의 2024-07-16, 변경 이사회 2024-11-12·2024-12-16, 변경 합병계약 2024-12-02·2024-12-16(section 4). 합병기일 2025-02-18 예정. 의견서 제출일 2024-07-16.",
+  "외부평가계약일: section 4는 2024-04-16, section 5 표는 평가계약일자 2024-05-14로 서로 다르게 기재.",
+  "발행 합병신주 기명식보통주 2,648,387주, 모집가액 3,100원, 모집총액 8,209,999,700원(3.4).",
+  "할인율 16.93%는 피합병법인(SPAC) 기준주가 대비 할인으로, 합병법인 평가가 아닌 SPAC 합병가액에 적용."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20241217000116",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 441,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241217000116",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 5236,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20241217000116",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 50637,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:02:24+09:00",
+ "extractor_version": "1.1"
+}

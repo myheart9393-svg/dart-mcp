@@ -1,0 +1,567 @@
+{
+ "rcept_no": "20240315000646",
+ "original_rcept_no": null,
+ "related_rcept_nos": [
+  "20230523000335",
+  "20240315000530"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01429220",
+  "name": "피아이이",
+  "market": "코스닥",
+  "induty_code": "29299"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "하나금융25호기업인수목적(주)",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2023-05-23",
+  "regime": "기준시가",
+  "ratio_text": "(주)피아이이 : 하나금융25호기업인수목적(주) = 1:1. 4852220 (하나금융25호기업인수목적(주)의 기명식 보통주식 1주당 (주)피아이이의 기명식 보통주식 1.4852220주 )"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "동 주요사항보고서 상의 합병가액의 산정에 대하여 본 평가인은 아래의 관련규정을 적용하여 주권비상장법인인 합병법인과 코스닥시장 주권상장법인인 피합병법인의 1주당 합병가액을 산출하였으며, 이를 기초로 합병비율의 적정성을 검토",
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2023년 4월 11일 ~ 2023년 5월 22일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 6,733원(액면 100원)·피합병법인 10,000원(액면 500원), 합병비율 1 : 1.4852220은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 279139,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)피아이이",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 4,
+    "basis": "(BX1+CX4)÷5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 977,
+     "unit": "원",
+     "text": "977",
+     "cite": {
+      "section_id": "5",
+      "offset": 14633,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 31374440947,
+     "unit": "원",
+     "text": "31,374,440,947",
+     "cite": {
+      "section_id": "5",
+      "offset": 14560,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 31778796929,
+     "unit": "원",
+     "text": "31,778,796,929",
+     "cite": {
+      "section_id": "5",
+      "offset": 13781,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -404355982,
+     "unit": "원",
+     "text": "(404,355,982)",
+     "cite": {
+      "section_id": "5",
+      "offset": 13817,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 32118000,
+     "unit": "주",
+     "text": "32,118,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 14596,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6733,
+     "unit": "원",
+     "text": "6,733",
+     "cite": {
+      "section_id": "5",
+      "offset": 9100,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 8172,
+    "unit": "원",
+    "text": "8,172",
+    "cite": {
+     "section_id": "5",
+     "offset": 9161,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(스팩 소멸방식). 시행령 제176조의5 제3항 기업인수목적회사 특례로 자산가치:수익가치 1:4 가중(SPAC과 협의, 매출·영업이익 성장성 사유). 비교목적 공시: 일반규정 1:1.5 적용 시 본질가치 5,294원, 합병비율 1 : 1.8889309. 상대가치는 유사회사 3사 미만으로 미산정. 자산가치 조정: 시장성 있는 투자주식(파워로직스) 7,340,000원 가산, (주)아하랩스·(주)에프원테크 투자주식 전액손상 411,695,982원 차감. 최근 2년 유상증자(주당 1,667원)·RCPS(8,251원)·양수도(1,667원)는 가치조정 미반영. 분석기준일 2023-05-16"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)피아이이",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년 1월 1일부터 2027년 12월 31일까지의 5년",
+    "base_date": "2022-12-31",
+    "wacc": {
+     "value": 10.77,
+     "unit": "%",
+     "text": "10.77%",
+     "cite": {
+      "section_id": "5",
+      "offset": 157273,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 155067,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 155134,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.9683,
+     "unit": null,
+     "text": "0.9683",
+     "cite": {
+      "section_id": "5",
+      "offset": 155791,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.1375,
+     "unit": null,
+     "text": "1.1375",
+     "cite": {
+      "section_id": "5",
+      "offset": 155179,
+      "file_id": "main"
+     }
+    },
+    "size_premium": null,
+    "ke": {
+     "value": 12.84,
+     "unit": "%",
+     "text": "12.84%",
+     "cite": {
+      "section_id": "5",
+      "offset": 155282,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 2.16,
+     "unit": "%",
+     "text": "2.16%",
+     "cite": {
+      "section_id": "5",
+      "offset": 157022,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 23.1,
+     "unit": "%",
+     "text": "23.10%",
+     "cite": {
+      "section_id": "5",
+      "offset": 157312,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 22.72,
+     "unit": "%",
+     "text": "22.72%",
+     "cite": {
+      "section_id": "5",
+      "offset": 155773,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 18.52,
+     "unit": "%",
+     "text": "18.52%",
+     "cite": {
+      "section_id": "5",
+      "offset": 157322,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 58133,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "이노메트리",
+      "value": {
+       "value": 1.2503,
+       "unit": null,
+       "text": "1.2503",
+       "cite": {
+        "section_id": "5",
+        "offset": 155614,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "브이원텍",
+      "value": {
+       "value": 0.8471,
+       "unit": null,
+       "text": "0.8471",
+       "cite": {
+        "section_id": "5",
+        "offset": 155679,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "자비스",
+      "value": {
+       "value": 0.8075,
+       "unit": null,
+       "text": "0.8075",
+       "cite": {
+        "section_id": "5",
+        "offset": 155742,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 8172,
+     "unit": "원",
+     "text": "8,172",
+     "cite": {
+      "section_id": "5",
+      "offset": 15826,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 7038,
+      "unit": "원",
+      "text": "7,038",
+      "cite": {
+       "section_id": "5",
+       "offset": 276518,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 9726,
+      "unit": "원",
+      "text": "9,726",
+      "cite": {
+       "section_id": "5",
+       "offset": 276574,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 할인). 영업가치 242,875,562,000원 + 비영업자산 20,407,706,241원 - 이자부부채 800,000,000원 = 262,483,268,241원, 발행주식 32,118,000주. kd는 2022말 우리은행 차입금 세전 가중평균차입이자율. 규모위험 프리미엄 원문 없음. β: Bloomberg 2 Year Weekly Adjusted Beta(2022-12-31), 동종기업 3사(이노메트리·브이원텍·자비스) 평균 D/E 22.72%로 relever. range는 WACC 9.77–11.77%·영구성장률 0.50–1.50% 민감도 표 범위"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "하나금융25호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 8652,
+     "unit": "원",
+     "text": "8,652",
+     "cite": {
+      "section_id": "5",
+      "offset": 30073,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 46720681323,
+     "unit": "원",
+     "text": "46,720,681,323",
+     "cite": {
+      "section_id": "5",
+      "offset": 30002,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 41982941622,
+     "unit": "원",
+     "text": "41,982,941,622",
+     "cite": {
+      "section_id": "5",
+      "offset": 29240,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 4737739701,
+     "unit": "원",
+     "text": "4,737,739,701",
+     "cite": {
+      "section_id": "5",
+      "offset": 29276,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 5400000,
+     "unit": "주",
+     "text": "5,400,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 30037,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10000,
+     "unit": "원",
+     "text": "10,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 26882,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기산일 2023-05-22, 1개월 가중평균 9,760원·1주일 9,765원·최근일 9,770원의 산술평균 9,765원에 2.41% 할증한 10,000원(원문 표 산식 표기 'D×(1-E)', 본문 기산일 표기 '2022년 05월 22일'은 원문 그대로). 자산가치 8,652원(전환사채 전환가정 4,737,739,701원 가산, 발행주식 4,302,000주+전환가능 1,098,000주)보다 높아 합병가액은 Max[A, B]=10,000원"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)피아이이",
+    "basis": "본질가치(자산:수익 1:4, SPAC 특례)",
+    "value": {
+     "value": 6733,
+     "unit": "원",
+     "text": "6,733",
+     "cite": {
+      "section_id": "5",
+      "offset": 7368,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "하나금융25호기업인수목적(주)",
+    "basis": "기준주가에 할증율 2.41% 반영",
+    "value": {
+     "value": 10000,
+     "unit": "원",
+     "text": "10,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7343,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 1.485222,
+   "unit": null,
+   "text": "1.4852220",
+   "cite": {
+    "section_id": "5",
+    "offset": 7526,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 43019998525,
+   "unit": "원",
+   "text": "43,019,998,525",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 400,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인: 합병비율 1 : 1.4852220은 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)피아이이",
+   "variables": "WACC 9.77–11.77% (±1%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 7038,
+     "unit": "원",
+     "text": "7,038",
+     "cite": {
+      "section_id": "5",
+      "offset": 276518,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 9726,
+     "unit": "원",
+     "text": "9,726",
+     "cite": {
+      "section_id": "5",
+      "offset": 276574,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20231016–20240414, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, attachment_rcept_no=20240215001123([첨부추가]증권신고서(합병)), supersedes 20240215001123·20240226004432·20240229001572·20240229002176·20240307000508. original_rcept_no=null: 피아이이(01429220) 2023–2024 공시 목록에 꼬리표 없는 최초 증권신고서(합병)가 없음(가장 이른 것이 [첨부추가] 20240215001123).",
+  "본 건 이후 투자설명서 20240327000038, 2024-04-12 철회신고서 20240412003248. SPAC 측 2024-04-12 '기업인수목적회사관련합병취소ㆍ부인사실발생' → 합병 미완료(취소). 피아이이는 이후 2024-11-29 증권신고서(지분증권)로 별도 IPO 추진.",
+  "짝 주요사항보고서(회사합병결정)는 SPAC(하나금융25호기업인수목적, 01669475) 명의: 최초 20230523000335, 본 건과 같은 날 기재정정 20240315000530, 이후 20240412003062. summary 등급이라 따로 뽑을 필요는 낮음.",
+  "company.market '코스닥'은 조회 시점 상태. 신고 당시 피아이이는 주권비상장법인(존속), SPAC은 코스닥 상장(소멸).",
+  "'회사와의 관계'·감사위원회 동의는 본문에서 찾지 못해 null. 외부평가 계약 2023-04-10, 평가기간 2023-04-11–2023-05-22, 의견서 제출일 2023-05-23(4장·5장).",
+  "합병변경계약 1–7차(2023-10-31 ~ 2024-03-15) 체결. 평가의견서는 2023-05-23 기준이며 평가기준일 2022-12-31·분석기준일 2023-05-16·SPAC 기산일 2023-05-22.",
+  "5장 (주3) 원문에 '공시일 현재 본질가치 산정액 8,248원'이라는 표기가 있으나 결론 표의 본질가치는 6,733원(원문 그대로 기록, 해석하지 않음).",
+  "합병신주 기명식보통주 6,389,425주, 모집가액 6,733원, 모집총액 43,019,998,525원(3.4). 주식매수청구가격 합병법인 6,733원·피합병법인 10,578원(3.3)."
+ ],
+ "extracted_at": "2026-10-27T09:42:01+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240315000646",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 315,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240315000646",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 448,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240315000646",
+   "file_id": "main",
+   "section_id": "3.5",
+   "title": "V. 당사회사에 관한 사항 요약",
+   "chars_read": 358,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240315000646",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 22274,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240315000646",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 70298,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

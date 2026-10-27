@@ -1,0 +1,194 @@
+{
+ "rcept_no": "20251118000145",
+ "original_rcept_no": "20251031000330",
+ "related_rcept_nos": [
+  "20251031000228"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00377610",
+  "name": "세아홀딩스",
+  "market": "유가증권",
+  "induty_code": "241"
+ },
+ "deal": {
+  "type": "share_exchange",
+  "counterparty": "(주)세아특수강",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "(주)세아특수강은 세아그룹의 계열회사로, (주)세아홀딩스가 보통주 5,987,180주(지분율 69.86%) 보유",
+  "board_date": "2025-10-30",
+  "regime": "기준시가",
+  "ratio_text": "(주)세아홀딩스 : (주)세아특수강 = 1 : 0.1348985"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "주권상장법인 간 주식교환으로 기준주가로 교환가액을 산정해 시행령 제176조의6 제4항에 따라 외부평가 불요",
+  "basis_text": "본건 주식교환은 주권상장법인간의 주식교환으로 자본시장법 제165조의 4, 동법 시행령 제176조의6 및 제176조의5에 따라 교환가액을 산정 한후 교환비율을 산출하였으므로, 동법 시행령 제176조의6 제4항에 의하여 외부평가기관의 평가가 요구되지 않습니다.",
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5 제1항",
+   "자본시장법 시행령 제176조의6 제2항·제4항"
+  ],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "5",
+   "offset": 6779,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "(주)세아홀딩스·(주)세아특수강(주식교환 당사회사)",
+   "target": "(주)세아홀딩스",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 119590,
+     "unit": "원",
+     "text": "119,590",
+     "cite": {
+      "section_id": "5",
+      "offset": 3870,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "자본시장법 시행령 제176조의6 제2항·제176조의5 제1항 제1호 기준주가: 최근 1개월 가중평균종가 119,257원·1주일 119,613원·최근일 종가 119,900원의 산술평균. 할인·할증 0%. 기산일 2025-10-29(이사회 2025-10-30 전영업일)"
+  },
+  {
+   "subject": "(주)세아홀딩스·(주)세아특수강(주식교환 당사회사)",
+   "target": "(주)세아특수강",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 16133,
+     "unit": "원",
+     "text": "16,133",
+     "cite": {
+      "section_id": "5",
+      "offset": 5360,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준주가: 최근 1개월 가중평균종가 15,950원·1주일 16,237원·최근일 종가 16,210원의 산술평균. 할인·할증 0%. 기산일 2025-10-29"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)세아홀딩스",
+    "basis": "기준주가",
+    "value": {
+     "value": 119590,
+     "unit": "원",
+     "text": "119,590",
+     "cite": {
+      "section_id": "5",
+      "offset": 138,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)세아특수강",
+    "basis": "기준주가",
+    "value": {
+     "value": 16133,
+     "unit": "원",
+     "text": "16,133",
+     "cite": {
+      "section_id": "5",
+      "offset": 148,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1348985,
+   "unit": null,
+   "text": "0.1348985",
+   "cite": {
+    "section_id": "5",
+    "offset": 292,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 38035360320,
+   "unit": "원",
+   "text": "38,035,360,320",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 266,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": null,
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250621–20251218, listed_only=False): share_exchange/full, 거래 대표 rcept 20251118000164([첨부정정]증권신고서), original_rcept_no=20251031000330, body_rcept_no=20251118000145(본 건), attachment_rcept_no=20251118000164. supersedes 20251031000330·20251111000198·20251118000145. 본 건보다 최신 본문 정정 없음.",
+  "짝 공시: 주요사항보고서(주식교환ㆍ이전결정) 20251031000228(첨부정정, summary, 원본·본문 20251030000255).",
+  "상장법인(유가증권) 간 포괄적 주식교환이라 기준주가만으로 교환가액 산정. 자산가치·수익가치·상대가치·DCF 가정은 원문에 없음(표에 '-'). 외부평가기관 '-'(3.4).",
+  "valuations의 subject는 평가기관이 아니라 주식교환 당사회사(기준주가 산정). 양사 합의로 할인·할증 미적용.",
+  "교환신주 기명식보통주 318,048주, 액면 5,000원, 모집가액 119,590원, 모집총액 38,035,360,320원(3.4). 단주 매각대금 외 교부금 없음.",
+  "(주)세아특수강 기보유 자기주식 225,131주와 주식매수청구로 취득할 자기주식은 주식교환일 전 소각 예정이나, 소각 기준일(2026-01-22)이 기산일(2025-10-29) 이후라 교환비율에 반영되지 않음(section 5)."
+ ],
+ "extracted_at": "2026-10-27T10:24:08+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20251118000145",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1060,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251118000145",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 주식의 포괄적 교환ㆍ이전에 관한 기본사항",
+   "chars_read": 2433,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20251118000145",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
+   "chars_read": 6802,
+   "how": "section"
+  }
+ ]
+}

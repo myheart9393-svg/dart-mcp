@@ -59,10 +59,13 @@ def _main_text(rcept_no: str, limit: int = EQUITY_SCAN_CHARS) -> str:
     return "".join(parts)[:limit]
 
 
-def plan(bgn: str, end: str, grade: str = "full", limit: int | None = None, case_dir: Path = CASE_DIR) -> dict:
+def plan(bgn: str, end: str, grade: str = "full", limit: int | None = None, case_dir: Path = CASE_DIR,
+         kinds: list[str] | None = None) -> dict:
+    """kinds: 거래 유형(영문 코드·한글 별칭). 생략하면 전부(유상증자 포함 — 본문으로 IPO를 가리려고)."""
     from . import server
 
-    res = server.search_valuation_disclosures(bgn, end, kinds=sorted(DEAL_LABELS), listed_only=False, max_results=100_000)
+    res = server.search_valuation_disclosures(bgn, end, kinds=kinds or sorted(DEAL_LABELS), listed_only=False,
+                                              max_results=100_000)
     if "error" in res:
         raise RuntimeError(res["error"])
     existing = _existing_keys(case_dir)
@@ -95,8 +98,25 @@ def plan(bgn: str, end: str, grade: str = "full", limit: int | None = None, case
     if limit is not None:
         for i in todo[limit:]:
             i["status"] = "queued"
-    return {"bgn_de": bgn, "end_de": end, "grade": grade, "limit": limit, "created_at": _now(),
+    return {"bgn_de": bgn, "end_de": end, "grade": grade, "limit": limit, "kinds": kinds, "created_at": _now(),
             "scan": {"total_deals": res["total"], "api_pages": res["api_pages"]}, "items": items}
+
+
+def ensure_company(it: dict, case_dir: Path = CASE_DIR) -> dict | None:
+    """ok로 기록한 사례 JSON의 company.corp_code(비면 큐의 값)·induty_code(비면 기업개황)를 채운다."""
+    from .industry import fill_case
+
+    path = case_dir / f"{it['body_rcept_no']}.json"
+    if not path.exists():
+        return None
+    case = json.loads(path.read_text(encoding="utf-8"))
+    comp = case["company"]
+    fixed = not comp.get("corp_code")
+    comp["corp_code"] = comp.get("corp_code") or it["corp_code"]
+    res = fill_case(case)
+    if fixed or res["changed"]:
+        path.write_text(json.dumps(case, ensure_ascii=False, indent=1), encoding="utf-8")
+    return {"induty_code": res["induty_code"], "reason": res["reason"]}
 
 
 def _now() -> str:
@@ -154,6 +174,7 @@ def _cli(argv: list[str]) -> int:
     p.add_argument("--grade", default="full")
     p.add_argument("--limit", type=int)
     p.add_argument("--state")
+    p.add_argument("--kinds", help="쉼표 구분: merger,split,split_merger,share_exchange (지분증권 제외 등)")
     r = sub.add_parser("record")
     r.add_argument("--state", required=True)
     r.add_argument("rcept_no")
@@ -166,7 +187,7 @@ def _cli(argv: list[str]) -> int:
     q.add_argument("--state", required=True)
     a = ap.parse_args(argv)
     if a.cmd == "plan":
-        st = plan(a.bgn, a.end, a.grade or None, a.limit)
+        st = plan(a.bgn, a.end, a.grade or None, a.limit, kinds=a.kinds.split(",") if a.kinds else None)
         path = Path(a.state or CASE_DIR / f"_batch_{dt.date.today():%Y-%m-%d}.json")
         path.write_text(json.dumps(st, ensure_ascii=False, indent=1), encoding="utf-8")
         path.with_suffix(".md").write_text(render(st), encoding="utf-8")
@@ -180,6 +201,8 @@ def _cli(argv: list[str]) -> int:
     if a.cmd == "record":
         it = record(st, a.rcept_no, a.status, a.reason, calls=a.calls, chars=a.chars, seconds=a.seconds,
                     **({"review": a.review} if a.review else {}))
+        if a.status == "ok":
+            it["industry"] = ensure_company(it)
         path.write_text(json.dumps(st, ensure_ascii=False, indent=1), encoding="utf-8")
         print(json.dumps(it, ensure_ascii=False))
     path.with_suffix(".md").write_text(render(st), encoding="utf-8")

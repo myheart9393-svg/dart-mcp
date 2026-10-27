@@ -1,0 +1,575 @@
+{
+ "rcept_no": "20240923000309",
+ "original_rcept_no": "20240830001462",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01448544",
+  "name": "셀로맥스사이언스",
+  "market": "코스닥",
+  "induty_code": "10897"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "한화플러스제3호기업인수목적(주)",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2024-04-24",
+  "regime": "기준시가",
+  "ratio_text": "피합병법인인 한화플러스제3호기업인수목적(주)의 보통주(액면금액 100원) 1주당 합병법인인 (주)셀로맥스사이언스의 보통주(액면금액 100원) 0.2270405 주를 교부"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "주권비상장법인인 합병법인과 코스닥시장 주권상장법인인 피합병법인의 합병: 자본시장법 제165조의4, 시행령 제176조의5, 증권의발행및공시등에관한규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조에 따라 1주당 합병가액 산출·합병비율 적정성 검토",
+  "firm": "한미회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 04월 01일부터 2024년 04월 23일까지",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장과금융투자업에관한법률 제165조의4",
+   "동법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 8,809원(액면 100원)·피합병법인 2,000원(액면 100원), 합병비율 1 : 0.2270405는 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 94079,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한미회계법인",
+   "target": "(주)셀로맥스사이언스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(나X1+다X1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2924,
+     "unit": "원",
+     "text": "2,924",
+     "cite": {
+      "section_id": "5",
+      "offset": 12764,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 30114697955,
+     "unit": "원",
+     "text": "30,114,697,955",
+     "cite": {
+      "section_id": "5",
+      "offset": 12694,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 30114697955,
+     "unit": "원",
+     "text": "30,114,697,955",
+     "cite": {
+      "section_id": "5",
+      "offset": 11944,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": {
+     "value": 10300000,
+     "unit": "주",
+     "text": "10,300,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 12725,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 8809,
+     "unit": "원",
+     "text": "8,809",
+     "cite": {
+      "section_id": "5",
+      "offset": 8620,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 12732,
+    "unit": "원",
+    "text": "12,732",
+    "cite": {
+     "section_id": "5",
+     "offset": 8660,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(스팩 소멸방식). 시행령 제176조의5 제1항 제2호 나목·시행세칙 제4조: 자산가치:수익가치 1:1.5. 상대가치는 유사회사 요건 충족 법인 3사 미만으로 미산정. 자산가치 조정항목 '-'(조정 없음). 분석기준일 2024-04-17. 최근 2년 유상증자 없음; 2024-02-15 구주 양수도 주당 6,314원은 본질가치 8,809원과 28.32% 차이이나 가이드라인 문단30의 적정가격으로 볼 근거 부족해 추가 조정 미반영."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "(주)셀로맥스사이언스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년 12월 31일까지의 5년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 11.54,
+     "unit": "%",
+     "text": "11.54%",
+     "cite": {
+      "section_id": "5",
+      "offset": 85417,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 79708,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 79770,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.7219,
+     "unit": null,
+     "text": "0.7219",
+     "cite": {
+      "section_id": "5",
+      "offset": 81418,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.8627,
+     "unit": null,
+     "text": "0.8627",
+     "cite": {
+      "section_id": "5",
+      "offset": 79814,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 79940,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.43,
+     "unit": "%",
+     "text": "13.43%",
+     "cite": {
+      "section_id": "5",
+      "offset": 80120,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.32,
+     "unit": "%",
+     "text": "5.32%",
+     "cite": {
+      "section_id": "5",
+      "offset": 84830,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 85190,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 25.35,
+     "unit": "%",
+     "text": "25.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 85013,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 20.22,
+     "unit": "%",
+     "text": "20.22%",
+     "cite": {
+      "section_id": "5",
+      "offset": 85389,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 87912,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "에이치피오",
+      "value": {
+       "value": 1.0208,
+       "unit": null,
+       "text": "1.0208",
+       "cite": {
+        "section_id": "5",
+        "offset": 81131,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, t=20.9%), Observed 1.04, 부채비율(D/E) 2.71%, Relevered 1.2198"
+     },
+     {
+      "name": "휴럼",
+      "value": {
+       "value": 0.8738,
+       "unit": null,
+       "text": "0.8738",
+       "cite": {
+        "section_id": "5",
+        "offset": 81190,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, t=20.9%), Observed 1.11, 부채비율(D/E) 33.93%, Relevered 1.0441"
+     },
+     {
+      "name": "팜스빌",
+      "value": {
+       "value": 0.6986,
+       "unit": null,
+       "text": "0.6986",
+       "cite": {
+        "section_id": "5",
+        "offset": 81248,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, t=20.9%), Observed 0.72, 부채비율(D/E) 3.19%, Relevered 0.8348"
+     },
+     {
+      "name": "노바렉스",
+      "value": {
+       "value": 0.5948,
+       "unit": null,
+       "text": "0.5948",
+       "cite": {
+        "section_id": "5",
+        "offset": 81310,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, t=20.9%), Observed 0.64, 부채비율(D/E) 10.39%, Relevered 0.7107"
+     },
+     {
+      "name": "코스맥스엔비티",
+      "value": {
+       "value": 0.4218,
+       "unit": null,
+       "text": "0.4218",
+       "cite": {
+        "section_id": "5",
+        "offset": 81377,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, t=20.9%), Observed 0.94, 부채비율(D/E) 153.96%, Relevered 0.5040"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 12732,
+     "unit": "원",
+     "text": "12,732",
+     "cite": {
+      "section_id": "5",
+      "offset": 13509,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 11889,
+      "unit": "원",
+      "text": "11,889",
+      "cite": {
+       "section_id": "5",
+       "offset": 89468,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13750,
+      "unit": "원",
+      "text": "13,750",
+      "cite": {
+       "section_id": "5",
+       "offset": 89528,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 할인, 기중 현금흐름 가정). 영업가치 111,359,333천원(추정기간 33,507,677 + 영구 77,851,656) + 비영업자산 20,004,063천원 - 이자부부채(리스부채) 219,943천원 = 131,143,452천원, 발행주식 10,300,000주. FSRP는 한공회 기업규모위험 프리미엄(Size Risk Premium). Kd는 신용등급 A0 5년 무보증 공모사채 수익률(금융투자협회, 세후 4.09%). β: Bloomberg 2 Year Weekly Adjusted Beta(2023-12-31), 기타 식품 제조업 동종 5사. 원문 목표자본구조 불일치: β 표 (주6)은 '평균 부채비율(D/E)인 40.84%'로 relever했다고 적었으나, WACC 서술은 D/E 25.35%·D/V 20.22%(E/V 79.78%) 적용 — WACC 값 기준으로 기록. 영구성장률 1%(EIU 2028 실질GDP 4.3%·CPI 1.8% 고려). range는 WACC 11.04–12.04%·영구성장률 0.50–1.50% 민감도 표 범위."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "한화플러스제3호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1741,
+     "unit": "원",
+     "text": "1,741",
+     "cite": {
+      "section_id": "5",
+      "offset": 21553,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12188128027,
+     "unit": "원",
+     "text": "12,188,128,027",
+     "cite": {
+      "section_id": "5",
+      "offset": 21479,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11240383979,
+     "unit": "원",
+     "text": "11,240,383,979",
+     "cite": {
+      "section_id": "5",
+      "offset": 20672,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 947744048,
+     "unit": "원",
+     "text": "947,744,048",
+     "cite": {
+      "section_id": "5",
+      "offset": 20708,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7000000,
+     "unit": "주",
+     "text": "7,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 21515,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 18155,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기산일 2024-04-23(이사회·계약 2024-04-24의 전일), 1개월 가중평균 2,161원·1주일 2,211원·최근일 2,215원의 산술평균 2,196원에 8.93% 할인한 2,000원. 자산가치 1,741원(전환사채 전환가정 947,744,048원 가산, 주식수 7,000,000주)보다 높아 합병가액은 Max[가, 나]=2,000원."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)셀로맥스사이언스",
+    "basis": "본질가치(자산:수익 1:1.5)",
+    "value": {
+     "value": 8809,
+     "unit": "원",
+     "text": "8,809",
+     "cite": {
+      "section_id": "5",
+      "offset": 7828,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "한화플러스제3호기업인수목적(주)",
+    "basis": "기준주가에 할인율 8.93% 반영",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7836,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2270405,
+   "unit": null,
+   "text": "0.2270405",
+   "cite": {
+    "section_id": "5",
+    "offset": 7860,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 11839991911,
+   "unit": "원",
+   "text": "11,839,991,911",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 396,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "한미회계법인: 합병비율 1 : 0.2270405는 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한미회계법인",
+   "target": "(주)셀로맥스사이언스",
+   "variables": "WACC 11.04–12.04% (±0.5%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 11889,
+     "unit": "원",
+     "text": "11,889",
+     "cite": {
+      "section_id": "5",
+      "offset": 89468,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 13750,
+     "unit": "원",
+     "text": "13,750",
+     "cite": {
+      "section_id": "5",
+      "offset": 89528,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20240426–20241023, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, original_rcept_no=20240830001462(증권신고서(합병)), attachment_rcept_no=20240830001462, supersedes 20240830001462·20240910000703. 회사 2024 공시 목록상 본 건 이후 증권신고서 정정 없음(투자설명서 20241007000039, 증권발행실적보고서 20241127000510).",
+  "related_rcept_nos 비어 있음: 짝 주요사항보고서(회사합병결정)는 SPAC(한화플러스제3호기업인수목적) 명의일 것으로 보이나 조회 결과에 연결되지 않음.",
+  "company.market '코스닥'은 조회 시점 상태. 신고 당시 셀로맥스사이언스는 주권비상장법인(존속), SPAC은 코스닥 상장(소멸).",
+  "외부평가 계약 2024-04-01, 평가기간 2024-04-01–2024-04-23, 의견서 제출일 2024-04-24(5장 머리·4장). 합병계약 변경 1차 2024-08-23, 2차 2024-09-23(본 정정). 합병가액·비율은 최초 평가(2024-04) 그대로. 감사위원회 동의·회사와의 관계는 본문에서 찾지 못해 null.",
+  "수익가치 추정표에 2024년 반기 실적이 포함되어 있으나 평가기준일은 원문 그대로 2023-12-31(분석기준일 2024-04-17).",
+  "합병신주 기명식보통주 1,344,079주, 모집가액 8,809원, 모집총액 11,839,991,911원(3.4). 주주총회 2024-10-23, 합병기일 2024-11-26(4장)."
+ ],
+ "extracted_at": "2026-10-27T09:56:12+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240923000309",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 444,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240923000309",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 5650,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240923000309",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 48936,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

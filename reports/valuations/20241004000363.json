@@ -1,0 +1,596 @@
+{
+ "rcept_no": "20241004000363",
+ "original_rcept_no": "20241004000363",
+ "related_rcept_nos": [
+  "20241002000274"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00995993",
+  "name": "디엑스앤브이엑스",
+  "market": "코스닥",
+  "induty_code": "729"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "주식회사 에빅스젠",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "합병회사 디엑스앤브이엑스(주)가 피합병회사 (주)에빅스젠의 최대주주(보통주 9,803,589주, 62.66%)",
+  "board_date": "2024-10-02",
+  "regime": "기준시가",
+  "ratio_text": "디엑스앤브이엑스 주식회사 : 주식회사 에빅스젠 = 1 : 0.2903194"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장법 시행령 제176조의5 및 증권의 발행 및 공시 등에 관한 규정 제5-13조와 동규정 시행세칙 제4조에 의하여 비상장법인의 합병가액은 자산가치와 수익가치를 각각 1과 1.5의 비율로 가중산술평균한 가액으로 산정",
+  "firm": "현대회계법인",
+  "firm_type": "회계법인",
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "외부평가업무 가이드라인(2009.6)"
+  ],
+  "opinion_text": "주당평가액 합병법인 2,932원, 피합병법인 851원(액면 500원). 합의한 합병비율 1 : 0.2903194는 적정하며 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "4",
+   "offset": 93377,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "현대회계법인",
+   "target": "디엑스앤브이엑스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1337,
+     "unit": "원",
+     "text": "1,337",
+     "cite": {
+      "section_id": "4",
+      "offset": 4875,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 70330667954,
+     "unit": "원",
+     "text": "70,330,667,954",
+     "cite": {
+      "section_id": "4",
+      "offset": 4697,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 21734154295,
+     "unit": "원",
+     "text": "21,734,154,295",
+     "cite": {
+      "section_id": "4",
+      "offset": 3562,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 48596513659,
+     "unit": "원",
+     "text": "48,596,513,659",
+     "cite": {
+      "section_id": "4",
+      "offset": 3597,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 52612645,
+     "unit": "주",
+     "text": "52,612,645",
+     "cite": {
+      "section_id": "4",
+      "offset": 4728,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2932,
+     "unit": "원",
+     "text": "2,932",
+     "cite": {
+      "section_id": "4",
+      "offset": 1412,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "주권상장법인(코스닥): 시행령 176조의5 기준시가(최근 1개월 가중평균종가 3,133원·1주일 2,864원·최근일 종가 2,800원 산술평균), 할인·할증 미적용, 기산일 2024-10-01. 자산가치 1,337원보다 커 Max(가, 나)=2,932원. 자산가치는 제6회 전환사채 전환(3,393,213주, 7,566,864,990원) 가정 반영(미반영 시 1,275원)."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "에빅스젠",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 1과 1.5의 비율로 가중산술평균"
+   },
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": -1868155520,
+     "unit": "원",
+     "text": "(1,868,155,520)",
+     "cite": {
+      "section_id": "4",
+      "offset": 13030,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": -1811111778,
+     "unit": "원",
+     "text": "(1,811,111,778)",
+     "cite": {
+      "section_id": "4",
+      "offset": 11964,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -57043742,
+     "unit": "원",
+     "text": "(57,043,742)",
+     "cite": {
+      "section_id": "4",
+      "offset": 12000,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 15645873,
+     "unit": "주",
+     "text": "15,645,873",
+     "cite": {
+      "section_id": "4",
+      "offset": 13062,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2045년 12월 31일까지 22개년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 16.22,
+     "unit": "%",
+     "text": "16.22%",
+     "cite": {
+      "section_id": "4",
+      "offset": 90589,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "4",
+      "offset": 90291,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 9.0,
+     "unit": "%",
+     "text": "9.0%",
+     "cite": {
+      "section_id": "4",
+      "offset": 90325,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.9383,
+     "unit": null,
+     "text": "0.9383",
+     "cite": {
+      "section_id": "4",
+      "offset": 90356,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.052,
+     "unit": null,
+     "text": "1.052",
+     "cite": {
+      "section_id": "4",
+      "offset": 90387,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.73,
+     "unit": "%",
+     "text": "4.73%",
+     "cite": {
+      "section_id": "4",
+      "offset": 90417,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 17.37,
+     "unit": "%",
+     "text": "17.37%",
+     "cite": {
+      "section_id": "4",
+      "offset": 90447,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 11.58,
+     "unit": "%",
+     "text": "11.58%",
+     "cite": {
+      "section_id": "4",
+      "offset": 90473,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 23.1,
+     "unit": "%",
+     "text": "23.10%",
+     "cite": {
+      "section_id": "4",
+      "offset": 90549,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 15.77,
+     "unit": "%",
+     "text": "15.77%",
+     "cite": {
+      "section_id": "4",
+      "offset": 91537,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 13.62,
+     "unit": "%",
+     "text": "13.62%",
+     "cite": {
+      "section_id": "4",
+      "offset": 90525,
+      "file_id": "main"
+     }
+    },
+    "g": null,
+    "peers": [
+     {
+      "name": "(주)메지온",
+      "value": {
+       "value": 0.4257,
+       "unit": null,
+       "text": "0.4257",
+       "cite": {
+        "section_id": "4",
+        "offset": 92227,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "(주)제넥신",
+      "value": {
+       "value": 1.0857,
+       "unit": null,
+       "text": "1.0857",
+       "cite": {
+        "section_id": "4",
+        "offset": 92290,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "(주)비엘",
+      "value": {
+       "value": 0.7375,
+       "unit": null,
+       "text": "0.7375",
+       "cite": {
+        "section_id": "4",
+        "offset": 92353,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "(주)진매트릭스",
+      "value": {
+       "value": 1.4756,
+       "unit": null,
+       "text": "1.4756",
+       "cite": {
+        "section_id": "4",
+        "offset": 92417,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "씨지인바이츠(주)",
+      "value": {
+       "value": 0.8957,
+       "unit": null,
+       "text": "0.8957",
+       "cite": {
+        "section_id": "4",
+        "offset": 92483,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "올릭스(주)",
+      "value": {
+       "value": 0.8699,
+       "unit": null,
+       "text": "0.8699",
+       "cite": {
+        "section_id": "4",
+        "offset": 92547,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "(주)큐라클",
+      "value": {
+       "value": 1.1311,
+       "unit": null,
+       "text": "1.1311",
+       "cite": {
+        "section_id": "4",
+        "offset": 92611,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "(주)티움바이오",
+      "value": {
+       "value": 0.6718,
+       "unit": null,
+       "text": "0.6718",
+       "cite": {
+        "section_id": "4",
+        "offset": 92677,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "아이진(주)",
+      "value": {
+       "value": 1.2983,
+       "unit": null,
+       "text": "1.2983",
+       "cite": {
+        "section_id": "4",
+        "offset": 92739,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     },
+     {
+      "name": "(주)헬릭스미스",
+      "value": {
+       "value": 0.7916,
+       "unit": null,
+       "text": "0.7916",
+       "cite": {
+        "section_id": "4",
+        "offset": 92804,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(Bloomberg 조정 2년 Weekly, 2023-12-31)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 851,
+     "unit": "원",
+     "text": "851",
+     "cite": {
+      "section_id": "4",
+      "offset": 8984,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 1419,
+    "unit": "원",
+    "text": "1,419",
+    "cite": {
+     "section_id": "4",
+     "offset": 14968,
+     "file_id": "main"
+    }
+   },
+   "note": "주권비상장법인: 시행세칙 제4조 본질가치(자산 1·수익 1.5). 1주당 자산가치는 순자산 (-)라 0으로 산정(원문 표 '-'). 수익가치는 FCFF 현금흐름할인(신약 파이프라인 4개 기술이전·로열티, 2045년 이후 영구가치 미산정 → g 없음): 추정기간 영업가치 21,967·비영업자산 603·이자부부채 371, 주주가치 22,198(백만원) ÷ 15,645,873주 = 1,419원. WACC 표·현가계수는 16.22%이나 본문 문장은 '할인율은 15.73%'라 적고 민감도 표 중앙값(1,419원)도 15.73% — 원문 불일치. kd 11.58%는 Kofiabond BBB- 5년 무보증 공모 회사채(11.576%, 세전). 목표자본구조는 유사 동종기업 10사 평균(D/E 15.77%, E/V 86.38%, D/V 13.62%). Size Premium 4.73%(한공회 2024 5분위), MRP 9%(한공회 가이던스 7~9% 상단). 상대가치는 유사회사 3사 미만으로 미산정."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "디엑스앤브이엑스",
+    "basis": "기준시가",
+    "value": {
+     "value": 2932,
+     "unit": "원",
+     "text": "2,932",
+     "cite": {
+      "section_id": "4",
+      "offset": 180,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "에빅스젠",
+    "basis": "본질가치",
+    "value": {
+     "value": 851,
+     "unit": "원",
+     "text": "851",
+     "cite": {
+      "section_id": "4",
+      "offset": 256,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2903194,
+   "unit": "주",
+   "text": "0.2903194",
+   "cite": {
+    "section_id": "4",
+    "offset": 371,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 4973047296,
+   "unit": "원",
+   "text": "4,973,047,296",
+   "cite": {
+    "section_id": "2.4",
+    "offset": 275,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "현대회계법인: 합병 당사회사 간 합의한 합병비율 1 : 0.2903194은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "현대회계법인",
+   "target": "에빅스젠",
+   "variables": "WACC 14.73–16.73% (±1%p), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 1099,
+     "unit": "원",
+     "text": "1,099",
+     "cite": {
+      "section_id": "4",
+      "offset": 38536,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 1783,
+     "unit": "원",
+     "text": "1,783",
+     "cite": {
+      "section_id": "4",
+      "offset": 38520,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240507–20241103, listed_only=False): merger/full, 정정 없음(original=body=본 건), 짝 주요사항보고서 [첨부추가] 20241002000274(summary). 회사 공시목록(2024-10-04~2025-06-30, 발행공시 C)에 증권신고서 정정 없음; 2025-01-09 철회신고서(20250109000399) 제출 — 본 합병 증권신고서는 철회됨. 주요사항보고서는 2024-11-11·12-09·2025-01-09 기재정정.",
+  "외부평가 '근거 및 사유'·'외부평가 기간'·감사위원회 동의는 이 증권신고서 본문에 없음 → null. 짝 주요사항보고서(20241002000274)의 외부평가 5행 참조 필요. 외부평가기관 현대회계법인은 IV. 평가 및 신주배정 등(2.4)과 의견서 말미에 기재.",
+  "소규모합병(상법 527조의3): DXVX(코스닥, 존속)가 62.66% 자회사 에빅스젠(비상장, 신약개발)을 흡수. 합병신주 기명식보통주 1,696,128주, 모집가액 2,932원, 모집총액 4,973,047,296원(2.4) = transaction_value. 교부금 없음.",
+  "WACC 원문 불일치: 산정표·현가계수 16.22%, 본문 문장·민감도 중앙 15.73%. dcf.wacc는 산정표 값(16.22%).",
+  "최근 3년 유상증자·주식양수도(DXVX의 2023-06 보통주 취득 1,507원 등)·평가실적(2022 주식양수 1,636원, 2023 손상검사 1,913원, DCF)은 가치조정 근거로 보지 않음(외부평가업무 가이드라인 문단 30).",
+  "평가기준일 2023-12-31, 기준시가 기산일 2024-10-01, 이사회 결의 2024-10-02, 합병계약 2024-10-04."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20241004000363",
+   "file_id": "main",
+   "section_id": "10",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 2879,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241004000363",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "IX. 기타 투자자보호에 필요한 사항",
+   "chars_read": 2911,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241004000363",
+   "file_id": "main",
+   "section_id": "3",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 9979,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241004000363",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 37811,
+   "how": "find_tables/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:00:03+09:00",
+ "extractor_version": "1.1"
+}

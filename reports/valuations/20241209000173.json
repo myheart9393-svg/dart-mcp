@@ -1,0 +1,597 @@
+{
+ "rcept_no": "20241209000173",
+ "original_rcept_no": "20241015000462",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01253636",
+  "name": "에르코스",
+  "market": "기타",
+  "induty_code": "107"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "키움제6호기업인수목적(주)",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "가. 계열회사 또는 자회사 등의 관계 여부해당사항 없습니다.",
+  "board_date": "2024-07-12",
+  "regime": "기준시가",
+  "ratio_text": "키움제6호기업인수목적(주) 기명식 보통주식 1주당 (주)에르코스 농업회사법인 기명식 보통주식 0.2168411주 교부 (합병가액 (주)에르코스 농업회사법인 1주당 9,223원, 키움제6호기업인수목적(주) 1주당 2,000원)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률 제165조의4와 동법 시행령 제176조의5, 증권의발행및공시등에관한규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조, 코스닥시장 상장규정 제2조를 적용하여 합병법인과 피합병법인의 1주당 합병가액을 산정하고 합병비율의 적정성을 검토",
+  "firm": "진평회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 04월 15일 ~ 2024년 07월 11일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 9,223원(액면 500원)·피합병법인 2,000원(액면 100원), 합의한 합병비율 1 : 0.2168411은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 69,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "진평회계법인",
+   "target": "(주)에르코스 농업회사법인",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(Ax1+Bx1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 5438,
+     "unit": "원",
+     "text": "5,438",
+     "cite": {
+      "section_id": "5",
+      "offset": 15541,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 35876979270,
+     "unit": "원",
+     "text": "35,876,979,270",
+     "cite": {
+      "section_id": "5",
+      "offset": 15461,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 31212559077,
+     "unit": "원",
+     "text": "31,212,559,077",
+     "cite": {
+      "section_id": "5",
+      "offset": 14271,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 4664420193,
+     "unit": "원",
+     "text": "4,664,420,193",
+     "cite": {
+      "section_id": "5",
+      "offset": 14308,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 6597790,
+     "unit": "주",
+     "text": "6,597,790",
+     "cite": {
+      "section_id": "5",
+      "offset": 15505,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "증권의발행및공시등에관한규정 시행세칙 제7조에 따른 유사회사 요건을 충족하는 법인이 3사 미만이므로 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 9223,
+     "unit": "원",
+     "text": "9,223",
+     "cite": {
+      "section_id": "5",
+      "offset": 8654,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 11747,
+    "unit": "원",
+    "text": "11,747",
+    "cite": {
+     "section_id": "5",
+     "offset": 8694,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(합병법인). 본질가치 = (자산가치 5,438원×1 + 수익가치 11,747원×1.5)÷2.5 = 9,223원 = 합병가액. 자산가치는 2023.12.31 자본총계에 해피데이 투자주식 순자산 차이 115,433,421원·자기주식 543,920,000원·RCPS 전환(자본금 150,000,000원, 자본잉여금 1,814,350,591원)·전환주식 등 권리행사 가능성 2,040,716,181원 가산. 분석기준일 2024-07-05. 최근 2년 유상증자(RCPS 보통주 전환 2024-04-17, 액면분할 반영 주당 5,000원)는 외부평가업무 가이드라인 문단30에 따라 검토"
+  },
+  {
+   "subject": "진평회계법인",
+   "target": "(주)에르코스 농업회사법인",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년부터 2028년까지 5개년도",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 8.83,
+     "unit": "%",
+     "text": "8.83%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119377,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119079,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119113,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": null,
+    "beta_levered": {
+     "value": 0.62,
+     "unit": null,
+     "text": "0.62",
+     "cite": {
+      "section_id": "5",
+      "offset": 119146,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119178,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 11.48,
+     "unit": "%",
+     "text": "11.48%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119217,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.4,
+     "unit": "%",
+     "text": "4.40%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119245,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119325,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 49.51,
+     "unit": "%",
+     "text": "49.51%",
+     "cite": {
+      "section_id": "5",
+      "offset": 120901,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 33.11,
+     "unit": "%",
+     "text": "33.11%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119300,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 48810,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "대상",
+      "value": {
+       "value": 0.25,
+       "unit": null,
+       "text": "0.25",
+       "cite": {
+        "section_id": "5",
+        "offset": 124383,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.60, Tax Rate 23.10%, 부채비율 64.42%)"
+     },
+     {
+      "name": "빙그레",
+      "value": {
+       "value": 0.51,
+       "unit": null,
+       "text": "0.51",
+       "cite": {
+        "section_id": "5",
+        "offset": 124442,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.55, Tax Rate 23.10%, 부채비율 8.97%)"
+     },
+     {
+      "name": "매일유업",
+      "value": {
+       "value": 0.35,
+       "unit": null,
+       "text": "0.35",
+       "cite": {
+        "section_id": "5",
+        "offset": 124502,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.55, Tax Rate 23.10%, 부채비율 41.40%)"
+     },
+     {
+      "name": "남양유업",
+      "value": {
+       "value": 0.56,
+       "unit": null,
+       "text": "0.56",
+       "cite": {
+        "section_id": "5",
+        "offset": 124562,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.58, Tax Rate 20.90%, 부채비율 3.54%)"
+     },
+     {
+      "name": "하림",
+      "value": {
+       "value": 0.54,
+       "unit": null,
+       "text": "0.54",
+       "cite": {
+        "section_id": "5",
+        "offset": 124620,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.92, Tax Rate 23.10%, 부채비율 47.23%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11747,
+     "unit": "원",
+     "text": "11,747",
+     "cite": {
+      "section_id": "5",
+      "offset": 51618,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9610,
+      "unit": "원",
+      "text": "9,610",
+      "cite": {
+       "section_id": "5",
+       "offset": 54343,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 14898,
+      "unit": "원",
+      "text": "14,898",
+      "cite": {
+       "section_id": "5",
+       "offset": 54420,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법, 기중 균등발생 가정). Ke = Rf + MRP×β + Size Premium. Rf는 Bloomberg 2023.12.31 한국 무위험이자율, MRP는 한국공인회계사회 가이던스 평균, Size Premium은 한공회 Micro 규모위험 프리미엄. Kd 4.40%는 합병법인 이자부부채 세전 가중평균차입이자율(2023.12.31). 목표자본구조는 유사 동종기업 5사 평균(D/E 49.51%, D/V 33.11%, E/V 66.89%) — 원문 주석은 '피합병법인의 목표자본구조'라고 적었으나 평가대상은 합병법인. 피어 평균 Unlevered Beta는 원문에 별도 표기 없음. 추정기간 PV 17,766백만원 + 영구현금흐름 PV 68,686백만원 = 영업가치 86,452백만원, 비영업자산 20,869백만원(투자부동산 20,459 등) 가산, 이자부부채 29,816백만원 차감 → 자기자본 77,505백만원 ÷ 6,597,790주. range는 WACC 7.83–9.83%·g 0.50–1.50% 민감도 표 범위. 유사회사 5사 PBR·EV/EBITDA·PER 표는 참고로만 제시(적용 안 함)"
+  },
+  {
+   "subject": "진평회계법인",
+   "target": "키움제6호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1664,
+     "unit": "원",
+     "text": "1,664",
+     "cite": {
+      "section_id": "5",
+      "offset": 26767,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 7820882947,
+     "unit": "원",
+     "text": "7,820,882,947",
+     "cite": {
+      "section_id": "5",
+      "offset": 26688,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 6647454342,
+     "unit": "원",
+     "text": "6,647,454,342",
+     "cite": {
+      "section_id": "5",
+      "offset": 25567,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1173428605,
+     "unit": "원",
+     "text": "1,173,428,605",
+     "cite": {
+      "section_id": "5",
+      "offset": 25602,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 4700000,
+     "unit": "주",
+     "text": "4,700,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 26731,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7684,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(피합병법인, 소멸). 기산일 2024-07-11, 1개월 가중산술평균종가 2,333원·1주일 2,374원·기산일 종가 2,445원의 산술평균 기준시가 2,384원에 16.11% 할인한 2,000원. 자산가치 1,664원(전환사채 전환가정 1,270,000주 가산, 4,700,000주 기준)보다 높아 2,000원 적용"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)에르코스 농업회사법인",
+    "basis": "본질가치",
+    "value": {
+     "value": 9223,
+     "unit": "원",
+     "text": "9,223",
+     "cite": {
+      "section_id": "5",
+      "offset": 7790,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "키움제6호기업인수목적(주)",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7684,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2168411,
+   "unit": null,
+   "text": "0.2168411",
+   "cite": {
+    "section_id": "5",
+    "offset": 7956,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 6859735372,
+   "unit": "원",
+   "text": "6,859,735,372",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 409,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "진평회계법인: 합병 당사회사간 합의한 합병비율 1 : 0.2168411은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "진평회계법인",
+   "target": "(주)에르코스 농업회사법인",
+   "variables": "WACC 7.83–9.83% (0.5%p 간격), 영구성장률 0.50–1.50% (0.5%p 간격), 보통주 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 9610,
+     "unit": "원",
+     "text": "9,610",
+     "cite": {
+      "section_id": "5",
+      "offset": 54343,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 14898,
+     "unit": "원",
+     "text": "14,898",
+     "cite": {
+      "section_id": "5",
+      "offset": 54420,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240712–20250108, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(20241209000173), original_rcept_no=20241015000462(2024-10-15 최초 제출, 정정 연혁표 section 0과 일치), supersedes 20241015000462·20241024000312·20241104000294·20241113000230·20241113000248, attachment_rcept_no 20241113000248. 본 건 이후 본문 정정 없음. 짝 주요사항보고서는 결과에 없음.",
+  "SPAC 합병: 존속(합병법인)은 비상장 (주)에르코스 농업회사법인(company.market은 신고 당시 기준 '기타', 현재 corp_cls K), 소멸(피합병법인)은 코스닥 상장 키움제6호기업인수목적(주).",
+  "이사회 합병결의 최초 2024-07-12, 변경 결의 2024-10-15·2024-11-04·2024-12-09(합병변경계약 1–3차, section 4). 평가의견서는 2024-07-12 제출본 그대로이며 합병비율 1 : 0.2168411 유지.",
+  "합병신주 기명식보통주 743,764주, 모집가액 9,223원, 모집총액 6,859,735,372원(3.4).",
+  "평가기준일 2023-12-31(DCF·자산가치 재무제표), 분석기준일 2024-07-05. 2024년 추정치에는 2024년 2분기까지 실적 포함."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20241209000173",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 3649,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241209000173",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 456,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241209000173",
+   "file_id": "main",
+   "section_id": "3.5",
+   "title": "V. 당사회사에 관한 사항 요약",
+   "chars_read": 341,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241209000173",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4462,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241209000173",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 55307,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:01:04+09:00",
+ "extractor_version": "1.1"
+}

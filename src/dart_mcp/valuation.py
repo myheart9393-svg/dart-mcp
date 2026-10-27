@@ -306,6 +306,12 @@ def scan_valuation_disclosures(
     return {"deals": deals, "api_calls": calls, "windows": windows, "scanned": scanned}
 
 
+def industry_label(code: str | None) -> str | None:
+    from .industry import label
+
+    return label(code)
+
+
 # --------------------------------------------------------------------------- 사례 JSON 검증
 def load_schema() -> dict:
     return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
@@ -361,7 +367,9 @@ def _pct(field: Any) -> float | None:
 def distribution_warnings(case: dict) -> list[str]:
     """값 분포 밖의 숫자(FAIL 아님 — 원문이 그럴 수 있다). 원문 대조가 필요한 곳을 찍는다.
 
-    WACC 0–30% 밖, g ≥ WACC(같은 원소), g > 5%, 적용 멀티플 ≤ 0, 할인율 0–70% 밖.
+    WACC 0–30% 밖, g ≥ WACC(같은 원소), g > 5%, 적용 멀티플 ≤ 0, 할인율 0–70% 밖,
+    자산가치 자본총계 + 조정항목 ≠ 조정 순자산(같은 단위, 분할 제외 — 분할은 equity_book이 분할 전 회사라 맞지 않는 게 정상).
+    2026-10 배치 리뷰 실측: 조정항목 부호 누락("(81,583,335)"를 양수로) 2건, 가산항목 한 줄만 넣음 1건. 원문 표 자체가 안 맞는 건도 있다(note).
     """
     out: list[str] = []
 
@@ -385,6 +393,11 @@ def distribution_warnings(case: dict) -> list[str]:
             out.append(f"{p}/dcf/g: g {g:g}% > {G_MAX:g}%")
         if g is not None and w is not None and g >= w:
             out.append(f"{p}/dcf/g: g {g:g}% ≥ WACC {w:g}%")
+        av = val.get("asset_value") or {}
+        eq, adj, tot = (av.get(k) if isinstance(av.get(k), dict) else {} for k in ("equity_book", "adjustments", "total"))
+        nums = [x.get("value") for x in (eq, adj, tot)]
+        if (case.get("deal") or {}).get("type") != "split" and all(isinstance(x, (int, float)) for x in nums)                 and len({eq.get("unit"), adj.get("unit"), tot.get("unit")}) == 1                 and abs(nums[0] + nums[1] - nums[2]) > max(2, abs(nums[2]) * 1e-6):
+            out.append(f"{p}/asset_value: 자본총계 {nums[0]:,} + 조정항목 {nums[1]:,} ≠ 조정 순자산 {nums[2]:,} — 부호·합계 확인")
         multiple(rel.get("multiple"), f"{p}/relative/multiple")
         discount(rel.get("discount_range"), f"{p}/relative/discount_range")
     ipo = case.get("ipo") or {}
@@ -469,6 +482,7 @@ def flatten_case(case: dict) -> list[dict]:
     base = {
         "rcept_no": case["rcept_no"], "company": case["company"]["name"],
         "induty_code": case["company"].get("induty_code"), "deal_type": case["deal"]["type"],
+        "industry": industry_label(case["company"].get("induty_code")),
         "board_date": case["deal"].get("board_date"), "regime": case["deal"].get("regime"),
         "firm": (case.get("external_valuation") or {}).get("firm"), "source_grade": case["source_grade"],
     }
@@ -516,10 +530,11 @@ def representative(values: list[tuple[str | None, float]]) -> float | None:
 def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str | None = None,
                 deal_types: set[str] | None = None, methods: set[str] | None = None,
                 purposes: set[str] | None = None, firm: str | None = None,
-                regimes: set[str] | None = None) -> list[dict]:
+                regimes: set[str] | None = None, industries: set[str] | None = None) -> list[dict]:
     """평가 행 거르기. purposes=None이면 거래가액 평가만(공정가치평가·손상검사 제외), {"all"}이면 전부.
 
-    regimes: deal.regime 값 집합(예: {"기준시가"}). "none"은 regime이 null인 행."""
+    regimes: deal.regime 값 집합(예: {"기준시가"}). "none"은 regime이 null인 행.
+    industries: KSIC 코드 접두 집합(예: {"26", "21"}, {"582"}) — induty_code가 그중 하나로 시작하는 행."""
     out = []
     for r in rows:
         d = _deal_date(r)
@@ -538,6 +553,8 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
         if firm and firm not in (r.get("firm") or "") and firm not in (r.get("subject") or ""):
             continue
         if regimes and (r.get("regime") or "none") not in regimes:
+            continue
+        if industries and not any((r.get("induty_code") or "").startswith(x) for x in industries):
             continue
         out.append(r)
     return out
@@ -719,10 +736,10 @@ def render_markdown(case: dict) -> str:
 
 def _stats_cli(directory: Path, argv: list[str]) -> int:
     """stats <dir> [--from YYYY-MM-DD] [--to YYYY-MM-DD] [--deal-type merger,ipo] [--method DCF] [--purpose 합병가액,…|all] [--firm X]
-    [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none]
+    [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none] [--industry 26,21 (KSIC 코드 접두)]
 
     거래 단위 통계(JSON): 걸러진 행, deal_stats(WACC·g·멀티플 대표값 분위수, 평가기관별 건수), IPO가 있으면 ipo_stats.
-    regimes: 체계별 거래 수. 기준시가와 공정가액 체계가 섞이면 warning — 합병가액 산정 체계가 달라 한 분포로 보면 안 된다.
+    industries: 중분류 라벨별 거래 수("26 전자부품·…", 매핑에 없으면 코드만). regimes: 체계별 거래 수. 기준시가와 공정가액 체계가 섞이면 warning — 합병가액 산정 체계가 달라 한 분포로 보면 안 된다.
     """
     import argparse
 
@@ -734,19 +751,25 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
     ap.add_argument("--purpose")
     ap.add_argument("--firm")
     ap.add_argument("--regime")
+    ap.add_argument("--industry")
     a = ap.parse_args(argv)
     split = (lambda s: {x.strip() for x in s.split(",") if x.strip()} if s else None)
     cases = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(directory.glob("*.json"))
              if not p.name.startswith("_")]
     rows = [r for c in cases for r in flatten_case(c)]
     rows = filter_rows(rows, date_from=a.date_from, date_to=a.date_to, deal_types=split(a.deal_type),
-                       methods=split(a.method), purposes=split(a.purpose), firm=a.firm, regimes=split(a.regime))
+                       methods=split(a.method), purposes=split(a.purpose), firm=a.firm, regimes=split(a.regime),
+                       industries=split(a.industry))
     kept = {r["rcept_no"] for r in rows}
     regimes: dict[str, int] = {}
+    industries: dict[str, int] = {}
     for rno in kept:
-        reg = next(r.get("regime") for r in rows if r["rcept_no"] == rno) or "none"
+        first = next(r for r in rows if r["rcept_no"] == rno)
+        reg, ind = first.get("regime") or "none", first.get("industry") or "(없음)"
         regimes[reg] = regimes.get(reg, 0) + 1
-    out = {"filters": vars(a), "regimes": regimes, "rows": rows, **deal_stats(rows)}
+        industries[ind] = industries.get(ind, 0) + 1
+    out = {"filters": vars(a), "regimes": regimes, "industries": dict(sorted(industries.items(), key=lambda x: -x[1])),
+           "rows": rows, **deal_stats(rows)}
     if {"기준시가", REGIME_FAIR} <= set(regimes):
         out["warning"] = f"기준시가·{REGIME_FAIR} 체계가 섞였다 — --regime으로 나눠 따로 본다"
     ipo_cases = [c for c in cases if c["rcept_no"] in kept and c["deal"]["type"] == "ipo"]

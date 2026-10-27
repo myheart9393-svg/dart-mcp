@@ -1,8 +1,20 @@
 # Changelog
 
-## Unreleased
+## v1.4.0 (2026-10-27)
 
-가치평가 사례 DB 운영.
+업종 코드와 2024–2025 합병·분할·교환 사례.
+
+- **industry.py (신규)** + `ksic.json`(KSIC 10차 대분류·중분류 이름): 사례 induty_code를 기업개황(30일 캐시)으로 채우는 `fill`, 중분류 분포 `dist`.
+  조회 실패는 null + notes에 사유. 기존 89건 → 89건 채움(엘리스그룹은 사례에 corp_code가 없어 배치 큐 값으로 보충).
+- **casebuild.company()**, **batch record ok**가 corp_code·induty_code를 자동으로 채운다. `batch plan --kinds`(지분증권 제외 시 본문 판별 다운로드 없음).
+- **stats**: `--industry <KSIC 접두>`, 결과에 `industries`(중분류 라벨별 거래 수), rows에 `industry` 라벨.
+- **validate 경고 추가**: 자산가치 자본총계 + 조정항목 ≠ 조정 순자산(분할 제외).
+- **템플릿**: D/E·D/V 라벨이 엇갈리면 Re-levered β 산식으로 판정, 자산가치 adjustments는 원문 "조정항목(a−b)" 합계·괄호는 음수.
+- **사례**: 2024-01-01–2025-12-31 합병·분할·분할합병·주식교환 full 등급 75건 → 추출 72건·실패 0, 제외 3(기존 사례). 시험 10건 후 나머지 62건.
+  무작위 20%(15건) 리뷰 13 PASS·2 FAIL(목표자본구조 D/V→D/E 1, 조정항목 합계 1) 반영. 반복 유형(자산가치 합계) 전수 검산으로 부호 오류 2건(3행) 추가 수정,
+  원문 표 자체 불일치 3건은 note. 전체 161건 validate 오류 0·경고 4.
+
+### v1.3.0 이후 먼저 반영(b5f41ec): 가치평가 사례 DB 운영
 
 - **validate 분포 경고**: `distribution_warnings` — WACC 0–30% 밖, g ≥ WACC(같은 원소), g > 5%, 적용 멀티플(relative·ipo) ≤ 0,
   할인율 0–70% 밖이면 `warnings[]`(FAIL 아님, 종료코드 영향 없음). `validate <dir>`로 사례 전체 검사. 89건: 오류 0·경고 0

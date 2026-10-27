@@ -1,0 +1,477 @@
+{
+ "rcept_no": "20241121000466",
+ "original_rcept_no": "20240715000399",
+ "related_rcept_nos": [
+  "20241210000312",
+  "20241210000298",
+  "20241210000324",
+  "20241122000006"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01105153",
+  "name": "두산로보틱스",
+  "market": "유가증권",
+  "induty_code": "2928"
+ },
+ "deal": {
+  "type": "split_merger",
+  "counterparty": "두산에너빌리티(주) 분할신설부문",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "두산로보틱스와 두산에너빌리티는 공정거래법상 두산 기업집단 소속 계열회사로, 최대주주가 모두 주식회사 두산(68.19%·30.39%)이며 일방의 대주주 및 특수관계인은 모두 상대방의 특수관계인",
+  "board_date": "2024-07-11",
+  "regime": "기준시가",
+  "ratio_text": "두산로보틱스 : 두산에너빌리티 = 1 : 0.0432962 (분할비율 0.1157542 × 합병비율 0.3740353)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장법 제165조의4, 시행령 제176조의5, 증권발행공시규정 제5-13조 및 시행세칙 제4조–제8조에 따라 두산로보틱스와 두산에너빌리티 분할신설부문의 1주당 합병가액을 산정하고 분할합병비율의 적정성을 검토",
+  "firm": "안진회계법인",
+  "firm_type": "회계법인",
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "합병비율 1 : 0.3740353(주당 평가액 80,114원·29,965원)과 분할합병비율 0.0432962는 시행령 제176조의5에 따라 적정하게 산정; 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 69032,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "안진회계법인",
+   "target": "두산로보틱스(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 6737,
+     "unit": "원",
+     "text": "6,737",
+     "cite": {
+      "section_id": "5",
+      "offset": 20600,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 436692168948,
+     "unit": "원",
+     "text": "436,692,168,948",
+     "cite": {
+      "section_id": "5",
+      "offset": 20526,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 442166695068,
+     "unit": "원",
+     "text": "442,166,695,068",
+     "cite": {
+      "section_id": "5",
+      "offset": 19522,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -5474526120,
+     "unit": "원",
+     "text": "(5,474,526,120)",
+     "cite": {
+      "section_id": "5",
+      "offset": 19558,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 64819980,
+     "unit": "주",
+     "text": "64,819,980",
+     "cite": {
+      "section_id": "5",
+      "offset": 20563,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 80114,
+     "unit": "원",
+     "text": "80,114",
+     "cite": {
+      "section_id": "5",
+      "offset": 17674,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "유가증권시장 상장 합병법인: 시행령 176조의5 기준시가(기산일 2024-07-10, 1개월 가중평균 82,859원·1주일 77,482원·최근일 80,000원의 산술평균 80,114원). 기준시가 > 자산가치 6,737원이라 기준시가를 합병가액으로"
+  },
+  {
+   "subject": "안진회계법인",
+   "target": "두산에너빌리티 분할신설부문",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(Ax1+Bx1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 21841,
+     "unit": "원",
+     "text": "21,841",
+     "cite": {
+      "section_id": "5",
+      "offset": 34240,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 1619432537719,
+     "unit": "원",
+     "text": "1,619,432,537,719",
+     "cite": {
+      "section_id": "5",
+      "offset": 34173,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 1460139037719,
+     "unit": "원",
+     "text": "1,460,139,037,719",
+     "cite": {
+      "section_id": "5",
+      "offset": 33166,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 159293500000,
+     "unit": "원",
+     "text": "159,293,500,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 33204,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 74147643,
+     "unit": "주",
+     "text": "74,147,643",
+     "cite": {
+      "section_id": "5",
+      "offset": 34211,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [
+     {
+      "name": "두산",
+      "value": null,
+      "note": "소분류(기타 금융업 등 지주회사) 113개사 중 '건설기계 생산 및 판매' 유사 1개사"
+     }
+    ],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "지주회사 업종(기타 금융업·회사 본부 및 경영 컨설팅 서비스업·기타 전문 서비스업) 113개사 중 주요 매출이 건설기계 생산 및 판매로 유사한 법인이 (주)두산 1개사뿐이라 유사회사 3사 미만 — 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 29965,
+     "unit": "원",
+     "text": "29,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 15977,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 35382,
+    "unit": "원",
+    "text": "35,382",
+    "cite": {
+     "section_id": "5",
+     "offset": 37831,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 형태 분할신설부문(두산밥캣 46,176,250주와 관련 차입금 보유 지주회사). 분석기준일 2024-07-04. 자산가치: 2023.12.31 분할별도 자본총계 + 순자산 증가 30,000,000,000원(추가차입 현금 이전·만기상환 대납) + 두산밥캣 종가(50,400원) 평가차 129,293,500,000원, 주식수 = 640,561,146주 × 분할비율 0.1157542. 수익가치: DCF·DDM 미적용(지주회사, 시가가 공정가치에 부합). 두산밥캣 기준시가 50,612원(배당락 6/27–7/10 평균) × (1+경영권 프리미엄 43.70%) = 72,729원 × 46,176,250주 = 3,358,349,276,354원, 비영업자산·부채 (3,677,417,855)원·차입금 731,184,895,808원(2024 반기 분할재무상태표) 차감 → 주주가치 2,623,486,962,691원 ÷ 74,147,643주. 43.70%는 BVR Control Premium Study 제조업(SIC 2011-3999) 2014–2023 평균이며 합병당사회사 합의값; 평가인은 2019년 이후 기타 기계 및 장비 제조업 최대주주 변경 거래 16건 중 상하위 20% 제거 10건의 범위 16.79–75.02% 안이라 적정으로 검토"
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "두산에너빌리티 분할신설부문",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5로 가중평균"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 21841,
+     "unit": "원",
+     "text": "21,841",
+     "cite": {
+      "section_id": "5",
+      "offset": 6093,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": null
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 29965,
+     "unit": "원",
+     "text": "29,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 6155,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 35382,
+    "unit": "원",
+    "text": "35,382",
+    "cite": {
+     "section_id": "5",
+     "offset": 6111,
+     "file_id": "main"
+    }
+   },
+   "note": "분할합병 당사회사가 이해상충 우려(안진회계법인은 두산로보틱스 직전 사업연도 외부감사인)로 추가 선정해 합병비율을 검증받은 회계법인. 본 증권신고서 본문은 2개 법인 결과를 합쳐 자산가치 21,841원·수익가치 35,382원·본질가치 29,965원(안진회계법인과 동일)으로만 요약; 상세 평가의견서는 기타공시첨부서류에 있으며 이번 추출에서 열람하지 않음(가정 미추출)"
+  },
+  {
+   "subject": "우리회계법인",
+   "target": "두산에너빌리티 분할신설부문",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5로 가중평균"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 21841,
+     "unit": "원",
+     "text": "21,841",
+     "cite": {
+      "section_id": "5",
+      "offset": 6093,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": null
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 29965,
+     "unit": "원",
+     "text": "29,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 6155,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 35382,
+    "unit": "원",
+    "text": "35,382",
+    "cite": {
+     "section_id": "5",
+     "offset": 6111,
+     "file_id": "main"
+    }
+   },
+   "note": "분할합병 당사회사가 이해상충 우려(안진회계법인은 두산로보틱스 직전 사업연도 외부감사인)로 추가 선정해 합병비율을 검증받은 회계법인. 본 증권신고서 본문은 2개 법인 결과를 합쳐 자산가치 21,841원·수익가치 35,382원·본질가치 29,965원(안진회계법인과 동일)으로만 요약; 상세 평가의견서는 기타공시첨부서류에 있으며 이번 추출에서 열람하지 않음(가정 미추출)"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "두산로보틱스(주)",
+    "basis": "기준시가",
+    "value": {
+     "value": 80114,
+     "unit": "원",
+     "text": "80,114",
+     "cite": {
+      "section_id": "5",
+      "offset": 15931,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "두산에너빌리티 분할신설부문",
+    "basis": "본질가치",
+    "value": {
+     "value": 29965,
+     "unit": "원",
+     "text": "29,965",
+     "cite": {
+      "section_id": "5",
+      "offset": 15977,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "경영권 프리미엄율 검토 범위(거래사례, 극단치 제거)",
+    "subject": "안진회계법인",
+    "range": {
+     "min": {
+      "value": 16.79,
+      "unit": "%",
+      "text": "16.79%",
+      "cite": {
+       "section_id": "5",
+       "offset": 61352,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 75.02,
+      "unit": "%",
+      "text": "75.02%",
+      "cite": {
+       "section_id": "5",
+       "offset": 61326,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.3740353,
+   "unit": null,
+   "text": "0.3740353",
+   "cite": {
+    "section_id": "5",
+    "offset": 16137,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 2221867436549,
+   "unit": "원",
+   "text": "2,221,867,436,549",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 362,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "안진회계법인: 분할합병비율 1 : 0.0432962는 시행령 제176조의5에 따라 적정하게 산정. 이촌·우리회계법인 검증 결과도 동일",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240624–20241221, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), attachment_rcept_no=20241112000418, original_rcept_no=null(목록에 원본 없음). search_disclosures(C)에서 가장 이른 합병 증권신고서가 20240715000399([첨부추가]) — 꼬리표 없는 최초본은 목록에 없어 이를 original로 기재.",
+  "deal.type: 검색 결과는 merger(증권신고서(합병))이나 실제 거래는 두산에너빌리티 인적분할 신설부문을 두산로보틱스가 흡수합병하는 분할합병이라 split_merger.",
+  "ratio는 합병비율(분할신설부문 1주당 0.3740353주). 분할비율 0.1157542는 2024-07-10 종가(두산에너빌리티 21,850원, 두산밥캣 51,000원) 기준 시가 비율(분할신설부문 1,620,126,436,337원 ÷ 분할전 13,996,261,040,100원) — 장부가 기준 최초 비율을 변경.",
+  "본 정정본은 시장·주주 문제 제기 뒤 수익가치를 재검토해 두산밥캣 시가에 경영권 프리미엄 43.70%를 가산한 버전. 이전 정정본의 비율은 읽지 않음.",
+  "짝 공시: 주요사항보고서(회사합병결정) 20241210000312(두산로보틱스)·(회사분할합병결정) 20241210000298(두산에너빌리티) — summary 등급, 필요하면 따로 /dart-valuation. 2024-12-10 철회신고서 20241210000324 제출(분할합병 철회).",
+  "외부평가 기간·감사위원회 동의는 본문 평가 장에서 찾지 못해 null. 평가 전담인력: 조영준 외 4명. DCF 미적용이라 할인율·g·β 없음(정상), 민감도 원문 없음.",
+  "transaction_value는 IV. 평가 및 신주배정 등의 모집총액(기명식보통주 27,733,863주 × 80,114원)."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20241121000466",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 1388,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241121000466",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 753,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241121000466",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3040,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241121000466",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 69816,
+   "how": "section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:02:16+09:00",
+ "extractor_version": "1.1"
+}

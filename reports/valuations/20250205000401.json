@@ -1,0 +1,523 @@
+{
+ "rcept_no": "20250205000401",
+ "original_rcept_no": "20241219000485",
+ "related_rcept_nos": [
+  "20250110000260",
+  "20240909000273"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00450931",
+  "name": "우양에이치씨",
+  "market": "코스닥",
+  "induty_code": "2512"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "케이비제26호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "가. 계열회사 또는 자회사 등의 관계 여부해당사항 없습니다.",
+  "board_date": "2024-11-07",
+  "regime": "기준시가",
+  "ratio_text": "합병비율: 우양에이치씨㈜ : 케이비제26호기업인수목적㈜ = 1:0.1620483"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "합병계약서 등 합병가액 및 합병비율을 기재한 모든 공시서류 등은 이촌회계법인의 합병가액 외부평가 결과를 기초로 작성하였습니다.",
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 2월 29일 ~ 2024년 11월 07일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 제165조의4, 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 12,342원(액면 500원), 피합병법인 2,000원(액면 100원)으로 추정되어 합병비율 1 : 0.1620483은 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 100987,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "우양에이치씨 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 1과 1.5의 비율로 가중산술평균(증발공 시행세칙 제4조, SPAC과 협의한 평가방법)"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 10695,
+     "unit": "원",
+     "text": "10,695",
+     "cite": {
+      "section_id": "5",
+      "offset": 14486,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 146043687937,
+     "unit": "원",
+     "text": "146,043,687,937",
+     "cite": {
+      "section_id": "5",
+      "offset": 14413,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 146034174146,
+     "unit": "원",
+     "text": "146,034,174,146",
+     "cite": {
+      "section_id": "5",
+      "offset": 13617,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 9513791,
+     "unit": "원",
+     "text": "9,513,791",
+     "cite": {
+      "section_id": "5",
+      "offset": 13654,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 13655634,
+     "unit": "주",
+     "text": "13,655,634",
+     "cite": {
+      "section_id": "5",
+      "offset": 14449,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년 12월 31일까지의 5년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 12.7411,
+     "unit": "%",
+     "text": "12.7411%",
+     "cite": {
+      "section_id": "5",
+      "offset": 93832,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 91880,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 91943,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.621,
+     "unit": null,
+     "text": "0.621",
+     "cite": {
+      "section_id": "5",
+      "offset": 92653,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.0801,
+     "unit": null,
+     "text": "1.0801",
+     "cite": {
+      "section_id": "5",
+      "offset": 91988,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 92092,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.17,
+     "unit": "%",
+     "text": "15.17%",
+     "cite": {
+      "section_id": "5",
+      "offset": 92140,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 12.824,
+     "unit": "%",
+     "text": "12.8240%",
+     "cite": {
+      "section_id": "5",
+      "offset": 93866,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 93880,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 93.36,
+     "unit": "%",
+     "text": "93.36%",
+     "cite": {
+      "section_id": "5",
+      "offset": 93180,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 48.2818,
+     "unit": "%",
+     "text": "48.2818%",
+     "cite": {
+      "section_id": "5",
+      "offset": 93889,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 96049,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "KIB플러그에너지",
+      "value": {
+       "value": 0.591,
+       "unit": null,
+       "text": "0.591",
+       "cite": {
+        "section_id": "5",
+        "offset": 92481,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "누리플랜",
+      "value": {
+       "value": 0.431,
+       "unit": null,
+       "text": "0.431",
+       "cite": {
+        "section_id": "5",
+        "offset": 92542,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "SNT에너지",
+      "value": {
+       "value": 0.842,
+       "unit": null,
+       "text": "0.842",
+       "cite": {
+        "section_id": "5",
+        "offset": 92605,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 20.9%)"
+     }
+    ]
+   },
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "상대가치는 비교목적으로 분석하였으나 3개 이상의 유사회사가 존재하지 않아가치를 산정하지 아니하였습니다"
+   },
+   "result": {
+    "value": {
+     "value": 12342,
+     "unit": "원",
+     "text": "12,342",
+     "cite": {
+      "section_id": "5",
+      "offset": 8933,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 13440,
+    "unit": "원",
+    "text": "13,440",
+    "cite": {
+     "section_id": "5",
+     "offset": 8975,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(K-OTC 거래, SPAC 합병, 시행령 176조의5 ③ 특례로 SPAC과 협의해 정한 평가방법 = 증발공 5-13조·시행세칙 4–8조 본질가치, 자산:수익 1:1.5). 분석기준일 2024-10-31, 평가기준일 2023-12-31. 수익가치는 FCFF DCF: 추정기간 현가 82,812,008,034원 + 영구현금흐름 현가 142,293,410,467원 = 영업가치 225,105,418,501원, 비영업자산 8,487,571,792원, 이자부부채 50,066,666,678원 → 수익가치 183,526,323,615원 ÷ 13,655,634주 = 13,440원. Rf는 2023-12-31 10년 국채(Bloomberg), MRP는 한공회 가이던스 밴드 중앙값 8.0%, SRP는 한공회 규모위험 프리미엄. 타인자본비용은 BB0 5년 무보증 회사채 수익률(세전 12.8240%, 세후 10.14%로 표기). WACC 산식의 Ke 표기는 15.1658%, 자기자본 비중 51.7182%. 목표자본구조 = 동종기업 3개사 평균 D/E 93.36%. 동종기업 평균 Relevered Beta 표기는 1.080. K-OTC 월별 가중평균주가(2022.12–2024.12, 8,875–20,507원)는 가치조정 미반영. 상대가치 미산정."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "케이비제26호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1694,
+     "unit": "원",
+     "text": "1,694",
+     "cite": {
+      "section_id": "5",
+      "offset": 25360,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 11858291697,
+     "unit": "원",
+     "text": "11,858,291,697",
+     "cite": {
+      "section_id": "5",
+      "offset": 25289,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 10605811169,
+     "unit": "원",
+     "text": "10,605,811,169",
+     "cite": {
+      "section_id": "5",
+      "offset": 24478,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1252480528,
+     "unit": "원",
+     "text": "1,252,480,528",
+     "cite": {
+      "section_id": "5",
+      "offset": 24514,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7000000,
+     "unit": "주",
+     "text": "7,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 25324,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 22902,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC. 기산일 2024-11-06(이사회·합병계약 2024-11-07 전일). 1개월 가중평균 2,249원·1주일 2,307원·최근일 2,320원 산술평균 2,292원에 12.74% 할인 → 2,000원. 자산가치 1,694원(발행주식총수 7,000,000주 기준; 등기부상 보통주 5,505,000주)보다 높아 기준주가 할인가액 적용."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "우양에이치씨 주식회사",
+    "basis": "본질가치(자산:수익=1:1.5)",
+    "value": {
+     "value": 12342,
+     "unit": "원",
+     "text": "12,342",
+     "cite": {
+      "section_id": "5",
+      "offset": 8056,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "케이비제26호기업인수목적 주식회사",
+    "basis": "기준주가 12.74% 할인",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 8032,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1620483,
+   "unit": null,
+   "text": "0.1620483",
+   "cite": {
+    "section_id": "5",
+    "offset": 8223,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 11009989650,
+   "unit": "원",
+   "text": "11,009,989,650",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 334,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인: 합병가액 우양에이치씨 12,342원·케이비제26호스팩 2,000원, 합병비율 1 : 0.1620483 적정. 합병신주 기명식보통주 892,075주(모집총액 11,009,989,650원)",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "우양에이치씨 주식회사",
+   "variables": "WACC 11.7411–13.7411% (±1%p), 영구성장률 0.0–2.0% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 11607,
+     "unit": "원",
+     "text": "11,607",
+     "cite": {
+      "section_id": "5",
+      "offset": 98296,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 15999,
+     "unit": "원",
+     "text": "15,999",
+     "cite": {
+      "section_id": "5",
+      "offset": 98354,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20240908–20250307, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), 원본 20241219000485, attachment_rcept_no 20241219000485, supersedes 20241219000485·20241231000309·20250110000383. related: 주요사항보고서(회사합병결정) 기재정정 20250110000260(원본 20241107000202), 20240909000273.",
+  "SPAC 합병(비상장·K-OTC 우양에이치씨가 존속, 코스닥 상장 케이비제26호기업인수목적 소멸). 합병계약 2024-11-07, 변경 1차 2024-12-19.",
+  "외부평가 감사위원회 동의는 본문에서 확인하지 않음 → null. 평가계약일 2024-02-28, 의견서 제출일 2024-12-19(본문 머리), 종합의견상 의견서 제출일 표기 2024-11-07.",
+  "본질가치 가중이 일반규정과 같은 1:1.5라 별도 비교목적 공시 없음.",
+  "평가 장: section 5 'II. 합병 가액 및 그 산출근거'."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250205000401",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 223,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250205000401",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 382,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250205000401",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 5652,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250205000401",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 32185,
+   "how": "search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:01:57+09:00",
+ "extractor_version": "1.1"
+}

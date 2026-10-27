@@ -1,0 +1,1188 @@
+{
+ "rcept_no": "20251229000487",
+ "original_rcept_no": "20251210000248",
+ "related_rcept_nos": [
+  "20251229000355"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00152686",
+  "name": "코리아써키트",
+  "market": "유가증권",
+  "induty_code": "2622"
+ },
+ "deal": {
+  "type": "split_merger",
+  "counterparty": "주식회사 테라닉스(분할되는 PCB 제조 사업부문)",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "분할승계회사인 주식회사 코리아써키트와 분할회사인 주식회사 테라닉스는 독점규제 및 공정거래에 관한 법률 상 상호출자제한 기업집단인 \"영풍\"에 속해있는 계열회사입니다. (테라닉스 최대주주는 지분율 56.52%의 (주)코리아써키트)",
+  "board_date": "2025-12-08",
+  "regime": "기준시가",
+  "ratio_text": "주식회사 코리아써키트:주식회사 테라닉스 = 1: 0.1268856[0.2287647(분할비율)× 0.5546553(합병비율)]"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과 금융투자업에 관한 법률 시행령 제176조의5, 그리고 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조에서 규정하고 있는 합병가액 산정방법에 따라 산정되었는지에 대하여 검토(평가의견서 문구; 주요사항보고서식 '근거 및 사유' 행은 본 신고서에서 읽지 않음)",
+  "firm": "신한회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 11월 18일 ~ 2025년 12월 08일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "신한회계법인 자본시장법에 따른 외부평가업무 품질관리규정",
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당평가액 합병법인 35,289원, 피합병법인 19,016–20,493원, 분할합병비율 1 : 0.1232744–0.1328493(합병비율 0.5388697–0.5807244). 합의한 분할합병비율 1 : 0.1268856은 범위 내에 있어 적정하게 산정된 것으로 판단. 합병가액 산정방법에 위배된 점 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 83060,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼덕회계법인",
+   "target": "(주)코리아써키트",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 17320,
+     "unit": "원",
+     "text": "17,320",
+     "cite": {
+      "section_id": "5",
+      "offset": 13269,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 428107469220,
+     "unit": "원",
+     "text": "428,107,469,220",
+     "cite": {
+      "section_id": "5",
+      "offset": 13093,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 314940487101,
+     "unit": "원",
+     "text": "314,940,487,101",
+     "cite": {
+      "section_id": "5",
+      "offset": 12044,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 113166982119,
+     "unit": "원",
+     "text": "113,166,982,119",
+     "cite": {
+      "section_id": "5",
+      "offset": 12080,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 23620751,
+     "unit": "주",
+     "text": "23,620,751",
+     "cite": {
+      "section_id": "5",
+      "offset": 13232,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 35289,
+     "unit": "원",
+     "text": "35,289",
+     "cite": {
+      "section_id": "5",
+      "offset": 10339,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "유가증권시장 상장 분할승계회사. 기산일 2025-12-07(이사회 2025-12-08·계약 2025-12-09 중 앞선 날 전일), 1개월 가중평균 30,251원·1주일 36,615원·최근일(2025-12-05) 39,000원의 산술평균 35,289원(할인·할증 없음). 기준시가가 자산가치 17,320원보다 높아 기준시가를 합병가액으로. 자산가치 = 2024말 별도 자본총계 + 조정(시장성 없는 투자주식 순자산 차이 80,101,840,862원·시장성 있는 주식 종가 차이 +45,162,034,000/−12,050,892,743원·손상차손 −46,000,000원) 428,107,469,220원에서 보통주 이외 순자산 18,992,746,364원 차감 409,114,722,857원 ÷ 23,620,751주"
+  },
+  {
+   "subject": "삼덕회계법인",
+   "target": "(주)테라닉스 분할사업부문",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(Ax1+Bx1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 24530,
+     "unit": "원",
+     "text": "24,530",
+     "cite": {
+      "section_id": "5",
+      "offset": 24253,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 36810789168,
+     "unit": "원",
+     "text": "36,810,789,168",
+     "cite": {
+      "section_id": "5",
+      "offset": 23234,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 36810789168,
+     "unit": "원",
+     "text": "36,810,789,168",
+     "cite": {
+      "section_id": "5",
+      "offset": 23234,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": {
+     "value": 1500651,
+     "unit": "주",
+     "text": "1,500,651",
+     "cite": {
+      "section_id": "5",
+      "offset": 24217,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "상대가치는 비교 목적으로 분석하였으나 3개 이상의 유사회사가 존재하지 아니하여 가치를 산정하지 아니함"
+   },
+   "result": {
+    "value": {
+     "value": 19684,
+     "unit": "원",
+     "text": "19,684",
+     "cite": {
+      "section_id": "5",
+      "offset": 17156,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 16453,
+    "unit": "원",
+    "text": "16,453",
+    "cite": {
+     "section_id": "5",
+     "offset": 17198,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 분할사업부문(테라닉스 인적분할 PCB 부문). 자산가치는 2024말 분할별도재무상태표 자본총계(조정항목 없음 '-') ÷ 분석기준일(2025-12-01) 발행주식 6,559,800주×분할비율 0.2287647 = 1,500,651주. 정정으로 수익가치 16,269원→16,453원, 본질가치 19,573원→19,684원, 합병비율 0.5546553→0.5577936(분할합병비율 1:0.1268856→1:0.1276035)으로 변동(변경 전 값은 section 5 첫 비교표). 당사회사는 변경 전 비율 1:0.1268856을 유지"
+  },
+  {
+   "subject": "삼덕회계법인",
+   "target": "(주)테라닉스 분할사업부문",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 1월 1일부터 2030년 12월 31일까지(2025년 4분기–2030년 추정)",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 12.6,
+     "unit": "%",
+     "text": "12.60%",
+     "cite": {
+      "section_id": "5",
+      "offset": 76740,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.9,
+     "unit": "%",
+     "text": "2.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 76458,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 76488,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": null,
+    "beta_levered": {
+     "value": 1.13,
+     "unit": null,
+     "text": "1.13",
+     "cite": {
+      "section_id": "5",
+      "offset": 76519,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 76548,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 16.0,
+     "unit": "%",
+     "text": "16.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 76579,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 76488,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 76627,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "target_dv": {
+     "value": 35.25,
+     "unit": "%",
+     "text": "35.25%",
+     "cite": {
+      "section_id": "5",
+      "offset": 76709,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 43116,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "뉴프렉스",
+      "value": {
+       "value": 1.01,
+       "unit": null,
+       "text": "1.01",
+       "cite": {
+        "section_id": "5",
+        "offset": 77670,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.19, 자본비율 E/(E+D) 22.6%, 부채비율 D/(E+D) 18.5%, Tax 20.9%)"
+     },
+     {
+      "name": "대덕전자/신",
+      "value": {
+       "value": 1.2,
+       "unit": null,
+       "text": "1.20",
+       "cite": {
+        "section_id": "5",
+        "offset": 77736,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.25, 자본비율 E/(E+D) 5.0%, 부채비율 D/(E+D) 4.8%, Tax 23.1%)"
+     },
+     {
+      "name": "디에이피",
+      "value": {
+       "value": 0.05,
+       "unit": null,
+       "text": "0.05",
+       "cite": {
+        "section_id": "5",
+        "offset": 77803,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.86, 자본비율 E/(E+D) 1725.5%, 부채비율 D/(E+D) 94.5%, Tax 9.9%)"
+     },
+     {
+      "name": "비에이치",
+      "value": {
+       "value": 0.58,
+       "unit": null,
+       "text": "0.58",
+       "cite": {
+        "section_id": "5",
+        "offset": 77870,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.91, 자본비율 E/(E+D) 72.2%, 부채비율 D/(E+D) 41.9%, Tax 23.1%)"
+     },
+     {
+      "name": "심텍",
+      "value": {
+       "value": 0.89,
+       "unit": null,
+       "text": "0.89",
+       "cite": {
+        "section_id": "5",
+        "offset": 77934,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.47, 자본비율 E/(E+D) 71.5%, 부채비율 D/(E+D) 41.7%, Tax 9.9%)"
+     },
+     {
+      "name": "에이엔피",
+      "value": {
+       "value": 0.4,
+       "unit": null,
+       "text": "0.40",
+       "cite": {
+        "section_id": "5",
+        "offset": 77999,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.05, 자본비율 E/(E+D) 179.1%, 부채비율 D/(E+D) 64.2%, Tax 9.9%)"
+     },
+     {
+      "name": "인터플렉스",
+      "value": {
+       "value": 0.9,
+       "unit": null,
+       "text": "0.90",
+       "cite": {
+        "section_id": "5",
+        "offset": 78061,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.90, 자본비율 E/(E+D) 0.3%, 부채비율 D/(E+D) 0.3%, Tax 23.1%)"
+     },
+     {
+      "name": "코리아써키트",
+      "value": {
+       "value": 1.09,
+       "unit": null,
+       "text": "1.09",
+       "cite": {
+        "section_id": "5",
+        "offset": 78130,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.50, 자본비율 E/(E+D) 49.8%, 부채비율 D/(E+D) 33.2%, Tax 23.1%)"
+     },
+     {
+      "name": "티엘비",
+      "value": {
+       "value": 1.16,
+       "unit": null,
+       "text": "1.16",
+       "cite": {
+        "section_id": "5",
+        "offset": 78195,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.49, 자본비율 E/(E+D) 35.5%, 부채비율 D/(E+D) 26.2%, Tax 20.9%)"
+     },
+     {
+      "name": "현우산업",
+      "value": {
+       "value": 0.61,
+       "unit": null,
+       "text": "0.61",
+       "cite": {
+        "section_id": "5",
+        "offset": 78260,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.79, 자본비율 E/(E+D) 37.5%, 부채비율 D/(E+D) 27.3%, Tax 20.9%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 16453,
+     "unit": "원",
+     "text": "16,453",
+     "cite": {
+      "section_id": "5",
+      "offset": 46038,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 13709,
+      "unit": "원",
+      "text": "13,709",
+      "cite": {
+       "section_id": "5",
+       "offset": 47447,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20335,
+      "unit": "원",
+      "text": "20,335",
+      "cite": {
+       "section_id": "5",
+       "offset": 47385,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 현금흐름할인법(시행세칙 제6조). Rf는 KIS자산평가 2025.9.30 10년 국고채, MRP는 한국공인회계사회 가이던스(2025.06) 중앙값, 규모위험은 같은 연구(2025.06) MicroCap, Kd는 신용등급 BBB0 5년 회사채 이자율. 목표자본구조는 원문이 '평균부채비율(타인자본/자기자본)인 35.25%'라 쓰나 자기자본비율 64.75%와 합이 100%이고 유사기업 표의 부채비율 정의가 D/(E+D)이므로 D/V로 기재. 유사기업 10사 Unlevered β 평균값은 표에 없음(null). DCF 표 현가계수 캡션은 '할인율12.7%'로 WACC 표 12.60%와 다름(원문 그대로). 영업가치 29,397 + 비영업자산 390 − 이자부부채 5,097 = 24,690백만원 ÷ 1,500,651주. range는 WACC 11.60–13.60%·g 0.0–2.0% 민감도 표 범위"
+  },
+  {
+   "subject": "신한회계법인",
+   "target": "(주)코리아써키트",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 17320,
+     "unit": "원",
+     "text": "17,320",
+     "cite": {
+      "section_id": "5",
+      "offset": 90704,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 35289,
+     "unit": "원",
+     "text": "35,289",
+     "cite": {
+      "section_id": "5",
+      "offset": 90623,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2025-12-07, 최근 1개월 가중평균 30,251원·1주일 36,615원·최근일(2025-12-05, 12-07 종가 없음) 39,000원의 산술평균. 기준시가 > 자산가치라 기준시가 적용. 신한 구간 자산가치 상세표는 읽지 않아 total 등은 null(삼덕 원소 참조)"
+  },
+  {
+   "subject": "신한회계법인",
+   "target": "(주)테라닉스 분할사업부문",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(Ax1+Bx1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 24530,
+     "unit": "원",
+     "text": "24,530",
+     "cite": {
+      "section_id": "5",
+      "offset": 107847,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 36810789168,
+     "unit": "원",
+     "text": "36,810,789,168",
+     "cite": {
+      "section_id": "5",
+      "offset": 106826,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 36810789168,
+     "unit": "원",
+     "text": "36,810,789,168",
+     "cite": {
+      "section_id": "5",
+      "offset": 106826,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": {
+     "value": 1500651,
+     "unit": "주",
+     "text": "1,500,651",
+     "cite": {
+      "section_id": "5",
+      "offset": 107811,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "증권의 발행 및 공시 등에 관한 규정 시행세칙 제7조의 요건을 충족하는 유사회사가 없으므로 비교목적으로 공시되는 상대가치는 산정하지 아니함"
+   },
+   "result": {
+    "value": {
+     "value": 19697,
+     "unit": "원",
+     "text": "19,697",
+     "cite": {
+      "section_id": "5",
+      "offset": 99719,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 19016,
+      "unit": "원",
+      "text": "19,016",
+      "cite": {
+       "section_id": "5",
+       "offset": 80743,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20493,
+      "unit": "원",
+      "text": "20,493",
+      "cite": {
+       "section_id": "5",
+       "offset": 80752,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 16474,
+    "unit": "원",
+    "text": "16,474",
+    "cite": {
+     "section_id": "5",
+     "offset": 99761,
+     "file_id": "main"
+    }
+   },
+   "note": "평가의견서상 피합병법인 주당평가액 범위 19,016–20,493원(범위 산정 근거 문단은 읽은 구간에 없음). 점 값 19,697원·합병비율 0.5581676(변경 후). 정정 전 신한 값: 수익가치 16,384원·본질가치 19,642원·합병비율 0.5566091(section 5 첫 비교표). 참고: 최근 2년 테라닉스 전체 주식 양수도 거래가액 주당 20,000–26,895원(분할사업부문 아님)"
+  },
+  {
+   "subject": "신한회계법인",
+   "target": "(주)테라닉스 분할사업부문",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 10월에서 2030년까지 5년 3개월",
+    "base_date": "2025-09-30",
+    "wacc": {
+     "value": 12.5,
+     "unit": "%",
+     "text": "12.50%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156987,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.94,
+     "unit": "%",
+     "text": "2.94%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156697,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156728,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": null,
+    "beta_levered": {
+     "value": 1.1278,
+     "unit": null,
+     "text": "1.1278",
+     "cite": {
+      "section_id": "5",
+      "offset": 156760,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156791,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.98,
+     "unit": "%",
+     "text": "15.98%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156822,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156728,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 22.0,
+     "unit": "%",
+     "text": "22.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156873,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "target_dv": {
+     "value": 35.25,
+     "unit": "%",
+     "text": "35.25%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156956,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 127629,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "뉴프렉스",
+      "value": {
+       "value": 1.01,
+       "unit": null,
+       "text": "1.01",
+       "cite": {
+        "section_id": "5",
+        "offset": 157858,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.19, 자본비율 E/(E+D) 22.6%, 부채비율 D/(E+D) 18.5%, Tax 20.9%)"
+     },
+     {
+      "name": "대덕전자/신",
+      "value": {
+       "value": 1.2,
+       "unit": null,
+       "text": "1.20",
+       "cite": {
+        "section_id": "5",
+        "offset": 157924,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.25, 자본비율 E/(E+D) 5.0%, 부채비율 D/(E+D) 4.8%, Tax 23.1%)"
+     },
+     {
+      "name": "디에이피",
+      "value": {
+       "value": 0.05,
+       "unit": null,
+       "text": "0.05",
+       "cite": {
+        "section_id": "5",
+        "offset": 157991,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.86, 자본비율 E/(E+D) 1725.5%, 부채비율 D/(E+D) 94.5%, Tax 9.9%)"
+     },
+     {
+      "name": "비에이치",
+      "value": {
+       "value": 0.58,
+       "unit": null,
+       "text": "0.58",
+       "cite": {
+        "section_id": "5",
+        "offset": 158058,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.91, 자본비율 E/(E+D) 72.2%, 부채비율 D/(E+D) 41.9%, Tax 23.1%)"
+     },
+     {
+      "name": "심텍",
+      "value": {
+       "value": 0.89,
+       "unit": null,
+       "text": "0.89",
+       "cite": {
+        "section_id": "5",
+        "offset": 158122,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.47, 자본비율 E/(E+D) 71.5%, 부채비율 D/(E+D) 41.7%, Tax 9.9%)"
+     },
+     {
+      "name": "에이엔피",
+      "value": {
+       "value": 0.4,
+       "unit": null,
+       "text": "0.40",
+       "cite": {
+        "section_id": "5",
+        "offset": 158187,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.05, 자본비율 E/(E+D) 179.1%, 부채비율 D/(E+D) 64.2%, Tax 9.9%)"
+     },
+     {
+      "name": "인터플렉스",
+      "value": {
+       "value": 0.9,
+       "unit": null,
+       "text": "0.90",
+       "cite": {
+        "section_id": "5",
+        "offset": 158249,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.90, 자본비율 E/(E+D) 0.3%, 부채비율 D/(E+D) 0.3%, Tax 23.1%)"
+     },
+     {
+      "name": "코리아써키트",
+      "value": {
+       "value": 1.09,
+       "unit": null,
+       "text": "1.09",
+       "cite": {
+        "section_id": "5",
+        "offset": 158318,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.50, 자본비율 E/(E+D) 49.8%, 부채비율 D/(E+D) 33.2%, Tax 23.1%)"
+     },
+     {
+      "name": "티엘비",
+      "value": {
+       "value": 1.16,
+       "unit": null,
+       "text": "1.16",
+       "cite": {
+        "section_id": "5",
+        "offset": 158383,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.49, 자본비율 E/(E+D) 35.5%, 부채비율 D/(E+D) 26.2%, Tax 20.9%)"
+     },
+     {
+      "name": "현우산업",
+      "value": {
+       "value": 0.61,
+       "unit": null,
+       "text": "0.61",
+       "cite": {
+        "section_id": "5",
+        "offset": 158448,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.79, 자본비율 E/(E+D) 37.5%, 부채비율 D/(E+D) 27.3%, Tax 20.9%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 16474,
+     "unit": "원",
+     "text": "16,474",
+     "cite": {
+      "section_id": "5",
+      "offset": 126564,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 14392,
+      "unit": "원",
+      "text": "14,392",
+      "cite": {
+       "section_id": "5",
+       "offset": 129457,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 19376,
+      "unit": "원",
+      "text": "19,376",
+      "cite": {
+       "section_id": "5",
+       "offset": 129397,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "FCFF 현금흐름할인법. Rf는 2025년 9월 말 Bloomberg 국고채 수익률, MRP는 한국공인회계사회 7.00–9.00% 중간값, 규모위험 MicroCap(2025.06). 타인자본비율 35.25%·자기자본비율 64.75%(합 100%)라 D/V로 기재. 유사기업 10사·β는 삼덕 표와 같은 값, Unlevered β 평균은 표에 없음(null). 영업가치 29,429 + 비영업자산 390 − 이자부부채 5,097 = 24,722백만원 ÷ 1,500,651주. 영구성장률 1%는 PCB 연계 시장 5–7% 성장 전망과 과거 성장률 고려. range는 WACC 11.5–13.5%·g 0.0–2.0% 민감도 표 범위"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)코리아써키트",
+    "basis": "기준시가",
+    "value": {
+     "value": 35289,
+     "unit": "원",
+     "text": "35,289",
+     "cite": {
+      "section_id": "5",
+      "offset": 1658,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "(주)테라닉스 분할사업부문",
+    "basis": "본질가치(삼덕회계법인 변경 전 값, 합의 분할합병비율의 기준)",
+    "value": {
+     "value": 19573,
+     "unit": "원",
+     "text": "19,573",
+     "cite": {
+      "section_id": "5",
+      "offset": 1748,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "피합병법인 주당평가액 범위(외부평가)",
+    "subject": "신한회계법인",
+    "range": {
+     "min": {
+      "value": 19016,
+      "unit": "원",
+      "text": "19,016",
+      "cite": {
+       "section_id": "5",
+       "offset": 80743,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 20493,
+      "unit": "원",
+      "text": "20,493",
+      "cite": {
+       "section_id": "5",
+       "offset": 80752,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "분할합병비율 범위(외부평가)",
+    "subject": "신한회계법인",
+    "range": {
+     "min": {
+      "value": 0.1232744,
+      "unit": null,
+      "text": "0.1232744",
+      "cite": {
+       "section_id": "5",
+       "offset": 80803,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.1328493,
+      "unit": null,
+      "text": "0.1328493",
+      "cite": {
+       "section_id": "5",
+       "offset": 80813,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "합병비율 범위(외부평가, 분할비율 0.2287647 곱하기 전)",
+    "subject": "신한회계법인",
+    "range": {
+     "min": {
+      "value": 0.5388697,
+      "unit": null,
+      "text": "0.5388697",
+      "cite": {
+       "section_id": "5",
+       "offset": 80841,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.5807244,
+      "unit": null,
+      "text": "0.5807244",
+      "cite": {
+       "section_id": "5",
+       "offset": 80851,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.1268856,
+   "unit": null,
+   "text": "0.1268856",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 135,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 12770136297,
+   "unit": "원",
+   "text": "12,770,136,297",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 303,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "신한회계법인: 합의한 분할합병비율 1 : 0.1268856[0.2287647×0.5546553]은 평가 범위 1 : 0.1232744–0.1328493 내에 있어 적정. 당사회사는 삼덕 재계산 비율(1:0.1276035)과의 차이가 유의미하지 않아 기존 비율을 유지",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼덕회계법인",
+   "target": "(주)테라닉스 분할사업부문",
+   "variables": "WACC 11.60–13.60% (±1%p), 영구성장률 0.0–2.0% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 13709,
+     "unit": "원",
+     "text": "13,709",
+     "cite": {
+      "section_id": "5",
+      "offset": 47447,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 20335,
+     "unit": "원",
+     "text": "20,335",
+     "cite": {
+      "section_id": "5",
+      "offset": 47385,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "신한회계법인",
+   "target": "(주)테라닉스 분할사업부문",
+   "variables": "WACC 11.5–13.5% (±1%p), 영구성장률 0.0–2.0% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 14392,
+     "unit": "원",
+     "text": "14,392",
+     "cite": {
+      "section_id": "5",
+      "offset": 129457,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 19376,
+     "unit": "원",
+     "text": "19,376",
+     "cite": {
+      "section_id": "5",
+      "offset": 129397,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250801–20260128, listed_only=False): merger/full, original_rcept_no=20251210000248, body_rcept_no=20251229000487(본 건), attachment_rcept_no=20251210000248, supersedes 20251210000248·20251219000296. search_disclosures(C, 20251201–20261027)로 본 건 이후 본문 정정 없음 확인(이후 투자설명서 20260102000019·증권발행실적보고서 20260225003086).",
+  "짝 공시: [첨부정정]주요사항보고서(회사합병결정) 20251229000355(summary, 원본 20251208000334, body 20251219000257). 필요하면 별도 /dart-valuation.",
+  "인적분할 후 분할사업부문을 상장사 코리아써키트가 흡수하는 분할합병. 분할비율 0.2287647은 2025.9.30 분할 사업부문 순자산 장부가 34,801,880,497원 ÷ 분할전 152,129,565,769원(테라닉스 제시, 평가인은 인용).",
+  "평가 주체 2곳: 삼덕회계법인 = 당사회사가 의뢰한 분할합병비율 산정(자문)기관(계약 2025-11-19, 수행 2025-11-19–12-06), 신한회계법인 = 외부평가기관(계약 2025-11-18, 의견서 제출 2025-12-09). section 5 앞(0–약 8,500)은 회사의 결정 이유·비교표, 'II-가' 삼덕 산정보고서(offset 약 7,900–78,900), 'II-나' 신한 평가의견서(약 78,900–끝).",
+  "기재정정으로 삼덕 수익가치가 바뀌어 재계산 비율 1:0.1276035가 나왔으나 당사회사는 기존 1:0.1268856 유지(신한 범위 내, 혼동 방지). conclusion.price_per_share의 테라닉스 19,573원은 변경 전 삼덕 값.",
+  "감사위원회 동의 여부는 읽은 구간에서 확인 못함(null). 분할합병신주 기명식보통주 361,873주, 모집가액 35,289원(3.4)."
+ ],
+ "extracted_at": "2026-10-27T10:28:14+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20251229000487",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 857,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20251229000487",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 3647,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20251229000487",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 52871,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

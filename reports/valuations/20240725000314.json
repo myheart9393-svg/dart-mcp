@@ -1,0 +1,568 @@
+{
+ "rcept_no": "20240725000314",
+ "original_rcept_no": "20240613000125",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00909835",
+  "name": "차이커뮤니케이션",
+  "market": "코스닥",
+  "induty_code": "71310"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "한국제11호기업인수목적(주)",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2024-01-30",
+  "regime": "기준시가",
+  "ratio_text": "(주)차이커뮤니케이션 : 한국제11호기업인수목적(주) = 1: 0.1970249(한국제11호기업인수목적(주)의 기명식 보통주식 1주당 (주)차이커뮤니케이션의 기명식 보통주식 0.1970249주)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "동 주요사항보고서 상의 합병가액의 산정에 대하여 본평가인은 아래의 관련규정을 적용하여 주권상장법인인 피합병법인과 주권비상장법인인 합병법인의 1주당 합병가액을 산출하였으며, 이를 기초로 합병비율의 적정성을 검토",
+  "firm": "한울회계법인",
+  "firm_type": "회계법인",
+  "period": "2023년 11월 14일 ~ 2024년 01월 29일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장과금융투자업에관한법률 제165조의4",
+   "동법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 10,151원(액면 500원)·피합병법인 2,000원(액면 100원), 합병비율 1: 0.1970249은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 115260,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한울회계법인",
+   "target": "(주)차이커뮤니케이션",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 5,
+    "basis": "[(aX1+bX 5)÷6.0]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 2997,
+     "unit": "원",
+     "text": "2,997",
+     "cite": {
+      "section_id": "5",
+      "offset": 17587,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 29809699209,
+     "unit": "원",
+     "text": "29,809,699,209",
+     "cite": {
+      "section_id": "5",
+      "offset": 17516,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 29809699209,
+     "unit": "원",
+     "text": "29,809,699,209",
+     "cite": {
+      "section_id": "5",
+      "offset": 17034,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": {
+     "value": 9945000,
+     "unit": "주",
+     "text": "9,945,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 17551,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 10151,
+     "unit": "원",
+     "text": "10,151",
+     "cite": {
+      "section_id": "5",
+      "offset": 15797,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 11582,
+    "unit": "원",
+    "text": "11,582",
+    "cite": {
+     "section_id": "5",
+     "offset": 15869,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(스팩 소멸방식). 시행령 제176조의5 제3항 제2호 나목 기업인수목적회사 특례로 자산가치:수익가치 1:5 가중(SPAC과 협의, 광고업 인적자원 가치가 순자산에 반영되지 않는다는 사유). 비교목적 공시: 일반규정 1:1.5 적용 시 합병가액 8,148원, 합병비율 0.2454590. 상대가치는 유사회사 3사 미만으로 미산정. 자산가치 조정항목은 표에 '-'(조정 없음). 분석기준일 2024-01-23."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "(주)차이커뮤니케이션",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "추정1차연도인 2023년 1월 1일부터 2027년12월 31일까지의 5년",
+    "base_date": "2022-12-31",
+    "wacc": {
+     "value": 14.17,
+     "unit": "%",
+     "text": "14.17%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108503,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102281,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102343,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.9318,
+     "unit": null,
+     "text": "0.9318",
+     "cite": {
+      "section_id": "5",
+      "offset": 103366,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.026,
+     "unit": null,
+     "text": "1.0260",
+     "cite": {
+      "section_id": "5",
+      "offset": 102387,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102498,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 15.29,
+     "unit": "%",
+     "text": "15.29%",
+     "cite": {
+      "section_id": "5",
+      "offset": 102559,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 6.83,
+     "unit": "%",
+     "text": "6.83%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108379,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108459,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "target_dv": {
+     "value": 11.33,
+     "unit": "%",
+     "text": "11.33%",
+     "cite": {
+      "section_id": "5",
+      "offset": 108434,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1,
+     "unit": "%",
+     "text": "1%",
+     "cite": {
+      "section_id": "5",
+      "offset": 55007,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "와이즈버즈",
+      "value": {
+       "value": 0.7716,
+       "unit": null,
+       "text": "0.7716",
+       "cite": {
+        "section_id": "5",
+        "offset": 103084,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, t=20.9%)"
+     },
+     {
+      "name": "이엠넷",
+      "value": {
+       "value": 1.1057,
+       "unit": null,
+       "text": "1.1057",
+       "cite": {
+        "section_id": "5",
+        "offset": 103159,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, t=20.9%)"
+     },
+     {
+      "name": "플레이디",
+      "value": {
+       "value": 1.1796,
+       "unit": null,
+       "text": "1.1796",
+       "cite": {
+        "section_id": "5",
+        "offset": 103233,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, t=20.9%)"
+     },
+     {
+      "name": "케어랩스",
+      "value": {
+       "value": 0.6703,
+       "unit": null,
+       "text": "0.6703",
+       "cite": {
+        "section_id": "5",
+        "offset": 103314,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, t=20.9%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11582,
+     "unit": "원",
+     "text": "11,582",
+     "cite": {
+      "section_id": "5",
+      "offset": 18359,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 10388,
+      "unit": "원",
+      "text": "10,388",
+      "cite": {
+       "section_id": "5",
+       "offset": 112539,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13196,
+      "unit": "원",
+      "text": "13,196",
+      "cite": {
+       "section_id": "5",
+       "offset": 112599,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 할인, 연중 현금흐름 가정). 영업가치 102,408,177천원(추정기간 38,395,763 + 영구 64,012,414) + 비영업자산 21,741,706천원 - 이자부부채 8,965,167천원 = 115,184,716천원, 발행주식 9,945,000주. FSRP는 한국공인회계사회 기업규모위험 프리미엄 3분위 Micro-Cap. Kd는 Kofiabond 무보증 공모 회사채 A- 수익률. β: Bloomberg 5 Year Weekly Adjusted Beta(2022-12-31), 동종 4사 평균. 목표자본구조: 원문은 '평균 부채비율(D/E)인 11.33%'라 적었으나 표 (주6) 정의가 이자부부채/(시가총액+비지배지분+이자부부채)(D/V)이고 자본비율 88.67%와 합이 100%이므로 target_dv로 기록(target_de null). range는 WACC 13.17–15.17%·영구성장률 0.00–2.00% 민감도 표 범위."
+  },
+  {
+   "subject": "한울회계법인",
+   "target": "한국제11호기업인수목적(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1717,
+     "unit": "원",
+     "text": "1,717",
+     "cite": {
+      "section_id": "5",
+      "offset": 14227,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12015728311,
+     "unit": "원",
+     "text": "12,015,728,311",
+     "cite": {
+      "section_id": "5",
+      "offset": 14155,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11035728311,
+     "unit": "원",
+     "text": "11,035,728,311",
+     "cite": {
+      "section_id": "5",
+      "offset": 13350,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 980000000,
+     "unit": "원",
+     "text": "980,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 13386,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7000000,
+     "unit": "주",
+     "text": "7,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 14191,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 10534,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기산일 2024-01-29, 1개월 가중평균 2,147원·1주일 2,192원·최근일 2,220원의 산술평균 2,186원에 8.52% 할인한 2,000원. 자산가치 1,717원(제1회 사모전환사채 980,000,000원 전환가정 가산, 발행주식 6,020,000주+전환가능 980,000주; 전환 전 기준 1,996원)보다 높아 합병가액은 Max[A, B]=2,000원."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)차이커뮤니케이션",
+    "basis": "본질가치(자산:수익 1:5, SPAC 특례)",
+    "value": {
+     "value": 10151,
+     "unit": "원",
+     "text": "10,151",
+     "cite": {
+      "section_id": "5",
+      "offset": 7493,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "한국제11호기업인수목적(주)",
+    "basis": "기준주가에 할인율 8.52% 반영",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7402,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1970249,
+   "unit": null,
+   "text": "0.1970249",
+   "cite": {
+    "section_id": "5",
+    "offset": 7664,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 12039989439,
+   "unit": "원",
+   "text": "12,039,989,439",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 407,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "한울회계법인: 합병비율 1: 0.1970249은 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한울회계법인",
+   "target": "(주)차이커뮤니케이션",
+   "variables": "WACC 13.17–15.17% (±1%p), 영구성장률 0.00–2.00% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 10388,
+     "unit": "원",
+     "text": "10,388",
+     "cite": {
+      "section_id": "5",
+      "offset": 112539,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 13196,
+     "unit": "원",
+     "text": "13,196",
+     "cite": {
+      "section_id": "5",
+      "offset": 112599,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "search_valuation_disclosures(20240226–20240824, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건, original_rcept_no=20240613000125(증권신고서(합병)), attachment_rcept_no=20240613000125, supersedes 20240613000125·20240624000126·20240701000566. 회사 2024 공시 목록상 본 건 이후 증권신고서 정정 없음(같은 날 [기재정정]투자설명서 20240725000326, 증권발행실적보고서 20240904000113).",
+  "related_rcept_nos 비어 있음: 짝 주요사항보고서(회사합병결정)는 SPAC(한국제11호기업인수목적) 명의일 것으로 보이나 이번 조회 결과에 연결되지 않음.",
+  "company.market '코스닥'은 조회 시점 상태. 신고 당시 차이커뮤니케이션은 주권비상장법인(존속), SPAC은 코스닥 상장(소멸).",
+  "'회사와의 관계'·감사위원회 동의는 본문에서 찾지 못해 null. 외부평가 계약 2023-11-14, 평가기간 2023-11-14–2024-01-29, 의견서 제출일 2024-01-30(4장·5장). 합병계약 변경체결 1–3차 2024-06-13·06-24·06-28.",
+  "평가기준일·기준재무제표는 원문 그대로 2022-12-31(이사회 2024-01-30, 분석기준일 2024-01-23). 수익가치 추정에는 2023년 감사받은 실적·2024년 1분기 검토 실적 반영.",
+  "합병신주 기명식보통주 1,186,089주, 모집가액 10,151원, 모집총액 12,039,989,439원(3.4). 주식매수청구가격 합병법인 10,151원·피합병법인 2,133원(3.3). 합병기일 2024-09-03."
+ ],
+ "extracted_at": "2026-10-27T09:47:43+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20240725000314",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 314,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240725000314",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 455,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240725000314",
+   "file_id": "main",
+   "section_id": "3.5",
+   "title": "V. 당사회사에 관한 사항 요약",
+   "chars_read": 352,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240725000314",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4022,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240725000314",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 35850,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

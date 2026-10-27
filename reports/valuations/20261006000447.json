@@ -6,10 +6,10 @@
  "report_nm": "[발행조건확정]증권신고서(지분증권)",
  "source_grade": "full",
  "company": {
-  "corp_code": null,
+  "corp_code": "01754737",
   "name": "엘리스그룹",
   "market": "코스닥",
-  "induty_code": null
+  "induty_code": "58222"
  },
  "deal": {
   "type": "ipo",

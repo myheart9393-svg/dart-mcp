@@ -1,0 +1,204 @@
+{
+ "rcept_no": "20250131000287",
+ "original_rcept_no": "20250109000369",
+ "related_rcept_nos": [
+  "20250109000369",
+  "20250124000401",
+  "20250102000266",
+  "20250103000295"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00957568",
+  "name": "로아앤코",
+  "market": "기타",
+  "induty_code": "71531"
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2025-01-02",
+  "regime": null,
+  "ratio_text": "분할회사 주주에게 1주당 0.28121115주(분할비율 0.28121115 x 1주의 금액비율 1) 배정, 분할회사 주식은 1주당 0.71878885주 비율로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순인적분할: 2024년 11월 30일 재무상태표 기준 순자산 장부가액(자기주식 장부가액 합산) 비율로 분할비율 산정(외부평가기관 없음)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 261,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "로아앤코(분할 전 상호 에스엘에너지)",
+   "target": "주식회사 에스엘에너지(분할신설회사)",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 8327029544,
+     "unit": "원",
+     "text": "8,327,029,544원",
+     "cite": {
+      "section_id": "5",
+      "offset": 520,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 29580538025,
+     "unit": "원",
+     "text": "29,580,538,025원",
+     "cite": {
+      "section_id": "5",
+      "offset": 550,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 30767992,
+     "unit": "원",
+     "text": "30,767,992원",
+     "cite": {
+      "section_id": "5",
+      "offset": 584,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 1034612,
+     "unit": "주",
+     "text": "1,034,612",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 344,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-11-30"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.28121115,
+     "unit": null,
+     "text": "0.28121115",
+     "cite": {
+      "section_id": "5",
+      "offset": 600,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = 분할대상부문 순자산가액 ÷ (분할 전 순자산가액 + 분할 전 자기주식 장부가액). adjustments는 분할 전 자기주식 장부가액(분모에 가산). 1주의 금액비율 500원÷500원 = 1이라 배정비율도 0.28121115. shares는 분할신주(기명식보통주) 수량. result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 에스엘에너지(분할신설회사)",
+    "basis": "분할신주 모집(매출)가액(모집총액 ÷ 주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 8048,
+     "unit": "원",
+     "text": "8,048",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 362,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.28121115,
+   "unit": null,
+   "text": "0.28121115",
+   "cite": {
+    "section_id": "5",
+    "offset": 600,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 8327029544,
+   "unit": "원",
+   "text": "8,327,029,544원",
+   "cite": {
+    "section_id": "5",
+    "offset": 520,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "2024.11.30 재무상태표 기준 순자산 장부가액 비율로 분할비율·배정비율 0.28121115(존속 0.71878885). 신주배정은 최초 이사회(2025-01-02) 승인 분할계획서상 배정비율 기준",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20240903–20250302, listed_only=False): 분할/full, correction_kind=기재정정, body_rcept_no=본 건(더 최신 본문 정정 없음), 원본 20250109000369(감사보고서 첨부는 원본). 짝 [기재정정]주요사항보고서(회사분할결정) 20250124000401(summary, 원본 20250102000266, supersedes 20250103000295).",
+  "단순인적분할로 외부평가기관 '없음'(IV. 평가 및 신주배정 등). 가치평가(DCF·상대가치 등)는 없고 순자산 장부가액 비율만 있음. regime: 기준시가·본질가치 산정 없음 → null.",
+  "분할회사 주식회사 에스엘에너지(비상장, 현 corp_name 로아앤코)가 석유화학 제품 제조·판매 부문을 분할신설회사 주식회사 에스엘에너지로 인적분할, 존속회사는 주식회사로아앤코(투자사업부문)로 상호 변경 예정(I장).",
+  "자기주식 0.13%(4,683주)에도 분할신주 배정(비상장·효과 미비 사유, I장).",
+  "발행증권: 기명식보통주 1,034,612주, 액면 500원, 모집가액 8,048원, 모집총액 8,327,029,544원. 2024.11.30 재무상태표 기준이며 분할기일 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주3).",
+  "이사회 결의일·계약일 2025-01-02, 주주확정일 2025-01-17, 주주총회 2025-02-28, 분할기일 2025-03-19(III. 주요일정)."
+ ],
+ "extracted_at": "2026-10-27T10:00:50+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20250131000287",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 265,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250131000287",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1096,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250131000287",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 분할에 관한 기본사항",
+   "chars_read": 3635,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250131000287",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 671,
+   "how": "section"
+  }
+ ]
+}

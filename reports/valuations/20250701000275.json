@@ -1,0 +1,630 @@
+{
+ "rcept_no": "20250701000275",
+ "original_rcept_no": "20250613000118",
+ "related_rcept_nos": [
+  "20250701000257",
+  "20250613000118",
+  "20250624000332"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(주식의포괄적교환ㆍ이전)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00230425",
+  "name": "나노엔텍",
+  "market": "코스닥",
+  "induty_code": "27199"
+ },
+ "deal": {
+  "type": "share_exchange",
+  "counterparty": "주식회사 에이에이아이헬스케어",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "본 주식교환의 당사회사는 에이플러스그룹에 속해 있는 계열회사입니다. 양사 최대주주는 (주)에이플러스에셋어드바이저(나노엔텍 41.1%, 에이에이아이헬스케어 39.9%, 특수관계인 포함)",
+  "board_date": "2025-06-11",
+  "regime": "기준시가",
+  "ratio_text": "(주)나노엔텍 : (주)에이에이아이헬스케어 = 1 : 0.4748121"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "주권상장법인과 주권비상장법인간의 주식교환으로 자본시장법 제165조의4, 시행령 제176조의5·제176조의6, 증권의 발행 및 공시 등에 관한 규정 제5-13조 및 시행세칙 제4조 내지 제8조에 따라 교환가액을 산정. 에이에이아이헬스케어 교환가액 산정을 우리회계법인에 의뢰",
+  "firm": "우리회계법인",
+  "firm_type": "회계법인",
+  "period": "2025년 05월 22일 ~ 06월 10일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5·제176조의6",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당평가액 나노엔텍 3,593원, 에이에이아이헬스케어 1,670원 ~ 1,747원으로 교환비율 1: 0.4647927 ~ 1: 0.4862232. 합의한 교환비율 1: 0.4748121은 적정. 중요성의 관점에서 주식교환가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 1172,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "우리회계법인",
+   "target": "주식회사 나노엔텍(완전모회사)",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 2470,
+     "unit": "원",
+     "text": "2,470",
+     "cite": {
+      "section_id": "5",
+      "offset": 14608,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 79317432055,
+     "unit": "원",
+     "text": "79,317,432,055",
+     "cite": {
+      "section_id": "5",
+      "offset": 14540,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 80774080415,
+     "unit": "원",
+     "text": "80,774,080,415",
+     "cite": {
+      "section_id": "5",
+      "offset": 13671,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": -1456648360,
+     "unit": "원",
+     "text": "(1,456,648,360)",
+     "cite": {
+      "section_id": "5",
+      "offset": 13705,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 32110082,
+     "unit": "주",
+     "text": "32,110,082",
+     "cite": {
+      "section_id": "5",
+      "offset": 14574,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 3593,
+     "unit": "원",
+     "text": "3,593",
+     "cite": {
+      "section_id": "5",
+      "offset": 11424,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 완전모회사. 기준시가 = (1개월 가중평균종가 3,553원 + 1주일 가중평균종가 3,605원 + 최근일 종가 3,620원)÷3 = 3,593원(기산일 2025-06-10). 자산가치 2,470원보다 높아 Max[A, B]로 기준시가를 교환가액으로 적용. 할인·할증 없음"
+  },
+  {
+   "subject": "우리회계법인",
+   "target": "주식회사 에이에이아이헬스케어(완전자회사)",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(Ax1+Bx1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 1248,
+     "unit": "원",
+     "text": "1,248",
+     "cite": {
+      "section_id": "5",
+      "offset": 22972,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 16472247849,
+     "unit": "원",
+     "text": "16,472,247,849",
+     "cite": {
+      "section_id": "5",
+      "offset": 22805,
+      "file_id": "main"
+     }
+    },
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 13200000,
+     "unit": "주",
+     "text": "13,200,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 22930,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2024-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "증권의 발행 및 공시 등에 관한 규정 시행세칙 제7조에 따른 유사회사 요건을 충족하는 법인이 3개사 미만이므로 상대가치를 산정하지 아니함"
+   },
+   "result": {
+    "value": {
+     "value": 1706,
+     "unit": "원",
+     "text": "1,706",
+     "cite": {
+      "section_id": "5",
+      "offset": 17287,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 1670,
+      "unit": "원",
+      "text": "1,670",
+      "cite": {
+       "section_id": "5",
+       "offset": 9391,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1747,
+      "unit": "원",
+      "text": "1,747",
+      "cite": {
+       "section_id": "5",
+       "offset": 9399,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 2011,
+    "unit": "원",
+    "text": "2,011",
+    "cite": {
+     "section_id": "5",
+     "offset": 17327,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 완전자회사. 본질가치 = (자산가치 1,248원×1 + 수익가치 2,011원×1.5)÷2.5 = 1,706원 = 교환가액. 범위 1,670–1,747원은 수익가치 민감도 최소치 1,952원·최대치 2,080원을 적용한 본질가치. 분석기준일 2025-06-02. 자산가치 조정에 시장성 없는 투자주식 차감 조정 (298,337,630)원 포함"
+  },
+  {
+   "subject": "우리회계법인",
+   "target": "주식회사 에이에이아이헬스케어(완전자회사)",
+   "role": "외부평가",
+   "purpose": "분할·교환비율",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2025년 1월 1일부터 2029년 12월 31일까지",
+    "base_date": "2024-12-31",
+    "wacc": {
+     "value": 13.4,
+     "unit": "%",
+     "text": "13.40%",
+     "cite": {
+      "section_id": "5",
+      "offset": 53146,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 2.87,
+     "unit": "%",
+     "text": "2.87%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52805,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52841,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.8507,
+     "unit": null,
+     "text": "0.8507",
+     "cite": {
+      "section_id": "5",
+      "offset": 52876,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.8808,
+     "unit": null,
+     "text": "0.8808",
+     "cite": {
+      "section_id": "5",
+      "offset": 52910,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52948,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 13.67,
+     "unit": "%",
+     "text": "13.67%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52984,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 9.5,
+     "unit": "%",
+     "text": "9.50%",
+     "cite": {
+      "section_id": "5",
+      "offset": 53012,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 53091,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 4.5,
+     "unit": "%",
+     "text": "4.5%",
+     "cite": {
+      "section_id": "5",
+      "offset": 53825,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 4.3,
+     "unit": "%",
+     "text": "4.30%",
+     "cite": {
+      "section_id": "5",
+      "offset": 53067,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 32807,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "이지케어텍",
+      "value": {
+       "value": 0.762,
+       "unit": null,
+       "text": "0.762",
+       "cite": {
+        "section_id": "5",
+        "offset": 54489,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.778, D/E 2.60%, 한계세율 20.90%)"
+     },
+     {
+      "name": "비트컴퓨터",
+      "value": {
+       "value": 1.11,
+       "unit": null,
+       "text": "1.110",
+       "cite": {
+        "section_id": "5",
+        "offset": 54574,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.120, D/E 1.18%, 한계세율 20.90%)"
+     },
+     {
+      "name": "케어랩스",
+      "value": {
+       "value": 0.633,
+       "unit": null,
+       "text": "0.633",
+       "cite": {
+        "section_id": "5",
+        "offset": 54661,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.223, D/E 103.36%, 한계세율 9.90%)"
+     },
+     {
+      "name": "유비케어",
+      "value": {
+       "value": 1.044,
+       "unit": null,
+       "text": "1.044",
+       "cite": {
+        "section_id": "5",
+        "offset": 54739,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 1.115, D/E 8.63%, 한계세율 20.90%)"
+     },
+     {
+      "name": "스피어",
+      "value": {
+       "value": 0.851,
+       "unit": null,
+       "text": "0.851",
+       "cite": {
+        "section_id": "5",
+        "offset": 54822,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Levered 0.885, D/E 4.47%, 한계세율 9.90%)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2011,
+     "unit": "원",
+     "text": "2,011",
+     "cite": {
+      "section_id": "5",
+      "offset": 25561,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 1952,
+      "unit": "원",
+      "text": "1,952",
+      "cite": {
+       "section_id": "5",
+       "offset": 10759,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 2080,
+      "unit": "원",
+      "text": "2,080",
+      "cite": {
+       "section_id": "5",
+       "offset": 10815,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인모형, 연중 균등 현금흐름 가정). Ke = Rf + MRP×β + Specific premium(한공회 기업규모위험 프리미엄 Micro). Rf는 2024년 12월말 Bloomberg 국고채 10년, MRP는 한공회 가이던스 7%~9% 중간값. β는 유사기업 5사 2 Year Weekly Adjusted Beta를 Hamada로 unlever(중간값 0.851) 후 목표 D/E 4.5%로 relever. 표의 Unlevered Beta는 0.8507. Kd 9.5%는 BBB- 무보증 회사채(5년) 시가평가수익률. 자기자본비율 95.70%·타인자본비율 4.30%(D/V). 추정기간 PV 5,460,109,365원 + 영구현금흐름 PV 7,434,426,844원 = 영업가치 12,894,536,210원, 비영업용자산 14,723,104,273원 가산, 이자발생부채 1,071,852,227원 차감 → 26,545,788,256원 ÷ 13,200,000주. range는 WACC 12.90–13.90%·g 0.50–1.50% 민감도 표 범위"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 나노엔텍(완전모회사)",
+    "basis": "기준시가",
+    "value": {
+     "value": 3593,
+     "unit": "원",
+     "text": "3,593",
+     "cite": {
+      "section_id": "5",
+      "offset": 552,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "주식회사 에이에이아이헬스케어(완전자회사)",
+    "basis": "본질가치",
+    "value": {
+     "value": 1706,
+     "unit": "원",
+     "text": "1,706",
+     "cite": {
+      "section_id": "5",
+      "offset": 616,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "에이에이아이헬스케어 주식교환가액(본질가치, 수익가치 민감도 최소·최대)",
+    "subject": "우리회계법인",
+    "range": {
+     "min": {
+      "value": 1670,
+      "unit": "원",
+      "text": "1,670",
+      "cite": {
+       "section_id": "5",
+       "offset": 9391,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 1747,
+      "unit": "원",
+      "text": "1,747",
+      "cite": {
+       "section_id": "5",
+       "offset": 9399,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.4748121,
+   "unit": null,
+   "text": "0.4748121",
+   "cite": {
+    "section_id": "5",
+    "offset": 731,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 22519195767,
+   "unit": "원",
+   "text": "22,519,195,767",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 273,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "우리회계법인: 교환비율 범위 1: 0.4647927 ~ 1: 0.4862232, 합의 교환비율 1: 0.4748121은 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "우리회계법인",
+   "target": "주식회사 에이에이아이헬스케어(완전자회사)",
+   "variables": "WACC 12.90–13.90% (0.5%p 간격), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 1952,
+     "unit": "원",
+     "text": "1,952",
+     "cite": {
+      "section_id": "5",
+      "offset": 10759,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 2080,
+     "unit": "원",
+     "text": "2,080",
+     "cite": {
+      "section_id": "5",
+      "offset": 10815,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20250201–20250731, listed_only=False): share_exchange/full, correction_kind=기재정정, body_rcept_no=본 건(20250701000275), original 20250613000118, attachment_rcept_no 20250613000118, supersedes 20250613000118·20250624000332. 짝 주요사항보고서 [기재정정] 20250701000257(summary, 원본 20250611000419).",
+  "포괄적 주식교환: 코스닥 상장 나노엔텍이 비상장 계열회사 에이에이아이헬스케어를 완전자회사로 편입. 교환신주 기명식보통주 6,267,519주(한도), 액면 500원, 모집가액 3,593원(3.4).",
+  "이사회 결의·계약일 2025-06-11, 주주총회 2025-08-11, 주식교환일 2025-10-01, 주식매수청구가격(회사제시) 나노엔텍 3,556원·에이에이아이헬스케어 1,706원(3.3).",
+  "평가기준일 2024-12-31, 분석기준일 2025-06-02. 에이에이아이헬스케어는 나노엔텍 주식 1,119,562주(3.49%) 보유(11).",
+  "section 5 안에 평가 내용이 일부 반복 수록됨(민감도 표 offset 10624·36362). cite는 앞쪽 요약·산정 표 기준."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250701000275",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 3251,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250701000275",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 532,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250701000275",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1078,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250701000275",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 주식의 포괄적 교환ㆍ이전 가액 및 그 산출근거",
+   "chars_read": 38668,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:14:54+09:00",
+ "extractor_version": "1.1"
+}

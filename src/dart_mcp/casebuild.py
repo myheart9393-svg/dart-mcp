@@ -95,6 +95,13 @@ def C(sid: str, anchor_text: str, anchor: int, rcept: str | None = None) -> dict
     return _cite(sid, locate(anchor_text, sid, anchor, rcept), rcept)
 
 
+def company(corp_code: str, name: str, market: str | None) -> dict:
+    """case["company"]. induty_code는 기업개황(30일 캐시)에서 채운다 — 못 찾으면 null(사유는 batch record·industry fill이 notes에)."""
+    from .industry import lookup
+
+    return {"corp_code": corp_code, "name": name, "market": market, "induty_code": lookup(corp_code)[0]}
+
+
 def val(subject: str, target: str, role: str, method: str, *, purpose: str, weights: dict | None = None,
         asset_value: dict | None = None, income_value: dict | None = None, dcf: dict | None = None,
         relative: dict | None = None, result_value: dict | None = None, result_unit: str | None = "원",

@@ -1,0 +1,908 @@
+{
+ "rcept_no": "20240327001174",
+ "original_rcept_no": "20240315000536",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01344363",
+  "name": "다원넥스뷰",
+  "market": "코넥스",
+  "induty_code": "292"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "신한제9호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2023-11-13",
+  "regime": "기준시가",
+  "ratio_text": "피합병법인인 신한제9호기업인수목적(주)의 보통주(액면금액 100원) 1주당 합병법인인 (주)다원넥스뷰의 보통주(액면금액 100원) 0.2830455주를 교부"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률시행령 제176조의5 제1항의 규정에 의거 주권상장법인인 기업인수목적회사의 특례규정을 적용하여 피합병법인은 기준주가에 할인율을 반영한 평가가액을, 합병법인은 … 본질가치를 합병가액으로 하여 산출된 합병비율",
+  "firm": "삼도회계법인",
+  "firm_type": "회계법인",
+  "period": "2023년 08월 22일 ~ 2023년 11월 12일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "가치평가서비스 수행기준 (2008.8)",
+   "자본시장과금융투자업에관한법률시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "합병비율은 중요성의 관점에서 자본시장법 시행령 제176조의5, 증권의발행및공시등에관한규정 제5-13조 및 동 규정 시행세칙 제4조 내지 제8조에서 규정하고 있는 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니하였습니다",
+  "cite": {
+   "section_id": "5",
+   "offset": 159484,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼도회계법인",
+   "target": "주식회사 다원넥스뷰",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(aX1.0+bX1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 581,
+     "unit": "원",
+     "text": "581",
+     "cite": {
+      "section_id": "5",
+      "offset": 9492,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 4099327329,
+     "unit": "원",
+     "text": "4,099,327,329",
+     "cite": {
+      "section_id": "5",
+      "offset": 13533,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": -2257610718,
+     "unit": "원",
+     "text": "(2,257,610,718)",
+     "cite": {
+      "section_id": "5",
+      "offset": 12904,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 6356939047,
+     "unit": "원",
+     "text": "6,356,939,047",
+     "cite": {
+      "section_id": "5",
+      "offset": 12941,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 6312500,
+     "unit": "주",
+     "text": "6,312,500",
+     "cite": {
+      "section_id": "5",
+      "offset": 13568,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7066,
+     "unit": "원",
+     "text": "7,066",
+     "cite": {
+      "section_id": "5",
+      "offset": 9450,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 11390,
+    "unit": "원",
+    "text": "11,390",
+    "cite": {
+     "section_id": "5",
+     "offset": 9522,
+     "file_id": "main"
+    }
+   },
+   "note": "SPAC 특례(시행령 176조의5 ③): 코넥스 상장 합병법인의 본질가치는 SPAC과 협의한 방법(자산 1: 수익 1.5). 상대가치는 '주권상장법인 간 합병'이라 산정하지 않음. 원문 불일치: 요약표·합병가액 표의 자산가치는 581원이나 자산가치 산정표(E. 1주당 자산가치)는 649원(조정 순자산 4,099,327,329원 ÷ 6,312,500주). per_share는 요약표 581원을 옮김. 분석기준일 2023-11-06"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "주식회사 다원넥스뷰",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2023년~2027년",
+    "base_date": null,
+    "wacc": {
+     "value": 13.81,
+     "unit": "%",
+     "text": "13.81%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156555,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139668,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139749,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.9665,
+     "unit": null,
+     "text": "0.9665",
+     "cite": {
+      "section_id": "5",
+      "offset": 142509,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.158,
+     "unit": null,
+     "text": "1.1580",
+     "cite": {
+      "section_id": "5",
+      "offset": 139832,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 139958,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 16.35,
+     "unit": "%",
+     "text": "16.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 140138,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.64,
+     "unit": "%",
+     "text": "4.64%",
+     "cite": {
+      "section_id": "5",
+      "offset": 154548,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 47536,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 25.05,
+     "unit": "%",
+     "text": "25.05%",
+     "cite": {
+      "section_id": "5",
+      "offset": 143048,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 20.03,
+     "unit": "%",
+     "text": "20.03",
+     "cite": {
+      "section_id": "5",
+      "offset": 154875,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 156577,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "넥스틴",
+      "value": {
+       "value": 1.1043,
+       "unit": null,
+       "text": "1.1043",
+       "cite": {
+        "section_id": "5",
+        "offset": 140845,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "네오셈",
+      "value": {
+       "value": 1.1128,
+       "unit": null,
+       "text": "1.1128",
+       "cite": {
+        "section_id": "5",
+        "offset": 140907,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "오션브릿지",
+      "value": {
+       "value": 1.0033,
+       "unit": null,
+       "text": "1.0033",
+       "cite": {
+        "section_id": "5",
+        "offset": 140971,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "원익아이피에스",
+      "value": {
+       "value": 1.0681,
+       "unit": null,
+       "text": "1.0681",
+       "cite": {
+        "section_id": "5",
+        "offset": 141037,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "더코디",
+      "value": {
+       "value": 0.353,
+       "unit": null,
+       "text": "0.3530",
+       "cite": {
+        "section_id": "5",
+        "offset": 141099,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "예스티",
+      "value": {
+       "value": 1.0898,
+       "unit": null,
+       "text": "1.0898",
+       "cite": {
+        "section_id": "5",
+        "offset": 141161,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "엑시콘",
+      "value": {
+       "value": 0.9515,
+       "unit": null,
+       "text": "0.9515",
+       "cite": {
+        "section_id": "5",
+        "offset": 141220,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "제너셈",
+      "value": {
+       "value": 0.6274,
+       "unit": null,
+       "text": "0.6274",
+       "cite": {
+        "section_id": "5",
+        "offset": 141281,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "싸이맥스",
+      "value": {
+       "value": 0.9371,
+       "unit": null,
+       "text": "0.9371",
+       "cite": {
+        "section_id": "5",
+        "offset": 141344,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "러셀",
+      "value": {
+       "value": 1.1144,
+       "unit": null,
+       "text": "1.1144",
+       "cite": {
+        "section_id": "5",
+        "offset": 141402,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "테크윙",
+      "value": {
+       "value": 0.622,
+       "unit": null,
+       "text": "0.6220",
+       "cite": {
+        "section_id": "5",
+        "offset": 141465,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "인텍플러스",
+      "value": {
+       "value": 0.9024,
+       "unit": null,
+       "text": "0.9024",
+       "cite": {
+        "section_id": "5",
+        "offset": 141529,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "톱텍",
+      "value": {
+       "value": 0.9562,
+       "unit": null,
+       "text": "0.9562",
+       "cite": {
+        "section_id": "5",
+        "offset": 141590,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "고영테크놀러지",
+      "value": {
+       "value": 1.0457,
+       "unit": null,
+       "text": "1.0457",
+       "cite": {
+        "section_id": "5",
+        "offset": 141655,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "테스",
+      "value": {
+       "value": 1.0475,
+       "unit": null,
+       "text": "1.0475",
+       "cite": {
+        "section_id": "5",
+        "offset": 141712,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "유니테스트",
+      "value": {
+       "value": 0.8711,
+       "unit": null,
+       "text": "0.8711",
+       "cite": {
+        "section_id": "5",
+        "offset": 141775,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "코세스",
+      "value": {
+       "value": 1.6042,
+       "unit": null,
+       "text": "1.6042",
+       "cite": {
+        "section_id": "5",
+        "offset": 141835,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "제이티",
+      "value": {
+       "value": 0.9699,
+       "unit": null,
+       "text": "0.9699",
+       "cite": {
+        "section_id": "5",
+        "offset": 141896,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "제우스",
+      "value": {
+       "value": 0.7191,
+       "unit": null,
+       "text": "0.7191",
+       "cite": {
+        "section_id": "5",
+        "offset": 141959,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "한미반도체",
+      "value": {
+       "value": 0.9546,
+       "unit": null,
+       "text": "0.9546",
+       "cite": {
+        "section_id": "5",
+        "offset": 142021,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "미래컴퍼니",
+      "value": {
+       "value": 1.2914,
+       "unit": null,
+       "text": "1.2914",
+       "cite": {
+        "section_id": "5",
+        "offset": 142083,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "로체시스템즈",
+      "value": {
+       "value": 0.9857,
+       "unit": null,
+       "text": "0.9857",
+       "cite": {
+        "section_id": "5",
+        "offset": 142146,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "프로텍",
+      "value": {
+       "value": 0.5894,
+       "unit": null,
+       "text": "0.5894",
+       "cite": {
+        "section_id": "5",
+        "offset": 142206,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "이오테크닉스",
+      "value": {
+       "value": 1.0191,
+       "unit": null,
+       "text": "1.0191",
+       "cite": {
+        "section_id": "5",
+        "offset": 142270,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "주성엔지니어링",
+      "value": {
+       "value": 1.048,
+       "unit": null,
+       "text": "1.0480",
+       "cite": {
+        "section_id": "5",
+        "offset": 142336,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "유니셈",
+      "value": {
+       "value": 1.093,
+       "unit": null,
+       "text": "1.0930",
+       "cite": {
+        "section_id": "5",
+        "offset": 142396,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     },
+     {
+      "name": "피에스케이홀딩스",
+      "value": {
+       "value": 1.0141,
+       "unit": null,
+       "text": "1.0141",
+       "cite": {
+        "section_id": "5",
+        "offset": 142463,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11390,
+     "unit": "원",
+     "text": "11,390",
+     "cite": {
+      "section_id": "5",
+      "offset": 156210,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 9780,
+      "unit": "원",
+      "text": "9,780",
+      "cite": {
+       "section_id": "5",
+       "offset": 158292,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 13593,
+      "unit": "원",
+      "text": "13,593",
+      "cite": {
+       "section_id": "5",
+       "offset": 158351,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "본질가치 중 수익가치(FCFF). 추정기간 현가 19,371백만원+영구현금흐름 현가 54,229백만원=영업가치 73,600백만원, 비영업자산 752, 이자부부채 2,454 → 자기자본가치 71,898백만원 ÷ 6,312,500주. Rf=2022-12-31 10년 국채, MRP=한공회 가이던스, β=동종 27사 Unlevered 평균 0.9665를 목표 D/E 25.05%로 relever(원문 평균 행의 부채비율은 24.9%). Kd=합병법인 가중평균차입이자율. WACC 산식 '13.81% = {16.35% × 79.97% + 4.64% × (1-20.90%) × 20.03%}'는 원문에서 숫자가 줄바꿈으로 쪼개져 있어 tax_rate는 법인세율 표(과세표준 2억~200억 구간 20.9%)를, target_dv는 산식의 '20.03'을 cite. range는 WACC 12.81–14.81%·g 0–2% 민감도 표"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "주식회사 다원넥스뷰",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7066,
+     "unit": "원",
+     "text": "7,066",
+     "cite": {
+      "section_id": "5",
+      "offset": 11011,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코넥스 상장 합병법인의 합병가액 = 기준주가 10,023원(1개월 10,069·1주일 10,000·최근일 10,000원 산술평균, 기산일 2023-11-10)에 29.50% 할인. 할인율은 SPAC과의 합의에 따라 본질가치(7,066원) 평가결과를 반영해 정함(외부평가업무 가이드라인 문단30 고려)"
+  },
+  {
+   "subject": "삼도회계법인",
+   "target": "신한제9호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1643,
+     "unit": "원",
+     "text": "1,643",
+     "cite": {
+      "section_id": "5",
+      "offset": 22748,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 9855769806,
+     "unit": "원",
+     "text": "9,855,769,806",
+     "cite": {
+      "section_id": "5",
+      "offset": 22677,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 8529481645,
+     "unit": "원",
+     "text": "8,529,481,645",
+     "cite": {
+      "section_id": "5",
+      "offset": 22087,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1326288161,
+     "unit": "원",
+     "text": "1,326,288,161",
+     "cite": {
+      "section_id": "5",
+      "offset": 22122,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 6000000,
+     "unit": "주",
+     "text": "6,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 22712,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 19404,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC: 기준주가 2,325원(1개월 2,314·1주일 2,342·최근일 2,320원, 기산일 2023-11-10)에 13.98% 할인한 2,000원. 자산가치 1,643원(전환사채 전환 후 6,000,000주; 전환 전 4,535,000주 기준 2,173원)보다 높아 합병가액 Max[A, B]=2,000원. 원문 불일치: 합병비율 요약표의 피합병법인 자산가치는 1,627원"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 다원넥스뷰",
+    "basis": "기준주가에 할인율(29.50%)을 반영한 평가가액(=본질가치)",
+    "value": {
+     "value": 7066,
+     "unit": "원",
+     "text": "7,066",
+     "cite": {
+      "section_id": "5",
+      "offset": 8223,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "신한제9호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율(13.98%)을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 8231,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.2830455,
+   "unit": "주",
+   "text": "0.2830455",
+   "cite": {
+    "section_id": "5",
+    "offset": 8502,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "삼도회계법인: 합병비율이 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼도회계법인",
+   "target": "주식회사 다원넥스뷰",
+   "variables": "WACC 12.81–14.81% (±1%p), 영구성장률 0.00–2.00% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 9780,
+     "unit": "원",
+     "text": "9,780",
+     "cite": {
+      "section_id": "5",
+      "offset": 158292,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 13593,
+     "unit": "원",
+     "text": "13,593",
+     "cite": {
+      "section_id": "5",
+      "offset": 158351,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "기재정정본(20240327001174) 기준 — search_valuation_disclosures의 body_rcept_no와 같음. 최초 제출본 20240315000536, 중간 정정 20240326001073. 합병계약: 최초 2023-11-13, 변경 2024-02-14·2024-03-14·2024-03-26(section 4).",
+  "짝 주요사항보고서(회사합병결정): 최초 20231113000465, 최신 기재정정 20240326000545(search_valuation_disclosures에서 related로 연결되지 않아 related_rcept_nos는 비움).",
+  "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 코넥스 상장 다원넥스뷰, 소멸(피합병법인)은 코스닥 상장 신한제9호스팩. company.market은 신고 당시 코넥스(현재 corp_cls K).",
+  "외부평가계약 2023-08-21, 평가기간 2023-08-22 ~ 2023-11-12, 의견서 제출일 2023-11-13. section 4 본문에 '회계법인창천의 합병가액 외부평가 결과를 기초로 작성'이라는 문구가 있으나 평가기관은 삼도회계법인(원문 오기로 보임).",
+  "원문 내부 불일치: 합병법인 자산가치 581원(요약표) vs 649원(산정표), 피합병법인 자산가치 1,627원(요약표) vs 1,643원(산정표). 본질가치 7,066원은 581원 기준과 맞음(검산은 리뷰 몫).",
+  "회사와의 관계(계열 여부) 문구는 읽은 구간에 없어 related_party·relation_text는 null.",
+  "합병신주 1,283,611주, 모집가액 7,066원, 총액 9,069,995,326원(section 3.4).",
+  "2023-07-14 5:1 액면분할 및 RCPS 보통주 전환(1,725,000주)으로 분석기준일 발행주식 6,312,500주."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240327001174",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 428,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240327001174",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 19392,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240327001174",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 50050,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:37:53+09:00",
+ "extractor_version": "1.1"
+}

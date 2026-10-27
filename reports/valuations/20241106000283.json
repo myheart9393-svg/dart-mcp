@@ -1,0 +1,530 @@
+{
+ "rcept_no": "20241106000283",
+ "original_rcept_no": "20241002000543",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01718407",
+  "name": "블랙야크아이앤씨",
+  "market": "코스닥",
+  "induty_code": "152"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "미래에셋비전기업인수목적1호(주)",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열회사 또는 자회사 등의 관계가 있는 경우해당사항 없습니다.",
+  "board_date": "2024-06-14",
+  "regime": "기준시가",
+  "ratio_text": "(주)블랙야크아이앤씨: 미래에셋비전기업인수목적1호(주) = 1: 0.5169294"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "이촌회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 3월 19일 ~ 2024년 6월 14일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 제165조의4, 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 3,869원(액면 100원), 피합병법인 2,000원(액면 100원)으로 추정되어 합병비율 1 : 0.5169294는 적정한 것으로 판단",
+  "cite": {
+   "section_id": "5",
+   "offset": 70022,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)블랙야크아이앤씨",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "자산가치와 수익가치를 1과 1.5의 비율로 가중산술평균(증발공 시행세칙 제4조, SPAC 협의 평가방법)"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 770,
+     "unit": "원",
+     "text": "770",
+     "cite": {
+      "section_id": "5",
+      "offset": 12035,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 16247532734,
+     "unit": "원",
+     "text": "16,247,532,734",
+     "cite": {
+      "section_id": "5",
+      "offset": 11963,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11866532734,
+     "unit": "원",
+     "text": "11,866,532,734",
+     "cite": {
+      "section_id": "5",
+      "offset": 11122,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 4381000000,
+     "unit": "원",
+     "text": "4,381,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 11158,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 21100000,
+     "unit": "주",
+     "text": "21,100,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 11998,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": {
+    "forecast_years": "2024년 1월 1일부터 2028년 12월 31일까지의 5년",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 10.5553,
+     "unit": "%",
+     "text": "10.5553%",
+     "cite": {
+      "section_id": "5",
+      "offset": 63173,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 61092,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 14.85,
+     "unit": "%",
+     "text": "14.85%",
+     "cite": {
+      "section_id": "5",
+      "offset": 61155,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.57,
+     "unit": null,
+     "text": "0.5700",
+     "cite": {
+      "section_id": "5",
+      "offset": 62018,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.9863,
+     "unit": null,
+     "text": "0.9863",
+     "cite": {
+      "section_id": "5",
+      "offset": 61210,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 61313,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.42,
+     "unit": "%",
+     "text": "14.42%",
+     "cite": {
+      "section_id": "5",
+      "offset": 61392,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 8.058,
+     "unit": "%",
+     "text": "8.058%",
+     "cite": {
+      "section_id": "5",
+      "offset": 62959,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.9%",
+     "cite": {
+      "section_id": "5",
+      "offset": 63247,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 92.32,
+     "unit": "%",
+     "text": "92.32%",
+     "cite": {
+      "section_id": "5",
+      "offset": 62542,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 48.0027,
+     "unit": "%",
+     "text": "48.0027%",
+     "cite": {
+      "section_id": "5",
+      "offset": 63256,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 65331,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "까스텔바작",
+      "value": {
+       "value": 0.5421,
+       "unit": null,
+       "text": "0.5421",
+       "cite": {
+        "section_id": "5",
+        "offset": 61715,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "화승엔터프라이즈",
+      "value": {
+       "value": 0.5142,
+       "unit": null,
+       "text": "0.5142",
+       "cite": {
+        "section_id": "5",
+        "offset": 61781,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "신세계인터내셔날",
+      "value": {
+       "value": 0.5923,
+       "unit": null,
+       "text": "0.5923",
+       "cite": {
+        "section_id": "5",
+        "offset": 61846,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "한세엠케이",
+      "value": {
+       "value": 0.4141,
+       "unit": null,
+       "text": "0.4141",
+       "cite": {
+        "section_id": "5",
+        "offset": 61907,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 20.9%)"
+     },
+     {
+      "name": "젬백스링크",
+      "value": {
+       "value": 0.7874,
+       "unit": null,
+       "text": "0.7874",
+       "cite": {
+        "section_id": "5",
+        "offset": 61967,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta (Hamada, 법인세율 20.9%)"
+     }
+    ]
+   },
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "상대가치는 비교목적으로 분석하였으나 3개 이상의 유사회사가 존재하지 않아가치를 산정하지 아니하였습니다"
+   },
+   "result": {
+    "value": {
+     "value": 3869,
+     "unit": "원",
+     "text": "3,869",
+     "cite": {
+      "section_id": "5",
+      "offset": 8479,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 5934,
+    "unit": "원",
+    "text": "5,934",
+    "cite": {
+     "section_id": "5",
+     "offset": 8517,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(SPAC 합병, 시행령 176조의5 ③ 특례로 SPAC과 협의해 정한 평가방법 = 증발공 5-13조·시행세칙 4–8조 본질가치, 자산:수익 1:1.5). 수익가치는 FCFF DCF: 추정기간 현가 34,836,516천원 + 영구현금흐름 현가 84,356,831천원 = 영업가치 119,193,347천원, 비영업자산 6,020,789천원, 이자부부채 없음 → 자기자본 125,214,136천원 ÷ 21,100,000주 = 5,934원. 영구현금흐름 표의 할인율 표기는 10.56%(WACC 10.5553% 반올림). Rf는 2023-12-31 10년 국채(Bloomberg), MRP는 한공회 가이던스 평균, Rs는 한공회 규모위험 프리미엄. kd는 신용등급 BBB+ 5년 무보증 공모사채 수익률(세전). 목표자본구조 = 동종기업 5개사 평균 D/E 92.32%(D/V 48.0027%, E/V 51.9973%). WACC 산식의 Ke 표기는 14.4154%. 최근 2년 유상증자(주당 3,500원, 무상증자 1:19 조정)·주식양수도(주당 3,150원)는 가치조정 미반영. 상대가치 미산정."
+  },
+  {
+   "subject": "이촌회계법인",
+   "target": "미래에셋비전기업인수목적1호(주)",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1652,
+     "unit": "원",
+     "text": "1,652",
+     "cite": {
+      "section_id": "5",
+      "offset": 20329,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 15115827096,
+     "unit": "원",
+     "text": "15,115,827,096",
+     "cite": {
+      "section_id": "5",
+      "offset": 20258,
+      "file_id": "main"
+     }
+    },
+    "equity_book": null,
+    "adjustments": null,
+    "shares": {
+     "value": 9150000,
+     "unit": "주",
+     "text": "9,150,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 20293,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 17911,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC. 기산일 2024-06-13(이사회·합병계약 2024-06-14 전일). 1개월 가중평균 2,368원·1주일 2,493원·최근일 2,495원 산술평균 2,452원에 18.43% 할인 → 2,000원. 자산가치 1,652원(전환증권 행사 가정 발행주식 9,150,000주; 행사 전 6,176,000주 기준 2,004원)보다 높아 기준주가 적용(Max[가, 나])."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "(주)블랙야크아이앤씨",
+    "basis": "본질가치(자산:수익=1:1.5)",
+    "value": {
+     "value": 3869,
+     "unit": "원",
+     "text": "3,869",
+     "cite": {
+      "section_id": "5",
+      "offset": 7613,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "미래에셋비전기업인수목적1호(주)",
+    "basis": "기준주가 18.43% 할인",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7589,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.5169294,
+   "unit": null,
+   "text": "0.5169294",
+   "cite": {
+    "section_id": "5",
+    "offset": 7774,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 12351995295,
+   "unit": "원",
+   "text": "12,351,995,295",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 413,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "이촌회계법인: 합병가액 블랙야크아이앤씨 3,869원·미래에셋비전스팩1호 2,000원, 합병비율 1 : 0.5169294 적정. 합병신주 기명식보통주 3,192,555주(모집총액 12,351,995,295원)",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "이촌회계법인",
+   "target": "(주)블랙야크아이앤씨",
+   "variables": "WACC 9.5553–11.5553% (±1%p), 영구성장률 0–2.00% (1%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 5062,
+     "unit": "원",
+     "text": "5,062",
+     "cite": {
+      "section_id": "5",
+      "offset": 67362,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 7262,
+     "unit": "원",
+     "text": "7,262",
+     "cite": {
+      "section_id": "5",
+      "offset": 67418,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20240609–20241206, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), 원본 20241002000543, attachment_rcept_no 20241106000279, supersedes 20241002000543·20241015000363·20241023000308·20241106000279. related 없음.",
+  "SPAC 합병(비상장 블랙야크아이앤씨가 존속, 코스닥 상장 미래에셋비전기업인수목적1호 소멸). 합병계약 변경 1차 2024-10-02·2차 2024-10-15, 합병기일 2025-01-03.",
+  "외부평가 '근거 및 사유'·감사위원회 동의는 본 증권신고서 본문에서 확인하지 않음 → null. 평가계약일 2024-03-19, 의견서 제출일 2024-06-14, 분석기준일 2024-06-07.",
+  "본질가치 가중이 일반규정과 같은 1:1.5라 별도 비교목적 공시 없음.",
+  "평가 장: section 5 'II. 합병 가액 및 그 산출근거'."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20241106000283",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 262,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241106000283",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 523,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20241106000283",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 4834,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20241106000283",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 39925,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:59:16+09:00",
+ "extractor_version": "1.1"
+}

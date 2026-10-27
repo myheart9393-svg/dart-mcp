@@ -1,0 +1,494 @@
+{
+ "rcept_no": "20240108000245",
+ "original_rcept_no": "20231227000629",
+ "related_rcept_nos": [
+  "20240108000152"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01090471",
+  "name": "씨아이에스",
+  "market": "코스닥",
+  "induty_code": "292"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "씨아이솔리드 주식회사",
+  "counterparty_listed": false,
+  "related_party": true,
+  "relation_text": "씨아이에스 주식회사가 씨아이솔리드(주)의 최대주주(보통주 940,000주, 76.18%)",
+  "board_date": "2023-12-27",
+  "regime": "기준시가",
+  "ratio_text": "[보통주] 씨아이에스 보통주 : 씨아이솔리드 보통주 = 1 : 0.7106157, [전환우선주] 씨아이에스 보통주 : 씨아이솔리드 전환우선주 = 1 : 2.9853258"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장법 시행령 제176조의5 및 증권의 발행 및 공시 등에 관한 규정 제5-13조와 동규정 시행세칙 제4조에 의하여 비상장법인의 합병가액은 자산가치와 수익가치를 각각 1과 1.5의 비율로 가중산술평균한 가액으로 산정",
+  "firm": "삼일회계법인",
+  "firm_type": "회계법인",
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "자본시장법 시행령 제176조의5",
+   "증권의 발행 및 공시 등에 관한 규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "외부평가업무 가이드라인(2009.6)"
+  ],
+  "opinion_text": "보통주 주당 합병가액 합병법인 11,116원, 피합병법인 7,899원, 피합병법인 전환우선주 33,184원(추정). 합의한 합병비율 보통주 1:0.7106157, 전환우선주 1:2.9853258은 적정하며 합병가액 산정방법 위배 사항 발견되지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 54656,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼일회계법인",
+   "target": "씨아이에스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 3468,
+     "unit": "원",
+     "text": "3,468",
+     "cite": {
+      "section_id": "5",
+      "offset": 5194,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 253580934250,
+     "unit": "원",
+     "text": "253,580,934,250",
+     "cite": {
+      "section_id": "5",
+      "offset": 5005,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 137365683299,
+     "unit": "원",
+     "text": "137,365,683,299",
+     "cite": {
+      "section_id": "5",
+      "offset": 3690,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 116215250951,
+     "unit": "원",
+     "text": "116,215,250,951",
+     "cite": {
+      "section_id": "5",
+      "offset": 3726,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 73116373,
+     "unit": "주",
+     "text": "73,116,373",
+     "cite": {
+      "section_id": "5",
+      "offset": 5037,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 11116,
+     "unit": "원",
+     "text": "11,116",
+     "cite": {
+      "section_id": "5",
+      "offset": 1270,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "주권상장법인(코스닥): 시행령 176조의5 ①1호 기준시가(최근 1개월 가중평균종가 11,475원·1주일 11,072원·최근일 종가 10,800원의 산술평균), 할인·할증 미적용, 기산일 2023-12-26. 자산가치 3,468원보다 커 Max(가, 나)=11,116원. 자산가치는 잔여 전환사채 전환(2,858,761주, 19,256,448,949원) 가정 반영(미반영 시 3,335원)."
+  },
+  {
+   "subject": "삼일회계법인",
+   "target": "씨아이솔리드",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "(Ax1+Bx1.5)÷2.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 6488,
+     "unit": "원",
+     "text": "6,488",
+     "cite": {
+      "section_id": "5",
+      "offset": 14045,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 11200118837,
+     "unit": "원",
+     "text": "11,200,118,837",
+     "cite": {
+      "section_id": "5",
+      "offset": 13974,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 11200118837,
+     "unit": "원",
+     "text": "11,200,118,837",
+     "cite": {
+      "section_id": "5",
+      "offset": 12963,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": {
+     "value": 1726313,
+     "unit": "주",
+     "text": "1,726,313",
+     "cite": {
+      "section_id": "5",
+      "offset": 14009,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2022-12-31"
+   },
+   "dcf": {
+    "forecast_years": "2023년 1월 1일부터 2027년 12월 31일까지 5개년",
+    "base_date": "2022-12-31",
+    "wacc": {
+     "value": 16.2,
+     "unit": "%",
+     "text": "16.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52513,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.74,
+     "unit": "%",
+     "text": "3.74%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52177,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52213,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.986,
+     "unit": null,
+     "text": "0.986",
+     "cite": {
+      "section_id": "5",
+      "offset": 52248,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 1.1446,
+     "unit": null,
+     "text": "1.1446",
+     "cite": {
+      "section_id": "5",
+      "offset": 52281,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.16,
+     "unit": "%",
+     "text": "4.16%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52315,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 17.05,
+     "unit": "%",
+     "text": "17.05%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52353,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 15.23,
+     "unit": "%",
+     "text": "15.23%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52381,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52462,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 20.36,
+     "unit": "%",
+     "text": "20.36%",
+     "cite": {
+      "section_id": "5",
+      "offset": 53322,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 16.92,
+     "unit": "%",
+     "text": "16.92%",
+     "cite": {
+      "section_id": "5",
+      "offset": 52437,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 31056,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "천보",
+      "value": {
+       "value": 1.031,
+       "unit": null,
+       "text": "1.031",
+       "cite": {
+        "section_id": "5",
+        "offset": 54052,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(조정 2년 Weekly, 2022-12-31)"
+     },
+     {
+      "name": "한솔케미칼",
+      "value": {
+       "value": 1.122,
+       "unit": null,
+       "text": "1.122",
+       "cite": {
+        "section_id": "5",
+        "offset": 54116,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(조정 2년 Weekly, 2022-12-31)"
+     },
+     {
+      "name": "후성",
+      "value": {
+       "value": 0.804,
+       "unit": null,
+       "text": "0.804",
+       "cite": {
+        "section_id": "5",
+        "offset": 54177,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta(조정 2년 Weekly, 2022-12-31)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 7899,
+     "unit": "원",
+     "text": "7,899",
+     "cite": {
+      "section_id": "5",
+      "offset": 10787,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 8840,
+    "unit": "원",
+    "text": "8,840",
+    "cite": {
+     "section_id": "5",
+     "offset": 17376,
+     "file_id": "main"
+    }
+   },
+   "note": "주권비상장법인: 시행세칙 제4조 본질가치(자산 1·수익 1.5). 수익가치는 현금흐름할인모형(FCFF): 추정기간 현재가치 830·영구현금흐름 현재가치 6,713·이월결손금 효과 366·비영업용자산부채 7,427·차입금 76(백만원), 주주가치 15,260백만원 ÷ 1,726,313주. kd 15.23%는 Kofiabond BB- 5년 무보증 공모 회사채 수익률(세전). 목표자본구조는 유사 동종기업 3사 평균(D/E 20.36%, E/V 83.08%, D/V 16.92%). Size Premium 4.16%(한국공인회계사회 5분위 평균). 상대가치는 유사회사 3사 미만으로 산정하지 않음. 발행주식수는 전환우선주 전환가격 조정(잠정 합병가액 11,052원의 70%) 후 보통주 전환 646,313주 포함."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "씨아이에스",
+    "basis": "기준시가",
+    "value": {
+     "value": 11116,
+     "unit": "원",
+     "text": "11,116",
+     "cite": {
+      "section_id": "5",
+      "offset": 174,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "씨아이솔리드",
+    "basis": "본질가치(보통주)",
+    "value": {
+     "value": 7899,
+     "unit": "원",
+     "text": "7,899",
+     "cite": {
+      "section_id": "5",
+      "offset": 228,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "씨아이솔리드",
+    "basis": "전환우선주 주당 합병가액(전환가능성·경제적실질 반영 추정)",
+    "value": {
+     "value": 33184,
+     "unit": "원",
+     "text": "33,184원",
+     "cite": {
+      "section_id": "5",
+      "offset": 55135,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.7106157,
+   "unit": "주",
+   "text": "0.7106157",
+   "cite": {
+    "section_id": "5",
+    "offset": 396,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 6211220624,
+   "unit": "원",
+   "text": "6,211,220,624",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 358,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "삼일회계법인: 보통주 합병비율 1:0.7106157, 전환우선주 합병비율 1:2.9853258은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다.",
+  "기재정정본(20240108000245, 1차정정) 기준 = 최신 본문(body_rcept_no). 정정 연혁상 최초 제출 2023-12-27(section 0). search_valuation_disclosures는 original_rcept_no=null(목록에 꼬리표 없는 원본 없음)·supersedes 20231227000629([첨부추가])·20231227000644([첨부정정]); 같은 날 최초 제출본은 회사 공시목록상 20231227000629로 보고 original_rcept_no에 적음.",
+  "짝 주요사항보고서(회사합병결정) 20240108000152(기재정정, 원본 20231227000309). 외부평가 기간 등 5행은 그쪽에 있을 수 있음(본 신고서에서 외부평가 기간 원문 못 찾아 null).",
+  "소규모합병(상법 527조의3): 씨아이에스(코스닥, 존속)가 76.18% 자회사 씨아이솔리드(비상장, 전고체 전해질)를 흡수. 합병신주 기명식보통주 558,764주, 모집가액 11,116원(3.4). 교부금 없음.",
+  "conclusion.ratio는 보통주 합병비율. 전환우선주 합병비율 2.9853258(우선주 153,846주에 보통주 459,280주 배정). transaction_value는 3.4 표의 합병신주 모집(매출)총액.",
+  "전환우선주(포스코 GEM 1호 펀드) 전환비율 조정: 잠정 합병가액 11,052원의 70%가 전환가격 32,500원 미달 → 우선주 1주당 보통주 4.2010411주로 조정, 보통주 전환 646,313주를 발행주식수에 포함.",
+  "최근 3년 유상증자(주당 5,000–32,500원)·주식양수도(5,000원)는 특수관계자 대상 등으로 가치조정 대상 아님으로 판단(외부평가업무 가이드라인 문단 30).",
+  "평가기준일 2022-12-31, 분석기준일까지 2023년 9월 실적 반영. 민감도 분석 원문 없음."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20240108000245",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 5000,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240108000245",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 444,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20240108000245",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 5040,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20240108000245",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 40023,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T09:31:50+09:00",
+ "extractor_version": "1.1"
+}

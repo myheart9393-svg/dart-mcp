@@ -1,0 +1,184 @@
+{
+ "rcept_no": "20250911000349",
+ "original_rcept_no": "20250822000255",
+ "related_rcept_nos": [
+  "20250822000109"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(분할)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "00877059",
+  "name": "삼성바이오로직스",
+  "market": "유가증권",
+  "induty_code": "211"
+ },
+ "deal": {
+  "type": "split",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": "2025-05-22",
+  "regime": null,
+  "ratio_text": "분할비율 0.3496087 x 1주의 금액비율 1 = 분할회사 보통주 1주당 분할신설회사(삼성에피스홀딩스) 보통주 0.3496087주 배정, 분할회사 주식은 1주당 0.6503913주로 병합"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "단순·인적분할: 2025년 3월 31일 재무상태표 기준 순자산 장부가액(자기주식 장부가액 합산) 비율로 분할비율 산정, 외부평가기관 해당사항 없음",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": null,
+  "cite": {
+   "section_id": "3.4",
+   "offset": 283,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼성바이오로직스",
+   "target": "삼성에피스홀딩스 주식회사(가칭)",
+   "role": "회사",
+   "purpose": "분할·교환비율",
+   "method": "자산가치",
+   "weights": null,
+   "asset_value": {
+    "per_share": null,
+    "total": {
+     "value": 3356221465038,
+     "unit": "원",
+     "text": "3,356,221,465,038원",
+     "cite": {
+      "section_id": "5",
+      "offset": 420,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 9599937538001,
+     "unit": "원",
+     "text": "9,599,937,538,001원",
+     "cite": {
+      "section_id": "5",
+      "offset": 556,
+      "file_id": "main"
+     }
+    },
+    "adjustments": null,
+    "shares": {
+     "value": 24883049,
+     "unit": "주",
+     "text": "24,883,049",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 371,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-03-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 0.3496087,
+     "unit": null,
+     "text": "0.3496087",
+     "cite": {
+      "section_id": "5",
+      "offset": 533,
+      "file_id": "main"
+     }
+    },
+    "unit": null,
+    "range": null
+   },
+   "note": "분할비율 = 분할신설회사 순자산(3,356,221,465,038원)+신설회사 자기주식(0원) ÷ 분할 전 순자산(9,599,937,538,001원)+분할 전 자기주식(0원). asset_value.total은 신설회사 순자산, equity_book은 분할 전 순자산, shares는 분할신주 발행수. 배정비율 = 분할비율 x 금액비율 1(액면 2,500원/2,500원). result.value는 분할비율(무단위). 할인율·멀티플 등 평가 가정 없음."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "삼성에피스홀딩스 주식회사(가칭)",
+    "basis": "분할신주 모집(매출)가액(모집총액÷주식수, 소수점 이하 절사)",
+    "value": {
+     "value": 134879,
+     "unit": "원",
+     "text": "134,879",
+     "cite": {
+      "section_id": "3.4",
+      "offset": 392,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.3496087,
+   "unit": "주",
+   "text": "0.3496087주",
+   "cite": {
+    "section_id": "5",
+    "offset": 176,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 3356221465038,
+   "unit": "원",
+   "text": "3,356,221,465,038",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 402,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "2025-03-31 재무상태표 기준 순자산 장부가액 비율(자기주식 0원 합산)로 분할비율 0.3496087, 금액비율 1을 곱해 1주당 0.3496087주 배정. 단순·인적분할로 주주간 부의 이전 없다는 입장",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20250414–20251011, listed_only=False): 분할/full, 기재정정, 원본 20250822000255, body_rcept_no=본 건, attachment_rcept_no 20250822000255, supersedes 20250822000255·20250902000231. 짝 [기재정정]주요사항보고서(회사분할결정) 20250822000109(summary, 원본 20250522000001).",
+  "단순·인적분할로 외부평가기관 '해당사항 없음'(IV. 평가 및 신주배정 등). DCF·상대가치 등 가치평가 없음, 순자산 장부가액 비율만 있음.",
+  "conclusion.ratio는 배정비율 0.3496087주(금액비율 1이라 분할비율과 같음).",
+  "모집총액 3,356,221,465,038원은 분할계획서상 자본총계, 분할기일(2025-11-01)에 이전대상 확정 후 공인회계사 검토로 변동 가능(3.4 주3·주4).",
+  "분할신설회사는 지주회사로 종속기업투자주식·현금 등을 배부받고, 존속회사는 CDMO 사업 자산·부채를 배부받음(II장). 재상장 예비심사 승인 2025-08-21, 배정기준일 2025-10-31, 재상장 예정일 2025-11-24.",
+  "board_date는 최초 이사회 결의일(2025-05-22, 3.4 주1)."
+ ],
+ "extracted_at": "2026-10-27T10:17:37+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20250911000349",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 1490,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250911000349",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 분할 가액 및 그 산출근거",
+   "chars_read": 1986,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250911000349",
+   "file_id": "main",
+   "section_id": "6",
+   "title": "III. 분할의 요령",
+   "chars_read": 3051,
+   "how": "section"
+  }
+ ]
+}

@@ -1,0 +1,595 @@
+{
+ "rcept_no": "20250528000460",
+ "original_rcept_no": "20250502000203",
+ "related_rcept_nos": [
+  "20250528000390",
+  "20250502000203",
+  "20250515002513",
+  "20250526000292",
+  "20241203000342"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01693922",
+  "name": "지슨",
+  "market": "코스닥",
+  "induty_code": "272"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "주식회사 지슨",
+  "counterparty_listed": true,
+  "related_party": null,
+  "relation_text": "코스닥 상장 기업인수목적회사(키움제8호기업인수목적㈜, 존속)가 코넥스 상장 ㈜지슨(소멸)을 흡수합병",
+  "board_date": "2024-12-03",
+  "regime": "기준시가",
+  "ratio_text": "키움제8호기업인수목적㈜ : ㈜지슨 = 1 : 2.8500190(㈜지슨 보통주 1주당 키움제8호기업인수목적㈜ 보통주 2.8500190주)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장법 165조의4, 시행령 176조의5, 증권의발행및공시등에관한규정 5-13조 및 시행세칙 4–8조. SPAC 합병으로 피합병법인은 SPAC과 협의한 본질가치(자산 1 : 수익 5)",
+  "firm": "한미회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 09월 20일 ~ 2024년 12월 03일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조 및 시행세칙 제4조 내지 제8조"
+  ],
+  "opinion_text": "주당 평가액 합병법인 2,000원(액면 100원)·피합병법인 5,700원(액면 500원), 합병비율 1:2.8500190은 적정. 중요성의 관점에서 시행령 176조의5·규정 5-13조·시행세칙 4–8조 산정방법 위배 미발견",
+  "cite": {
+   "section_id": "5",
+   "offset": 127749,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 지슨",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 5,
+    "basis": "[(aX1+bX5)÷6]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 456,
+     "unit": "원",
+     "text": "456",
+     "cite": {
+      "section_id": "5",
+      "offset": 18783,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 8099031569,
+     "unit": "원",
+     "text": "8,099,031,569",
+     "cite": {
+      "section_id": "5",
+      "offset": 18713,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 6775446569,
+     "unit": "원",
+     "text": "6,775,446,569",
+     "cite": {
+      "section_id": "5",
+      "offset": 17944,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1323585000,
+     "unit": "원",
+     "text": "1,323,585,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 17979,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 17770774,
+     "unit": "주",
+     "text": "17,770,774",
+     "cite": {
+      "section_id": "5",
+      "offset": 18747,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "주권상장법인(코넥스) 간의 합병이므로 상대가치를 산정하지 아니함"
+   },
+   "result": {
+    "value": {
+     "value": 5700,
+     "unit": "원",
+     "text": "5,700",
+     "cite": {
+      "section_id": "5",
+      "offset": 14380,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 6749,
+    "unit": "원",
+    "text": "6,749",
+    "cite": {
+     "section_id": "5",
+     "offset": 14446,
+     "file_id": "main"
+    }
+   },
+   "note": "소멸법인(코넥스 상장). 시행령 176조의5 ③(SPAC 특례): 기준시가 6,690원 대비 10% 초과 할인되어 SPAC과 협의한 본질가치(자산 1 : 수익 5)를 합병가액으로 함 = 기준시가 6,690원에서 14.80% 할인. 비교공시(일반규정 1:1.5) 시 주당 4,232원·합병비율 2.1158687. 가중치 적정성 검토: 코넥스 기준시가 할인율 0%·15%·30% 적용 시 6,990·5,686·4,683원(합병비율 3.344942·2.843201·2.341459) 범위에 평가결과 포함. 자산가치 조정(가산)은 행사가능 주식선택권 441,195주 행사 시 자본금·자본잉여금 증가액. 분석기준일 2024-11-26."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 지슨",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년부터 2028년까지 5개년도",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 13.1,
+     "unit": "%",
+     "text": "13.10%",
+     "cite": {
+      "section_id": "5",
+      "offset": 118644,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 114478,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 114540,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.87,
+     "unit": null,
+     "text": "0.87",
+     "cite": {
+      "section_id": "5",
+      "offset": 115834,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.9674,
+     "unit": null,
+     "text": "0.9674",
+     "cite": {
+      "section_id": "5",
+      "offset": 114584,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.35,
+     "unit": "%",
+     "text": "3.35%",
+     "cite": {
+      "section_id": "5",
+      "offset": 114705,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.26,
+     "unit": "%",
+     "text": "14.26%",
+     "cite": {
+      "section_id": "5",
+      "offset": 114825,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.88,
+     "unit": "%",
+     "text": "5.88%",
+     "cite": {
+      "section_id": "5",
+      "offset": 117632,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 118600,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 13.72,
+     "unit": "%",
+     "text": "13.72%",
+     "cite": {
+      "section_id": "5",
+      "offset": 116494,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 12.07,
+     "unit": "%",
+     "text": "12.07%",
+     "cite": {
+      "section_id": "5",
+      "offset": 118575,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 121437,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "라온시큐어",
+      "value": {
+       "value": 1.21,
+       "unit": null,
+       "text": "1.21",
+       "cite": {
+        "section_id": "5",
+        "offset": 115252,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, 법인세율 20.9%, 2Year Weekly Adjusted Beta 2023-12-31 기준)"
+     },
+     {
+      "name": "드림시큐리티",
+      "value": {
+       "value": 0.52,
+       "unit": null,
+       "text": "0.52",
+       "cite": {
+        "section_id": "5",
+        "offset": 115347,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, 법인세율 20.9%, 2Year Weekly Adjusted Beta 2023-12-31 기준)"
+     },
+     {
+      "name": "시큐브",
+      "value": {
+       "value": 0.85,
+       "unit": null,
+       "text": "0.85",
+       "cite": {
+        "section_id": "5",
+        "offset": 115386,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, 법인세율 20.9%, 2Year Weekly Adjusted Beta 2023-12-31 기준)"
+     },
+     {
+      "name": "이니텍",
+      "value": {
+       "value": 0.9,
+       "unit": null,
+       "text": "0.90",
+       "cite": {
+        "section_id": "5",
+        "offset": 115472,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, 법인세율 20.9%, 2Year Weekly Adjusted Beta 2023-12-31 기준)"
+     },
+     {
+      "name": "지니언스",
+      "value": {
+       "value": 1.29,
+       "unit": null,
+       "text": "1.29",
+       "cite": {
+        "section_id": "5",
+        "offset": 115558,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, 법인세율 20.9%, 2Year Weekly Adjusted Beta 2023-12-31 기준)"
+     },
+     {
+      "name": "에스원",
+      "value": {
+       "value": 0.58,
+       "unit": null,
+       "text": "0.58",
+       "cite": {
+        "section_id": "5",
+        "offset": 115694,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, 법인세율 20.9%, 2Year Weekly Adjusted Beta 2023-12-31 기준)"
+     },
+     {
+      "name": "아이디스",
+      "value": {
+       "value": 0.76,
+       "unit": null,
+       "text": "0.76",
+       "cite": {
+        "section_id": "5",
+        "offset": 115786,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Hamada, 법인세율 20.9%, 2Year Weekly Adjusted Beta 2023-12-31 기준)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6749,
+     "unit": "원",
+     "text": "6,749",
+     "cite": {
+      "section_id": "5",
+      "offset": 20316,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 6266,
+      "unit": "원",
+      "text": "6,266",
+      "cite": {
+       "section_id": "5",
+       "offset": 122986,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 7317,
+      "unit": "원",
+      "text": "7,317",
+      "cite": {
+       "section_id": "5",
+       "offset": 123042,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 할인). 추정기간 영업가치 36,694,917천원 + 영구현금흐름 영업가치 83,421,816천원 = 영업가치 120,116,732천원, 비영업자산 4,236,004천원 가산, 이자부부채 4,419,638천원 차감 = 수익가치 119,933,098천원 ÷ 17,770,774주. Rf는 2023-12-31 기준 10년 국채(Bloomberg), MRP는 한국공인회계사회 가이던스, 규모위험 3.35%(한국의 기업규모위험 연구결과). kd는 세전 가중평균차입이자율(특수차입금 1.646% 제외). 목표자본구조는 유사 7사 평균 D/V 12.07%(E/V 87.93%), D/E 13.72%. β 0.9674는 Ke 표의 relevered beta(유사기업 표 평균 Re-levered 0.97). range는 WACC 12.60–13.60%·영구성장률 0.50–1.50% 민감도 범위."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "키움제8호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1707,
+     "unit": "원",
+     "text": "1,707",
+     "cite": {
+      "section_id": "5",
+      "offset": 9494,
+      "file_id": "main"
+     }
+    },
+    "total": null,
+    "equity_book": null,
+    "adjustments": null,
+    "shares": null,
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 10490,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "존속법인(코스닥 상장 SPAC). 시행령 176조의5 ①1호: 기산일 2024-12-02, 최근 1개월·1주일 거래량가중평균종가·최근일 종가(2,150원) 산술평균 2,179원에 8.22% 할인 → 2,000원. 자산가치 1,707원보다 커서 합병가액 2,000원(Max[A, B])."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "키움제8호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율(8.22%)을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7319,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "주식회사 지슨",
+    "basis": "본질가치(자산 1 : 수익 5), 기준시가 대비 14.80% 할인",
+    "value": {
+     "value": 5700,
+     "unit": "원",
+     "text": "5,700",
+     "cite": {
+      "section_id": "5",
+      "offset": 7327,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 2.850019,
+   "unit": null,
+   "text": "2.8500190",
+   "cite": {
+    "section_id": "5",
+    "offset": 7580,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 98779258000,
+   "unit": "원",
+   "text": "98,779,258,000",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 374,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "한미회계법인: 합병가액 SPAC 2,000원·지슨 5,700원, 합병비율 1 : 2.8500190 적정",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 지슨",
+   "variables": "WACC 12.60–13.60% (±0.5%p), 영구성장률 0.50–1.50% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 6266,
+     "unit": "원",
+     "text": "6,266",
+     "cite": {
+      "section_id": "5",
+      "offset": 122986,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 7317,
+     "unit": "원",
+     "text": "7,317",
+     "cite": {
+      "section_id": "5",
+      "offset": 123042,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 리뷰 생략(배치).",
+  "search_valuation_disclosures(20241229–20250627, listed_only=False, 2페이지): merger/full, correction_kind=기재정정, body_rcept_no=본 건(최신 본문), attachment_rcept_no=20250502000203, supersedes 20250502000203·20250515002513·20250526000292, 짝 주요사항보고서 20250528000390(summary, 기재정정). 도구의 original_rcept_no는 null(꼬리표 없는 원본 없음). 회사 공시목록상 증권신고서(합병) 최초 제출본은 [첨부추가] 20250502000203이고 꼬리표 없는 본은 없음 → original_rcept_no에 기재. 꼬리표 없는 최초 주요사항보고서(회사합병결정)는 20241203000342. 이후 투자설명서 20250611000141·증권발행실적보고서 20250730000041(본문 정정 아님).",
+  "짝 주요사항보고서 20250528000390(summary)은 이 실행에서 뽑지 않음(필요시 /dart-valuation 별도).",
+  "회사: corp_code 01693922는 SPAC(키움제8호기업인수목적)으로 합병 후 사명 지슨. company.name은 조회 시점 명칭.",
+  "이사회 결의 2024-12-03(최초), 변경결의 2025-03-10·05-02·05-15·05-28. 주총 2025-06-26, 주식매수청구가격(회사제시) 2,121원, 합병기일 2025-07-29.",
+  "외부평가계약 체결일: I장은 2024년 09월 20일, 투자위험요소(3.1)는 2024년 9월 30일로 기재(불일치). period는 I장 기재를 따름. 감사위원회 동의 원문 미확인 → null.",
+  "합병신주 기명식보통주 49,389,629주, 액면 100원, 모집가액 2,000원, 모집총액 98,779,258,000원(3.4). 교부금 없음.",
+  "평가의견서 제출일 2024-12-03. 평가기준일 2023-12-31(재무), 분석기준일 2024-11-26. 2025년 추정 매출 약 236억원·영업이익 약 58억원(3.1, 외부평가기관 제시 추정손익)."
+ ],
+ "extracted_at": "2026-10-27T10:14:04+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20250528000460",
+   "file_id": "main",
+   "section_id": "3.3",
+   "title": "III. 주요일정",
+   "chars_read": 294,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250528000460",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 422,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250528000460",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 1512,
+   "how": "search"
+  },
+  {
+   "rcept_no": "20250528000460",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 35424,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

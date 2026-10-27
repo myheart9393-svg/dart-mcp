@@ -1,0 +1,613 @@
+{
+ "rcept_no": "20250225003558",
+ "original_rcept_no": "20250204000637",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01157846",
+  "name": "바이오포트",
+  "market": "기타",
+  "induty_code": "108"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "디비금융제11호기업인수목적(주)",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "가. 계열회사 또는 자회사 등의 관계 여부 해당사항 없습니다.",
+  "board_date": "2024-10-23",
+  "regime": "기준시가",
+  "ratio_text": "디비금융제11호기업인수목적(주)의 보통주(액면가 100원) 1주당 합병법인인 (주)바이오포트코리아의 보통주(액면금액 200원) 0.1486215주를 교부 (합병가액 (주)바이오포트코리아 1주당 13,457원, 디비금융제11호기업인수목적(주) 2,000원)"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": "자본시장과금융투자업에관한법률 시행령 제176조의5제3항의 기업인수목적회사 특례규정 적용: 합병법인은 증권의발행및공시등의관한규정 제5-13조 및 동규정 시행세칙 제4조 내지 제8조의 본질가치, 피합병법인은 기준주가에 할증율 및 할인율을 반영한 평가가액을 합병가액으로 산출",
+  "firm": "정인회계법인",
+  "firm_type": "회계법인",
+  "period": "2024년 9월 23일 ~ 2024년 10월 22일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인(2009.6)",
+   "가치평가서비스 수행기준(2008.8)",
+   "자본시장법 제165조의4",
+   "자본시장법 시행령 제176조의5",
+   "증권의발행및공시등에관한규정 제5-13조",
+   "동규정 시행세칙 제4조 내지 제8조",
+   "코스닥시장 상장규정 제2조"
+  ],
+  "opinion_text": "주당평가액 합병법인 13,457원(액면 200원)·피합병법인 2,000원(액면 100원), 합의한 합병비율 1:0.1486215은 적정. 중요성의 관점에서 합병가액 산정방법에 위배되어 산정되었다는 점이 발견되지 아니함",
+  "cite": {
+   "section_id": "5",
+   "offset": 47,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "정인회계법인",
+   "target": "주식회사 바이오포트코리아",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "[(a x 1.0 + b x 1.5)÷2.5]"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 6727,
+     "unit": "원",
+     "text": "6,727",
+     "cite": {
+      "section_id": "5",
+      "offset": 13314,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 24477952035,
+     "unit": "원",
+     "text": "24,477,952,035",
+     "cite": {
+      "section_id": "5",
+      "offset": 13242,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 14350855323,
+     "unit": "원",
+     "text": "14,350,855,323",
+     "cite": {
+      "section_id": "5",
+      "offset": 12389,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 10127096712,
+     "unit": "원",
+     "text": "10,127,096,712",
+     "cite": {
+      "section_id": "5",
+      "offset": 12425,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 3638940,
+     "unit": "주",
+     "text": "3,638,940",
+     "cite": {
+      "section_id": "5",
+      "offset": 13278,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": {
+    "multiple_type": null,
+    "peers": [],
+    "multiple": null,
+    "applied_earnings": null,
+    "discount_range": null,
+    "not_applied_reason": "증권의발행및공시등에관한규정시행세칙 제7조에 따른 유사회사 요건(주당법인세차감전계속사업이익·주당순자산 각 30% 이내)을 충족하는 법인이 없어 상대가치 미산정"
+   },
+   "result": {
+    "value": {
+     "value": 13457,
+     "unit": "원",
+     "text": "13,457",
+     "cite": {
+      "section_id": "5",
+      "offset": 8045,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "income_value": {
+    "value": 17943,
+    "unit": "원",
+    "text": "17,943",
+    "cite": {
+     "section_id": "5",
+     "offset": 8126,
+     "file_id": "main"
+    }
+   },
+   "note": "비상장 존속법인(합병법인). 본질가치 = (자산가치 6,727원×1 + 수익가치 17,943원×1.5)÷2.5 = 13,457원 = 합병가액. 자산가치는 2023.12.31 자본총계에 최근사업연도말 이후 자본금증가 227,788,000원·자본잉여금증가 9,900,368,212원(유상증자·전환사채 전환) 가산, 회수가능성 없는 채권 1,059,500원 차감. 분석기준일 2024-10-16. 2024-09-09 액면분할(10,000원→200원). 외부평가업무 가이드라인 문단30 검토: 2024-04 구주 양수도·2024-08 유상증자 주당 9,320원(액면분할 후)과 본질가치 13,457원이 44.39% 차이나나 가치조정 미반영"
+  },
+  {
+   "subject": "정인회계법인",
+   "target": "주식회사 바이오포트코리아",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2024년부터 2028년까지 5개년도",
+    "base_date": "2023-12-31",
+    "wacc": {
+     "value": 12.11,
+     "unit": "%",
+     "text": "12.11%",
+     "cite": {
+      "section_id": "5",
+      "offset": 117406,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.18,
+     "unit": "%",
+     "text": "3.18%",
+     "cite": {
+      "section_id": "5",
+      "offset": 110666,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 110728,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.6124,
+     "unit": null,
+     "text": "0.6124",
+     "cite": {
+      "section_id": "5",
+      "offset": 111721,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.952,
+     "unit": null,
+     "text": "0.9520",
+     "cite": {
+      "section_id": "5",
+      "offset": 110772,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 3.75,
+     "unit": "%",
+     "text": "3.75%",
+     "cite": {
+      "section_id": "5",
+      "offset": 110877,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 14.54,
+     "unit": "%",
+     "text": "14.54%",
+     "cite": {
+      "section_id": "5",
+      "offset": 110938,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 10.93,
+     "unit": "%",
+     "text": "10.93%",
+     "cite": {
+      "section_id": "5",
+      "offset": 116850,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 20.9,
+     "unit": "%",
+     "text": "20.90%",
+     "cite": {
+      "section_id": "5",
+      "offset": 117362,
+      "file_id": "main"
+     }
+    },
+    "target_de": {
+     "value": 70.09,
+     "unit": "%",
+     "text": "70.09%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111712,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 41.21,
+     "unit": "%",
+     "text": "41.21%",
+     "cite": {
+      "section_id": "5",
+      "offset": 117337,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.0%",
+     "cite": {
+      "section_id": "5",
+      "offset": 119960,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "우양",
+      "value": {
+       "value": 0.7138,
+       "unit": null,
+       "text": "0.7138",
+       "cite": {
+        "section_id": "5",
+        "offset": 111293,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 1.3122, D/E 83.84%, Re-levered 1.1095)"
+     },
+     {
+      "name": "푸드웰",
+      "value": {
+       "value": 0.6145,
+       "unit": null,
+       "text": "0.6145",
+       "cite": {
+        "section_id": "5",
+        "offset": 111365,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 0.8979, D/E 58.31%, Re-levered 0.9552)"
+     },
+     {
+      "name": "마니커에프앤지",
+      "value": {
+       "value": 0.7471,
+       "unit": null,
+       "text": "0.7471",
+       "cite": {
+        "section_id": "5",
+        "offset": 111441,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 1.0723, D/E 55.03%, Re-levered 1.1612)"
+     },
+     {
+      "name": "롯데칠성",
+      "value": {
+       "value": 0.2237,
+       "unit": null,
+       "text": "0.2237",
+       "cite": {
+        "section_id": "5",
+        "offset": 111520,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 0.3967, D/E 100.60%, Re-levered 0.3476)"
+     },
+     {
+      "name": "흥국에프앤비",
+      "value": {
+       "value": 0.564,
+       "unit": null,
+       "text": "0.5640",
+       "cite": {
+        "section_id": "5",
+        "offset": 111595,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 1.1110, D/E 122.60%, Re-levered 0.8767)"
+     },
+     {
+      "name": "동서",
+      "value": {
+       "value": 0.8116,
+       "unit": null,
+       "text": "0.8116",
+       "cite": {
+        "section_id": "5",
+        "offset": 111671,
+        "file_id": "main"
+       }
+      },
+      "note": "Un-levered Beta (Observed 0.8124, D/E 0.13%, Re-levered 1.2615)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 17943,
+     "unit": "원",
+     "text": "17,943",
+     "cite": {
+      "section_id": "5",
+      "offset": 119509,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 16349,
+      "unit": "원",
+      "text": "16,349",
+      "cite": {
+       "section_id": "5",
+       "offset": 123107,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 19844,
+      "unit": "원",
+      "text": "19,844",
+      "cite": {
+       "section_id": "5",
+       "offset": 123165,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "수익가치(시행세칙 제6조, FCFF 현금흐름할인법, 원문 표 주석은 기말 현금흐름 가정 — 전제조건 문단은 '연중 발생' 가정이라 적어 불일치). Ke = Rf + (Rm-Rf)×β + FSRP. Rf는 2023.12.31 10년만기 국채수익률(한국금융투자협회), MRP는 한공회 시장위험프리미엄 가이던스, FSRP 3.75%는 한공회 기업규모위험 프리미엄 3분위 Micro-Cap(size_premium에 기재). Kd 10.93%는 신용등급 BBB- 무보증 공모 회사채수익률(2023년말). 목표자본구조는 유사기업 6사 평균 D/E 70.09%(E/V 58.79%, D/V 41.21%). β는 2Year Weekly Adjusted Beta, Hamada 모형. 추정기간 PV 18,441,440천원 + 영구현금흐름 PV 60,610,661천원 = 영업가치 79,052,101천원, 비영업자산 7,577,389천원 가산, 이자부부채 21,334,841천원 차감 → 자기자본가치 65,294,649천원 ÷ 3,638,940주. range는 WACC 11.61–12.61%·g 0.5–1.5% 민감도 표 범위. g는 본문 '1.00%', 영구현금흐름 표 '1.0%'."
+  },
+  {
+   "subject": "정인회계법인",
+   "target": "디비금융제11호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1737,
+     "unit": "원",
+     "text": "1,737",
+     "cite": {
+      "section_id": "5",
+      "offset": 25288,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12160118851,
+     "unit": "원",
+     "text": "12,160,118,851",
+     "cite": {
+      "section_id": "5",
+      "offset": 25216,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 10475118851,
+     "unit": "원",
+     "text": "10,475,118,851",
+     "cite": {
+      "section_id": "5",
+      "offset": 24411,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1392371066,
+     "unit": "원",
+     "text": "1,392,371,066",
+     "cite": {
+      "section_id": "5",
+      "offset": 24447,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7000000,
+     "unit": "주",
+     "text": "7,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 25252,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2023-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 21638,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "코스닥 상장 SPAC(피합병법인, 소멸). 기산일 2024-10-22, 1개월 가중평균 2,282원·1주일 2,273원(상세표는 2,272원)·최근일 2,280원의 산술평균 기준주가 2,278원에 12.22% 할인한 2,000원. 자산가치 1,737원(전환사채 1,685,000,000원 전환가정, 1,685,000주 가산 7,000,000주 기준; 전환 전 5,315,000주 기준 1,971원)보다 높아 2,000원 적용. 원문 표의 조정항목 B 1,392,371,066원은 가산항목 1,685,000,000원과 다르나 C=A+B=12,160,118,851원은 A+1,685,000,000원과 일치(원문 그대로 기재) 자산가치 표의 원문 합계가 맞지 않음(자본총계+조정항목≠조정된 순자산가액, 원문 그대로 옮김 — 2026-10-27 일괄 검산)"
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 바이오포트코리아",
+    "basis": "본질가치",
+    "value": {
+     "value": 13457,
+     "unit": "원",
+     "text": "13,457",
+     "cite": {
+      "section_id": "5",
+      "offset": 7242,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "디비금융제11호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 7151,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [],
+  "ratio": {
+   "value": 0.1486215,
+   "unit": null,
+   "text": "0.1486215",
+   "cite": {
+    "section_id": "5",
+    "offset": 7413,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": {
+   "value": 10629993811,
+   "unit": "원",
+   "text": "10,629,993,811",
+   "cite": {
+    "section_id": "3.4",
+    "offset": 386,
+    "file_id": "main"
+   }
+  },
+  "opinion_text": "정인회계법인: 합병당사가 협의한 합병비율 1:0.1486215은 적정한 것으로 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "정인회계법인",
+   "target": "주식회사 바이오포트코리아",
+   "variables": "WACC 11.61–12.61% (0.5%p 간격), 영구성장률 0.5–1.5% (0.5%p 간격), 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 16349,
+     "unit": "원",
+     "text": "16,349",
+     "cite": {
+      "section_id": "5",
+      "offset": 123107,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 19844,
+     "unit": "원",
+     "text": "19,844",
+     "cite": {
+      "section_id": "5",
+      "offset": 123165,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "notes": [
+  "MCP 대신 직접 호출: 배치 실행이라 dart 툴을 dart_mcp.casebuild call(dart_mcp.server 함수)로 불렀다. 배치라 리뷰 생략.",
+  "search_valuation_disclosures(20240928–20250327, listed_only=False): merger/full, correction_kind=기재정정, body_rcept_no=본 건(20250225003558), original_rcept_no=20250204000637(2025-02-05 최초 제출), supersedes 20250204000637·20250207000417·20250214001839, attachment_rcept_no 20250204000637. 조회 범위 안에서 본 건 이후 본문 정정 없음. 짝 주요사항보고서는 결과에 없음(SPAC 측 주요사항보고서 20250225003346 [첨부정정]은 별개 filer 거래로 조회됨).",
+  "SPAC 합병: 존속(합병법인)은 비상장 주식회사 바이오포트코리아(company.market은 신고 당시 기준 '기타', 조회 시점 corp_cls K), 소멸(피합병법인)은 코스닥 상장 디비금융제11호기업인수목적 주식회사.",
+  "이사회 합병결의 2024-10-23, 변경 이사회결의·변경 합병계약 2025-02-04, 합병기일 2025-04-28(section 4). 평가의견서 제출일 2024-10-23, 합병비율 1:0.1486215.",
+  "평가 계약일자: 평가의견서 표지는 '2024년 9월 20일', section 4 본문은 '2024년 09월 23일 … 외부평가계약을 체결'로 서로 다름(원문 그대로).",
+  "합병신주 기명식보통주 789,923주, 모집가액 13,457원, 모집총액 10,629,993,811원(3.4).",
+  "평가기준일 2023-12-31(DCF·자산가치 재무제표), 분석기준일 2024-10-16. 2024년 추정치에는 2024년 3분기 실적 포함."
+ ],
+ "citations": [
+  {
+   "rcept_no": "20250225003558",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 232,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250225003558",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 434,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250225003558",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 20122,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20250225003558",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 64920,
+   "how": "find_tables/search/section"
+  }
+ ],
+ "extracted_at": "2026-10-27T10:04:42+09:00",
+ "extractor_version": "1.1"
+}

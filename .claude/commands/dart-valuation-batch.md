@@ -7,8 +7,9 @@ argument-hint: <bgn_de> <end_de> [--grade full|summary] [--limit N]
 
 ## 1. 계획 (결정적, 코드)
 ```
-uv run python -m dart_mcp.batch plan <bgn> <end> --grade full [--limit N] --state reports/valuations/_batch_<오늘>.json
+uv run python -m dart_mcp.batch plan <bgn> <end> --grade full [--limit N] [--kinds merger,split,split_merger,share_exchange] --state reports/valuations/_batch_<오늘>.json
 ```
+- `--kinds`로 거래 유형을 고른다(지분증권 IPO·유상증자를 빼면 본문 판별 다운로드도 없다). 생략하면 전부.
 - search_valuation_disclosures 결과에서 등급이 맞는 거래만, 접수일 오래된 순. 이미 `reports/valuations/`에 있는 거래는 `skip:existing`.
 - 상장사 증권신고서(지분증권)은 본문을 받아 IPO/유상증자를 가린다(`equity_kind`): 유상증자 `skip:rights_offering`, 판단 불가 `skip:equity_unknown`.
   SPAC 상장 공모는 `skip:spac`.
@@ -27,6 +28,7 @@ todo 건마다 Agent(subagent_type `general-purpose`)를 띄우고 prompt는 아
 ```
 
 - 서브에이전트가 끝나면 오케스트레이터는 `uv run python -m dart_mcp.batch record --state <state> <rcept_no> <status> --reason … --calls … --chars … --seconds <duration_ms/1000>`.
+  `record … ok`는 사례 JSON의 `company.corp_code`(비면 큐 값)와 `induty_code`(비면 기업개황 조회)를 채운다 — 실패 사유는 notes에.
   **실패해도 멈추지 않는다.** 응답이 JSON이 아니거나 JSON 파일이 없거나 `validate`가 실패하면 fail(`schema_invalid`)로 기록한다.
 - 오케스트레이터는 각 결과 JSON에 대해 `valuation validate`와 `verify-cites --sample 500`을 직접 한 번 더 돌린다(서브에이전트 보고를 믿지 않는다).
   verify가 실패한 건은 fail(`cite_mismatch`).
