@@ -17,6 +17,7 @@
 
 6. **범위 `{min, max}`는 숫자 크기 순서**(min ≤ max). 원문이 "29.83% ~ 11.74%"처럼 큰 값을 먼저 써도 그렇다. `validate`가
    min > max를 오류로 잡는다(JSON Schema는 값 비교를 못 해 `valuation.range_order_errors`로 검사).
+   `validate`는 값 분포 밖(WACC 0–30% 밖, g ≥ WACC, g > 5%, 멀티플 ≤ 0, 할인율 0–70% 밖)을 `warnings[]`로 따로 준다 — 오류가 아니라 원문 대조 대상.
 7. **통계는 거래 단위**: `valuation stats`는 거래(rcept_no)마다 대표값 하나 — 외부평가 역할 값(여럿이면 그 중앙값), 없으면 그 거래 값들의 중앙값.
 
 ## 최상위

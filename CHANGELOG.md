@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+가치평가 사례 DB 운영.
+
+- **validate 분포 경고**: `distribution_warnings` — WACC 0–30% 밖, g ≥ WACC(같은 원소), g > 5%, 적용 멀티플(relative·ipo) ≤ 0,
+  할인율 0–70% 밖이면 `warnings[]`(FAIL 아님, 종료코드 영향 없음). `validate <dir>`로 사례 전체 검사. 89건: 오류 0·경고 0
+  (실측 범위 WACC 5.05–17.59%, g 0–1.0%, 멀티플 1.8–47.45, 할인율 7.65–57.48%).
+- **stats `--regime`**: 체계별 거래 수(`regimes`), 기준시가·공정가액(2026.12.9 개정) 체계가 섞이면 `warning`.
+- **문서**: README 운영 절 "가치평가 사례 DB 갱신 (월초)"(scan → batch → 20% 리뷰 → validate → 커밋, regime 주의),
+  `docs/valuation_usage.md`(회계사용: 조회 예시 5개, 인용 표기법, 한계). 사례 89건 중 induty_code는 4건에만 있어 업종 조회는 아직 불가.
+
 ## v1.3.0 (2026-10-26)
 
 가치평가 사례 DB 채우기.

@@ -238,6 +238,26 @@ def test_schema_accepts_minimal_case_and_rejects_uncited_numbers():
     assert res["total"] == 2 and res["missing_cite"] == [] and all(x["ok"] for x in res["sampled"])
 
 
+def test_distribution_warnings_are_separate_from_errors():
+    from dart_mcp.valuation import distribution_warnings
+
+    assert distribution_warnings(MIN_CASE) == []
+    odd = copy.deepcopy(MIN_CASE)
+    dcf = odd["valuations"][0]["dcf"]
+    dcf["wacc"] = {"value": 4.0, "unit": "%", "text": "4.0%", "cite": dcf["wacc"]["cite"]}
+    dcf["g"] = {"value": 0.06, "unit": None, "text": "0.06", "cite": dcf["wacc"]["cite"]}  # 단위 없는 소수 → 6%
+    odd["ipo"] = {"multiple": {"value": -3.1, "unit": "배", "text": "-3.1", "cite": None},
+                  "discount_range": {"min": {"value": 20.0, "unit": "%", "text": "20%", "cite": None},
+                                     "max": {"value": 75.0, "unit": "%", "text": "75%", "cite": None}}}
+    w = distribution_warnings(odd)
+    assert any("g 6% > 5%" in x for x in w) and any("≥ WACC 4%" in x for x in w)
+    assert any("ipo/multiple" in x for x in w) and any("discount_range/max" in x for x in w)
+    assert not any("discount_range/min" in x for x in w) and not any("dcf/wacc" in x for x in w)
+    big = copy.deepcopy(MIN_CASE)
+    big["valuations"][0]["dcf"]["wacc"]["value"] = 31.5
+    assert any("WACC 31.5%" in x for x in distribution_warnings(big)) and validate_case(big) == []
+
+
 # --------------------------------------------------------------------------- 거래 단위 통계
 def _r(rcept, role, wacc, purpose="합병가액", method="DCF", deal_type="merger", board="2026-10-06"):
     return {"rcept_no": rcept, "role": role, "wacc": wacc, "g": None, "multiple": None, "multiple_type": None,
@@ -267,3 +287,4 @@ def test_deal_stats_counts_deals_not_values_and_default_purpose_filter():
     assert len(filter_rows(rows, purposes={"all"})) == 5
     assert [r["rcept_no"] for r in filter_rows(rows, purposes={"공정가치평가"})] == ["C"]
     assert filter_rows(rows, date_from="2026-11-01") == []
+    assert len(filter_rows(rows, regimes={"none"})) == 4 and filter_rows(rows, regimes={"기준시가"}) == []

@@ -12,7 +12,7 @@ argument-hint: <조건 예: "2026년 합병 DCF">
    ```
    uv run python -m dart_mcp.valuation stats reports/valuations [--from YYYY-MM-DD] [--to YYYY-MM-DD]
        [--deal-type merger,split,split_merger,business_transfer,share_exchange,ipo] [--method DCF,본질가치,…]
-       [--purpose 합병가액,공모가,…|all] [--firm 이촌]
+       [--purpose 합병가액,공모가,…|all] [--firm 이촌] [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none]
    ```
    - 기간 기준일은 이사회 결의일, 없으면 접수일(rcept_no 앞 8자리). "2026년" → `--from 2026-01-01 --to 2026-12-31`, "하반기" → 07-01–12-31.
    - "합병" → `--deal-type merger`(분할합병 포함하려면 split_merger도). "IPO"·"공모" → `ipo`.
@@ -20,6 +20,8 @@ argument-hint: <조건 예: "2026년 합병 DCF">
    - **평가 목적 기본값은 거래가액 평가만**(공정가치평가·손상검사 제외). "RCPS 공정가치"·"손상검사"를 말하거나 "전부"면 `--purpose 공정가치평가` / `all`.
    - "WACC"·"g"·"멀티플" 같은 변수 이름은 **행을 거르지 않고** 보여줄 열·분포 대상만 정한다. 값이 null인 행(summary 등급 등)도 표에
      "원문 없음"으로 남긴다. "WACC가 있는 것만"처럼 명시하면 그때 뺀다.
+   - **합병가액 체계(regime)**: 2026.12.9 이후 이사회 결의분부터 기준시가 → 공정가액 체계다. 합병·분할 등에서 두 체계가 섞이면
+     결과에 `warning`이 온다 → `--regime`으로 나눠 따로 돌리고 표·분포도 체계별로 낸다. 한 분포로 합치지 않는다.
    - 업종은 rows의 induty_code 앞 2–3자리(KSIC)로 직접 거른다.
 2. 결과 JSON의 `rows`를 표로:
 

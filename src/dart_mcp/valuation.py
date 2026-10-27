@@ -31,6 +31,7 @@ SCHEMA_PATH = Path(__file__).with_name("valuation_schema.json")
 EXTRACTOR_VERSION = "1.1"  # 1.1: valuations[].purpose
 # 조회·통계 기본값에서 빼는 평가 목적(거래가액을 정하는 평가가 아니다)
 NON_DEAL_PURPOSES = {"공정가치평가", "손상검사"}
+REGIME_FAIR = "공정가액(2026.12.9 개정)"  # 2026.12.9 이후 이사회 결의분 합병가액 체계 — 기준시가 사례와 통계를 나눈다
 
 # (report_nm에 들어가는 문자열, deal_type) — 앞에서부터 처음 맞는 것. "분할합병"은 "분할"·"합병"보다 먼저 본다.
 _B_PATTERNS = (
@@ -340,6 +341,58 @@ def range_order_errors(node: Any, path: str = "") -> list[str]:
     return out
 
 
+WACC_RANGE = (0.0, 30.0)      # %
+G_MAX = 5.0                   # %
+DISCOUNT_RANGE = (0.0, 70.0)  # %
+
+
+def _pct(field: Any) -> float | None:
+    """{value, unit} → % 값. unit "%"는 그대로, 단위 없는 소수(|v| < 1)는 ×100. 그 밖의 단위는 None(검사 안 함)."""
+    if not isinstance(field, dict) or not isinstance(field.get("value"), (int, float)):
+        return None
+    v, u = float(field["value"]), (field.get("unit") or "").strip()
+    if u == "%":
+        return v
+    if not u and abs(v) < 1:
+        return v * 100
+    return None
+
+
+def distribution_warnings(case: dict) -> list[str]:
+    """값 분포 밖의 숫자(FAIL 아님 — 원문이 그럴 수 있다). 원문 대조가 필요한 곳을 찍는다.
+
+    WACC 0–30% 밖, g ≥ WACC(같은 원소), g > 5%, 적용 멀티플 ≤ 0, 할인율 0–70% 밖.
+    """
+    out: list[str] = []
+
+    def discount(rng: Any, path: str) -> None:
+        for end in ("min", "max"):
+            d = _pct((rng or {}).get(end))
+            if d is not None and not DISCOUNT_RANGE[0] <= d <= DISCOUNT_RANGE[1]:
+                out.append(f"{path}/{end}: 할인율 {d:g}% — {DISCOUNT_RANGE[0]:g}–{DISCOUNT_RANGE[1]:g}% 밖")
+
+    def multiple(field: Any, path: str) -> None:
+        m = (field or {}).get("value")
+        if isinstance(m, (int, float)) and m <= 0:
+            out.append(f"{path}: 멀티플 {m:g} ≤ 0")
+
+    for i, val in enumerate(case.get("valuations") or []):
+        dcf, rel, p = val.get("dcf") or {}, val.get("relative") or {}, f"valuations/{i}"
+        w, g = _pct(dcf.get("wacc")), _pct(dcf.get("g"))
+        if w is not None and not WACC_RANGE[0] <= w <= WACC_RANGE[1]:
+            out.append(f"{p}/dcf/wacc: WACC {w:g}% — {WACC_RANGE[0]:g}–{WACC_RANGE[1]:g}% 밖")
+        if g is not None and g > G_MAX:
+            out.append(f"{p}/dcf/g: g {g:g}% > {G_MAX:g}%")
+        if g is not None and w is not None and g >= w:
+            out.append(f"{p}/dcf/g: g {g:g}% ≥ WACC {w:g}%")
+        multiple(rel.get("multiple"), f"{p}/relative/multiple")
+        discount(rel.get("discount_range"), f"{p}/relative/discount_range")
+    ipo = case.get("ipo") or {}
+    multiple(ipo.get("multiple"), "ipo/multiple")
+    discount(ipo.get("discount_range"), "ipo/discount_range")
+    return out
+
+
 def iter_numbers(node: Any, path: str = "") -> list[tuple[str, dict]]:
     """사례 JSON에서 {"value", "cite"} 숫자 필드를 모두 찾는다 → [(경로, 필드)]. value가 null인 것은 뺀다."""
     out: list[tuple[str, dict]] = []
@@ -462,8 +515,11 @@ def representative(values: list[tuple[str | None, float]]) -> float | None:
 
 def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str | None = None,
                 deal_types: set[str] | None = None, methods: set[str] | None = None,
-                purposes: set[str] | None = None, firm: str | None = None) -> list[dict]:
-    """평가 행 거르기. purposes=None이면 거래가액 평가만(공정가치평가·손상검사 제외), {"all"}이면 전부."""
+                purposes: set[str] | None = None, firm: str | None = None,
+                regimes: set[str] | None = None) -> list[dict]:
+    """평가 행 거르기. purposes=None이면 거래가액 평가만(공정가치평가·손상검사 제외), {"all"}이면 전부.
+
+    regimes: deal.regime 값 집합(예: {"기준시가"}). "none"은 regime이 null인 행."""
     out = []
     for r in rows:
         d = _deal_date(r)
@@ -480,6 +536,8 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
         elif "all" not in purposes and p not in purposes:
             continue
         if firm and firm not in (r.get("firm") or "") and firm not in (r.get("subject") or ""):
+            continue
+        if regimes and (r.get("regime") or "none") not in regimes:
             continue
         out.append(r)
     return out
@@ -661,8 +719,10 @@ def render_markdown(case: dict) -> str:
 
 def _stats_cli(directory: Path, argv: list[str]) -> int:
     """stats <dir> [--from YYYY-MM-DD] [--to YYYY-MM-DD] [--deal-type merger,ipo] [--method DCF] [--purpose 합병가액,…|all] [--firm X]
+    [--regime 기준시가|"공정가액(2026.12.9 개정)"|IPO|none]
 
     거래 단위 통계(JSON): 걸러진 행, deal_stats(WACC·g·멀티플 대표값 분위수, 평가기관별 건수), IPO가 있으면 ipo_stats.
+    regimes: 체계별 거래 수. 기준시가와 공정가액 체계가 섞이면 warning — 합병가액 산정 체계가 달라 한 분포로 보면 안 된다.
     """
     import argparse
 
@@ -673,15 +733,22 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
     ap.add_argument("--method")
     ap.add_argument("--purpose")
     ap.add_argument("--firm")
+    ap.add_argument("--regime")
     a = ap.parse_args(argv)
     split = (lambda s: {x.strip() for x in s.split(",") if x.strip()} if s else None)
     cases = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(directory.glob("*.json"))
              if not p.name.startswith("_")]
     rows = [r for c in cases for r in flatten_case(c)]
     rows = filter_rows(rows, date_from=a.date_from, date_to=a.date_to, deal_types=split(a.deal_type),
-                       methods=split(a.method), purposes=split(a.purpose), firm=a.firm)
+                       methods=split(a.method), purposes=split(a.purpose), firm=a.firm, regimes=split(a.regime))
     kept = {r["rcept_no"] for r in rows}
-    out = {"filters": vars(a), "rows": rows, **deal_stats(rows)}
+    regimes: dict[str, int] = {}
+    for rno in kept:
+        reg = next(r.get("regime") for r in rows if r["rcept_no"] == rno) or "none"
+        regimes[reg] = regimes.get(reg, 0) + 1
+    out = {"filters": vars(a), "regimes": regimes, "rows": rows, **deal_stats(rows)}
+    if {"기준시가", REGIME_FAIR} <= set(regimes):
+        out["warning"] = f"기준시가·{REGIME_FAIR} 체계가 섞였다 — --regime으로 나눠 따로 본다"
     ipo_cases = [c for c in cases if c["rcept_no"] in kept and c["deal"]["type"] == "ipo"]
     if ipo_cases:
         out["ipo"] = ipo_stats(ipo_cases)
@@ -690,13 +757,25 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
 
 
 def _cli(argv: list[str]) -> int:
-    """uv run python -m dart_mcp.valuation validate <case.json> | verify-cites <case.json> [--sample 8] [--seed N]
-    | md <case.json> (같은 이름 .md 생성) | table <dir> | stats <dir> [필터…] (거래 단위 통계)"""
+    """uv run python -m dart_mcp.valuation validate <case.json|dir> | verify-cites <case.json> [--sample 8] [--seed N]
+    | md <case.json> (같은 이름 .md 생성) | table <dir> | stats <dir> [필터…] (거래 단위 통계)
+    validate: errors[]가 있으면 FAIL(종료코드 1), warnings[](분포 밖 값)는 원문 대조용 — 종료코드에 영향 없음."""
     sys.stdout.reconfigure(encoding="utf-8")
     if len(argv) < 2 or argv[0] not in ("validate", "verify-cites", "table", "md", "stats"):
         print(_cli.__doc__)
         return 2
     cmd, target = argv[0], Path(argv[1])
+    if cmd == "validate" and target.is_dir():
+        results = []
+        for p in sorted(target.glob("*.json")):
+            if p.name.startswith("_"):
+                continue
+            c = json.loads(p.read_text(encoding="utf-8"))
+            results.append({"file": p.name, "errors": validate_case(c), "warnings": distribution_warnings(c)})
+        print(json.dumps({"cases": len(results), "failed": sum(bool(r["errors"]) for r in results),
+                          "warned": sum(bool(r["warnings"]) for r in results),
+                          "results": [r for r in results if r["errors"] or r["warnings"]]}, ensure_ascii=False, indent=1))
+        return 1 if any(r["errors"] for r in results) else 0
     if cmd == "stats":
         return _stats_cli(target, argv[2:])
     if cmd == "md":
@@ -711,7 +790,8 @@ def _cli(argv: list[str]) -> int:
     case = json.loads(target.read_text(encoding="utf-8"))
     if cmd == "validate":
         errors = validate_case(case)
-        print(json.dumps({"file": str(target), "valid": not errors, "errors": errors}, ensure_ascii=False, indent=1))
+        print(json.dumps({"file": str(target), "valid": not errors, "errors": errors,
+                          "warnings": distribution_warnings(case)}, ensure_ascii=False, indent=1))
         return 0 if not errors else 1
     sample = int(argv[argv.index("--sample") + 1]) if "--sample" in argv else 8
     seed = int(argv[argv.index("--seed") + 1]) if "--seed" in argv else target.stat().st_size
