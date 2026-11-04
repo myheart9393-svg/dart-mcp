@@ -191,6 +191,9 @@ def group_filings(items: list[dict]) -> list[dict]:
                 "original_rcept_no": originals[0]["rcept_no"] if originals else None,
                 "original_rcept_dt": originals[0]["rcept_dt"] if originals else None,
                 "body_rcept_no": latest(_BODY_PREFIXES),
+                # 본문 후보(꼬리표 없음·기재정정·발행조건확정)가 목록에 없으면 None → scan이 회사별로 넓혀 찾는다(resolve_missing_body)
+                "body_available": True if any(r["prefix_kind"] is None or r["prefix_kind"] in _BODY_PREFIXES
+                                              for r in g) else None,
                 "attachment_rcept_no": latest(("첨부정정", "첨부추가")),
                 "supersedes": [r["rcept_no"] for r in g if r is not head],
                 "related_rcept_nos": [],
@@ -297,6 +300,7 @@ def scan_valuation_disclosures(
                     break
                 page += 1
     deals = group_filings(rows)
+    calls += resolve_missing_body(deals, list_page)
     pair_related(deals)
     if listed_only:
         # 비상장사 공시는 빼되, 비상장 단계에 낸 IPO 신고서는 남긴다(SPAC 상장은 평가가 없어 뺀다)
@@ -304,6 +308,70 @@ def scan_valuation_disclosures(
                  or (d["deal_type"] == "ipo" and not SPAC_RE.search(d["corp_name"] or ""))]
     deals = [d for d in deals if d["deal_type"] in wanted]
     return {"deals": deals, "api_calls": calls, "windows": windows, "scanned": scanned}
+
+
+BODY_LOOKBACK_DAYS = 150
+_DETAIL_BY_FILING = {"주요사항보고서": ("B001",), "증권신고서": ("C001", "C004")}
+
+
+def resolve_missing_body(deals: list[dict], list_page: Callable[..., dict],
+                         lookback_days: int = BODY_LOOKBACK_DAYS) -> int:
+    """목록에 [첨부정정]·[첨부추가]만 있는 거래(body_available None)의 본문 접수번호를 회사별 조회로 되찾는다(제자리 수정).
+
+    첨부정정 ZIP엔 본문이 없어 document.xml이 014를 돌려준다(휴맥스 20261028000235 — retro 2026-11-04 #8).
+    corp_code로 [최신본 접수일 − lookback_days, 최신본 접수일]을 다시 조회해 같은 보고서명의
+    꼬리표 없음·[기재정정]·[발행조건확정] 중 최신을 body_rcept_no로, 가장 이른 원본을 original_rcept_no로 둔다.
+    못 찾으면 [첨부정정]은 body_available=False + hint, [첨부추가]는 None으로 둔다(그 ZIP엔 본문이 있기도 했다 — 알테오젠).
+    반환: 추가 list.json 호출 수.
+    """
+    calls = 0
+    for d in deals:
+        if d.get("body_available") is not None:
+            continue
+        head_dt = _date(d["rcept_dt"])
+        bgn = (head_dt - dt.timedelta(days=lookback_days)).strftime("%Y%m%d")
+        base = classify_valuation_filing(d["report_nm"], d.get("corp_cls"))
+        base_name = base["base_name"] if base else None
+        found: list[dict] = []
+        if d.get("corp_code") and base_name:
+            for detail in _DETAIL_BY_FILING.get(d["filing_type"], ()):
+                page = 1
+                while True:
+                    data = list_page(corp_code=d["corp_code"], bgn_de=bgn, end_de=d["rcept_dt"],
+                                     pblntf_detail_ty=detail, page_no=page, page_count=100)
+                    calls += 1
+                    batch = data.get("list", [])
+                    for it in batch:
+                        c = classify_valuation_filing(it.get("report_nm", ""), it.get("corp_cls"))
+                        if c and c["base_name"] == base_name and (it["rcept_dt"], it["rcept_no"]) <= (d["rcept_dt"], d["rcept_no"]):
+                            found.append({**it, **c})
+                    if not batch or page >= int(data.get("total_page", 1) or 1):
+                        break
+                    page += 1
+        bodies = [r for r in found if r["prefix_kind"] is None or r["prefix_kind"] in _BODY_PREFIXES]
+        if bodies:
+            # 원본이 여럿이면(같은 이름 거래가 반복) 본문 후보 중 최신 직전의 원본부터를 이 거래로 본다
+            body = max(bodies, key=lambda r: (r["rcept_dt"], r["rcept_no"]))
+            origs = [r for r in found if r["prefix_kind"] is None and (r["rcept_dt"], r["rcept_no"]) <= (body["rcept_dt"], body["rcept_no"])]
+            orig = max(origs, key=lambda r: (r["rcept_dt"], r["rcept_no"])) if origs else None
+            d["body_rcept_no"], d["body_available"] = body["rcept_no"], True
+            if orig:
+                d["original_rcept_no"], d["original_rcept_dt"] = orig["rcept_no"], orig["rcept_dt"]
+            start = (orig["rcept_dt"], orig["rcept_no"]) if orig else (body["rcept_dt"], body["rcept_no"])
+            extra = [r["rcept_no"] for r in sorted(found, key=lambda r: (r["rcept_dt"], r["rcept_no"]))
+                     if (r["rcept_dt"], r["rcept_no"]) >= start and r["rcept_no"] != d["rcept_no"]
+                     and r["rcept_no"] not in d["supersedes"]]
+            d["supersedes"] = extra + d["supersedes"]
+            d["notes"].append(f"본문은 회사별 조회({bgn}–{d['rcept_dt']})로 찾은 {body['rcept_no']}"
+                              f"({body['prefix'] or '원본'}) — 조회 구간엔 첨부정정·첨부추가만 있었음")
+        elif d["correction_kind"] == "첨부정정" or all(r["prefix_kind"] == "첨부정정" for r in found):
+            d["body_available"] = False
+            d["hint"] = (f"[첨부정정] ZIP엔 본문이 없음(document.xml 014). 회사별로 {lookback_days}일 전({bgn})까지 넓혀도 "
+                         "원본·기재정정이 없음 → search_disclosures(corp_code, 더 이른 bgn_de)로 원본을 찾으면 그 접수번호를 "
+                         "original_rcept_no로 읽으세요")
+        else:
+            d["hint"] = (f"[첨부추가]만 있음: 그 ZIP에 본문이 있을 수 있다(알테오젠 실측). {lookback_days}일 전까지 원본·기재정정 없음")
+    return calls
 
 
 def industry_match(code: str | None, token: str) -> bool:
@@ -663,6 +731,47 @@ def d_over_e(dcf: dict) -> float | None:
     return dv / (100 - dv) * 100 if dv is not None and dv < 100 else None
 
 
+_ROLE_PAREN = re.compile(r"\([^)]*(?:주관|선임|자문|평가|회사)[^)]*\)")
+_CORP_MARK = re.compile(r"㈜|\(주\)|주식회사|\(유\)|유한회사")
+_FIRM_SPLIT = re.compile(r"\s*(?:[·,/]|\s및\s|\s와\s|\s과\s)\s*")
+_FIRM_SUFFIX = re.compile(r"(?:회계법인|감정평가법인|증권)$")
+
+
+def firm_names(subject: str | None) -> list[str]:
+    """원소 subject → 기관 이름 목록. 역할 괄호("(대표주관회사)")·법인 표지(㈜)를 떼고 ·/,/및 으로 나눈다.
+
+    공동주관 IPO처럼 한 평가를 여러 기관이 함께 낸 원소는 나누지 않고(같은 값이 기관 수만큼 늘어난다) 이름만 여럿 둔다.
+    """
+    if not subject:
+        return []
+    t = _CORP_MARK.sub("", _ROLE_PAREN.sub("", subject))
+    out = []
+    for part in _FIRM_SPLIT.split(t):
+        name = re.sub(r"\s+", "", part)
+        if name and name not in out:
+            out.append(name)
+    return out
+
+
+def firm_key(name: str | None) -> str:
+    """기관 이름 정리: 법인 표지·공백을 뗀다. "한국투자증권㈜" → "한국투자증권"."""
+    return re.sub(r"\s+", "", _CORP_MARK.sub("", name or ""))
+
+
+def firm_match(query: str, names: list[str]) -> bool:
+    """--firm 일치: 정리한 이름이 같거나, 질의에 기관 종류 꼬리(회계법인·증권 등)가 없으면 꼬리를 뗀 이름이 같을 때.
+    "이촌" → 이촌회계법인·이촌증권 둘 다, "이촌회계법인" → 그것만, "NH"·"NH투자" → NH투자증권. 부분 문자열("정")로는 걸리지 않는다."""
+    q = firm_key(query)
+    if not q:
+        return False
+    for n in names:
+        k = firm_key(n)
+        stems = {_FIRM_SUFFIX.sub("", k), re.sub(r"투자증권$", "", k)} - {""}
+        if q == k or (not _FIRM_SUFFIX.search(q) and q in stems):
+            return True
+    return False
+
+
 def flatten_case(case: dict) -> list[dict]:
     """사례 JSON → 평가 주체·대상별 한 행씩(조회 표용). 숫자는 value만."""
     def v(x: Any) -> Any:
@@ -682,8 +791,12 @@ def flatten_case(case: dict) -> list[dict]:
         dcf = val.get("dcf") or {}
         rel = val.get("relative") or {}
         res = val.get("result") or {}
+        names = firm_names(val.get("subject"))
         rows.append({
             **base, "subject": val.get("subject"), "target": val.get("target"), "role": val.get("role"),
+            "firms": names,
+            # 외부평가 원소의 평가기관 열은 그 원소의 기관 — 사례 문구(external_valuation.firm)에 기관이 둘이면 섞인다(B8 알에프텍)
+            **({"firm": ", ".join(names) or base["firm"]} if val.get("role") == "외부평가" else {}),
             "purpose": val.get("purpose"),
             "method": val.get("method"), "wacc": v(dcf.get("wacc")), "g": v(dcf.get("g")),
             **{k: v(dcf.get(src)) for k, src in DCF_VARS.items() if k not in ("wacc", "g")},
@@ -751,7 +864,8 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
                 continue
         elif "all" not in purposes and p not in purposes:
             continue
-        if firm and (firm not in (r.get("subject") or "") or (firm_role != "any" and r.get("role") != firm_role)):
+        if firm and (not firm_match(firm, r.get("firms") or firm_names(r.get("subject")))
+                     or (firm_role != "any" and r.get("role") != firm_role)):
             continue
         st = r.get("status") or "none"
         if (statuses and st not in statuses) or (exclude_statuses and st in exclude_statuses):
@@ -803,6 +917,51 @@ def deal_stats(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS, "mult
         names = sorted({r["subject"] for r in rs if r.get("role") == "외부평가" and r.get("subject")}) or ["(외부평가 없음)"]
         for f in names:
             out["firms"][f] = out["firms"].get(f, 0) + 1
+    return out
+
+
+STAT_SMALL_N = 10   # 이 미만이면 "통계적 의미 제한"
+STAT_TINY_N = 5     # 이 미만이면 "표본 부족"
+
+
+def sample_warnings(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS,)) -> list[str]:
+    """걸러진 행(flatten_case) → 표본 해석 경고. stats·compare·export가 같은 문구를 낸다(retro 2026-11-04 C9).
+
+    ① 거래 n<5 "표본 부족", n<10 "통계적 의미 제한" ② SPAC 거래 > 50% "SPAC 쏠림(비SPAC만 n건)"
+    ③ 변수별 거래 대표값의 q1 = q3 "분포 정보 없음" ④ 철회·중단·진행 거래 수 ⑤ 체계(regime) 혼재.
+    """
+    by_deal: dict[str, dict] = {}
+    for r in rows:
+        by_deal.setdefault(r["rcept_no"], r)
+    n = len(by_deal)
+    out: list[str] = []
+    if n < STAT_TINY_N:
+        out.append(f"표본 부족: 거래 {n}건({STAT_TINY_N}건 미만) — 분포·백분위를 결론에 쓰지 않는다")
+    elif n < STAT_SMALL_N:
+        out.append(f"통계적 의미 제한: 거래 {n}건({STAT_SMALL_N}건 미만)")
+    if n:
+        spac = sum(1 for r in by_deal.values() if r.get("spac") is True)
+        if spac * 2 > n:
+            out.append(f"SPAC 쏠림: 거래 {n}건 중 SPAC {spac}건(비SPAC만 {n - spac}건) — --spac false로 따로 본다")
+    for var in variables:
+        vals: dict[str, list] = {}
+        for r in rows:
+            if r.get(var) is not None:
+                vals.setdefault(r["rcept_no"], []).append((r.get("role"), float(r[var])))
+        reps = [representative(v) for v in vals.values()]
+        if len(reps) >= 2:
+            q = _quantiles(reps)
+            if q["q1"] == q["q3"]:
+                out.append(f"분포 정보 없음: {var} 사분위 q1=q3={q['q1']:g} (거래 {len(reps)}건)")
+    st: dict[str, int] = {}
+    for r in by_deal.values():
+        st[r.get("status") or "none"] = st.get(r.get("status") or "none", 0) + 1
+    odd = [f"{k} {st[k]}건" for k in ("철회·중단", "진행") if st.get(k)]
+    if odd:
+        out.append(f"{'·'.join(odd)} 포함(거래 {n}건 중) — 확정 거래만 보려면 --exclude-status")
+    regimes = sorted({r.get("regime") for r in by_deal.values() if r.get("regime") not in (None, "none")})
+    if len(regimes) > 1:
+        out.append(f"체계 혼재: {', '.join(regimes)} — --regime으로 나눠 본다")
     return out
 
 
@@ -1060,7 +1219,7 @@ def add_filter_args(ap: Any) -> None:
     ap.add_argument("--deal-type")
     ap.add_argument("--method")
     ap.add_argument("--purpose")
-    ap.add_argument("--firm", help="그 기관이 subject인 원소만")
+    ap.add_argument("--firm", help="그 기관이 subject인 원소만(기관 이름 정확 일치: 이촌 = 이촌회계법인, 부분 문자열은 안 됨)")
     ap.add_argument("--as", dest="firm_role", default="외부평가", choices=["외부평가", "재무자문", "any"])
     ap.add_argument("--regime")
     ap.add_argument("--industry")
@@ -1107,7 +1266,7 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
         industries[ind] = industries.get(ind, 0) + 1
         statuses[st] = statuses.get(st, 0) + 1
         spacs[_spac_key(first.get("spac"))] = spacs.get(_spac_key(first.get("spac")), 0) + 1
-    out = {"filters": vars(a), "regimes": regimes, "statuses": statuses, "spac": spacs,
+    out = {"warnings": sample_warnings(rows), "filters": vars(a), "regimes": regimes, "statuses": statuses, "spac": spacs,
            "industries": dict(sorted(industries.items(), key=lambda x: -x[1])),
            "rows": rows, **deal_stats(rows)}
     if {"기준시가", REGIME_FAIR} <= set(regimes):

@@ -28,6 +28,7 @@ from .financials import (
     KEY_ACCOUNTS,
     NO_DATA_STATUS,
     INTERIM_PERIOD_TYPES,
+    interim_periods,
     OPTIONAL_ACCOUNTS,
     REPRT_CODES,
     STATEMENTS,
@@ -76,7 +77,17 @@ def _safe(fn: Callable[..., Any]) -> Callable[..., Any]:
             return fn(*args, **kwargs)
         except Exception as exc:  # noqa: BLE001
             log.exception("tool %s failed", fn.__name__)
-            return {"error": f"{type(exc).__name__}: {exc}"}
+            out = {"error": f"{type(exc).__name__}: {exc}"}
+            r = str(args[0] if args else kwargs.get("rcept_no", "")).strip()
+            if isinstance(exc, DartApiError) and exc.status == "014" and r:
+                # 첨부정정 ZIP은 파일이 없다(014). 앞서 본 정정 그룹이면 본문 접수번호를 알려 준다
+                body = _body_hint.get(r)
+                out["hint"] = (f"[첨부정정] ZIP일 수 있음. 본문은 {body}에 있음: get_disclosure_outline({body!r})"
+                               if body and body != r else
+                               "[첨부정정] 공시는 ZIP에 본문이 없을 수 있음(014) → search_valuation_disclosures·get_latest_reports가 준 "
+                               "body_rcept_no 또는 original_rcept_no로 읽으세요. 모르면 search_disclosures(corp_code, 더 이른 bgn_de)로 "
+                               "원본(꼬리표 없음)·[기재정정]본을 찾는다")
+            return out
 
     return wrapper
 
@@ -445,7 +456,10 @@ def search_valuation_disclosures(
     결과: deals[] 각 항목 = 한 거래(원본과 정정본을 묶음):
       rcept_no(최신 접수본), report_nm, rcept_dt, corp_code, corp_name, market, filing_type("주요사항보고서"|"증권신고서"),
       deal_type, deal_label, source_grade, correction_kind, original_rcept_no, body_rcept_no(본문 읽을 접수번호),
-      attachment_rcept_no, supersedes[], related_rcept_nos[](같은 회사·같은 거래의 B↔C 짝), notes[].
+      attachment_rcept_no, supersedes[], related_rcept_nos[](같은 회사·같은 거래의 B↔C 짝), notes[],
+      body_available(true | false | null), hint.
+      목록에 [첨부정정]·[첨부추가]만 있으면(원본이 구간 밖) 회사별로 150일 전까지 다시 조회해 원본·[기재정정]을 body_rcept_no로 둔다.
+      그래도 없으면 [첨부정정]은 body_available=false + hint(그 ZIP엔 본문이 없다 — outline이 014), [첨부추가]는 null.
       source_grade: "full" = 증권신고서(평가 가정이 본문에 있다), "summary" = 주요사항보고서(API ZIP에 평가의견서 첨부가
       없어 본문의 "외부평가에 관한 사항" 5행과 결론만 있다). summary 건은 related_rcept_nos의 증권신고서가 있으면 그쪽을 읽는다.
     다음: body_rcept_no로 get_disclosure_outline → (full) find_tables로 요약표·WACC·민감도 표를 바로 꺼낸다.
@@ -459,6 +473,10 @@ def search_valuation_disclosures(
     res = scan_valuation_disclosures(_list_page, bgn_de, end_de, kinds=kinds, corp_code=corp_code,
                                      listed_only=listed_only)
     deals = res["deals"]
+    for d in deals:
+        if d.get("body_available") and d["body_rcept_no"] != d["rcept_no"]:
+            for r in [d["rcept_no"], *d["supersedes"]]:
+                _body_hint.setdefault(r, d["body_rcept_no"])
     offset = max(0, int(offset))
     max_results = max(1, int(max_results))
     page = deals[offset: offset + max_results]
@@ -468,7 +486,7 @@ def search_valuation_disclosures(
         counts[f"{d['deal_label']}/{d['source_grade']}"] = counts.get(f"{d['deal_label']}/{d['source_grade']}", 0) + 1
     return {
         "bgn_de": bgn_de, "end_de": end_de, "windows": res["windows"], "api_pages": res["api_calls"],
-        "total": len(deals), "counts": counts, "returned": len(page), "offset": offset,
+        "total": len(deals), "counts": counts, "body_unavailable": sum(1 for d in deals if d.get("body_available") is False), "returned": len(page), "offset": offset,
         "has_more": more, "next_offset": offset + max_results if more else None, "deals": page,
     }
 
@@ -623,6 +641,8 @@ def get_key_financials(
     결과 (period_type="annual"):
       - years [당기, 전기, 전전기], periods [{year, name("제56기"), range, range_source}] 결산기 라벨.
         API에는 기간 날짜가 없어 range는 기업개황 결산월(acc_mt)로 추정한 값일 수 있다(range_source 참고).
+      - acc_mt(결산월), column_labels{연도: "FY2025(결산 11월)·별도"} — 회사 비교표 열 머리에 그대로 쓴다
+        (fs_div나 결산월이 회사마다 다르면 표 위에 경고: financials.comparison_header).
       - accounts{key: {label, values{연도: 원}, matched}}, ratios{key: {label, values{연도: %}, formula}}
         ratios: 영업이익률, 순이익률, 부채비율, 자기자본비율(기말 잔액), ROE, ROA(평균잔액 (기초+기말)/2,
         전전기는 기초가 없어 기말 기준 — denominator_basis). ROE·ROA는 지배주주 계정(net_income_parent,
@@ -643,7 +663,8 @@ def get_key_financials(
       sector: {sector, induty_code, reason}. 업종은 기업개황 induty_code(KSIC)로 판단한다.
     금융업(sector="financial": 은행·보험·증권·금융지주)이면 warning이 붙는다. 이때 revenue와 영업이익률·순이익률은
       not_applicable/None이고, financial_accounts에 순이자이익·순수수료이익·보험수익·신용손실충당금전입이 온다
-      (못 찾은 것은 financial_missing). 금융사를 일반 기업과 같은 표에서 비교하지 않는다.
+      (못 찾은 것은 financial_missing). 순이자이익·순수수료이익 소계 행이 없고 수익·비용 행이 둘 다 있으면 차이로 계산해
+      derived=true·formula를 붙인다(보고서에 "(계산)" 표기). 한쪽이라도 없으면 null. 금융사를 일반 기업과 같은 표에서 비교하지 않는다.
     출처 표기: 보고서에는 (rcept_no, 재무API) 형태로 적는다.
     """
     corp_code, bsns_year, reprt_code, fs_div = _check_fin_args(corp_code, bsns_year, reprt_code, fs_div)
@@ -678,7 +699,13 @@ def get_key_financials(
         "current": f"{bsns_year} {REPRT_CODES[reprt_code]} 기간 ({span}) / BS는 당기말",
         "prior": f"{prev} 동기 ({span}) / BS는 {prev} 사업연도말",
     }
-    return {**base, "rcept_no": data.get("rcept_no"), "column_labels": labels, **extra,
+    acc_mt = (company or {}).get("acc_mt")
+    periods = interim_periods(bsns_year, reprt_code, period_type, acc_mt)
+    if acc_mt and str(acc_mt).strip() not in ("12", ""):
+        # 비12월 결산: 열 라벨을 실제 기간으로(사람이 누적 기간을 계산하지 않게)
+        labels = {"current": f"{periods['current']['range']} ({span}) / BS는 {periods['current']['bs_date']}",
+                  "prior": f"{periods['prior']['range']} ({span}) / BS는 {periods['prior']['bs_date']}"}
+    return {**base, "rcept_no": data.get("rcept_no"), "column_labels": labels, "acc_mt": acc_mt, "periods": periods, **extra,
             **summarize_interim_financials(data["list"], reprt_code, period_type, sector["sector"])}
 
 

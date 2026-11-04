@@ -1,6 +1,28 @@
 # Changelog
 
-## 미배포 (v1.6.2 예정)
+## v1.6.2 (2026-11-04)
+
+회고 점검(`reports/_retro/retro_2026-11-04.md`) 정확성 수정. 서버 코드가 바뀌었으니 MCP 재연결이 필요하다.
+
+- **본문 없는 [첨부정정] ZIP (B1)**: `search_valuation_disclosures`·`batch plan`에서 목록에 [첨부정정]·[첨부추가]만 있는 거래는
+  corp_code로 150일 전까지 다시 조회해 원본·마지막 [기재정정]을 `body_rcept_no`로 되돌린다(`original_rcept_no`·`supersedes`도 채움).
+  못 찾으면 `body_available=false`+`hint`, batch plan은 `skip:no_body`. 014 오류 응답에도 hint(본문 접수번호 또는 original_rcept_no 안내).
+  2026-10-27–11-03 재현 5건(휴맥스·아이윈·애경케미칼·에이루트·APS) 모두 원본으로 복원.
+- **표본 경고**: `valuation stats`·`casedb compare`·`casedb export` JSON 맨 앞 `warnings[]` — n<5 "표본 부족", n<10 "통계적 의미 제한",
+  SPAC 비중 >50% "SPAC 쏠림(비SPAC만 n건)", 사분위 동일 "분포 정보 없음", 철회·중단·진행 포함 수, 체계 혼재, 최근접 선례의 SPAC 과반.
+  compare: `nearest_table`(SPAC·상태 열), `filters`의 n → `nearest_n`, `--help`가 도움말 출력 (B6).
+- **기관 필터 (B8)**: `--firm`은 부분 문자열이 아니라 기관 이름 일치(`firm_match`: 법인 표지·역할 괄호를 떼고, 꼬리 없는 질의는
+  회계법인·증권·투자증권 꼬리를 뗀 이름과 비교). 행에 `firms[]`, 외부평가 원소의 `firm` 열은 그 원소의 기관(알에프텍 이촌·정동 혼입 해소).
+- **비교 열 머리**: `get_key_financials` 연간 응답에 `acc_mt`·`column_labels`("FY2025(결산 11월)·별도"),
+  `financials.comparison_header`가 연결·별도 혼재, 결산월 다름, ROE 기준 다름 경고. 분기·반기 응답에 `periods`(결산월로 계산한 실제 누적 기간,
+  비12월 결산은 column_labels도 실제 기간). /dart-compare 문서 반영.
+- **금융업 (B3)**: 순이자이익·순수수료이익 소계 행이 없고 수익·비용 행이 둘 다 있으면 수익 − |비용|, `derived=true`·`formula`. 한쪽이 없으면 null.
+- **total_chars (B2)**: 상위 섹션이 하위 글자를 포함해 2배 넘게 셌다 → 최상위 섹션 합(`cache.top_level_chars`), 예전 캐시도 읽을 때 다시 셈.
+- **리뷰**: /dart-review에 "f. 계정 분류·단위 해석 3건"(유동/비유동·자산/부채·천원/백만원·"원문 미확인" 사실 확인),
+  /dart-analyze에 같은 회사 보고서끼리 숫자 교차 확인(선택 단계).
+- 데이터: 아델 20261027000312 notes(rNPV WACC 8.5%, 리뷰 FAIL 반영).
+
+이전 미배포 분(v1.6.2에 포함):
 
 - **거래 단위 상대가치 구분** `relative_value.kind` = 산정 / 산정하지 않음 / 기재 생략. 기존 47건 이관: 산정하지 않음 36(규칙 분류 25 + 보강 11),
   기재 생략 11(규칙 분류 중 "자산가치 및 수익가치, 상대가치 등은 별도로 기재하지 않았습니다" — 11건 모두 상장사 간 기준주가 합병, 시행령 176조의5 ①1. 사유도 원문대로 고침).

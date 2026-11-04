@@ -79,6 +79,12 @@ class CachedDisclosure:
         return None
 
 
+def top_level_chars(sections) -> int:
+    """파일 글자 수 = 최상위 섹션(id에 "."이 없는 것) char_count 합. 상위 섹션 text가 하위 섹션을 포함하므로
+    전부 더하면 2배 이상이 된다(동양파일 사업보고서 206,745 vs 98,518 — retro 2026-11-04 B2)."""
+    return sum(s.char_count for s in sections if "." not in s.id)
+
+
 class DisclosureCache:
     def __init__(self, data_dir: Path | None = None):
         self.data_dir = Path(data_dir) if data_dir else default_data_dir()
@@ -138,7 +144,7 @@ class DisclosureCache:
             file_id = file_id_of(safe_name, rcept_no)
             warnings: list[str] = []
             sections = build_outline(data, parse_warnings=warnings, main=file_id == "main")
-            total = sum(s.char_count for s in sections)
+            total = top_level_chars(sections)
             disc.files.append(CachedFile(file_id, safe_name, enc, total, sections, warnings))
 
         # main 먼저, 첨부는 file_id 순
@@ -180,6 +186,7 @@ class DisclosureCache:
         for f in outline["files"]:
             raw = json.loads(self._sections_path(rcept_no, f["file_id"]).read_text(encoding="utf-8"))
             sections = [Section(**s) for s in raw]
-            disc.files.append(CachedFile(f["file_id"], f["filename"], f["encoding"], f["total_chars"], sections,
+            # 예전 캐시는 하위 섹션까지 더한 값(중복 합산)이 저장돼 있다 → 저장값 대신 다시 센다
+            disc.files.append(CachedFile(f["file_id"], f["filename"], f["encoding"], top_level_chars(sections), sections,
                                          f.get("parse_warnings", [])))
         return disc

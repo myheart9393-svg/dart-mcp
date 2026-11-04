@@ -93,3 +93,28 @@ def test_load_company_caches_and_survives_failure(tmp_path):
             raise RuntimeError("network down")
 
     assert load_company(Broken, "00000001", tmp_path) is None
+
+
+# 카카오뱅크(별도, 2025): 순이자손익·순수수료손익 소계 행이 없고 수익·비용 행만 있다 (retro 2026-11-04 B3)
+KAKAOBANK = [
+    row("BS", "자산총계", "70000000000000", "ifrs-full_Assets"),
+    row("BS", "부채총계", "63000000000000", "ifrs-full_Liabilities"),
+    row("BS", "자본총계", "7000000000000", "ifrs-full_Equity"),
+    row("CIS", "1. 이자수익", "2456860000000", "ifrs-full_RevenueFromInterest"),
+    row("CIS", "1. 이자비용", "1138216000000", "ifrs-full_InterestExpense"),
+    row("CIS", "2. 수수료수익", "310459000000", "ifrs-full_FeeAndCommissionIncome"),
+    row("CIS", "당기순이익", "450000000000", "ifrs-full_ProfitLoss"),
+]
+
+
+def test_net_interest_derived_from_income_and_expense_rows():
+    fin = summarize_key_financials(KAKAOBANK, "2025", sector="financial")["financial_accounts"]
+    nii = fin["net_interest_income"]
+    assert nii["values"]["2025"] == 2456860000000 - 1138216000000
+    assert nii["derived"] is True and "이자수익" in nii["formula"] and "이자비용" in nii["formula"]
+    # 수수료비용 행이 없으면 순수수료이익은 null(계산하지 않음)
+    fee = fin["net_fee_income"]
+    assert fee["values"]["2025"] is None and fee["matched"] is None and not fee.get("derived")
+    # 소계 행이 있으면 그 행을 쓰고 derived는 없다
+    bank = summarize_key_financials(BANK, "2025", sector="financial")["financial_accounts"]
+    assert bank["net_interest_income"]["values"]["2025"] == 13073093000000 and not bank["net_interest_income"].get("derived")

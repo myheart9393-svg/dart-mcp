@@ -226,3 +226,54 @@ def test_capex_new_name_variants_match():
     for nm in ("유형자산의 증가", "설비자산의 취득", "유형자산취득액"):
         out = summarize_key_financials([row("CF", nm, "-30")], "2025")
         assert out["accounts"]["capex"]["values"]["2025"] == -30 and out["assumed_zero"] == []
+
+
+# --------------------------------------------------------------------------- 비교 열 머리 (retro 2026-11-04 동국제약·현대약품)
+def test_column_labels_carry_fs_div_and_fiscal_month():
+    items = bs_pl(("1", "1", "1"), ("1", "1", "1"))
+    nov = summarize_key_financials(items, "2025", fs_div="OFS", acc_mt="11")
+    assert nov["acc_mt"] == "11" and nov["column_labels"]["2025"] == "FY2025(결산 11월)·별도"
+    dec = summarize_key_financials(items, "2025", fs_div="CFS", acc_mt="12")
+    assert dec["column_labels"]["2024"] == "FY2024·연결"
+
+
+def test_comparison_header_warns_mixed_fs_div_and_fiscal_month():
+    from dart_mcp.financials import comparison_header
+
+    items = bs_pl(("1", "1", "1"), ("1", "1", "1"))
+    a = {"corp_name": "동국제약", "fs_div": "CFS", **summarize_key_financials(items, "2025", fs_div="CFS", acc_mt="12")}
+    b = {"corp_name": "현대약품", "fs_div": "OFS", **summarize_key_financials(items, "2025", fs_div="OFS", acc_mt="11")}
+    h = comparison_header([a, b], "2025")
+    assert h["columns"] == ["동국제약 FY2025·연결", "현대약품 FY2025(결산 11월)·별도"]
+    text = " ".join(h["warnings"])
+    assert "연결·별도 혼재" in text and "현대약품=별도" in text
+    assert "결산월 다름" in text and "11월" in text and "같은 열" in text
+    same = comparison_header([a, {**a, "corp_name": "갑"}], "2025")
+    assert same["warnings"] == []
+
+
+# --------------------------------------------------------------------------- 분기·반기 기간 (retro 2026-11-04 현대약품 11월 결산)
+def test_interim_periods_range_non_december():
+    from dart_mcp.financials import interim_periods
+
+    q3 = interim_periods("2026", "11014", "cumulative", "11")  # 현대약품 3분기 누적
+    assert q3["current"] == {"range": "2025.12.01~2026.08.31", "bs_date": "2026.08.31"}
+    assert q3["prior"] == {"range": "2024.12.01~2025.08.31", "bs_date": "2025.11.30"}
+    q = interim_periods("2026", "11014", "quarter", "11")
+    assert q["current"]["range"] == "2026.06.01~2026.08.31" and q["prior"]["range"] == "2025.06.01~2025.08.31"
+    dec = interim_periods("2026", "11012", "cumulative", "12")
+    assert dec["current"]["range"] == "2026.01.01~2026.06.30" and dec["prior"]["bs_date"] == "2025.12.31"
+    mar = interim_periods("2026", "11013", "cumulative", "03")  # 3월 결산 1분기: 2025.04–2025.06
+    assert mar["current"]["range"] == "2025.04.01~2025.06.30"
+    assert interim_periods("2026", "11013", "cumulative", None)["current"]["range"] == "2026.01.01~2026.03.31"
+
+
+def test_comparison_header_warns_roe_basis_mix():
+    from dart_mcp.financials import comparison_header
+
+    items = bs_pl(("1", "1", "1"), ("1", "1", "1"))
+    a = {"corp_name": "갑", "fs_div": "CFS", **summarize_key_financials(items, "2025", fs_div="CFS", acc_mt="12")}
+    a["ratios"]["roe"]["basis"] = "지배주주 기준"
+    b = {"corp_name": "을", "fs_div": "OFS", **summarize_key_financials(items, "2025", fs_div="OFS", acc_mt="12")}
+    h = comparison_header([a, b], "2025")
+    assert any("ROE 기준 다름" in w and "갑=지배주주 기준" in w and "을=별도 재무제표 기준" in w for w in h["warnings"])

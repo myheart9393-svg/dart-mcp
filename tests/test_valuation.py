@@ -510,3 +510,169 @@ def test_relative_kind_stats_export_and_validate():
     assert deal_stats(rows)["relative_kind"] == {"산정하지 않음": 1, "기재 생략": 2}
     assert [x["상대가치(거래)"] for x in export_rows(cs)] == ["산정하지 않음", "기재 생략", "기재 생략"]
     assert relative_kind_errors(cs[0]) == [] and relative_kind_errors(case("D", "산정", applied=False))
+
+
+# --------------------------------------------------------------------------- 본문 없는 정정 ZIP (retro 2026-11-04 #8)
+def _lp(rows_by_detail, calls):
+    def list_page(**p):
+        calls.append(p)
+        rows = [r for r in rows_by_detail.get(p["pblntf_detail_ty"], [])
+                if (not p.get("corp_code") or r["corp_code"] == p["corp_code"]) and p["bgn_de"] <= r["rcept_dt"] <= p["end_de"]]
+        return {"total_page": 1, "list": rows}
+    return list_page
+
+
+def _lr(rcept_no, report_nm, rcept_dt, corp="00100001", name="휴맥스", cls="K"):
+    return {"rcept_no": rcept_no, "report_nm": report_nm, "rcept_dt": rcept_dt, "corp_code": corp,
+            "corp_name": name, "corp_cls": cls, "flr_nm": name}
+
+
+def test_attachment_only_correction_resolves_body_from_wider_corp_search():
+    # 조회 구간(1027–1103)엔 [첨부정정]만, 원본·기재정정은 구간 밖(8월·9월)
+    b001 = [_lr("20260801000100", "주요사항보고서(회사분할결정)", "20260801"),
+            _lr("20260915000200", "[기재정정]주요사항보고서(회사분할결정)", "20260915"),
+            _lr("20261028000235", "[첨부정정]주요사항보고서(회사분할결정)", "20261028")]
+    calls = []
+    res = scan_valuation_disclosures(_lp({"B001": b001}, calls), "20261027", "20261103")
+    d = next(x for x in res["deals"] if x["rcept_no"] == "20261028000235")
+    assert d["body_rcept_no"] == "20260915000200"  # 마지막 기재정정
+    assert d["original_rcept_no"] == "20260801000100"
+    assert d["body_available"] is True
+    assert {"20260801000100", "20260915000200"} <= set(d["supersedes"])
+    wide = [p for p in calls if p.get("corp_code") == "00100001"]
+    assert wide and wide[0]["bgn_de"] == "20260531" and wide[0]["end_de"] == "20261028"  # 150일 전부터
+    assert res["api_calls"] == len(calls)
+
+
+def test_attachment_only_correction_not_found_sets_body_unavailable_and_hint():
+    b001 = [_lr("20261028000235", "[첨부정정]주요사항보고서(회사분할결정)", "20261028")]
+    res = scan_valuation_disclosures(_lp({"B001": b001}, []), "20261027", "20261103")
+    d = res["deals"][0]
+    assert d["body_available"] is False and "150" in d["hint"] and "original_rcept_no로 읽으세요" in d["hint"]
+    assert d["body_rcept_no"] == "20261028000235"
+
+
+def test_regular_deal_body_available_true_without_extra_calls():
+    b001 = [_lr("20261029000001", "주요사항보고서(회사합병결정)", "20261029")]
+    calls = []
+    res = scan_valuation_disclosures(_lp({"B001": b001}, calls), "20261027", "20261103")
+    assert res["deals"][0]["body_available"] is True
+    assert not [p for p in calls if p.get("corp_code")]
+
+
+def test_batch_plan_skips_no_body(monkeypatch, tmp_path):
+    from dart_mcp import batch, server
+    deal = {"rcept_no": "20261028000235", "body_rcept_no": "20261028000235", "original_rcept_no": None,
+            "report_nm": "[첨부정정]주요사항보고서(회사분할결정)", "rcept_dt": "20261028", "original_rcept_dt": None,
+            "corp_code": "00100001", "corp_name": "휴맥스", "corp_cls": "K", "market": "코스닥",
+            "filing_type": "주요사항보고서", "deal_type": "split", "deal_label": "분할", "source_grade": "summary",
+            "supersedes": [], "related_rcept_nos": [], "body_available": False, "hint": "h"}
+    monkeypatch.setattr(server, "search_valuation_disclosures",
+                        lambda *a, **k: {"deals": [deal], "total": 1, "api_pages": 1})
+    st = batch.plan("20261027", "20261103", grade="summary", case_dir=tmp_path)
+    assert st["items"][0]["status"] == "skip" and st["items"][0]["reason"] == "no_body"
+
+
+def test_014_error_carries_body_hint(monkeypatch):
+    from dart_mcp import server
+    from dart_mcp.client import DartApiError
+
+    def boom(r):
+        raise DartApiError("014", "파일이 존재하지 않습니다.")
+    monkeypatch.setattr(server, "_load", boom)
+    monkeypatch.setitem(server._body_hint, "20261028000235", "20261022000424")
+    out = server.get_disclosure_outline("20261028000235")
+    assert "014" in out["error"] and "20261022000424" in out["hint"]
+    out2 = server.get_disclosure_outline("20261028000999")
+    assert "첨부정정" in out2["hint"] and "original_rcept_no로 읽으세요" in out2["hint"]
+
+
+# --------------------------------------------------------------------------- 표본 경고 (retro 2026-11-04 C9·시나리오 1)
+def _wrow(k, wacc, g, spac=False, status="완료", regime="기준시가"):
+    return {"rcept_no": k, "role": "외부평가", "subject": "이촌", "wacc": wacc, "g": g, "company": k,
+            "spac": spac, "status": status, "regime": regime, "industry": "C"}
+
+
+def test_sample_warnings_small_n_spac_flat_quartile_status_regime():
+    from dart_mcp.valuation import sample_warnings
+
+    rows = [_wrow("A", 10, 1.0, spac=True), _wrow("B", 11, 1.0, spac=True, status="진행"),
+            _wrow("C", 12, 1.0, spac=True, status="철회·중단", regime="공정가액(2026.12.9 개정)"), _wrow("D", 13, 1.0)]
+    w = sample_warnings(rows, ("wacc", "g"))
+    text = " | ".join(w)
+    assert "표본 부족" in text and "4건" in text
+    assert "SPAC 쏠림" in text and "비SPAC만 1건" in text
+    assert "분포 정보 없음" in text and "g" in text and "wacc" not in text.split("분포 정보 없음")[1].split("|")[0]
+    assert "철회·중단 1건" in text and "진행 1건" in text
+    assert "체계 혼재" in text
+    many = [_wrow(str(i), 10 + i, 0.5 * i) for i in range(7)]
+    w2 = sample_warnings(many, ("wacc", "g"))
+    assert any(x.startswith("통계적 의미 제한") for x in w2) and not any("표본 부족" in x for x in w2)
+    assert not any("SPAC" in x or "분포 정보 없음" in x or "혼재" in x or "철회" in x for x in w2)
+    assert sample_warnings([_wrow(str(i), 10 + i, 0.1 * i) for i in range(12)], ("wacc",)) == []
+
+
+def test_compare_and_stats_cli_emit_warnings(tmp_path, capsys):
+    import json as _json
+    from dart_mcp import casedb, valuation
+    from dart_mcp.casedb import compare
+
+    rows = [_wrow("A", 10, 1.0, spac=True), _wrow("B", 11, 1.0, spac=True), _wrow("C", 14, 1.0)]
+    out = compare(rows, {"wacc": 11.2, "g": 1.0}, n=2)
+    assert any("SPAC 쏠림" in x for x in out["warnings"]) and any("통계적 의미" in x or "표본 부족" in x for x in out["warnings"])
+    assert "| SPAC | 상태 |" in out["nearest_table"]
+    # stats·compare·export CLI는 JSON 맨 앞에 warnings를 둔다
+    case = copy.deepcopy(MIN_CASE)
+    (tmp_path / "20261014000077.json").write_text(_json.dumps(case, ensure_ascii=False), encoding="utf-8")
+    valuation._stats_cli(tmp_path, [])
+    s = _json.loads(capsys.readouterr().out)
+    assert list(s)[0] == "warnings" and any("표본 부족" in x for x in s["warnings"])
+    casedb._cli(["compare", str(tmp_path), "--wacc", "8"])
+    c = _json.loads(capsys.readouterr().out)
+    assert list(c)[0] == "warnings" and "n" not in c["filters"]
+    casedb._cli(["export", str(tmp_path), "--csv", str(tmp_path / "x.csv")])
+    e = _json.loads(capsys.readouterr().out)
+    assert any("표본 부족" in x for x in e["warnings"])
+
+
+def test_compare_warns_when_nearest_are_mostly_spac():
+    from dart_mcp.casedb import compare
+
+    rows = [_wrow(str(i), 8 + i, 0.2 * i) for i in range(10)]
+    rows += [_wrow("S1", 10.4, 0.5, spac=True), _wrow("S2", 10.6, 0.5, spac=True)]
+    out = compare(rows, {"wacc": 10.5, "g": 0.5}, n=3)
+    assert not any(x.startswith("SPAC 쏠림:") for x in out["warnings"])  # 전체 비중은 50% 미만
+    assert any("최근접 선례 3건 중 SPAC 2건" in x for x in out["warnings"])
+
+
+# --------------------------------------------------------------------------- 기관 필터 (retro 2026-11-04 B8)
+def test_firm_names_split_and_key():
+    from dart_mcp.valuation import firm_key, firm_names
+
+    assert firm_names("한국투자증권㈜ (대표주관회사) · 대신증권㈜ (공동주관회사)") == ["한국투자증권", "대신증권"]
+    assert firm_names("한국투자증권 및 신한투자증권 (대표주관회사·공동주관회사)") == ["한국투자증권", "신한투자증권"]
+    assert firm_names("NH투자증권㈜, 유진투자증권㈜ (공동주관회사)") == ["NH투자증권", "유진투자증권"]
+    assert firm_names("이촌회계법인") == ["이촌회계법인"] and firm_names("(주)알에프텍") == ["알에프텍"]
+    from dart_mcp.valuation import firm_match
+    assert firm_key("한국투자증권㈜") == firm_key("한국투자 증권") == "한국투자증권"
+    assert firm_match("이촌", ["이촌회계법인"]) and firm_match("이촌회계법인", ["이촌회계법인"])
+    assert not firm_match("이촌회계법인", ["이촌증권"]) and firm_match("신한", ["신한투자증권"])  # ~투자증권은 "신한"·"신한투자" 둘 다
+    assert firm_match("NH", ["NH투자증권"]) and firm_match("한국투자", ["한국투자증권"]) and not firm_match("삼성", ["삼성바이오로직스"])
+
+
+def test_firm_filter_exact_name_and_firm_column_from_subject():
+    from dart_mcp.valuation import filter_rows, flatten_case
+
+    case = copy.deepcopy(MIN_CASE)
+    case["external_valuation"]["firm"] = "이촌회계법인(갑 선임), 정동회계법인(을 선임) — 자발적"
+    v = case["valuations"][0]
+    case["valuations"] = [dict(v, subject="이촌회계법인", role="외부평가"), dict(v, subject="정동회계법인", role="외부평가"),
+                          dict(v, subject="한국투자증권㈜ (대표주관회사) · 이촌증권㈜ (공동주관회사)", role="주관사")]
+    rows = flatten_case(case)
+    jd = filter_rows(rows, firm="정동")
+    assert [r["subject"] for r in jd] == ["정동회계법인"] and jd[0]["firm"] == "정동회계법인"  # 이촌 문구가 섞이지 않음
+    assert [r["subject"] for r in filter_rows(rows, firm="이촌")] == ["이촌회계법인"]  # 이촌증권(주관사)은 역할로 빠짐
+    assert len(filter_rows(rows, firm="이촌", firm_role="any")) == 2  # 꼬리 없는 질의는 이촌회계법인·이촌증권 둘 다
+    assert len(filter_rows(rows, firm="이촌회계법인", firm_role="any")) == 1
+    assert len(filter_rows(rows, firm="이촌증권", firm_role="any")) == 1
+    assert filter_rows(rows, firm="정", firm_role="any") == []  # 부분 문자열로는 안 걸림

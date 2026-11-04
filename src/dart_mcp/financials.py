@@ -141,6 +141,40 @@ FINANCIAL_ACCOUNTS: tuple[KeyAccount, ...] = (
                ("ifrs-full_ImpairmentLossImpairmentGainAndReversalOfImpairmentLossDeterminedInAccordanceWithIFRS9",),
                ("신용손실충당금전입액", "신용손실충당금(전)환입액", "대손충당금전입액"), ("반영전",)),
 )
+# 소계 행(순이자손익·순수수료손익)이 없는 회사(카카오뱅크 별도 2025 — retro B3): 수익·비용 행이 둘 다 있으면 차이로 계산한다
+_NET_COMPONENTS: dict[str, tuple[KeyAccount, KeyAccount]] = {
+    "net_interest_income": (
+        KeyAccount("interest_income", "이자수익", _PL,
+                   ("ifrs-full_RevenueFromInterest", "ifrs-full_InterestRevenueCalculatedUsingEffectiveInterestMethod"),
+                   ("이자수익",), ("순", "기타", "외")),
+        KeyAccount("interest_expense", "이자비용", _PL, ("ifrs-full_InterestExpense",), ("이자비용",), ("순", "기타", "외"))),
+    "net_fee_income": (
+        KeyAccount("fee_income", "수수료수익", _PL, ("ifrs-full_FeeAndCommissionIncome",), ("수수료수익",), ("순", "기타", "보험")),
+        KeyAccount("fee_expense", "수수료비용", _PL, ("ifrs-full_FeeAndCommissionExpense",), ("수수료비용",), ("순", "기타", "보험"))),
+}
+
+
+def _financial_entry(items: list[dict], spec: KeyAccount, build, empty: dict) -> dict:
+    """금융업 계정 하나. 소계 행이 있으면 그 행, 없고 수익·비용 행이 둘 다 있으면 수익 − |비용| (derived=true, formula),
+    한쪽이라도 없으면 null(matched=None). build(row, how, label) → {values{…}, matched…}."""
+    row, how = match_account(items, spec)
+    if row is not None:
+        return build(row, how, spec.label)
+    comps = _NET_COMPONENTS.get(spec.key)
+    if comps:
+        (inc_row, inc_how), (exp_row, exp_how) = (match_account(items, c) for c in comps)
+        if inc_row is not None and exp_row is not None:
+            inc, exp = build(inc_row, inc_how, comps[0].label), build(exp_row, exp_how, comps[1].label)
+            vals = {k: (inc["values"][k] - abs(exp["values"][k])
+                        if inc["values"][k] is not None and exp["values"][k] is not None else None) for k in inc["values"]}
+            return {**{k: v for k, v in inc.items() if k not in ("values", "matched", "label")},
+                    "label": spec.label, "values": vals, "derived": True,
+                    "formula": f"{inc_row.get('account_nm')}({inc_row.get('account_id')}) − |{exp_row.get('account_nm')}"
+                               f"({exp_row.get('account_id')})| — 소계 행이 없어 계산",
+                    "matched": {"by": "derived(수익−비용)", "components": [inc["matched"], exp["matched"]]}}
+    return empty
+
+
 FINANCIAL_NOT_APPLICABLE = ("revenue",)  # 금융업에서 개념이 없는 핵심 계정
 FINANCIAL_SKIP_RATIOS = ("operating_margin", "net_margin")
 FINANCIAL_WARNING = (
@@ -344,6 +378,45 @@ def period_labels(items: list[dict], years: list[str], acc_mt: str | None) -> tu
     return periods, notes
 
 
+FS_SHORT = {"CFS": "연결", "OFS": "별도"}
+
+
+def fiscal_label(year: str, acc_mt: str | None) -> str:
+    """FY 라벨. 12월(또는 결산월 모름)이면 "FY2025", 아니면 "FY2025(결산 3월)"."""
+    mt = (acc_mt or "").strip()
+    return f"FY{year}" if not mt.isdigit() or int(mt) == 12 else f"FY{year}(결산 {int(mt)}월)"
+
+
+def column_label(year: str, acc_mt: str | None, fs_div: str) -> str:
+    """비교표 열 머리: "FY2025(결산 11월)·별도"."""
+    return f"{fiscal_label(year, acc_mt)}·{FS_SHORT.get(fs_div, fs_div)}"
+
+
+def comparison_header(results: list[dict], year: str) -> dict:
+    """회사별 get_key_financials 결과(+corp_name) → 비교표 열 머리와 표 위 경고(retro 2026-11-04 /dart-compare).
+
+    연결·별도가 섞이면 범위(종속회사 포함 여부)가 달라 같은 행 비교가 어긋나고, 결산월이 다르면 같은 "FY"라도
+    기간이 몇 달씩 어긋나므로 같은 열에 두지 않는다(행을 회사별로 나누거나 결산월을 머리에 적는다).
+    """
+    cols, warnings = [], []
+    for r in results:
+        cols.append(f"{r.get('corp_name') or r.get('corp_code')} {column_label(year, r.get('acc_mt'), r.get('fs_div', 'CFS'))}")
+    divs = {r.get("fs_div", "CFS") for r in results}
+    if len(divs) > 1:
+        who = ", ".join(f"{r.get('corp_name')}={FS_SHORT.get(r.get('fs_div', 'CFS'))}" for r in results)
+        warnings.append(f"연결·별도 혼재({who}): 별도는 종속회사를 빼서 규모·이익이 연결과 다르다 — 비율 위주로 읽고 표 아래 밝힌다")
+    months = {(r.get("acc_mt") or "12").strip().lstrip("0") or "12" for r in results}
+    if len(months) > 1:
+        who = ", ".join(f"{r.get('corp_name')} {int((r.get('acc_mt') or '12').strip())}월" for r in results)
+        warnings.append(f"결산월 다름({who}): 같은 FY{year}라도 기간이 어긋난다 — 같은 열에 두지 말고 "
+                        "열 머리에 결산월을 적거나 회사별 표로 나눈다")
+    bases = [((r.get("ratios") or {}).get("roe") or {}).get("basis") for r in results]
+    if len({b for b in bases if b}) > 1:
+        who = ", ".join(f"{r.get('corp_name')}={b}" for r, b in zip(results, bases))
+        warnings.append(f"ROE 기준 다름({who}): ROE 행에 회사별 기준을 적는다")
+    return {"columns": cols, "warnings": warnings}
+
+
 def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "general",
                              fs_div: str = "CFS", acc_mt: str | None = None) -> dict:
     """원본 list → 핵심 계정 3개년 + 비율. 못 찾은 계정은 값 None, missing 목록에 key.
@@ -413,7 +486,9 @@ def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "g
             f"지배주주 자본 음수: {', '.join(impaired_parent)}. " if impaired_parent else "")
         notes.insert(0, msg + "자본이 음수인 연도(ROE는 기초 포함)의 부채비율·자기자본비율·ROE는 부호가 뒤집혀 "
                      "의미가 없어 계산하지 않음(None).")
-    out = {"years": years, "periods": periods, "accounts": accounts, "ratios": ratios, "missing": missing,
+    out = {"years": years, "periods": periods, "acc_mt": (acc_mt or "").strip() or None,
+           "column_labels": {y: column_label(y, acc_mt, fs_div) for y in years},
+           "accounts": accounts, "ratios": ratios, "missing": missing,
            "assumed_zero": assumed_zero, "optional": list(OPTIONAL_ACCOUNTS),
            "optional_missing": [k for k in OPTIONAL_ACCOUNTS if accounts[k]["matched"] is None],
            "flags": flags}
@@ -423,9 +498,8 @@ def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "g
         _mark_financial_ratios(ratios)
         fin: dict[str, dict] = {}
         for spec in FINANCIAL_ACCOUNTS:
-            row, how = match_account(items, spec)
-            fin[spec.key] = (_annual_entry(row, how, spec.label, years) if row is not None
-                             else {"label": spec.label, "values": {y: None for y in years}, "matched": None})
+            fin[spec.key] = _financial_entry(items, spec, lambda r, h, lb: _annual_entry(r, h, lb, years),
+                                             {"label": spec.label, "values": {y: None for y in years}, "matched": None})
         out.update(financial_accounts=fin, not_applicable=not_applicable,
                    financial_missing=[k for k, a in fin.items() if a["matched"] is None])
     return out
@@ -451,6 +525,42 @@ _INTERIM_RATIOS = ("operating_margin", "net_margin", "debt_ratio", "equity_ratio
 
 def _statement_kind(sj_div: str | None) -> str:
     return {"BS": "bs", "CF": "cf"}.get(sj_div or "", "flow")
+
+
+_INTERIM_MONTHS = {"11013": 3, "11012": 6, "11014": 9}
+
+
+def _add_months(y: int, m: int, k: int) -> tuple[int, int]:
+    t = y * 12 + (m - 1) + k
+    return t // 12, t % 12 + 1
+
+
+def _month_end(y: int, m: int) -> str:
+    return f"{y}.{m:02d}.{calendar.monthrange(y, m)[1]:02d}"
+
+
+def interim_periods(bsns_year: str, reprt_code: str, period_type: str, acc_mt: str | None) -> dict:
+    """분기·반기 열의 기간 {current, prior: {range, bs_date}, range_source}. 결산월(acc_mt)로 계산한 추정값.
+
+    사업연도는 연간 periods와 같은 규칙(bsns_year = 결산일이 속한 해): 11월 결산 2026 사업연도 = 2025.12–2026.11,
+    3분기 누적 = 2025.12.01~2026.08.31. 손익 prior = 전년 동기, BS prior = 직전 사업연도말.
+    """
+    mt = (acc_mt or "").strip()
+    mm = int(mt) if mt.isdigit() and 1 <= int(mt) <= 12 else 12
+    n = _INTERIM_MONTHS[reprt_code]
+
+    def one(y: int) -> dict:
+        sy, sm = (y, 1) if mm == 12 else (y - 1, mm + 1)
+        ey, em = _add_months(sy, sm, n - 1)
+        if period_type == "quarter":
+            sy, sm = _add_months(ey, em, -2)
+        return {"range": f"{sy}.{sm:02d}.01~{_month_end(ey, em)}", "end": (ey, em)}
+
+    y = int(bsns_year)
+    cur, pri = one(y), one(y - 1)
+    return {"current": {"range": cur["range"], "bs_date": _month_end(*cur["end"])},
+            "prior": {"range": pri["range"], "bs_date": _month_end(y - 1, mm)},
+            "range_source": "acc_mt(결산월로 계산한 추정)" if mt else "결산월 모름 — 12월 결산으로 가정"}
 
 
 def summarize_interim_financials(items: list[dict], reprt_code: str, period_type: str,
@@ -508,10 +618,10 @@ def summarize_interim_financials(items: list[dict], reprt_code: str, period_type
         _mark_financial_ratios(ratios)
         fin: dict[str, dict] = {}
         for spec in FINANCIAL_ACCOUNTS:
-            row, how = match_account(items, spec)
-            fin[spec.key] = (_interim_entry(row, how, spec.label, reprt_code, period_type) if row is not None
-                             else {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
-                                   "matched": None})
+            fin[spec.key] = _financial_entry(items, spec,
+                                             lambda r, h, lb: _interim_entry(r, h, lb, reprt_code, period_type),
+                                             {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
+                                              "matched": None})
         out.update(financial_accounts=fin, not_applicable=not_applicable,
                    financial_missing=[k for k, a in fin.items() if a["matched"] is None])
     return out

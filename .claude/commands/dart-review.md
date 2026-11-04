@@ -15,7 +15,7 @@ prompt에는 아래 한 단락**만** 넣는다. 작성 과정의 대화·메모
 ```
 너는 DART 분석 보고서의 독립 리뷰어다. 프로젝트 루트의 .claude/commands/dart-review.md 에서
 "## 리뷰어 지침" 절을 읽고 그대로 수행하라. 리뷰 대상: <보고서 경로>.
-dart MCP 툴(get_key_financials, get_disclosure_outline, get_disclosure_section, search_in_disclosure 등)을 써도 된다.
+dart MCP 툴(get_key_financials, get_financial_statements, get_disclosure_outline, get_disclosure_section, search_in_disclosure 등)을 써도 된다.
 끝나면 리뷰 파일 경로, 항목별 PASS/FAIL, MCP 툴 호출 횟수(툴별), 읽은 글자 수를 짧게 답하라.
 ```
 
@@ -67,6 +67,20 @@ dart MCP 툴(get_key_financials, get_disclosure_outline, get_disclosure_section,
 - 원문·API에 직접 근거가 없는 해석·전망·인과 주장("~때문으로 보인다", "~할 것이다", "~로 판단된다")이 "추정:" 없이 쓰였는지.
   단, "종합 의견"·"판단" 등 작성자의 의견임이 절 제목이나 문장에 명시된 곳은 PASS로 본다. 경영진 발언을 출처와 함께 옮긴 것도 PASS.
 
+### f. 계정 분류·단위 해석 (3건)
+- 보고서가 계정의 **성격을 해석한 문장** 3개를 고른다. 우선순위: ① 유동성·상환능력 주장에 쓰인 계정(현금·대여금·금융상품·차입금),
+  ② 자산/부채·유동/비유동을 명시한 문장, ③ 천원·백만원·원 단위를 환산한 숫자, ④ "원문 미확인"·"원문 없음"이라고 적은 사실.
+  3개 미만이면 전부.
+- 각각 `get_financial_statements`(BS·CF 계정명·sj_div, 원 단위)와 원문 표(`search_in_disclosure`로 위치 → offset 부근만)를 대조한다.
+  원문 표의 **구분 행**(유동자산/비유동자산, 유동부채/비유동부채)과 **단위 행**((단위: 천원)·(단위: 백만원))을 반드시 본다.
+  - 유동/비유동: 보고서가 "유동성자금·단기"로 쓴 계정이 재무상태표에서 비유동(장기대여금 등)이면 FAIL. 경영진단 표의 분류를 옮긴 것이면
+    "재무상태표 분류와 다름"을 함께 적었는지 본다.
+  - 자산/부채: 충당부채·선수금·리스부채 등을 자산 쪽으로(또는 반대로) 해석했으면 FAIL.
+  - 단위: 천원 표의 값을 백만원으로 옮길 때 1,000으로 나눴는지(48,000,000천원 = 48,000백만원), 같은 값이 BS와 CF에서
+    다르게(예: BS 기말 현금 vs CF 기말 현금) 나오는데 한쪽만 써서 증감을 단정했으면 FAIL.
+  - "원문 미확인"이라고 쓴 사실(차주·만기·이자율 등)이 주석·본문에 실제로 있으면 FAIL(위치를 적는다).
+- 판정 표: `| # | 위치 | 보고서 해석 | 원문 분류·단위(section_id/sj_div) | 판정 |`.
+
 ### 리뷰 파일
 `reports/<보고서 파일명에서 .md를 뺀 이름>.review.md`에 저장:
 
@@ -82,6 +96,7 @@ dart MCP 툴(get_key_financials, get_disclosure_outline, get_disclosure_section,
 | c. 원문 샘플 5개 | … | … |
 | d. 표현 오류 | … | … |
 | e. 추정 표기 | … | … |
+| f. 계정 분류·단위 3건 | … | … |
 
 ## a. 출처 누락
 (FAIL마다: 위치(절 번호·문장 앞 20자) / 문제 / 수정 제안)
@@ -91,6 +106,8 @@ dart MCP 툴(get_key_financials, get_disclosure_outline, get_disclosure_section,
 | # | 위치 | 보고서 값 | 원문 값(단위) | 원문 위치(section_id) | 판정 |
 ## d. 표현 오류
 ## e. 추정 표기
+## f. 계정 분류·단위 해석
+| # | 위치 | 보고서 해석 | 원문 분류·단위(section_id/sj_div) | 판정 |
 ## 리뷰어 툴 사용
 (MCP 툴별 호출 횟수, 읽은 글자 수 = get_disclosure_section returned_chars 합 + search_in_disclosure context 합)
 ```

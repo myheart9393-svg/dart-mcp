@@ -171,3 +171,21 @@ def test_search_reports_subsection_edge_matches_once(tmp_path, monkeypatch):
     r = server.search_in_disclosure(rcept_no, "경쟁력", context_chars=10)
     assert r["total_matches"] == 2
     assert {m["section_id"] for m in r["matches"]} == {"1.1"}
+
+
+# --------------------------------------------------------------------------- total_chars (retro 2026-11-04 B2)
+def test_total_chars_counts_top_level_only_and_fixes_old_cache(tmp_path):
+    import json
+
+    rcept_no = "20250101000001"
+    cache = DisclosureCache(tmp_path)
+    main = cache.get(rcept_no, _FakeClient(_make_zip(rcept_no))).get_file("main")
+    top = sum(s.char_count for s in main.sections if "." not in s.id)
+    assert sum(s.char_count for s in main.sections) > top  # 상위 섹션이 하위 글자를 포함한다
+    assert main.total_chars == top == sum(len(s.text) for s in main.sections if "." not in s.id)
+    # 예전 캐시(중복 합산 값이 저장된 outline.json)도 읽을 때 바로잡는다
+    p = tmp_path / rcept_no / "outline.json"
+    o = json.loads(p.read_text(encoding="utf-8"))
+    o["files"][0]["total_chars"] = 999999
+    p.write_text(json.dumps(o, ensure_ascii=False), encoding="utf-8")
+    assert DisclosureCache(tmp_path).get(rcept_no, None).get_file("main").total_chars == top

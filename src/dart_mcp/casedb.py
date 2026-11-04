@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Any
 
 from .valuation import (_quantiles, _spac_key, add_filter_args, apply_filter_args,
-                        d_over_e, flatten_case, load_cases, representative)
+                        d_over_e, flatten_case, load_cases, representative, sample_warnings)
 
 # --------------------------------------------------------------------------- SPAC 판정
 SPAC_NAME_RE = re.compile(r"기업인수목적|스팩|SPAC", re.I)
@@ -122,9 +122,21 @@ def compare(rows: list[dict], mine: dict[str, float], n: int = 3) -> dict:
         out["nearest"].append({"distance": round(d, 3), "rcept_no": rno, "company": r["company"], "board_date": r.get("board_date"),
                                "firm": ", ".join(ext) or None, "spac": _spac_key(r.get("spac")), "status": r.get("status"),
                                "industry": r.get("industry"), **{v: reps[v].get(rno) for v in mine}})
+    out["warnings"] = sample_warnings(rows, tuple(mine))
+    near_spac = sum(1 for x in out["nearest"] if x["spac"] == "true")
+    if out["nearest"] and near_spac * 2 > len(out["nearest"]):
+        out["warnings"].append(f"최근접 선례 {len(out['nearest'])}건 중 SPAC {near_spac}건 — 비SPAC 선례는 --spac false로 다시 본다")
     if out["deals"] < SMALL_N:
         out["warning"] = f"표본 부족: 거래 {out['deals']}건"
-    return out
+    # 최근접 선례 표(SPAC·상태 열 포함) — 보고서에 그대로 붙인다
+    cols = list(mine)
+    lines = ["| 거리 | 회사 | 이사회결의일 | 외부평가 | SPAC | 상태 | " + " | ".join(cols) + " |",
+             "|---|---|---|---|---|---|" + "---|" * len(cols)]
+    for x in out["nearest"]:
+        lines.append(f"| {x['distance']} | {x['company']} | {x['board_date'] or ''} | {x['firm'] or ''} | {x['spac']} | "
+                     f"{x['status'] or ''} | " + " | ".join("" if x[v] is None else f"{x[v]:g}" for v in cols) + " |")
+    out["nearest_table"] = "\n".join(lines)
+    return {"warnings": out.pop("warnings"), **out}
 
 
 # --------------------------------------------------------------------------- export
@@ -191,6 +203,9 @@ def _cli(argv: list[str]) -> int:
     if len(argv) < 2 or argv[0] not in ("derive", "compare", "export", "audit-null"):
         print(__doc__)
         return 2
+    if argv[1] in ("-h", "--help"):
+        print(__doc__)
+        return 0
     cmd, directory = argv[0], Path(argv[1])
     if cmd == "derive":
         counts: dict[str, int] = {}
@@ -223,13 +238,17 @@ def _cli(argv: list[str]) -> int:
         if not mine:
             print("비교할 값을 하나 이상 주세요: " + " ".join(f"--{k.replace('_', '-')}" for k in COMPARE_ARGS))
             return 2
-        print(json.dumps({"filters": {k: v for k, v in vars(a).items() if v is not None and k not in COMPARE_ARGS},
-                          **compare(rows, mine, a.n)}, ensure_ascii=False, indent=1))
+        res = compare(rows, mine, a.n)
+        # n(최근접 수)은 필터가 아니다 — filters에 섞으면 표본 수로 읽힌다(retro B6)
+        print(json.dumps({"warnings": res.pop("warnings"), "nearest_n": a.n,
+                          "filters": {k: v for k, v in vars(a).items() if v is not None and k not in COMPARE_ARGS and k != "n"},
+                          **res}, ensure_ascii=False, indent=1))
         return 0
     keep = {(r["rcept_no"], r["_idx"]) for r in rows}
     out = export_rows(cases, keep)
     write_csv(out, Path(a.csv))
-    print(json.dumps({"csv": a.csv, "rows": len(out), "cases": len({r['사례ID'] for r in out})}, ensure_ascii=False))
+    print(json.dumps({"warnings": sample_warnings(rows), "csv": a.csv, "rows": len(out),
+                      "cases": len({r['사례ID'] for r in out})}, ensure_ascii=False))
     return 0
 
 

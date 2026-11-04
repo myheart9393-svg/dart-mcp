@@ -11,6 +11,7 @@ plan 규칙:
   유상증자면 skip:rights_offering, 판단 불가면 skip:equity_unknown.
 - SPAC(기업인수목적회사) IPO는 공모가가 고정(평가 없음)이라 skip:spac.
 - reports/valuations/에 이미 있는 거래(rcept_no·original·supersedes 중 하나)는 skip:existing.
+- 목록에 [첨부정정]만 있고 회사별 150일 재조회로도 원본·기재정정을 못 찾으면(body_available=false) skip:no_body.
 - 추출 대상은 status="todo", 순서는 접수일 오래된 것부터. --limit은 todo 건수 상한(나머지는 status="queued").
 """
 
@@ -78,8 +79,12 @@ def plan(bgn: str, end: str, grade: str = "full", limit: int | None = None, case
                                 "source_grade", "supersedes", "related_rcept_nos")}
         keys = {d["rcept_no"], d["body_rcept_no"], d.get("original_rcept_no") or "", *d["supersedes"]} - {""}
         it["status"], it["reason"] = "todo", None
+        it["body_available"], it["hint"] = d.get("body_available"), d.get("hint")
         if keys & existing:
             it["status"], it["reason"] = "skip", "existing"
+        elif d.get("body_available") is False:
+            # 첨부정정 ZIP뿐이고 원본을 못 찾음: 실패가 아니라 읽을 본문이 없는 것(retro 2026-11-04 #8)
+            it["status"], it["reason"] = "skip", "no_body"
         elif d["deal_type"] == "ipo" and SPAC_RE.search(d["corp_name"] or ""):
             it["status"], it["reason"] = "skip", "spac"
         elif d["deal_type"] in ("rights_offering", "ipo"):
