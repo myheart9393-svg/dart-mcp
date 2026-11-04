@@ -39,7 +39,7 @@
 | ipo | underwriter, method, multiple_type, excluded_multiples[], applied_earnings(+basis), multiple, shares, value_per_share, discount_range, price_band, peers[], external_comparison |
 | citations[] | 읽은 섹션 {rcept_no, file_id, section_id, title, chars_read, how} |
 | notes[] | 원문 한계·짝 공시·회의록 인용값 등(추정은 쓰지 않는다) |
-| relative_value | {applied, reason, cite, derived}: 거래 단위 상대가치 산정 여부(합병·교환). derived=true는 캐시 원문의 정해진 사유 문구('유사회사 3사 미만…산정하지 아니', '상대가치 등은 별도로 기재하지 않')로 규칙 분류한 값 |
+| relative_value | {applied, kind, reason, cite, derived}: 거래 단위 상대가치 산정 여부(합병·교환). kind = 산정 / 산정하지 않음(원문이 미산정과 사유를 씀) / 기재 생략(원문이 '상대가치 등은 별도로 기재하지 않'처럼 기재 자체를 생략 — 상장사 간 기준주가 합병). validate가 kind↔applied 정합을 검사. derived=true는 캐시 원문의 정해진 사유 문구('유사회사 3사 미만…산정하지 아니', '상대가치 등은 별도로 기재하지 않')로 규칙 분류한 값 |
 | absent_reasons[] | {path, field, reason, basis}: 비어 있는 필드의 이유("원문에 없음"·"추출 안 함"·"해당 없음"). `casedb audit-null --write`가 키워드 감사로 채운다 |
 | source_inconsistent[] | {check, path, note}: 원문 자체가 회계 항등식에 안 맞는 곳(값은 원문대로). `validate`가 이 경고를 따로 센다 |
 | extracted_at, extractor_version | ISO8601(+09:00), `dart_mcp.valuation.EXTRACTOR_VERSION` |

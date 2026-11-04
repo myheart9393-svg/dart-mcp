@@ -1,5 +1,11 @@
 # Changelog
 
+## 미배포 (v1.6.2 예정)
+
+- **거래 단위 상대가치 구분** `relative_value.kind` = 산정 / 산정하지 않음 / 기재 생략. 기존 47건 이관: 산정하지 않음 36(규칙 분류 25 + 보강 11),
+  기재 생략 11(규칙 분류 중 "자산가치 및 수익가치, 상대가치 등은 별도로 기재하지 않았습니다" — 11건 모두 상장사 간 기준주가 합병, 시행령 176조의5 ①1. 사유도 원문대로 고침).
+  `stats`는 거래 단위 `relative_kind` 건수, `casedb export`는 "상대가치(거래)"·"상대가치 사유" 열. validate가 kind↔applied 정합을 검사.
+
 ## v1.6.1 (2026-10-27)
 
 보강(backfill) 파일럿·2차와 규모위험 정리. 스키마: `dcf.size_premium_applied`, `size_premium_basis`에 {text, cite}, `peers[]`에 beta_l·beta_u·de·tax_rate, `relative_value.derived`.

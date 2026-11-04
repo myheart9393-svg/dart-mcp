@@ -496,6 +496,7 @@
  "extractor_version": "1.1",
  "relative_value": {
   "applied": false,
+  "kind": "산정하지 않음",
   "reason": "증권의 발행 및 공시 등에 관한 규정 시행세칙 제7조 제1항 제1호에 따른 유사회사 요건을 충족하는 법인이 3사 미만이므로 프리모리스테라퓨틱스의 상대가치는 산정하지 아니함",
   "cite": {
    "section_id": "5",

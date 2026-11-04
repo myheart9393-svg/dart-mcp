@@ -416,7 +416,27 @@
       },
       "note": "Unlevered Beta (Levered 0.862, 한계세율 26.40%, 부채비율 32.34%)"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": null,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 169814,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회가 제공하는 한국의 기업규모위험 프리미엄(Size Risk Premium) 연구결과를 참조하여 0.60% 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 168138,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -617,7 +637,8 @@
   "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 비상장 (주)크리에이츠, 소멸(피합병법인)은 코스닥 상장 엔에이치기업인수목적20호. company.market은 신고 당시(비상장) 기준 '기타'.",
   "합병계약 변경체결 4회(2023-10-30, 2023-12-05, 2024-01-18, 2024-01-29; section 4). 의견서 제출일 2023-12-26.",
   "발행 합병신주 기명식보통주 2,042,788주, 모집가액 24,966원, 모집총액 51,000,245,208원(3.4). 주식매수청구가격(회사제시) 합병법인 24,966원·피합병법인 10,580원(3.3).",
-  "합병가액 요약표·평가의견서 결론이 section 5 앞부분과 끝(offset 178038 부근)에 반복된다. 평가 주체는 회계법인동행 하나."
+  "합병가액 요약표·평가의견서 결론이 section 5 앞부분과 끝(offset 178038 부근)에 반복된다. 평가 주체는 회계법인동행 하나.",
+  "보강 2026-10-28: v1.6 칸(beta_method·size_premium_basis·relative_value) 추가. 기존 값 변경 없음. 원문 직접 호출(casebuild call)."
  ],
  "citations": [
   {
@@ -670,5 +691,15 @@
   }
  ],
  "extracted_at": "2026-10-27T09:35:25+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "relative_value": {
+  "applied": false,
+  "kind": "산정하지 않음",
+  "reason": "주권비상장법인인 합병법인의 유사회사 선정기준을 충족시키는 유사한 주권상장법인이 없으므로 상대가치를 산정하지 아니함(합병가액 표 상대가치 '해당사항 없음', 주3)",
+  "cite": {
+   "section_id": "5",
+   "offset": 11324,
+   "file_id": "main"
+  }
+ }
 }

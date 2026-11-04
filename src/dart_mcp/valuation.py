@@ -330,7 +330,19 @@ def validate_case(case: dict) -> list[str]:
     validator = jsonschema.Draft202012Validator(load_schema())
     errors = [f"{'/'.join(map(str, e.absolute_path)) or '(root)'}: {e.message}"
               for e in sorted(validator.iter_errors(case), key=lambda e: list(e.absolute_path))]
-    return errors + range_order_errors(case)
+    return errors + range_order_errors(case) + relative_kind_errors(case)
+
+
+RELATIVE_KINDS = ("산정", "산정하지 않음", "기재 생략")
+
+
+def relative_kind_errors(case: dict) -> list[str]:
+    """relative_value.kind와 applied가 어긋나는 곳(산정 ↔ applied=true, 산정하지 않음·기재 생략 ↔ applied=false)."""
+    rv = case.get("relative_value") or {}
+    k = rv.get("kind")
+    if k is None or rv.get("applied") is None or (k == "산정") == rv["applied"]:
+        return []
+    return [f"relative_value: kind '{k}'와 applied={rv['applied']}가 맞지 않음"]
 
 
 def range_order_errors(node: Any, path: str = "") -> list[str]:
@@ -663,6 +675,7 @@ def flatten_case(case: dict) -> list[dict]:
         "industry": industry_label(case["company"].get("induty_code")),
         "board_date": case["deal"].get("board_date"), "regime": case["deal"].get("regime"),
         "status": case["deal"].get("status"), "spac": case["deal"].get("spac"),
+        "relative_kind": (case.get("relative_value") or {}).get("kind"),
         "firm": (case.get("external_valuation") or {}).get("firm"), "source_grade": case["source_grade"],
     }
     for val in case.get("valuations") or [{}]:
@@ -766,7 +779,12 @@ def deal_stats(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS, "mult
     for r in rows:
         by_deal.setdefault(r["rcept_no"], []).append(r)
     out: dict[str, Any] = {"deals": len(by_deal), "values": len(rows), "variables": {}, "firms": {},
-                           "size_premium_not_applied": sum(1 for rs in by_deal.values() if any(r.get("size_premium_not_applied") for r in rs))}
+                           "size_premium_not_applied": sum(1 for rs in by_deal.values() if any(r.get("size_premium_not_applied") for r in rs)),
+                           "relative_kind": {}}
+    # 거래 단위 상대가치 구분(산정 / 산정하지 않음 / 기재 생략 / 없음) — 거래마다 한 번
+    for rs in by_deal.values():
+        k = rs[0].get("relative_kind") or "(없음)"
+        out["relative_kind"][k] = out["relative_kind"].get(k, 0) + 1
     for var in variables:
         groups: dict[str, dict[str, list]] = {}
         for rno, rs in by_deal.items():

@@ -89,8 +89,9 @@ argument-hint: <rcept_no>
    - **규모위험 근거** `dcf.size_premium_basis`: 원문 문구(예: "한국공인회계사회 Size Premium 5분위", "Micro-Cap"). 원문 라벨이 'Firm Specific Risk'여도
      근거가 KICPA 규모위험이면 값은 `size_premium`. 규모위험과 **별도로** 더한 회사 고유위험만 `specific_risk`. 원문이 "규모위험을 반영하지 않았다"고 쓰면
      size_premium null + absent_reasons "원문에 없음"(미적용 명시).
-   - **거래 단위 상대가치** `relative_value`: {applied, reason, cite} — 합병·교환이면 늘 채운다("상대가치 | 해당사항 없음"·"유사회사 3사 미만으로 산정하지 아니함"이면
-     applied=false + 사유 원문 요지).
+   - **거래 단위 상대가치** `relative_value`: {applied, kind, reason, cite} — 합병·교환이면 늘 채운다. kind는 셋 중 하나:
+     "산정"(applied=true) / "산정하지 않음"("유사회사 3사 미만으로 산정하지 아니함"·"상대가치 | 해당사항 없음" — applied=false + 사유 원문 요지) /
+     "기재 생략"("자산가치 및 수익가치, 상대가치 등은 별도로 기재하지 않았습니다" — 상장사 간 기준주가 합병. applied=false).
    - **본질가치의 수익가치 점 값** `income_value`: 원문 표에 1주당 수익가치가 있으면 반드시 넣는다(범위만 있으면 null + absent_reasons).
 5. `regime`: 원문이 2026.12.9 시행 개정법을 적용했다고 쓰면 "공정가액(2026.12.9 개정)", 기준시가·본질가치 체계면 "기준시가",
    IPO면 "IPO". 원문으로 판단할 수 없으면 null.

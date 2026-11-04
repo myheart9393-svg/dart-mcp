@@ -333,7 +333,28 @@
       },
       "note": "Unlevered Beta (Observed 1.2106, D/E 48.64%, 법인세율 9.9%)"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": "Bloomberg",
+     "cite": {
+      "section_id": "5",
+      "offset": 137087,
+      "file_id": "main"
+     }
+    },
+    "size_premium_applied": false,
+    "size_premium_basis": {
+     "text": "자본비용 산정시 아래의 이유로 Size risk premium을 반영하지 않았습니다",
+     "cite": {
+      "section_id": "5",
+      "offset": 135664,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -543,7 +564,8 @@
   "SPAC(기업인수목적회사) 합병: 존속(합병법인)은 비상장 (주)유디엠텍, 소멸(피합병법인)은 코스닥 상장 대신밸런스제13호기업인수목적(주). company.market은 신고 당시(비상장) 기준 '기타'.",
   "4차 정정(2024-08-13)에서 합병비율 변경(5차 변경 합병계약): 정정 전 신주배정조건은 SPAC 1주당 유디엠텍 1.0565240주(section 0 정정대조표 주13), 정정 후 1.3333333주. 합병신주 기명식보통주 7,519,999주, 모집가액 1,500원, 모집총액 11,279,998,500원(3.4).",
   "평가의견서 표지는 평가기간 2023-10-05~2023-11-15·제출일자 2023-11-16이나, 본문 DCF 표에 2023년 실적·2024년 1분기 실적 열이 포함되어 있다(원문 그대로 둠).",
-  "평가 주체는 회계법인 창천 하나. 평가기준일 2022-12-31(DCF), 분석기준일 2023-11-09(자산가치). 이사회 합병결의 2023-11-16."
+  "평가 주체는 회계법인 창천 하나. 평가기준일 2022-12-31(DCF), 분석기준일 2023-11-09(자산가치). 이사회 합병결의 2023-11-16.",
+  "보강 2026-10-28: v1.6 칸(beta_method·size_premium_basis·size_premium_applied=false·relative_value) 추가. 기존 값 변경 없음. 원문 직접 호출(casebuild call)."
  ],
  "citations": [
   {
@@ -594,7 +616,17 @@
    "path": "valuations/1/dcf/size_premium",
    "field": "size_premium",
    "reason": "원문에 없음",
-   "basis": "키워드 감사 2026-10-27: 원문이 미적용 명시 — section 5 offset 135681 's)\n자본비용 산정시 아래의 이유로 Size risk premium을 반영하지 않았습니다.\n\n- 자기자'"
+   "basis": "보강 확인 2026-10-28: 원문이 미적용 명시 — section 5 offset 135681 'Size risk premium을 반영하지 않았습니다'(국내 주가지수에 충분히 반영되어 있다고 판단). 반영 시 Ke 13.34%→16.69%, WACC 11.77%→14.55%는 민감도로만 제시"
   }
- ]
+ ],
+ "relative_value": {
+  "applied": false,
+  "kind": "산정하지 않음",
+  "reason": "주권비상장법인인 합병법인의 유사회사 선정기준을 충족시키는 주권상장법인이 3사 미만이므로 상대가치를 산정하지 아니함(합병가액 표 C. 상대가치 '해당사항 없음', 주4)",
+  "cite": {
+   "section_id": "5",
+   "offset": 8803,
+   "file_id": "main"
+  }
+ }
 }

@@ -82,6 +82,8 @@
     "notes": {"type": "array", "items": {"type": "string"}, "description": "원문 한계·짝 공시 안내 등. 추정은 쓰지 않는다"},
     "relative_value": {"anyOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["applied"],
                        "properties": {"applied": {"type": ["boolean", "null"], "description": "거래 단위로 상대가치를 산정했는지"},
+                                      "kind": {"enum": ["산정", "산정하지 않음", "기재 생략", null],
+                                               "description": "산정하지 않음 = 원문이 미산정과 사유를 씀(유사회사 3사 미만 등). 기재 생략 = 원문이 '상대가치 등은 별도로 기재하지 않'처럼 기재 자체를 생략(v1.6.2)"},
                                       "reason": {"type": ["string", "null"], "description": "미산정 사유 원문 요지(예: 유사회사 3사 미만)"},
                                       "derived": {"type": "boolean", "description": "true = 규칙 분류(캐시 원문의 정해진 사유 문구)로 채움, LLM 추출 아님"},
                                       "cite": {"anyOf": [{"$ref": "#/$defs/cite"}, {"type": "null"}]}}}],

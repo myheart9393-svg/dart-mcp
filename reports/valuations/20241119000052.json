@@ -204,7 +204,8 @@
  "extractor_version": "1.1",
  "relative_value": {
   "applied": false,
-  "reason": "기준시가 합병 등으로 상대가치를 별도로 기재하지 않음",
+  "kind": "기재 생략",
+  "reason": "상장법인 간 기준주가 합병(시행령 제176조의5 제1항 제1호)이라 자산가치·수익가치·상대가치 등은 별도로 기재하지 않음",
   "cite": {
    "section_id": "5",
    "offset": 521,

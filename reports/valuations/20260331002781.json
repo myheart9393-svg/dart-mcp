@@ -853,6 +853,7 @@
  ],
  "relative_value": {
   "applied": false,
+  "kind": "산정하지 않음",
   "reason": "유사회사 기준(3사 이상)을 충족하는 상장법인이 없어 상대가치를 산정하지 않음",
   "cite": {
    "section_id": "5",

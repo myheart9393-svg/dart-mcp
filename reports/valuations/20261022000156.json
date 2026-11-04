@@ -320,7 +320,27 @@
       },
       "note": "Unlevered Beta"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": "한국공인회계사회 베타조회 서비스",
+     "cite": {
+      "section_id": "5",
+      "offset": 113260,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국의 기업규모위험(Size Risk Premium) 연구 결과에 따른 Size Risk Premium 3분위수값 중 Micro값을 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 111742,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -645,7 +665,27 @@
       },
       "note": "Unlevered Beta"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": "한국공인회계사회 베타조회 서비스",
+     "cite": {
+      "section_id": "5",
+      "offset": 192060,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국의 기업규모위험(Size Risk Premium) 연구 결과에 따른 Size Risk Premium 3분위수값 중 Micro값을 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 190541,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -871,7 +911,8 @@
   "'근거 및 사유' 원문은 섹션 5에서 찾지 못해 basis_text=null. 감사위원회 동의 여부 원문 없음.",
   "이사회: 최초 2026-06-30, 1차 변경 2026-09-29, 2차 변경 2026-10-15, 3차 변경 2026-10-21(섹션 4). 합병신주 2,758,139주(액면 100원), 모집가액 4,336원(섹션 3.4).",
   "자산가치는 2025-12-31 감사받은 개별재무제표 기준. 베타는 2025-12-31 한국공인회계사회 베타조회 조정 2년 Weekly. 분석기준일은 2026-06-23(시행세칙 8조).",
-  "외부평가기관의 최근 3년 SPAC 합병 평가 이력(A사·S사 예측 대비 실적 괴리율) 표가 섹션 5에 있음(미수록)."
+  "외부평가기관의 최근 3년 SPAC 합병 평가 이력(A사·S사 예측 대비 실적 괴리율) 표가 섹션 5에 있음(미수록).",
+  "보강 2026-10-28: v1.6 칸(beta_method·size_premium_basis) 추가. 기존 값 변경 없음. 한미(재무자문, 원소 1)도 자기 구간(section 5 offset 110800–113400)에 WACC 산정내역·β 표·주석을 싣고 있어 그 구간에서 채움(회계법인 현 표와 문구 동일, 다른 주체 표를 가져오지 않음). 원문 직접 호출(casebuild call)."
  ],
  "extracted_at": "2026-10-26T16:24:44+09:00",
  "extractor_version": "1.1",
@@ -951,6 +992,7 @@
  ],
  "relative_value": {
   "applied": false,
+  "kind": "산정하지 않음",
   "reason": "유사회사 기준(3사 이상)을 충족하는 상장법인이 없어 상대가치를 산정하지 않음",
   "cite": {
    "section_id": "5",

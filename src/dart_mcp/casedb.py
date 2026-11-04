@@ -130,7 +130,7 @@ def compare(rows: list[dict], mine: dict[str, float], n: int = 3) -> dict:
 # --------------------------------------------------------------------------- export
 EXPORT_COLUMNS = ["사례ID", "회사", "거래유형", "이사회결의일", "상태", "SPAC", "업종(KSIC 대분류)", "업종(중분류)", "기관", "역할", "목적",
                   "방법", "가중치", "WACC", "g", "rf", "mrp", "size_premium", "규모위험 미적용", "specific_risk", "beta_u", "beta_l", "ke", "kd", "세율",
-                  "D/E", "결과값", "결과 하한", "결과 상한", "결과 단위", "출처 접수번호", "출처 섹션", "출처 offset"]
+                  "D/E", "상대가치(거래)", "상대가치 사유", "결과값", "결과 하한", "결과 상한", "결과 단위", "출처 접수번호", "출처 섹션", "출처 offset"]
 
 
 def export_rows(cases: list[dict], keep: set[tuple[str, int]] | None = None) -> list[dict]:
@@ -160,6 +160,7 @@ def export_rows(cases: list[dict], keep: set[tuple[str, int]] | None = None) -> 
                 "specific_risk": v(dcf.get("specific_risk")),
                 "beta_u": v(dcf.get("beta_unlevered")), "beta_l": v(dcf.get("beta_levered")), "ke": v(dcf.get("ke")),
                 "kd": v(dcf.get("kd")), "세율": v(dcf.get("tax_rate")), "D/E": d_over_e(dcf) if dcf else None,
+                "상대가치(거래)": (c.get("relative_value") or {}).get("kind"), "상대가치 사유": (c.get("relative_value") or {}).get("reason"),
                 "결과값": v(res.get("value")), "결과 하한": v((rng or {}).get("min")), "결과 상한": v((rng or {}).get("max")),
                 "결과 단위": res.get("unit"), "출처 접수번호": cite.get("rcept_no") or c["rcept_no"] if cite else None,
                 "출처 섹션": cite.get("section_id"), "출처 offset": cite.get("offset"),

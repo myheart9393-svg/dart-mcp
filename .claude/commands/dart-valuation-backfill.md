@@ -10,7 +10,7 @@ argument-hint: <rcept_no>
 '## 작업자 지침'을 읽고 rcept_no <rcept_no>에 수행하라. 끝나면 지침의 한 줄 JSON으로만 답하라."만 넣는다.
 끝나면 오케스트레이터가 `valuation validate <json>`(errors 0)·`verify-cites <json> --sample 500`(실패 0)을 직접 한 번 더 돌리고,
 `casedb audit-null reports/valuations --write`로 감사 사유를 갱신한다(보강이 확인한 칸은 다시 감사하지 않는다).
-인용 직전에 한 건씩 돌리는 용도다(SPAC 사례 52건은 일괄 보강하지 않았다 — README).
+인용 직전에 한 건씩 돌리는 용도다(SPAC 합병 36건은 일괄 보강하지 않았다 — README).
 
 ## 작업자 지침
 
@@ -33,7 +33,7 @@ argument-hint: <rcept_no>
    `dcf.specific_risk`(note에 원문 라벨·근거).
 4. `dcf.peers`가 비어 있으면 그 주체의 동종기업 표에서 회사마다 {name, beta_l, beta_u, de(D/E만 — D/(D+E) 열이면 null + note), tax_rate, note}.
 5. method=본질가치 원소의 `income_value`가 null이면 1주당 수익가치 점 값. 범위만 있으면 null + absent_reasons.
-6. 사례 단위 `relative_value` = {applied, reason, cite} — 이미 있으면(derived 포함) 바꾸지 않는다.
+6. 사례 단위 `relative_value` = {applied, kind(산정|산정하지 않음|기재 생략), reason, cite} — 이미 있으면(derived 포함) 바꾸지 않는다.
 
 작성·검증: builder 스크립트 `data/valuation_logs/backfill_build_<rcept_no>.py`에서 `casebuild.N`/`casebuild.C`로 cite를 만든다(offset 손으로 적지 않음).
 저장 뒤 `valuation validate`(errors 0)·`verify-cites --sample 500`(실패 0).

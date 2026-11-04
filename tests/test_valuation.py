@@ -492,3 +492,21 @@ def test_null_audit_skips_verified_and_uses_relative_value(monkeypatch):
             "relative_value": {"applied": False, "reason": "3사 미만", "cite": None, "derived": True}}
     paths = {it["path"] for it in nullaudit.audit_case(case)["items"]}
     assert paths == {"valuations/0/dcf/peers"}  # 확인된 size_premium·채워진 relative_value는 다시 감사하지 않는다
+
+
+# --------------------------------------------------------------------------- v1.6.2
+def test_relative_kind_stats_export_and_validate():
+    from dart_mcp.casedb import export_rows
+    from dart_mcp.valuation import flatten_case, relative_kind_errors
+
+    def case(r, kind, applied=False):
+        return {"rcept_no": r, "company": {"name": r, "induty_code": None}, "source_grade": "full",
+                "deal": {"type": "merger", "board_date": "2025-01-01"}, "conclusion": {},
+                "relative_value": {"applied": applied, "kind": kind, "reason": "사유", "cite": None},
+                "valuations": [{"role": "외부평가", "purpose": "합병가액", "method": "본질가치", "subject": "s", "dcf": None,
+                                "result": {"value": None, "unit": "원"}}]}
+    cs = [case("A", "산정하지 않음"), case("B", "기재 생략"), case("C", "기재 생략")]
+    rows = [r for c in cs for r in flatten_case(c)]
+    assert deal_stats(rows)["relative_kind"] == {"산정하지 않음": 1, "기재 생략": 2}
+    assert [x["상대가치(거래)"] for x in export_rows(cs)] == ["산정하지 않음", "기재 생략", "기재 생략"]
+    assert relative_kind_errors(cs[0]) == [] and relative_kind_errors(case("D", "산정", applied=False))

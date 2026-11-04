@@ -383,7 +383,27 @@
       },
       "note": "Un-levered Beta (Hamada, 법인세율 20.9%, 2Year Weekly Adjusted Beta 2023-12-31 기준)"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "5",
+      "offset": 115921,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "'한국의 기업규모위험(Size Risk Premium) 연구결과'에 따라 3.35%를 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 114759,
+      "file_id": "main"
+     }
+    }
    },
    "relative": null,
    "result": {
@@ -559,7 +579,8 @@
   "이사회 결의 2024-12-03(최초), 변경결의 2025-03-10·05-02·05-15·05-28. 주총 2025-06-26, 주식매수청구가격(회사제시) 2,121원, 합병기일 2025-07-29.",
   "외부평가계약 체결일: I장은 2024년 09월 20일, 투자위험요소(3.1)는 2024년 9월 30일로 기재(불일치). period는 I장 기재를 따름. 감사위원회 동의 원문 미확인 → null.",
   "합병신주 기명식보통주 49,389,629주, 액면 100원, 모집가액 2,000원, 모집총액 98,779,258,000원(3.4). 교부금 없음.",
-  "평가의견서 제출일 2024-12-03. 평가기준일 2023-12-31(재무), 분석기준일 2024-11-26. 2025년 추정 매출 약 236억원·영업이익 약 58억원(3.1, 외부평가기관 제시 추정손익)."
+  "평가의견서 제출일 2024-12-03. 평가기준일 2023-12-31(재무), 분석기준일 2024-11-26. 2025년 추정 매출 약 236억원·영업이익 약 58억원(3.1, 외부평가기관 제시 추정손익).",
+  "보강 2026-10-28: v1.6 칸(beta_method·size_premium_basis·relative_value) 추가. 기존 값 변경 없음. β 주석에 조회처(Bloomberg 등) 서술 없어 beta_method.source=null. 원문 직접 호출(casebuild call)."
  ],
  "extracted_at": "2026-10-27T10:14:04+09:00",
  "extractor_version": "1.1",
@@ -596,5 +617,15 @@
    "chars_read": 35424,
    "how": "find_tables/search/section"
   }
- ]
+ ],
+ "relative_value": {
+  "applied": false,
+  "kind": "산정하지 않음",
+  "reason": "주권상장법인 간의 합병이므로 상대가치를 산정하지 아니함(합병비율 평가 요약 주4)",
+  "cite": {
+   "section_id": "5",
+   "offset": 8099,
+   "file_id": "main"
+  }
+ }
 }
