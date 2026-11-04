@@ -6,3 +6,9 @@ __pycache__/
 data/
 dist/
 *.egg-info/
+
+# reports/ 바로 아래의 개별 분석 보고서·CSV(/dart-analyze 등 산출물, 회사별 작업본)는 추적하지 않는다.
+# 하위 폴더(valuations/·examples/·_retro/·_test/)와 healthcheck 결과는 그대로 추적한다.
+/reports/*.md
+/reports/*.csv
+!/reports/healthcheck_*

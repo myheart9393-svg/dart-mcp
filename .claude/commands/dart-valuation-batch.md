@@ -28,7 +28,9 @@ todo 건마다 Agent(subagent_type `general-purpose`)를 띄우고 prompt는 아
 ```
 
 - 서브에이전트가 끝나면 오케스트레이터는 `uv run python -m dart_mcp.batch record --state <state> <rcept_no> <status> --reason … --calls … --chars … --seconds <duration_ms/1000>`.
-  `record … ok`는 사례 JSON의 `company.corp_code`(비면 큐 값)와 `induty_code`(비면 기업개황 조회)를 채운다 — 실패 사유는 notes에.
+  `record … ok`는 사례 JSON 후처리를 한 번에 한다: `company.corp_code`(비면 큐 값)·`induty_code`(비면 기업개황 조회 — 실패 사유는 notes),
+  `casedb finalize`(deal.spac·spac_basis, deal.status 초기값 "진행", relative_value.kind 규칙 분류, regime). 출력의 `finalize`에 채운 칸이 나온다.
+  plan의 `skip:existing_correction`은 기존 사례의 정정 공시다 — 새로 추출하지 않는다(hint의 기존 사례를 정정본 기준으로 갱신).
   **실패해도 멈추지 않는다.** 응답이 JSON이 아니거나 JSON 파일이 없거나 `validate`가 실패하면 fail(`schema_invalid`)로 기록한다.
 - 오케스트레이터는 각 결과 JSON에 대해 `valuation validate`와 `verify-cites --sample 500`을 직접 한 번 더 돌린다(서브에이전트 보고를 믿지 않는다).
   verify가 실패한 건은 fail(`cite_mismatch`).
@@ -39,7 +41,7 @@ todo 건마다 Agent(subagent_type `general-purpose`)를 띄우고 prompt는 아
   뽑힌 건마다 `/dart-valuation-review`를 서브에이전트로 1회씩.
 - 결과를 `batch record … ok --review PASS|FAIL(<항목>)`로 기록.
 - **리뷰 FAIL 건 자체를 고친다**: FAIL 항목마다 원문(cite 위치)을 다시 확인해 그 사례 JSON을 고치고(숫자는 원문 그대로, 해석은 notes),
-  `valuation validate`·`verify-cites`를 다시 돌린 뒤 `valuation md <json>`(파일 직접 씀, 리다이렉트 금지)으로 md를 갱신한다.
+  `valuation validate`·`verify-cites`를 다시 돌린 뒤 `valuation md <json>`(파일 직접 씀, 리다이렉트 금지, 마커 아래 보존)으로 md를 갱신한다.
   리뷰가 틀렸다고 판단하면 고치지 않고 `.review.md` 끝에 "반영 안 함: 사유"를 적는다. 기록은 `--review "FAIL→반영(<항목>)"`.
 - **같은 FAIL 유형이 2건 이상**이면 `/dart-valuation` 템플릿(.claude/commands/dart-valuation.md)을 고치고, 그 유형이 의심되는 건을 재추출한다
   (리뷰한 건 + 같은 deal_type 중 같은 패턴). 고친 내용은 `_batch_<날짜>.md` 끝 "템플릿 수정"에 적는다.

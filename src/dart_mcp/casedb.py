@@ -4,6 +4,7 @@
     uv run python -m dart_mcp.casedb compare <dir> [필터…] --wacc 11 --g 1 --srp 3.5 --beta-l 1.0 [--n 3]
     uv run python -m dart_mcp.casedb export <dir> --csv <경로> [필터…]
     uv run python -m dart_mcp.casedb audit-null <dir>             # null 필드를 캐시 원문 키워드로 감사 → absent_reasons 갱신
+    uv run python -m dart_mcp.casedb finalize <json|dir> [--dry-run] [--offline]   # 후처리: induty·spac·status 초기값·relative kind·regime
     uv run python -m dart_mcp.casedb backfill-queue <dir> [--all] [--md <경로>]   # 보강 대기 목록(추출 안 함; --all이면 원문에 없음도)
     uv run python -m dart_mcp.casedb diff <case.json> [--against <git rev | 다른 json>]   # 보강 전후 필드별 diff(기본 HEAD)
 
@@ -23,7 +24,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from .valuation import (_quantiles, _spac_key, add_filter_args, apply_filter_args,
+from .valuation import (_quantiles, _spac_key, add_filter_args, apply_filter_args, dedup_cases, median_stability, precedent_table,
+                        stability_warnings,
                         d_over_e, flatten_case, load_cases, representative, sample_warnings)
 
 # --------------------------------------------------------------------------- SPAC 판정
@@ -107,6 +109,9 @@ def compare(rows: list[dict], mine: dict[str, float], n: int = 3, spac_filter: s
         out["variables"][var] = {**{k: q[k] for k in ("n", "median", "q1", "q3", "min", "max")}, "mine": x,
                                  "percentile": round(percentile(xs, x), 1),
                                  **({"note": f"표본 부족(n<{SMALL_N})"} if len(xs) < SMALL_N else {})}
+        stab = median_stability(reps[var])
+        if stab:
+            out["variables"][var]["median_stability"] = stab
     need = max(1, len(mine) - 1)
     info = {}
     for r in rows:
@@ -124,7 +129,7 @@ def compare(rows: list[dict], mine: dict[str, float], n: int = 3, spac_filter: s
         out["nearest"].append({"distance": round(d, 3), "rcept_no": rno, "company": r["company"], "board_date": r.get("board_date"),
                                "firm": ", ".join(ext) or None, "spac": _spac_key(r.get("spac")), "status": r.get("status"),
                                "industry": r.get("industry"), **{v: reps[v].get(rno) for v in mine}})
-    out["warnings"] = sample_warnings(rows, tuple(mine), spac_filter=spac_filter)
+    out["warnings"] = sample_warnings(rows, tuple(mine), spac_filter=spac_filter) + stability_warnings(out["variables"])
     near_spac = sum(1 for x in out["nearest"] if x["spac"] == "true")
     if out["nearest"] and near_spac * 2 > len(out["nearest"]):
         out["warnings"].append(f"최근접 선례 {len(out['nearest'])}건 중 SPAC {near_spac}건 — 비SPAC 선례는 --spac false로 다시 본다")
@@ -191,6 +196,98 @@ def write_csv(rows: list[dict], path: Path) -> None:
 
 
 # --------------------------------------------------------------------------- CLI
+# --------------------------------------------------------------------------- 후처리(finalize)
+REGIME_AMENDED_FROM = "2026-12-09"  # 개정 자본시장법(공정가액) 적용 이사회 결의 시작일 — 그 전 결의는 현행 기준시가 체계
+_REGIME_TYPES = ("merger", "share_exchange", "split_merger")
+_RELATIVE_TYPES = ("merger", "share_exchange", "split_merger")
+# 거래 단위 상대가치 규칙 문구(v1.6.2 이관과 같은 두 문구 + 일반 미산정 문구). (정규식, kind, 사유)
+_RELATIVE_RULES = (
+    (re.compile(r"상대가치\s*등은\s*별도로\s*기재하지\s*않"), "기재 생략",
+     "자산가치 및 수익가치, 상대가치 등은 별도로 기재하지 않음(상장사 간 기준주가 합병)"),
+    # "3사 미만이므로 … 산정하지 아니" — 사실 진술만. "3사 미만인 경우에는 … 산정하지 아니하며"(규정 설명, 위메이드맥스·나노엔텍)는 제외
+    (re.compile(r"유사회사[^\n]{0,120}?3\s*사\s*미만(?:이므로|으로|이어서)[^\n]{0,80}?산정하지\s*(?:않|아니)"), "산정하지 않음",
+     "유사회사 기준(3사 이상)을 충족하는 상장법인이 없어 상대가치를 산정하지 않음"),
+)
+
+
+def _relative_from_text(texts: dict[str, str]) -> dict | None:
+    for rx, kind, reason in _RELATIVE_RULES:
+        for sid, t in texts.items():
+            m = rx.search(t)
+            if m:
+                return {"applied": False, "kind": kind, "reason": reason,
+                        "cite": {"section_id": sid, "offset": m.start(), "file_id": "main"}, "derived": True}
+    return None
+
+
+def _relative_kind_from_reason(rv: dict) -> str | None:
+    if rv.get("applied") is True:
+        return "산정"
+    r = rv.get("reason")
+    t = (r.get("text") if isinstance(r, dict) else r) or ""
+    if "별도로 기재하지 않" in t and not re.search(r"산정하지\s*(?:않|아니)", t):
+        return "기재 생략"
+    if rv.get("applied") is False and re.search(r"산정하지\s*(?:않|아니)|미산정|적용하지\s*않", t):
+        return "산정하지 않음"
+    return None
+
+
+def finalize(case: dict, *, today: str | None = None, network: bool = True,
+             section_texts: Any = None) -> list[dict]:
+    """사례 JSON 후처리를 한 번에: induty_code·deal.spac/spac_basis·deal.status 초기값·relative_value.kind 규칙 분류·regime.
+    이미 값이 있는 칸은 건드리지 않는다. 바뀐 칸 목록 [{field, old, new, basis}]을 돌려준다(case는 제자리 수정).
+    network=False면 기업개황 조회(induty_code)를 건너뛴다. section_texts(rcept_no, ids) → {id: text}는 상대가치 규칙 분류용(기본: 캐시 원문)."""
+    from .valuation import STATUS_PENDING_DAYS, _KIND_WORDS, _date
+
+    today = today or __import__("datetime").date.today().strftime("%Y%m%d")
+    d, changes = case["deal"], []
+
+    def put(field: str, old: Any, new: Any, basis: str) -> None:
+        changes.append({"field": field, "old": old, "new": new, "basis": basis})
+
+    if network and not case["company"].get("induty_code"):
+        from .industry import fill_case
+
+        res = fill_case(case)
+        if res["changed"]:
+            put("company.induty_code", None, res["induty_code"], res["reason"] or "기업개황 induty_code")
+    if d.get("spac") is None:
+        val, basis = derive_spac(case)
+        d["spac"], d["spac_basis"] = val, basis
+        put("deal.spac", None, val, basis)
+    if d.get("status") is None and d["type"] in _KIND_WORDS:
+        days = (_date(today) - _date(case["rcept_no"][:8])).days
+        st = "진행" if days <= STATUS_PENDING_DAYS else "미확인"
+        d["status"], d["status_source"] = st, None
+        put("deal.status", None, st, f"초기값(본문 접수 후 {days}일, 공시 목록 미조회) — valuation status로 갱신")
+    if d.get("regime") is None:
+        if d["type"] == "ipo":
+            d["regime"] = "IPO"
+            put("deal.regime", None, "IPO", "거래 유형 IPO")
+        elif d["type"] in _REGIME_TYPES and d.get("board_date") and d["board_date"] < REGIME_AMENDED_FROM:
+            d["regime"] = "기준시가"
+            put("deal.regime", None, "기준시가", f"이사회 결의 {d['board_date']} < 개정법 적용 {REGIME_AMENDED_FROM}")
+    if d["type"] in _RELATIVE_TYPES:
+        rv = case.get("relative_value")
+        if rv is not None and rv.get("kind") is None:
+            k = _relative_kind_from_reason(rv)
+            if k:
+                rv["kind"] = k
+                put("relative_value.kind", None, k, "applied·사유 문구 규칙 분류")
+        elif rv is None:
+            if section_texts is None:
+                from .nullaudit import _section_texts as section_texts
+            texts = section_texts(case["rcept_no"], set()) or {}
+            new = _relative_from_text(texts)
+            if new:
+                case["relative_value"] = new
+                put("relative_value", None, new["kind"], f"캐시 원문 규칙 문구 section {new['cite']['section_id']} @{new['cite']['offset']}")
+    if changes:
+        stamp = f"finalize {today[:4]}-{today[4:6]}-{today[6:]}: " + ", ".join(f"{c['field']}={c['new']}" for c in changes)
+        case["notes"] = [*(case.get("notes") or []), stamp]
+    return changes
+
+
 def backfill_queue(cases: list[dict], include_absent: bool = False) -> dict:
     """사례 absent_reasons(audit-null --write 결과) → 보강 대기 목록. 기본은 "추출 안 함"(원문에 키워드가 있어 누락 의심)만,
     include_absent면 "원문에 없음"도. 행: {rcept_no, company, field, path, reason, basis}."""
@@ -242,7 +339,7 @@ def case_diff(old: Any, new: Any, path: str = "") -> list[dict]:
 
 
 def _filtered(directory: Path, a: Any) -> tuple[list[dict], list[dict]]:
-    cases = load_cases(directory)
+    cases, _dropped = dedup_cases(load_cases(directory))
     rows = []
     for c in cases:
         for i, r in enumerate(flatten_case(c)):
@@ -252,7 +349,7 @@ def _filtered(directory: Path, a: Any) -> tuple[list[dict], list[dict]]:
 
 def _cli(argv: list[str]) -> int:
     sys.stdout.reconfigure(encoding="utf-8")
-    if len(argv) < 2 or argv[0] not in ("derive", "compare", "export", "audit-null", "backfill-queue", "diff"):
+    if len(argv) < 2 or argv[0] not in ("derive", "compare", "export", "audit-null", "backfill-queue", "diff", "finalize"):
         print(__doc__)
         return 2
     if argv[1] in ("-h", "--help"):
@@ -270,6 +367,23 @@ def _cli(argv: list[str]) -> int:
             p.write_text(json.dumps(c, ensure_ascii=False, indent=1), encoding="utf-8")
             counts[_spac_key(val)] = counts.get(_spac_key(val), 0) + 1
         print(json.dumps({"spac": counts}, ensure_ascii=False))
+        return 0
+    if cmd == "finalize":
+        paths = [directory] if directory.is_file() else [p for p in sorted(directory.glob("*.json")) if not p.name.startswith("_")]
+        dry, out = "--dry-run" in argv, []
+        for p in paths:
+            case = json.loads(p.read_text(encoding="utf-8"))
+            ch = finalize(case, network="--offline" not in argv)
+            if ch:
+                out.append({"rcept_no": case["rcept_no"], "company": case["company"]["name"], "changes": ch})
+                if not dry:
+                    p.write_text(json.dumps(case, ensure_ascii=False, indent=1), encoding="utf-8")
+        by: dict[str, int] = {}
+        for r in out:
+            for c in r["changes"]:
+                by[c["field"]] = by.get(c["field"], 0) + 1
+        print(json.dumps({"files": len(paths), "changed": len(out), "dry_run": dry, "by_field": by, "rows": out},
+                         ensure_ascii=False, indent=1))
         return 0
     if cmd == "backfill-queue":
         q = backfill_queue(load_cases(directory), include_absent="--all" in argv)
@@ -307,6 +421,8 @@ def _cli(argv: list[str]) -> int:
         for k in COMPARE_ARGS:
             ap.add_argument(f"--{k.replace('_', '-')}", dest=k, type=float)
         ap.add_argument("--n", type=int, default=3)
+        ap.add_argument("--list", nargs="?", const=30, type=int, default=None, metavar="N",
+                        help="개별 선례 표(최근 결의일 순 N건, 기본 30)를 함께 낸다")
     else:
         ap.add_argument("--csv", required=True)
     a = ap.parse_args(argv[2:])
@@ -317,9 +433,11 @@ def _cli(argv: list[str]) -> int:
             print("비교할 값을 하나 이상 주세요: " + " ".join(f"--{k.replace('_', '-')}" for k in COMPARE_ARGS))
             return 2
         res = compare(rows, mine, a.n, spac_filter=a.spac)
+        if a.list:
+            res["precedents"] = precedent_table(rows, tuple(mine), limit=a.list)
         # n(최근접 수)은 필터가 아니다 — filters에 섞으면 표본 수로 읽힌다(retro B6)
         print(json.dumps({"warnings": res.pop("warnings"), "nearest_n": a.n,
-                          "filters": {k: v for k, v in vars(a).items() if v is not None and k not in COMPARE_ARGS and k != "n"},
+                          "filters": {k: v for k, v in vars(a).items() if v is not None and k not in COMPARE_ARGS and k not in ("n", "list")},
                           **res}, ensure_ascii=False, indent=1))
         return 0
     keep = {(r["rcept_no"], r["_idx"]) for r in rows}

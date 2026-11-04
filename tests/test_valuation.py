@@ -772,3 +772,158 @@ def test_batch_cli_parser_builds():
     r = subprocess.run([sys.executable, "-m", "dart_mcp.batch", "--help"], capture_output=True, text=True, encoding="utf-8")
     assert r.returncode == 0, r.stderr
     assert "sample" in r.stdout
+
+
+def _bare_case(**deal):
+    d = {"type": "merger", "counterparty": "가나다(주)", "counterparty_listed": False, "related_party": False,
+         "board_date": "2026-10-01", "regime": None, **deal}
+    return {"rcept_no": "20261001000001", "company": {"corp_code": "00000001", "name": "테스트", "market": "코스닥",
+            "induty_code": "26"}, "deal": d, "external_valuation": {}, "valuations": [], "notes": []}
+
+
+def test_finalize_fills_postprocess_fields_once():
+    from dart_mcp import casedb
+    from dart_mcp.valuation import completeness_warnings
+
+    case = _bare_case()
+    assert any("deal.spac" in w for w in completeness_warnings(case))
+    assert any("deal.status" in w for w in completeness_warnings(case))
+    texts = {"5": "(주3) 주권비상장법인인 합병법인의 유사회사 선정기준을 충족시키는 유사한 주권상장법인이 3사 미만이므로 상대가치를 산정하지 아니하였습니다."}
+    ch = casedb.finalize(case, today="20261020", network=False, section_texts=lambda r, ids: texts)
+    fields = {c["field"] for c in ch}
+    assert fields == {"deal.spac", "deal.status", "deal.regime", "relative_value"}
+    assert case["deal"]["spac"] is not None and case["deal"]["status"] == "진행" and case["deal"]["regime"] == "기준시가"
+    assert case["relative_value"]["kind"] == "산정하지 않음" and case["relative_value"]["derived"] is True
+    assert case["relative_value"]["cite"] == {"section_id": "5", "offset": texts["5"].index("유사회사"), "file_id": "main"}
+    assert completeness_warnings(case) == []
+    assert casedb.finalize(case, today="20261020", network=False, section_texts=lambda r, ids: texts) == []  # 두 번째는 변경 없음
+
+
+def test_finalize_relative_rule_ignores_regulation_explanation():
+    from dart_mcp import casedb
+
+    case = _bare_case(type="share_exchange", spac=False, status="진행")
+    rule = {"5": "한편, 유사회사가 3사 미만인 경우에는 유사회사별 비교가치를 산정하지 아니하며, 이 경우 상대가치는 비교 공시되지 않습니다."}
+    casedb.finalize(case, today="20261020", network=False, section_texts=lambda r, ids: rule)
+    assert case.get("relative_value") is None
+    omit = {"5": "자산가치 및 수익가치, 상대가치 등은 별도로 기재하지 않았습니다."}
+    casedb.finalize(case, today="20261020", network=False, section_texts=lambda r, ids: omit)
+    assert case["relative_value"]["kind"] == "기재 생략"
+
+
+def test_finalize_split_regime_stays_null_and_ipo_has_no_status():
+    from dart_mcp import casedb
+
+    s = _bare_case(type="split", spac=False, status="완료")
+    casedb.finalize(s, today="20261020", network=False, section_texts=lambda r, ids: {})
+    assert s["deal"]["regime"] is None  # 단순분할은 176조의5 가액 체계 대상 아님
+    i = _bare_case(type="ipo", spac=False)
+    casedb.finalize(i, today="20261020", network=False, section_texts=lambda r, ids: {})
+    assert i["deal"].get("status") is None and i["deal"]["regime"] == "IPO"
+
+
+def test_md_regeneration_keeps_manual_sections(monkeypatch):
+    from dart_mcp import valuation as v
+
+    gen = "# 사례\n\n## 1. 개요\n값 A\n"
+    monkeypatch.setattr(v, "render_markdown", lambda case: gen + v.MD_MARKER + "\n")
+    # 마커 있음 → 아래 보존
+    old = "# 사례\n\n## 1. 개요\n옛 값\n" + v.MD_MARKER + "\n\n## 리뷰 반영 내역\n| a | b |\n"
+    p = v.plan_md({}, old)
+    assert p["action"] == "keep_tail" and p["content"].endswith("## 리뷰 반영 내역\n| a | b |\n") and "값 A" in p["content"]
+    # 마커 없음 + 손으로 붙인 절 → 중단, 꼬리는 adopt 가능
+    old2 = "# 사례\n\n## 1. 개요\n값 A\n\n## 리뷰 반영 내역\n| a | b |\n"
+    p2 = v.plan_md({}, old2)
+    assert p2["action"] == "abort" and p2["lost_headings"] == ["## 리뷰 반영 내역"] and p2["tail"].startswith("## 리뷰 반영 내역")
+    # 마커 없음 + 잃는 줄 없음 → update, 같으면 same, 파일 없으면 new
+    assert v.plan_md({}, "# 사례\n\n## 1. 개요\n")["action"] == "update"
+    assert v.plan_md({}, gen)["action"] == "same"
+    assert v.plan_md({}, None)["action"] == "new"
+
+
+def test_md_cli_aborts_without_marker_and_adopts(tmp_path, monkeypatch, capsys):
+    from dart_mcp import valuation as v
+
+    monkeypatch.setattr(v, "render_markdown", lambda case: "## 1. 개요\n값\n" + v.MD_MARKER + "\n")
+    j = tmp_path / "1.json"
+    j.write_text("{}", encoding="utf-8")
+    md = tmp_path / "1.md"
+    md.write_text("## 1. 개요\n값\n\n## 리뷰 반영 내역\n수동\n", encoding="utf-8")
+    assert v._md_cli(j, []) == 1 and "수동" in md.read_text(encoding="utf-8")  # 중단, 파일 그대로
+    assert v._md_cli(j, ["--adopt"]) == 0
+    t = md.read_text(encoding="utf-8")
+    assert t.index(v.MD_MARKER) < t.index("## 리뷰 반영 내역")
+    assert v._md_cli(j, []) == 0 and "수동" in md.read_text(encoding="utf-8")  # 이후 재생성도 보존
+
+
+def test_dedup_cases_keeps_latest_correction_and_warns():
+    from dart_mcp import valuation as v
+
+    a = {"rcept_no": "20260826000056", "original_rcept_no": "20260826000056", "company": {"name": "SK이노베이션"}}
+    b = {"rcept_no": "20261028000313", "original_rcept_no": "20260826000056", "company": {"name": "SK이노베이션"}}
+    c = {"rcept_no": "20261102000312", "original_rcept_no": None, "company": {"name": "샘표식품"}}
+    kept, dropped = v.dedup_cases([a, b, c])
+    assert [x["rcept_no"] for x in kept] == ["20261028000313", "20261102000312"]
+    assert dropped == [{"rcept_no": "20260826000056", "company": "SK이노베이션", "by": "20261028000313"}]
+    w = v.superseded_warning(dropped, [{"rcept_no": "20260826000056"}])
+    assert w and "20260826000056→20261028000313" in w[0]
+    assert v.superseded_warning(dropped, []) == []  # 필터에 안 걸린 중복은 경고하지 않는다
+
+
+def test_batch_plan_flags_correction_of_existing_case():
+    from dart_mcp.batch import correction_of_existing
+
+    deals = {("00631518", "merger"): ["20260826000056"]}
+    it = {"report_nm": "[기재정정]증권신고서(합병)", "rcept_dt": "20261028", "corp_code": "00631518", "deal_type": "merger"}
+    assert correction_of_existing(it, deals) == "20260826000056"
+    assert correction_of_existing({**it, "report_nm": "[첨부정정]증권신고서(합병)"}, deals) == "20260826000056"
+    assert correction_of_existing({**it, "report_nm": "증권신고서(합병)"}, deals) is None  # 꼬리표 없는 원본은 새 거래
+    assert correction_of_existing({**it, "rcept_dt": "20270601"}, deals) is None  # 180일 밖
+    assert correction_of_existing({**it, "deal_type": "split"}, deals) is None
+
+
+def test_median_stability_flags_single_deal_swing():
+    from dart_mcp.valuation import median_stability, stability_warnings
+
+    stable = median_stability({str(i): 10.0 + (i % 2) * 0.1 for i in range(12)})
+    assert stable["unstable"] is False and stable["band_pct"] <= 10
+    shaky = median_stability({"a": 5.0, "b": 8.0, "c": 11.0, "d": 14.0})
+    # 중앙값 9.5, 하나씩 빼면 8 / 11 → ±15.8%
+    assert shaky["min"] == 8.0 and shaky["max"] == 11.0 and shaky["unstable"] is True
+    assert shaky["min_without"] == ["c", "d"] and shaky["max_without"] == ["a", "b"]
+    assert "거래 1건에 흔들림" in stability_warnings({"wacc": {"median_stability": shaky}})[0]
+    assert median_stability({"a": 1.0, "b": 2.0}) is None  # 3건 미만
+    assert median_stability({str(i): float(i) for i in range(31)}) is None  # 30건 초과
+
+
+def test_precedent_table_and_exclude_rcept():
+    from dart_mcp.valuation import filter_rows, precedent_table
+
+    rows = [
+        {"rcept_no": "1", "company": "가", "board_date": "2026-01-01", "spac": False, "status": "완료", "role": "외부평가",
+         "deal_type": "merger", "wacc": 9.0, "g": 1.0, "size_premium": 3.0, "target": "가", "asset_total": 1000.0, "asset_total_unit": "백만원"},
+        {"rcept_no": "1", "company": "가", "board_date": "2026-01-01", "spac": False, "status": "완료", "role": "재무자문",
+         "deal_type": "merger", "wacc": 12.0, "g": None, "size_premium": None, "target": "가"},
+        {"rcept_no": "2", "company": "나", "board_date": "2026-05-01", "spac": False, "status": "진행", "role": "재무자문",
+         "deal_type": "merger", "wacc": 8.0, "g": 0.0, "size_premium": None},
+    ]
+    t = precedent_table(rows)
+    assert [x["rcept_no"] for x in t["rows"]] == ["2", "1"]  # 최근 결의일 순
+    assert t["rows"][1]["wacc"] == 9.0  # 외부평가 값이 대표값
+    assert t["rows"][1]["asset_total"] == "가 1,000백만원"
+    assert "| 나 | 2 | 2026-05-01 |" in t["markdown"]
+    assert {r["rcept_no"] for r in filter_rows(rows, exclude_rcept={"1"})} == {"2"}
+
+
+def test_batch_report_keeps_hand_written_tail(tmp_path):
+    from dart_mcp.batch import write_report
+    from dart_mcp.valuation import MD_MARKER
+
+    md = tmp_path / "_batch.md"
+    md.write_text("# 배치\n| a |\n\n## v1.6.3 추출\n손으로 쓴 줄\n", encoding="utf-8")  # 마커 없는 옛 파일
+    write_report(md, "# 배치\n| a | b |\n")
+    t = md.read_text(encoding="utf-8")
+    assert t.index(MD_MARKER) < t.index("## v1.6.3 추출") and "| a | b |" in t
+    write_report(md, "# 배치\n| a | b | c |\n")  # 두 번째부터는 마커 아래를 그대로
+    t2 = md.read_text(encoding="utf-8")
+    assert t2.count("## v1.6.3 추출") == 1 and "손으로 쓴 줄" in t2 and "| a | b | c |" in t2

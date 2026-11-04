@@ -88,7 +88,9 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
 - 주요사항보고서는 API ZIP에 평가의견서 첨부가 없다 → `source_grade="summary"`(5행+결론). 가정은 짝 증권신고서(full)에서 뽑는다.
 - 큰 평가 섹션은 `find_tables(rcept_no, section_id, caption_pattern)`로 표부터, 나머지만 search_in_disclosure. 스키마 문서: `docs/valuation_schema.md`.
 - 검증·조회 CLI: `uv run python -m dart_mcp.valuation validate|verify-cites|md <json>`, `... table|stats reports/valuations`.
-  `valuation md <json>`은 같은 이름의 `.md`를 **직접 쓰고 그 경로 한 줄만 출력**한다. `>`로 리다이렉트하지 않는다(`> <같은 이름>.md`로 보내면 md가 경로 한 줄로 덮어써진다).
+  `valuation md <json>`은 같은 이름의 `.md`를 **직접 쓰고 그 경로 한 줄만 출력**한다. `>`로 리다이렉트하지 않는다(`> <같은 이름>.md`로 보내면 md가 경로 한 줄로 덮어써진다). md 끝 `<!-- generated:end -->` 마커 아래는 다시 써도 보존된다(마커 없는 옛 md가 손으로 쓴 절을 잃게 되면 멈춘다 — `--adopt`로 그 절을 마커 아래로 옮기거나 `--force`로 덮어쓴다, `md <dir> --dry-run`으로 미리 보기).
+  후처리 `uv run python -m dart_mcp.casedb finalize <json|dir> [--dry-run]`(induty·SPAC·상태 초기값·상대가치 kind·regime, `batch record … ok`가 자동 실행). 통계는 같은 거래의 정정본 사례 하나만 쓴다(`정정본으로 대체된 사례` 경고).
+  통계 인용: 거래 20건 미만이면 `stats … --list` 개별 선례 표 우선, n·범위·SPAC·상태 병기, `중앙값 안정성` 경고면 중앙값 쓰지 않음(`docs/valuation_usage.md` 인용 규칙).
   보강 대기 목록 `uv run python -m dart_mcp.casedb backfill-queue reports/valuations [--all] [--md <경로>]`, 보강 전후 diff `... casedb diff <json> [--against <rev|json>]`.
   배치: `uv run python -m dart_mcp.batch plan|record|sample|report`. MCP 재연결 전 툴 호출: `uv run python -m dart_mcp.casebuild call|grep|usage`.
 

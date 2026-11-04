@@ -16,7 +16,7 @@ dart MCP 툴(get_disclosure_section, search_in_disclosure, find_tables 등)과 B
 ```
 
 리뷰어가 끝나면 작성자는 `<rcept_no>.review.md`의 FAIL을 하나씩 JSON·md에 반영하고(리뷰가 틀렸으면 이유를 적고 고치지 않는다),
-`validate`를 다시 돌린 뒤 md 끝에 `## 리뷰 반영 내역`을 붙인다. 리뷰는 1회로 끝낸다.
+`validate`를 다시 돌린 뒤 md 끝(`<!-- generated:end -->` 마커 아래 — `valuation md`로 다시 써도 남는다)에 `## 리뷰 반영 내역`을 붙인다. 리뷰는 1회로 끝낸다.
 
 ---
 

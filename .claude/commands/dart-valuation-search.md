@@ -44,4 +44,7 @@ argument-hint: <조건 예: "2026년 합병 DCF">
    멀티플은 종류별(`multiple:PER` 등)로 따로.
 4. 평가기관별 거래 수(`firms`). IPO가 있으면 `ipo`: 적용 멀티플 종류 분포, 종류별 멀티플 중앙값·사분위, 할인율 하단(min)·상단(max) 분포.
 5. **CLI 출력 맨 앞의 `warnings[]`를 요약 첫 줄들에 그대로 옮긴다**(stats·compare·export 공통: n<5 "표본 부족", n<10 "통계적 의미 제한", SPAC 쏠림, 사분위 동일 "분포 정보 없음", 철회·진행 포함 수, 체계 혼재). 직접 계산해 붙이지 않는다. compare의 최근접 선례는 `nearest_table`(SPAC·상태 열 포함)을 그대로 쓴다.
-6. 조건에 맞는 사례가 없으면 그렇게 말하고, `/dart-valuation-scan`으로 후보를 찾아 `/dart-valuation`(또는 `-batch`)으로 추출하라고 안내한다.
+   v1.6.4 경고도 같다: `중앙값 안정성 <변수>`(거래 1건씩 빼면 중앙값이 ±10% 넘게 움직임 — 그 변수 중앙값은 인용하지 않는다), `정정본으로 대체된 사례`(같은 거래 중복 제외).
+6. **거래 20건 미만이면 `--list`로 개별 선례 표(`precedents.markdown`)를 중앙값보다 먼저 싣는다**(docs/valuation_usage.md 인용 규칙). n·범위·SPAC·상태를 함께 적고 SPAC·비SPAC은 나눠 낸다.
+   특정 선례를 뺀 결과는 `--exclude-rcept <rcept_no,…>`.
+7. 조건에 맞는 사례가 없으면 그렇게 말하고, `/dart-valuation-scan`으로 후보를 찾아 `/dart-valuation`(또는 `-batch`)으로 추출하라고 안내한다.

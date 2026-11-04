@@ -100,7 +100,7 @@ argument-hint: <rcept_no>
 - `reports/valuations/<rcept_no>.json` — 사례 JSON. `extracted_at`은 지금 시각(ISO8601, +09:00), `extractor_version`은
   `dart_mcp.valuation.EXTRACTOR_VERSION`. `citations`에 읽은 섹션(rcept_no, file_id, section_id, title, chars_read, how).
 - 저장 직후 검증: `uv run python -m dart_mcp.valuation validate reports/valuations/<rcept_no>.json` → valid=false면 고친다.
-  이어서 `... valuation verify-cites <json> --sample 500`(전수)으로 모든 숫자가 cite 위치에 있는지 확인한다. md는 `... valuation md <json>` — `valuation md <json>`은 같은 이름의 `.md`를 **직접 쓰고 그 경로 한 줄만 출력**한다. `>`로 리다이렉트하지 않는다(`> <같은 이름>.md`로 보내면 md가 경로 한 줄로 덮어써진다).
+  이어서 `... valuation verify-cites <json> --sample 500`(전수)으로 모든 숫자가 cite 위치에 있는지 확인한다. md는 `... valuation md <json>` — `valuation md <json>`은 같은 이름의 `.md`를 **직접 쓰고 그 경로 한 줄만 출력**한다. `>`로 리다이렉트하지 않는다(`> <같은 이름>.md`로 보내면 md가 경로 한 줄로 덮어써진다). md 끝 `<!-- generated:end -->` 마커 아래는 다시 써도 보존된다(마커 없는 옛 md가 손으로 쓴 절을 잃게 되면 멈춘다 — `--adopt`로 그 절을 마커 아래로 옮기거나 `--force`로 덮어쓴다, `md <dir> --dry-run`으로 미리 보기).
 - `reports/valuations/<rcept_no>.md` — 사람용:
 
 ```
@@ -123,5 +123,5 @@ argument-hint: <rcept_no>
 ## (e) 리뷰
 `/dart-valuation-batch` 안에서 부를 때는 리뷰를 돌리지 않는다(배치가 끝난 뒤 무작위 20%만). 단독 실행이면
 작성 후 `/dart-valuation-review reports/valuations/<rcept_no>.json`을 1회 돌리고(서브에이전트), FAIL을 반영한 뒤
-md 맨 끝에 `## 리뷰 반영 내역` 표(`| 리뷰 항목 | 위치 | 수정 전 | 수정 후 / 미반영 사유 |`)를 붙인다. 리뷰는 1회로 끝낸다.
+md 맨 끝(`<!-- generated:end -->` 마커 **아래**)에 `## 리뷰 반영 내역` 표(`| 리뷰 항목 | 위치 | 수정 전 | 수정 후 / 미반영 사유 |`)를 붙인다. 리뷰는 1회로 끝낸다.
 채팅에는 valuations 요약, 리뷰 PASS/FAIL, MCP 툴 호출 횟수와 읽은 글자 수(작성/리뷰 분리)를 보고한다.

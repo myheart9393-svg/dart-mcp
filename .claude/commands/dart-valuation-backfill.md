@@ -19,7 +19,7 @@ argument-hint: <rcept_no>
 - 원문에 없으면 null + `absent_reasons` {path, field, reason: "원문에 없음", basis: "보강 확인 <오늘>: <근거, section·offset>"}. 채운 값에는 전부 cite.
 - 원문 읽기는 전부 `.venv/Scripts/python.exe -m dart_mcp.casebuild call --log data/valuation_logs/backfill_<rcept_no>.jsonl --tag <rcept_no> <툴> '<json>'`
   (uv가 있으면 `uv run python`). 큰 섹션 위치는 `... casebuild grep ...`. 원문 통째로 읽지 않는다 — 각 원소의 기존 cite(dcf.wacc·result) 부근부터.
-- md 재생성 금지(리뷰 반영 내역이 지워진다). git 명령 금지.
+- md는 `valuation md <json>`으로만 다시 쓴다(마커 아래 리뷰 반영 내역은 보존, 마커 없는 옛 md면 멈춘다 — 멈추면 `--adopt`). git 명령 금지.
 
 **빠른 처리(파일럿 실측: β·규모위험·비교회사는 외부평가기관 원소에서만 원문에 나왔다).** role이 "외부평가"가 아닌 DCF 원소(재무자문·회사)는
 그 주체 구간에서 `search_in_disclosure` 한 번("베타|Beta|규모|Size|동종|유사|대용")으로 서술이 없음을 확인하면 beta_method·size_premium_basis·peers를

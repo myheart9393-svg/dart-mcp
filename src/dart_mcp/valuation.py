@@ -426,6 +426,18 @@ def relative_kind_errors(case: dict) -> list[str]:
     return out
 
 
+def completeness_warnings(case: dict) -> list[str]:
+    """후처리(casedb finalize / batch record ok)가 채워야 할 칸이 빈 곳. 스키마 오류는 아니다(v1.6.4: derive 누락으로 3건이 --spac에서 빠졌다)."""
+    d, out = case.get("deal") or {}, []
+    if d.get("spac") is None:
+        out.append("deal.spac 미설정 — casedb finalize(또는 casedb derive)")
+    if not (case.get("company") or {}).get("induty_code"):
+        out.append("company.induty_code 비어 있음 — casedb finalize(기업개황 조회 실패면 notes에 사유)")
+    if d.get("status") is None and d.get("type") != "ipo":
+        out.append("deal.status 미설정 — casedb finalize(초기값) 후 valuation status로 갱신")
+    return out
+
+
 def range_order_errors(node: Any, path: str = "") -> list[str]:
     """{min, max} 범위에서 min.value > max.value인 곳(JSON Schema로는 값 비교를 못 한다).
 
@@ -818,6 +830,9 @@ def flatten_case(case: dict) -> list[dict]:
             "d_over_e": d_over_e(dcf),
             "multiple_type": rel.get("multiple_type"), "multiple": v(rel.get("multiple")),
             "result": v(res.get("value")), "result_unit": res.get("unit"),
+            "asset_total": v((val.get("asset_value") or {}).get("total")),
+            "asset_total_unit": ((val.get("asset_value") or {}).get("total") or {}).get("unit")
+            if isinstance((val.get("asset_value") or {}).get("total"), dict) else None,
         })
     return rows
 
@@ -854,7 +869,7 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
                 purposes: set[str] | None = None, firm: str | None = None, firm_role: str = "외부평가",
                 regimes: set[str] | None = None, industries: set[str] | None = None,
                 statuses: set[str] | None = None, exclude_statuses: set[str] | None = None,
-                spac: set[str] | None = None) -> list[dict]:
+                spac: set[str] | None = None, exclude_rcept: set[str] | None = None) -> list[dict]:
     """평가 행 거르기. purposes=None이면 거래가액 평가만(공정가치평가·손상검사 제외), {"all"}이면 전부.
 
     regimes: deal.regime 값 집합(예: {"기준시가"}). "none"은 regime이 null인 행.
@@ -864,6 +879,8 @@ def filter_rows(rows: list[dict], *, date_from: str | None = None, date_to: str 
     statuses / exclude_statuses: deal.status("진행"·"완료"·"철회·중단"·"미확인", null은 "none"). spac: {"true", "false", "unknown"}."""
     out = []
     for r in rows:
+        if exclude_rcept and r["rcept_no"] in exclude_rcept:
+            continue
         d = _deal_date(r)
         if (date_from and d < date_from) or (date_to and d > date_to):
             continue
@@ -924,6 +941,9 @@ def deal_stats(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS, "mult
             reps = {rno: representative(vals) for rno, vals in per_deal.items()}
             out["variables"][key] = {**_quantiles(list(reps.values())), "deals": len(reps),
                                      "values": sum(len(v) for v in per_deal.values()), "per_deal": reps}
+            stab = median_stability(reps)
+            if stab:
+                out["variables"][key]["median_stability"] = stab
     # 평가기관별 거래 수: 그 거래의 외부평가 원소 subject(거래당 중복 없이). external_valuation.firm은 자유 문구라
     # ("한미회계법인(존속회사 선임), 한울회계법인(소멸회사 선임)" 등 — 배치 실측) 세지 않는다. 외부평가 원소가 없으면 "(외부평가 없음)"
     for rs in by_deal.values():
@@ -931,6 +951,69 @@ def deal_stats(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS, "mult
         for f in names:
             out["firms"][f] = out["firms"].get(f, 0) + 1
     return out
+
+
+STABILITY_MAX_N = 30   # 거래 수가 이 이하인 변수에 중앙값 안정성(거래 1건씩 빼고 다시 낸 중앙값의 범위)을 붙인다
+STABILITY_BAND = 0.10  # 그 범위가 중앙값의 ±10%를 넘으면 경고
+
+
+def median_stability(per_deal: dict[str, float]) -> dict | None:
+    """거래별 대표값 → 거래를 하나씩 빼고 다시 낸 중앙값의 최소–최대(leave-one-out). 거래 3–30건일 때만.
+    {median, min, max, min_without, max_without, band_pct, unstable}. band_pct = 중앙값 대비 최대 이탈(%), 중앙값 0이면 None."""
+    import statistics
+
+    n = len(per_deal)
+    if n < 3 or n > STABILITY_MAX_N:
+        return None
+    med = statistics.median(per_deal.values())
+    loo = {r: statistics.median([x for k, x in per_deal.items() if k != r]) for r in per_deal}
+    lo, hi = min(loo.values()), max(loo.values())
+    band = None if med == 0 else round(max(med - lo, hi - med) / abs(med) * 100, 1)
+    unstable = (lo != hi) if med == 0 else (lo < med - abs(med) * STABILITY_BAND or hi > med + abs(med) * STABILITY_BAND)
+    pick = lambda x: sorted(r for r, m in loo.items() if m == x)
+    return {"median": med, "min": lo, "max": hi, "min_without": pick(lo), "max_without": pick(hi),
+            "band_pct": band, "unstable": unstable}
+
+
+def stability_warnings(variables: dict[str, dict]) -> list[str]:
+    out = []
+    for var, st in variables.items():
+        s = st.get("median_stability")
+        if s and s["unstable"]:
+            out.append(f"중앙값 안정성 {var}: 중앙값 {s['median']:g}, 거래 1건씩 빼면 {s['min']:g}–{s['max']:g}"
+                       + (f"(±{s['band_pct']:g}%)" if s["band_pct"] is not None else "")
+                       + f" — 거래 1건에 흔들림, 개별 선례로 확인(--list)")
+    return out
+
+
+def precedent_table(rows: list[dict], variables: tuple[str, ...] = ("wacc", "g", "size_premium"), limit: int = 30) -> dict:
+    """거래별 개별 선례 표(최근 이사회 결의일 순 limit건): 회사, 접수번호, 결의일, SPAC, 상태, 변수별 거래 대표값, 자산가치 총액(원문 단위).
+    규모는 사례 JSON에 있는 것만 — 시가총액 칸은 스키마에 없고, asset_value.total(평가 대상별, 외부평가 원소 우선)을 쓴다."""
+    by_deal: dict[str, list[dict]] = {}
+    for r in rows:
+        by_deal.setdefault(r["rcept_no"], []).append(r)
+    items = []
+    for rno, rs in by_deal.items():
+        reps = {v: representative([(r.get("role"), float(r[v])) for r in rs if r.get(v) is not None]) for v in variables}
+        src = [r for r in rs if r.get("role") == "외부평가" and r.get("asset_total") is not None] or \
+              [r for r in rs if r.get("asset_total") is not None]
+        size, seen = [], set()
+        for r in src:
+            key = r.get("target") or "?"
+            if key not in seen:
+                seen.add(key)
+                size.append(f"{key} {r['asset_total']:,.0f}{r.get('asset_total_unit') or ''}")
+        f = rs[0]
+        items.append({"company": f["company"], "rcept_no": rno, "board_date": f.get("board_date"), "spac": _spac_key(f.get("spac")),
+                      "status": f.get("status"), **reps, "asset_total": "; ".join(size) or None})
+    items.sort(key=lambda x: (x["board_date"] or x["rcept_no"][:8]), reverse=True)
+    shown = items[:limit]
+    fmt = lambda x: "" if x is None else f"{x:g}"
+    lines = ["| 회사 | 접수번호 | 이사회결의일 | SPAC | 상태 | " + " | ".join(variables) + " | 자산가치 총액(대상별, 원문 단위) |",
+             "|---|---|---|---|---|" + "---|" * len(variables) + "---|"]
+    lines += [f"| {x['company']} | {x['rcept_no']} | {x['board_date'] or ''} | {x['spac']} | {x['status'] or ''} | "
+              + " | ".join(fmt(x[v]) for v in variables) + f" | {x['asset_total'] or ''} |" for x in shown]
+    return {"deals": len(items), "shown": len(shown), "rows": shown, "markdown": "\n".join(lines)}
 
 
 STAT_SMALL_N = 10   # 이 미만이면 "통계적 의미 제한"
@@ -1133,7 +1216,82 @@ def render_markdown(case: dict) -> str:
     out += [f"| {c['rcept_no']} | {c['file_id']} | {c['section_id']} | {c.get('title') or ''} | {c['chars_read']:,} | {c.get('how') or ''} |"
             for c in case["citations"]]
     # 원문 범위 표기 "39,907~47,403"가 한 줄에 둘 이상이면 Markdown 취소선이 된다(CLAUDE.md 범위 규칙) → en dash
-    return "\n".join(out).replace("~", "–") + "\n"
+    return "\n".join(out).replace("~", "–") + "\n" + MD_MARKER + "\n"
+
+
+# 생성 내용의 끝. 그 아래(리뷰 반영 내역 등 손으로 붙인 절)는 valuation md가 다시 써도 보존한다(v1.6.4)
+MD_MARKER = "<!-- generated:end -->"
+
+
+def _headings(text: str) -> list[str]:
+    return [ln.strip() for ln in text.splitlines() if ln.startswith("## ")]
+
+
+def plan_md(case: dict, old: str | None) -> dict:
+    """md 재생성 계획 → {action, content, lost_headings, lost_lines, tail}.
+    action: new(파일 없음) · same(내용 같음) · update(마커 없지만 잃는 줄 없음) · keep_tail(마커 있음 — 마커 아래 보존) · abort(마커 없고 내용 다름).
+    abort면 lost_headings(새 생성에 없는 ## 제목 — 손으로 쓴 절 추정)·lost_lines(사라질 줄 수)를 같이 준다.
+    tail: 마커 없는 파일을 --adopt로 옮길 때 보존할 꼬리(첫 lost 제목부터 끝까지, 그 뒤에 생성 제목이 없을 때만)."""
+    gen = render_markdown(case)
+    body = gen[: gen.index(MD_MARKER)]
+    if old is None:
+        return {"action": "new", "content": gen}
+    if MD_MARKER in old:
+        tail = old.split(MD_MARKER, 1)[1].lstrip("\n")
+        return {"action": "keep_tail", "content": gen + ("\n" + tail if tail else ""), "tail": tail}
+    if old.strip() == body.strip():
+        return {"action": "same", "content": gen}
+    new_h = set(_headings(body))
+    lost_h = [h for h in _headings(old) if h not in new_h]
+    new_lines = set(body.splitlines())
+    lost_lines = [ln for ln in old.splitlines() if ln.strip() and ln not in new_lines]
+    if not lost_lines:
+        # 새 생성이 줄을 더하기만 한다(finalize notes·새 칸) — 잃는 것이 없으니 덮어써도 된다
+        return {"action": "update", "content": gen}
+    tail = None
+    if lost_h:
+        i = old.index(lost_h[0])
+        rest = old[i:]
+        if not (set(_headings(rest)) & new_h):
+            tail = rest.rstrip("\n") + "\n"
+    return {"action": "abort", "content": gen, "lost_headings": lost_h, "lost_lines": len(lost_lines),
+            "lost_sample": lost_lines[:5], "tail": tail}
+
+
+def _md_cli(target: Path, argv: list[str]) -> int:
+    """md <json|dir> [--dry-run] [--force] [--adopt]: 사례 md를 다시 쓴다(마커 아래 보존).
+    마커 없는 기존 md가 새 생성과 다르면 차이를 보여 주고 중단(--force는 덮어씀, --adopt는 손으로 쓴 꼬리 절을 마커 아래로 옮겨 씀)."""
+    paths = [target] if target.is_file() else [p for p in sorted(target.glob("*.json")) if not p.name.startswith("_")]
+    dry, force, adopt = "--dry-run" in argv, "--force" in argv, "--adopt" in argv
+    rows, rc = [], 0
+    for jp in paths:
+        mp = jp.with_suffix(".md")
+        old = mp.read_text(encoding="utf-8") if mp.exists() else None
+        plan = plan_md(json.loads(jp.read_text(encoding="utf-8")), old)
+        act, content = plan["action"], plan["content"]
+        if act == "abort":
+            if adopt and plan["tail"]:
+                act, content = "adopt", plan["content"] + "\n" + plan["tail"]
+            elif force:
+                act = "force"
+            else:
+                rc = 1
+        if not dry and act != "abort":
+            mp.write_text(content, encoding="utf-8")
+        row = {"md": str(mp), "action": act}
+        if plan["action"] == "abort":
+            row.update({k: plan[k] for k in ("lost_headings", "lost_lines", "lost_sample")}, tail_adoptable=bool(plan["tail"]))
+        rows.append(row)
+    if len(paths) == 1 and not dry and rows[0]["action"] != "abort":
+        print(rows[0]["md"])  # 예전과 같이 경로 한 줄
+        return 0
+    counts: dict[str, int] = {}
+    for r in rows:
+        counts[r["action"]] = counts.get(r["action"], 0) + 1
+    print(json.dumps({"files": len(rows), "dry_run": dry, "actions": counts,
+                      "abort": [r for r in rows if r["action"] == "abort"],
+                      "adopted": [r for r in rows if r["action"] == "adopt"]}, ensure_ascii=False, indent=1))
+    return rc
 
 
 # --------------------------------------------------------------------------- 거래 상태(이후 공시 목록으로)
@@ -1253,6 +1411,7 @@ def add_filter_args(ap: Any) -> None:
     ap.add_argument("--status", help="진행,완료,철회·중단,미확인,none")
     ap.add_argument("--exclude-status", help="예: 철회·중단")
     ap.add_argument("--spac", help="true,false,unknown")
+    ap.add_argument("--exclude-rcept", help="이 접수번호의 거래를 뺀다(쉼표로 여럿) — 특정 선례를 뺀 중앙값 확인용")
 
 
 def apply_filter_args(rows: list[dict], a: Any) -> list[dict]:
@@ -1260,11 +1419,41 @@ def apply_filter_args(rows: list[dict], a: Any) -> list[dict]:
     return filter_rows(rows, date_from=a.date_from, date_to=a.date_to, deal_types=_split(a.deal_type),
                        methods=_split(a.method), purposes=_split(a.purpose), firm=a.firm, firm_role=a.firm_role,
                        regimes=_split(a.regime), industries=_split(a.industry), statuses=_split(a.status),
-                       exclude_statuses=_split(a.exclude_status), spac=spac)
+                       exclude_statuses=_split(a.exclude_status), spac=spac,
+                       exclude_rcept=_split(getattr(a, "exclude_rcept", None)))
 
 
 def load_cases(directory: Path) -> list[dict]:
     return [json.loads(p.read_text(encoding="utf-8")) for p in sorted(directory.glob("*.json")) if not p.name.startswith("_")]
+
+
+def deal_key(case: dict) -> str:
+    """같은 거래의 사례를 묶는 키: original_rcept_no(정정본이면 원본) 또는 rcept_no."""
+    return case.get("original_rcept_no") or case["rcept_no"]
+
+
+def dedup_cases(cases: list[dict]) -> tuple[list[dict], list[dict]]:
+    """같은 거래(deal_key)의 사례가 여럿이면 가장 늦은 접수(정정본)만 남긴다 → (남은 사례, 빠진 [{rcept_no, company, by}]).
+    v1.6.4: SK이노베이션 20261028000313([기재정정])이 기존 20260826000056과 같은 거래인데 둘 다 통계에 들어가 비SPAC 합병 DCF가 15건으로 셌다."""
+    groups: dict[str, list[dict]] = {}
+    for c in cases:
+        groups.setdefault(deal_key(c), []).append(c)
+    kept, dropped = [], []
+    for cs in groups.values():
+        cs = sorted(cs, key=lambda c: c["rcept_no"])
+        kept.append(cs[-1])
+        dropped += [{"rcept_no": c["rcept_no"], "company": c["company"]["name"], "by": cs[-1]["rcept_no"]} for c in cs[:-1]]
+    order = {c["rcept_no"]: i for i, c in enumerate(cases)}
+    return sorted(kept, key=lambda c: order[c["rcept_no"]]), dropped
+
+
+def superseded_warning(dropped: list[dict], dropped_rows: list[dict]) -> list[str]:
+    hit = sorted({r["rcept_no"] for r in dropped_rows})
+    if not hit:
+        return []
+    by = {d["rcept_no"]: d for d in dropped}
+    return [f"정정본으로 대체된 사례 {len(hit)}건 제외(같은 거래 중복 방지): "
+            + ", ".join(f"{by[r]['company']} {r}→{by[r]['by']}" for r in hit)]
 
 
 def _stats_cli(directory: Path, argv: list[str]) -> int:
@@ -1278,9 +1467,13 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
 
     ap = argparse.ArgumentParser(prog="dart_mcp.valuation stats")
     add_filter_args(ap)
+    ap.add_argument("--list", nargs="?", const=30, type=int, default=None, metavar="N",
+                    help="개별 선례 표(최근 결의일 순 N건, 기본 30)를 함께 낸다")
     a = ap.parse_args(argv)
-    cases = load_cases(directory)
+    cases, dropped = dedup_cases(load_cases(directory))
     rows = apply_filter_args([r for c in cases for r in flatten_case(c)], a)
+    old_rows = apply_filter_args([r for c in load_cases(directory) if c["rcept_no"] in {d["rcept_no"] for d in dropped}
+                                  for r in flatten_case(c)], a) if dropped else []
     kept = {r["rcept_no"] for r in rows}
     regimes: dict[str, int] = {}
     industries: dict[str, int] = {}
@@ -1296,6 +1489,9 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
     out = {"warnings": sample_warnings(rows, spac_filter=a.spac), "filters": vars(a), "regimes": regimes, "statuses": statuses, "spac": spacs,
            "industries": dict(sorted(industries.items(), key=lambda x: -x[1])),
            "rows": rows, **deal_stats(rows)}
+    out["warnings"] += superseded_warning(dropped, old_rows) + stability_warnings(out["variables"])
+    if a.list:
+        out["precedents"] = precedent_table(rows, limit=a.list)
     if {"기준시가", REGIME_FAIR} <= set(regimes):
         out["warning"] = f"기준시가·{REGIME_FAIR} 체계가 섞였다 — --regime으로 나눠 따로 본다"
     ipo_cases = [c for c in cases if c["rcept_no"] in kept and c["deal"]["type"] == "ipo"]
@@ -1317,6 +1513,8 @@ def _cli(argv: list[str]) -> int:
     cmd, target = argv[0], Path(argv[1])
     if cmd == "validate" and target.is_dir():
         results, summary = [], {}
+        _, dup = dedup_cases(load_cases(target))
+        dup_by = {d["rcept_no"]: d["by"] for d in dup}
         for p in sorted(target.glob("*.json")):
             if p.name.startswith("_"):
                 continue
@@ -1324,7 +1522,10 @@ def _cli(argv: list[str]) -> int:
             ids = identity_checks(c)
             for x in ids:
                 summary.setdefault(x["check"], {"pass": 0, "warn": 0, "skip": 0, "source_inconsistent": 0})[x["status"]] += 1
-            results.append({"file": p.name, "errors": validate_case(c), "warnings": distribution_warnings(c) + _identity_warnings(ids)})
+            dupw = [f"같은 거래의 정정본 사례 {dup_by[c['rcept_no']]}가 있다 — 통계에서 빠진다(정정본으로 갱신 후 이 파일 정리 검토)"] \
+                if c["rcept_no"] in dup_by else []
+            results.append({"file": p.name, "errors": validate_case(c),
+                            "warnings": dupw + completeness_warnings(c) + distribution_warnings(c) + _identity_warnings(ids)})
         print(json.dumps({"cases": len(results), "failed": sum(bool(r["errors"]) for r in results),
                           "warned": sum(bool(r["warnings"]) for r in results),
                           "identities": {k: summary.get(k, {}) for k in IDENTITY_CHECKS},
@@ -1335,10 +1536,7 @@ def _cli(argv: list[str]) -> int:
     if cmd == "stats":
         return _stats_cli(target, argv[2:])
     if cmd == "md":
-        md_path = target.with_suffix(".md")
-        md_path.write_text(render_markdown(json.loads(target.read_text(encoding="utf-8"))), encoding="utf-8")
-        print(md_path)
-        return 0
+        return _md_cli(target, argv)
     if cmd == "table":
         rows = [r for p in sorted(target.glob("*.json")) for r in flatten_case(json.loads(p.read_text(encoding="utf-8")))]
         print(json.dumps(rows, ensure_ascii=False, indent=1))
@@ -1347,7 +1545,8 @@ def _cli(argv: list[str]) -> int:
     if cmd == "validate":
         errors = validate_case(case)
         print(json.dumps({"file": str(target), "valid": not errors, "errors": errors,
-                          "warnings": distribution_warnings(case) + _identity_warnings(identity_checks(case))},
+                          "warnings": completeness_warnings(case) + distribution_warnings(case)
+                                      + _identity_warnings(identity_checks(case))},
                          ensure_ascii=False, indent=1))
         return 0 if not errors else 1
     sample = int(argv[argv.index("--sample") + 1]) if "--sample" in argv else 8

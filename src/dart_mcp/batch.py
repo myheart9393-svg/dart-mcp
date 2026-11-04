@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 import logging
 import sys
 from pathlib import Path
@@ -29,6 +30,34 @@ from .valuation import DEAL_LABELS, SPAC_RE, equity_kind
 
 CASE_DIR = Path("reports/valuations")
 EQUITY_SCAN_CHARS = 300_000
+
+
+CORRECTION_LOOKBACK_DAYS = 180
+
+
+def _existing_deals(case_dir: Path) -> dict[tuple[str, str], list[str]]:
+    """(corp_code, deal_type) → 기존 사례 rcept_no 목록. 원본이 plan 창 밖인 [기재정정]을 새 거래로 보지 않으려고(v1.6.4 SK이노베이션)."""
+    out: dict[tuple[str, str], list[str]] = {}
+    for p in case_dir.glob("*.json"):
+        if p.name.startswith("_"):
+            continue
+        c = json.loads(p.read_text(encoding="utf-8"))
+        cc = (c.get("company") or {}).get("corp_code")
+        if cc:
+            out.setdefault((cc, c["deal"]["type"]), []).append(c["rcept_no"])
+    return out
+
+
+def correction_of_existing(item: dict, deals: dict[tuple[str, str], list[str]]) -> str | None:
+    """정정 꼬리표가 붙은 큐 항목이 같은 회사·같은 유형 기존 사례(접수 180일 안)의 정정으로 보이면 그 rcept_no."""
+    if not re.match(r"\[(기재정정|첨부정정|첨부추가)\]", str(item.get("report_nm") or "")):  # 셀트릭스 v1.6.3은 [첨부정정]
+        return None
+    import datetime as _dt
+
+    day = _dt.datetime.strptime(item["rcept_dt"], "%Y%m%d")
+    lo = (day - _dt.timedelta(days=CORRECTION_LOOKBACK_DAYS)).strftime("%Y%m%d")
+    hits = sorted(r for r in deals.get((item.get("corp_code") or "", item["deal_type"]), []) if lo <= r[:8] < item["rcept_dt"])
+    return hits[-1] if hits else None
 
 
 def _existing_keys(case_dir: Path) -> set[str]:
@@ -71,6 +100,7 @@ def plan(bgn: str, end: str, grade: str = "full", limit: int | None = None, case
     if "error" in res:
         raise RuntimeError(res["error"])
     existing = _existing_keys(case_dir)
+    deals = _existing_deals(case_dir)
     items = []
     for d in sorted(res["deals"], key=lambda x: (x["original_rcept_dt"] or x["rcept_dt"], x["rcept_no"])):
         if grade and d["source_grade"] != grade:
@@ -83,6 +113,10 @@ def plan(bgn: str, end: str, grade: str = "full", limit: int | None = None, case
         it["body_available"], it["hint"] = d.get("body_available"), d.get("hint")
         if keys & existing:
             it["status"], it["reason"] = "skip", "existing"
+        elif (prev := correction_of_existing(it, deals)):
+            # 원본이 창 밖이라 supersedes가 비었다 — 새 사례가 아니라 기존 사례를 정정본으로 갱신할 일
+            it["status"], it["reason"] = "skip", "existing_correction"
+            it["hint"] = f"기존 사례 {prev}의 [기재정정]으로 보인다 — 새로 추출하지 말고 기존 사례를 정정본으로 갱신(사례 JSON의 정정 관계는 notes)"
         elif d.get("body_available") is False:
             # 첨부정정 ZIP뿐이고 원본을 못 찾음: 실패가 아니라 읽을 본문이 없는 것(retro 2026-11-04 #8)
             it["status"], it["reason"] = "skip", "no_body"
@@ -123,6 +157,39 @@ def ensure_company(it: dict, case_dir: Path = CASE_DIR) -> dict | None:
     if fixed or res["changed"]:
         path.write_text(json.dumps(case, ensure_ascii=False, indent=1), encoding="utf-8")
     return {"induty_code": res["induty_code"], "reason": res["reason"]}
+
+
+def finalize_case_file(it: dict, case_dir: Path = CASE_DIR) -> list[dict] | None:
+    """record ok 후처리: casedb.finalize(spac·status 초기값·relative kind·regime; induty는 ensure_company가 이미 함)."""
+    from .casedb import finalize
+
+    path = case_dir / f"{it['body_rcept_no']}.json"
+    if not path.exists():
+        return None
+    case = json.loads(path.read_text(encoding="utf-8"))
+    ch = finalize(case, network=False)
+    if ch:
+        path.write_text(json.dumps(case, ensure_ascii=False, indent=1), encoding="utf-8")
+    return [{"field": c["field"], "new": c["new"]} for c in ch]
+
+
+def write_report(md_path: Path, generated: str) -> None:
+    """_batch_<날짜>.md 쓰기: 생성 내용 + 마커, 기존 파일의 마커 아래(손으로 붙인 추출 기록 등)는 보존(v1.6.4 — record·report가 지웠다).
+    마커 없는 기존 파일은 새 생성에 없는 줄을 마커 아래로 옮긴다(잃지 않는다)."""
+    from .valuation import MD_MARKER
+
+    tail = ""
+    if md_path.exists():
+        old = md_path.read_text(encoding="utf-8")
+        if MD_MARKER in old:
+            tail = old.split(MD_MARKER, 1)[1].lstrip("\n")
+        else:
+            gen_lines = set(generated.splitlines())
+            extra = [ln for ln in old.splitlines() if ln.strip() and ln not in gen_lines]
+            if extra:
+                first = next(i for i, ln in enumerate(old.splitlines()) if ln in extra)
+                tail = "\n".join(old.splitlines()[first:]).rstrip("\n") + "\n"
+    md_path.write_text(generated.rstrip("\n") + "\n" + MD_MARKER + "\n" + ("\n" + tail if tail else ""), encoding="utf-8")
 
 
 def _now() -> str:
@@ -219,7 +286,7 @@ def _cli(argv: list[str]) -> int:
         st = plan(a.bgn, a.end, a.grade or None, a.limit, kinds=a.kinds.split(",") if a.kinds else None)
         path = Path(a.state or CASE_DIR / f"_batch_{dt.date.today():%Y-%m-%d}.json")
         path.write_text(json.dumps(st, ensure_ascii=False, indent=1), encoding="utf-8")
-        path.with_suffix(".md").write_text(render(st), encoding="utf-8")
+        write_report(path.with_suffix(".md"), render(st))
         todo = [i for i in st["items"] if i["status"] == "todo"]
         print(json.dumps({"state": str(path), "items": len(st["items"]), "todo": [i["body_rcept_no"] for i in todo],
                           "status": {s: sum(1 for i in st["items"] if i["status"] == s) for s in
@@ -232,9 +299,10 @@ def _cli(argv: list[str]) -> int:
                     **({"review": a.review} if a.review else {}))
         if a.status == "ok":
             it["industry"] = ensure_company(it)
+            it["finalize"] = finalize_case_file(it)
         path.write_text(json.dumps(st, ensure_ascii=False, indent=1), encoding="utf-8")
         print(json.dumps(it, ensure_ascii=False))
-    path.with_suffix(".md").write_text(render(st), encoding="utf-8")
+    write_report(path.with_suffix(".md"), render(st))
     return 0
 
 

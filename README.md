@@ -250,14 +250,43 @@ healthcheck 검사 항목 (각 PASS/WARN/FAIL/N/A):
 
 ### 가치평가 사례 DB 갱신 (월초)
 
-1. `/dart-valuation-scan <전월 1일> <전월 말일>` → 표에서 **full 등급이면서 추출 안 된** 건을 고른다(summary 등급은 가정이 없어 기본 제외).
-2. `/dart-valuation-batch <전월 1일> <전월 말일> --grade full` → 건마다 서브에이전트로 `/dart-valuation`. 실패는 `_batch_<날짜>.md`에 남고 배치는 계속된다.
-3. 배치 끝의 **무작위 20% 리뷰**(`/dart-valuation-review`) FAIL은 고쳐서 다시 리뷰한다.
-4. `uv run python -m dart_mcp.valuation validate reports/valuations` → `errors`가 0이어야 한다. `warnings`(WACC 0–30% 밖, g ≥ WACC, g > 5%,
-   적용 멀티플 ≤ 0, 할인율 0–70% 밖, 자본총계+조정항목≠조정 순자산)는 FAIL이 아니다 — 해당 cite를 원문과 대조해 원문이 맞으면 그대로 둔다.
-   `validate`의 `항등식` 경고는 원문과 대조해 추출 오류면 고치고, 원문 자체 불일치면 사례 JSON `source_inconsistent`에 적는다.
-5. `uv run python -m dart_mcp.valuation status reports/valuations` → 합병·분할·교환 사례의 거래 상태(진행·완료·철회·중단·미확인)를 갱신(list.json만, 회사당 1–2회 호출).
-6. `reports/valuations/`(사례 JSON·md·review·`_batch`·`_scan`)를 커밋한다.
+전월 공시를 사례 DB에 넣는 순서다. 명령은 `uv run python -m …`(Windows에서 uv가 없으면 `.venv/Scripts/python.exe -m …`)이다.
+`<bgn>`은 전월 1일, `<end>`는 전월 말일(YYYYMMDD), `<state>`는 `reports/valuations/_batch_<오늘>.json`이다.
+
+1. **훑기.** `/dart-valuation-scan <bgn> <end> --include-unlisted`
+   - 비상장 합병·교환도 포함해 표로 본다. "비상장 n건 제외됨"이 0이 아니면 그 건도 대상인지 판단한다.
+   - [첨부정정]만 있는 거래는 표의 본문 접수번호(body_rcept_no)로 연다. 014 오류면 원본을 찾는다.
+2. **큐 만들기.** `dart_mcp.batch plan <bgn> <end> --grade full --state <state>`
+   - 기존 사례·유상증자·SPAC 공모·본문 없음은 자동으로 skip된다.
+   - **기존 사례의 [기재정정]은 `skip:existing_correction`이 된다(v1.6.4).** 새 사례로 추출하지 않는다.
+     정정 내용이 바뀌었으면(합병비율·평가기관 추가 등) 기존 사례를 정정본 기준으로 갱신한다.
+3. **추출.** `/dart-valuation-batch <bgn> <end> --grade full` — 건마다 서브에이전트가 `/dart-valuation`을 돈다.
+   실패는 기록하고 다음 건으로 넘어간다.
+4. **기록과 후처리.** 건마다 `dart_mcp.batch record --state <state> <rcept_no> ok …`.
+   - 기록하면서 사례 JSON 후처리를 함께 돈다: 업종(induty_code), SPAC 판정, 상태 초기값("진행"), 거래 단위 상대가치 규칙 분류, 체계(regime).
+   - 손으로 고친 사례는 `dart_mcp.casedb finalize <json>`(`--dry-run`으로 미리 보기)으로 같은 후처리를 한다.
+   - 이미 값이 있는 칸은 건드리지 않는다.
+5. **상태 갱신.** `dart_mcp.valuation status reports/valuations`
+   - 이후 공시 목록으로 진행·완료·철회·중단·미확인을 다시 판정한다(원문은 받지 않는다. 회사당 1–2회 호출).
+6. **경고 확인.** `dart_mcp.valuation validate reports/valuations`
+   - `errors` 0이 조건이다.
+   - `warnings`는 FAIL이 아니다. 아래는 각각 이렇게 처리한다.
+
+   | 경고 | 할 일 |
+   |---|---|
+   | `deal.spac 미설정`·`induty_code 비어 있음`·`deal.status 미설정` | 후처리 누락. `casedb finalize`를 돈다 |
+   | `같은 거래의 정정본 사례 …가 있다` | 통계는 정정본만 쓴다. 옛 사례 파일을 정리할지 판단한다 |
+   | WACC·g·멀티플 분포 밖, `항등식` | cite를 원문과 대조한다. 추출 오류면 고치고, 원문 자체 불일치면 `source_inconsistent`에 적는다 |
+
+   이어서 `dart_mcp.casedb audit-null reports/valuations --write`와 `casedb backfill-queue reports/valuations`로 누락 의심 칸을 본다.
+7. **20% 리뷰.** `dart_mcp.batch sample --state <state> --only <이번 rcept_no,…>`로 표본을 뽑는다(seed는 대상 목록 해시라 다시 뽑아도 같다).
+   - 표본마다 `/dart-valuation-review`를 돈다.
+   - FAIL은 사례 JSON을 고친 뒤 validate·verify-cites를 다시 돌린다.
+   - md는 `dart_mcp.valuation md <json>`으로 갱신한다.
+     md 끝 `<!-- generated:end -->` 아래(리뷰 반영 내역 등)는 다시 써도 보존된다.
+     마커가 없는 옛 md가 손으로 쓴 절을 잃게 되면 명령이 멈춘다. `--adopt`는 그 절을 마커 아래로 옮기고, `--force`는 덮어쓴다.
+8. **보고와 커밋.** `dart_mcp.batch report --state <state>`로 `_batch_<날짜>.md`를 만든다.
+   통계를 다시 보고(`stats … --list`, 인용 규칙은 [docs/valuation_usage.md](docs/valuation_usage.md)) `reports/valuations/`를 커밋한다.
 
 > **합병가액 체계 변경 주의.** 2026.9.8 개정 자본시장법으로 **2026.12.9 이후 이사회 결의분부터** 합병가액이 기준시가 체계에서
 > 공정가액 체계로 바뀐다. 사례마다 `deal.regime`(`"기준시가"` · `"공정가액(2026.12.9 개정)"` · `"IPO"` · null)으로 구분하고,
@@ -265,14 +294,14 @@ healthcheck 검사 항목 (각 PASS/WARN/FAIL/N/A):
 > 두 체계가 섞인 조회면 `stats` 결과에 `warning`이 붙는다. regime이 null인 사례(원문으로 판단 불가)는 `--regime none`.
 > 2026-12 결의분부터는 추출 시 원문에서 적용 체계를 확인해 regime을 채운다(이사회 결의일만으로 추정하지 않는다).
 
-업종: 새 사례는 `batch record … ok`가 induty_code를 채운다. 기존 사례는 `uv run python -m dart_mcp.industry fill reports/valuations`(비어 있는 것만, 30일 캐시),
+업종: 새 사례는 `batch record … ok`(후처리)가 induty_code를 채운다. 기존 사례는 `uv run python -m dart_mcp.industry fill reports/valuations`(비어 있는 것만, 30일 캐시),
 분포는 `... industry dist reports/valuations`. 조회는 `stats --industry <KSIC 접두 | 대분류 문자 | 제조업·정보통신·금융보험·도소매 등>`.
 
 조회 도구(`dart_mcp.casedb`, v1.6): `derive`(SPAC 파생), `compare`(내 가정 vs 선례 백분위·최근접), `export --csv`(평가 요소 1행, 엑셀용),
 `audit-null [--write]`(null 필드를 캐시 원문 키워드로 감사 → `absent_reasons`), `backfill-queue [--all] [--md <경로>]`(감사 결과 중 "추출 안 함"을 보강 대기 목록으로),
 `diff <json> [--against <git rev|json>]`(보강 전후 필드별 diff, 기본 HEAD). 기관별 통계는 `stats --firm <이름> --as 외부평가|재무자문|any`
 — 그 기관이 평가 주체인 원소만 쓴다(예: `--method DCF`에서 이촌 외부평가 9건 거래, WACC 중앙값 11.47%; v1.5까지는 같은 거래의 다른 기관 값이 섞여 11.38%·26개 값).
-새 사례를 넣은 뒤에는 `casedb derive`와 `casedb audit-null --write`도 돌린다.
+새 사례는 `batch record … ok`가 `casedb finalize`(SPAC 판정 포함)를 돌린다. 그 뒤 `casedb audit-null --write`를 돌린다.
 
 **보강(backfill) 상태(v1.6.1).** β 산정 방식·규모위험 근거·비교회사·본질가치 수익가치 점 값·거래 단위 상대가치는 v1.6 칸이다.
 비SPAC DCF 합병 17건(알테오젠 포함)은 원문에서 보강했고(서브에이전트, 건당 비용은 CHANGELOG), 상대가치는 정해진 사유 문구가 있는 36건을 규칙으로 채웠다(`relative_value.derived=true`).
