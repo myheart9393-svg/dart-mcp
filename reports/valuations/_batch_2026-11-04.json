@@ -255,9 +255,10 @@
    "source_grade": "full",
    "supersedes": [],
    "related_rcept_nos": [],
-   "status": "queued",
-   "reason": null,
-   "equity_kind": "ipo"
+   "status": "skip",
+   "reason": "existing_correction(기존 사례 20261012000490의 정정 — v1.6.4 점검)",
+   "equity_kind": "ipo",
+   "done_at": "2026-11-04T13:08:35+09:00"
   },
   {
    "rcept_no": "20261030000349",
@@ -344,9 +345,10 @@
    "source_grade": "full",
    "supersedes": [],
    "related_rcept_nos": [],
-   "status": "queued",
-   "reason": null,
-   "equity_kind": "ipo"
+   "status": "skip",
+   "reason": "existing_correction(기존 사례 20261008000705의 정정 — v1.6.4 점검)",
+   "equity_kind": "ipo",
+   "done_at": "2026-11-04T13:08:35+09:00"
   },
   {
    "rcept_no": "20261102000312",
@@ -385,9 +387,10 @@
    "source_grade": "full",
    "supersedes": [],
    "related_rcept_nos": [],
-   "status": "queued",
-   "reason": null,
-   "equity_kind": "ipo"
+   "status": "skip",
+   "reason": "existing_correction(기존 사례 20261020000375의 정정 — v1.6.4 점검)",
+   "equity_kind": "ipo",
+   "done_at": "2026-11-04T13:08:36+09:00"
   },
   {
    "rcept_no": "20261103000136",
@@ -460,9 +463,10 @@
     "20261027000363"
    ],
    "related_rcept_nos": [],
-   "status": "queued",
-   "reason": null,
-   "equity_kind": "ipo"
+   "status": "skip",
+   "reason": "existing_correction(기존 사례 20261008000660의 정정 — v1.6.4 점검)",
+   "equity_kind": "ipo",
+   "done_at": "2026-11-04T13:08:36+09:00"
   },
   {
    "rcept_no": "20261103000363",
@@ -480,9 +484,10 @@
    "source_grade": "full",
    "supersedes": [],
    "related_rcept_nos": [],
-   "status": "queued",
-   "reason": null,
-   "equity_kind": "ipo"
+   "status": "skip",
+   "reason": "existing_correction(기존 사례 20261016000412의 정정 — v1.6.4 점검)",
+   "equity_kind": "ipo",
+   "done_at": "2026-11-04T13:08:37+09:00"
   }
  ]
 }

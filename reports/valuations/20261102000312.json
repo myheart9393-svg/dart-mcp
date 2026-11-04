@@ -23,7 +23,9 @@
   "regime": "기준시가",
   "ratio_text": "샘표(주) 보통주 1주당 샘표식품(주) 보통주 2.0881235주 교부",
   "spac": false,
-  "spac_basis": "이름·문구에 SPAC 표시 없음"
+  "spac_basis": "이름·문구에 SPAC 표시 없음",
+  "status": "진행",
+  "status_source": null
  },
  "external_valuation": {
   "required": false,
@@ -1260,7 +1262,8 @@
   "현대회계법인 WACC 표(section 4 offset 32966) 단위행도 '(단위: 주당 원, 배)'이나 값은 % — 원문 표기 오류로 보고 unit은 %로 둠(값은 원문대로).",
   "conclusion.ratio unit \"주\"는 cite 위치 원문('2.0881235주를 교부') 단위, conclusion.range unit \"배\"는 요약표 단위행('(단위: 주당 원, 배)') — 같은 양(샘표 1주당 샘표식품 교부 주식수)을 원문 단위 그대로 적어 다름(환산 금지 규칙).",
   "특별위원회 회의록(section 3 .h12–.h30)은 읽지 않음(읽기 예산). 평가 값은 section 4 원 평가 표에서 cite.",
-  "리뷰(/dart-valuation-review)는 오케스트레이터 지시로 이번 실행에서 생략."
+  "리뷰(/dart-valuation-review)는 오케스트레이터 지시로 이번 실행에서 생략.",
+  "finalize 2026-11-04: deal.status=진행"
  ],
  "extracted_at": "2026-11-04T09:37:05+09:00",
  "extractor_version": "1.1",
