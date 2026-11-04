@@ -302,12 +302,19 @@ def scan_valuation_disclosures(
     deals = group_filings(rows)
     calls += resolve_missing_body(deals, list_page)
     pair_related(deals)
-    if listed_only:
-        # 비상장사 공시는 빼되, 비상장 단계에 낸 IPO 신고서는 남긴다(SPAC 상장은 평가가 없어 뺀다)
-        deals = [d for d in deals if d["corp_cls"] in ("Y", "K")
-                 or (d["deal_type"] == "ipo" and not SPAC_RE.search(d["corp_name"] or ""))]
     deals = [d for d in deals if d["deal_type"] in wanted]
-    return {"deals": deals, "api_calls": calls, "windows": windows, "scanned": scanned}
+    excluded: dict[str, int] = {}
+    if listed_only:
+        # 비상장사 공시는 빼되, 비상장 단계에 낸 IPO 신고서는 남긴다(SPAC 상장은 평가가 없어 뺀다). 뺀 수는 유형별로 센다
+        keep = []
+        for d in deals:
+            if d["corp_cls"] in ("Y", "K") or (d["deal_type"] == "ipo" and not SPAC_RE.search(d["corp_name"] or "")):
+                keep.append(d)
+            else:
+                excluded[d["deal_label"]] = excluded.get(d["deal_label"], 0) + 1
+        deals = keep
+    return {"deals": deals, "api_calls": calls, "windows": windows, "scanned": scanned,
+            "excluded_unlisted": sum(excluded.values()), "excluded_unlisted_by_type": excluded}
 
 
 BODY_LOOKBACK_DAYS = 150
@@ -408,9 +415,15 @@ def relative_kind_errors(case: dict) -> list[str]:
     """relative_value.kind와 applied가 어긋나는 곳(산정 ↔ applied=true, 산정하지 않음·기재 생략 ↔ applied=false)."""
     rv = case.get("relative_value") or {}
     k = rv.get("kind")
-    if k is None or rv.get("applied") is None or (k == "산정") == rv["applied"]:
-        return []
-    return [f"relative_value: kind '{k}'와 applied={rv['applied']}가 맞지 않음"]
+    out = []
+    if k is not None and rv.get("applied") is not None and (k == "산정") != rv["applied"]:
+        out.append(f"relative_value: kind '{k}'와 applied={rv['applied']}가 맞지 않음")
+    reason = rv.get("reason")
+    text = reason.get("text") if isinstance(reason, dict) else (reason or "")
+    # 상장사 간 기준주가 합병의 "상대가치 등은 별도로 기재하지 않" 문구는 기재 생략이다(v1.6.3 대조: 6건이 산정하지 않음으로 들어가 있었다)
+    if k == "산정하지 않음" and "별도로 기재하지 않" in (text or "") and "산정하지 아니" not in text and "산정하지 않" not in text:
+        out.append("relative_value: 사유가 '상대가치 등은 별도로 기재하지 않' 문구인데 kind가 '산정하지 않음' — '기재 생략'이다")
+    return out
 
 
 def range_order_errors(node: Any, path: str = "") -> list[str]:
@@ -924,25 +937,39 @@ STAT_SMALL_N = 10   # 이 미만이면 "통계적 의미 제한"
 STAT_TINY_N = 5     # 이 미만이면 "표본 부족"
 
 
-def sample_warnings(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS,)) -> list[str]:
+def sample_warnings(rows: list[dict], variables: tuple[str, ...] = (*STAT_VARS,),
+                    spac_filter: str | None = None) -> list[str]:
     """걸러진 행(flatten_case) → 표본 해석 경고. stats·compare·export가 같은 문구를 낸다(retro 2026-11-04 C9).
 
-    ① 거래 n<5 "표본 부족", n<10 "통계적 의미 제한" ② SPAC 거래 > 50% "SPAC 쏠림(비SPAC만 n건)"
+    분모는 **분석 표본**: variables(+ multiple) 중 값이 하나라도 있는 거래(통계에 실제 쓰인 거래). 값 없는 거래는 빼고 그 수를 적는다.
+    ① n<5 "표본 부족", n<10 "통계적 의미 제한" ② SPAC > 50% "SPAC 쏠림(비SPAC만 n건)" — spac_filter가 "false"면 대신 "비SPAC n건"
     ③ 변수별 거래 대표값의 q1 = q3 "분포 정보 없음" ④ 철회·중단·진행 거래 수 ⑤ 체계(regime) 혼재.
     """
+    all_deals: dict[str, dict] = {}
     by_deal: dict[str, dict] = {}
     for r in rows:
-        by_deal.setdefault(r["rcept_no"], r)
+        all_deals.setdefault(r["rcept_no"], r)
+        if any(r.get(v) is not None for v in (*variables, "multiple")):
+            by_deal.setdefault(r["rcept_no"], r)
     n = len(by_deal)
+    dropped = len(all_deals) - n
     out: list[str] = []
+    note = f" — 값 없는 거래 {dropped}건 제외" if dropped else ""
     if n < STAT_TINY_N:
-        out.append(f"표본 부족: 거래 {n}건({STAT_TINY_N}건 미만) — 분포·백분위를 결론에 쓰지 않는다")
+        out.append(f"표본 부족: 분석 거래 {n}건({STAT_TINY_N}건 미만){note} — 분포·백분위를 결론에 쓰지 않는다")
     elif n < STAT_SMALL_N:
-        out.append(f"통계적 의미 제한: 거래 {n}건({STAT_SMALL_N}건 미만)")
+        out.append(f"통계적 의미 제한: 분석 거래 {n}건({STAT_SMALL_N}건 미만){note}")
+    elif dropped:
+        out.append(f"분석 거래 {n}건{note}")
     if n:
         spac = sum(1 for r in by_deal.values() if r.get("spac") is True)
-        if spac * 2 > n:
-            out.append(f"SPAC 쏠림: 거래 {n}건 중 SPAC {spac}건(비SPAC만 {n - spac}건) — --spac false로 따로 본다")
+        if (spac_filter or "").strip().lower() == "false":
+            out.append(f"비SPAC {n}건(--spac false 적용)")
+        elif spac * 2 > n:
+            non = sum(1 for r in by_deal.values() if r.get("spac") is False)
+            unk = n - spac - non
+            out.append(f"SPAC 쏠림: 분석 거래 {n}건 중 SPAC {spac}건(비SPAC만 {non}건" + (f", 판정 불가 {unk}건" if unk else "")
+                       + ") — --spac false로 따로 본다")
     for var in variables:
         vals: dict[str, list] = {}
         for r in rows:
@@ -1266,7 +1293,7 @@ def _stats_cli(directory: Path, argv: list[str]) -> int:
         industries[ind] = industries.get(ind, 0) + 1
         statuses[st] = statuses.get(st, 0) + 1
         spacs[_spac_key(first.get("spac"))] = spacs.get(_spac_key(first.get("spac")), 0) + 1
-    out = {"warnings": sample_warnings(rows), "filters": vars(a), "regimes": regimes, "statuses": statuses, "spac": spacs,
+    out = {"warnings": sample_warnings(rows, spac_filter=a.spac), "filters": vars(a), "regimes": regimes, "statuses": statuses, "spac": spacs,
            "industries": dict(sorted(industries.items(), key=lambda x: -x[1])),
            "rows": rows, **deal_stats(rows)}
     if {"기준시가", REGIME_FAIR} <= set(regimes):

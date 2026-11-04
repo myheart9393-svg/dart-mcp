@@ -1,5 +1,39 @@
 # Changelog
 
+## v1.6.3 (2026-11-04)
+
+v1.6.2 이후 마무리. 서버 코드(`server.py`·`financials.py`·`valuation.py`)가 바뀌었으니 MCP 재연결이 필요하다.
+
+- **경고 분모**: `sample_warnings`의 분모를 분석 거래(통계 변수·멀티플 중 값이 하나라도 있는 거래)로 바꿨다. 값 없는 거래는 "값 없는 거래 k건 제외"로 따로 적는다.
+  SPAC 쏠림은 "분석 거래 n건 중 SPAC s건(비SPAC만 m건, 판정 불가 u건)"이다. `--spac false`면 쏠림 경고 대신 "비SPAC n건(--spac false 적용)"을 낸다. compare·export도 같다.
+- **보험업 계정**: `detect_sector`에 `subsector`를 추가했다(KSIC 65 insurance·641 bank·6612 securities). 보험사는 이자수익−이자비용을 `interest_net_investment`(투자손익의 일부)로 옮기고,
+  `net_interest_income`은 `not_applicable(보험업)`으로 둔다. `insurance_service_result`(보험손익)·`investment_result`(투자손익) 계정을 추가했다.
+- **relative_value.kind 재대조**: 상장사 간 기준주가 합병 6건(컴투스엔·대한항공·휴맥스·알에프텍·SK이노베이션·로젠)을 산정하지 않음 → 기재 생략으로 고쳤다
+  (원문 "상대가치 등은 별도로 기재하지 않았습니다"). validate가 이 문구 + "산정하지 않음" 조합을 잡는다.
+- **문서**:
+  - CLAUDE.md·README에 Windows uv 폴백을 적었다. `valuation md`는 파일을 직접 쓴다(리다이렉트 금지).
+  - 주석은 outline 제목으로 찾는다(`notes_sections`: 연결 주석이 비면 별도 주석 — 동양파일 4.5).
+  - dart-risk는 첨부 outline 중복 조회를 하지 않는다.
+  - C2 docstring을 정정했다(.hN은 비정기 본문에서만 생긴다).
+  - dart-event에 같은 날 짝 공시·공개매수 단계를 넣었고, dart-event·dart-compare 저장 경로를 공통 규칙에 맞췄다.
+- **스캔·배치**:
+  - `search_valuation_disclosures`가 `excluded_unlisted`·`excluded_unlisted_by_type`을 돌려준다.
+  - dart-valuation-scan에 `--include-unlisted`, 014 처리, related_rcept_nos 짝 확인을 추가했다.
+  - `batch sample`(seed = 대상 rcept_no 정렬 목록의 sha256)을 추가했고, 리뷰 FAIL 건 수정 단계를 넣었다.
+- **작은 도구**:
+  - `casedb backfill-queue <dir> [--all] [--md]`는 보강 대기 목록(사례·필드·사유·근거)을 보여 준다.
+  - `casedb diff <json> [--against <rev|json>]`는 보강 전후 필드별 diff를 보여 준다.
+  - get_latest_reports는 사업보고서 없는 신규 상장사에 `interim_reports`(reprt_code·bsns_year, 결산월은 acc_mt)와 warning을 준다(B4).
+  - search_disclosures에 `pblntf_detail_ty` 인자를 추가했다. pblntf_ty에 "B001" 같은 상세유형이 오면 옮기고 note를 단다. A–J 밖이면 error를 낸다(B5).
+- 데이터:
+  - 대기 큐의 합병 3건을 추출했다(IPO 12건은 queued로 남김). 3건 모두 validate·verify-cites 전수 통과, 리뷰 표본 1건(셀트릭스) PASS.
+    - SK이노베이션 20261028000313: 비SPAC, 20회·56,624자.
+    - 솔리스 20261030000349: SPAC, 9회·25,806자.
+    - 셀트릭스 20261103000135: SPAC, 22회·95,816자.
+  - v1.6.2에서 빠뜨린 `casedb derive`를 돌렸다. 아델·케이엠에프(20261027000388)·샘표(20261102000312)에 `deal.spac`이 없어 `--spac` 필터에서 빠지고 있었다.
+  - 비SPAC 합병 DCF는 분석 거래 13 → 15건이다(SK이노베이션·샘표). WACC 중앙값은 11.28 → 9.42%, g 중앙값은 0.5% 그대로다.
+  - 샘표 md를 다시 만들면서 손으로 붙인 "리뷰 반영 내역" 절이 사라져 HEAD에서 복원했다(`valuation md`는 덧붙인 절을 보존하지 않는다).
+
 ## v1.6.2 (2026-11-04)
 
 회고 점검(`reports/_retro/retro_2026-11-04.md`) 정확성 수정. 서버 코드가 바뀌었으니 MCP 재연결이 필요하다.

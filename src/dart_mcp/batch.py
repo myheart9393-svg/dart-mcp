@@ -3,6 +3,7 @@
     uv run python -m dart_mcp.batch plan   <bgn> <end> [--grade full] [--limit N] [--state reports/valuations/_batch_<날짜>.json]
     uv run python -m dart_mcp.batch record --state <state.json> <rcept_no> <ok|fail|skip> [--reason ...] [--calls N] [--chars N] [--seconds N]
     uv run python -m dart_mcp.batch report --state <state.json>      # → 같은 이름 .md
+    uv run python -m dart_mcp.batch sample --state <state.json> [--only r1,r2]   # 리뷰 표본 20% (seed = rcept_no 목록 해시)
 
 plan 규칙:
 - search_valuation_disclosures(bgn, end, listed_only=False, kinds=전부+유상증자)에서 grade가 맞는 거래.
@@ -168,6 +169,21 @@ def render(state: dict) -> str:
     return "\n".join(out) + "\n"
 
 
+def review_sample(state: dict, rate: float = 0.2, only: list[str] | None = None) -> dict:
+    """리뷰 표본: ok 건(또는 only로 준 rcept_no) 중 ceil(rate × n)건. seed = 대상 body_rcept_no 정렬 목록의 sha256 앞 16자리.
+
+    state 파일 크기로 seed를 정하면 기록(record)이 하나만 늘어도 표본이 바뀐다(v1.6.3). 같은 대상 목록이면 언제 다시 뽑아도 같다.
+    """
+    import hashlib
+    import math
+    import random
+
+    ids = sorted({i["body_rcept_no"] for i in state["items"] if i["status"] == "ok"} if only is None else set(only))
+    seed = hashlib.sha256(",".join(ids).encode()).hexdigest()[:16]
+    k = math.ceil(rate * len(ids)) if ids else 0
+    return {"n_ok": len(ids), "rate": rate, "seed": seed, "sample": sorted(random.Random(seed).sample(ids, k))}
+
+
 def _cli(argv: list[str]) -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     logging.disable(logging.INFO)
@@ -190,7 +206,15 @@ def _cli(argv: list[str]) -> int:
         r.add_argument(f"--{k}", type=int)
     q = sub.add_parser("report")
     q.add_argument("--state", required=True)
+    sm = sub.add_parser("sample", help="리뷰 표본(ok 건의 20%%, seed = rcept_no 목록 해시)")
+    sm.add_argument("--state", required=True)
+    sm.add_argument("--rate", type=float, default=0.2)
+    sm.add_argument("--only", help="쉼표 구분 rcept_no — 이번에 추출한 건만 대상으로")
     a = ap.parse_args(argv)
+    if a.cmd == "sample":
+        st = json.loads(Path(a.state).read_text(encoding="utf-8"))
+        print(json.dumps(review_sample(st, a.rate, a.only.split(",") if a.only else None), ensure_ascii=False))
+        return 0
     if a.cmd == "plan":
         st = plan(a.bgn, a.end, a.grade or None, a.limit, kinds=a.kinds.split(",") if a.kinds else None)
         path = Path(a.state or CASE_DIR / f"_batch_{dt.date.today():%Y-%m-%d}.json")

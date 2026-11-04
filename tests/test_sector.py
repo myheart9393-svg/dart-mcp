@@ -118,3 +118,33 @@ def test_net_interest_derived_from_income_and_expense_rows():
     # 소계 행이 있으면 그 행을 쓰고 derived는 없다
     bank = summarize_key_financials(BANK, "2025", sector="financial")["financial_accounts"]
     assert bank["net_interest_income"]["values"]["2025"] == 13073093000000 and not bank["net_interest_income"].get("derived")
+
+
+# 삼성화재(보험, KSIC 65) 2025: 이자수익−이자비용은 투자손익의 일부라 순이자이익이 아니다 (v1.6.3)
+INSURER = [
+    row("BS", "자산총계", "90000000000000", "ifrs-full_Assets"),
+    row("BS", "부채총계", "70000000000000", "ifrs-full_Liabilities"),
+    row("BS", "자본총계", "20000000000000", "ifrs-full_Equity"),
+    row("CIS", "보험수익", "18639982044735", "ifrs-full_InsuranceRevenue"),
+    row("CIS", "보험손익", "1483034088528", "ifrs-full_InsuranceServiceResult"),
+    row("CIS", "투자손익", "1176108913616", "dart_InvestmentIncomeExpenses"),
+    row("CIS", "이자수익", "2371311653539", "ifrs-full_RevenueFromInterest"),
+    row("CIS", "이자비용", "599010152085", "ifrs-full_InterestExpense"),
+    row("CIS", "당기순이익", "2000000000000", "ifrs-full_ProfitLoss"),
+]
+
+
+def test_insurer_separates_interest_and_uses_insurance_accounts():
+    assert detect_sector("65110", INSURER)["subsector"] == "insurance"
+    assert detect_sector("64110", BANK).get("subsector") == "bank"
+    out = summarize_key_financials(INSURER, "2025", sector="financial", subsector="insurance")
+    fin = out["financial_accounts"]
+    assert fin["net_interest_income"]["values"]["2025"] is None and "보험손익" in fin["net_interest_income"]["note"]
+    assert fin["interest_net_investment"]["values"]["2025"] == 2371311653539 - 599010152085
+    assert fin["interest_net_investment"]["derived"] is True
+    assert fin["insurance_service_result"]["values"]["2025"] == 1483034088528
+    assert fin["investment_result"]["values"]["2025"] == 1176108913616
+    assert "net_interest_income" not in out["financial_missing"]
+    # 은행은 그대로(보험 계정 없음)
+    bank = summarize_key_financials(KAKAOBANK, "2025", sector="financial", subsector="bank")["financial_accounts"]
+    assert bank["net_interest_income"]["derived"] is True and "interest_net_investment" not in bank

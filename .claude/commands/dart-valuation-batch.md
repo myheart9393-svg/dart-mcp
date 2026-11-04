@@ -34,8 +34,13 @@ todo 건마다 Agent(subagent_type `general-purpose`)를 띄우고 prompt는 아
   verify가 실패한 건은 fail(`cite_mismatch`).
 
 ## 3. 리뷰 (끝난 뒤 무작위 20%)
-- ok 건 중 `ceil(0.2 × n)`건을 `python -c "import random; random.seed(<state 파일 크기>); …"`로 뽑아 `/dart-valuation-review`를 서브에이전트로 1회씩.
+- 표본은 `uv run python -m dart_mcp.batch sample --state <state> [--only <이번에 추출한 rcept_no,…>]`로 뽑는다
+  (ok 건 중 `ceil(0.2 × n)`건, seed = 대상 rcept_no 정렬 목록의 sha256 — state 파일 크기와 무관해 다시 뽑아도 같다). 출력의 seed를 `_batch_<날짜>.md`에 적는다.
+  뽑힌 건마다 `/dart-valuation-review`를 서브에이전트로 1회씩.
 - 결과를 `batch record … ok --review PASS|FAIL(<항목>)`로 기록.
+- **리뷰 FAIL 건 자체를 고친다**: FAIL 항목마다 원문(cite 위치)을 다시 확인해 그 사례 JSON을 고치고(숫자는 원문 그대로, 해석은 notes),
+  `valuation validate`·`verify-cites`를 다시 돌린 뒤 `valuation md <json>`(파일 직접 씀, 리다이렉트 금지)으로 md를 갱신한다.
+  리뷰가 틀렸다고 판단하면 고치지 않고 `.review.md` 끝에 "반영 안 함: 사유"를 적는다. 기록은 `--review "FAIL→반영(<항목>)"`.
 - **같은 FAIL 유형이 2건 이상**이면 `/dart-valuation` 템플릿(.claude/commands/dart-valuation.md)을 고치고, 그 유형이 의심되는 건을 재추출한다
   (리뷰한 건 + 같은 deal_type 중 같은 패턴). 고친 내용은 `_batch_<날짜>.md` 끝 "템플릿 수정"에 적는다.
 

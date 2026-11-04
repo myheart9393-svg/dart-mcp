@@ -41,7 +41,7 @@ dart MCP 툴로 사업보고서를 읽고 **종합 기업분석 보고서**를 �
    message에 status 013 안내가 오면 `fs_div="OFS"`로 재호출하고 보고서에 별도 기준임을 적는다).
    missing에 든 계정은 표에 "-"로 두고, 꼭 필요하면 `get_financial_statements(..., sj_div="BS")`처럼 해당 표만 받아 계정명을 찾는다.
 4. `get_disclosure_outline(body_rcept_no)` (기본 depth=2) → 아래 섹션의 실제 id를 제목으로 대조해 확정한다.
-   id 번호는 회사마다 다를 수 있으므로 **제목 기준**으로 찾는다.
+   id 번호는 회사마다 다를 수 있으므로 **제목 기준**으로 찾는다. 재무제표 주석이 필요하면 **주석 위치는 번호가 아니라 제목으로 찾는다.** `get_disclosure_outline(body_rcept_no)` 응답의 `notes_sections.use`가 읽을 주석 섹션 id다(제목에 "연결재무제표 주석"/"재무제표 주석"이 든 level 2 섹션). 연결 주석이 비어 있거나(종속회사 없는 별도 법인 — 동양파일 4.3은 28자) 없으면 별도 "재무제표 주석"(동양파일 4.5)을 쓰고 보고서에 "별도 재무제표 주석 기준"을 적는다. `notes_sections`가 없으면 outline 제목을 직접 대조한다. 별도 법인 본문 주석은 depth=3에서도 소제목이 안 생길 수 있으니 그때는 `search_in_disclosure`로 키워드 위치를 찍어 offset으로 읽는다.
 5. 섹션을 아래 순서로 읽는다. 각 섹션은 **한 번만** 읽고, char_count가 30,000을 넘으면 통째로 읽지 말고
    `search_in_disclosure`로 필요한 부분만 찍어 읽는다.
 
@@ -58,7 +58,8 @@ dart MCP 툴로 사업보고서를 읽고 **종합 기업분석 보고서**를 �
 "연결재무제표" 섹션 수십 자, 하위 SECTION 없이 `8.t1` 같은 TITLE 소제목만 있음) 다른 섹션에서 억지로 메우지 않는다.
 보고서 해당 자리에 "원문 기재 없음(검색 0건)"처럼 적고, 부록에 검색한 키워드와 결과 건수를 남긴다.
 `get_key_financials` 응답에 `warning`(금융업)이 있으면 3장 표의 매출액·영업이익률 행을 `financial_accounts`의 순이자이익·순수수료이익
-(보험사는 보험수익)으로 바꾸고 표 머리에 "금융업 기준"을 적는다.
+(보험사는 보험손익 기준: 보험수익·보험손익(`insurance_service_result`)·투자손익(`investment_result`). `interest_net_investment`를
+순이자이익이라고 쓰지 않는다)으로 바꾸고 표 머리에 "금융업 기준"을 적는다. `derived=true` 값은 "(계산)" 표기.
 
 ## (b) 보고서 고정 목차
 

@@ -46,8 +46,8 @@ dart MCP 툴로 사업보고서의 재무 파트를 읽고 **재무 심층분석
 | 2 | III > 7. 증권의 발행을 통한 자금조달 | 유상증자·사채 발행 실적 |
 | 3 | IV. 이사의 경영진단 및 분석의견 | 실적·유동성 변동 요인 (숫자는 API 값과 대조만) |
 
-4. 주석은 통째로 읽지 않는다. `get_disclosure_outline(body_rcept_no, file_id="main", depth=3)`으로
-   "3. 연결재무제표 주석"의 소제목(id가 `.tN`)을 받아, 제목에 아래 키워드가 들어간 소제목만 골라
+4. 주석은 통째로 읽지 않는다. **주석 위치는 번호가 아니라 제목으로 찾는다.** `get_disclosure_outline(body_rcept_no)` 응답의 `notes_sections.use`가 읽을 주석 섹션 id다(제목에 "연결재무제표 주석"/"재무제표 주석"이 든 level 2 섹션). 연결 주석이 비어 있거나(종속회사 없는 별도 법인 — 동양파일 4.3은 28자) 없으면 별도 "재무제표 주석"(동양파일 4.5)을 쓰고 보고서에 "별도 재무제표 주석 기준"을 적는다. `notes_sections`가 없으면 outline 제목을 직접 대조한다. 별도 법인 본문 주석은 depth=3에서도 소제목이 안 생길 수 있으니 그때는 `search_in_disclosure`로 키워드 위치를 찍어 offset으로 읽는다.
+   `get_disclosure_outline(body_rcept_no, file_id="main", depth=3)`으로 그 주석 섹션(`notes_sections.use`)의 소제목(id가 `.tN`)을 받아, 제목에 아래 키워드가 들어간 소제목만 골라
    `get_disclosure_section(rcept_no, "<id>.tN")`으로 읽는다. 소제목 제목으로 못 찾으면
    `search_in_disclosure(rcept_no, "<키워드>")`로 위치를 찾는다.
    - "차입금" (단기·장기차입금, 사채)
@@ -104,7 +104,7 @@ dart MCP 툴로 사업보고서의 재무 파트를 읽고 **재무 심층분석
 
 /dart-analyze와 동일하다(원문 숫자 인용 규칙 포함: 단위 행 확인, 통화·단위 혼합 금지, 확신 없으면 짧게 원문 인용). 특히:
 - 범위는 `4–5배`(en dash)로 쓴다. `~`를 한 단락에 두 번 쓰면 Markdown 취소선이 되어 "45배"로 보인다.
-- 재무 API 숫자는 `(rcept_no, 재무API)`로 출처를 적는다. 주석 숫자는 `(rcept_no, 4.3.tN)`처럼 원문 위치를 적는다.
+- 재무 API 숫자는 `(rcept_no, 재무API)`로 출처를 적는다. 주석 숫자는 `(rcept_no, <notes_sections.use>.tN)`(예: 연결 `4.3.t12`, 별도만 있는 회사 `4.5.t7`)처럼 원문 위치를 적는다.
 - 모든 수치에 `(rcept_no, section_id)` 출처. 소제목에서 가져온 수치는 `.tN` id까지 적는다.
 - 계산한 비율·순차입금·자유현금흐름은 "계산" 표기, 원문에 없는 판단은 "추정:" 표기.
 - 연결/별도 기준을 섹션마다 확인하고 섞이면 표마다 기준을 적는다.

@@ -161,3 +161,14 @@ def test_body_and_attachment_sources_without_or_with_one_correction():
     assert (a["body_rcept_no"], a["attachment_rcept_no"]) == ("20260331000002", "20260310000001")
     (h,) = only_body["interim_after_annual"]
     assert (h["body_rcept_no"], h["attachment_rcept_no"]) == ("20260814000003", "20260820000004")
+
+
+def test_new_listing_without_annual_returns_interims():
+    # 신규 상장사(01709065 실측 모양): 사업보고서 없이 분기·반기만 (retro B4)
+    items = [f("20260814003000", "반기보고서 (2026.06)"), f("20261114003000", "분기보고서 (2026.09)")]
+    r = classify_periodic_reports(items)
+    assert r["latest_annual"] is None
+    assert [(x["period"], x["reprt_code"], x["bsns_year"]) for x in r["interim_reports"]] == [
+        ("2026.06", "11012", "2026"), ("2026.09", "11014", "2026")]
+    r3 = classify_periodic_reports([f("20260814003001", "반기보고서 (2026.09)")], fy_end_hint=3)
+    assert r3["interim_reports"][0]["reprt_code"] == "11012" and r3["interim_reports"][0]["bsns_year"] == "2027"

@@ -15,3 +15,21 @@ def test_legal_name_suffix_fallback():
     # 정상 검색은 그대로: 상장사 우선
     assert [e["corp_code"] for e in search_corp_codes(ENTRIES, "삼성전자")] == ["00126380", "00000001"]
     assert search_corp_codes(ENTRIES, "없는회사지주") == []
+
+
+def test_search_disclosures_detail_code_in_pblntf_ty_is_redirected(monkeypatch):
+    from dart_mcp import server
+
+    seen = {}
+
+    class C:
+        def search_disclosures(self, **kw):
+            seen.update(kw)
+            return {"status": "000", "list": [], "total_count": 0, "total_page": 1}
+    monkeypatch.setattr(server, "_get_client", lambda: C())
+    r = server.search_disclosures("00126380", "20260101", "20261031", pblntf_ty="B001")
+    assert seen.get("pblntf_detail_ty") == "B001" and seen.get("pblntf_ty") is None and "상세유형" in r["note"]
+    r2 = server.search_disclosures("00126380", "20260101", "20261031", pblntf_detail_ty="C001")
+    assert seen["pblntf_detail_ty"] == "C001" and "상세유형" in r2["note"]
+    bad = server.search_disclosures("00126380", "20260101", "20261031", pblntf_ty="X")
+    assert "error" in bad and "A" in bad["error"]

@@ -14,6 +14,16 @@ cp .env.example .env   # DART_API_KEY=<https://opendart.fss.or.kr 에서 발급�
 uv run pytest -q
 ```
 
+Windows에서 `uv`가 PATH에 없으면(데스크톱 앱·새 터미널) `.venv/Scripts/python.exe`로 대체한다:
+
+```bash
+export PYTHONIOENCODING=utf-8          # Git Bash: 한글 출력
+.venv/Scripts/python.exe -m pytest -q   # = uv run pytest -q
+.venv/Scripts/python.exe -m dart_mcp.valuation validate reports/valuations
+```
+
+PowerShell은 `.venv\Scripts\python.exe -m ...`. `.venv`가 없으면 uv.exe 절대경로로 `uv sync`를 한 번 돌린다.
+
 `.env`는 git에서 제외된다. 키가 없으면 캐시에 있는 공시만 읽을 수 있고, 나머지 툴은 `{"error": ...}`를 돌려준다.
 
 ## Claude Code 등록
@@ -124,7 +134,9 @@ data/company/<corp_code>.json                 기업개황(company.json: 시장�
   SK·LG 같은 비금융 지주도 같은 코드라서, 손익계산서에 순이자손익·보험수익·순수수료손익 계정이 있고 매출액 계정이 없을 때만 금융업으로 본다.
   금융업이면 `sector.sector="financial"`과 `warning`을 붙이고, `revenue`는 `not_applicable`(missing 아님), 영업이익률·순이익률은 null,
   대신 `financial_accounts`(순이자이익·순수수료이익·보험수익·신용손실충당금전입)를 준다. 업종별 계정 구성이 달라
-  보험사에는 순이자이익·충당금 계정이 없을 수 있다(`financial_missing`). NIM·BIS비율·CET1·K-ICS 같은 업권 지표는 재무 API에 없어 계산하지 않는다.
+  순이자이익·순수수료이익 소계 행이 없고 수익·비용 행이 둘 다 있으면 차이로 계산한다(`derived=true`, `formula`).
+  보험업(KSIC 65, `sector.subsector="insurance"`)은 보험손익 기준 계정(`insurance_service_result`·`investment_result`)을 쓰고,
+  이자수익−이자비용은 `interest_net_investment`로 따로 둔다(`net_interest_income`은 null+note). 충당금 계정은 없을 수 있다(`financial_missing`). NIM·BIS비율·CET1·K-ICS 같은 업권 지표는 재무 API에 없어 계산하지 않는다.
   금융사의 부채비율(KB금융 2025 약 1,212%)은 예수부채·보험부채를 포함하므로 제조업과 비교하지 않는다.
 - **현금및현금성자산**: 재무상태표에 해당 행이 없는 회사(은행의 "현금 및 예치금")는 현금흐름표의 기말 현금으로 대체하고 `matched.by`에
   "CF 기말현금 대체"라고 적는다. 반기·분기에서 이 값의 비교열은 전기말이 아니라 **전년 동기말**이다(`basis`에 표기).
@@ -257,7 +269,8 @@ healthcheck 검사 항목 (각 PASS/WARN/FAIL/N/A):
 분포는 `... industry dist reports/valuations`. 조회는 `stats --industry <KSIC 접두 | 대분류 문자 | 제조업·정보통신·금융보험·도소매 등>`.
 
 조회 도구(`dart_mcp.casedb`, v1.6): `derive`(SPAC 파생), `compare`(내 가정 vs 선례 백분위·최근접), `export --csv`(평가 요소 1행, 엑셀용),
-`audit-null [--write]`(null 필드를 캐시 원문 키워드로 감사 → `absent_reasons`). 기관별 통계는 `stats --firm <이름> --as 외부평가|재무자문|any`
+`audit-null [--write]`(null 필드를 캐시 원문 키워드로 감사 → `absent_reasons`), `backfill-queue [--all] [--md <경로>]`(감사 결과 중 "추출 안 함"을 보강 대기 목록으로),
+`diff <json> [--against <git rev|json>]`(보강 전후 필드별 diff, 기본 HEAD). 기관별 통계는 `stats --firm <이름> --as 외부평가|재무자문|any`
 — 그 기관이 평가 주체인 원소만 쓴다(예: `--method DCF`에서 이촌 외부평가 9건 거래, WACC 중앙값 11.47%; v1.5까지는 같은 거래의 다른 기관 값이 섞여 11.38%·26개 값).
 새 사례를 넣은 뒤에는 `casedb derive`와 `casedb audit-null --write`도 돌린다.
 

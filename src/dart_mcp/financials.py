@@ -175,6 +175,34 @@ def _financial_entry(items: list[dict], spec: KeyAccount, build, empty: dict) ->
     return empty
 
 
+INSURANCE_ACCOUNTS: tuple[KeyAccount, ...] = (
+    KeyAccount("insurance_service_result", "보험손익(보험서비스결과)", _PL, ("ifrs-full_InsuranceServiceResult",),
+               ("보험손익", "보험서비스결과"), ("재보험", "금융", "기타")),
+    KeyAccount("investment_result", "투자손익", _PL, ("dart_InvestmentIncomeExpenses",), ("투자손익",), ("기타", "지분법")),
+)
+INSURANCE_INTEREST_NOTE = ("보험업은 보험손익·투자손익 기준 계정을 쓴다. 이자수익−이자비용은 투자손익의 일부라 순이자이익으로 보지 않고 "
+                           "interest_net_investment에 따로 둔다.")
+
+
+def _financial_block(items: list[dict], build, empty_values: dict, subsector: str | None) -> dict:
+    """금융업 financial_accounts. 보험업(subsector="insurance")은 순이자이익 대신 interest_net_investment, 보험손익·투자손익 추가."""
+    def empty(label: str) -> dict:
+        return {"label": label, **{k: (dict(v) if isinstance(v, dict) else v) for k, v in empty_values.items()}, "matched": None}
+
+    fin: dict[str, dict] = {}
+    for spec in FINANCIAL_ACCOUNTS:
+        fin[spec.key] = _financial_entry(items, spec, build, empty(spec.label))
+    if subsector == "insurance":
+        nii = fin["net_interest_income"]
+        if nii.get("derived"):
+            fin["interest_net_investment"] = {**nii, "label": "이자수익−이자비용(투자손익 구성, 보험업)"}
+            fin["net_interest_income"] = {**empty("순이자이익"), "matched": {"by": "not_applicable(보험업)"},
+                                          "note": INSURANCE_INTEREST_NOTE}
+        for spec in INSURANCE_ACCOUNTS:
+            fin[spec.key] = _financial_entry(items, spec, build, empty(spec.label))
+    return fin
+
+
 FINANCIAL_NOT_APPLICABLE = ("revenue",)  # 금융업에서 개념이 없는 핵심 계정
 FINANCIAL_SKIP_RATIOS = ("operating_margin", "net_margin")
 FINANCIAL_WARNING = (
@@ -183,6 +211,18 @@ FINANCIAL_WARNING = (
     "부채비율은 예수부채·보험계약부채가 포함돼 제조업과 비교할 수 없고, 유형자산취득(capex)은 규모가 작아 의미가 약하다. "
     "보고서에는 '금융업 기준'임을 밝히고 일반 기업과 같은 표에서 비교하지 않는다."
 )
+
+
+def financial_subsector(code: str | None) -> str | None:
+    """KSIC → 금융 세부 업종: 65 보험·연금 "insurance", 641 은행·저축기관 "bank", 6612 증권·선물 "securities", 그 밖 None."""
+    c = (code or "").strip()
+    if c.startswith("65"):
+        return "insurance"
+    if c.startswith("641"):
+        return "bank"
+    if c.startswith("6612"):
+        return "securities"
+    return None
 
 
 def detect_sector(induty_code: str | None, items: list[dict]) -> dict:
@@ -197,7 +237,8 @@ def detect_sector(induty_code: str | None, items: list[dict]) -> dict:
     ids = {it.get("account_id") for it in items if it.get("sj_div") in _PL}
     fin_signal = any(m in ids for m in _FIN_MARKER_IDS) and "ifrs-full_Revenue" not in ids
     if code.startswith(FINANCIAL_KSIC_PREFIXES) and code != HOLDING_KSIC:
-        return {"sector": "financial", "induty_code": code, "reason": f"induty_code {code}, KSIC 64–66 금융·보험"}
+        return {"sector": "financial", "induty_code": code, "subsector": financial_subsector(code),
+                "reason": f"induty_code {code}, KSIC 64–66 금융·보험"}
     if code == HOLDING_KSIC:
         if fin_signal:
             return {"sector": "financial", "induty_code": code,
@@ -418,7 +459,7 @@ def comparison_header(results: list[dict], year: str) -> dict:
 
 
 def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "general",
-                             fs_div: str = "CFS", acc_mt: str | None = None) -> dict:
+                             fs_div: str = "CFS", acc_mt: str | None = None, subsector: str | None = None) -> dict:
     """원본 list → 핵심 계정 3개년 + 비율. 못 찾은 계정은 값 None, missing 목록에 key.
 
     - net_income_parent·equity_parent는 optional(없어도 missing 아님, optional_missing에 적음).
@@ -496,10 +537,8 @@ def summarize_key_financials(items: list[dict], bsns_year: str, sector: str = "g
         out["note"] = " ".join(notes)
     if financial:
         _mark_financial_ratios(ratios)
-        fin: dict[str, dict] = {}
-        for spec in FINANCIAL_ACCOUNTS:
-            fin[spec.key] = _financial_entry(items, spec, lambda r, h, lb: _annual_entry(r, h, lb, years),
-                                             {"label": spec.label, "values": {y: None for y in years}, "matched": None})
+        fin = _financial_block(items, lambda r, h, lb: _annual_entry(r, h, lb, years),
+                               {"values": {y: None for y in years}}, subsector)
         out.update(financial_accounts=fin, not_applicable=not_applicable,
                    financial_missing=[k for k, a in fin.items() if a["matched"] is None])
     return out
@@ -564,7 +603,7 @@ def interim_periods(bsns_year: str, reprt_code: str, period_type: str, acc_mt: s
 
 
 def summarize_interim_financials(items: list[dict], reprt_code: str, period_type: str,
-                                 sector: str = "general") -> dict:
+                                 sector: str = "general", subsector: str | None = None) -> dict:
     """분기·반기 원본 list → 핵심 계정의 {current, prior} 두 값.
 
     flow(손익) 계정의 prior는 전년 동기(누적 또는 동분기), BS 계정의 prior는 전기말이다.
@@ -616,12 +655,8 @@ def summarize_interim_financials(items: list[dict], reprt_code: str, period_type
         out["note"] = f"자본잠식(자본총계 음수): {', '.join(impaired)}. 부채비율·자기자본비율은 계산하지 않음(None)."
     if financial:
         _mark_financial_ratios(ratios)
-        fin: dict[str, dict] = {}
-        for spec in FINANCIAL_ACCOUNTS:
-            fin[spec.key] = _financial_entry(items, spec,
-                                             lambda r, h, lb: _interim_entry(r, h, lb, reprt_code, period_type),
-                                             {"label": spec.label, "basis": None, "values": {"current": None, "prior": None},
-                                              "matched": None})
+        fin = _financial_block(items, lambda r, h, lb: _interim_entry(r, h, lb, reprt_code, period_type),
+                               {"basis": None, "values": {"current": None, "prior": None}}, subsector)
         out.update(financial_accounts=fin, not_applicable=not_applicable,
                    financial_missing=[k for k, a in fin.items() if a["matched"] is None])
     return out

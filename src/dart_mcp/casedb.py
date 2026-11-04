@@ -4,6 +4,8 @@
     uv run python -m dart_mcp.casedb compare <dir> [필터…] --wacc 11 --g 1 --srp 3.5 --beta-l 1.0 [--n 3]
     uv run python -m dart_mcp.casedb export <dir> --csv <경로> [필터…]
     uv run python -m dart_mcp.casedb audit-null <dir>             # null 필드를 캐시 원문 키워드로 감사 → absent_reasons 갱신
+    uv run python -m dart_mcp.casedb backfill-queue <dir> [--all] [--md <경로>]   # 보강 대기 목록(추출 안 함; --all이면 원문에 없음도)
+    uv run python -m dart_mcp.casedb diff <case.json> [--against <git rev | 다른 json>]   # 보강 전후 필드별 diff(기본 HEAD)
 
 필터는 valuation stats와 같다(--from/--to 이사회 결의일, --deal-type, --method, --industry, --regime, --firm/--as,
 --status/--exclude-status, --spac). 통계는 거래 단위(valuation.representative: 외부평가 값 우선, 없으면 중앙값).
@@ -89,7 +91,7 @@ def percentile(xs: list[float], x: float) -> float:
     return (sum(1 for v in xs if v < x) + 0.5 * sum(1 for v in xs if v == x)) / len(xs) * 100
 
 
-def compare(rows: list[dict], mine: dict[str, float], n: int = 3) -> dict:
+def compare(rows: list[dict], mine: dict[str, float], n: int = 3, spac_filter: str | None = None) -> dict:
     """내 값(변수 → 값) vs 선례 분포. 최근접은 내가 준 변수의 표준화 거리 sqrt(mean(z²)), 변수가 len(mine)−1개 이상 있는 거래만."""
     reps = {var: per_deal(rows, var) for var in mine}
     out: dict[str, Any] = {"deals": len({r["rcept_no"] for r in rows}), "variables": {}, "nearest": [],
@@ -122,7 +124,7 @@ def compare(rows: list[dict], mine: dict[str, float], n: int = 3) -> dict:
         out["nearest"].append({"distance": round(d, 3), "rcept_no": rno, "company": r["company"], "board_date": r.get("board_date"),
                                "firm": ", ".join(ext) or None, "spac": _spac_key(r.get("spac")), "status": r.get("status"),
                                "industry": r.get("industry"), **{v: reps[v].get(rno) for v in mine}})
-    out["warnings"] = sample_warnings(rows, tuple(mine))
+    out["warnings"] = sample_warnings(rows, tuple(mine), spac_filter=spac_filter)
     near_spac = sum(1 for x in out["nearest"] if x["spac"] == "true")
     if out["nearest"] and near_spac * 2 > len(out["nearest"]):
         out["warnings"].append(f"최근접 선례 {len(out['nearest'])}건 중 SPAC {near_spac}건 — 비SPAC 선례는 --spac false로 다시 본다")
@@ -189,6 +191,56 @@ def write_csv(rows: list[dict], path: Path) -> None:
 
 
 # --------------------------------------------------------------------------- CLI
+def backfill_queue(cases: list[dict], include_absent: bool = False) -> dict:
+    """사례 absent_reasons(audit-null --write 결과) → 보강 대기 목록. 기본은 "추출 안 함"(원문에 키워드가 있어 누락 의심)만,
+    include_absent면 "원문에 없음"도. 행: {rcept_no, company, field, path, reason, basis}."""
+    want = {"추출 안 함"} | ({"원문에 없음"} if include_absent else set())
+    rows = []
+    for c in cases:
+        for x in c.get("absent_reasons") or []:
+            if x.get("reason") in want:
+                rows.append({"rcept_no": c["rcept_no"], "company": (c.get("company") or {}).get("name"), "field": x.get("field"),
+                             "path": x.get("path"), "reason": x.get("reason"), "basis": x.get("basis")})
+    rows.sort(key=lambda r: (r["rcept_no"], r["path"] or ""))
+    by_field: dict[str, int] = {}
+    for r in rows:
+        by_field[r["field"]] = by_field.get(r["field"], 0) + 1
+    md = ["| rcept_no | 회사 | 필드 | 경로 | 사유 | 근거 |", "|---|---|---|---|---|---|"]
+    md += [f"| {r['rcept_no']} | {r['company']} | {r['field']} | {r['path']} | {r['reason']} | {(r['basis'] or '')[:90]} |" for r in rows]
+    return {"cases": len({r["rcept_no"] for r in rows}), "fields": len(rows), "by_field": by_field, "rows": rows,
+            "markdown": "\n".join(md)}
+
+
+def case_diff(old: Any, new: Any, path: str = "") -> list[dict]:
+    """사례 JSON 두 개의 필드별 차이: [{op: added|removed|changed, path, old, new}]. 새로 생기거나 없어진 노드는 통째로 한 줄."""
+    out: list[dict] = []
+    if isinstance(old, dict) and isinstance(new, dict):
+        for k in list(old) + [k for k in new if k not in old]:
+            p = f"{path}/{k}"
+            if k not in new:
+                out.append({"op": "removed", "path": p, "old": old[k], "new": None})
+            elif k not in old or (old[k] is None and new[k] is not None):
+                out.append({"op": "added", "path": p, "old": old.get(k), "new": new[k]})
+            elif new[k] is None and old[k] is not None:
+                out.append({"op": "removed", "path": p, "old": old[k], "new": None})
+            else:
+                out += case_diff(old[k], new[k], p)
+        return out
+    if isinstance(old, list) and isinstance(new, list):
+        for i in range(max(len(old), len(new))):
+            p = f"{path}/{i}"
+            if i >= len(new):
+                out.append({"op": "removed", "path": p, "old": old[i], "new": None})
+            elif i >= len(old):
+                out.append({"op": "added", "path": p, "old": None, "new": new[i]})
+            else:
+                out += case_diff(old[i], new[i], p)
+        return out
+    if old != new:
+        out.append({"op": "changed", "path": path, "old": old, "new": new})
+    return out
+
+
 def _filtered(directory: Path, a: Any) -> tuple[list[dict], list[dict]]:
     cases = load_cases(directory)
     rows = []
@@ -200,7 +252,7 @@ def _filtered(directory: Path, a: Any) -> tuple[list[dict], list[dict]]:
 
 def _cli(argv: list[str]) -> int:
     sys.stdout.reconfigure(encoding="utf-8")
-    if len(argv) < 2 or argv[0] not in ("derive", "compare", "export", "audit-null"):
+    if len(argv) < 2 or argv[0] not in ("derive", "compare", "export", "audit-null", "backfill-queue", "diff"):
         print(__doc__)
         return 2
     if argv[1] in ("-h", "--help"):
@@ -218,6 +270,32 @@ def _cli(argv: list[str]) -> int:
             p.write_text(json.dumps(c, ensure_ascii=False, indent=1), encoding="utf-8")
             counts[_spac_key(val)] = counts.get(_spac_key(val), 0) + 1
         print(json.dumps({"spac": counts}, ensure_ascii=False))
+        return 0
+    if cmd == "backfill-queue":
+        q = backfill_queue(load_cases(directory), include_absent="--all" in argv)
+        if "--md" in argv:
+            mp = Path(argv[argv.index("--md") + 1])
+            mp.write_text(f"# 보강 대기 목록 ({q['cases']}건 사례, {q['fields']}칸)\n\n" + q["markdown"] + "\n", encoding="utf-8")
+        print(json.dumps({k: q[k] for k in ("cases", "fields", "by_field", "rows")}, ensure_ascii=False, indent=1))
+        return 0
+    if cmd == "diff":
+        import subprocess
+
+        new = json.loads(directory.read_text(encoding="utf-8"))
+        against = argv[argv.index("--against") + 1] if "--against" in argv else "HEAD"
+        if Path(against).is_file():
+            old, src = json.loads(Path(against).read_text(encoding="utf-8")), against
+        else:
+            rel = directory.resolve().relative_to(Path.cwd().resolve()).as_posix()
+            r = subprocess.run(["git", "show", f"{against}:{rel}"], capture_output=True, text=True, encoding="utf-8")
+            if r.returncode != 0:
+                print(json.dumps({"error": f"git show {against}:{rel} 실패: {r.stderr.strip()[:200]}"}, ensure_ascii=False))
+                return 1
+            old, src = json.loads(r.stdout), f"{against}:{rel}"
+        d = case_diff(old, new)
+        print(json.dumps({"against": src, "changes": len(d),
+                          "by_op": {op: sum(1 for x in d if x["op"] == op) for op in ("added", "changed", "removed")},
+                          "diff": d}, ensure_ascii=False, indent=1))
         return 0
     if cmd == "audit-null":
         from .nullaudit import audit_cli
@@ -238,7 +316,7 @@ def _cli(argv: list[str]) -> int:
         if not mine:
             print("비교할 값을 하나 이상 주세요: " + " ".join(f"--{k.replace('_', '-')}" for k in COMPARE_ARGS))
             return 2
-        res = compare(rows, mine, a.n)
+        res = compare(rows, mine, a.n, spac_filter=a.spac)
         # n(최근접 수)은 필터가 아니다 — filters에 섞으면 표본 수로 읽힌다(retro B6)
         print(json.dumps({"warnings": res.pop("warnings"), "nearest_n": a.n,
                           "filters": {k: v for k, v in vars(a).items() if v is not None and k not in COMPARE_ARGS and k != "n"},
@@ -247,7 +325,7 @@ def _cli(argv: list[str]) -> int:
     keep = {(r["rcept_no"], r["_idx"]) for r in rows}
     out = export_rows(cases, keep)
     write_csv(out, Path(a.csv))
-    print(json.dumps({"warnings": sample_warnings(rows), "csv": a.csv, "rows": len(out),
+    print(json.dumps({"warnings": sample_warnings(rows, spac_filter=a.spac), "csv": a.csv, "rows": len(out),
                       "cases": len({r['사례ID'] for r in out})}, ensure_ascii=False))
     return 0
 

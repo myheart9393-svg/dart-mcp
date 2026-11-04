@@ -100,7 +100,7 @@ argument-hint: <rcept_no>
 - `reports/valuations/<rcept_no>.json` — 사례 JSON. `extracted_at`은 지금 시각(ISO8601, +09:00), `extractor_version`은
   `dart_mcp.valuation.EXTRACTOR_VERSION`. `citations`에 읽은 섹션(rcept_no, file_id, section_id, title, chars_read, how).
 - 저장 직후 검증: `uv run python -m dart_mcp.valuation validate reports/valuations/<rcept_no>.json` → valid=false면 고친다.
-  이어서 `... valuation verify-cites <json> --sample 500`(전수)으로 모든 숫자가 cite 위치에 있는지 확인한다. md는 `... valuation md <json>`.
+  이어서 `... valuation verify-cites <json> --sample 500`(전수)으로 모든 숫자가 cite 위치에 있는지 확인한다. md는 `... valuation md <json>` — `valuation md <json>`은 같은 이름의 `.md`를 **직접 쓰고 그 경로 한 줄만 출력**한다. `>`로 리다이렉트하지 않는다(`> <같은 이름>.md`로 보내면 md가 경로 한 줄로 덮어써진다).
 - `reports/valuations/<rcept_no>.md` — 사람용:
 
 ```

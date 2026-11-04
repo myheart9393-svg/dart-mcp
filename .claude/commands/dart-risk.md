@@ -32,10 +32,13 @@ dart MCP 툴로 사업보고서의 리스크 관련 부분만 읽고 **리스크
 | 3 | XI > 3. 제재 등과 관련된 사항 | 제재 기관·사유·금액·조치 |
 | 4 | XI > 4. 작성기준일 이후 발생한 주요사항 | 보고기간 후 사건 |
 | 5 | V. 회계감사인의 감사의견 등 > 1. 외부감사에 관한 사항 | 감사의견 종류, **강조사항**, **핵심감사사항(KAM)** 유무와 내용, 감사인 변경 |
-| 6 | 주석(III > 3. 연결재무제표 주석) | `get_disclosure_outline(..., depth=3)`으로 소제목을 받아 "우발" / "약정" / "소송" / "충당부채" / "보고기간 후 사건" 제목의 `.tN` 항목만 읽는다. 없으면 `search_in_disclosure(rcept_no, "소송")`, `(..., "우발")`로 찾는다 |
+| 6 | 주석(outline의 `notes_sections.use` — 제목 "연결재무제표 주석", 연결이 비면 "재무제표 주석") | `get_disclosure_outline(..., depth=3)`으로 소제목을 받아 "우발" / "약정" / "소송" / "충당부채" / "보고기간 후 사건" 제목의 `.tN` 항목만 읽는다. 없으면 `search_in_disclosure(rcept_no, "소송")`, `(..., "우발")`로 찾는다 |
 
 첨부 감사보고서(file_id "00760"/"00761" 등)는 `get_disclosure_outline(attachment_rcept_no, file_id="<첨부>")`로
 "독립된 감사인의 감사보고서" 섹션만 읽어 핵심감사사항 원문을 확인한다 (보통 5,000자 이내).
+**첫 outline을 다시 받지 않는다**: attachment_rcept_no가 body_rcept_no와 같으면(정정 없음) 2의 `get_disclosure_outline(body_rcept_no)` 응답 `files[]`에 이미 "00760"/"00761"의 섹션 목록이 있다. 그 id를 그대로 쓰고 첨부 outline은 호출하지 않는다. 다를 때만 첨부 outline을 1회 받는다.
+
+주석 위치: **주석 위치는 번호가 아니라 제목으로 찾는다.** `get_disclosure_outline(body_rcept_no)` 응답의 `notes_sections.use`가 읽을 주석 섹션 id다(제목에 "연결재무제표 주석"/"재무제표 주석"이 든 level 2 섹션). 연결 주석이 비어 있거나(종속회사 없는 별도 법인 — 동양파일 4.3은 28자) 없으면 별도 "재무제표 주석"(동양파일 4.5)을 쓰고 보고서에 "별도 재무제표 주석 기준"을 적는다. `notes_sections`가 없으면 outline 제목을 직접 대조한다. 별도 법인 본문 주석은 depth=3에서도 소제목이 안 생길 수 있으니 그때는 `search_in_disclosure`로 키워드 위치를 찍어 offset으로 읽는다.
 
 ## (b) 보고서 고정 목차
 

@@ -676,3 +676,99 @@ def test_firm_filter_exact_name_and_firm_column_from_subject():
     assert len(filter_rows(rows, firm="이촌회계법인", firm_role="any")) == 1
     assert len(filter_rows(rows, firm="이촌증권", firm_role="any")) == 1
     assert filter_rows(rows, firm="정", firm_role="any") == []  # 부분 문자열로는 안 걸림
+
+
+# --------------------------------------------------------------------------- 경고 분모 = 분석 표본 (v1.6.3)
+def test_sample_warnings_denominator_is_analysis_sample_and_spac_filter_note():
+    from dart_mcp.valuation import sample_warnings
+
+    # 값이 있는 거래: 비SPAC 3 + SPAC 2(SPAC 40%). 값 없는 SPAC 거래 4건이 분모에 들면 6/9로 쏠림이 잘못 뜬다
+    rows = [_wrow(f"N{i}", 10 + i, 0.5 * i) for i in range(3)] + [_wrow(f"S{i}", 11 + i, 0.3 * i, spac=True) for i in range(2)]
+    rows += [dict(_wrow(f"E{i}", None, None, spac=True)) for i in range(4)]
+    w = sample_warnings(rows, ("wacc", "g"))
+    assert not any(x.startswith("SPAC 쏠림") for x in w)
+    assert any("통계적 의미 제한: 분석 거래 5건" in x for x in w) and any("값 없는 거래 4건 제외" in x for x in w)
+    w2 = sample_warnings([r for r in rows if r["spac"] is False], ("wacc", "g"), spac_filter="false")
+    assert any(x.startswith("비SPAC 3건") for x in w2) and not any("SPAC 쏠림" in x for x in w2)
+
+
+def test_spac_skew_counts_unknown_separately():
+    from dart_mcp.valuation import sample_warnings
+
+    rows = [_wrow(f"S{i}", 10 + i, 0.1 * i, spac=True) for i in range(4)] + [_wrow("N", 9, 1.0), _wrow("U", 8, 2.0, spac=None)]
+    w = " ".join(sample_warnings(rows, ("wacc", "g")))
+    assert "SPAC 4건(비SPAC만 1건, 판정 불가 1건)" in w
+
+
+def test_relative_kind_flags_omission_wording_tagged_not_computed():
+    from dart_mcp.valuation import relative_kind_errors
+
+    c = {"relative_value": {"applied": False, "kind": "산정하지 않음",
+                            "reason": "기준주가로 합병가액 산정, 자산가치·수익가치·상대가치 등은 별도로 기재하지 않음", "cite": None}}
+    assert any("기재 생략" in e for e in relative_kind_errors(c))
+    c["relative_value"]["kind"] = "기재 생략"
+    assert relative_kind_errors(c) == []
+    ok = {"relative_value": {"applied": False, "kind": "산정하지 않음",
+                             "reason": "상대가치는 비교목적으로 분석하였으나 유사회사가 3개 미만이라 산정하지 아니함", "cite": None}}
+    assert relative_kind_errors(ok) == []
+
+
+def test_scan_reports_excluded_unlisted_count():
+    b001 = [_lr("20261029000001", "주요사항보고서(회사합병결정)", "20261029"),
+            _lr("20261029000002", "주요사항보고서(회사합병결정)", "20261029", corp="00100002", name="비상장갑", cls="E"),
+            _lr("20261029000003", "주요사항보고서(회사분할결정)", "20261029", corp="00100003", name="비상장을", cls="E")]
+    res = scan_valuation_disclosures(_lp({"B001": b001, "B002": []}, []), "20261027", "20261103")
+    assert [d["rcept_no"] for d in res["deals"]] == ["20261029000001"]
+    assert res["excluded_unlisted"] == 2 and res["excluded_unlisted_by_type"] == {"합병": 1, "분할": 1}
+    allr = scan_valuation_disclosures(_lp({"B001": b001, "B002": []}, []), "20261027", "20261103", listed_only=False)
+    assert len(allr["deals"]) == 3 and allr["excluded_unlisted"] == 0
+
+
+def test_batch_review_sample_seed_from_rcept_list():
+    from dart_mcp.batch import review_sample
+
+    st = {"items": [{"body_rcept_no": f"2026110300{i:04d}", "rcept_no": f"2026110300{i:04d}", "status": "ok"} for i in range(11)]
+             + [{"body_rcept_no": "20261103999999", "rcept_no": "20261103999999", "status": "fail"}]}
+    a = review_sample(st)
+    assert len(a["sample"]) == 3 and a["n_ok"] == 11 and len(a["seed"]) == 16  # ceil(0.2 × 11) = 3
+    st2 = {"items": list(reversed(st["items"])) + [{"body_rcept_no": "x", "rcept_no": "x", "status": "skip", "pad": "y" * 500}]}
+    assert review_sample(st2) == a  # 순서·파일 크기·skip 건과 무관
+    part = review_sample(st, only=["20261103000001", "20261103000002"])
+    assert part["n_ok"] == 2 and len(part["sample"]) == 1
+
+
+# --------------------------------------------------------------------------- 보강 대기·diff (v1.6.3)
+def test_backfill_queue_lists_suspected_missing_fields():
+    from dart_mcp.casedb import backfill_queue
+
+    a = dict(copy.deepcopy(MIN_CASE), absent_reasons=[
+        {"path": "/valuations/0/dcf/size_premium", "field": "size_premium", "reason": "추출 안 함", "basis": "키워드 감사: section 5 '규모위험'"},
+        {"path": "/valuations/0/dcf/peers", "field": "peers", "reason": "원문에 없음", "basis": "키워드 없음"}])
+    b = dict(copy.deepcopy(MIN_CASE), rcept_no="20261014000099")
+    q = backfill_queue([a, b])
+    assert [(x["rcept_no"], x["field"]) for x in q["rows"]] == [("20261014000077", "size_premium")]
+    assert q["cases"] == 1 and q["by_field"] == {"size_premium": 1} and "| 20261014000077 |" in q["markdown"]
+    assert len(backfill_queue([a, b], include_absent=True)["rows"]) == 2
+
+
+def test_case_diff_reports_field_changes():
+    from dart_mcp.casedb import case_diff
+
+    old = copy.deepcopy(MIN_CASE)
+    new = copy.deepcopy(MIN_CASE)
+    new["valuations"][0]["dcf"]["g"] = {"value": 1.0, "unit": "%", "text": "1.0%", "cite": _cite(20)}
+    new["valuations"][0]["dcf"]["wacc"]["value"] = 8.2
+    new["deal"].pop("regime")
+    d = case_diff(old, new)
+    kinds = {(x["op"], x["path"]) for x in d}
+    assert ("added", "/valuations/0/dcf/g") in kinds and ("removed", "/deal/regime") in kinds
+    assert ("changed", "/valuations/0/dcf/wacc/value") in kinds
+    assert not any(x["path"].startswith("/valuations/0/dcf/g/") for x in d)  # 새로 생긴 노드는 통째로 한 줄
+
+
+def test_batch_cli_parser_builds():
+    """argparse help 문자열의 '%'가 파서 생성을 깨지 않는다(v1.6.3 sample 추가 때 회귀)."""
+    import subprocess, sys
+    r = subprocess.run([sys.executable, "-m", "dart_mcp.batch", "--help"], capture_output=True, text=True, encoding="utf-8")
+    assert r.returncode == 0, r.stderr
+    assert "sample" in r.stdout

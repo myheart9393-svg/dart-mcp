@@ -13,6 +13,8 @@ uv run python scripts/parser_regression.py            # data/ 모든 XML 재변�
 uv run python -m dart_mcp.healthcheck --sample 30 --seed 1   # 파서·재무 매칭 일괄 검사 → reports/healthcheck_<날짜>.md
 ```
 
+**Windows에서 `uv`가 PATH에 없을 때**(`uv: command not found`): 프로젝트 가상환경의 파이썬으로 바꿔 쓴다. `uv run python -m X` → PowerShell `.venv\Scripts\python.exe -m X`, Git Bash `.venv/Scripts/python.exe -m X` (Bash에서는 한글 출력이 깨지지 않게 먼저 `export PYTHONIOENCODING=utf-8`). `uv run pytest -q` → `.venv/Scripts/python.exe -m pytest -q`. `.venv`가 없으면 uv.exe 절대경로로 `uv sync`를 한 번 돌린다.
+
 **`document.py`를 고치면 커밋 전에 `scripts/parser_regression.py`를 돌려 변경 목록(바뀐 공시·섹션)을 커밋 메시지에 적는다.**
 의도한 변경만 있으면 `--update`로 baseline을 갱신한다. 의도하지 않은 변경이 있으면 커밋하지 않고 원인부터 본다.
 
@@ -51,7 +53,9 @@ uv run python -m dart_mcp.healthcheck --sample 30 --seed 1   # 파서·재무 �
    **분기·반기**: `get_key_financials(..., reprt_code="11012"|"11013"|"11014", period_type="cumulative"|"quarter")`.
    결과는 current vs prior(손익=전년 동기, 재무상태표=직전 사업연도말)이고, 연간 수치와 한 표에 섞지 않는다.
    **금융업**: 응답에 `warning`이 있으면(sector="financial") 매출액·영업이익률 대신 `financial_accounts`(순이자이익 등)를 쓰고,
-   보고서에 "금융업 기준"을 밝힌다. 일반 기업과 같은 비교 표에 넣지 않는다. 연결 조회가 013이면 `fs_div="OFS"`(종속회사 없는 회사).
+   보고서에 "금융업 기준"을 밝힌다. 일반 기업과 같은 비교 표에 넣지 않는다. `derived=true` 계정(소계 행이 없어 수익−비용으로 계산)은 "(계산)" 표기.
+   **보험업은 보험손익 기준 계정을 쓴다**(sector.subsector="insurance": `insurance_service_result` 보험손익·`investment_result` 투자손익·`insurance_revenue`).
+   이자수익−이자비용은 `interest_net_investment`(투자손익의 일부)로 따로 오며 순이자이익이 아니다. 연결 조회가 013이면 `fs_div="OFS"`(종속회사 없는 회사).
 9. 숫자·사실을 보고서에 쓸 때는 `(rcept_no, section_id)` 출처를 붙이고, 원문에 없는 해석은 "추정:"으로 표시한다.
 
 ### 공시유형 코드 (search_disclosures의 pblntf_ty)
@@ -84,7 +88,9 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
 - 주요사항보고서는 API ZIP에 평가의견서 첨부가 없다 → `source_grade="summary"`(5행+결론). 가정은 짝 증권신고서(full)에서 뽑는다.
 - 큰 평가 섹션은 `find_tables(rcept_no, section_id, caption_pattern)`로 표부터, 나머지만 search_in_disclosure. 스키마 문서: `docs/valuation_schema.md`.
 - 검증·조회 CLI: `uv run python -m dart_mcp.valuation validate|verify-cites|md <json>`, `... table|stats reports/valuations`.
-  배치: `uv run python -m dart_mcp.batch plan|record|report`. MCP 재연결 전 툴 호출: `uv run python -m dart_mcp.casebuild call|grep|usage`.
+  `valuation md <json>`은 같은 이름의 `.md`를 **직접 쓰고 그 경로 한 줄만 출력**한다. `>`로 리다이렉트하지 않는다(`> <같은 이름>.md`로 보내면 md가 경로 한 줄로 덮어써진다).
+  보강 대기 목록 `uv run python -m dart_mcp.casedb backfill-queue reports/valuations [--all] [--md <경로>]`, 보강 전후 diff `... casedb diff <json> [--against <rev|json>]`.
+  배치: `uv run python -m dart_mcp.batch plan|record|sample|report`. MCP 재연결 전 툴 호출: `uv run python -m dart_mcp.casebuild call|grep|usage`.
 
 공통 규칙: 보고서는 `reports/<회사명>_<종류>_<날짜>.md`로 저장, 마지막에 "참조한 섹션 목록" 부록,
 원문 장문 복사 금지(표는 핵심 행만), 범위는 `4–5배`(en dash — `~` 두 개는 Markdown 취소선이 됨),

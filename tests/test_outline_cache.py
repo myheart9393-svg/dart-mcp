@@ -189,3 +189,21 @@ def test_total_chars_counts_top_level_only_and_fixes_old_cache(tmp_path):
     o["files"][0]["total_chars"] = 999999
     p.write_text(json.dumps(o, ensure_ascii=False), encoding="utf-8")
     assert DisclosureCache(tmp_path).get(rcept_no, None).get_file("main").total_chars == top
+
+
+# --------------------------------------------------------------------------- 주석 섹션 고르기 (retro 2026-11-04 동양파일)
+def test_pick_notes_section_by_title_and_fallback_to_separate():
+    from dart_mcp.server import pick_notes_sections
+
+    def s(i, t, n, lv=2):
+        return {"id": i, "level": lv, "title": t, "char_count": n, "kind": "section"}
+    # 동양파일: 연결 주석은 빈 칸(28자), 별도 주석이 4.5
+    dongyang = [s("4", "III. 재무에 관한 사항", 53449, 1), s("4.2", "2. 연결재무제표", 25), s("4.3", "3. 연결재무제표 주석", 28),
+                s("4.4", "4. 재무제표", 6710), s("4.5", "5. 재무제표 주석", 37444)]
+    n = pick_notes_sections(dongyang)
+    assert n["consolidated"] is None and n["separate"] == "4.5" and n["use"] == "4.5" and "별도" in n["reason"]
+    # 번호가 다른 회사(연결 주석이 4.4)도 제목으로 찾는다
+    other = [s("4.3", "3. 연결재무제표", 9000), s("4.4", "4. 연결재무제표 주석", 150000), s("4.6", "6. 재무제표 주석", 90000)]
+    n2 = pick_notes_sections(other)
+    assert (n2["consolidated"], n2["separate"], n2["use"]) == ("4.4", "4.6", "4.4")
+    assert pick_notes_sections([s("4.1", "1. 요약재무정보", 100)])["use"] is None

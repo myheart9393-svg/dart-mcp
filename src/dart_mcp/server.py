@@ -100,6 +100,30 @@ def _load(rcept_no: str):
     return _cache.get(rcept_no, client)
 
 
+NOTES_EMPTY_CHARS = 500  # 이보다 짧은 주석 섹션은 "해당사항 없음" 같은 빈 칸으로 본다
+
+
+def pick_notes_sections(sections: list[dict]) -> dict:
+    """outline 섹션(level 2) → 재무제표 주석 위치. 번호("3.")가 아니라 제목으로 찾는다(retro 2026-11-04 동양파일: 4.3 연결 주석이 28자, 주석은 4.5).
+
+    {consolidated: 연결 주석 id|None, separate: 별도 주석 id|None, use: 읽을 id, reason}. 연결 주석이 비어 있으면(500자 미만) 별도 주석을 쓴다.
+    """
+    def find(pred):
+        return next((x for x in sections if x.get("kind", "section") == "section" and pred(re.sub(r"\s+", "", x.get("title") or ""))), None)
+
+    con = find(lambda t: "연결재무제표주석" in t or "연결재무제표에대한주석" in t)
+    sep = find(lambda t: ("재무제표주석" in t or "재무제표에대한주석" in t) and "연결" not in t)
+    con_id = con["id"] if con and con.get("char_count", 0) >= NOTES_EMPTY_CHARS else None
+    sep_id = sep["id"] if sep and sep.get("char_count", 0) >= NOTES_EMPTY_CHARS else None
+    if con_id:
+        use, reason = con_id, "연결재무제표 주석"
+    elif sep_id:
+        use, reason = sep_id, ("연결 주석이 비어 있음(종속회사 없음 추정) → 별도 재무제표 주석" if con else "연결 주석 섹션 없음 → 별도 재무제표 주석")
+    else:
+        use, reason = None, "제목에 '재무제표 주석'이 든 섹션 없음 — search_in_disclosure로 찾는다"
+    return {"consolidated": con_id, "separate": sep_id, "use": use, "reason": reason}
+
+
 def _missing_main(disc) -> dict:
     """본문(main) 없이 첨부만 든 ZIP(첨부정정·첨부추가 공시)을 main으로 읽으려 할 때의 에러."""
     body = _body_hint.get(disc.rcept_no)
@@ -153,6 +177,7 @@ def search_disclosures(
     pblntf_ty: str | None = None,
     max_results: int = 50,
     page_no: int = 1,
+    pblntf_detail_ty: str | None = None,
 ) -> dict:
     """특정 회사의 공시 목록을 기간으로 검색한다 (OpenDART list.json).
 
@@ -174,14 +199,31 @@ def search_disclosures(
     """
     page_count = min(max(1, int(max_results)), 100)
     page_no = max(1, int(page_no))
+    note = None
+    ty = (pblntf_ty or "").strip().upper() or None
+    detail = (pblntf_detail_ty or "").strip().upper() or None
+    if ty and re.fullmatch(r"[A-J]\d{3}", ty):
+        # retro B5: pblntf_ty="B001"은 검증 없이 013(데이터 없음)이 났다 — 상세유형 칸으로 옮긴다
+        detail, ty = detail or ty, None
+        note = f"pblntf_ty에 상세유형({detail})이 들어와 pblntf_detail_ty로 옮겨 조회했다(상세유형은 pblntf_ty 없이 준다)"
+    elif ty and not re.fullmatch(r"[A-J]", ty):
+        return {"error": f"pblntf_ty는 A–J 한 글자(A 정기·B 주요사항·C 발행·D 지분·E 기타·F 외부감사·G 펀드·H 자산유동화·I 거래소·J 공정위) "
+                         f"또는 상세유형은 pblntf_detail_ty(예: B001): {pblntf_ty!r}"}
+    if detail and not note:
+        if ty:
+            note = f"상세유형 {detail}와 pblntf_ty {ty}를 함께 주면 DART가 걸러내지 못할 수 있어 pblntf_ty를 빼고 조회했다"
+            ty = None
+        else:
+            note = f"상세유형 {detail}만으로 조회(pblntf_ty 없이 — DART 규칙)"
     data = _get_client().search_disclosures(
-        corp_code=corp_code or None, bgn_de=bgn_de, end_de=end_de, pblntf_ty=pblntf_ty,
-        page_no=page_no, page_count=page_count,
+        corp_code=corp_code or None, bgn_de=bgn_de, end_de=end_de, pblntf_ty=ty,
+        page_no=page_no, page_count=page_count, **({"pblntf_detail_ty": detail} if detail else {}),
     )
     items = [_list_item(it) for it in data.get("list", [])]
     total_page = int(data.get("total_page", 1) or 1)
     return {"corp_code": corp_code, "total_count": int(data.get("total_count", 0)), "total_page": total_page,
-            "page_no": page_no, "has_more": page_no < total_page, "returned": len(items), "results": items}
+            "page_no": page_no, "has_more": page_no < total_page, "returned": len(items), "results": items,
+            **({"note": note} if note else {})}
 
 
 def _list_item(it: dict) -> dict:
@@ -219,14 +261,18 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None, depth: int
         (감사보고서, 정정 문서 등). 각 파일에 total_chars와 sections[].
       - sections[]: {id, level, title, char_count}. id는 "1", "1.2", "1.2.3" 같은 계층 번호.
         level 1이 대분류(예: "I. 회사의 개요", "II. 사업의 내용"), level 2·3이 소분류.
-        상위 섹션의 char_count는 하위 섹션을 모두 포함한 크기다. id "0"은 표지 등 섹션 밖 본문.
+        상위 섹션의 char_count는 하위 섹션을 모두 포함한 크기다(total_chars는 최상위 섹션 합). id "0"은 표지 등 섹션 밖 본문.
+      notes_sections: {consolidated, separate, use, reason} — 본문의 재무제표 주석 섹션 id(제목으로 찾음). 주석 섹션이 없으면 키가 없다.
     인자:
       - file_id: 주면 그 파일의 목차만 돌려준다 (생략 시 전체 파일).
       - depth: 보여줄 최대 level (기본 2 = 대분류·소분류). depth=3이면 level 3 SECTION과
         TITLE 기반 소제목(id가 "4.3.t12"처럼 ".tN"으로 끝남, kind="title")까지 나온다.
-        TITLE 없이 5만 자가 넘는 섹션(증권신고서 "IV. 인수인의 의견" 등)은 depth=3에서 줄머리 표지("가." "(1)" 단독 "[캡션]")로
-        나눈 휴리스틱 소제목(id "7.h3", kind="heading")이 나온다. 제목은 그 줄 앞 60자라 본문이 섞일 수 있다.
-        재무제표 주석처럼 섹션 하나가 10만 자를 넘을 때 depth=3으로 다시 호출해 주석 번호 단위로 읽는다.
+        휴리스틱 소제목(id "7.h3", kind="heading")은 **정기보고서가 아닌 본문(main)**에서 TITLE 없이 5만 자가 넘는 섹션
+        (증권신고서 "IV. 인수인의 의견" 등)에만 생긴다(줄머리 "가." "(1)" 단독 "[캡션]"으로 나눔, 제목은 그 줄 앞 60자).
+        **소제목이 안 생기는 곳**: 감사보고서 첨부(00760/00761 — TITLE 태그 없음), 사업·반기·분기보고서의 TITLE 없는 섹션,
+        TITLE이 하나뿐인 주석(별도 법인 본문 주석이 흔하다 — 동양파일 2025 "5. 재무제표 주석" 37,444자, 하위 0개).
+        이때는 depth=3으로 다시 받아도 그대로이니 search_in_disclosure로 위치를 찍어 offset/max_chars로 읽는다.
+        재무제표 주석 위치는 notes_sections.use(제목 기준, 연결 주석이 비면 별도 주석)를 쓴다.
         (목차 JSON이 커지므로 큰 섹션의 하위만 필요하면 file_id와 함께 쓰거나 search_in_disclosure를 쓴다.)
     parse_warnings: 비어 있지 않으면 파서가 원문 일부를 놓쳤을 수 있다(예: "SECTION-1 14개 중 4개만 파싱됨").
       그 공시의 목차·검색 결과는 뒷부분이 빠졌을 수 있으니 보고서에 그 사실을 적고, 빠진 장의 내용은 "원문 확인 불가"로 둔다.
@@ -250,9 +296,12 @@ def get_disclosure_outline(rcept_no: str, file_id: str | None = None, depth: int
         files = [f]
     depth = max(0, depth)
     warnings = [w if f.file_id == "main" else f"[{f.file_id}] {w}" for f in files for w in f.parse_warnings]
+    main = next((f for f in files if f.file_id == "main"), None)
+    notes = pick_notes_sections([x.to_outline_dict() for x in main.sections if x.level == 2]) if main else None
     return {
         "rcept_no": disc.rcept_no,
         "depth": depth,
+        **({"notes_sections": notes} if notes and (notes["consolidated"] or notes["separate"]) else {}),
         "total_chars": sum(f.total_chars for f in files),
         "parse_warnings": warnings,
         "files": [
@@ -452,6 +501,7 @@ def search_valuation_disclosures(
         share_exchange(주식교환·이전)·ipo·rights_offering(상장사 유상증자). 한글 별칭도 받는다.
         생략하면 rights_offering을 뺀 전부(유상증자 신고서는 회사 가치평가가 아니라 발행가 할인 산정이라 명시해야 나온다).
       - corp_code: 한 회사만(이때는 구간을 나누지 않는다). listed_only: 상장사(유가·코스닥)만. IPO는 비상장사라도 남긴다.
+        listed_only=True면 뺀 비상장사 거래 수가 excluded_unlisted(유형별 excluded_unlisted_by_type)로 온다 — 표 위에 적는다.
       - max_results(기본 200)/offset: 결과가 많으면 has_more=true, next_offset으로 이어 받는다.
     결과: deals[] 각 항목 = 한 거래(원본과 정정본을 묶음):
       rcept_no(최신 접수본), report_nm, rcept_dt, corp_code, corp_name, market, filing_type("주요사항보고서"|"증권신고서"),
@@ -486,6 +536,7 @@ def search_valuation_disclosures(
         counts[f"{d['deal_label']}/{d['source_grade']}"] = counts.get(f"{d['deal_label']}/{d['source_grade']}", 0) + 1
     return {
         "bgn_de": bgn_de, "end_de": end_de, "windows": res["windows"], "api_pages": res["api_calls"],
+        "excluded_unlisted": res.get("excluded_unlisted", 0), "excluded_unlisted_by_type": res.get("excluded_unlisted_by_type", {}),
         "total": len(deals), "counts": counts, "body_unavailable": sum(1 for d in deals if d.get("body_available") is False), "returned": len(page), "offset": offset,
         "has_more": more, "next_offset": offset + max_results if more else None, "deals": page,
     }
@@ -664,7 +715,9 @@ def get_key_financials(
     금융업(sector="financial": 은행·보험·증권·금융지주)이면 warning이 붙는다. 이때 revenue와 영업이익률·순이익률은
       not_applicable/None이고, financial_accounts에 순이자이익·순수수료이익·보험수익·신용손실충당금전입이 온다
       (못 찾은 것은 financial_missing). 순이자이익·순수수료이익 소계 행이 없고 수익·비용 행이 둘 다 있으면 차이로 계산해
-      derived=true·formula를 붙인다(보고서에 "(계산)" 표기). 한쪽이라도 없으면 null. 금융사를 일반 기업과 같은 표에서 비교하지 않는다.
+      derived=true·formula를 붙인다(보고서에 "(계산)" 표기). 한쪽이라도 없으면 null.
+      보험업(sector.subsector="insurance", KSIC 65)은 보험손익 기준 계정(insurance_service_result 보험손익, investment_result
+      투자손익)을 쓰고, 이자수익−이자비용은 net_interest_income이 아닌 interest_net_investment(투자손익의 일부)로 둔다. 금융사를 일반 기업과 같은 표에서 비교하지 않는다.
     출처 표기: 보고서에는 (rcept_no, 재무API) 형태로 적는다.
     """
     corp_code, bsns_year, reprt_code, fs_div = _check_fin_args(corp_code, bsns_year, reprt_code, fs_div)
@@ -692,7 +745,7 @@ def get_key_financials(
     if annual:
         return {**base, "rcept_no": data.get("rcept_no"), **extra,
                 **summarize_key_financials(data["list"], bsns_year, sector["sector"], fs_div,
-                                           (company or {}).get("acc_mt"))}
+                                           (company or {}).get("acc_mt"), sector.get("subsector"))}
     prev = str(int(bsns_year) - 1)
     span = "누적" if period_type == "cumulative" else "3개월"
     labels = {
@@ -706,7 +759,8 @@ def get_key_financials(
         labels = {"current": f"{periods['current']['range']} ({span}) / BS는 {periods['current']['bs_date']}",
                   "prior": f"{periods['prior']['range']} ({span}) / BS는 {periods['prior']['bs_date']}"}
     return {**base, "rcept_no": data.get("rcept_no"), "column_labels": labels, "acc_mt": acc_mt, "periods": periods, **extra,
-            **summarize_interim_financials(data["list"], reprt_code, period_type, sector["sector"])}
+            **summarize_interim_financials(data["list"], reprt_code, period_type, sector["sector"],
+                                           sector.get("subsector"))}
 
 
 @mcp.tool()
@@ -747,10 +801,19 @@ def get_latest_reports(corp_code: str) -> dict:
     if "error" in found:
         return found
     result = classify_periodic_reports(found["results"])
-    for rep_ in ([result["latest_annual"]] if result["latest_annual"] else []) + result["interim_after_annual"]:
+    if result["latest_annual"] is None and found["results"]:
+        mt = str((load_company(_get_client, corp_code) or {}).get("acc_mt") or "12").strip()
+        result = classify_periodic_reports(found["results"], int(mt) if mt.isdigit() and 1 <= int(mt) <= 12 else 12)
+    for rep_ in ([result["latest_annual"]] if result["latest_annual"] else []) + result["interim_after_annual"] \
+            + result.get("interim_reports", []):
         for r in [rep_["rcept_no"], *rep_["supersedes"]]:
             _body_hint[r] = rep_["body_rcept_no"]
     if result["latest_annual"] is None:
+        if result.get("interim_reports"):
+            return {"corp_code": corp_code, "searched": [bgn.isoformat(), today.isoformat()], **result,
+                    "warning": "최근 2년 안에 사업보고서가 없고 반기·분기보고서만 있다(신규 상장사 추정). interim_reports의 "
+                               "bsns_year·reprt_code로 get_key_financials(period_type='cumulative')를 부르고, 연간 3개년 표 대신 "
+                               "분기 표만 쓴다. 상장 전 연도 재무는 증권신고서(지분증권)에 있다."}
         return {"corp_code": corp_code, "error": "최근 2년 안에 사업보고서가 없습니다. search_disclosures로 기간을 넓혀 확인하세요.",
                 "searched": [bgn.isoformat(), today.isoformat()], "periodic_count": found["returned"]}
     return {"corp_code": corp_code, "searched": [bgn.isoformat(), today.isoformat()], **result}

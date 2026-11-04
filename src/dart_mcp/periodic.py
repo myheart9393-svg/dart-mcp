@@ -71,7 +71,7 @@ def _fiscal_year(period: str, fy_end_month: int) -> str:
     return str(y if m <= fy_end_month else y + 1)
 
 
-def classify_periodic_reports(items: list[dict]) -> dict:
+def classify_periodic_reports(items: list[dict], fy_end_hint: int = 12) -> dict:
     """search_disclosures 결과 → 최신 사업보고서 + 그 이후 반기·분기보고서.
 
     items: [{rcept_no, report_nm, rcept_dt}, ...] (순서 무관)
@@ -120,8 +120,13 @@ def classify_periodic_reports(items: list[dict]) -> dict:
 
     annuals = sorted((c for c in chosen if c["kind"] == "사업보고서"), key=lambda c: c["period"])
     if not annuals:
-        return {"latest_annual": None, "interim_after_annual": [], "superseded": superseded,
-                "late_corrections": [], "fy_end_month": None}
+        # 신규 상장사: 사업보고서 없이 반기·분기만 있다(retro B4). 결산월은 fy_end_hint(기업개황 acc_mt)로 reprt_code를 정한다
+        for c in chosen:
+            c["reprt_code"] = interim_reprt_code(c["kind"], c["period"], fy_end_hint)
+            c["bsns_year"] = _fiscal_year(c["period"], fy_end_hint)
+        interim = sorted((c for c in chosen if c["kind"] != "사업보고서"), key=lambda c: c["period"])
+        return {"latest_annual": None, "interim_after_annual": [], "interim_reports": interim, "superseded": superseded,
+                "late_corrections": [], "fy_end_month": None, "fy_end_hint": fy_end_hint}
     latest = annuals[-1]
     fy_end = int(latest["period"][5:7])
     for c in chosen:
