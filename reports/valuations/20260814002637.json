@@ -2614,7 +2614,8 @@
   "보현 종합의견 본문은 기준시가 합병비율을 1 : 0.96467로 반올림 표기.",
   "대용기업(peers) 목록은 추출하지 않음(Bloomberg 동종기업 조정 베타, 섹션 5 각 사업부 수익가치 개요에 있음).",
   "transaction_value는 합병신주 모집총액(2,341,313주 × 5,659원, 섹션 3.4). 특별위원회(각사 사외이사 등 3인)·법률전문가(광장·클라스한결) 검토는 섹션 4에 있음(미수록).",
-  "보강 2026-10-27: beta_method(Bloomberg 조정 베타; 기간·주기·지수 원문 없음)·size_premium_basis·relative_value 추가, peers는 회사별 β 표가 없어 원문에 없음. EVCS 3%는 원문상 KICPA 규모위험이 아닌 Firm Specific Risk 성격(이촌 ④)이나 기존 size_premium 값 유지."
+  "보강 2026-10-27: beta_method(Bloomberg 조정 베타; 기간·주기·지수 원문 없음)·size_premium_basis·relative_value 추가, peers는 회사별 β 표가 없어 원문에 없음. EVCS 3%는 원문상 KICPA 규모위험이 아닌 Firm Specific Risk 성격(이촌 ④)이나 기존 size_premium 값 유지.",
+  "relative_value.kind 정정: 산정하지 않음 → 기재 생략(원문 '상대가치 등은 별도로 기재하지 않았습니다', 상장사 간 기준주가 합병 — v1.6.3 이전 근거 대조, 2026-11-04)"
  ],
  "extracted_at": "2026-10-26T16:05:59+09:00",
  "extractor_version": "1.1",
@@ -2720,7 +2721,7 @@
  ],
  "relative_value": {
   "applied": false,
-  "kind": "산정하지 않음",
+  "kind": "기재 생략",
   "reason": "자본시장법 시행령 제176조의5 제1항 제1호에 의거 기준주가를 합병가액으로 하여 합병비율을 산출하였으며, 자산가치 및 수익가치, 상대가치 등은 별도로 기재하지 않음(합병가액 표 상대가치 '-')",
   "cite": {
    "section_id": "5",

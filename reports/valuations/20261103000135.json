@@ -1,0 +1,1151 @@
+{
+ "rcept_no": "20261103000135",
+ "original_rcept_no": "20260929000682",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01957875",
+  "name": "셀트릭스",
+  "market": "기타",
+  "induty_code": "20499"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "아이비케이에스제25호기업인수목적 주식회사",
+  "counterparty_listed": true,
+  "related_party": false,
+  "relation_text": "계열·임원겸직·대주주 특수관계·거래 모두 해당사항 없음(VIII. 당사회사간의 이해관계 등)",
+  "board_date": "2026-06-30",
+  "regime": "기준시가",
+  "ratio_text": "㈜셀트릭스:아이비케이에스제25호기업인수목적㈜ = 1:0.4612273",
+  "spac": true,
+  "spac_basis": "이름: deal.counterparty; 문구: notes/2 'SPAC 근거: 피합병법인 아이비케' 외 1곳"
+ },
+ "external_valuation": {
+  "required": true,
+  "exemption_reason": null,
+  "basis_text": null,
+  "firm": "회계법인 현",
+  "firm_type": "회계법인",
+  "period": "2026년 03월 26일 ~ 2026년 06월 29일",
+  "audit_committee_consent": null,
+  "standards_cited": [
+   "외부평가업무 가이드라인 (2009.6)",
+   "자본시장법에 따른 외부평가업무 수행기준(2024.11)",
+   "회계법인 현 자본시장법에 따른 외부평가업무 품질관리규정"
+  ],
+  "opinion_text": "합병당사회사의 주당평가액은 합병법인 3,888~4,576원, 피합병법인 2,000원의 범위로 평가되었으며 합병비율은 0.4370942~0.5143622로 평가되었다. 따라서 합병당사회사 간 합의한 합병비율 1:0.4612273은 적정한 것으로 판단된다.",
+  "cite": {
+   "section_id": "5",
+   "offset": 115859,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 셀트릭스",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 965,
+     "unit": "원",
+     "text": "965",
+     "cite": {
+      "section_id": "5",
+      "offset": 9308,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 21863540932,
+     "unit": "원",
+     "text": "21,863,540,932",
+     "cite": {
+      "section_id": "5",
+      "offset": 9230,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 21567540932,
+     "unit": "원",
+     "text": "21,567,540,932",
+     "cite": {
+      "section_id": "5",
+      "offset": 8191,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 296000000,
+     "unit": "원",
+     "text": "296,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 8226,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 22648800,
+     "unit": "주",
+     "text": "22,648,800",
+     "cite": {
+      "section_id": "5",
+      "offset": 9269,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4336,
+     "unit": "원",
+     "text": "4,336",
+     "cite": {
+      "section_id": "5",
+      "offset": 7656,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 4015,
+      "unit": "원",
+      "text": "4,015",
+      "cite": {
+       "section_id": "5",
+       "offset": 6354,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4729,
+      "unit": "원",
+      "text": "4,729",
+      "cite": {
+       "section_id": "5",
+       "offset": 6362,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 6584,
+    "unit": "원",
+    "text": "6,584",
+    "cite": {
+     "section_id": "5",
+     "offset": 11183,
+     "file_id": "main"
+    }
+   },
+   "note": "한미회계법인은 합병당사회사가 의뢰한 '합병비율 산출 외부기관'(계약 2026-03-26, 수행 2026-03-26~06-29). 본질가치 = (자산가치x1 + 수익가치x1.5)÷2.5. 유사회사 3사 미만으로 상대가치 미산정. 이 값이 합의 합병가액. range는 WACC·g 민감도에 따른 본질가치 최소~최대(수익가치 6,047~7,239원). 자산가치는 주식선택권 520,000주 행사 가정(유입현금 296,000,000원 가산)."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 셀트릭스",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년–2030년(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 10.91,
+     "unit": "%",
+     "text": "10.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111050,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111130,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111166,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.458,
+     "unit": null,
+     "text": "0.4580",
+     "cite": {
+      "section_id": "5",
+      "offset": 111201,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.4804,
+     "unit": null,
+     "text": "0.4804",
+     "cite": {
+      "section_id": "5",
+      "offset": 111235,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111269,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 11.25,
+     "unit": "%",
+     "text": "11.25%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111307,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 7.4,
+     "unit": "%",
+     "text": "7.40%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111335,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111414,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 6.08,
+     "unit": "%",
+     "text": "6.08%",
+     "cite": {
+      "section_id": "5",
+      "offset": 111390,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 56382,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "이글벳",
+      "value": {
+       "value": 0.4451,
+       "unit": null,
+       "text": "0.4451",
+       "cite": {
+        "section_id": "5",
+        "offset": 112925,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "프로티아",
+      "value": {
+       "value": 0.346,
+       "unit": null,
+       "text": "0.3460",
+       "cite": {
+        "section_id": "5",
+        "offset": 112985,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "바이오노트",
+      "value": {
+       "value": 0.5354,
+       "unit": null,
+       "text": "0.5354",
+       "cite": {
+        "section_id": "5",
+        "offset": 113048,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "옵티팜",
+      "value": {
+       "value": 0.5054,
+       "unit": null,
+       "text": "0.5054",
+       "cite": {
+        "section_id": "5",
+        "offset": 113109,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "Weekly",
+     "index": null,
+     "source": "한국공인회계사회 베타조회 서비스",
+     "cite": {
+      "section_id": "5",
+      "offset": 113260,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회 '한국의 기업규모위험(Size Risk Premium) 연구 결과' Size Risk Premium 3분위수값 중 Micro값",
+     "cite": {
+      "section_id": "5",
+      "offset": 111782,
+      "file_id": "main"
+     }
+    }
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6584,
+     "unit": "원",
+     "text": "6,584",
+     "cite": {
+      "section_id": "5",
+      "offset": 11183,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 추정기간 영업가치 40,595,998천원 + 추정기간 이후 102,405,567천원 = 영업가치 143,001,564천원, 비영업자산 6,694,652천원, 이자부부채 586,887천원, 자기자본가치 149,109,329천원 ÷ 22,648,800주. 목표자본구조 E/V 93.92%·D/V 6.08%(유사 동종기업 평균). Kd는 BBB+ 5년 무보증 회사채(Kis자산평가), 세후 5.61%. Rf는 2025년 12월말 Bloomberg."
+  },
+  {
+   "subject": "한미회계법인",
+   "target": "아이비케이에스제25호기업인수목적 주식회사",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1640,
+     "unit": "원",
+     "text": "1,640",
+     "cite": {
+      "section_id": "5",
+      "offset": 28077,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12296826955,
+     "unit": "원",
+     "text": "12,296,826,955",
+     "cite": {
+      "section_id": "5",
+      "offset": 28000,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 10993421168,
+     "unit": "원",
+     "text": "10,993,421,168",
+     "cite": {
+      "section_id": "5",
+      "offset": 26960,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1303405787,
+     "unit": "원",
+     "text": "1,303,405,787",
+     "cite": {
+      "section_id": "5",
+      "offset": 26995,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7500000,
+     "unit": "주",
+     "text": "7,500,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 28039,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 24492,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-06-29. 1개월 가중평균 2,144원·1주일 2,157원·최근일 2,165원 산술평균 기준주가 2,155원에 할인율 (7.20%) 반영한 2,000원 > 자산가치 1,640원(Max). 할인율 적용 사유는 원문에 없음. 자산가치는 전환사채(액면 1,520백만원, 전환가 1,000원) 전환 가정 1,520,000주 가산 후 7,500,000주 기준."
+  },
+  {
+   "subject": "회계법인 현",
+   "target": "주식회사 셀트릭스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "본질가치",
+   "weights": {
+    "asset": 1,
+    "income": 1.5,
+    "basis": "1과 1.5"
+   },
+   "asset_value": {
+    "per_share": {
+     "value": 965,
+     "unit": "원",
+     "text": "965",
+     "cite": {
+      "section_id": "5",
+      "offset": 132913,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 21863540932,
+     "unit": "원",
+     "text": "21,863,540,932",
+     "cite": {
+      "section_id": "5",
+      "offset": 134461,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 21567540932,
+     "unit": "원",
+     "text": "21,567,540,932",
+     "cite": {
+      "section_id": "5",
+      "offset": 133427,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 296000000,
+     "unit": "원",
+     "text": "296,000,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 133462,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 22648800,
+     "unit": "주",
+     "text": "22,648,800",
+     "cite": {
+      "section_id": "5",
+      "offset": 134500,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 4198,
+     "unit": "원",
+     "text": "4,198",
+     "cite": {
+      "section_id": "5",
+      "offset": 132893,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 3888,
+      "unit": "원",
+      "text": "3,888",
+      "cite": {
+       "section_id": "5",
+       "offset": 131596,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4576,
+      "unit": "원",
+      "text": "4,576",
+      "cite": {
+       "section_id": "5",
+       "offset": 131604,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "income_value": {
+    "value": 6353,
+    "unit": "원",
+    "text": "6,353",
+    "cite": {
+     "section_id": "5",
+     "offset": 136371,
+     "file_id": "main"
+    }
+   },
+   "note": "외부평가기관 자체 산정 본질가치 4,198원(수익가치 6,353원, 한미 6,584원과 매출 등 추정치에서 차이). range는 민감도 기준 본질가치 최소~최대(수익가치 5,837~6,983원), 합병비율 범위 0.4370942~0.5143622. 합의 합병비율 1:0.4612273(한미 산출 4,336원 기준)을 적정하다고 판단."
+  },
+  {
+   "subject": "회계법인 현",
+   "target": "주식회사 셀트릭스",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년–2030년(5개년)",
+    "base_date": "2025-12-31",
+    "wacc": {
+     "value": 10.91,
+     "unit": "%",
+     "text": "10.91%",
+     "cite": {
+      "section_id": "5",
+      "offset": 189849,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 3.39,
+     "unit": "%",
+     "text": "3.39%",
+     "cite": {
+      "section_id": "5",
+      "offset": 189929,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 189965,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.458,
+     "unit": null,
+     "text": "0.4580",
+     "cite": {
+      "section_id": "5",
+      "offset": 190000,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.4804,
+     "unit": null,
+     "text": "0.4804",
+     "cite": {
+      "section_id": "5",
+      "offset": 190034,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.02,
+     "unit": "%",
+     "text": "4.02%",
+     "cite": {
+      "section_id": "5",
+      "offset": 190068,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 11.25,
+     "unit": "%",
+     "text": "11.25%",
+     "cite": {
+      "section_id": "5",
+      "offset": 190106,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 7.4,
+     "unit": "%",
+     "text": "7.40%",
+     "cite": {
+      "section_id": "5",
+      "offset": 190134,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "5",
+      "offset": 190213,
+      "file_id": "main"
+     }
+    },
+    "target_dv": {
+     "value": 6.08,
+     "unit": "%",
+     "text": "6.08%",
+     "cite": {
+      "section_id": "5",
+      "offset": 190189,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "5",
+      "offset": 194873,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "이글벳",
+      "value": {
+       "value": 0.4451,
+       "unit": null,
+       "text": "0.4451",
+       "cite": {
+        "section_id": "5",
+        "offset": 191725,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "프로티아",
+      "value": {
+       "value": 0.346,
+       "unit": null,
+       "text": "0.3460",
+       "cite": {
+        "section_id": "5",
+        "offset": 191785,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "바이오노트",
+      "value": {
+       "value": 0.5354,
+       "unit": null,
+       "text": "0.5354",
+       "cite": {
+        "section_id": "5",
+        "offset": 191848,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     },
+     {
+      "name": "옵티팜",
+      "value": {
+       "value": 0.5054,
+       "unit": null,
+       "text": "0.5054",
+       "cite": {
+        "section_id": "5",
+        "offset": 191909,
+        "file_id": "main"
+       }
+      },
+      "note": "Unlevered Beta"
+     }
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "Weekly",
+     "index": null,
+     "source": "한국공인회계사회 베타조회 서비스",
+     "cite": {
+      "section_id": "5",
+      "offset": 192060,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "한국공인회계사회 '한국의 기업규모위험(Size Risk Premium) 연구 결과' Size Risk Premium 3분위수값 중 Micro값",
+     "cite": {
+      "section_id": "5",
+      "offset": 190581,
+      "file_id": "main"
+     }
+    }
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 6353,
+     "unit": "원",
+     "text": "6,353",
+     "cite": {
+      "section_id": "5",
+      "offset": 136371,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "FCFF 영구성장모형. 추정기간 영업가치 39,388,005천원 + 영구현금흐름 현가 98,397,838천원 = 영업가치 137,785,844천원, 비영업자산 6,680,958천원(주식선택권 행사 유입현금 296,000천원 포함), 이자발생부채 586,887천원, 주주가치 143,879,915천원 ÷ 22,648,800주. TV FCF는 2030년 EBIT에 고객관계 무형자산 상각비 491,457천원 제외 조정. WACC 구성(10.91%)·g(1.00%)는 한미와 동일."
+  },
+  {
+   "subject": "회계법인 현",
+   "target": "아이비케이에스제25호기업인수목적 주식회사",
+   "role": "외부평가",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": {
+    "per_share": {
+     "value": 1640,
+     "unit": "원",
+     "text": "1,640",
+     "cite": {
+      "section_id": "5",
+      "offset": 214807,
+      "file_id": "main"
+     }
+    },
+    "total": {
+     "value": 12296826955,
+     "unit": "원",
+     "text": "12,296,826,955",
+     "cite": {
+      "section_id": "5",
+      "offset": 214730,
+      "file_id": "main"
+     }
+    },
+    "equity_book": {
+     "value": 10993421168,
+     "unit": "원",
+     "text": "10,993,421,168",
+     "cite": {
+      "section_id": "5",
+      "offset": 213690,
+      "file_id": "main"
+     }
+    },
+    "adjustments": {
+     "value": 1303405787,
+     "unit": "원",
+     "text": "1,303,405,787",
+     "cite": {
+      "section_id": "5",
+      "offset": 213725,
+      "file_id": "main"
+     }
+    },
+    "shares": {
+     "value": 7500000,
+     "unit": "주",
+     "text": "7,500,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 214769,
+      "file_id": "main"
+     }
+    },
+    "base_date": "2025-12-31"
+   },
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 211220,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기준주가 2,155원에 할인율 (7.20%) 반영 2,000원 > 자산가치 1,640원(전환사채 전환 가정 7,500,000주). Max 적용."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "주식회사 셀트릭스",
+    "basis": "본질가치(합병가액)",
+    "value": {
+     "value": 4336,
+     "unit": "원",
+     "text": "4,336",
+     "cite": {
+      "section_id": "5",
+      "offset": 5540,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "아이비케이에스제25호기업인수목적 주식회사",
+    "basis": "기준주가에 할인율을 반영한 평가가액(합병가액)",
+    "value": {
+     "value": 2000,
+     "unit": "원",
+     "text": "2,000",
+     "cite": {
+      "section_id": "5",
+      "offset": 5548,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "외부평가 합병법인 주당평가액 범위",
+    "subject": "회계법인 현",
+    "range": {
+     "min": {
+      "value": 3888,
+      "unit": "원",
+      "text": "3,888",
+      "cite": {
+       "section_id": "5",
+       "offset": 115751,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4576,
+      "unit": "원",
+      "text": "4,576",
+      "cite": {
+       "section_id": "5",
+       "offset": 115757,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "외부평가 합병비율 범위",
+    "subject": "회계법인 현",
+    "range": {
+     "min": {
+      "value": 0.4370942,
+      "unit": null,
+      "text": "0.4370942",
+      "cite": {
+       "section_id": "5",
+       "offset": 115824,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.5143622,
+      "unit": null,
+      "text": "0.5143622",
+      "cite": {
+       "section_id": "5",
+       "offset": 115834,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "합병비율 산출기관 합병법인 합병가액 범위",
+    "subject": "한미회계법인",
+    "range": {
+     "min": {
+      "value": 4015,
+      "unit": "원",
+      "text": "4,015",
+      "cite": {
+       "section_id": "5",
+       "offset": 6354,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 4729,
+      "unit": "원",
+      "text": "4,729",
+      "cite": {
+       "section_id": "5",
+       "offset": 6362,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "합병비율 산출기관 합병비율 범위",
+    "subject": "한미회계법인",
+    "range": {
+     "min": {
+      "value": 0.422899,
+      "unit": null,
+      "text": "0.4228990",
+      "cite": {
+       "section_id": "5",
+       "offset": 6614,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 0.4981831,
+      "unit": null,
+      "text": "0.4981831",
+      "cite": {
+       "section_id": "5",
+       "offset": 6602,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 0.4612273,
+   "unit": null,
+   "text": "0.4612273",
+   "cite": {
+    "section_id": "5",
+    "offset": 5572,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "외부평가기관(회계법인 현)은 합병당사회사 간 합의한 합병비율 1:0.4612273이 적정하다고 판단",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "한미회계법인",
+   "target": "주식회사 셀트릭스",
+   "variables": "WACC 10.41%~11.41%, 영구성장률 0.50%~1.50% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 6047,
+     "unit": "원",
+     "text": "6,047",
+     "cite": {
+      "section_id": "5",
+      "offset": 7321,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 7239,
+     "unit": "원",
+     "text": "7,239",
+     "cite": {
+      "section_id": "5",
+      "offset": 7263,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "회계법인 현",
+   "target": "주식회사 셀트릭스",
+   "variables": "WACC 10.41%~11.41%, 영구성장률 0.50%~1.50% — 1주당 수익가치",
+   "range": {
+    "min": {
+     "value": 5837,
+     "unit": "원",
+     "text": "5,837",
+     "cite": {
+      "section_id": "5",
+      "offset": 132556,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 6983,
+     "unit": "원",
+     "text": "6,983",
+     "cite": {
+      "section_id": "5",
+      "offset": 132498,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "relative_value": {
+  "applied": false,
+  "kind": "산정하지 않음",
+  "reason": "주권비상장법인인 합병법인의 유사회사 선정기준을 충족시키는 유사한 주권상장법인이 3사 미만이므로 상대가치를 산정하지 않음",
+  "cite": {
+   "section_id": "5",
+   "offset": 5940,
+   "file_id": "main"
+  }
+ },
+ "absent_reasons": [
+  {
+   "path": "external_valuation",
+   "field": "basis_text",
+   "reason": "원문에 없음",
+   "basis": "섹션 4·5에 외부평가 '근거 및 사유' 문구 없음(평가의 개요에 적용 관련규정만 나열)"
+  },
+  {
+   "path": "external_valuation",
+   "field": "audit_committee_consent",
+   "reason": "원문에 없음",
+   "basis": "섹션 4·5"
+  }
+ ],
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "정정 관계: search_valuation_disclosures(20260606–20261104, listed_only=False)의 최신 접수는 20261103000136 [첨부정정]증권신고서(합병)이며 body_rcept_no=20261103000135(본 건, 5차 [기재정정], 2026-11-03), attachment_rcept_no=20261103000136. 최초 제출 20260929000682(2026-09-29), 기재정정 20261002000494·20261015000067·20261021000438·20261022000156·20261103000118·20261103000135. 본 건 본문에 평가 내용이 모두 있어 첨부(20261103000136)는 열지 않음.",
+  "SPAC 근거: 피합병법인 아이비케이에스제25호기업인수목적㈜(코스닥 상장) 소멸 · 비상장 셀트릭스 존속, '코스닥시장 상장규정 제2조 제1항 제1호 바목 2)에 따른 합병상장'(section 4, offset 7701). company.market은 신고 당시 비상장이라 '기타'.",
+  "평가 주체 2곳: 한미회계법인(합병당사회사가 의뢰한 '합병비율 산출 외부기관', role=재무자문)과 회계법인 현(외부평가기관, 전담인력 공인회계사 4명). 합의 합병가액 4,336원은 한미 산출값이며 현 자체 본질가치는 4,198원(수익가치 6,353원 vs 6,584원). WACC·g·β 구성은 두 기관 동일.",
+  "목표자본구조: 원문 '자기자본비율 93.92%·타인자본비율 6.08%'(타인자본/(자기자본+타인자본))이라 target_dv. β 재조정 검산 0.4580×(1+(1−24.2%)×6.47%)≈0.4804로 D/E(=6.08/93.92)와 일치.",
+  "분석기준일 2026-06-23(시행세칙 8조), 자산가치는 2025-12-31 감사받은 개별재무제표 기준. DCF 평가기준일(β·Rf) 2025-12-31.",
+  "합병 신주 기명식보통주 2,758,139주(액면 100원), 모집가액 4,336원, 모집총액 11,959,290,704원(section 3.4). 이사회: 최초 2026-06-30, 변경 2026-09-29·10-15·10-21. 합병기일 2026-12-18(section 4).",
+  "섹션 4는 외부평가계약 상대를 회계법인 현으로 적음(2026-03-26 계약, 평가기간 2026-03-26~06-29). 한미회계법인 산출 업무도 같은 계약일·기간.",
+  "외부평가기관의 과거 SPAC 합병 평가 이력(예측치 대비 실적 괴리율)과 산정법인-외부평가법인 확인사항 표(자본비용·영구성장률 등)가 섹션 5에 있음(이 사례에는 미수록)."
+ ],
+ "extracted_at": "2026-11-04T10:58:22+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261103000135",
+   "file_id": "main",
+   "section_id": "0",
+   "title": "(표지 및 섹션 외 본문)",
+   "chars_read": 1798,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261103000135",
+   "file_id": "main",
+   "section_id": "11",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 263,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261103000135",
+   "file_id": "main",
+   "section_id": "3.4",
+   "title": "IV. 평가 및 신주배정 등",
+   "chars_read": 444,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261103000135",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "I. 합병에 관한 기본사항",
+   "chars_read": 14430,
+   "how": "search/section"
+  },
+  {
+   "rcept_no": "20261103000135",
+   "file_id": "main",
+   "section_id": "5",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 78881,
+   "how": "find_tables/search/section"
+  }
+ ]
+}

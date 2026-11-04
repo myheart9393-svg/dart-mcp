@@ -21,7 +21,9 @@
   "relation_text": "샘표그룹 계열회사. 샘표(주)가 샘표식품(주) 보통주 49.40% 보유 최대주주(VIII. 당사회사간의 이해관계 등)",
   "board_date": "2026-10-30",
   "regime": "기준시가",
-  "ratio_text": "샘표(주) 보통주 1주당 샘표식품(주) 보통주 2.0881235주 교부"
+  "ratio_text": "샘표(주) 보통주 1주당 샘표식품(주) 보통주 2.0881235주 교부",
+  "spac": false,
+  "spac_basis": "이름·문구에 SPAC 표시 없음"
  },
  "external_valuation": {
   "required": false,

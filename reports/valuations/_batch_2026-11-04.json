@@ -87,8 +87,16 @@
    "related_rcept_nos": [
     "20261028000291"
    ],
-   "status": "queued",
-   "reason": null
+   "status": "ok",
+   "reason": null,
+   "done_at": "2026-11-04T10:58:12+09:00",
+   "calls": 20,
+   "chars": 56624,
+   "seconds": 395,
+   "industry": {
+    "induty_code": "192",
+    "reason": null
+   }
   },
   {
    "rcept_no": "20261028000336",
@@ -269,8 +277,16 @@
     "20261027000378"
    ],
    "related_rcept_nos": [],
-   "status": "queued",
-   "reason": null
+   "status": "ok",
+   "reason": null,
+   "done_at": "2026-11-04T10:56:36+09:00",
+   "calls": 9,
+   "chars": 25806,
+   "seconds": 293,
+   "industry": {
+    "induty_code": "29271",
+    "reason": null
+   }
   },
   {
    "rcept_no": "20261030000396",
@@ -392,8 +408,17 @@
     "20261103000135"
    ],
    "related_rcept_nos": [],
-   "status": "queued",
-   "reason": null
+   "status": "ok",
+   "reason": null,
+   "done_at": "2026-11-04T11:02:08+09:00",
+   "calls": 22,
+   "chars": 95816,
+   "seconds": 440,
+   "industry": {
+    "induty_code": "20499",
+    "reason": null
+   },
+   "review": "PASS"
   },
   {
    "rcept_no": "20261103000312",
