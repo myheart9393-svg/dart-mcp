@@ -1,0 +1,50 @@
+{
+ "cases": 161,
+ "failed": 0,
+ "warned": 0,
+ "identities": {
+  "a_beta": {
+   "pass": 57,
+   "warn": 0,
+   "skip": 64,
+   "source_inconsistent": 2
+  },
+  "b_ke": {
+   "pass": 88,
+   "warn": 0,
+   "skip": 34,
+   "source_inconsistent": 1
+  },
+  "c_wacc": {
+   "pass": 63,
+   "warn": 0,
+   "skip": 58,
+   "source_inconsistent": 2
+  },
+  "d_intrinsic": {
+   "pass": 72,
+   "warn": 0,
+   "skip": 34,
+   "source_inconsistent": 1
+  },
+  "e_market_price": {
+   "pass": 0,
+   "warn": 0,
+   "skip": 116,
+   "source_inconsistent": 0
+  },
+  "f_ratio": {
+   "pass": 79,
+   "warn": 0,
+   "skip": 3,
+   "source_inconsistent": 0
+  },
+  "g_asset_sum": {
+   "pass": 93,
+   "warn": 0,
+   "skip": 93,
+   "source_inconsistent": 4
+  }
+ },
+ "results": []
+}

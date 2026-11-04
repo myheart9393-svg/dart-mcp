@@ -1,0 +1,94 @@
+{
+ "filters": {
+  "firm_role": "외부평가",
+  "n": 3
+ },
+ "deals": 161,
+ "variables": {
+  "wacc": {
+   "n": 60,
+   "median": 11.355,
+   "q1": 9.6975,
+   "q3": 12.8825,
+   "min": 5.23,
+   "max": 17.5914,
+   "mine": 10.5,
+   "percentile": 33.3
+  },
+  "g": {
+   "n": 58,
+   "median": 1.0,
+   "q1": 1.0,
+   "q3": 1.0,
+   "min": 0.0,
+   "max": 1.0,
+   "mine": 0.5,
+   "percentile": 10.3
+  },
+  "size_premium": {
+   "n": 45,
+   "median": 3.75,
+   "q1": 3.35,
+   "q3": 4.02,
+   "min": -0.36,
+   "max": 4.73,
+   "mine": 3.75,
+   "percentile": 50.0
+  },
+  "beta_l": {
+   "n": 58,
+   "median": 0.9648000000000001,
+   "q1": 0.8001500000000001,
+   "q3": 1.087525,
+   "min": 0.4804,
+   "max": 1.39093,
+   "mine": 0.9,
+   "percentile": 41.4
+  }
+ },
+ "nearest": [
+  {
+   "distance": 0.396,
+   "rcept_no": "20260814002637",
+   "company": "휴맥스",
+   "board_date": "2026-06-30",
+   "firm": null,
+   "spac": "false",
+   "status": "완료",
+   "industry": "46 도매·상품 중개업",
+   "wacc": 11.28,
+   "g": 0.5,
+   "size_premium": 4.02,
+   "beta_l": 0.7581
+  },
+  {
+   "distance": 0.88,
+   "rcept_no": "20250604000107",
+   "company": "애드포러스",
+   "board_date": "2025-01-23",
+   "firm": "인덕회계법인",
+   "spac": "true",
+   "status": "완료",
+   "industry": "71 전문 서비스업",
+   "wacc": 11.4,
+   "g": 1.0,
+   "size_premium": 3.75,
+   "beta_l": 0.8774
+  },
+  {
+   "distance": 0.902,
+   "rcept_no": "20241217000116",
+   "company": "에스엠씨지",
+   "board_date": "2024-07-16",
+   "firm": "삼덕회계법인",
+   "spac": "true",
+   "status": "완료",
+   "industry": "23 비금속 광물제품",
+   "wacc": 10.78,
+   "g": 1.0,
+   "size_premium": 3.35,
+   "beta_l": 0.8167
+  }
+ ],
+ "size_premium_not_applied": 2
+}
