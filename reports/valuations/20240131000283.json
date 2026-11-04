@@ -347,7 +347,28 @@
       },
       "note": "Unlevered Beta"
      }
-    ]
+    ],
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "Weekly",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "5",
+      "offset": 100732,
+      "file_id": "main"
+     }
+    },
+    "size_premium_basis": {
+     "text": "합병법인의 규모를 고려하여 한국공인회계사회 제시 규모위험프리미엄 중 Micro Cap에 해당하는 3.35%를 적용",
+     "cite": {
+      "section_id": "5",
+      "offset": 101026,
+      "file_id": "main"
+     }
+    },
+    "size_premium_applied": true
    },
    "relative": null,
    "result": {
@@ -693,7 +714,8 @@
   "외부평가 기간: 평가의견서 표지 '2023년 08월 04일 ~ 2023년 09월 14일'(section 5 첫머리), section 4 본문은 '2023년 08월 04일 ~ 2023년 9월 15일'로 다름. 의견서 제출일 2023-09-15.",
   "PER 상대가치(11,386원, 할인 후 8,539원)는 비교 참고용으로 purpose='기타'. 유사회사 시가총액 기준일 2024-01-19.",
   "피합병법인 합병가액 산정에서 액면 환산 시 합병비율 1 : 1.3635124(section 5 요약표 주5).",
-  "합병신주 1,173,984주, 모집가액 7,334원, 총액 8,609,998,656원(section 3.4)."
+  "합병신주 1,173,984주, 모집가액 7,334원, 총액 8,609,998,656원(section 3.4).",
+  "보강 확인 2026-11-04: valuations[1].dcf.beta_method(2년 조정 Weekly, index·source 원문에 없음)·size_premium_basis(KICPA Micro Cap)·relative_value 추가. peers는 기존 값(Unlevered Beta) 유지 — 원문 표에 Levered Beta·부채비율(D/E)도 있음."
  ],
  "citations": [
   {
@@ -730,5 +752,15 @@
   }
  ],
  "extracted_at": "2026-10-27T09:31:48+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "relative_value": {
+  "applied": false,
+  "kind": "산정하지 않음",
+  "reason": "상대가치는 비교목적으로 분석하였으나 3개 이상의 유사회사가 존재하지 않아 가치를 산정하지 아니함(피합병법인 SPAC은 해당사항 없음). 참고용 PER 비교(valuations[2])는 합병가액 미반영",
+  "cite": {
+   "section_id": "5",
+   "offset": 8442,
+   "file_id": "main"
+  }
+ }
 }

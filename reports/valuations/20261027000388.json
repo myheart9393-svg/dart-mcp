@@ -1,0 +1,429 @@
+{
+ "rcept_no": "20261027000388",
+ "original_rcept_no": "20261002000390",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01880139",
+  "name": "케이엠에프",
+  "market": "기타",
+  "induty_code": "108"
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "대표주관회사 아이비케이투자증권이 주당 평가가액 28,271원에 46.94%~37.04% 할인율을 적용해 희망공모가액 15,000원~17,800원 제시, 수요예측 후 발행회사와 협의해 확정 예정",
+  "cite": {
+   "section_id": "7",
+   "offset": 36199,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "아이비케이투자증권㈜ (대표주관회사)",
+   "target": "케이엠에프",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "(주)셀로맥스사이언스",
+      "value": {
+       "value": 14.81,
+       "unit": "배",
+       "text": "14.81",
+       "cite": {
+        "section_id": "7",
+        "offset": 29369,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 직전 12개월 누적 (지배지분)당기순이익 기준 PER"
+     },
+     {
+      "name": "(주)아미노로직스",
+      "value": {
+       "value": 28.78,
+       "unit": "배",
+       "text": "28.78",
+       "cite": {
+        "section_id": "7",
+        "offset": 29377,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 직전 12개월 누적 (지배지분)당기순이익 기준 PER"
+     },
+     {
+      "name": "(주)바이오에프디엔씨",
+      "value": {
+       "value": 12.0,
+       "unit": "배",
+       "text": "12.00",
+       "cite": {
+        "section_id": "7",
+        "offset": 29385,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 직전 12개월 누적 (지배지분)당기순이익 기준 PER"
+     }
+    ],
+    "multiple": {
+     "value": 18.53,
+     "unit": "배",
+     "text": "18.53배",
+     "cite": {
+      "section_id": "7",
+      "offset": 29904,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 13018901267,
+     "unit": "원",
+     "text": "13,018,901,267원",
+     "cite": {
+      "section_id": "7",
+      "offset": 29858,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 37.04,
+      "unit": "%",
+      "text": "37.04%",
+      "cite": {
+       "section_id": "7",
+       "offset": 31067,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 46.94,
+      "unit": "%",
+      "text": "46.94%",
+      "cite": {
+       "section_id": "7",
+       "offset": 31060,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": "EV/EBITDA(비현금성 비용 많은 산업에 유용)·PBR(금융기관 아니고 고정자산 비중 작음)·PSR(수익성 배제) 제외"
+   },
+   "result": {
+    "value": {
+     "value": 28271,
+     "unit": "원",
+     "text": "28,271원",
+     "cite": {
+      "section_id": "7",
+      "offset": 30015,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 15000,
+      "unit": "원",
+      "text": "15,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 31096,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17800,
+      "unit": "원",
+      "text": "17,800원",
+      "cite": {
+       "section_id": "7",
+       "offset": 31106,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2026년도 반기 기준 과거 12개월(LTM) 당기순이익 x 비교대상회사 평균 PER ÷ 적용주식수 x (1-할인율). 기업가치 평가액 241,240,240,478원. result.value는 할인 전 주당 평가가액, range는 희망공모가액 밴드. 할인율 원문 표기 '46.94%~37.04%' 중 46.94%가 하단 15,000원, 37.04%가 상단 17,800원에 대응."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "케이엠에프",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 28271,
+     "unit": "원",
+     "text": "28,271원",
+     "cite": {
+      "section_id": "7",
+      "offset": 30015,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "희망공모가액 밴드",
+    "subject": "아이비케이투자증권㈜ (대표주관회사)",
+    "range": {
+     "min": {
+      "value": 15000,
+      "unit": "원",
+      "text": "15,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 31096,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 17800,
+      "unit": "원",
+      "text": "17,800원",
+      "cite": {
+       "section_id": "7",
+       "offset": 31106,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 28,271원에 할인율 46.94%~37.04%를 적용해 희망공모가액 15,000원~17,800원 제시. 확정공모가액은 미정(수요예측 후 결정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "아이비케이투자증권㈜ (대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "EV/EBITDA",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 13018901267,
+   "unit": "원",
+   "text": "13,018,901,267원",
+   "cite": {
+    "section_id": "7",
+    "offset": 29858,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "실적치(2026년도 반기 기준 과거 12개월(LTM) 당기순이익 = 2025년 온기 11,463 − 2025년 반기 4,458 + 2026년 반기 6,014 백만원)",
+  "multiple": {
+   "value": 18.53,
+   "unit": "배",
+   "text": "18.53배",
+   "cite": {
+    "section_id": "7",
+    "offset": 29904,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 8533285,
+   "unit": "주",
+   "text": "8,533,285주",
+   "cite": {
+    "section_id": "7",
+    "offset": 29979,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 28271,
+   "unit": "원",
+   "text": "28,271원",
+   "cite": {
+    "section_id": "7",
+    "offset": 30015,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 37.04,
+    "unit": "%",
+    "text": "37.04%",
+    "cite": {
+     "section_id": "7",
+     "offset": 31067,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 46.94,
+    "unit": "%",
+    "text": "46.94%",
+    "cite": {
+     "section_id": "7",
+     "offset": 31060,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 15000,
+    "unit": "원",
+    "text": "15,000원",
+    "cite": {
+     "section_id": "7",
+     "offset": 31096,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 17800,
+    "unit": "원",
+    "text": "17,800원",
+    "cite": {
+     "section_id": "7",
+     "offset": 31106,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "(주)셀로맥스사이언스",
+    "value": {
+     "value": 14.81,
+     "unit": "배",
+     "text": "14.81",
+     "cite": {
+      "section_id": "7",
+      "offset": 29369,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 직전 12개월 누적 (지배지분)당기순이익 기준 PER"
+   },
+   {
+    "name": "(주)아미노로직스",
+    "value": {
+     "value": 28.78,
+     "unit": "배",
+     "text": "28.78",
+     "cite": {
+      "section_id": "7",
+      "offset": 29377,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 직전 12개월 누적 (지배지분)당기순이익 기준 PER"
+   },
+   {
+    "name": "(주)바이오에프디엔씨",
+    "value": {
+     "value": 12.0,
+     "unit": "배",
+     "text": "12.00",
+     "cite": {
+      "section_id": "7",
+      "offset": 29385,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 직전 12개월 누적 (지배지분)당기순이익 기준 PER"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출. 배치 실행이라 리뷰 생략.",
+  "search_valuation_disclosures(20260530–20261104, listed_only=False)에서 IPO/full, correction_kind=기재정정, body_rcept_no=본 건, 원본 20261002000390(감사보고서 첨부는 원본), supersedes 20261002000390·20261027000105.",
+  "PER 18.53배는 비교기업 3사((주)셀로맥스사이언스·(주)아미노로직스·(주)바이오에프디엔씨) PER 산술평균. 분석기준일 2026.09.23, 기준주가 = MIN(분석기준일 종가, 1주일 평균, 1개월 평균).",
+  "적용 주식수 8,533,285주 = 기발행 6,423,285 + 공모 신주 2,000,000 + 상장주선인 의무인수 60,000 + 대표주관사 신주인수권 50,000. 주식매수선택권 30,000주는 행사기간까지 1년 이상 남아 제외.",
+  "할인율은 2023년~현재 코스닥 일반상장 신규상장법인의 평가액 대비 할인율(평균 하단 33.95%·상단 22.47%)을 참고하되 산업 특성·재무 성장성 등을 고려.",
+  "코스닥시장 상장 공모. market은 공모 당시 비상장이라 '기타'. DCF·WACC 등 절대가치 가정은 원문 없음(DCF·본질가치는 한계로 미적용 서술)."
+ ],
+ "extracted_at": "2026-11-04T09:40:03+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261027000388",
+   "file_id": "main",
+   "section_id": "7.h1",
+   "title": null,
+   "chars_read": 2649,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000388",
+   "file_id": "main",
+   "section_id": "7.h2",
+   "title": null,
+   "chars_read": 3542,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000388",
+   "file_id": "main",
+   "section_id": "7.h5",
+   "title": null,
+   "chars_read": 2365,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000388",
+   "file_id": "main",
+   "section_id": "7.h7",
+   "title": null,
+   "chars_read": 1313,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000388",
+   "file_id": "main",
+   "section_id": "7.h8",
+   "title": null,
+   "chars_read": 1917,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000388",
+   "file_id": "main",
+   "section_id": "7.h9",
+   "title": null,
+   "chars_read": 5707,
+   "how": "section"
+  }
+ ]
+}

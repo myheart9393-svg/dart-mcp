@@ -1,0 +1,1283 @@
+{
+ "rcept_no": "20261102000312",
+ "original_rcept_no": "20261102000312",
+ "related_rcept_nos": [
+  "20261030000695"
+ ],
+ "filing_type": "증권신고서",
+ "report_nm": "증권신고서(합병)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01167056",
+  "name": "샘표식품",
+  "market": "유가증권",
+  "induty_code": "108"
+ },
+ "deal": {
+  "type": "merger",
+  "counterparty": "샘표(주)",
+  "counterparty_listed": true,
+  "related_party": true,
+  "relation_text": "샘표그룹 계열회사. 샘표(주)가 샘표식품(주) 보통주 49.40% 보유 최대주주(VIII. 당사회사간의 이해관계 등)",
+  "board_date": "2026-10-30",
+  "regime": "기준시가",
+  "ratio_text": "샘표(주) 보통주 1주당 샘표식품(주) 보통주 2.0881235주 교부"
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "유가증권시장 상장법인 간 합병으로 시행령 176조의5 ①1호 기준시가 적용 → 자본시장법령상 외부평가 요구 없음. 법무부 가이드라인(2026.02.25 배포) 취지로 양사 특별위원회가 각각 외부재무전문가 선임(보충 검토)",
+  "basis_text": null,
+  "firm": "삼정회계법인(샘표식품 특별위원회 선임), 현대회계법인(샘표 특별위원회 선임) — 외부재무전문가",
+  "firm_type": "회계법인",
+  "period": "삼정회계법인 2026-10-01 ~ 2026-10-29; 현대회계법인 2026-09-29 ~ 2026-10-29",
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "기준시가 합병비율 1:2.0881235가 삼정(1:1.9884501~1:2.1655639)·현대(1:2.0273784~1:2.2017978)의 수익가치 기준 적정 범위 내에 포함되어 양사 실질가치를 적정하게 반영한다고 판단",
+  "cite": {
+   "section_id": "4",
+   "offset": 5751,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "합병당사회사",
+   "target": "샘표식품(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 21050,
+     "unit": "원",
+     "text": "21,050",
+     "cite": {
+      "section_id": "4",
+      "offset": 2313,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "시행령 176조의5 ①1호. 기산일 2026-10-29, 1개월 가중평균 21,415원·1주일 20,835원·최근일 20,900원 산술평균, 할인·할증 없음."
+  },
+  {
+   "subject": "합병당사회사",
+   "target": "샘표(주)",
+   "role": "회사",
+   "purpose": "합병가액",
+   "method": "기준시가",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 43955,
+     "unit": "원",
+     "text": "43,955",
+     "cite": {
+      "section_id": "4",
+      "offset": 4250,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": null
+   },
+   "note": "기산일 2026-10-29, 1개월 가중평균 45,044원·1주일 43,471원·최근일 43,350원 산술평균, 할인·할증 없음."
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "샘표식품(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 07월 01일부터 2030년 12월 31일까지의 4.5개년",
+    "base_date": "2026-06-30",
+    "wacc": {
+     "value": 8.1,
+     "unit": "%",
+     "text": "8.1%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21432,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 4.1,
+     "unit": "%",
+     "text": "4.1%",
+     "cite": {
+      "section_id": "4",
+      "offset": 20999,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.0%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21030,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.29,
+     "unit": null,
+     "text": "0.29",
+     "cite": {
+      "section_id": "4",
+      "offset": 21075,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.49,
+     "unit": null,
+     "text": "0.49",
+     "cite": {
+      "section_id": "4",
+      "offset": 21120,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.0,
+     "unit": "%",
+     "text": "4.0%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21182,
+      "file_id": "main"
+     }
+    },
+    "specific_risk": null,
+    "size_premium_basis": {
+     "text": "한국공인회계사회에서 발표한 기업 규모위험 프리미엄의 3분위 수 중 Micro cap에 해당하는 4.0%를 가산(원문 라벨 Firm Specific Risk Premium)",
+     "cite": {
+      "section_id": "4",
+      "offset": 20608,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.0,
+     "unit": "%",
+     "text": "12.0%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21242,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.2,
+     "unit": "%",
+     "text": "5.2%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21288,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.2%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21375,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "target_dv": {
+     "value": 47.8,
+     "unit": "%",
+     "text": "47.8%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21315,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 25197,
+      "file_id": "main"
+     }
+    },
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "4",
+      "offset": 20146,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "풀무원",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "오뚜기",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "농심",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "대상",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "CJ제일제당",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 77646,
+     "unit": "원",
+     "text": "77,646",
+     "cite": {
+      "section_id": "4",
+      "offset": 22654,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 71209,
+      "unit": "원",
+      "text": "71,209",
+      "cite": {
+       "section_id": "4",
+       "offset": 22712,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 86141,
+      "unit": "원",
+      "text": "86,141",
+      "cite": {
+       "section_id": "4",
+       "offset": 22683,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "샘표식품 특별위원회가 선임한 외부재무전문가. 원문: 법정 외부평가 아님(시행령 176조의5 ①1호 기준시가 합병), 법무부 가이드라인 취지의 보충 검토. 평가 목적 원문 '자본시장법령상 기준시가 방식에 따른 합병비율의 적정성 보조 검토'. 범위는 WACC±0.5%·PGR±0.5% 민감도(본문). WACC 표 '부채비율 47.8% / 자기자본비율 52.2%'(합 100%) → D/V로 target_dv."
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "샘표(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 07월 01일부터 2030년 12월 31일까지의 4.5개년",
+    "base_date": "2026-06-30",
+    "wacc": {
+     "value": 8.5,
+     "unit": "%",
+     "text": "8.5%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21439,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 4.1,
+     "unit": "%",
+     "text": "4.1%",
+     "cite": {
+      "section_id": "4",
+      "offset": 20999,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.0%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21030,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.34,
+     "unit": null,
+     "text": "0.34",
+     "cite": {
+      "section_id": "4",
+      "offset": 21082,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.54,
+     "unit": null,
+     "text": "0.54",
+     "cite": {
+      "section_id": "4",
+      "offset": 21127,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.0,
+     "unit": "%",
+     "text": "4.0%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21182,
+      "file_id": "main"
+     }
+    },
+    "specific_risk": null,
+    "size_premium_basis": {
+     "text": "한국공인회계사회에서 발표한 기업 규모위험 프리미엄의 3분위 수 중 Micro cap에 해당하는 4.0%를 가산(원문 라벨 Firm Specific Risk Premium)",
+     "cite": {
+      "section_id": "4",
+      "offset": 20608,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.4,
+     "unit": "%",
+     "text": "12.4%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21250,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.4,
+     "unit": "%",
+     "text": "4.4%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21295,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.2%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21375,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "target_dv": {
+     "value": 43.4,
+     "unit": "%",
+     "text": "43.4%",
+     "cite": {
+      "section_id": "4",
+      "offset": 21323,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 28488,
+      "file_id": "main"
+     }
+    },
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": null,
+     "cite": {
+      "section_id": "4",
+      "offset": 20146,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "하림지주",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "대상홀딩스",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "농심홀딩스",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "크라운해태홀딩스",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "오리온홀딩스",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     },
+     {
+      "name": "동원산업",
+      "value": null,
+      "note": "유사 상장회사(개별 β 원문 없음)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 161572,
+     "unit": "원",
+     "text": "161,572",
+     "cite": {
+      "section_id": "4",
+      "offset": 22663,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 154208,
+      "unit": "원",
+      "text": "154,208",
+      "cite": {
+       "section_id": "4",
+       "offset": 22721,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 171288,
+      "unit": "원",
+      "text": "171,288",
+      "cite": {
+       "section_id": "4",
+       "offset": 22692,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "브랜드수입 DCF 영업가치 3,139백만원 + 비영업용자산 322,504백만원(샘표식품 지분 'DCF 지분가치 X 49.4%' 175,158백만원, 부동산 감정평가액 등) 합산. rf·MRP·Kd 등 공통값 cite는 같은 WACC 표(샘표식품 열과 같은 행). D/V 43.4%(+자기자본비율 56.6%=100%)."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "샘표식품(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 7월 1일부터 2030년 12월 31일까지의 4년 6개월",
+    "base_date": "2026-06-30",
+    "wacc": {
+     "value": 8.4,
+     "unit": "%",
+     "text": "8.40%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33454,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 4.1,
+     "unit": "%",
+     "text": "4.10%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33029,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33062,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.27,
+     "unit": null,
+     "text": "0.27",
+     "cite": {
+      "section_id": "4",
+      "offset": 33110,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.48,
+     "unit": null,
+     "text": "0.48",
+     "cite": {
+      "section_id": "4",
+      "offset": 33156,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.9,
+     "unit": "%",
+     "text": "4.90%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33201,
+      "file_id": "main"
+     }
+    },
+    "specific_risk": null,
+    "size_premium_basis": {
+     "text": "소규모 기업 특유의 위험을 반영하여 한국공인회계사회에서 공표한 Size Premium 4.9%를 양사 모두에 가산",
+     "cite": {
+      "section_id": "4",
+      "offset": 32512,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.8,
+     "unit": "%",
+     "text": "12.80%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33257,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 5.2,
+     "unit": "%",
+     "text": "5.20%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33305,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33398,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "target_dv": {
+     "value": 49.6,
+     "unit": "%",
+     "text": "49.60%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33334,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 37425,
+      "file_id": "main"
+     }
+    },
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": "한국공인회계사회 자료",
+     "cite": {
+      "section_id": "4",
+      "offset": 32279,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "대상㈜",
+      "value": null,
+      "note": "비교기업(개별 β 원문 없음)"
+     },
+     {
+      "name": "오뚜기㈜",
+      "value": null,
+      "note": "비교기업(개별 β 원문 없음)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 74675,
+     "unit": "원",
+     "text": "74,675",
+     "cite": {
+      "section_id": "4",
+      "offset": 34735,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 71844,
+      "unit": "원",
+      "text": "71,844",
+      "cite": {
+       "section_id": "4",
+       "offset": 17267,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 78024,
+      "unit": "원",
+      "text": "78,024",
+      "cite": {
+       "section_id": "4",
+       "offset": 17277,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "샘표 특별위원회가 선임한 외부재무전문가(법정 외부평가 아님). 범위는 원문 요약표 'DCF 및 자산가치접근법 기반 주당 가치'(민감도: WACC ±0.5%p, 영구성장률 0.5~1.5%). 같은 섹션 DCF 결과표(offset 34247)의 최대·최소는 88,238·64,121로 요약 범위와 다름(값은 요약표대로). 자본구조 원문 '타인자본비중 49.6%·자기자본비중 50.4%' → D/V."
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "샘표(주)",
+   "role": "재무자문",
+   "purpose": "합병가액",
+   "method": "DCF",
+   "weights": null,
+   "asset_value": null,
+   "dcf": {
+    "forecast_years": "2026년 7월 1일부터 2030년 12월 31일까지의 4년 6개월",
+    "base_date": "2026-06-30",
+    "wacc": {
+     "value": 9.3,
+     "unit": "%",
+     "text": "9.30%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33462,
+      "file_id": "main"
+     }
+    },
+    "rf": {
+     "value": 4.1,
+     "unit": "%",
+     "text": "4.10%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33029,
+      "file_id": "main"
+     }
+    },
+    "mrp": {
+     "value": 8.0,
+     "unit": "%",
+     "text": "8.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33062,
+      "file_id": "main"
+     }
+    },
+    "beta_unlevered": {
+     "value": 0.34,
+     "unit": null,
+     "text": "0.34",
+     "cite": {
+      "section_id": "4",
+      "offset": 33117,
+      "file_id": "main"
+     }
+    },
+    "beta_levered": {
+     "value": 0.5,
+     "unit": null,
+     "text": "0.50",
+     "cite": {
+      "section_id": "4",
+      "offset": 33163,
+      "file_id": "main"
+     }
+    },
+    "size_premium": {
+     "value": 4.9,
+     "unit": "%",
+     "text": "4.90%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33201,
+      "file_id": "main"
+     }
+    },
+    "specific_risk": null,
+    "size_premium_basis": {
+     "text": "소규모 기업 특유의 위험을 반영하여 한국공인회계사회에서 공표한 Size Premium 4.9%를 양사 모두에 가산",
+     "cite": {
+      "section_id": "4",
+      "offset": 32512,
+      "file_id": "main"
+     }
+    },
+    "ke": {
+     "value": 12.9,
+     "unit": "%",
+     "text": "12.90%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33266,
+      "file_id": "main"
+     }
+    },
+    "kd": {
+     "value": 4.4,
+     "unit": "%",
+     "text": "4.40%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33313,
+      "file_id": "main"
+     }
+    },
+    "tax_rate": {
+     "value": 24.2,
+     "unit": "%",
+     "text": "24.20%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33398,
+      "file_id": "main"
+     }
+    },
+    "target_de": null,
+    "target_dv": {
+     "value": 37.3,
+     "unit": "%",
+     "text": "37.30%",
+     "cite": {
+      "section_id": "4",
+      "offset": 33343,
+      "file_id": "main"
+     }
+    },
+    "g": {
+     "value": 1.0,
+     "unit": "%",
+     "text": "1.00%",
+     "cite": {
+      "section_id": "4",
+      "offset": 41264,
+      "file_id": "main"
+     }
+    },
+    "beta_method": {
+     "adjusted": true,
+     "period": "2년",
+     "frequency": "주간",
+     "index": null,
+     "source": "한국공인회계사회 자료",
+     "cite": {
+      "section_id": "4",
+      "offset": 32279,
+      "file_id": "main"
+     }
+    },
+    "peers": [
+     {
+      "name": "대상홀딩스㈜",
+      "value": null,
+      "note": "비교기업(개별 β 원문 없음)"
+     },
+     {
+      "name": "농심홀딩스㈜",
+      "value": null,
+      "note": "비교기업(개별 β 원문 없음)"
+     },
+     {
+      "name": "오리온홀딩스㈜",
+      "value": null,
+      "note": "비교기업(개별 β 원문 없음)"
+     },
+     {
+      "name": "크라운해태홀딩스㈜",
+      "value": null,
+      "note": "비교기업(개별 β 원문 없음)"
+     },
+     {
+      "name": "매일홀딩스㈜",
+      "value": null,
+      "note": "비교기업(개별 β 원문 없음)"
+     },
+     {
+      "name": "풀무원㈜",
+      "value": null,
+      "note": "비교기업(개별 β 원문 없음)"
+     }
+    ]
+   },
+   "relative": null,
+   "result": {
+    "value": {
+     "value": 158185,
+     "unit": "원",
+     "text": "158,185",
+     "cite": {
+      "section_id": "4",
+      "offset": 34744,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 151396,
+      "unit": "원",
+      "text": "151,396",
+      "cite": {
+       "section_id": "4",
+       "offset": 17288,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 164419,
+      "unit": "원",
+      "text": "164,419",
+      "cite": {
+       "section_id": "4",
+       "offset": 17298,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "원문 방법: 'DCF를 일부 적용한 구성요소별 가치합산법(SOTP)' — 영업가치 2,866 + 현금성자산 35,258 + 비영업용자산 280,900(샘표식품 주식 168,454 포함, 백만원). 같은 섹션 DCF 결과표(offset 34247) 최대·최소 178,869·146,124는 요약 범위와 다름(값은 요약표대로)."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "샘표식품(주)",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 21050,
+     "unit": "원",
+     "text": "21,050",
+     "cite": {
+      "section_id": "4",
+      "offset": 2313,
+      "file_id": "main"
+     }
+    }
+   },
+   {
+    "company": "샘표(주)",
+    "basis": "기준시가(합병가액)",
+    "value": {
+     "value": 43955,
+     "unit": "원",
+     "text": "43,955",
+     "cite": {
+      "section_id": "4",
+      "offset": 4250,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "수익가치 기준 합병비율 적정 범위",
+    "subject": "삼정회계법인",
+    "range": {
+     "min": {
+      "value": 1.9884501,
+      "unit": "배",
+      "text": "1.9884501",
+      "cite": {
+       "section_id": "4",
+       "offset": 8330,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 2.1655639,
+      "unit": "배",
+      "text": "2.1655639",
+      "cite": {
+       "section_id": "4",
+       "offset": 8346,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   {
+    "label": "DCF·SOTP 평가가치 기준 합병비율 적정 범위",
+    "subject": "현대회계법인",
+    "range": {
+     "min": {
+      "value": 2.0273784,
+      "unit": "배",
+      "text": "2.0273784",
+      "cite": {
+       "section_id": "4",
+       "offset": 16311,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 2.2017978,
+      "unit": "배",
+      "text": "2.2017978",
+      "cite": {
+       "section_id": "4",
+       "offset": 16323,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": {
+   "value": 2.0881235,
+   "unit": "주",
+   "text": "2.0881235",
+   "cite": {
+    "section_id": "4",
+    "offset": 738,
+    "file_id": "main"
+   }
+  },
+  "transaction_value": null,
+  "opinion_text": "기준시가 합병비율 1:2.0881235가 두 외부재무전문가(삼정·현대)의 적정 합병비율 범위 내에 포함",
+  "unit": "원"
+ },
+ "sensitivity": [
+  {
+   "subject": "삼정회계법인",
+   "target": "샘표식품(주)",
+   "variables": "WACC 7.10%–9.10%, 영구성장률 0.00%–2.00% — 1주당 수익가치(원문 표 단위행은 '백만원'이나 값은 주당 원)",
+   "range": {
+    "min": {
+     "value": 66152,
+     "unit": "원",
+     "text": "66,152",
+     "cite": {
+      "section_id": "4",
+      "offset": 26410,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 97903,
+     "unit": "원",
+     "text": "97,903",
+     "cite": {
+      "section_id": "4",
+      "offset": 26594,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "삼정회계법인",
+   "target": "샘표(주)",
+   "variables": "WACC 7.5%–9.50%, 영구성장률 0.00%–2.00% — 1주당 수익가치(단위행 '백만원' 표기)",
+   "range": {
+    "min": {
+     "value": 148422,
+     "unit": "원",
+     "text": "148,422",
+     "cite": {
+      "section_id": "4",
+      "offset": 30019,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 184735,
+     "unit": "원",
+     "text": "184,735",
+     "cite": {
+      "section_id": "4",
+      "offset": 30219,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "샘표식품(주)",
+   "variables": "WACC 7.40%–9.40%, 영구성장률 0.00%–2.00% — 1주당 평가가치(단위행 '백만원' 표기)",
+   "range": {
+    "min": {
+     "value": 64121,
+     "unit": "원",
+     "text": "64,121",
+     "cite": {
+      "section_id": "4",
+      "offset": 38773,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 92793,
+     "unit": "원",
+     "text": "92,793",
+     "cite": {
+      "section_id": "4",
+      "offset": 38957,
+      "file_id": "main"
+     }
+    }
+   }
+  },
+  {
+   "subject": "현대회계법인",
+   "target": "샘표(주)",
+   "variables": "WACC 8.30%–10.30%, 영구성장률 0.00%–2.00% — 1주당 평가가치(단위행 '백만원' 표기)",
+   "range": {
+    "min": {
+     "value": 146124,
+     "unit": "원",
+     "text": "146,124",
+     "cite": {
+      "section_id": "4",
+      "offset": 42508,
+      "file_id": "main"
+     }
+    },
+    "max": {
+     "value": 178869,
+     "unit": "원",
+     "text": "178,869",
+     "cite": {
+      "section_id": "4",
+      "offset": 42708,
+      "file_id": "main"
+     }
+    }
+   }
+  }
+ ],
+ "ipo": null,
+ "relative_value": {
+  "applied": false,
+  "kind": "기재 생략",
+  "reason": "양사 유가증권시장 상장으로 시행령 176조의5 ①1호 기준시가를 합병가액으로 하여 자산가치 및 수익가치, 상대가치 등은 별도로 기재하지 않음",
+  "cite": {
+   "section_id": "4",
+   "offset": 576,
+   "file_id": "main"
+  }
+ },
+ "absent_reasons": [
+  {
+   "path": "valuations/2/dcf/beta_method/index",
+   "field": "index",
+   "reason": "원문에 없음",
+   "basis": "section 4 WACC 산정 서술에 시장지수 언급 없음"
+  },
+  {
+   "path": "valuations/3/dcf/beta_method/index",
+   "field": "index",
+   "reason": "원문에 없음",
+   "basis": "section 4 WACC 산정 서술에 시장지수 언급 없음"
+  },
+  {
+   "path": "valuations/4/dcf/beta_method/index",
+   "field": "index",
+   "reason": "원문에 없음",
+   "basis": "section 4 WACC 산정 서술에 시장지수 언급 없음"
+  },
+  {
+   "path": "valuations/5/dcf/beta_method/index",
+   "field": "index",
+   "reason": "원문에 없음",
+   "basis": "section 4 WACC 산정 서술에 시장지수 언급 없음"
+  },
+  {
+   "path": "valuations/2/dcf/specific_risk",
+   "field": "specific_risk",
+   "reason": "해당 없음",
+   "basis": "규모위험(KICPA) 외 별도 회사 고유위험 가산 없음 — 삼정 'Firm Specific Risk Premium' 라벨의 4.0%는 KICPA 규모위험이라 size_premium"
+  },
+  {
+   "path": "valuations/3/dcf/specific_risk",
+   "field": "specific_risk",
+   "reason": "해당 없음",
+   "basis": "규모위험(KICPA) 외 별도 회사 고유위험 가산 없음 — 삼정 'Firm Specific Risk Premium' 라벨의 4.0%는 KICPA 규모위험이라 size_premium"
+  },
+  {
+   "path": "valuations/4/dcf/specific_risk",
+   "field": "specific_risk",
+   "reason": "해당 없음",
+   "basis": "규모위험(KICPA) 외 별도 회사 고유위험 가산 없음 — 삼정 'Firm Specific Risk Premium' 라벨의 4.0%는 KICPA 규모위험이라 size_premium"
+  },
+  {
+   "path": "valuations/5/dcf/specific_risk",
+   "field": "specific_risk",
+   "reason": "해당 없음",
+   "basis": "규모위험(KICPA) 외 별도 회사 고유위험 가산 없음 — 삼정 'Firm Specific Risk Premium' 라벨의 4.0%는 KICPA 규모위험이라 size_premium"
+  },
+  {
+   "path": "valuations/2/dcf/peers",
+   "field": "peers.value",
+   "reason": "원문에 없음",
+   "basis": "유사회사 이름만 있고 개별 β 표 없음(평균 βu만)"
+  },
+  {
+   "path": "valuations/3/dcf/peers",
+   "field": "peers.value",
+   "reason": "원문에 없음",
+   "basis": "유사회사 이름만 있고 개별 β 표 없음(평균 βu만)"
+  },
+  {
+   "path": "valuations/4/dcf/peers",
+   "field": "peers.value",
+   "reason": "원문에 없음",
+   "basis": "유사회사 이름만 있고 개별 β 표 없음(평균 βu만)"
+  },
+  {
+   "path": "valuations/5/dcf/peers",
+   "field": "peers.value",
+   "reason": "원문에 없음",
+   "basis": "유사회사 이름만 있고 개별 β 표 없음(평균 βu만)"
+  },
+  {
+   "path": "valuations/2/income_value",
+   "field": "income_value",
+   "reason": "해당 없음",
+   "basis": "본질가치 원소가 아님(DCF 원소 result가 1주당 수익가치)"
+  },
+  {
+   "path": "valuations/3/income_value",
+   "field": "income_value",
+   "reason": "해당 없음",
+   "basis": "본질가치 원소가 아님(DCF 원소 result가 1주당 수익가치)"
+  },
+  {
+   "path": "valuations/4/income_value",
+   "field": "income_value",
+   "reason": "해당 없음",
+   "basis": "본질가치 원소가 아님(DCF 원소 result가 1주당 수익가치)"
+  },
+  {
+   "path": "valuations/5/income_value",
+   "field": "income_value",
+   "reason": "해당 없음",
+   "basis": "본질가치 원소가 아님(DCF 원소 result가 1주당 수익가치)"
+  }
+ ],
+ "source_inconsistent": [
+  {
+   "check": "b_ke",
+   "path": "valuations/5",
+   "note": "현대회계법인 샘표(주) WACC 표(section 4 offset 32966): 4.10% + 0.50×8.00% + 4.90% = 13.00%이나 원문 Ke 12.90%. 표기 β 0.50의 반올림 전 값 사용으로 보임(원문 표기 그대로 둠)."
+  }
+ ],
+ "notes": [
+  "MCP 툴(mcp__dart__*) 직접 사용(casebuild call 아님). citations chars_read는 MCP 응답 기준 수기 집계.",
+  "search_valuation_disclosures(20260605–20261104, kinds=merger, listed_only=False): source_grade full, body=original=20261102000312, 짝 공시 주요사항보고서 [첨부정정] 20261030000695(원본 20261030000482, summary). 소멸회사 샘표(주)(00130091)도 같은 날 주요사항보고서 20261030000485·[첨부정정] 20261030000700을 냈으나 툴의 related_rcept_nos에는 회사가 달라 묶이지 않음.",
+  "외부재무전문가 평가는 원문상 '자본시장법령상 외부평가기관의 평가가 요구되지 않'는 거래에서 법무부 「기업 조직개편 시 이사의 행위규범 가이드라인」 취지로 각 사 특별위원회가 선임한 보충 검토 → role=재무자문(법정 외부평가 아님), purpose=합병가액(합병비율 적정성 검토). 외부법률전문가: 법무법인 세종(샘표식품)·법무법인 린(샘표).",
+  "regime: 원문이 2026.12.9 시행 개정 자본시장법은 시행 이후 이사회 결의분부터 적용, 본건 이사회 결의 2026-10-30 → 현행 기준시가 체계(section 4 offset ~7600).",
+  "원문 민감도 표 4개의 단위행은 '(단위 : 백만원)'이나 값은 1주당 가치(원) — 원문 표기 오류로 보고 unit은 원으로 둠(값 자체는 원문대로).",
+  "현대회계법인 WACC 표(section 4 offset 32966) 단위행도 '(단위: 주당 원, 배)'이나 값은 % — 원문 표기 오류로 보고 unit은 %로 둠(값은 원문대로).",
+  "conclusion.ratio unit \"주\"는 cite 위치 원문('2.0881235주를 교부') 단위, conclusion.range unit \"배\"는 요약표 단위행('(단위: 주당 원, 배)') — 같은 양(샘표 1주당 샘표식품 교부 주식수)을 원문 단위 그대로 적어 다름(환산 금지 규칙).",
+  "특별위원회 회의록(section 3 .h12–.h30)은 읽지 않음(읽기 예산). 평가 값은 section 4 원 평가 표에서 cite.",
+  "리뷰(/dart-valuation-review)는 오케스트레이터 지시로 이번 실행에서 생략."
+ ],
+ "extracted_at": "2026-11-04T09:37:05+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261102000312",
+   "file_id": "main",
+   "section_id": "4",
+   "title": "II. 합병 가액 및 그 산출근거",
+   "chars_read": 25285,
+   "how": "find_tables/section"
+  },
+  {
+   "rcept_no": "20261102000312",
+   "file_id": "main",
+   "section_id": "10",
+   "title": "VIII. 당사회사간의 이해관계 등",
+   "chars_read": 3004,
+   "how": "section"
+  }
+ ]
+}

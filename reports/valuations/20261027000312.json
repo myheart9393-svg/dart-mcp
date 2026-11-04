@@ -1,0 +1,432 @@
+{
+ "rcept_no": "20261027000312",
+ "original_rcept_no": "20261012000445",
+ "related_rcept_nos": [],
+ "filing_type": "증권신고서",
+ "report_nm": "[기재정정]증권신고서(지분증권)",
+ "source_grade": "full",
+ "company": {
+  "corp_code": "01938746",
+  "name": "아델",
+  "market": "기타",
+  "induty_code": "70113"
+ },
+ "deal": {
+  "type": "ipo",
+  "counterparty": null,
+  "counterparty_listed": null,
+  "related_party": null,
+  "relation_text": null,
+  "board_date": null,
+  "regime": "IPO",
+  "ratio_text": null
+ },
+ "external_valuation": {
+  "required": false,
+  "exemption_reason": "IPO: 공모가는 공동대표주관회사가 산정(합병 등 외부평가 대상 아님)",
+  "basis_text": null,
+  "firm": null,
+  "firm_type": null,
+  "period": null,
+  "audit_committee_consent": null,
+  "standards_cited": [],
+  "opinion_text": "공동대표주관회사 삼성증권·미래에셋증권이 주당 평가가액 30,410원에 40.81%~17.79% 할인율을 적용해 공모희망가액 18,000원~25,000원 제시, 수요예측 후 발행회사와 협의해 확정 예정",
+  "cite": {
+   "section_id": "7",
+   "offset": 54070,
+   "file_id": "main"
+  }
+ },
+ "valuations": [
+  {
+   "subject": "삼성증권㈜·미래에셋증권㈜ (공동대표주관회사)",
+   "target": "아델",
+   "role": "주관사",
+   "purpose": "공모가",
+   "method": "상대가치",
+   "weights": null,
+   "asset_value": null,
+   "dcf": null,
+   "relative": {
+    "multiple_type": "PER",
+    "peers": [
+     {
+      "name": "유한양행",
+      "value": {
+       "value": 22.6,
+       "unit": "배",
+       "text": "22.60배",
+       "cite": {
+        "section_id": "7",
+        "offset": 45767,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 기준 직전 12개월 지배주주 순이익 PER"
+     },
+     {
+      "name": "한미약품",
+      "value": {
+       "value": 28.96,
+       "unit": "배",
+       "text": "28.96배",
+       "cite": {
+        "section_id": "7",
+        "offset": 45776,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 기준 직전 12개월 지배주주 순이익 PER"
+     },
+     {
+      "name": "종근당",
+      "value": {
+       "value": 11.15,
+       "unit": "배",
+       "text": "11.15배",
+       "cite": {
+        "section_id": "7",
+        "offset": 45785,
+        "file_id": "main"
+       }
+      },
+      "note": "2026년 반기 기준 직전 12개월 지배주주 순이익 PER"
+     }
+    ],
+    "multiple": {
+     "value": 20.91,
+     "unit": "배",
+     "text": "20.91배",
+     "cite": {
+      "section_id": "7",
+      "offset": 46563,
+      "file_id": "main"
+     }
+    },
+    "applied_earnings": {
+     "value": 32962,
+     "unit": "백만원",
+     "text": "32,962백만원",
+     "cite": {
+      "section_id": "7",
+      "offset": 46487,
+      "file_id": "main"
+     }
+    },
+    "discount_range": {
+     "min": {
+      "value": 17.79,
+      "unit": "%",
+      "text": "17.79%",
+      "cite": {
+       "section_id": "7",
+       "offset": 50929,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 40.81,
+      "unit": "%",
+      "text": "40.81%",
+      "cite": {
+       "section_id": "7",
+       "offset": 50920,
+       "file_id": "main"
+      }
+     }
+    },
+    "not_applied_reason": "EV/EBITDA(감가상각비 등 비현금성 비용이 많은 산업에 유용)·PBR(금융기관 아님, 고정자산 비중 작음)·PSR(수익성 배제, 왜곡 가능) 제외"
+   },
+   "result": {
+    "value": {
+     "value": 30410,
+     "unit": "원",
+     "text": "30,410원",
+     "cite": {
+      "section_id": "7",
+      "offset": 46657,
+      "file_id": "main"
+     }
+    },
+    "unit": "원",
+    "range": {
+     "min": {
+      "value": 18000,
+      "unit": "원",
+      "text": "18,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 50958,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 25000,
+      "unit": "원",
+      "text": "25,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 50968,
+       "file_id": "main"
+      }
+     }
+    }
+   },
+   "note": "적용산식: 2028~2030년 추정 당기순이익 현재가치(산술평균) x 비교대상회사 평균 PER ÷ 주식수 x (1-할인율). 추정이익 현가 연할인율 15.0%, 기업가치 평가액 689,101백만원. result.value는 할인 전 주당 평가가액, range는 공모희망가액 밴드. 할인율 범위: 40.81%가 하단 공모가(18,000원), 17.79%가 상단 공모가(25,000원)에 대응."
+  }
+ ],
+ "conclusion": {
+  "price_per_share": [
+   {
+    "company": "아델",
+    "basis": "PER 주당 평가가액(할인 전)",
+    "value": {
+     "value": 30410,
+     "unit": "원",
+     "text": "30,410원",
+     "cite": {
+      "section_id": "7",
+      "offset": 46657,
+      "file_id": "main"
+     }
+    }
+   }
+  ],
+  "range": [
+   {
+    "label": "공모희망가액 밴드",
+    "subject": "삼성증권㈜·미래에셋증권㈜ (공동대표주관회사)",
+    "range": {
+     "min": {
+      "value": 18000,
+      "unit": "원",
+      "text": "18,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 50958,
+       "file_id": "main"
+      }
+     },
+     "max": {
+      "value": 25000,
+      "unit": "원",
+      "text": "25,000원",
+      "cite": {
+       "section_id": "7",
+       "offset": 50968,
+       "file_id": "main"
+      }
+     }
+    }
+   }
+  ],
+  "ratio": null,
+  "transaction_value": null,
+  "opinion_text": "주당 평가가액 30,410원에 할인율 40.81%~17.79%를 적용해 공모희망가액 18,000원~25,000원 제시. 확정공모가액은 미정(수요예측 후 결정)",
+  "unit": "원"
+ },
+ "sensitivity": [],
+ "ipo": {
+  "underwriter": "삼성증권㈜·미래에셋증권㈜ (공동대표주관회사)",
+  "method": "상대가치법",
+  "multiple_type": "PER",
+  "excluded_multiples": [
+   "EV/EBITDA",
+   "PBR",
+   "PSR"
+  ],
+  "applied_earnings": {
+   "value": 32962,
+   "unit": "백만원",
+   "text": "32,962백만원",
+   "cite": {
+    "section_id": "7",
+    "offset": 46487,
+    "file_id": "main"
+   }
+  },
+  "applied_earnings_basis": "추정치(2028년 51,275·2029년 59,629·2030년 42,718백만원 추정 당기순이익을 연 할인율 15.0%, 할인기간 2.25·3.25·4.25년으로 현가화해 산술평균한 32,962백만원)",
+  "multiple": {
+   "value": 20.91,
+   "unit": "배",
+   "text": "20.91배",
+   "cite": {
+    "section_id": "7",
+    "offset": 46563,
+    "file_id": "main"
+   }
+  },
+  "shares": {
+   "value": 22660089,
+   "unit": "주",
+   "text": "22,660,089주",
+   "cite": {
+    "section_id": "7",
+    "offset": 46622,
+    "file_id": "main"
+   }
+  },
+  "value_per_share": {
+   "value": 30410,
+   "unit": "원",
+   "text": "30,410원",
+   "cite": {
+    "section_id": "7",
+    "offset": 46657,
+    "file_id": "main"
+   }
+  },
+  "discount_range": {
+   "min": {
+    "value": 17.79,
+    "unit": "%",
+    "text": "17.79%",
+    "cite": {
+     "section_id": "7",
+     "offset": 50929,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 40.81,
+    "unit": "%",
+    "text": "40.81%",
+    "cite": {
+     "section_id": "7",
+     "offset": 50920,
+     "file_id": "main"
+    }
+   }
+  },
+  "price_band": {
+   "min": {
+    "value": 18000,
+    "unit": "원",
+    "text": "18,000원",
+    "cite": {
+     "section_id": "7",
+     "offset": 50958,
+     "file_id": "main"
+    }
+   },
+   "max": {
+    "value": 25000,
+    "unit": "원",
+    "text": "25,000원",
+    "cite": {
+     "section_id": "7",
+     "offset": 50968,
+     "file_id": "main"
+    }
+   }
+  },
+  "peers": [
+   {
+    "name": "유한양행",
+    "value": {
+     "value": 22.6,
+     "unit": "배",
+     "text": "22.60배",
+     "cite": {
+      "section_id": "7",
+      "offset": 45767,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 기준 직전 12개월 지배주주 순이익 PER"
+   },
+   {
+    "name": "한미약품",
+    "value": {
+     "value": 28.96,
+     "unit": "배",
+     "text": "28.96배",
+     "cite": {
+      "section_id": "7",
+      "offset": 45776,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 기준 직전 12개월 지배주주 순이익 PER"
+   },
+   {
+    "name": "종근당",
+    "value": {
+     "value": 11.15,
+     "unit": "배",
+     "text": "11.15배",
+     "cite": {
+      "section_id": "7",
+      "offset": 45785,
+      "file_id": "main"
+     }
+    },
+    "note": "2026년 반기 기준 직전 12개월 지배주주 순이익 PER"
+   }
+  ],
+  "external_comparison": null
+ },
+ "notes": [
+  "MCP 대신 직접 호출: dart 툴을 dart_mcp.casebuild call로 dart_mcp.server 함수 직접 호출.",
+  "search_valuation_disclosures(20260530–20261104, listed_only=False)에서 IPO/full, 기재정정(원본 20261012000445), body_rcept_no=본 건, 짝 공시 없음.",
+  "코스닥 상장 공모(사업모델기업 특례, 기술평가기업 비교). market은 공모 당시 비상장이라 '기타'. 공모 신주 2,170,000주.",
+  "PER 20.91배는 비교대상회사 3사(유한양행·한미약품·종근당) 2026년 반기 기준 직전 12개월 지배주주 순이익 PER의 산술평균(반올림 전 개별 PER 평균). 분석기준일 2026.09.30, 기준주가 = Min(기준일 종가, 5영업일 평균, 20영업일 평균).",
+  "추정 당기순이익(중립 시나리오) 2028년 51,275·2029년 59,629·2030년 42,718백만원을 연 15.0%로 2026년 3분기말 기준 현가화(할인기간 2.25·3.25·4.25년) 후 산술평균. 15%는 2025년 이후 코스닥 기술평가기업 평균 연할인율 19.6%와 비교대상회사 WACC 평균 6.25%를 감안(7.h5 주2·주3).",
+  "참고: 비교대상회사 WACC 유한양행 6.59%·한미약품 6.69%·종근당 5.48%, 평균 6.25%(FactSet 2026.09.29, 7.h5 주3). 공모가 산정에 직접 쓰이지 않은 참고값이라 valuations에 넣지 않음.",
+  "적용 주식수 22,660,089주 = 기발행 19,435,834 + 공모 신주 2,170,000 + 상장주선인 의무인수 55,555(공모가 하단 기준) + 주식매수선택권 890,200 + 주관사 신주인수권 108,500.",
+  "평가액 대비 할인율은 2024년 이후 코스닥 기술특례상장기업 할인율(평균 하단 39.22%·상단 26.05%)을 참고.",
+  "DCF·WACC 등 절대가치 평가는 원문 없음(주관사 PER만). 외부평가기관 평가 없음."
+ ],
+ "extracted_at": "2026-11-04T09:40:19+09:00",
+ "extractor_version": "1.1",
+ "citations": [
+  {
+   "rcept_no": "20261027000312",
+   "file_id": "main",
+   "section_id": "7.h1",
+   "title": "가. 평가결과",
+   "chars_read": 2537,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000312",
+   "file_id": "main",
+   "section_id": "7.h2",
+   "title": "나. 희망 공모가액 산출방법",
+   "chars_read": 3127,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000312",
+   "file_id": "main",
+   "section_id": "7.h4",
+   "title": "(4) 희망 공모가액의 산출",
+   "chars_read": 2853,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000312",
+   "file_id": "main",
+   "section_id": "7.h5",
+   "title": "다. 주당 평가가액 산출",
+   "chars_read": 4568,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000312",
+   "file_id": "main",
+   "section_id": "7.h6",
+   "title": "라. 희망공모가액의 결정",
+   "chars_read": 3847,
+   "how": "section"
+  },
+  {
+   "rcept_no": "20261027000312",
+   "file_id": "main",
+   "section_id": "7.h7",
+   "title": "마. 추정 당기순이익 산정 내역",
+   "chars_read": 1670,
+   "how": "section"
+  }
+ ]
+}
