@@ -1,7 +1,7 @@
 // blocks.json → pptx. 사용법: node pptx.js <blocks.json> <out.pptx> <style.json>
 // H2마다 슬라이드를 만들고, 넘치면 "(계속)" 슬라이드로 나눈다. 번호를 새로 만들지 않는다(md에 없는 숫자 금지).
 const PptxGenJS = require('pptxgenjs');
-const { readJson, plain, columnWeights, isIdColumn } = require('./common');
+const { readJson, plain, columnLayout } = require('./common');
 
 const [blocksPath, outPath, stylePath] = process.argv.slice(2);
 const { meta, blocks } = readJson(blocksPath);
@@ -28,9 +28,18 @@ const charEm = ch => {
 const textEm = s => [...s].reduce((a, ch) => a + charEm(ch), 0);
 const emIn = size => size / 72;
 const LINE = 1.36; // 맑은 고딕 줄 높이 배수
+// 줄바꿈을 흉내 내 줄 수를 센다. 한글은 글자 단위로, 숫자·영문은 낱말 단위로 넘어간다.
+const WRAP_SEGMENT = /\s+|[⺀-￿]|[^\s⺀-￿–]+–?|–/g;
 function lineCount(text, widthIn, size) {
-  const perLine = widthIn / emIn(size);
-  return Math.max(1, Math.ceil(textEm(text) * 1.04 / perLine));
+  const perLine = widthIn / emIn(size) / 1.03;
+  let lines = 1, used = 0;
+  for (const seg of text.match(WRAP_SEGMENT) || []) {
+    const w = textEm(seg);
+    if (/^\s/.test(seg)) { if (used) used += w; continue; }
+    if (used + w > perLine && used > 0) { lines += 1; used = 0; }
+    if (w > perLine) { lines += Math.floor(w / perLine); used = w % perLine; } else used += w;
+  }
+  return lines;
 }
 const textH = (text, widthIn, size) => lineCount(text, widthIn, size) * emIn(size) * LINE;
 
@@ -170,8 +179,10 @@ class Pager {
       if (capH) {
         this.slide.addText(`${b.caption || '표'} (계속)`, { x: X, y: this.y, w: CW, h: capH - 0.04, fontFace: F, fontSize: 12, bold: true, color: GR, margin: 0, isTextBox: true });
       }
+      // 빈 칸도 글자 크기를 준다. 없으면 기본 18pt로 행이 커져 아래 내용과 겹친다.
+      const cellRuns = c => runsOf(c.length ? c : [{ t: ' ' }], size);
       const rows = [...headRows, ...b.rows.slice(start, end).map(r => r.map((c, i) => ({
-        text: runsOf(c, size), options: { align: b.align[i] === 'r' ? 'right' : 'left', valign: 'middle' } })))];
+        text: cellRuns(c), options: { align: b.align[i] === 'r' ? 'right' : 'left', valign: 'middle', fontFace: F, fontSize: size } })))];
       const heights = [...headRows.map(() => headH / headRows.length), ...rowHs.slice(start, end)];
       this.slide.addTable(rows, { x: X, y: this.y + capH, w: CW, colW, rowH: heights, border: { type: 'solid', pt: 0.75, color: GR }, margin: [0.03, 0.08, 0.03, 0.08], fontFace: F, fontSize: size, color: DK });
       this.y += h + GAP;
@@ -203,14 +214,7 @@ class Pager {
 }
 
 // ---- 표 측정
-function colWidths(b, size) {
-  const weights = columnWeights(b);
-  const sum = weights.reduce((a, c) => a + c, 0);
-  const minId = emIn(size) * 0.58 * 14 + 0.2;
-  const cols = weights.map((x, i) => Math.max(isIdColumn(b, i) ? minId : 0.6, CW * x / sum));
-  const scale = CW / cols.reduce((a, c) => a + c, 0);
-  return cols.map(c => c * scale);
-}
+const colWidths = (b, size) => columnLayout(b, CW, emIn(size), 0.2).cols;
 function rowHeight(texts, colW, size) {
   const lines = Math.max(...texts.map((t, i) => lineCount(t, colW[i] - 0.18, size)));
   return lines * emIn(size) * LINE + 0.07; // 셀 위아래 여백 0.06 + 여유

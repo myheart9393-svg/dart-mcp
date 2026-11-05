@@ -44,7 +44,7 @@ def node_problem(fmt: str) -> str | None:
     """빌더를 돌릴 수 없는 사유. 돌릴 수 있으면 None."""
     node = shutil.which("node")
     if not node:
-        return "node를 찾을 수 없다"
+        return f"node를 찾을 수 없다 (Node.js 설치 후 `{INSTALL_HINT}`)"
     package = NODE_PACKAGE[fmt]
     probe = subprocess.run([node, "-e", f"require.resolve('{package}')"], cwd=HERE, capture_output=True)
     if probe.returncode != 0:

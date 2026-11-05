@@ -9,6 +9,7 @@ import zipfile
 from pathlib import Path
 
 import pytest
+from lxml import etree
 
 from dart_mcp.export import cli, html as html_builder, verify as verify_mod
 from dart_mcp.export.parse_md import fallback_title, parse, plain
@@ -305,6 +306,66 @@ def test_docx_shows_page_numbers_from_pages_json(tmp_path):
     assert "1. 요약 3" in verify_mod.docx_text(out)
 
 
+WIDE_MD = (
+    "# 넓은 표\n\n## 앞\n\n글\n\n## 평가\n\n설명 문단\n\n"
+    "| 주체 | 대상 | 역할 | 목적 | 방법 | 가중(자산:수익) | WACC | g | β(U/L) | 멀티플 | 결과 | 범위 | 출처 |\n"
+    "|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
+    "| 이촌회계법인 | 주식회사 휴맥스 | 재무자문 | 합병가액 | DCF | – | 12.39% | 1.00% | 0.4324/0.7427 | – "
+    "| 26,365원 | 25,929원–27,073원 | (§5 @23960) |\n\n"
+    "출처: 표 아래 출처 줄\n\n## 뒤\n\n글\n"
+)
+W_NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+A_NS = "{http://schemas.openxmlformats.org/drawingml/2006/main}"
+
+
+@needs_docx
+def test_docx_wide_table_goes_landscape_fixed_and_within_page(tmp_path):
+    report = write_report(tmp_path, WIDE_MD, "wide.md")
+    assert cli.main([str(report), "--docx", "--out", str(tmp_path)]) == 0
+    with zipfile.ZipFile(tmp_path / "wide.docx") as z:
+        root = etree.fromstring(z.read("word/document.xml"))
+    table = next(root.iter(f"{W_NS}tbl"))
+    assert table.find(f"{W_NS}tblPr/{W_NS}tblLayout").get(f"{W_NS}type") == "fixed"
+    grid = sum(int(c.get(f"{W_NS}w")) for c in table.find(f"{W_NS}tblGrid"))
+    sizes = [s.get(f"{W_NS}orient") for s in root.iter(f"{W_NS}pgSz")]
+    assert sizes.count("landscape") == 1 and len(sizes) == 3  # 세로 → 가로 → 세로
+    landscape = next(s for s in root.iter(f"{W_NS}sectPr") if s.find(f"{W_NS}pgSz").get(f"{W_NS}orient") == "landscape")
+    size, margin = landscape.find(f"{W_NS}pgSz"), landscape.find(f"{W_NS}pgMar")
+    text_width = int(size.get(f"{W_NS}w")) - int(margin.get(f"{W_NS}left")) - int(margin.get(f"{W_NS}right"))
+    assert grid <= text_width
+    # 제목·문단·출처가 표와 같은 가로 구역에 있다.
+    body = list(root.find(f"{W_NS}body"))
+    table_pos = body.index(table)
+    heading = table_pos - next(i for i, e in enumerate(reversed(body[:table_pos])) if "".join(e.itertext()) == "평가") - 1
+    source = next(i for i, e in enumerate(body) if "출처: 표 아래" in "".join(e.itertext()))
+    assert not any(e.find(f"{W_NS}pPr/{W_NS}sectPr") is not None for e in body[heading:source])
+    assert body[heading - 1].find(f"{W_NS}pPr/{W_NS}sectPr") is not None  # 가로 구역은 제목부터 시작한다.
+
+
+@needs_docx
+def test_docx_narrow_table_stays_portrait_and_fixed(tmp_path):
+    report = write_report(tmp_path)
+    assert cli.main([str(report), "--docx", "--out", str(tmp_path)]) == 0
+    with zipfile.ZipFile(tmp_path / f"{report.stem}.docx") as z:
+        root = etree.fromstring(z.read("word/document.xml"))
+    assert [s.get(f"{W_NS}orient") for s in root.iter(f"{W_NS}pgSz")] == ["portrait"]
+    assert all(t.find(f"{W_NS}tblPr/{W_NS}tblLayout") is not None for t in root.iter(f"{W_NS}tbl"))
+
+
+@needs_pptx
+def test_pptx_wide_table_columns_fit_unbreakable_tokens(tmp_path):
+    report = write_report(tmp_path, WIDE_MD, "wide.md")
+    assert cli.main([str(report), "--pptx", "--out", str(tmp_path)]) == 0
+    with zipfile.ZipFile(tmp_path / "wide.pptx") as z:
+        slide = next(n for n in z.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n) and b"<a:tbl>" in z.read(n))
+        root = etree.fromstring(z.read(slide))
+    inches = [int(c.get("w")) / 914400 for c in root.iter(f"{A_NS}gridCol")]
+    assert len(inches) == 13 and sum(inches) <= 12.14
+    em = 10 / 72  # 13열 표는 10pt
+    assert inches[8] >= len("0.4324/0.7427") * 0.58 * em  # β(U/L)
+    assert inches[6] >= len("12.39%") * 0.58 * em  # WACC
+
+
 @needs_pptx
 def test_pptx_chart_is_native_and_values_match_table(tmp_path):
     report = write_report(tmp_path)
@@ -371,6 +432,7 @@ def test_missing_node_skips_only_that_format(tmp_path, monkeypatch, capsys):
     assert cli.main([str(report), "--out", str(tmp_path)]) == 0
     captured = capsys.readouterr().out
     assert "docx: 건너뜀" in captured and "pptx: 건너뜀" in captured and "html:" in captured
+    assert captured.count("npm install --prefix src/dart_mcp/export") == 2
     assert {p.suffix for p in tmp_path.iterdir() if p.stem == report.stem} == {".md", ".html"}
 
 

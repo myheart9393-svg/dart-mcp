@@ -1,8 +1,9 @@
 // blocks.json → docx. 사용법: node docx.js <blocks.json> <out.docx> <style.json> [pages.json]
 const fs = require('fs');
 const { Document, Packer, Paragraph, TextRun, Tab, Table, TableRow, TableCell, Header, Footer, AlignmentType, BorderStyle,
-  WidthType, ShadingType, HeadingLevel, LevelFormat, PageNumber, TabStopType, VerticalAlign, PageBreak, LeaderType } = require('docx');
-const { readJson, plain, columnWeights, isIdColumn } = require('./common');
+  WidthType, ShadingType, HeadingLevel, LevelFormat, PageNumber, TabStopType, VerticalAlign, PageBreak, LeaderType,
+  PageOrientation, TableLayoutType } = require('docx');
+const { readJson, plain, columnLayout } = require('./common');
 
 const [blocksPath, outPath, stylePath, pagesPath] = process.argv.slice(2);
 const { meta, blocks } = readJson(blocksPath);
@@ -13,7 +14,9 @@ const NAVY = style.colors.navy, BLUE = style.colors.blue, ACCENT = style.colors.
 const GRAY = '7F7F7F';
 const FONT = { ascii: style.font, hAnsi: style.font, cs: style.font, eastAsia: style.font };
 const MONO = { ascii: 'Courier New', hAnsi: 'Courier New', cs: 'Courier New', eastAsia: style.font };
-const CW = 9048; // 본문 폭(A4, 좌우 여백 제외)
+const CW = 9048; // 본문 폭(A4 세로, 좌우 여백 제외)
+const CW_WIDE = 13980; // 본문 폭(A4 가로)
+const CELL_PAD = 170; // 칸 좌우 여백(twip)
 
 function runs(rs, base = {}) {
   return rs.map(r => {
@@ -42,17 +45,17 @@ function textBlock(b, keepNext) {
   }
 }
 
-function colWidths(b) {
-  const w = columnWeights(b);
-  const sum = w.reduce((a, c) => a + c, 0);
-  const wanted = w.map((x, i) => Math.max(isIdColumn(b, i) ? 1500 : 760, CW * x / sum));
-  // 열이 많으면 최소 너비 합이 본문 폭을 넘으므로 비율로 줄인다.
-  const scale = CW / wanted.reduce((a, c) => a + c, 0);
-  const cols = wanted.map(c => Math.round(c * scale));
-  const diff = CW - cols.reduce((a, c) => a + c, 0);
+const tableSize = b => (b.header.length >= 7 ? 16 : 17); // 반 포인트
+const emTwips = size => size * 10; // 글자 1em의 폭(twip)
+
+function colWidths(b, total) {
+  const cols = columnLayout(b, total, emTwips(tableSize(b)), CELL_PAD).cols.map(Math.round);
+  const diff = total - cols.reduce((a, c) => a + c, 0);
   cols[cols.indexOf(Math.max(...cols))] += diff;
   return cols;
 }
+// 세로 폭에 낱말이 다 들어가지 않는 표는 가로 페이지에 넣는다.
+const isWide = b => b.type === 'table' && columnLayout(b, CW, emTwips(tableSize(b)), CELL_PAD).overflow;
 
 function cell(rs, width, o = {}) {
   return new TableCell({
@@ -65,11 +68,23 @@ function cell(rs, width, o = {}) {
   });
 }
 
-const KEEP_TOGETHER_MAX_ROWS = 20; // 한 쪽에 들어갈 만한 표만 쪽 나눔을 막는다.
+const PAGE_BODY = 13697, PAGE_BODY_WIDE = 9354; // 본문 높이(twip)
+// 한 쪽에 넉넉히 들어가는 표만 쪽 나눔을 막는다. 못 들어가는 표를 묶으면 제목만 앞 쪽에 남는다.
+function fitsOnePage(b, cols, wide) {
+  const size = tableSize(b);
+  const em = emTwips(size);
+  const rowHeight = cells => Math.max(...cells.map((text, i) =>
+    Math.ceil([...text].reduce((a, ch) => a + (ch.codePointAt(0) > 0x2e80 ? 1 : 0.58), 0) * em * 1.1 / (cols[i] - CELL_PAD)) || 1)) * em * 1.5 + 80;
+  const height = [b.header.map(plain), ...b.rows.map(r => r.map(plain))].reduce((a, cells) => a + rowHeight(cells), 0);
+  return height < (wide ? PAGE_BODY_WIDE : PAGE_BODY) * 0.8;
+}
+
 function table(b) {
-  const cols = colWidths(b);
-  const size = b.header.length >= 7 ? 16 : 17;
-  const keep = b.rows.length <= KEEP_TOGETHER_MAX_ROWS;
+  const wide = isWide(b);
+  const total = wide ? CW_WIDE : CW;
+  const cols = colWidths(b, total);
+  const size = tableSize(b);
+  const keep = fitsOnePage(b, cols, wide);
   const H = { fill: 'BFBFBF', bold: true, size, align: AlignmentType.CENTER, keepNext: true };
   const rows = [];
   if (b.groups) {
@@ -88,7 +103,8 @@ function table(b) {
     cell(c, cols[i], { keepNext: keep && ri < b.rows.length - 1, size, align: b.align[i] === 'r' ? AlignmentType.RIGHT : AlignmentType.LEFT })) })));
   const capText = `[표] ${b.n}${b.caption ? ' ' + b.caption : ''}`;
   const cap = new Paragraph({ keepNext: true, spacing: { before: 160, after: 60 }, children: [new TextRun({ text: capText, font: FONT, size: 18, bold: true })] });
-  return [cap, new Table({ width: { size: CW, type: WidthType.DXA }, columnWidths: cols, rows }), new Paragraph({ spacing: { after: 60 }, children: [] })];
+  // 고정 레이아웃: 자동 맞춤이면 Word가 표를 페이지 밖까지 넓혀 오른쪽 열이 잘린다.
+  return [cap, new Table({ width: { size: total, type: WidthType.DXA }, columnWidths: cols, layout: TableLayoutType.FIXED, rows }), new Paragraph({ spacing: { after: 60 }, children: [] })];
 }
 
 function heading(b) {
@@ -114,7 +130,7 @@ const coverBox = meta.cover.map(p => new Paragraph({ spacing: { after: 70, line:
 if (meta.closing) coverBox.push(new Paragraph({ spacing: { after: 0 }, children: runs([{ t: meta.closing }], { size: 17, bold: true }) }));
 cover.push(new Paragraph({ spacing: { before: 1800, after: 0 }, children: [] }));
 if (coverBox.length) {
-  cover.push(new Table({ width: { size: CW, type: WidthType.DXA }, columnWidths: [CW], rows: [new TableRow({ children: [new TableCell({
+  cover.push(new Table({ width: { size: CW, type: WidthType.DXA }, columnWidths: [CW], layout: TableLayoutType.FIXED, rows: [new TableRow({ children: [new TableCell({
     width: { size: CW, type: WidthType.DXA }, borders: boxBorders('000000'), margins: { top: 100, bottom: 100, left: 160, right: 160 }, children: coverBox })] })] }));
 }
 cover.push(new Paragraph({ children: [new PageBreak()] }));
@@ -135,12 +151,34 @@ if (heads.length) {
   toc.push(new Paragraph({ children: [new PageBreak()] }));
 }
 
-// ---- 본문
-const body = [];
+// ---- 본문: 넓은 표는 앞 제목·문단, 뒤 각주·출처와 함께 가로 구역으로 묶는다.
+const wideStart = new Map(); // 가로 구역이 시작하는 블록 → 끝나는 블록
+blocks.forEach((b, t) => {
+  if (!isWide(b)) return;
+  let start = t, end = t;
+  if (start > 0 && ['p', 'label'].includes(blocks[start - 1].type)) start--;
+  while (start > 0 && blocks[start - 1].type === 'h') start--;
+  while (blocks[end + 1] && ['note', 'source'].includes(blocks[end + 1].type)) end++;
+  wideStart.set(start, end);
+});
+const sectionsOut = []; // [{ wide, children }]
+let body = [...cover, ...toc];
+let wide = false, wideEnd = -1, frontOnly = true;
+const closeSection = () => {
+  if (frontOnly) body.pop(); // 표지·목차 끝의 쪽 나눔이 구역 나눔과 겹쳐 빈 쪽이 생기지 않게 한다.
+  if (body.length) sectionsOut.push({ wide, children: body });
+  body = [];
+  frontOnly = false;
+};
 blocks.forEach((b, i) => {
+  if (wideStart.has(i)) {
+    if (!wide) { closeSection(); wide = true; }
+    wideEnd = Math.max(wideEnd, wideStart.get(i));
+  }
+  frontOnly = false;
   const nextIsTable = blocks[i + 1] && blocks[i + 1].type === 'table';
-  if (b.is_caption) return;
-  if (b.type === 'h') body.push(heading(b));
+  if (b.is_caption) { /* 캡션으로 표시한다 */ }
+  else if (b.type === 'h') body.push(heading(b));
   else if (b.type === 'quote') {
     b.paras.forEach(p => body.push(new Paragraph({ children: runs(p, { size: 19 }), spacing: { after: 0, line: 290 },
       shading: { type: ShadingType.CLEAR, fill: 'F2F2F2', color: 'auto' }, border: boxBorders(GRAY), indent: { left: 100, right: 100 } })));
@@ -149,7 +187,9 @@ blocks.forEach((b, i) => {
   else if (b.type === 'table') body.push(...table(b));
   else if (b.closing) body.push(new Paragraph({ spacing: { before: 200 }, children: runs(b.runs, { bold: true, color: NAVY }) }));
   else body.push(textBlock(b, nextIsTable));
+  if (wide && i === wideEnd && !wideStart.has(i + 1)) { closeSection(); wide = false; }
 });
+closeSection();
 
 // ---- 머리글·바닥글: 문구는 style JSON에서만. 쪽 번호는 항상.
 const header = () => {
@@ -157,11 +197,11 @@ const header = () => {
   return new Header({ children: [new Paragraph({ spacing: { after: 0 }, border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: GRAY, space: 4 } },
     children: [new TextRun({ text: style.header, font: FONT, size: 17, italics: true, bold: true, color: '404040' })] })] });
 };
-const footer = withPage => {
+const footer = (withPage, width = CW) => {
   const parts = [];
   if (style.footer) parts.push(new TextRun({ text: style.footer, font: FONT, size: 17, bold: true, italics: true }));
   if (withPage) parts.push(new TextRun({ children: [new Tab(), PageNumber.CURRENT], font: FONT, size: 17 }));
-  return new Footer({ children: [new Paragraph({ spacing: { before: 0 }, tabStops: [{ type: TabStopType.CENTER, position: CW / 2 }], children: parts })] });
+  return new Footer({ children: [new Paragraph({ spacing: { before: 0 }, tabStops: [{ type: TabStopType.CENTER, position: width / 2 }], children: parts })] });
 };
 
 const doc = new Document({
@@ -181,10 +221,16 @@ const doc = new Document({
     ] },
   numbering: { config: [{ reference: 'bul', levels: ['•', '–', '·'].map((text, level) => ({ level, format: LevelFormat.BULLET, text, alignment: AlignmentType.LEFT,
     style: { paragraph: { indent: { left: 360 * (level + 1), hanging: 240 } } } })) }] },
-  sections: [{
-    properties: { titlePage: true, page: { size: { width: 11906, height: 16838 }, margin: { top: 1701, bottom: 1440, left: 1418, right: 1440, header: 720, footer: 600 } } },
-    headers: { default: header(), first: header() }, footers: { default: footer(true), first: footer(false) },
-    children: [...cover, ...toc, ...body],
-  }],
+  sections: sectionsOut.map((s, i) => ({
+    properties: {
+      titlePage: i === 0,
+      page: s.wide
+        ? { size: { width: 11906, height: 16838, orientation: PageOrientation.LANDSCAPE }, margin: { top: 1418, bottom: 1134, left: 1418, right: 1440, header: 720, footer: 600 } }
+        : { size: { width: 11906, height: 16838 }, margin: { top: 1701, bottom: 1440, left: 1418, right: 1440, header: 720, footer: 600 } },
+    },
+    headers: i === 0 ? { default: header(), first: header() } : { default: header() },
+    footers: i === 0 ? { default: footer(true), first: footer(false) } : { default: footer(true, s.wide ? CW_WIDE : CW) },
+    children: s.children,
+  })),
 });
 Packer.toBuffer(doc).then(buf => { fs.writeFileSync(outPath, buf); });
