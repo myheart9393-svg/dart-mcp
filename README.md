@@ -54,7 +54,7 @@ PowerShell은 `.venv\Scripts\python.exe -m ...`. `.venv`가 없으면 uv.exe 절
 | `get_financial_statements(corp_code, bsns_year, reprt_code, fs_div, sj_div)` | BS/IS/CIS/CF 전체 계정(원 단위) |
 | `get_key_financials(corp_code, bsns_year, fs_div, reprt_code, period_type)` | 핵심 10계정 + 비율. 사업보고서는 3개년(`annual`), 반기·분기는 당기 vs 전년 동기(`cumulative`/`quarter`). 업종(`sector`)을 판단해 금융업이면 `warning`과 금융 계정을 준다 |
 
-## 슬래시 커맨드 (`.claude/commands/`, 11개)
+## 슬래시 커맨드 (`.claude/commands/`)
 
 | 커맨드 | 한 줄 설명 |
 |---|---|
@@ -64,6 +64,7 @@ PowerShell은 `.venv\Scripts\python.exe -m ...`. `.venv`가 없으면 uv.exe 절
 | `/dart-compare <회사1> <회사2> [<회사3>] [연도]` | 2~3사 비교: 3개년 핵심 지표 같은 행 비교 + 경영진 전망 |
 | `/dart-event <rcept_no>` | 수시공시 한 건 요약과 직전 1년 유사 공시 비교 |
 | `/dart-review <보고서.md>` | 독립 서브에이전트 리뷰: 출처 누락·재무 API 재대조·원문 샘플 5개·표현 오류·"추정:" 누락 → `.review.md` |
+| `/dart-export <보고서.md> [--docx] [--pptx] [--html]` | 보고서 md를 docx·pptx·html로 결정적 변환 + 숫자 검증 → `reports/export/` |
 | `/dart-valuation <rcept_no>` | 가치평가 공시 한 건 → `reports/valuations/<rcept_no>.json`(스키마 검증)+`.md`: 평가 주체별 방법·WACC 구성·g·β·멀티플·결론·민감도 |
 | `/dart-valuation-review <json>` | 독립 서브에이전트 리뷰: cite 실재(무작위 8개)·가중치·본질가치 재계산·주체 혼입·단위 → `.review.md` |
 | `/dart-valuation-scan <bgn> <end> [유형]` | 기간 안의 가치평가 공시 표(외부평가 여부·기관, 증권신고서 짝, 등급, 추출 여부 ✓). 추출 안 함 |
@@ -79,6 +80,8 @@ PowerShell은 `.venv\Scripts\python.exe -m ...`. `.venv`가 없으면 uv.exe 절
 - 연도를 생략하면 `get_latest_reports`로 최신 사업보고서를 고르고, 이후 반기·분기보고서가 있으면 "최근 분기 동향"(전년 동기 비교만)을 붙인다.
 - analyze/financial/risk/compare는 마지막에 `/dart-review`를 1회 돌리고 FAIL을 반영해 "리뷰 반영 내역"을 남긴다.
 - 표현 오류 정규식 점검은 단독으로도 쓸 수 있다: `uv run python -m dart_mcp.report_lint reports/<보고서>.md`
+
+**보고서 내보내기(`/dart-export`).** `reports/*.md` 한 건을 LLM 없이 docx·pptx·html로 변환한다(`uv run python -m dart_mcp.export.cli <보고서.md>`). 표지·표 캡션·슬라이드 구성은 md에서 자동으로 읽고, 변환 뒤 숫자를 검증한다. docx·html에는 md의 숫자 토큰이 전부 있어야 하고, pptx에는 md에 없는 숫자가 없어야 하며, 실패하면 종료코드 1과 목록을 낸다. docx·pptx에는 Node와 `npm install --prefix src/dart_mcp/export`가 필요하고, Node가 없으면 그 형식만 건너뛴다. 머리글·바닥글 문구와 색상은 `--style` JSON으로 바꾼다(기본은 문구 없음). docx 목차 쪽수는 `soffice`·`pdftotext`·`pdfinfo`가 있을 때만 넣는다.
 
 ## 예시 보고서 (`reports/examples/`)
 

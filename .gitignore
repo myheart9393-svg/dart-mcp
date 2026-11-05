@@ -12,3 +12,7 @@ dist/
 /reports/*.md
 /reports/*.csv
 !/reports/healthcheck_*
+
+# /dart-export: Node 패키지와 변환 결과
+node_modules/
+/reports/export/

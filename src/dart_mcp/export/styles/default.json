@@ -1,0 +1,13 @@
+{
+  "font": "맑은 고딕",
+  "header": null,
+  "footer": null,
+  "colors": {
+    "navy": "1F3864",
+    "green": "329767",
+    "blue": "1F4E79",
+    "accent": "C00000",
+    "est": "9C5700",
+    "chart": ["1F4E79", "D99A00", "329767", "7F6084"]
+  }
+}
