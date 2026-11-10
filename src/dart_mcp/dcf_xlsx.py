@@ -5,6 +5,8 @@
 - 입력 셀은 파란 글씨, 수식 셀은 검정 글씨.
 - 민감도(WACC × g)는 데이터 표 기능 없이 셀마다 닫힌 수식.
 - DCF 시트 하단 체크 행: 0이 아니면 빨간색(조건부 서식).
+- 리스는 방법 2(영업비용 관점): 감가상각비에서 사용권자산 상각비 제외, EBIT에서 리스 이자 차감,
+  리스부채는 순차입금에서 제외(참고 행으로만 표시).
 """
 from __future__ import annotations
 
@@ -116,12 +118,18 @@ def export(h: History, a: dict, res: dict, out: str | Path) -> dict:
         ("issued", "발행주식총수(주)", a["shares"]["issued"], "#,##0"),
         ("treasury", "자기주식수(주)", a["shares"]["treasury"], "#,##0"),
         ("unit", "단위 환산(원/백만원)", a["unit_krw_per_mn"], "#,##0"),
+        ("lease_int", "기준연도 리스부채 이자비용", a["lease"]["base_interest"], NUM),
         ("price", "현재 주가(원)", a.get("price"), WON),
     ]
     for key, lab, val, fmt in general:
         A.label(r, 1, lab)
         A.put(r, 2, val, fmt, key=key == "price")
-        A.label(r, 3, notes.get(key, a["shares"].get("cite", "") if key in ("issued", "treasury") else ""), F_NOTE)
+        note = notes.get(key, "")
+        if key in ("issued", "treasury"):
+            note = a["shares"].get("cite", "")
+        elif key == "lease_int":
+            note = a["lease"].get("cite", "")
+        A.label(r, 3, note, F_NOTE)
         ref[key] = _abs("가정", r, 2)
         r += 1
 
@@ -130,13 +138,14 @@ def export(h: History, a: dict, res: dict, out: str | Path) -> dict:
     yr_row = r
     r += 1
     fc = a["forecast"]
-    flabels = {"revenue_growth": "매출 성장률", "operating_margin": "영업이익률", "tax_rate": "법인세율(EBIT 적용)",
-               "da_pct": "감가상각비 / 매출", "capex_pct": "CAPEX / 매출", "nwc_pct": "순운전자본 / 매출"}
+    flabels = {"revenue_growth": "매출 성장률", "operating_margin": "영업이익률(보고, IFRS 16)",
+               "lease_interest_pct": "리스 이자비용 / 매출", "tax_rate": "법인세율(EBIT 적용)",
+               "da_pct": "감가상각비 / 매출(사용권자산 제외)", "capex_pct": "CAPEX / 매출", "nwc_pct": "순운전자본 / 매출"}
     frow: dict[str, int] = {}
     for key, lab in flabels.items():
         A.label(r, 1, lab, F_BOLD)
         for i, v in enumerate(fc[key]):
-            A.put(r, 2 + i, v, PCT, key=True)
+            A.put(r, 2 + i, v, PCT2 if key == "lease_interest_pct" else PCT, key=True)
         A.label(r, 2 + n, notes.get(key, ""), F_NOTE)
         frow[key] = r
         r += 1
@@ -210,33 +219,37 @@ def export(h: History, a: dict, res: dict, out: str | Path) -> dict:
 
     hline(4, "rev", "매출액", lambda j, c: hin("revenue", j), bold=True)
     hline(5, "g", "  매출 성장률", lambda j, c: f"{c}4/{L(1 + j)}4-1", PCT, first=1)
-    hline(6, "ebit", "영업이익(EBIT)", lambda j, c: hin("ebit", j))
+    hline(6, "ebit", "영업이익(보고, IFRS 16)", lambda j, c: hin("ebit", j))
     hline(7, "opm", "  영업이익률", lambda j, c: f"{c}6/{c}4", PCT)
-    hline(8, "da", "감가상각비(유형·사용권·무형·투자부동산)",
-          lambda j, c: hin("dep", j) + "".join(f"+N({hin(k, j)})" for k in ("dep_rou", "amort", "dep_ip")))
+    hline(8, "da", "감가상각비(유형·무형·투자부동산, 사용권자산 제외)",
+          lambda j, c: hin("dep", j) + "".join(f"+N({hin(k, j)})" for k in ("amort", "dep_ip")))
     hline(9, "da%", "  감가상각비 / 매출", lambda j, c: f"{c}8/{c}4", PCT)
-    hline(10, "ebitda", "EBITDA", lambda j, c: f"{c}6+{c}8")
-    hline(11, "capex", "CAPEX(유형+무형 취득)",
+    hline(10, "rou", "  참고: 사용권자산 상각비(감가상각비에서 제외)", lambda j, c: hin("dep_rou", j))
+    hline(11, "ebitda", "EBITDA(보고 영업이익 + 감가상각비, 사용권자산 상각비 미가산)", lambda j, c: f"{c}6+{c}8")
+    hline(12, "capex", "CAPEX(유형+무형 취득, 사용권자산 취득 제외)",
           lambda j, c: f"{hin('capex_ppe', j)}+N({hin('capex_int', j)})")
-    hline(12, "capex%", "  CAPEX / 매출", lambda j, c: f"{c}11/{c}4", PCT)
-    hline(13, "nwc", "순운전자본(매출채권+재고−매입채무)",
+    hline(13, "capex%", "  CAPEX / 매출", lambda j, c: f"{c}12/{c}4", PCT)
+    hline(14, "nwc", "순운전자본(매출채권+재고−매입채무)",
           lambda j, c: f"{hin('ar', j)}+{hin('inventory', j)}-{hin('ap', j)}")
-    hline(14, "nwc%", "  순운전자본 / 매출", lambda j, c: f"{c}13/{c}4", PCT)
-    hline(15, "etr", "유효법인세율(법인세/세전이익)", lambda j, c: f"{hin('tax', j)}/{hin('ebt', j)}", PCT)
-    hline(16, "nip", "지배주주 순이익", lambda j, c: hin("ni_parent", j))
-    hline(18, "cash_like", "현금성자산(현금+단기·장기예치금+유동FVPL)",
+    hline(15, "nwc%", "  순운전자본 / 매출", lambda j, c: f"{c}14/{c}4", PCT)
+    hline(16, "etr", "유효법인세율(법인세/세전이익)", lambda j, c: f"{hin('tax', j)}/{hin('ebt', j)}", PCT)
+    hline(17, "nip", "지배주주 순이익", lambda j, c: hin("ni_parent", j))
+    hline(19, "cash_like", "현금성자산(현금+단기·장기예치금+유동FVPL)",
           lambda j, c: hin("cash", j) + "".join(f"+N({hin(k, j)})" for k in ("st_deposit", "lt_deposit", "fvpl_current")))
-    hline(19, "debt", "차입금+리스부채", lambda j, c: f"N({hin('borrowings', j)})+N({hin('lease', j)})")
-    hline(20, "net_debt", "순차입금(음수 = 순현금)", lambda j, c: f"{c}19-{c}18", bold=True)
-    hline(21, "nonop", "비영업자산(지분법·투자부동산·FVOCI)",
+    hline(20, "debt", "차입금·사채", lambda j, c: f"N({hin('borrowings', j)})")
+    hline(21, "net_debt", "순차입금(음수 = 순현금, 리스부채 제외)", lambda j, c: f"{c}20-{c}19", bold=True)
+    hline(22, "lease", "  참고: 리스부채(순차입금에서 제외)", lambda j, c: f"N({hin('lease', j)})")
+    hline(23, "nonop", "비영업자산(지분법·투자부동산·FVOCI)",
           lambda j, c: "+".join(f"N({hin(k, j)})" for k in ("equity_method", "inv_property", "fvoci")))
-    hline(22, "nci", "비지배지분", lambda j, c: f"N({hin('nci', j)})")
-    hline(24, "assets", "자산총계", lambda j, c: hin("assets", j))
-    hline(25, "liab", "부채총계", lambda j, c: hin("liabilities", j))
-    hline(26, "equity", "자본총계", lambda j, c: hin("equity", j))
-    hline(27, "bs_chk", "체크: 자산 − (부채 + 자본)", lambda j, c: f"ROUND({c}24-{c}25-{c}26,4)", CHECK)
-    HS.label(29, 1, "주: N()은 '없음(n/a)' 입력을 0으로 본다(해당 계정 없음). 매출·EBIT 등 필수 계정이 n/a면 그 연도 비율은 n/a.",
+    hline(24, "nci", "비지배지분", lambda j, c: f"N({hin('nci', j)})")
+    hline(26, "assets", "자산총계", lambda j, c: hin("assets", j))
+    hline(27, "liab", "부채총계", lambda j, c: hin("liabilities", j))
+    hline(28, "equity", "자본총계", lambda j, c: hin("equity", j))
+    hline(29, "bs_chk", "체크: 자산 − (부채 + 자본)", lambda j, c: f"ROUND({c}26-{c}27-{c}28,4)", CHECK)
+    HS.label(31, 1, "주: N()은 '없음(n/a)' 입력을 0으로 본다(해당 계정 없음). 매출·EBIT 등 필수 계정이 n/a면 그 연도 비율은 n/a.",
              F_NOTE)
+    HS.label(32, 1, "리스(방법 2, 영업비용 관점): 사용권자산 상각비는 감가상각비에 넣지 않고(영업이익에 이미 차감), "
+                    "리스부채는 순차입금에서 뺀다. 리스 이자는 추정 시트에서 EBIT에서 차감.", F_NOTE)
     HS.widths({"A": 40, **{L(2 + j): 14 for j in range(len(hy))}})
     HS.ws.freeze_panes = "B4"
     base_col = L(1 + len(hy))  # 과거재무의 기준연도 열
@@ -277,19 +290,26 @@ def export(h: History, a: dict, res: dict, out: str | Path) -> dict:
 
     prow(6, "rev", "매출액", f"={hb('rev')}", lambda i, c, p: f"={p}6*(1+{asm('revenue_growth', i)})", bold=True)
     prow(7, "g", "  성장률", f"={hb('g')}", lambda i, c, p: f"={c}6/{p}6-1", PCT)
-    prow(8, "ebit", "영업이익(EBIT)", f"={hb('ebit')}", lambda i, c, p: f"={c}6*{asm('operating_margin', i)}")
-    prow(9, "opm", "  영업이익률", f"={hb('opm')}", lambda i, c, p: f"={c}8/{c}6", PCT)
-    prow(10, "taxr", "  법인세율", None, lambda i, c, p: f"={asm('tax_rate', i)}", PCT)
-    prow(11, "tax", "법인세(EBIT 기준)", None, lambda i, c, p: f"={c}8*{c}10")
-    prow(12, "nopat", "NOPAT = EBIT − 법인세", None, lambda i, c, p: f"={c}8-{c}11", bold=True, border=True)
-    prow(13, "da", "감가상각비", f"={hb('da')}", lambda i, c, p: f"={c}6*{asm('da_pct', i)}")
-    prow(14, "capex", "CAPEX", f"={hb('capex')}", lambda i, c, p: f"={c}6*{asm('capex_pct', i)}")
-    prow(15, "nwc", "순운전자본(기말)", f"={hb('nwc')}", lambda i, c, p: f"={c}6*{asm('nwc_pct', i)}")
-    prow(16, "dnwc", "순운전자본 증가(현금유출)", None, lambda i, c, p: f"={c}15-{p}15")
-    prow(17, "fcff", "FCFF = NOPAT + 감가상각비 − CAPEX − 순운전자본 증가", None,
-         lambda i, c, p: f"={c}12+{c}13-{c}14-{c}16", bold=True, border=True)
-    prow(18, "ebitda", "참고: EBITDA", f"={hb('ebitda')}", lambda i, c, p: f"={c}8+{c}13")
-    P.label(20, 1, "부호: 법인세·CAPEX·순운전자본 증가는 양수로 표시하고 FCFF 수식에서 차감한다.", F_NOTE)
+    prow(8, "ebit_rep", "영업이익(보고, IFRS 16)", f"={hb('ebit')}",
+         lambda i, c, p: f"={c}6*{asm('operating_margin', i)}")
+    prow(9, "opm", "  영업이익률(보고)", f"={hb('opm')}", lambda i, c, p: f"={c}8/{c}6", PCT)
+    prow(10, "lease_int", "리스부채 이자비용", f"={ref['lease_int']}",
+         lambda i, c, p: f"={c}6*{asm('lease_interest_pct', i)}")
+    prow(11, "ebit", "EBIT(리스료 차감 후) = 영업이익 − 리스 이자", "=B8-B10", lambda i, c, p: f"={c}8-{c}10",
+         bold=True)
+    prow(12, "taxr", "  법인세율", None, lambda i, c, p: f"={asm('tax_rate', i)}", PCT)
+    prow(13, "tax", "법인세(EBIT 기준)", None, lambda i, c, p: f"={c}11*{c}12")
+    prow(14, "nopat", "NOPAT = EBIT − 법인세", None, lambda i, c, p: f"={c}11-{c}13", bold=True, border=True)
+    prow(15, "da", "감가상각비(사용권자산 제외)", f"={hb('da')}", lambda i, c, p: f"={c}6*{asm('da_pct', i)}")
+    prow(16, "capex", "CAPEX(사용권자산 취득 제외)", f"={hb('capex')}", lambda i, c, p: f"={c}6*{asm('capex_pct', i)}")
+    prow(17, "nwc", "순운전자본(기말)", f"={hb('nwc')}", lambda i, c, p: f"={c}6*{asm('nwc_pct', i)}")
+    prow(18, "dnwc", "순운전자본 증가(현금유출)", None, lambda i, c, p: f"={c}17-{p}17")
+    prow(19, "fcff", "FCFF = NOPAT + 감가상각비 − CAPEX − 순운전자본 증가", None,
+         lambda i, c, p: f"={c}14+{c}15-{c}16-{c}18", bold=True, border=True)
+    prow(20, "ebitda", "참고: EBITDA(리스료 차감 후) = EBIT + 감가상각비", "=B11+B15", lambda i, c, p: f"={c}11+{c}15")
+    P.label(22, 1, "부호: 법인세·CAPEX·순운전자본 증가·리스 이자는 양수로 표시하고 수식에서 차감한다.", F_NOTE)
+    P.label(23, 1, "리스(방법 2): 리스료 = 사용권자산 상각비(영업이익에 이미 차감) + 리스 이자(여기서 차감). "
+                   "사용권자산 상각비는 다시 더하지 않고, 리스부채는 순차입금에 넣지 않는다.", F_NOTE)
     P.widths({"A": 50, "B": 14, **{c: 14 for c in fcol}})
     P.ws.freeze_panes = "C4"
     FC = f"추정!${fcol[0]}${rows['fcff']}:${fcol[-1]}${rows['fcff']}"
@@ -297,11 +317,14 @@ def export(h: History, a: dict, res: dict, out: str | Path) -> dict:
     FN_ = f"추정!${fcol[-1]}${rows['fcff']}"
     TN = f"추정!${fcol[-1]}$5"
     cells["revenue"] = [("추정", f"{c}6") for c in fcol]
-    cells["ebit"] = [("추정", f"{c}8") for c in fcol]
-    cells["da"] = [("추정", f"{c}13") for c in fcol]
-    cells["capex"] = [("추정", f"{c}14") for c in fcol]
-    cells["dnwc"] = [("추정", f"{c}16") for c in fcol]
-    cells["fcff"] = [("추정", f"{c}17") for c in fcol]
+    for key in ("ebit_rep", "lease_int", "ebit", "da", "capex", "dnwc", "fcff"):
+        name = {"ebit_rep": "ebit_reported", "lease_int": "lease_interest"}.get(key, key)
+        cells[name] = [("추정", f"{c}{rows[key]}") for c in fcol]
+    cells["base_ebit"] = ("추정", f"B{rows['ebit']}")
+    cells["base_ebitda"] = ("추정", f"B{rows['ebitda']}")
+
+    def prng(key: str) -> str:            # 추정 시트 예측 구간 범위
+        return f"추정!${fcol[0]}${rows[key]}:${fcol[-1]}${rows[key]}"
 
     # ================================================================ DCF
     D.label(1, 1, f"{co['name']} DCF — 기업가치 → 주주가치 (백만원)", F_TITLE)
@@ -363,7 +386,9 @@ def export(h: History, a: dict, res: dict, out: str | Path) -> dict:
     drow("tv_share", "  EV 중 잔존가치 비중", f"={dv['pv_tv']}/{dv['ev']}", PCT)
     r += 1
     D.header(r, ["주주가치", "값", "비고"]); r += 1
-    drow("net_debt", "(−) 순차입금", f"={hb('net_debt')}", NUM, "차입금+리스부채 − 현금성자산. 음수면 순현금(가치 가산)")
+    drow("net_debt", "(−) 순차입금", f"={hb('net_debt')}", NUM,
+         "차입금·사채 − 현금성자산. 음수면 순현금(가치 가산). 리스부채 제외(리스 이자를 EBIT에서 차감했으므로)")
+    drow("lease_ref", "  참고: 순차입금에서 제외한 리스부채", f"={hb('lease')}", NUM, "가치에 반영하지 않음(참고)")
     drow("nonop", "(+) 비영업자산", f"={hb('nonop')}", NUM, "지분법투자·투자부동산·FVOCI 장부가")
     drow("nci", "(−) 비지배지분", f"={hb('nci')}", NUM, "장부가")
     drow("equity", "주주가치(지배주주)", f"={dv['ev']}-{dv['net_debt']}+{dv['nonop']}-{dv['nci']}", NUM, bold=True)
@@ -374,7 +399,8 @@ def export(h: History, a: dict, res: dict, out: str | Path) -> dict:
     r += 1
     D.header(r, ["내재 배수", "값", "비고"]); r += 1
     base_c = "B"
-    drow("m_ebitda", "EV / EBITDA (기준연도)", f"={dv['ev']}/추정!{base_c}{rows['ebitda']}", MULT)
+    drow("m_ebitda", "EV / EBITDA (기준연도)", f"={dv['ev']}/추정!{base_c}{rows['ebitda']}", MULT,
+         "EBITDA는 리스료 차감 후, EV는 리스부채 제외 기준. 비교회사도 같은 기준으로 맞출 것")
     drow("m_ebitda1", "EV / EBITDA (1년차)", f"={dv['ev']}/추정!{fcol[0]}{rows['ebitda']}", MULT)
     drow("m_per", "주주가치 / 지배주주순이익 (기준연도)", f"={dv['equity']}/{hb('nip')}", MULT)
     drow("m_tv", "잔존가치 내재 EV/EBITDA (N년차)", f"={dv['tv']}/추정!{fcol[-1]}{rows['ebitda']}", MULT)
@@ -397,11 +423,17 @@ def export(h: History, a: dict, res: dict, out: str | Path) -> dict:
          f"=ROUND(SUMPRODUCT({FC}/(1+{dv['wacc']})^({TT}-{ref['cf_timing_adj']}))+{dv['pv_tv']}-{dv['ev']},4)",
          "FCFF를 SUMPRODUCT로 독립 재할인 + TV 현재가치 − EV"),
         ("FCFF = EBIT(1−t) + 감가상각비 − CAPEX − ΔNWC",
-         f"=ROUND(SUMPRODUCT(추정!${fcol[0]}$8:${fcol[-1]}$8*(1-추정!${fcol[0]}$10:${fcol[-1]}$10)"
-         f"+추정!${fcol[0]}$13:${fcol[-1]}$13-추정!${fcol[0]}$14:${fcol[-1]}$14-추정!${fcol[0]}$16:${fcol[-1]}$16"
-         f"-{FC.replace('추정!', '추정!')}),4)", "연도별 차이 합"),
-        ("순차입금 = 차입금 + 리스부채 − 현금성자산 (가정 시트 원값)",
-         f"=ROUND({dv['net_debt']}-(N({hin('borrowings', len(hy) - 1)})+N({hin('lease', len(hy) - 1)})"
+         f"=ROUND(SUMPRODUCT({prng('ebit')}*(1-{prng('taxr')})+{prng('da')}-{prng('capex')}-{prng('dnwc')}"
+         f"-{FC}),4)", "연도별 차이 합"),
+        ("EBIT = 보고 영업이익 − 리스 이자 (전 연도)",
+         f"=ROUND(SUMPRODUCT(추정!$B${rows['ebit_rep']}:${fcol[-1]}${rows['ebit_rep']}"
+         f"-추정!$B${rows['lease_int']}:${fcol[-1]}${rows['lease_int']}"
+         f"-추정!$B${rows['ebit']}:${fcol[-1]}${rows['ebit']}),4)", "기준연도 포함"),
+        ("기준연도 감가상각비 = 유형 + 무형 + 투자부동산 (사용권자산 제외)",
+         f"=ROUND(추정!$B${rows['da']}-({hin('dep', len(hy) - 1)}+N({hin('amort', len(hy) - 1)})"
+         f"+N({hin('dep_ip', len(hy) - 1)})),4)", "가정 시트 원값"),
+        ("순차입금 = 차입금·사채 − 현금성자산 (리스부채 제외, 가정 시트 원값)",
+         f"=ROUND({dv['net_debt']}-(N({hin('borrowings', len(hy) - 1)})"
          f"-N({hin('cash', len(hy) - 1)})-N({hin('st_deposit', len(hy) - 1)})-N({hin('lt_deposit', len(hy) - 1)})"
          f"-N({hin('fvpl_current', len(hy) - 1)})),4)", "기준연도"),
         ("주주가치 = EV − 순차입금 + 비영업자산 − 비지배지분",
@@ -531,11 +563,11 @@ def compare(recalced_path: str | Path, cells: dict, res: dict, rel: float = 1e-9
         elif not _close(float(got), float(expect), rel):
             problems.append(f"{name} {addr}: 엑셀 {got} ≠ 엔진 {expect}")
 
-    for key in ("revenue", "ebit", "da", "capex", "dnwc", "fcff", "pv"):
+    for key in ("revenue", "ebit_reported", "lease_interest", "ebit", "da", "capex", "dnwc", "fcff", "pv"):
         for i, addr in enumerate(cells[key]):
             check(f"{key}[{i}]", addr, res[key][i])
     for key in ("wacc", "ke", "sum_pv", "tv", "pv_tv", "ev", "net_debt", "nonop", "nci", "equity", "shares",
-                "per_share"):
+                "per_share", "base_ebit", "base_ebitda"):
         check(key, cells[key], res[key])
     check("ev_ebitda_base", cells["m_ebitda"], res["ev_ebitda_base"])
     for i, addr in enumerate(cells["sens_wacc"]):

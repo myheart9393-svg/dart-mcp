@@ -41,12 +41,14 @@ def make_assumptions(**discount) -> dict:
         "forecast": {
             "revenue_growth": [0.10, 0.08, 0.06, 0.05, 0.04],
             "operating_margin": [0.15, 0.15, 0.16, 0.16, 0.16],
+            "lease_interest_pct": [0.001] * 5,
             "tax_rate": [0.25, 0.25, 0.25, 0.26, 0.26],
             "da_pct": [0.05] * 5, "capex_pct": [0.06, 0.06, 0.05, 0.05, 0.05], "nwc_pct": [0.12] * 5,
         },
         "discount": {"rf": 0.03, "mrp": 0.07, "beta": 1.0, "crp": 0.0, "kd": 0.05, "debt_weight": 0.2,
                      "terminal_growth": 0.02, "cf_timing_adj": 0.5, "tv_timing_adj": 0.5},
         "sensitivity": {"wacc_step": 0.005, "g_step": 0.005},
+        "lease": {"base_interest": 2.0, "cite": "test"},
     }
     a["discount"].update(discount)
     return a
@@ -58,7 +60,7 @@ def test_fcff_formula_and_signs():
     res = compute(h, a)
     f = a["forecast"]
     rev1 = 1000 * 1.10
-    ebit1 = rev1 * 0.15
+    ebit1 = rev1 * 0.15 - rev1 * 0.001            # 보고 영업이익 − 리스 이자
     dnwc1 = rev1 * 0.12 - (100 + 80 - 60)
     expect = ebit1 * (1 - 0.25) + rev1 * 0.05 - rev1 * 0.06 - dnwc1
     assert res["fcff"][0] == pytest.approx(expect)
@@ -83,10 +85,33 @@ def test_mid_year_discounting_and_tv():
 
 def test_equity_bridge():
     res = compute(make_history(), make_assumptions())
-    assert res["net_debt"] == pytest.approx(70 + 20 - (200 + 50 + 1 + 4))
+    assert res["net_debt"] == pytest.approx(70 - (200 + 50 + 1 + 4))     # 리스부채 20 제외
+    assert res["lease_excluded"] == pytest.approx(20)
     assert res["nonop"] == pytest.approx(30 + 10 + 2)
     assert res["equity"] == pytest.approx(res["ev"] - res["net_debt"] + res["nonop"] - res["nci"])
     assert res["per_share"] == pytest.approx(res["equity"] * 1_000_000 / 990_000)
+
+
+def test_lease_method_two_is_consistent():
+    """리스 방법 2: 사용권자산 상각비·리스부채는 가치에 영향 없고, 리스 이자는 EBIT에서 빠진다."""
+    a = make_assumptions()
+    base = compute(make_history(), a)
+    assert compute(make_history(dep_rou=500.0), a)["per_share"] == pytest.approx(base["per_share"])
+    assert compute(make_history(lease=900.0), a)["per_share"] == pytest.approx(base["per_share"])
+    assert base["base_ebit"] == pytest.approx(150 - 2.0)
+    assert base["base_ebitda"] == pytest.approx(150 - 2.0 + 40 + 3 + 1)      # dep_rou 5 미가산
+    for i in range(5):
+        assert base["ebit"][i] == pytest.approx(base["ebit_reported"][i] - base["lease_interest"][i])
+    more = copy.deepcopy(a)
+    more["forecast"]["lease_interest_pct"] = [0.01] * 5
+    assert compute(make_history(), more)["per_share"] < base["per_share"]
+
+
+def test_lease_base_interest_required():
+    a = make_assumptions()
+    del a["lease"]
+    with pytest.raises(ValueError, match="lease"):
+        compute(make_history(), a)
 
 
 def test_g_not_less_than_wacc_raises():
@@ -212,11 +237,11 @@ def test_compare_detects_mismatch(exported, tmp_path):
     out, cells, res = exported
     wb = load_workbook(out)
     bad = copy.deepcopy(res)
-    for key in ("revenue", "ebit", "da", "capex", "dnwc", "fcff", "pv"):
+    for key in ("revenue", "ebit_reported", "lease_interest", "ebit", "da", "capex", "dnwc", "fcff", "pv"):
         for (sheet, coord), v in zip(cells[key], res[key]):
             wb[sheet][coord].value = v
     for key in ("wacc", "ke", "sum_pv", "tv", "pv_tv", "ev", "net_debt", "nonop", "nci", "equity", "shares",
-                "per_share"):
+                "per_share", "base_ebit", "base_ebitda"):
         sheet, coord = cells[key]
         wb[sheet][coord].value = res[key]
     wb[cells["m_ebitda"][0]][cells["m_ebitda"][1]].value = res["ev_ebitda_base"]

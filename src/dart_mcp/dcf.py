@@ -5,6 +5,8 @@
   TV   = FCFF_N × (1 + g) / (WACC − g)          (g ≥ WACC면 ValueError)
   할인계수 = 1 / (1 + WACC)^(t − cf_timing_adj), TV는 (N − tv_timing_adj)  (기중 가정이면 둘 다 0.5)
   주주가치 = 기업가치 − 순차입금 + 비영업자산 − 비지배지분
+  리스(방법 2, 영업비용 관점): 감가상각비에 사용권자산 상각비를 넣지 않고(EBIT에 이미 차감됨),
+    리스부채 이자비용을 EBIT에서 빼며, 리스부채는 순차입금에 넣지 않는다. 사용권자산 취득은 CAPEX가 아니다.
   비용·CAPEX·순운전자본 증가는 양수로 두고 수식에서 차감한다.
   단위는 백만원. DART 원자료(원)는 collect_history에서 한 번만 환산한다.
   법인세율·WACC·성장률 등 모든 가정은 assumptions JSON에서 온다(코드 상수 없음).
@@ -187,7 +189,9 @@ def history_from_json(d: dict) -> History:
 
 
 # --------------------------------------------------------------------------- 가정
-FORECAST_KEYS = ("revenue_growth", "operating_margin", "tax_rate", "da_pct", "capex_pct", "nwc_pct")
+FORECAST_KEYS = ("revenue_growth", "operating_margin", "lease_interest_pct", "tax_rate", "da_pct", "capex_pct",
+                 "nwc_pct")
+DA_KEYS = ("dep", "amort", "dep_ip")   # 사용권자산 상각비(dep_rou)는 제외 — 리스 방법 2
 DISCOUNT_KEYS = ("rf", "mrp", "beta", "crp", "kd", "debt_weight", "terminal_growth", "cf_timing_adj", "tv_timing_adj")
 
 
@@ -214,6 +218,8 @@ def validate_assumptions(a: dict) -> None:
     for k in ("issued", "treasury"):
         if not isinstance(a["shares"].get(k), int):
             raise ValueError(f"assumptions.shares.{k}: 정수가 필요하다")
+    if not isinstance((a.get("lease") or {}).get("base_interest"), (int, float)):
+        raise ValueError("assumptions.lease.base_interest: 기준연도 리스부채 이자비용(백만원)이 필요하다")
 
 
 # --------------------------------------------------------------------------- 계산
@@ -231,10 +237,15 @@ def wacc_of(a: dict) -> dict:
 
 def bridge_items(h: History) -> dict:
     cash_like = sum(h.base_or_zero(k) for k in ("cash", "st_deposit", "lt_deposit", "fvpl_current"))
-    debt = h.base_or_zero("borrowings") + h.base_or_zero("lease")
+    debt = h.base_or_zero("borrowings")          # 리스부채 제외(리스 방법 2)
     nonop = sum(h.base_or_zero(k) for k in ("equity_method", "inv_property", "fvoci"))
     return {"cash_like": cash_like, "debt": debt, "net_debt": debt - cash_like, "nonop": nonop,
-            "nci": h.base_or_zero("nci")}
+            "nci": h.base_or_zero("nci"), "lease_excluded": h.base_or_zero("lease")}
+
+
+def base_da(h: History) -> float:
+    """기준연도 감가상각비(사용권자산 상각비 제외)."""
+    return h.base("dep") + sum(h.base_or_zero(k) for k in DA_KEYS if k != "dep")
 
 
 def value_at(fcff: list[float], periods: list[float], tv_period: float, wacc: float, g: float, bridge: dict,
@@ -255,15 +266,17 @@ def compute(h: History, a: dict) -> dict:
     validate_assumptions(a)
     f, d = a["forecast"], a["discount"]
     n = FORECAST_YEARS
-    rev, ebit, tax, nopat, da, capex, nwc, dnwc, fcff = ([] for _ in range(9))
+    rev, ebit_rep, lease_int, ebit, tax, nopat, da, capex, nwc, dnwc, fcff = ([] for _ in range(11))
     prev_rev = h.base("revenue")
     prev_nwc = h.base("ar") + h.base("inventory") - h.base("ap")
     for i in range(n):
         r = prev_rev * (1 + f["revenue_growth"][i])
-        e = r * f["operating_margin"][i]
+        er = r * f["operating_margin"][i]          # 보고 영업이익(IFRS 16)
+        li = r * f["lease_interest_pct"][i]       # 리스부채 이자비용
+        e = er - li                               # EBIT(리스료 차감 후)
         t = e * f["tax_rate"][i]
         w = r * f["nwc_pct"][i]
-        rev.append(r); ebit.append(e); tax.append(t); nopat.append(e - t)
+        rev.append(r); ebit_rep.append(er); lease_int.append(li); ebit.append(e); tax.append(t); nopat.append(e - t)
         da.append(r * f["da_pct"][i]); capex.append(r * f["capex_pct"][i])
         nwc.append(w); dnwc.append(w - prev_nwc)
         fcff.append(e * (1 - f["tax_rate"][i]) + da[-1] - capex[-1] - dnwc[-1])
@@ -288,12 +301,14 @@ def compute(h: History, a: dict) -> dict:
             row.append(None if g >= w else value_at(fcff, periods, tv_period, w, g, bridge, shares, unit)["per_share"])
         grid.append(row)
 
-    base_ebitda = h.base("ebit") + sum(h.base_or_zero(k) for k in ("dep", "dep_rou", "amort", "dep_ip"))
+    base_ebit = h.base("ebit") - a["lease"]["base_interest"]
+    base_ebitda = base_ebit + base_da(h)
     return {
-        "revenue": rev, "ebit": ebit, "tax": tax, "nopat": nopat, "da": da, "capex": capex, "nwc": nwc,
+        "revenue": rev, "ebit_reported": ebit_rep, "lease_interest": lease_int, "ebit": ebit, "tax": tax, "nopat": nopat, "da": da, "capex": capex, "nwc": nwc,
         "dnwc": dnwc, "fcff": fcff, "t": t_index, "periods": periods, "tv_period": tv_period,
         **rates, "g": d["terminal_growth"], **bridge, "shares": shares, **val,
-        "sum_pv": sum(val["pv"]), "ev_ebitda_base": val["ev"] / base_ebitda,
+        "sum_pv": sum(val["pv"]), "base_ebit": base_ebit, "base_ebitda": base_ebitda,
+        "ev_ebitda_base": val["ev"] / base_ebitda,
         "sens_wacc": sens_w, "sens_g": sens_g, "sens_grid": grid,
     }
 
