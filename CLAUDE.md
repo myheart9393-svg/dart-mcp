@@ -79,6 +79,10 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
 | `/dart-valuation-backfill <rcept_no>` | 기존 사례 한 건의 v1.6 칸(β 방식·규모위험 근거·비교회사·수익가치·거래 단위 상대가치)을 원문에서 보강. 기존 값은 안 바꾸고 diff만 보고. SPAC 사례는 인용 전에 건별로 |
 | `/dart-valuation-batch <bgn> <end> [--grade full] [--limit N]` | 대상 큐(`dart_mcp.batch plan`) → 건마다 서브에이전트로 `/dart-valuation`, 실패는 기록하고 계속, 끝나고 무작위 20% 리뷰 → `_batch_<날짜>.md` |
 
+### DCF 모델 (`dart_mcp.dcf`)
+- `uv run python -m dart_mcp.dcf build reports/dcf/<회사>_assumptions.json --out <xlsx> [--verify]`. 규칙·시트 구성은 `docs/dcf.md`.
+- 가정은 JSON에만, 엑셀 입력은 `가정` 시트에만. 기중 할인 0.5는 오너 확인 전 기본값. `--verify`/테스트는 LibreOffice 재계산 = 엔진.
+
 ### 가치평가 사례 규칙 (`/dart-valuation*`)
 - **원문에 없으면 null. 추정 금지.** 빈칸을 계산·유추로 채우지 않는다. 숫자는 전부 `{value, unit, text, cite}`이고 단위는 원문 그대로(환산 금지).
 - 평가 주체(외부평가기관·각 재무자문사·주관사·회사)가 다르면 valuations 원소를 나눈다. 회의록에 인용된 값은 notes로.
