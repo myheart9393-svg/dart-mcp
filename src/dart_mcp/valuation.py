@@ -1225,7 +1225,17 @@ def render_markdown(case: dict) -> str:
             out.append(f"| {e.get('company') or ''} | {e['stock_code']} | {e['ref_date']} | {n(e.get('disclosed'))} | "
                        f"{n(e.get('recomputed'))} | {diff} | {e['status']}{how} | {n(e.get('merger_price'))} | {adj} | "
                        f"{e.get('disclosed_cite') or '–'} |")
-        notes = [(e.get("company") or e["stock_code"], w) for e in bp for w in (e.get("warnings") or [])]
+        notes = []
+        for e in bp:
+            pa = e.get("period_adjustment")
+            if pa:
+                st, us = pa["stated"], pa["used"]
+                sd = f"{pa['stated_diff_pct']:+.3f}%" if pa.get("stated_diff_pct") is not None else "–"
+                notes.append((e.get("company") or e["stock_code"],
+                              f"기간 조정 후 일치 — 원문 표기 기간(1개월 {st['month_from']}~, 1주일 {st['week_from']}~)으로 계산 "
+                              f"{n(pa.get('stated_recomputed'))}원(공시 {n(e.get('disclosed'))}원과 {sd}), 재현 기간(1개월 {us['month_from']}~, "
+                              f"1주일 {us['week_from']}~)으로 {n(e.get('recomputed'))}원. 어느 기간이 옳은지는 판단하지 않음"))
+        notes += [(e.get("company") or e["stock_code"], w) for e in bp for w in (e.get("warnings") or [])]
         if notes:
             out += ["", *[f"- {c}: {w}" for c, w in notes]]
         srcs = sorted({e["source"] for e in bp if e.get("source")})

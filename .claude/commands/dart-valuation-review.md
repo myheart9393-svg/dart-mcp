@@ -63,7 +63,7 @@ dart MCP 툴(get_disclosure_section, search_in_disclosure, find_tables 등)과 B
   종목코드는 `find_company`의 stock_code. SPAC 합병은 SPAC 쪽 주가다.
 - `uv run python -m dart_mcp.krx base-price --code <종목> --date <기산일> --disclosed <기준주가> --merger-price <합병가액> --regime <deal.regime> [--affiliated] --json`.
   원문 기간이 기본값(기산일 포함 소급 1개월·7일)과 다르면 `--month-start/--week-start`로 맞춘다. `--affiliated`는 원문이 계열회사 간 10% 한도를 적었을 때만.
-- 판정: status "일치"면 PASS. "불일치"면 원인(기간 정의·절사/반올림·거래정지·종목코드)을 적고 FAIL. within_band=false면 FAIL(한도 초과).
+- 판정: status "일치"면 PASS. "기간 조정 후 일치"(v1.8.1)도 PASS로 세되, period_adjustment의 표기 기간 계산값·차이와 source_inconsistent(h_base_price) 기록이 있는지 확인하고 비고에 적는다(어느 기간이 옳은지는 판단하지 않는다). "불일치"면 원인(기간 정의·절사/반올림·거래정지·종목코드)을 적고 FAIL. within_band=false면 FAIL(한도 초과).
   regime이 기준시가가 아니면 한도는 판정하지 않고 재계산값만 적는다. JSON에 market_check가 있으면 그 값과 재계산값이 같은지도 본다.
 - KRX_API_KEY가 없거나 호출이 401이면 "검산 불가(KRX 미연결)"로 적고 FAIL로 세지 않는다. API 호출 수를 리뷰어 툴 사용에 적는다.
 

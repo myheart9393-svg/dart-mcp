@@ -127,3 +127,25 @@ def test_market_check_renders_in_case_md(client):
     md = render_markdown({**MIN_CASE, "market_check": {"base_price": [e]}})
     assert "## 기준주가 재계산 (KRX)" in md and "가나다(주) | 111111" in md and "일치(반올림)" in md and "±30% 범위 안" in md
     assert "기준주가 재계산" not in render_markdown(MIN_CASE)
+
+
+def test_period_adjustment_keeps_both_calculations(client):
+    from dart_mcp.valuation import render_markdown, validate_case
+    from tests.test_valuation import MIN_CASE
+
+    c, _ = client
+    used = krx.base_price(c, "111111", "20240314", "KOSDAQ", week_start="20240311")
+    stated = krx.base_price(c, "111111", "20240314", "KOSDAQ")  # 기본 기간 = "원문 표기"로 가정
+    chk = krx.check_base_price(used, disclosed=used["base_price_rounded"])
+    e = krx.apply_period_adjustment(krx.market_check_entry(used, chk, "가나다(주)"), used, stated, "테스트")
+    pa = e["period_adjustment"]
+    assert e["status"] == krx.PERIOD_ADJUSTED and pa["stated"]["week_from"] == "20240308" and pa["used"]["week_from"] == "20240311"
+    assert pa["stated_recomputed_raw"] == stated["base_price"] and pa["stated_diff_pct"] is not None
+    case = {**MIN_CASE, "market_check": {"base_price": [e]},
+            "source_inconsistent": [{"check": "h_base_price", "path": "market_check/base_price/0", "note": "기간 표기"}]}
+    assert validate_case(case) == []
+    md = render_markdown(case)
+    assert "기간 조정 후 일치(반올림)" in md and "원문 표기 기간(1개월 20240215~" not in md  # ~는 en dash로 바뀐다
+    assert "원문 표기 기간(1개월 20240215–, 1주일 20240308–)" in md
+    with pytest.raises(ValueError):
+        krx.apply_period_adjustment({**e, "status": "불일치"}, used, stated)

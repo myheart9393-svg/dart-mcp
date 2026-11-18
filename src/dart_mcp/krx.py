@@ -271,6 +271,30 @@ def market_check_entry(result: dict, chk: dict, company: str | None = None, regi
     }
 
 
+PERIOD_ADJUSTED = "기간 조정 후 일치"
+
+
+def _period(r: dict) -> dict:
+    return {"month_from": r["month"]["from"], "week_from": r["week"]["from"], "to": r["ref_date"]}
+
+
+def apply_period_adjustment(entry: dict, used: dict, stated: dict, note: str | None = None) -> dict:
+    """공시값을 원문 표기 기간이 아닌 다른 기간으로 재현한 원소에 두 계산을 나란히 남긴다(v1.8.1).
+
+    entry = used 결과로 만든 market_check_entry(status 일치). used·stated = base_price(...) 결과(사용 기간·원문 표기 기간).
+    어느 기간이 옳은지는 판단하지 않는다. status만 "기간 조정 후 일치"로 바꾸고 표기 기간 계산값·차이를 period_adjustment에 둔다.
+    """
+    if entry.get("status") != "일치":
+        raise ValueError(f"기간 조정은 사용 기간으로 일치한 원소에만: status={entry.get('status')}")
+    disclosed, raw = entry.get("disclosed"), stated.get("base_price")
+    return {**entry, "status": PERIOD_ADJUSTED, "period_adjustment": {
+        "stated": _period(stated), "used": _period(used),
+        "stated_recomputed": stated.get("base_price_rounded"), "stated_recomputed_raw": raw,
+        "stated_diff_pct": round((disclosed - raw) / raw * 100, 4) if disclosed is not None and raw else None,
+        "note": note,
+    }}
+
+
 def latest_row(client: KrxClient, code: str, ref: date, market: str | None = None, max_back: int = 10) -> dict | None:
     """ref부터 하루씩 거슬러 처음 거래 자료가 있는 날의 행(휴장일이면 직전 거래일)."""
     market = (market or client.find_market(code, ref)).upper()
