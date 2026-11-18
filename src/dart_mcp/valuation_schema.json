@@ -116,6 +116,7 @@
         "recomputed": {"type": ["integer", "null"], "description": "재계산 기준주가(원 미만 반올림), 원"},
         "recomputed_raw": {"type": ["number", "null"], "description": "반올림 전 값"},
         "disclosed": {"type": ["number", "null"], "description": "공시 기준주가(할인·할증 전), 원"},
+        "disclosed_cite": {"type": ["string", "null"], "description": "공시 기준주가를 옮긴 원문 위치(\"<rcept_no> §<section_id> @<offset>\")"},
         "diff_pct": {"type": ["number", "null"], "description": "(공시 − 재계산 원값) / 재계산 원값 × 100"},
         "status": {"enum": ["일치", "불일치", "계산 불가", "공시값 없음"]},
         "rounding": {"enum": ["반올림", "절사", "오차", null], "description": "일치일 때 공시값이 어느 쪽과 같은지"},

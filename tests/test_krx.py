@@ -75,8 +75,8 @@ def test_market_check_entry_validates_and_regime_skips_band(client):
     c, _ = client
     r = krx.base_price(c, "111111", "20240314", "KOSDAQ")
     chk = krx.check_base_price(r, disclosed=r["base_price_rounded"], merger_price=r["base_price"] * 0.75, affiliated=True)
-    e = krx.market_check_entry(r, chk, "가나다(주)", "기준시가", True)
-    assert e["within_band"] is False and e["band_pct"] == 10.0 and e["status"] == "일치"
+    e = krx.market_check_entry(r, chk, "가나다(주)", "기준시가", True, "20240101000001 §5 @100")
+    assert e["within_band"] is False and e["band_pct"] == 10.0 and e["status"] == "일치" and e["disclosed_cite"].endswith("@100")
     chk2 = krx.check_base_price(r, disclosed=r["base_price_rounded"], merger_price=r["base_price"] * 0.75, band=False)
     assert "within_band" not in chk2
     e2 = krx.market_check_entry(r, chk2, None, "공정가액(2026.12.9 개정)")

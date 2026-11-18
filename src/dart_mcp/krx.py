@@ -250,13 +250,13 @@ BAND_REGIMES = ("기준시가",)
 
 
 def market_check_entry(result: dict, chk: dict, company: str | None = None, regime: str | None = "기준시가",
-                       affiliated: bool | None = None) -> dict:
+                       affiliated: bool | None = None, disclosed_cite: str | None = None) -> dict:
     """사례 JSON market_check.base_price[] 원소. regime이 기준시가가 아니면 한도 칸은 null(재계산값만 기록)."""
     banded = regime in BAND_REGIMES
     return {
         "company": company or result.get("name"), "stock_code": result["code"], "ref_date": result["ref_date"],
         "recomputed": result.get("base_price_rounded"), "recomputed_raw": result.get("base_price"),
-        "disclosed": chk.get("disclosed"),
+        "disclosed": chk.get("disclosed"), "disclosed_cite": disclosed_cite,
         "diff_pct": round(chk["diff_pct"], 4) if chk.get("diff_pct") is not None else None,
         "status": chk.get("status") if chk.get("disclosed") is not None else ("계산 불가" if result.get("base_price") is None else "공시값 없음"),
         "rounding": chk.get("rounding"),
@@ -349,6 +349,7 @@ def main(argv=None) -> int:
     b.add_argument("--affiliated", action="store_true", help="계열회사 간 합병(한도 10퍼센트)")
     b.add_argument("--regime", default="기준시가", help="deal.regime. 기준시가가 아니면 한도 판정 안 함(재계산값만)")
     b.add_argument("--company", help="market_check 원소의 회사명(생략하면 KRX 종목명)")
+    b.add_argument("--disclosed-cite", help='공시 기준주가 원문 위치 "<rcept_no> §<section_id> @<offset>"')
     m = sub.add_parser("mktcap", parents=[common], help="기준일 종가·상장주식수·시가총액")
     m.add_argument("--codes", required=True, help="쉼표로 구분한 종목코드")
     m.add_argument("--date", required=True)
@@ -364,7 +365,7 @@ def main(argv=None) -> int:
             r = base_price(c, a.code, a.date, a.market, a.month_start, a.week_start)
             chk = check_base_price(r, a.disclosed, a.merger_price, a.affiliated, band=a.regime in BAND_REGIMES)
             if a.json:
-                entry = market_check_entry(r, chk, a.company, a.regime, a.affiliated)
+                entry = market_check_entry(r, chk, a.company, a.regime, a.affiliated, a.disclosed_cite)
                 print(json.dumps({**r, "check": chk, "market_check_entry": entry}, ensure_ascii=False, indent=1))
             else:
                 _print_base(r, chk)
