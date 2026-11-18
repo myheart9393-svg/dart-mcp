@@ -1413,6 +1413,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20260527000260 §4.h5 @1400: 양사는 본건 합병이 계열회사 간 합병에 해당하여",
     "regime": "기준시가",
     "warnings": [
      "종목코드: 원문 회사명 '(주)엔피'을 기준일(20260407) KRX 종목명 '엔피'(291230, KOSDAQ)과 대조. 현재 DART 회사명 '컴투스엔'"
@@ -1435,6 +1436,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20260527000260 §4.h5 @1400: 양사는 본건 합병이 계열회사 간 합병에 해당하여",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20260308–20260407)"

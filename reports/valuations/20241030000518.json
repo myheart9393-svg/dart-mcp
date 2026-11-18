@@ -600,7 +600,8 @@
     "adjust_pct": -14.2735,
     "band_pct": 30.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": false,
+    "affiliated_cite": "20241030000518 §11 @40: 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [
      "계열 여부: 사례의 deal.relation_text가 비어 있어 미확정 — 한도는 ±30% 기준으로만 판정"
@@ -608,5 +609,13 @@
     "source": "(KRX Open API, 일별매매정보, 20240401–20240429)"
    }
   ]
- }
+ },
+ "absent_reasons": [
+  {
+   "path": "deal/related_party",
+   "field": "related_party",
+   "reason": "추출 안 함",
+   "basis": "원문 재확인 2026-11-18: related_party=null, 원문 판정=false — 근거 20241030000518 §11 @40: 해당사항 없습니다."
+  }
+ ]
 }

@@ -229,9 +229,10 @@
     "rounding": "반올림",
     "merger_price": 41979,
     "adjust_pct": 0.0,
-    "band_pct": 30.0,
+    "band_pct": 10.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": true,
+    "affiliated_cite": "20251204000351 §9.h6 @246: 합병당사회사는 … 코오롱 그룹에 속한 계열회사로",
     "regime": "기준시가",
     "warnings": [
      "기산일 20251123에 거래 자료가 없어 최근일 종가는 20251121 값입니다(휴장일·거래정지 여부 확인)."
@@ -251,9 +252,10 @@
     "rounding": "반올림",
     "merger_price": 8058,
     "adjust_pct": 0.0,
-    "band_pct": 30.0,
+    "band_pct": 10.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": true,
+    "affiliated_cite": "20251204000351 §9.h6 @246: 합병당사회사는 … 코오롱 그룹에 속한 계열회사로",
     "regime": "기준시가",
     "warnings": [
      "기산일 20251123에 거래 자료가 없어 최근일 종가는 20251121 값입니다(휴장일·거래정지 여부 확인)."

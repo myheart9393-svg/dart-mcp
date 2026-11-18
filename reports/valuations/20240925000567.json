@@ -694,6 +694,12 @@
    "field": "size_premium",
    "reason": "원문에 없음",
    "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h10, 5.h11, 5.h12, 5.h13, 5.h14, 5.h15, 5.h16, 5.h17, 5.h2, 5.h3, 5.h4, 5.h5, 5.h6, 5.h7, 5.h8, 5.h9에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "deal/related_party",
+   "field": "related_party",
+   "reason": "추출 안 함",
+   "basis": "원문 재확인 2026-11-18: related_party=true, 원문 판정=미상 — 미상 사유 VIII 가목은 '최대주주가 동일한 특수관계인'이라고 적음. '계열회사' 명시 없음 (20240925000567 §11 @41)"
   }
  ],
  "relative_value": {
@@ -726,7 +732,9 @@
     "within_band": true,
     "affiliated": null,
     "regime": "기준시가",
-    "warnings": [],
+    "warnings": [
+     "원문에 계열회사 명시 없음: 자회사/동일 최대주주 관계만 기재 — VIII 가목은 '최대주주가 동일한 특수관계인'이라고 적음. '계열회사' 명시 없음 (20240925000567 §11 @41, 2026-11-18 재확인)"
+    ],
     "source": "(KRX Open API, 일별매매정보, 20240812–20240909)"
    }
   ]

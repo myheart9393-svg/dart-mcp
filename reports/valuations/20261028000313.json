@@ -1811,6 +1811,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20261028000313 §9.h43 @7839: 합병존속회사와 합병소멸회사는 SK그룹 계열회사로서",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20260727–20260824)"
@@ -1831,6 +1832,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20261028000313 §9.h43 @7839: 합병존속회사와 합병소멸회사는 SK그룹 계열회사로서",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20260727–20260824)"

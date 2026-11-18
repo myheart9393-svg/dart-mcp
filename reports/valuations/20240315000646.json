@@ -575,6 +575,12 @@
    "field": "size_premium",
    "reason": "원문에 없음",
    "basis": "키워드 감사 2026-10-27: section 5, 5.h1, 5.h10, 5.h11, 5.h12, 5.h13, 5.h14, 5.h15, 5.h16, 5.h17, 5.h18, 5.h19, 5.h2, 5.h20, 5.h21, 5.h22, 5.h23, 5.h24, 5.h25, 5.h26, 5.h27, 5.h28, 5.h29, 5.h3, 5.h30, 5.h31, 5.h32, 5.h33, 5.h34, 5.h35, 5.h36, 5.h37, 5.h38, 5.h39, 5.h4, 5.h40, 5.h41, 5.h42, 5.h5, 5.h6, 5.h7, 5.h8, 5.h9에 키워드 없음 — 원문에 없음 추정"
+  },
+  {
+   "path": "deal/related_party",
+   "field": "related_party",
+   "reason": "추출 안 함",
+   "basis": "원문 재확인 2026-11-18: related_party=null, 원문 판정=false — 근거 20240315000646 §11 @40: 당사는 증권신고서 제출일 현재 해당사항 없습니다."
   }
  ],
  "relative_value": {
@@ -605,7 +611,8 @@
     "adjust_pct": 2.4066,
     "band_pct": 30.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": false,
+    "affiliated_cite": "20240315000646 §11 @40: 당사는 증권신고서 제출일 현재 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20230424–20230522)"

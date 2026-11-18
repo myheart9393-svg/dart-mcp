@@ -238,9 +238,11 @@
     "adjust_pct": 0.0,
     "band_pct": 30.0,
     "within_band": true,
-    "affiliated": false,
+    "affiliated": null,
     "regime": "기준시가",
-    "warnings": [],
+    "warnings": [
+     "원문에 계열회사 명시 없음: 자회사/동일 최대주주 관계만 기재 — VIII 가목은 클래시스가 이루다의 주요주주(17.36%)라고만 적음 (20240722000067 §11 @40, 2026-11-18 재확인)"
+    ],
     "source": "(KRX Open API, 일별매매정보, 20240527–20240624)"
    },
    {
@@ -258,9 +260,11 @@
     "adjust_pct": 0.0,
     "band_pct": 30.0,
     "within_band": true,
-    "affiliated": false,
+    "affiliated": null,
     "regime": "기준시가",
-    "warnings": [],
+    "warnings": [
+     "원문에 계열회사 명시 없음: 자회사/동일 최대주주 관계만 기재 — VIII 가목은 클래시스가 이루다의 주요주주(17.36%)라고만 적음 (20240722000067 §11 @40, 2026-11-18 재확인)"
+    ],
     "source": "(KRX Open API, 일별매매정보, 20240527–20240624)"
    }
   ]

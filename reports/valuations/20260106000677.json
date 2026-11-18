@@ -222,7 +222,9 @@
     "within_band": true,
     "affiliated": null,
     "regime": "기준시가",
-    "warnings": [],
+    "warnings": [
+     "원문에 계열회사 명시 없음: 자회사/동일 최대주주 관계만 기재 — VIII 가목은 직접 28.77% + 관계회사 경유 간접 지배를 적음. 계열 명시 없음 (20260106000677 §11 @27, 2026-11-18 재확인)"
+    ],
     "source": "(KRX Open API, 일별매매정보, 20251111–20251210)"
    },
    {
@@ -242,9 +244,19 @@
     "within_band": true,
     "affiliated": null,
     "regime": "기준시가",
-    "warnings": [],
+    "warnings": [
+     "원문에 계열회사 명시 없음: 자회사/동일 최대주주 관계만 기재 — VIII 가목은 직접 28.77% + 관계회사 경유 간접 지배를 적음. 계열 명시 없음 (20260106000677 §11 @27, 2026-11-18 재확인)"
+    ],
     "source": "(KRX Open API, 일별매매정보, 20251111–20251210)"
    }
   ]
- }
+ },
+ "absent_reasons": [
+  {
+   "path": "deal/related_party",
+   "field": "related_party",
+   "reason": "추출 안 함",
+   "basis": "원문 재확인 2026-11-18: related_party=true, 원문 판정=미상 — 미상 사유 VIII 가목은 직접 28.77% + 관계회사 경유 간접 지배를 적음. 계열 명시 없음 (20260106000677 §11 @27)"
+  }
+ ]
 }

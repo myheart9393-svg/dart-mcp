@@ -1169,6 +1169,7 @@
     "band_pct": 30.0,
     "within_band": true,
     "affiliated": false,
+    "affiliated_cite": "20261103000135 §11 @40: 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [
      "종목코드: 원문 회사명 '아이비케이에스제25호기업인수목적 주식회사'을 기준일(20260629) KRX 종목명 'IBKS제25호스팩'(0099X0, KOSDAQ)과 대조. 현재 DART 회사명 'IBKS제25호스팩'"

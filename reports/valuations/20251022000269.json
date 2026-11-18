@@ -627,6 +627,7 @@
     "band_pct": 30.0,
     "within_band": true,
     "affiliated": false,
+    "affiliated_cite": "20251022000269 §11 @40: 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [
      "기산일 20250518에 거래 자료가 없어 최근일 종가는 20250516 값입니다(휴장일·거래정지 여부 확인).",

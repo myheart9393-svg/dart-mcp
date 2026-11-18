@@ -576,6 +576,12 @@
    "field": "size_premium",
    "reason": "추출 안 함",
    "basis": "키워드 감사 2026-10-27: section 5 offset 142928 '(주)\n자기자본비용을 산정함에 있어 기업규모 또는 상대적 산업특성에 따라 실제' — 추출 누락 의심"
+  },
+  {
+   "path": "deal/related_party",
+   "field": "related_party",
+   "reason": "추출 안 함",
+   "basis": "원문 재확인 2026-11-18: related_party=null, 원문 판정=false — 근거 20240711000131 §11 @40: 해당사항 없습니다."
   }
  ],
  "relative_value": {
@@ -606,7 +612,8 @@
     "adjust_pct": -13.2697,
     "band_pct": 30.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": false,
+    "affiliated_cite": "20240711000131 §11 @40: 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [
      "계열 여부: 사례의 deal.relation_text가 비어 있어 미확정 — 한도는 ±30% 기준으로만 판정"

@@ -645,7 +645,8 @@
     "adjust_pct": -8.2148,
     "band_pct": 30.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": false,
+    "affiliated_cite": "20250528000460 §11 @41: 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [
      "종목코드: 원문 회사명 '키움제8호기업인수목적 주식회사'을 기준일(20241202) KRX 종목명 '키움제8호스팩'(446840, KOSDAQ)과 대조. 현재 DART 회사명 '지슨'"
@@ -667,7 +668,8 @@
     "adjust_pct": null,
     "band_pct": null,
     "within_band": null,
-    "affiliated": null,
+    "affiliated": false,
+    "affiliated_cite": "20250528000460 §11 @41: 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [
      "합병가액은 본질가치 5,700원: 기준주가는 비교 목적, 한도 판정 대상 아님",
@@ -676,5 +678,13 @@
     "source": "(KRX Open API, 일별매매정보, 20241104–20241202)"
    }
   ]
- }
+ },
+ "absent_reasons": [
+  {
+   "path": "deal/related_party",
+   "field": "related_party",
+   "reason": "추출 안 함",
+   "basis": "원문 재확인 2026-11-18: related_party=null, 원문 판정=false — 근거 20250528000460 §11 @41: 해당사항 없습니다."
+  }
+ ]
 }

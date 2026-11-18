@@ -598,11 +598,20 @@
     "adjust_pct": -8.5087,
     "band_pct": 30.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": false,
+    "affiliated_cite": "20240725000314 §11 @40: 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20240102–20240129)"
    }
   ]
- }
+ },
+ "absent_reasons": [
+  {
+   "path": "deal/related_party",
+   "field": "related_party",
+   "reason": "추출 안 함",
+   "basis": "원문 재확인 2026-11-18: related_party=null, 원문 판정=false — 근거 20240725000314 §11 @40: 해당사항 없습니다."
+  }
+ ]
 }

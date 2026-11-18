@@ -223,6 +223,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20240621000633 §11 @40: 합병존속회사인 (주)디엔오토모티브는 공시대상기업집단 'DN그룹'의 대표회사이며, 피합병회사인 동아타이어공업(주)는 공시대상기업집단 'DN그룹'의 소속회사로서 양사",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20240512–20240611)"
@@ -243,6 +244,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20240621000633 §11 @40: 합병존속회사인 (주)디엔오토모티브는 공시대상기업집단 'DN그룹'의 대표회사이며, 피합병회사인 동아타이어공업(주)는 공시대상기업집단 'DN그룹'의 소속회사로서 양사",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20240512–20240611)"

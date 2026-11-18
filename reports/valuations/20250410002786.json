@@ -596,6 +596,7 @@
     "band_pct": 30.0,
     "within_band": true,
     "affiliated": false,
+    "affiliated_cite": "20250410002786 §11 @40: 해당사항 없습니다.",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20240920–20241022)"

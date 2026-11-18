@@ -212,6 +212,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20250922000165 §11 @40: 증권신고서 제출일 현재 합병회사 HD현대중공업(주)와 피합병회사 HD현대미포(주)는 독점규제 및 공정거래에 관한 법률 상 HD현대 그룹 기업집단 소속의 계열회사입",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20250728–20250826)"
@@ -232,6 +233,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20250922000165 §11 @40: 증권신고서 제출일 현재 합병회사 HD현대중공업(주)와 피합병회사 HD현대미포(주)는 독점규제 및 공정거래에 관한 법률 상 HD현대 그룹 기업집단 소속의 계열회사입",
     "regime": "기준시가",
     "warnings": [
      "종목코드: 원문 회사명 'HD현대미포(주)'을 기준일(20250826) KRX 종목명 'HD현대미포'(010620, KOSPI)과 대조. 현재 DART 회사명 '에이치디현대미포'"

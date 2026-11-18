@@ -955,7 +955,8 @@
     "adjust_pct": null,
     "band_pct": null,
     "within_band": null,
-    "affiliated": null,
+    "affiliated": false,
+    "affiliated_cite": "20240327001174 §11 @43: 해당사항 없습니다 .",
     "regime": "기준시가",
     "warnings": [
      "합병가액은 본질가치 7,066원: 기준주가는 비교 목적, 한도 판정 대상 아님 / 원문 1주일 기간 표기가 섹션마다 다르다(§5 2023-11-03~, §9 2023-11-06~). 공시값은 11-06~11-10으로 재현된다"
@@ -977,7 +978,8 @@
     "adjust_pct": -13.9785,
     "band_pct": 30.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": false,
+    "affiliated_cite": "20240327001174 §11 @43: 해당사항 없습니다 .",
     "regime": "기준시가",
     "warnings": [
      "원문 1주일 기간 표기가 섹션마다 다르다(§5 2023-11-03~, §9 2023-11-06~). 공시값은 11-06~11-10으로 재현된다",
@@ -1002,5 +1004,13 @@
     }
    }
   ]
- }
+ },
+ "absent_reasons": [
+  {
+   "path": "deal/related_party",
+   "field": "related_party",
+   "reason": "추출 안 함",
+   "basis": "원문 재확인 2026-11-18: related_party=null, 원문 판정=false — 근거 20240327001174 §11 @43: 해당사항 없습니다 ."
+  }
+ ]
 }

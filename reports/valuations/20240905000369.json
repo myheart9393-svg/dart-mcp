@@ -220,9 +220,10 @@
     "rounding": "반올림",
     "merger_price": 10810,
     "adjust_pct": 0.0,
-    "band_pct": 30.0,
+    "band_pct": 10.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": true,
+    "affiliated_cite": "20240905000369 §11 @3849: 씨아이에스(주) 및 에스엔유프리시젼(주)는 계열회사 관계로",
     "regime": "기준시가",
     "warnings": [
      "종목코드: 원문 회사명 '씨아이에스(주)'을 기준일(20240826) KRX 종목명 '씨아이에스'(222080, KOSDAQ)과 대조 — DART 회사명 대조 코드 144630는 기준일 KRX에 다른 종목이거나 없어 교체. 현재 DART 회사명 'SFA넥셀'",
@@ -243,9 +244,10 @@
     "rounding": "반올림",
     "merger_price": 2156,
     "adjust_pct": 0.0,
-    "band_pct": 30.0,
+    "band_pct": 10.0,
     "within_band": true,
-    "affiliated": null,
+    "affiliated": true,
+    "affiliated_cite": "20240905000369 §11 @3849: 씨아이에스(주) 및 에스엔유프리시젼(주)는 계열회사 관계로",
     "regime": "기준시가",
     "warnings": [
      "기산일 20240826: 원문 기준주가 표의 기간(1개월 20240729~, 최근일 20240826)으로 확정(원문 '기산일' 문구 후보 20240101, 20240826, 20240827)"

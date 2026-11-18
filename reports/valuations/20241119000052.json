@@ -231,6 +231,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20241119000052 §4 @5719: 엘비세미콘(주)은 … (주)엘비루셈의 지분율 48.78%를 보유한 최대주주로, 양사는 상호 계열회사의 관계",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20240918–20241017)"
@@ -251,6 +252,7 @@
     "band_pct": 10.0,
     "within_band": true,
     "affiliated": true,
+    "affiliated_cite": "20241119000052 §4 @5719: 엘비세미콘(주)은 … (주)엘비루셈의 지분율 48.78%를 보유한 최대주주로, 양사는 상호 계열회사의 관계",
     "regime": "기준시가",
     "warnings": [],
     "source": "(KRX Open API, 일별매매정보, 20240918–20241017)"
