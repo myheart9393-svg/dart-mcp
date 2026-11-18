@@ -203,5 +203,49 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "한일시멘트(주)",
+    "stock_code": "300720",
+    "ref_date": "20250716",
+    "recomputed": 18839,
+    "recomputed_raw": 18839.258135065378,
+    "disclosed": 18839.0,
+    "disclosed_cite": "20250813001423 §5 @2048",
+    "diff_pct": -0.0014,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 18839,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20250617–20250716)"
+   },
+   {
+    "company": "한일현대시멘트(주)",
+    "stock_code": "006390",
+    "ref_date": "20250716",
+    "recomputed": 18892,
+    "recomputed_raw": 18892.407301931722,
+    "disclosed": 18892.0,
+    "disclosed_cite": "20250813001423 §5 @4030",
+    "diff_pct": -0.0022,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 18892,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20250617–20250716)"
+   }
+  ]
  }
 }

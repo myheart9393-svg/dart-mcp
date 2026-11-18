@@ -610,5 +610,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "키움제6호기업인수목적(주)",
+    "stock_code": "413600",
+    "ref_date": "20240711",
+    "recomputed": 2384,
+    "recomputed_raw": 2383.6821342646363,
+    "disclosed": 2384.0,
+    "disclosed_cite": "20241209000173 §5 @23654",
+    "diff_pct": 0.0133,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -16.1074,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240612–20240711)"
+   }
+  ]
  }
 }

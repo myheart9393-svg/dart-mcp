@@ -706,5 +706,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "(주)위메이드맥스",
+    "stock_code": "101730",
+    "ref_date": "20240909",
+    "recomputed": 10231,
+    "recomputed_raw": 10230.915959200312,
+    "disclosed": 10231.0,
+    "disclosed_cite": "20240925000567 §5 @8492",
+    "diff_pct": 0.0008,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 10231,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240812–20240909)"
+   }
+  ]
  }
 }

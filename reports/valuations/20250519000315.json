@@ -211,5 +211,53 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "에이치엘비(주)",
+    "stock_code": "028300",
+    "ref_date": "20250331",
+    "recomputed": 58349,
+    "recomputed_raw": 58348.75399970059,
+    "disclosed": 58349.0,
+    "disclosed_cite": "20250519000315 §5 @1904",
+    "diff_pct": 0.0004,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 58349,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '에이치엘비(주)'을 기준일(20250331) KRX 종목명 'HLB'(028300, KOSDAQ)과 대조. 현재 DART 회사명 'HLB'"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250301–20250331)"
+   },
+   {
+    "company": "에이치엘비생명과학(주)",
+    "stock_code": "067630",
+    "ref_date": "20250331",
+    "recomputed": 6812,
+    "recomputed_raw": 6812.42446316326,
+    "disclosed": 6812.0,
+    "disclosed_cite": "20250519000315 §5 @3929",
+    "diff_pct": -0.0062,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 6812,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '에이치엘비생명과학(주)'을 기준일(20250331) KRX 종목명 'HLB생명과학'(067630, KOSDAQ)과 대조. 현재 DART 회사명 'HLB생명과학'"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250301–20250331)"
+   }
+  ]
  }
 }

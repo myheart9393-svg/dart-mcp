@@ -283,5 +283,93 @@
    "reason": "추출 안 함",
    "basis": "키워드 감사 2026-10-27: section 5 offset 312 '| 1 | 0.0611643 |\n| 상대가치 | - | - |\n\n나. 우선주식' — 추출 누락 의심"
   }
- ]
+ ],
+ "market_check": {
+  "base_price": [
+   {
+    "company": "(주)코오롱(완전모회사) 보통주",
+    "stock_code": "002020",
+    "ref_date": "20250806",
+    "recomputed": 48149,
+    "recomputed_raw": 48148.98231453963,
+    "disclosed": 48149.0,
+    "disclosed_cite": "20250926000402 §5 @3626",
+    "diff_pct": 0.0,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 48149,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20250707–20250806)"
+   },
+   {
+    "company": "코오롱모빌리티그룹(주)(완전자회사) 보통주",
+    "stock_code": "450140",
+    "ref_date": "20250806",
+    "recomputed": 2945,
+    "recomputed_raw": 2945.380659513125,
+    "disclosed": 2945.0,
+    "disclosed_cite": "20250926000402 §5 @5526",
+    "diff_pct": -0.0129,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2945,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20250707–20250806)"
+   },
+   {
+    "company": "(주)코오롱(완전모회사) 우선주",
+    "stock_code": "002025",
+    "ref_date": "20250806",
+    "recomputed": 24438,
+    "recomputed_raw": 24437.902256713034,
+    "disclosed": 24438.0,
+    "disclosed_cite": "20250926000402 §5 @7360",
+    "diff_pct": 0.0004,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 24438,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '(주)코오롱(완전모회사) 우선주'을 기준일(20250806) KRX 종목명 '코오롱우'(002025, KOSPI)과 대조"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250707–20250806)"
+   },
+   {
+    "company": "코오롱모빌리티그룹(주)(완전자회사) 우선주",
+    "stock_code": "45014K",
+    "ref_date": "20250806",
+    "recomputed": 4419,
+    "recomputed_raw": 4419.374998972912,
+    "disclosed": 4419.0,
+    "disclosed_cite": "20250926000402 §5 @9173",
+    "diff_pct": -0.0085,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 4419,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '코오롱모빌리티그룹(주)(완전자회사) 우선주'을 기준일(20250806) KRX 종목명 '코오롱모빌리티그룹우'(45014K, KOSPI)과 대조"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250707–20250806)"
+   }
+  ]
+ }
 }

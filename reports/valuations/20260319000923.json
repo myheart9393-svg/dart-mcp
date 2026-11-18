@@ -1449,5 +1449,49 @@
    "reason": "추출 안 함",
    "basis": "키워드 감사 2026-10-27: section 5 offset 316 '| 1 | 6.3571040 |\n| 상대가치 | - | - |\n\n2. 산출근거' — 추출 누락 의심"
   }
- ]
+ ],
+ "market_check": {
+  "base_price": [
+   {
+    "company": "현대지에프홀딩스",
+    "stock_code": "005440",
+    "ref_date": "20260210",
+    "recomputed": 10004,
+    "recomputed_raw": 10004.265379748535,
+    "disclosed": 10004.0,
+    "disclosed_cite": "20260319000923 §5 @3691",
+    "diff_pct": -0.0027,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 10004,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20260112–20260210)"
+   },
+   {
+    "company": "현대홈쇼핑",
+    "stock_code": "057050",
+    "ref_date": "20260210",
+    "recomputed": 63598,
+    "recomputed_raw": 63598.156277954105,
+    "disclosed": 63598.0,
+    "disclosed_cite": "20260319000923 §5 @5523",
+    "diff_pct": -0.0002,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 63598,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20260112–20260210)"
+   }
+  ]
+ }
 }

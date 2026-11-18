@@ -641,5 +641,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "케이비제22호기업인수목적 주식회사",
+    "stock_code": "436530",
+    "ref_date": "20230531",
+    "recomputed": 2113,
+    "recomputed_raw": 2112.861271350144,
+    "disclosed": 2113.0,
+    "disclosed_cite": "20240215000683 §5 @23118",
+    "diff_pct": 0.0066,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -5.3478,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20230501–20230531)"
+   }
+  ]
  }
 }

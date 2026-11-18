@@ -538,5 +538,31 @@
    "path": "valuations/0",
    "note": "원문 CAPM 표가 시장위험프리미엄을 14.85%로 적었으나 Ke 14.42% = 3.18 + 0.9863×8.00 + 3.35로, 원문 Ke는 MRP 8.00% 기준(14.85%는 원문 표기 오류 추정). mrp 값은 원문 표기대로 둠"
   }
- ]
+ ],
+ "market_check": {
+  "base_price": [
+   {
+    "company": "미래에셋비전기업인수목적1호(주)",
+    "stock_code": "412930",
+    "ref_date": "20240613",
+    "recomputed": 2452,
+    "recomputed_raw": 2451.9967518802464,
+    "disclosed": 2452.0,
+    "disclosed_cite": "20241106000283 §5 @17625",
+    "diff_pct": 0.0001,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -18.4339,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [
+     "기산일 20240613: 원문 기준주가 표의 기간(1개월 20240514~, 최근일 20240613)으로 확정(원문 '기산일' 문구 후보 20240514, 20240613, 20240614)"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20240514–20240613)"
+   }
+  ]
+ }
 }

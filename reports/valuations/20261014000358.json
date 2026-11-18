@@ -1421,5 +1421,31 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "네오오토",
+    "stock_code": "212560",
+    "ref_date": "20260903",
+    "recomputed": 9798,
+    "recomputed_raw": 9797.931036248818,
+    "disclosed": 9798.0,
+    "disclosed_cite": "20261014000358 §5 @58537",
+    "diff_pct": 0.0007,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 10288,
+    "adjust_pct": 5.001,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [
+     "원문 표의 1주일 기간 표기는 2026-08-27부터이나, 공시 1주일 평균 9,000원·기준시가 9,798원은 법정 기본 기간(08-28~09-03)으로 재계산해야 재현된다(원문 기간 표기 차이)"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20260804–20260903)"
+   }
+  ]
  }
 }

@@ -535,5 +535,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "키움제7호기업인수목적(주)",
+    "stock_code": "433530",
+    "ref_date": "20240715",
+    "recomputed": 2408,
+    "recomputed_raw": 2407.713186886734,
+    "disclosed": 2408.0,
+    "disclosed_cite": "20241217000116 §5 @24338",
+    "diff_pct": 0.0119,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -16.9435,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240617–20240715)"
+   }
+  ]
  }
 }

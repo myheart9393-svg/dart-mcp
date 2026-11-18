@@ -202,5 +202,49 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "오성첨단소재(주)",
+    "stock_code": "052420",
+    "ref_date": "20251210",
+    "recomputed": 1518,
+    "recomputed_raw": 1518.3478740776327,
+    "disclosed": 1518.0,
+    "disclosed_cite": "20260106000677 §5 @1841",
+    "diff_pct": -0.0229,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 1518,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20251111–20251210)"
+   },
+   {
+    "company": "(주)엔에스엠",
+    "stock_code": "238170",
+    "ref_date": "20251210",
+    "recomputed": 674,
+    "recomputed_raw": 674.0333035072871,
+    "disclosed": 674.0,
+    "disclosed_cite": "20260106000677 §5 @3843",
+    "diff_pct": -0.0049,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 674,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20251111–20251210)"
+   }
+  ]
  }
 }

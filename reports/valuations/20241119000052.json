@@ -212,5 +212,49 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "엘비세미콘(주)",
+    "stock_code": "061970",
+    "ref_date": "20241017",
+    "recomputed": 4052,
+    "recomputed_raw": 4052.1398623501386,
+    "disclosed": 4052.0,
+    "disclosed_cite": "20241119000052 §5 @1859",
+    "diff_pct": -0.0035,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 4052,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240918–20241017)"
+   },
+   {
+    "company": "(주)엘비루셈",
+    "stock_code": "376190",
+    "ref_date": "20241017",
+    "recomputed": 4598,
+    "recomputed_raw": 4598.347337854576,
+    "disclosed": 4598.0,
+    "disclosed_cite": "20241119000052 §5 @3580",
+    "diff_pct": -0.0076,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 4598,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240918–20241017)"
+   }
+  ]
  }
 }

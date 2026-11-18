@@ -762,5 +762,29 @@
    "offset": 8442,
    "file_id": "main"
   }
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "신영해피투모로우제7호기업인수목적 주식회사",
+    "stock_code": "419270",
+    "ref_date": "20230914",
+    "recomputed": 2428,
+    "recomputed_raw": 2428.298132942355,
+    "disclosed": 2428.0,
+    "disclosed_cite": "20240131000283 §5 @26156",
+    "diff_pct": -0.0123,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -17.6277,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20230816–20230914)"
+   }
+  ]
  }
 }

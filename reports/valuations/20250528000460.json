@@ -627,5 +627,54 @@
    "offset": 8099,
    "file_id": "main"
   }
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "키움제8호기업인수목적 주식회사",
+    "stock_code": "446840",
+    "ref_date": "20241202",
+    "recomputed": 2179,
+    "recomputed_raw": 2179.2189987510005,
+    "disclosed": 2179.0,
+    "disclosed_cite": "20250528000460 §5 @10193",
+    "diff_pct": -0.01,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -8.2148,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '키움제8호기업인수목적 주식회사'을 기준일(20241202) KRX 종목명 '키움제8호스팩'(446840, KOSDAQ)과 대조. 현재 DART 회사명 '지슨'"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20241104–20241202)"
+   },
+   {
+    "company": "주식회사 지슨",
+    "stock_code": "289860",
+    "ref_date": "20241202",
+    "recomputed": 6690,
+    "recomputed_raw": 6689.883599529246,
+    "disclosed": 6690.0,
+    "disclosed_cite": "20250528000460 §5 @15867",
+    "diff_pct": 0.0017,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": null,
+    "adjust_pct": null,
+    "band_pct": null,
+    "within_band": null,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "합병가액은 본질가치 5,700원: 기준주가는 비교 목적, 한도 판정 대상 아님",
+     "종목코드: 원문 회사명 '주식회사 지슨'을 기준일(20241202) KRX 종목명 '지슨'(289860, KONEX)과 대조 — DART 회사명 대조 코드 446840는 기준일 KRX에 다른 종목이거나 없어 교체. 현재 DART 회사명 '지슨'"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20241104–20241202)"
+   }
+  ]
  }
 }

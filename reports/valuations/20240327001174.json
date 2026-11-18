@@ -927,5 +927,54 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "주식회사 다원넥스뷰",
+    "stock_code": "323350",
+    "ref_date": "20231110",
+    "recomputed": 10023,
+    "recomputed_raw": 10022.88520414565,
+    "disclosed": 10023.0,
+    "disclosed_cite": "20240327001174 §5 @10713",
+    "diff_pct": 0.0011,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": null,
+    "adjust_pct": null,
+    "band_pct": null,
+    "within_band": null,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "합병가액은 본질가치 7,066원: 기준주가는 비교 목적, 한도 판정 대상 아님 / 원문 1주일 기간 표기가 섹션마다 다르다(§5 2023-11-03~, §9 2023-11-06~). 공시값은 11-06~11-10으로 재현된다"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20231011–20231110)"
+   },
+   {
+    "company": "신한제9호기업인수목적 주식회사",
+    "stock_code": "405640",
+    "ref_date": "20231110",
+    "recomputed": 2325,
+    "recomputed_raw": 2325.1645124433876,
+    "disclosed": 2325.0,
+    "disclosed_cite": "20240327001174 §5 @20104",
+    "diff_pct": -0.0071,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -13.9785,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "원문 1주일 기간 표기가 섹션마다 다르다(§5 2023-11-03~, §9 2023-11-06~). 공시값은 11-06~11-10으로 재현된다",
+     "계열 여부: 사례의 deal.relation_text가 비어 있어 미확정 — 한도는 ±30% 기준으로만 판정"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20231011–20231110)"
+   }
+  ]
  }
 }

@@ -1284,5 +1284,49 @@
    "chars_read": 3004,
    "how": "section"
   }
- ]
+ ],
+ "market_check": {
+  "base_price": [
+   {
+    "company": "샘표식품(주)",
+    "stock_code": "248170",
+    "ref_date": "20261029",
+    "recomputed": 21050,
+    "recomputed_raw": 21050.128851255653,
+    "disclosed": 21050.0,
+    "disclosed_cite": "20261102000312 §4 @2084",
+    "diff_pct": -0.0006,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 21050,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20260930–20261029)"
+   },
+   {
+    "company": "샘표(주)",
+    "stock_code": "007540",
+    "ref_date": "20261029",
+    "recomputed": 43955,
+    "recomputed_raw": 43955.042414505246,
+    "disclosed": 43955.0,
+    "disclosed_cite": "20261102000312 §4 @4021",
+    "diff_pct": -0.0001,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 43955,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20260930–20261029)"
+   }
+  ]
+ }
 }

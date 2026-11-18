@@ -651,5 +651,31 @@
    "offset": 9379,
    "file_id": "main"
   }
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "한국제14호기업인수목적 주식회사",
+    "stock_code": "477530",
+    "ref_date": "20240927",
+    "recomputed": 2194,
+    "recomputed_raw": 2194.058021612156,
+    "disclosed": 2194.0,
+    "disclosed_cite": "20250110000729 §4 @31041",
+    "diff_pct": -0.0026,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -8.8423,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [
+     "원문 표의 1개월 기간 표기·일별표는 2024-08-28부터이나, 공시 1개월 평균 2,145원은 08-27부터(한 달 전 같은 날 포함)로 재계산해야 재현된다(원문 기간 표기 차이)"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20240827–20240927)"
+   }
+  ]
  }
 }

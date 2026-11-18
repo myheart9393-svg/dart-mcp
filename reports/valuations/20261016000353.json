@@ -847,5 +847,32 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "아이비케이에스제24호기업인수목적 주식회사",
+    "stock_code": "469480",
+    "ref_date": "20260618",
+    "recomputed": 2224,
+    "recomputed_raw": 2224.459703979291,
+    "disclosed": 2224.0,
+    "disclosed_cite": "20261016000353 §5 @6832",
+    "diff_pct": -0.0207,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -10.0719,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '아이비케이에스제24호기업인수목적 주식회사'을 기준일(20260618) KRX 종목명 'IBKS제24호스팩'(469480, KOSDAQ)과 대조. 현재 DART 회사명 'IBKS제24호스팩'",
+     "계열 여부: 사례의 deal.relation_text가 비어 있어 미확정 — 한도는 ±30% 기준으로만 판정"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20260519–20260618)"
+   }
+  ]
  }
 }

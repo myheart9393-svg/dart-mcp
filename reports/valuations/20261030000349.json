@@ -1138,5 +1138,32 @@
    "chars_read": 24276,
    "how": "search"
   }
- ]
+ ],
+ "market_check": {
+  "base_price": [
+   {
+    "company": "한화플러스제5호기업인수목적㈜",
+    "stock_code": "498390",
+    "ref_date": "20260726",
+    "recomputed": 2028,
+    "recomputed_raw": 2028.4541016178155,
+    "disclosed": 2028.0,
+    "disclosed_cite": "20261030000349 §5 @7796",
+    "diff_pct": -0.0224,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -1.3807,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [
+     "기산일 20260726에 거래 자료가 없어 최근일 종가는 20260724 값입니다(휴장일·거래정지 여부 확인).",
+     "종목코드: 원문 회사명 '한화플러스제5호기업인수목적㈜'을 기준일(20260724) KRX 종목명 '한화플러스제5호스팩'(498390, KOSDAQ)과 대조. 현재 DART 회사명 '한화플러스제5호스팩'"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20260627–20260726)"
+   }
+  ]
+ }
 }

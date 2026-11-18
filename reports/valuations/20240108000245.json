@@ -527,5 +527,31 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "씨아이에스",
+    "stock_code": "222080",
+    "ref_date": "20231226",
+    "recomputed": 11116,
+    "recomputed_raw": 11115.650853646643,
+    "disclosed": 11116.0,
+    "disclosed_cite": "20240108000245 §5 @1786",
+    "diff_pct": 0.0031,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 11116,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '씨아이에스'을 기준일(20231226) KRX 종목명 '씨아이에스'(222080, KOSDAQ)과 대조 — DART 회사명 대조 코드 144630는 기준일 KRX에 다른 종목이거나 없어 교체. 현재 DART 회사명 'SFA넥셀'"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20231127–20231226)"
+   }
+  ]
  }
 }

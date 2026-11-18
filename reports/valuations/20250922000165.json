@@ -193,5 +193,51 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "HD현대중공업(주)",
+    "stock_code": "329180",
+    "ref_date": "20250826",
+    "recomputed": 470833,
+    "recomputed_raw": 470832.979264145,
+    "disclosed": 470833.0,
+    "disclosed_cite": "20250922000165 §5 @2091",
+    "diff_pct": 0.0,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 470833,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20250728–20250826)"
+   },
+   {
+    "company": "HD현대미포(주)",
+    "stock_code": "010620",
+    "ref_date": "20250826",
+    "recomputed": 191118,
+    "recomputed_raw": 191118.3619225428,
+    "disclosed": 191118.0,
+    "disclosed_cite": "20250922000165 §5 @4130",
+    "diff_pct": -0.0002,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 191118,
+    "adjust_pct": 0.0,
+    "band_pct": 10.0,
+    "within_band": true,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 'HD현대미포(주)'을 기준일(20250826) KRX 종목명 'HD현대미포'(010620, KOSPI)과 대조. 현재 DART 회사명 '에이치디현대미포'"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250728–20250826)"
+   }
+  ]
  }
 }

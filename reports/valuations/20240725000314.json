@@ -580,5 +580,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "한국제11호기업인수목적(주)",
+    "stock_code": "436610",
+    "ref_date": "20240129",
+    "recomputed": 2186,
+    "recomputed_raw": 2186.2010430575697,
+    "disclosed": 2186.0,
+    "disclosed_cite": "20240725000314 §5 @11494",
+    "diff_pct": -0.0092,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -8.5087,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240102–20240129)"
+   }
+  ]
  }
 }

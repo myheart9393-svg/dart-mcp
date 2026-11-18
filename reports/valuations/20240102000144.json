@@ -623,5 +623,31 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "케이지이티에스(주)",
+    "stock_code": "151860",
+    "ref_date": "20231215",
+    "recomputed": 10827,
+    "recomputed_raw": 10826.732245510791,
+    "disclosed": 10827.0,
+    "disclosed_cite": "20240102000144 §5 @1326",
+    "diff_pct": 0.0025,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": null,
+    "adjust_pct": null,
+    "band_pct": null,
+    "within_band": null,
+    "affiliated": true,
+    "regime": "기준시가",
+    "warnings": [
+     "합병가액은 자산가치 26,799원(기준시가 미달): 한도 판정 대상 아님"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20231116–20231215)"
+   }
+  ]
  }
 }

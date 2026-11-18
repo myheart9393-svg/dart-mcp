@@ -200,5 +200,56 @@
    "reason": "추출 안 함",
    "basis": "키워드 감사 2026-10-27: section 5 offset 317 '| 1 | 0.9150232 |\n| 상대가치 | - | - |\n\n| |\n|---' — 추출 누락 의심"
   }
- ]
+ ],
+ "market_check": {
+  "base_price": [
+   {
+    "company": "동원산업(주)",
+    "stock_code": "006040",
+    "ref_date": "20250411",
+    "recomputed": 35229,
+    "recomputed_raw": 35228.753637404494,
+    "disclosed": 35229.0,
+    "disclosed_cite": "20250515002110 §5 @4147",
+    "diff_pct": 0.0007,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 35229,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "1개월 구간 거래일이 11일뿐입니다(상장 직후이거나 거래정지).",
+     "기산일 20250411: 원문 기준주가 표의 기간(1개월 20250328~, 최근일 20250411)으로 확정(원문 '기산일' 문구 후보 20220406, 20250101, 20250411, 20250413)"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250328–20250411)"
+   },
+   {
+    "company": "(주)동원에프앤비",
+    "stock_code": "049770",
+    "ref_date": "20250411",
+    "recomputed": 32235,
+    "recomputed_raw": 32235.127070164464,
+    "disclosed": 32235.0,
+    "disclosed_cite": "20250515002110 §5 @5619",
+    "diff_pct": -0.0004,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 32235,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "1개월 구간 거래일이 11일뿐입니다(상장 직후이거나 거래정지).",
+     "종목코드: 원문 회사명 '(주)동원에프앤비'을 기준일(20250411) KRX 종목명 '동원F&B'(049770, KOSPI)과 대조. 현재 DART 회사명 '동원F&B'",
+     "기산일 20250411: 원문 기준주가 표의 기간(1개월 20250328~, 최근일 20250411)으로 확정(원문 '기산일' 문구 후보 20220406, 20250101, 20250411, 20250413)"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250328–20250411)"
+   }
+  ]
+ }
 }

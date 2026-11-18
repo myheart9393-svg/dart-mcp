@@ -203,5 +203,54 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "에이치엘비(주)",
+    "stock_code": "028300",
+    "ref_date": "20250916",
+    "recomputed": 38784,
+    "recomputed_raw": 38783.740539223465,
+    "disclosed": 38784.0,
+    "disclosed_cite": "20250929000397 §5 @1865",
+    "diff_pct": 0.0007,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 38784,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '에이치엘비(주)'을 기준일(20250916) KRX 종목명 'HLB'(028300, KOSDAQ)과 대조. 현재 DART 회사명 'HLB'",
+     "기산일 20250916: 원문 기준주가 표의 기간(1개월 20250817~, 최근일 20250916)으로 확정(원문 '기산일' 문구 후보 20250331, 20250916, 20260101)"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250817–20250916)"
+   },
+   {
+    "company": "에이치엘비사이언스(주)",
+    "stock_code": "343090",
+    "ref_date": "20250916",
+    "recomputed": 1731,
+    "recomputed_raw": 1731.0336859455147,
+    "disclosed": 1731.0,
+    "disclosed_cite": "20250929000397 §5 @3938",
+    "diff_pct": -0.0019,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 1731,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "기산일 20250916: 원문 기준주가 표의 기간(1개월 20250817~, 최근일 20250916)으로 확정(원문 '기산일' 문구 후보 20250331, 20250916, 20260101)"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20250817–20250916)"
+   }
+  ]
  }
 }

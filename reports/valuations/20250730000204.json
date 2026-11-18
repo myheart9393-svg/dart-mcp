@@ -683,5 +683,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "하나28호기업인수목적 주식회사",
+    "stock_code": "454750",
+    "ref_date": "20250512",
+    "recomputed": 2039,
+    "recomputed_raw": 2038.774696206376,
+    "disclosed": 2039.0,
+    "disclosed_cite": "20250730000204 §5 @31134",
+    "diff_pct": 0.0111,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -1.9127,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20250414–20250512)"
+   }
+  ]
  }
 }

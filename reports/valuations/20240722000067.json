@@ -220,5 +220,49 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "(주)클래시스",
+    "stock_code": "214150",
+    "ref_date": "20240624",
+    "recomputed": 52774,
+    "recomputed_raw": 52774.24016212604,
+    "disclosed": 52774.0,
+    "disclosed_cite": "20240722000067 §5 @1836",
+    "diff_pct": -0.0005,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 52774,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240527–20240624)"
+   },
+   {
+    "company": "(주)이루다",
+    "stock_code": "164060",
+    "ref_date": "20240624",
+    "recomputed": 7416,
+    "recomputed_raw": 7415.893224967738,
+    "disclosed": 7416.0,
+    "disclosed_cite": "20240722000067 §5 @3798",
+    "diff_pct": 0.0014,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 7416,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240527–20240624)"
+   }
+  ]
  }
 }

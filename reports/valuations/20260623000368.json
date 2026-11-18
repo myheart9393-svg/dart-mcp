@@ -548,5 +548,31 @@
    "reason": "원문에 없음",
    "basis": "보강 확인 2026-10-27: section 5 offset≈241760 Ke = Rf + (Rm-Rf)×β + Rs, 규모위험 외 고유위험 가산 없음"
   }
- ]
+ ],
+ "market_check": {
+  "base_price": [
+   {
+    "company": "(주)소룩스",
+    "stock_code": "290690",
+    "ref_date": "20240808",
+    "recomputed": 11262,
+    "recomputed_raw": 11262.135555422143,
+    "disclosed": 11262.0,
+    "disclosed_cite": "20260623000368 §5 @2079",
+    "diff_pct": -0.0012,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 10136,
+    "adjust_pct": -9.9982,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "종목코드: 원문 회사명 '(주)소룩스'을 기준일(20240808) KRX 종목명 '소룩스'(290690, KOSDAQ)과 대조. 현재 DART 회사명 '아리바이오홀딩스'"
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20240709–20240808)"
+   }
+  ]
+ }
 }

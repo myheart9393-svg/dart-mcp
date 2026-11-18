@@ -524,5 +524,29 @@
   }
  ],
  "extracted_at": "2026-10-27T10:01:57+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "market_check": {
+  "base_price": [
+   {
+    "company": "케이비제26호기업인수목적 주식회사",
+    "stock_code": "458320",
+    "ref_date": "20241106",
+    "recomputed": 2292,
+    "recomputed_raw": 2291.9501435898605,
+    "disclosed": 2292.0,
+    "disclosed_cite": "20250205000401 §5 @22613",
+    "diff_pct": 0.0022,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -12.74,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20241007–20241106)"
+   }
+  ]
+ }
 }

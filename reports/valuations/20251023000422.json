@@ -649,5 +649,29 @@
    "chars_read": 5555,
    "how": "section"
   }
- ]
+ ],
+ "market_check": {
+  "base_price": [
+   {
+    "company": "대신밸런스제18호기업인수목적(주)",
+    "stock_code": "478780",
+    "ref_date": "20250612",
+    "recomputed": 2162,
+    "recomputed_raw": 2162.2012234064073,
+    "disclosed": 2162.0,
+    "disclosed_cite": "20251023000422 §5 @10667",
+    "diff_pct": -0.0093,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -7.4931,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20250513–20250612)"
+   }
+  ]
+ }
 }

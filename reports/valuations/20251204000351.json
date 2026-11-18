@@ -213,5 +213,53 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "코오롱인더스트리(주)",
+    "stock_code": "120110",
+    "ref_date": "20251123",
+    "recomputed": 41979,
+    "recomputed_raw": 41979.02260673375,
+    "disclosed": 41979.0,
+    "disclosed_cite": "20251204000351 §5 @2060",
+    "diff_pct": -0.0001,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 41979,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "기산일 20251123에 거래 자료가 없어 최근일 종가는 20251121 값입니다(휴장일·거래정지 여부 확인)."
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20251024–20251123)"
+   },
+   {
+    "company": "코오롱이앤피(주)",
+    "stock_code": "138490",
+    "ref_date": "20251123",
+    "recomputed": 8058,
+    "recomputed_raw": 8058.271740393479,
+    "disclosed": 8058.0,
+    "disclosed_cite": "20251204000351 §5 @4025",
+    "diff_pct": -0.0034,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 8058,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [
+     "기산일 20251123에 거래 자료가 없어 최근일 종가는 20251121 값입니다(휴장일·거래정지 여부 확인)."
+    ],
+    "source": "(KRX Open API, 일별매매정보, 20251024–20251123)"
+   }
+  ]
  }
 }

@@ -633,5 +633,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "디비금융제11호기업인수목적 주식회사",
+    "stock_code": "456440",
+    "ref_date": "20241022",
+    "recomputed": 2278,
+    "recomputed_raw": 2278.373982660534,
+    "disclosed": 2278.0,
+    "disclosed_cite": "20250225003558 §5 @22656",
+    "diff_pct": -0.0164,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -12.2037,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240923–20241022)"
+   }
+  ]
  }
 }

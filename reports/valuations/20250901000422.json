@@ -715,5 +715,29 @@
   }
  ],
  "extracted_at": "2026-10-27T10:21:25+09:00",
- "extractor_version": "1.1"
+ "extractor_version": "1.1",
+ "market_check": {
+  "base_price": [
+   {
+    "company": "아이비케이에스제21호기업인수목적 주식회사",
+    "stock_code": "442770",
+    "ref_date": "20250515",
+    "recomputed": 2240,
+    "recomputed_raw": 2239.924004861756,
+    "disclosed": 2240.0,
+    "disclosed_cite": "20250901000422 §5 @29466",
+    "diff_pct": 0.0034,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 2000,
+    "adjust_pct": -10.7143,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": false,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20250416–20250515)"
+   }
+  ]
+ }
 }

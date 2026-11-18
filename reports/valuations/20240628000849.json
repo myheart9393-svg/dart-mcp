@@ -554,5 +554,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "(주)에스피소프트",
+    "stock_code": "443670",
+    "ref_date": "20240613",
+    "recomputed": 17369,
+    "recomputed_raw": 17369.38135547879,
+    "disclosed": 17369.0,
+    "disclosed_cite": "20240628000849 §5 @8504",
+    "diff_pct": -0.0022,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 17369,
+    "adjust_pct": 0.0,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20240514–20240613)"
+   }
+  ]
  }
 }

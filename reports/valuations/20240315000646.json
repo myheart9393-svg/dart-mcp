@@ -587,5 +587,29 @@
    "file_id": "main"
   },
   "derived": true
+ },
+ "market_check": {
+  "base_price": [
+   {
+    "company": "하나금융25호기업인수목적(주)",
+    "stock_code": "435620",
+    "ref_date": "20230522",
+    "recomputed": 9765,
+    "recomputed_raw": 9765.15039324061,
+    "disclosed": 9765.0,
+    "disclosed_cite": "20240315000646 §5 @27550",
+    "diff_pct": -0.0015,
+    "status": "일치",
+    "rounding": "반올림",
+    "merger_price": 10000,
+    "adjust_pct": 2.4066,
+    "band_pct": 30.0,
+    "within_band": true,
+    "affiliated": null,
+    "regime": "기준시가",
+    "warnings": [],
+    "source": "(KRX Open API, 일별매매정보, 20230424–20230522)"
+   }
+  ]
  }
 }
