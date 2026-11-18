@@ -114,3 +114,16 @@ def test_offline_missing_and_cli(client, capsys, monkeypatch):
         c.day("KOSPI", date(2024, 3, 14))
     with pytest.raises(krx.KrxError):
         krx.KrxClient(cache_dir=c.cache_dir, api_key="").day("KOSPI", date(2024, 3, 14))
+
+
+def test_market_check_renders_in_case_md(client):
+    from dart_mcp.valuation import render_markdown
+    from tests.test_valuation import MIN_CASE
+
+    c, _ = client
+    r = krx.base_price(c, "111111", "20240314", "KOSDAQ")
+    chk = krx.check_base_price(r, disclosed=r["base_price_rounded"], merger_price=r["base_price_rounded"])
+    e = krx.market_check_entry(r, chk, "가나다(주)", "기준시가", False, "20240101000001 §5 @100")
+    md = render_markdown({**MIN_CASE, "market_check": {"base_price": [e]}})
+    assert "## 기준주가 재계산 (KRX)" in md and "가나다(주) | 111111" in md and "일치(반올림)" in md and "±30% 범위 안" in md
+    assert "기준주가 재계산" not in render_markdown(MIN_CASE)

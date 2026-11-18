@@ -1210,6 +1210,26 @@ def render_markdown(case: dict) -> str:
             out += ["", "비교기업: " + ", ".join(f"{p['name']} {_fmt(p.get('value'))}" for p in ipo["peers"])]
         if ipo.get("external_comparison"):
             out += ["", f"외부평가와 비교: {ipo['external_comparison']}"]
+    bp = ((case.get("market_check") or {}).get("base_price")) or []
+    if bp:
+        n = lambda x: "–" if x is None else f"{x:,.0f}"  # noqa: E731 — 계산값(원)은 {value} 형식이 아니다
+        out += ["", "## 기준주가 재계산 (KRX)", "",
+                "KRX 일별 시세(수정 전 원래 가격)로 시행령 제176조의5 기준주가를 다시 계산한 값(원문 추출값 아님, v1.8).", "",
+                "| 회사 | 종목코드 | 기산일 | 공시 기준주가 | 재계산 | 차이 | 판정 | 합병가액 | 할인·할증 / 한도 | 공시값 위치 |",
+                "|---|---|---|---|---|---|---|---|---|---|"]
+        for e in bp:
+            adj = (f"{e['adjust_pct']:+.2f}% / ±{e['band_pct']:g}% " + ("범위 안" if e.get("within_band") else "범위 밖")
+                   if e.get("adjust_pct") is not None and e.get("band_pct") is not None else "판정 안 함")
+            diff = f"{e['diff_pct']:+.3f}%" if e.get("diff_pct") is not None else "–"
+            how = f"({e['rounding']})" if e.get("rounding") else ""
+            out.append(f"| {e.get('company') or ''} | {e['stock_code']} | {e['ref_date']} | {n(e.get('disclosed'))} | "
+                       f"{n(e.get('recomputed'))} | {diff} | {e['status']}{how} | {n(e.get('merger_price'))} | {adj} | "
+                       f"{e.get('disclosed_cite') or '–'} |")
+        notes = [(e.get("company") or e["stock_code"], w) for e in bp for w in (e.get("warnings") or [])]
+        if notes:
+            out += ["", *[f"- {c}: {w}" for c, w in notes]]
+        srcs = sorted({e["source"] for e in bp if e.get("source")})
+        out += ["", "출처: " + "; ".join(srcs)]
     if case.get("notes"):
         out += ["", "## 비고", "", *[f"- {n}" for n in case["notes"]]]
     out += ["", "## 부록. 출처", "", "| rcept_no | file_id | section_id | 제목 | 읽은 글자 수 | 방법 |", "|---|---|---|---|---|---|"]
