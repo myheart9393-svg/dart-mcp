@@ -57,6 +57,16 @@ dart MCP 툴(get_disclosure_section, search_in_disclosure, find_tables 등)과 B
 - 각 숫자의 unit이 원문 단위 행·표기와 맞는지(원/백만원/%/배). 같은 원소에서 result.unit과 range 단위가 같은지.
   %인 값이 0–1 소수로(0.081543) 들어갔거나 백만원 값이 원으로 적혔으면 FAIL. md 표의 단위 표기도 JSON과 같은지.
 
+### f. 기준주가 재계산 대조 (상장사 합병·주식교환만)
+- 대상: deal.type이 merger·share_exchange이고 당사회사 중 상장사(기준주가·기준시가로 가액을 정한 회사)가 있는 건. 그 밖은 "해당 없음".
+- 원문에서 상장 당사회사마다 기산일·공시 기준주가(할인·할증 전)·합병가액(교환가액)·1개월/1주일 기간을 찾는다(`search_in_disclosure(rcept_no, "가중산술평균")`).
+  종목코드는 `find_company`의 stock_code. SPAC 합병은 SPAC 쪽 주가다.
+- `uv run python -m dart_mcp.krx base-price --code <종목> --date <기산일> --disclosed <기준주가> --merger-price <합병가액> --regime <deal.regime> [--affiliated] --json`.
+  원문 기간이 기본값(기산일 포함 소급 1개월·7일)과 다르면 `--month-start/--week-start`로 맞춘다. `--affiliated`는 원문이 계열회사 간 10% 한도를 적었을 때만.
+- 판정: status "일치"면 PASS. "불일치"면 원인(기간 정의·절사/반올림·거래정지·종목코드)을 적고 FAIL. within_band=false면 FAIL(한도 초과).
+  regime이 기준시가가 아니면 한도는 판정하지 않고 재계산값만 적는다. JSON에 market_check가 있으면 그 값과 재계산값이 같은지도 본다.
+- KRX_API_KEY가 없거나 호출이 401이면 "검산 불가(KRX 미연결)"로 적고 FAIL로 세지 않는다. API 호출 수를 리뷰어 툴 사용에 적는다.
+
 ### 리뷰 파일
 `reports/valuations/<rcept_no>.review.md`:
 
@@ -72,10 +82,13 @@ dart MCP 툴(get_disclosure_section, search_in_disclosure, find_tables 등)과 B
 | c. 재계산 | … | … |
 | d. 주체 혼입 | … | … |
 | e. 단위 | … | … |
+| f. 기준주가 재계산 | PASS/FAIL/해당 없음/검산 불가 | … |
 
 ## a. cite 실재
 | # | JSON 경로 | 값 | cite | 판정 | 비고 |
 ## b–e
+## f. 기준주가 재계산
+| 회사 | 종목코드 | 기산일 | 공시 기준주가 | 재계산 | 차이 % | 합병가액·할인할증 | 한도 | 판정 |
 (FAIL마다: JSON 경로 / 문제 / 원문 근거(section_id, offset) / 수정 제안)
 ## 리뷰어 툴 사용
 (MCP 툴별 호출 횟수, 직접 호출 여부, 읽은 글자 수)
