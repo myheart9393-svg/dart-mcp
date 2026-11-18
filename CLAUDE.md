@@ -1,7 +1,7 @@
 # dart-mcp
 
 OpenDART 공시 원문을 섹션 단위로 읽는 MCP 서버(`dart`)와, 그 위에서 돌아가는 기업분석 슬래시 커맨드 프로젝트.
-코드는 `src/dart_mcp/` (client / document / cache / financials / periodic / valuation / casedb / nullaudit / industry / casebuild / batch / tables / report_lint / server / cli / export), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`(가치평가 사례는 `reports/valuations/`).
+코드는 `src/dart_mcp/` (client / document / cache / financials / periodic / valuation / casedb / nullaudit / industry / casebuild / batch / tables / report_lint / krx / server / cli / export), 테스트는 `tests/`, 캐시는 `data/`(git 제외), 보고서는 `reports/`(가치평가 사례는 `reports/valuations/`).
 
 ```bash
 uv run pytest -q                      # 단위테스트
@@ -56,6 +56,8 @@ uv run python -m dart_mcp.healthcheck --sample 30 --seed 1   # 파서·재무 �
    보고서에 "금융업 기준"을 밝힌다. 일반 기업과 같은 비교 표에 넣지 않는다. `derived=true` 계정(소계 행이 없어 수익−비용으로 계산)은 "(계산)" 표기.
    **보험업은 보험손익 기준 계정을 쓴다**(sector.subsector="insurance": `insurance_service_result` 보험손익·`investment_result` 투자손익·`insurance_revenue`).
    이자수익−이자비용은 `interest_net_investment`(투자손익의 일부)로 따로 오며 순이자이익이 아니다. 연결 조회가 013이면 `fs_div="OFS"`(종속회사 없는 회사).
+   **주가·시가총액은 KRX**: `uv run python -m dart_mcp.krx base-price|mktcap|fetch` (`.env`의 `KRX_API_KEY`, 캐시 `data/krx/<시장>/<YYYYMMDD>.json` — 하루 1호출로 시장 전 종목, 우선주도 별도 종목으로 포함).
+   출처는 `(KRX Open API, 일별매매정보, 기준일)`. **주가는 수정 전 원래 가격이고 환산하지 않는다**(액면분할·무상증자 보정 없음 — 기간 중 그런 이벤트가 있으면 그 사실을 적는다).
 9. 숫자·사실을 보고서에 쓸 때는 `(rcept_no, section_id)` 출처를 붙이고, 원문에 없는 해석은 "추정:"으로 표시한다.
 
 ### 공시유형 코드 (search_disclosures의 pblntf_ty)
@@ -94,6 +96,8 @@ A 정기공시 · B 주요사항보고 · C 발행공시 · D 지분공시 · E 
   통계 인용: 거래 20건 미만이면 `stats … --list` 개별 선례 표 우선, n·범위·SPAC·상태 병기, `중앙값 안정성` 경고면 중앙값 쓰지 않음(`docs/valuation_usage.md` 인용 규칙).
   보강 대기 목록 `uv run python -m dart_mcp.casedb backfill-queue reports/valuations [--all] [--md <경로>]`, 보강 전후 diff `... casedb diff <json> [--against <rev|json>]`.
   배치: `uv run python -m dart_mcp.batch plan|record|sample|report`. MCP 재연결 전 툴 호출: `uv run python -m dart_mcp.casebuild call|grep|usage`.
+- **기준주가 재계산(v1.8, 선택 칸 `market_check.base_price[]`)**: 상장 당사회사마다 `uv run python -m dart_mcp.krx base-price --code <종목> --date <기산일> --disclosed <공시 기준주가> --merger-price <합병가액> [--affiliated] --regime <deal.regime> --json` → `market_check_entry`를 그대로 넣는다.
+  기간 기본값(기산일 포함 소급 1개월·7일)과 원 미만 **반올림**은 공시 3건으로 확인했다. 공시 기간이 다르면 `--month-start/--week-start`. regime이 기준시가가 아니면 한도 판정 칸은 null. 원문 추출값이 아니라 계산값이므로 cite가 없고 통계·원문 칸을 덮어쓰지 않는다.
 
 공통 규칙: 보고서는 `reports/<회사명>_<종류>_<날짜>.md`로 저장, 마지막에 "참조한 섹션 목록" 부록,
 원문 장문 복사 금지(표는 핵심 행만), 범위는 `4–5배`(en dash — `~` 두 개는 Markdown 취소선이 됨),
