@@ -138,6 +138,7 @@
         "band_pct": {"type": ["number", "null"], "description": "한도 30 또는 10(계열회사 간). regime이 기준시가가 아니면 null"},
         "within_band": {"type": ["boolean", "null"], "description": "regime이 기준시가가 아니면 null(한도 판정 안 함)"},
         "affiliated": {"type": ["boolean", "null"], "description": "계열회사 간 거래로 보고 10% 한도를 쓴 경우 true(원문 근거로 판단)"},
+          "affiliated_cite": {"type": ["string", "null"], "description": "(v1.8.2) 계열 여부 근거 문장 위치 \"<rcept_no> §<section_id> @<offset>: 요지\""},
         "regime": {"enum": ["기준시가", "공정가액(2026.12.9 개정)", "IPO", null]},
         "warnings": {"type": "array", "items": {"type": "string"}},
         "source": {"type": ["string", "null"], "description": "(KRX Open API, 일별매매정보, <기간>)"}}},

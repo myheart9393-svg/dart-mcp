@@ -1235,6 +1235,7 @@ def render_markdown(case: dict) -> str:
                               f"기간 조정 후 일치 — 원문 표기 기간(1개월 {st['month_from']}~, 1주일 {st['week_from']}~)으로 계산 "
                               f"{n(pa.get('stated_recomputed'))}원(공시 {n(e.get('disclosed'))}원과 {sd}), 재현 기간(1개월 {us['month_from']}~, "
                               f"1주일 {us['week_from']}~)으로 {n(e.get('recomputed'))}원. 어느 기간이 옳은지는 판단하지 않음"))
+        notes += [(e.get("company") or e["stock_code"], f"계열 여부 근거 — {e['affiliated_cite']}") for e in bp if e.get("affiliated_cite")]
         notes += [(e.get("company") or e["stock_code"], w) for e in bp for w in (e.get("warnings") or [])]
         if notes:
             out += ["", *[f"- {c}: {w}" for c, w in notes]]

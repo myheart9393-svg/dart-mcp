@@ -250,7 +250,8 @@ BAND_REGIMES = ("기준시가",)
 
 
 def market_check_entry(result: dict, chk: dict, company: str | None = None, regime: str | None = "기준시가",
-                       affiliated: bool | None = None, disclosed_cite: str | None = None) -> dict:
+                       affiliated: bool | None = None, disclosed_cite: str | None = None,
+                       affiliated_cite: str | None = None) -> dict:
     """사례 JSON market_check.base_price[] 원소. regime이 기준시가가 아니면 한도 칸은 null(재계산값만 기록)."""
     banded = regime in BAND_REGIMES
     return {
@@ -265,6 +266,7 @@ def market_check_entry(result: dict, chk: dict, company: str | None = None, regi
         "band_pct": chk.get("band_pct") if banded else None,
         "within_band": chk.get("within_band") if banded else None,
         "affiliated": affiliated,
+        **({"affiliated_cite": affiliated_cite} if affiliated_cite else {}),
         "regime": regime,
         "warnings": result.get("warnings") or [],
         "source": result.get("source"),
